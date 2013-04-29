@@ -1,11 +1,15 @@
 #!/bin/sh
 
-rm -rf docs/*
+if [ -e docs ]; then
+    rm -rf docs/*
+else
+    mkdir docs
+fi
 
 cd scripts
 php gen_ows_help.php
 cd ..
 
 cp static/ows/*.html docs/
-cp -R static/css docs/css
-cp -R static/img docs/img
+cp -Rf static/css docs/
+cp -Rf static/img docs/
