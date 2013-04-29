@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>LiteSpeed Web Server User's Manual - Administration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="css/hdoc.css">
+</head>
+<body bgcolor="#FFFFFF" class="ct">
+<table class="nav-bar" width="100%" border="0">
+  <tr>
+    <td width="30%" align="left">&#171 <a href="install.html">Installation</a></td>
+    <td width="40%" align="center"><a href="index.html">INDEX</a></td>
+    <td width="30%" align="right"><a href="config.html">Configuration</a> &#187;</td>
+  </tr></table>
+<br>
+
+<p class="label-title">Administration</p>
+<br>
+LiteSpeed web server can be controlled in three ways: through the WebAdmin interface, from the command line, or by sending signals. 
+<br>
+<p class="label1">1. Through the WebAdmin interface:</p>
+<ul>
+  Log on to the WebAdmin console (by default http://[your site's address]:7080/). 
+  Select Select "General." Here you will find a control panel with links to perform common tasks: 
+server restart, server configuration reload, version management, log viewing, real-time monitoring, virtual host reload, and virtual host enable/disable. <br>
+<p><strong>More details on how to control LiteSpeed Web Server through the WebAdmin console <a href="ServerStat_Help.html">Service Manager</a>...</strong></p>
+<p>To change the login name and password for the WebAdmin interface, run the following command from the shell:<br>
+	<span class="cmd">[your install dir]/admin/misc/admpass.sh</span> </p>
+</ul>
+<p class="label1">2. Through the command line interface:</p>
+<ul>
+Assuming the web server is installed at /usr/local/lsws.<br>
+
+Use the <span class="tag">lswsctrl</span> control script in /usr/local/lsws/bin/ directory.<br>
+<p>
+To start the web server:<br>
+<span class="cmd">/usr/local/lsws/bin/lswsctrl start</span>
+</p>
+<p>
+To stop the web server:<br>
+<span class="cmd">/usr/local/lsws/bin/lswsctrl stop</span>
+</p>
+<p>
+To restart the web server:<br>
+<span class="cmd">/usr/local/lsws/bin/lswsctrl restart</span>
+</p>
+<p>
+To reload the configuration:<br>
+<span class="cmd">/usr/local/lsws/bin/lswsctrl reload</span>
+</p>
+</ul>
+
+<p class="label1">3. By sending signals:</p>
+<ul>
+You can stop server processes and reload configurations by sending signals to the server processes.<br>
+<br>First, you need to know the server's process ID, either from the PID file or by running
+a &quot;ps&quot; command.<br>
+
+<p>To read the PID file:<br>
+<span class="cmd">cat /tmp/lshttpd/lshttpd.pid</span></p>
+
+<p>By running a &quot;ps&quot; command:<br>
+FreeBSD: <span class="cmd">ps -x | grep lshttpd</span><br>
+Others: <span class="cmd">ps -ef | grep lshttpd</span><br>
+<br>
+If multiple processes are listed, use the process with PPID equal to 1.
+</p>
+<p>
+To stop the web server:
+<span class="cmd">kill XXXX</span>
+   (XXXX is the PID)<br>
+If the server did not stop, use:
+<span class="cmd">kill -9 XXXX</span>
+</p>
+<p>
+To reload the configurations, use:
+<span class="cmd">kill -HUP XXXX</span>
+</p>
+</ul>
+<br><br>
+<table class="nav-bar" width="100%" border="0">
+  <tr>
+    <td width="30%" align="left">&#171 <a href="install.html">Installation</a></td>
+    <td width="40%" align="center"><a href="index.html">INDEX</a></td>
+    <td width="30%" align="right"><a href="config.html">Configuration</a> &#187;</td>
+  </tr></table>
+<br>
+<div class="copyright">Copyright &copy; 2013. <a href="http://www.litespeedtech.com">Lite Speed Technologies Inc.</a><br>All rights reserved.</div>
+
+</body>
+</html>

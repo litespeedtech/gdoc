@@ -1,0 +1,5136 @@
+[HELPDOC]
+
+########## ITEM SECION #############
+
+[ITEM]
+ID: serverName
+NAME: Server Name
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: A unique name for this server. You can use $HOSTNAME as value. 
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: runningAs
+NAME: Running As
+REQUIRED: 
+APPLY: 1
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the user/group that the server process runs as. 
+This value was set during installation. To change it, 
+you have to download the installation package and perform an upgrade via command line.
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] Server should not run as a privileged user such as "root". 
+It is critical that the server is configured to run with a un-privileged user/group combination 
+that does not have login/shell access. A user/group of {val}nobody{/} is generally a good choice.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: serverPriority
+NAME: Priority
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: External App {ITEM=ExtApp_Help#extAppPriority}, {ITEM=ServSecurity_Help#CGIPriority}
+
+DESCR: Specifies priority of the server processes. Value ranges from
+{val}-20{/} to {val}20{/}. A lower number means higher priority.
+END_DESCR
+
+SYNTAX: Integer number
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Usually, higher priority leads to slightly higher
+web performance on a busy server. Do not set priority higher than that of database processes.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: servChrootPath
+NAME: Chroot Path
+REQUIRED: 
+APPLY: 1
+SINCE: 
+SEE_ALSO: 
+
+DESCR: {ent_version} Specifies the directory where the chroot environment is rooted. 
+Only "root" user can run the {ws_lb} in chroot mode. Whether to run in chroot mode is controlled by 
+{ITEM=enableChroot} option. The installer program will set up the initial chroot environment automatically. 
+This entry is read-only, and if you want to change it, please run the installer again from the command line. <br>
+In the chroot environment, the {ws_lb} and its child processes cannot access file systems outside of 
+the chroot jail. Chroot is an advanced security feature and additional administration may be required to 
+make it work properly. All required executables, libraries, configuration files, and device files should be 
+recreated within the chroot jail.<br>
+
+As the root directory is changed, you need to pay special attention to path configuration 
+when an absolute path is used. A Unix domain socket or swapping directory is always relative 
+to the new root directory. All other path configurations are always relative to the real root. 
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [security] Use chroot for better security.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: enableChroot
+NAME: Enable chroot
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: {ent_version} Specifies whether to start
+the {ws_lb} in chroot mode. 
+The new root directory is set by {ITEM=servChrootPath} during installation.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: enableLVE
+NAME: Cloud-Linux 
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to enable CloudLinux's Lightweight Virtual Environment (LVE)
+ when it exists. You can use LiteSpeed with LVE to achieve better resource management.
+ For more information, please check http://www.cloudlinux.com.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: autoRestart
+NAME: Auto Restart
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Enables service auto-recovery, automatically recreating a new server process when the 
+current server exits abnormally.<br> 
+When this option is enabled, there will be two instances of server process "lshttpd". The parent process 
+monitors the child process and will create a new child process if the current one exits abnormally. 
+However, if the current child process exits normally, the parent process will exit as well. You can use 
+the shell command  {cmd}lswsctrl stop{/} or directly kill the child process, and the parent process will 
+exit assuming that you do want to shut down the server. If the server is started by a super user, 
+the child process will change its ownership based on {ITEM=runningAs} configuration, but the parent 
+process will not change its user/group.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] The parent process' only job is to monitor the child. It does not interact with 
+the outside world, and therefore is safe to execute as a super user.<br>
+[Reliability] This feature should always be enabled for an extra layer of protection against service down time.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: disableInitLogRotation
+NAME: Disable Initial Log Rotation 
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to disable rotation of server error log
+file at startup. Initial log rotation is enabled by default for standard installations. 
+Servers using cPanel, however, always write to the Apache error log and thus ignore this setting.
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: autoFix503
+NAME: Auto Fix 503 Error 
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to try to fix the "503 Service Unavailable" error by
+restarting the {ws_lb} gracefully. A "503" error is usually caused by
+malfunctioning external applications and a web server restart can often fix
+the error temporarily. If enabled, the server will restart
+automatically whenever there are more than 30 "503" errors within a 30
+seconds span. This feature is enabled by default.
+
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+[ITEM]
+ID: gracefulRestartTimeout
+NAME: Graceful Restart Timeout 
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: During a graceful restart, even after the new server instance is up, the old instance will continue 
+to handle existing requests. This timeout defines how long the previous instance shall wait before exit. 
+Default value is 300 seconds. -1 means wait forever. 0 means no wait and abort immediately.
+
+END_DESCR
+
+SYNTAX: int
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: inMemBufSize
+NAME: Max I/O Buffer Size
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: {ITEM=swappingDir}
+
+DESCR: Specifies the maximum buffer size that is used to store a request
+body and its dynamically generated response. When this limit is reached,
+the server will start to create temporary swapping files under {ITEM=swappingDir}.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Set the buffer size large enough to accommodate all concurrent
+requests/replies to avoid memory to disk swapping. If there is frequent I/O
+activity to the swap directoy, by default /tmp/lshttpd/swap/, this buffer size is too low and
+LiteSpeed is swapping to disk. 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: swappingDir
+NAME: Swapping Directory
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: {ITEM=inMemBufSize} 
+
+DESCR: Specifies the directory where the swapping files should be placed. 
+When the server started in chroot mode, it is relative to the new root directory, 
+otherwise it is relative to the real root.<br>LiteSpeed {ws_lb} uses its own virtual memory 
+to reduce the system memory usage. Virtual memory and disk swapping is used to store big request bodies and 
+dynamically generated responses. The swapping directory should be placed on a disk with enough space.
+END_DESCR
+
+SYNTAX: path1
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Place the swapping directory on a separate disk or increase Max I/O Buffer Size to eliminate swapping. 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: mime
+NAME: MIME Settings
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the file that contains the MIME settings for this server. 
+It is always relative to the real root when an absolute path is given in chroot mode.
+Click on the file name to view/edit the detailed MIME entries.
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: Click the file name to edit the MIME settings.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: mimesuffix
+NAME: Suffixes
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: You can list multiple suffixes for the same MIME type, using comma to separate.
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: mimetype
+NAME: MIME Type
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: A MIME type consists of a type and subtype in the format of "type/subtype". 
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: indexFiles
+NAME: Index Files
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies names of index files that will be searched sequentially when a
+URL is mapped to a directory. 
+You can customize it at the server, virtual host, and context level.
+END_DESCR
+
+SYNTAX: Comma delimited list of index file names.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Only set index files that you need.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: showVersionNumber
+NAME: Server Signature
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to show the server signature and version number in
+the response header Server value. There are three options: When set
+to {val}Hide Version{/}, only {val}LiteSpeed{/} is shown. When set to 
+{val}Show Version{/},  the LiteSpeed and the version number are shown.
+{ent_version} When set to {val}Hide Full Header{/}, the whole Server header will not be
+shown in the response header.
+END_DESCR
+
+SYNTAX: bool 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] Set to {val}Hide Version{/} if you do not wish to expose the server version number.
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: hideSigInErrorPage
+NAME: Hide Error Page Signature
+REQUIRED: 
+APPLY: 3
+SINCE: 4.2.3
+SEE_ALSO: 
+
+DESCR: Specifies whether or not to show the lines<br>
+<br>
+"Powered By LiteSpeed Web Server.<br>
+LiteSpeed Technologies is not responsible for administration and contents of this web site!"<br>
+<br>
+on your default error pages.
+END_DESCR
+
+SYNTAX: bool 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: useIpInProxyHeader
+NAME: Use Client IP in Header
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+
+DESCR: Specifies whether to use the IP address listed in the X-Forwarded-For HTTP
+request header for all IP address-related features, including
+connection/bandwidth throttling, access control, and IP geolocation.
+This feature is useful if your web server is behind a load balancer or a proxy server.
+If you select "Trusted IP Only", then X-Forwarded-For IP will be used only when the request
+is coming from trusted IPs defined in the server-level {ITEM=ServSecurity_Help#accessControl_allow}. 
+END_DESCR
+
+SYNTAX: select 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: autoUpdateInterval
+NAME: Check For Update
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies how often the update agent will check for a new product release. Options are "Daily", "Weekly", or "Monthly".
+END_DESCR
+
+SYNTAX: select 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: autoUpdateDownloadPkg
+NAME: Download Updates
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to auto-download a new product release package file
+when available. If a new package has been successfully downloaded, an online one-click
+upgrade can be performed via the WebAdmin console under
+Service Manager - {ITEM=ServerStat_Help#vermgr}. 
+END_DESCR
+
+SYNTAX: select 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: adminEmails
+NAME: Administrator Email
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the server administrator's email address(es). 
+If specified, administrators will be notified by email of important events (for example,  
+when the LiteSpeed service is restarted automatically due to crash detection or when license is expiring). 
+END_DESCR
+
+SYNTAX: Comma delimited list of email address.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: Email alert feature will only work if the server has an active MX server such as postfix, exim, or sendmail.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: log_fileName
+NAME: File Name
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the path for the log file. 
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Place the log file on a separate disk. 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: log_logLevel
+NAME: Log Level
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=log_debugLevel}
+
+DESCR: Specifies the level of logging to include in your log file. 
+Available levels (from high to low) are: {val}ERROR{/}, 
+{val}WARNING{/}, {val}NOTICE{/}, {val}INFO{/} and {val}DEBUG{/}.
+ Only messages with level higher or equal to the current setting will
+be logged.  
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Using {val}DEBUG{/} log level does not have any
+performance impact, unless {ITEM=log_debugLevel} is set to a level
+other than {val}NONE{/}. It's recommended to set Log Level to {val}DEBUG{/} and
+Debug Level to {val}NONE{/}. These settings mean that you will not fill up your 
+hard disk with debug logging, but you will be able to use the {ITEM=ServerStat_Help#toggleDebugLog}
+ action to control debug output. This action can turn debug logging on and off on the fly, 
+ and is useful for debugging busy production servers. 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: log_debugLevel
+NAME: Debug Level
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=log_logLevel}, {ITEM=ServerStat_Help#toggleDebugLog}
+
+DESCR: Specifies the level of debug logging. 
+{ITEM=log_logLevel} must be set to {val}DEBUG{/} to use this feature. 
+Debug logging is disabled when "Debug Level" is set
+to {val}NONE{/} even if {ITEM=log_logLevel} is set to {val}DEBUG{/}. 
+{ITEM=ServerStat_Help#toggleDebugLog} can be used to control debug
+level on a live server without restarting.
+
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Important! Always set this to {val}NONE{/} if you do
+not need detailed debug logging. Active debug logging will severely degrade service performance
+and potentially saturate disk space in a very short time.
+Debug logging includes detailed information for each request and response.
+
+It's recommended to set Log Level to {val}DEBUG{/} and Debug Level to {val}NONE{/}. 
+These settings mean that you will not fill up your hard disk with debug logging, 
+but you will be able to use the {ITEM=ServerStat_Help#toggleDebugLog} action to control debug output. 
+This action can turn debug logging on and off on the fly, and is useful for debugging busy production servers.
+
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: log_rollingSize
+NAME: Rolling Size
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies when the current log file needs to be rolled over, also known as log rotation. 
+When the file size is over the rollover limit, the active log file will be renamed 
+to log_name.mm_dd_yyyy(.sequence) in the same directory and a new active log file will be created.
+The actual size of the rotated log file once it is created will sometimes be a little bigger than 
+this size limit. Set to {val}0{/} to disable log rotation. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: Append "K", "M", "G" to the number for kilo-, mega- and giga- bytes.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+
+[ITEM]
+ID: log_enableStderrLog
+NAME: Enable stderr Log
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to write to log when receiving stderr output from any
+process started by the server. 
+If enabled, stderr messages will be logged in the same directory as the server log with 
+the fixed name "stderr.log". If disabled, all stderr output will be discarded.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: Turn it on if you need to debug configured external applications: i.e. PHP, Ruby, Java, Python, Perl.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: accessLog_fileName
+NAME: File Name
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the file name of the access log file. 
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Put access log file on a separate disk.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: accessLog_bytesLog
+NAME: Bytes Log
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the path to the bandwidth bytes log file. When
+specified, a cPanel compatible bandwidth log will be created. This will log 
+the total bytes transferred for a request including both the request and reply body.
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Put the log file on a separate disk.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: accessLog_logFormat
+NAME: Log Format
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=accessLog_logHeader}
+
+DESCR: {ent_version} Specifies the log format for the access
+log. When log format is set, it will override the {ITEM=accessLog_logHeader}
+setting. 
+
+END_DESCR
+
+SYNTAX: String. The syntax of log format is compatible with Apache 2.0's custom 
+<a href="http://httpd.apache.org/docs/2.0/mod/mod_log_config.html#formats">log format</a>.
+END_SYNTAX
+
+EXAMPLE: 
+Common Log Format (CLF)<br>
+    "%h %l %u %t \"%r\" %>s %b"<br>
+Common Log Format with Virtual Host<br>
+    "%v %h %l %u %t \"%r\" %>s %b"<br>
+NCSA extended/combined log format<br>
+    "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\" <br>
+Log cookie value of Foobar
+    "%{Foobar}C"
+
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+
+[ITEM]
+ID: accessLog_logHeader
+NAME: Log Headers
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=accessLog_logFormat}
+
+DESCR: Specifies whether to log HTTP request headers: {val}Referer{/},
+{val}UserAgent{/}, and {val}Host{/}.
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Turn this off if you do not need these headers in the access log.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: accessLog_keepDays
+NAME: Keep Days
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies how many days the access log file will be kept on disk. 
+Only rotated log files older than specified number of days will be deleted. The current 
+log file will not be touched regardless how many days' data it contains. 
+If you do not want to auto-delete stale and very old log files,
+set this value to {val}0{/}.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: accessLog_compressArchive
+NAME: Compress Archive
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to compress rotated log files in order to save disk space.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:Log files are highly compressible and this is recommended to reduce disk usage for old logs.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: enableExpires
+NAME: Enable Expires
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to generate an Expires header for static files. If enabled, an Expires 
+header will be generated based on {ITEM=expiresDefault} and {ITEM=expiresByType}. 
+This can be set at server, virtual host and context level. Lower level settings will 
+override higher level ones, i.e. context settings will override virtual host settings 
+and virtual host settings will override server settings.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: expiresDefault
+NAME: Expires Default
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies default settings for Expires header generation. This setting takes effect 
+when {ITEM=enableExpires} is set to "Yes". It can be overridden by {ITEM=expiresByType}. 
+Do not set this default at the server or virtual host level unless you have to, 
+since it will generate Expires headers for all pages. Most of time this should be 
+set at the context level for certain directories that do not change
+often. If there is no default setting, no Expires header will be
+generated for types not specified in {ITEM=expiresByType}.
+END_DESCR
+
+SYNTAX: A|Mseconds<br>The file will expire after base time(A|M) plus specified seconds. 
+Base time "A" sets the value to the client's access time and "M" to the file's last modified time.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: expiresByType
+NAME: Expires By Type
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies Expires header settings for individual MIME types.
+END_DESCR
+
+SYNTAX: Comma delimited list of "MIME-type=A|Mseconds". 
+The file will expire after base time (A|M) plus specified seconds. 
+Base time "A" sets the value to the client's access time and "M" to the file's last modified time. 
+MIME-type accepts wildcard "*", like image/*.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+
+
+[ITEM]
+ID: geoipDBFile
+NAME: DB File Path
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: {ent_version} Specifies the path to MaxMind GeoIP database.
+END_DESCR
+
+SYNTAX: file path
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: geoipDBCache
+NAME: DB Cache Type
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: {ent_version} Specifies what kind of cache mode should be used. Cache modes are:
+Standard, MemoryCache, CheckCache and IndexCache. MemoryCache is recommended and is the default. 
+
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+
+[ITEM]
+ID: followSymbolLink
+NAME: Follow Symbolic Link
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=checkSymbolLink}.
+
+DESCR: Specifies the server-level default setting of following symbolic links 
+when serving static files. 
+Choices are {val}Yes{/}, {val}If Owner Match{/} and {val}No{/}. 
+{val}Yes{/} sets the server to always follow symbolic links. 
+{val}If Owner Match{/} sets the server to follow a symbolic link only if the owner of the link and of the target are same. 
+{val}No{/} means the server will never follow a symbolic link. 
+This setting can be overridden on each individual virtual host.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance & security] For best security select {val}No{/} or {val}If Owner Match{/}. 
+For best performance, select {val}Yes{/}. 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: checkSymbolLink
+NAME: Check Symbolic Link
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=followSymbolLink}, {ITEM=accessDenyDir} 
+
+DESCR: Specifies whether to check symbolic links against {ITEM=accessDenyDir} 
+when {ITEM=followSymbolLink} is turned on. If enabled, the canonical real path of the resource 
+referred by a URL will be checked against the configurable access denied directories. 
+Access will be denied if it falls inside an access denied directory.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance & security] For best security, enable this option. For best performance, disable it.
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: forceStrictOwnership
+NAME: Force Strict Ownership Checking
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to enforce strict file ownership checking. 
+If it is enabled, the web server will check if the owner of the file being served is the same as 
+the owner of the virtual host. If it is different, a 403 Access Denied Error will be returned.
+This is turned off by default.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [security] For shared hosting, enable this check for better security.
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: requiredPermissionMask
+NAME: Required Permission Mask
+REQUIRED: 
+APPLY: 3
+SINCE: 1.3
+SEE_ALSO: {ITEM=restrictedPermissionMask}.
+
+DESCR: Specifies the required permission mask for static files that the
+{ws_lb} will serve. For example, if only files that are readable
+by everyone can be served, set the value to {val}0004{/}.
+See {cmd}man 2 stat{/} for all values.
+END_DESCR
+
+SYNTAX: octal numbers
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: restrictedPermissionMask
+NAME: Restricted Permission Mask
+REQUIRED: 
+APPLY: 3
+SINCE: 1.3
+SEE_ALSO: {ITEM=requiredPermissionMask}.
+
+DESCR: Specifies the restricted permission mask for static files that the
+{ws_lb} will not serve. For example, to prohibit serving files that are
+executable, set the mask to {val}0111{/}.
+
+See {cmd}man 2 stat{/} for all values. 
+
+END_DESCR
+
+SYNTAX: octal numbers
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: restrictedScriptPermissionMask
+NAME: Script Restricted Permission Mask
+REQUIRED: 
+APPLY: 3
+SINCE: 4.1.5
+SEE_ALSO: {ITEM=restrictedDirPermissionMask}.
+
+DESCR: Specifies the restricted permission mask for script files that the
+{ws_lb} will not serve. For example, to prohibit serving PHP scripts that are
+group and world writable, set the mask to {val}022{/}. Default value is {val}000{/}.
+
+See {cmd}man 2 stat{/} for all values. 
+
+END_DESCR
+
+SYNTAX: octal numbers
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: restrictedDirPermissionMask
+NAME: Script Directory Restricted Permission Mask
+REQUIRED: 
+APPLY: 3
+SINCE: 4.1.5
+SEE_ALSO: {ITEM=restrictedScriptPermissionMask}.
+
+DESCR: Specifies the restricted permission mask of parent directories of script files that the
+{ws_lb} will not serve. For example, to prohibit serving PHP scripts in a directory that is
+group and world writable, set the mask to {val}022{/}. Default value is
+{val}000{/}. This option can be used to prevent serving scripts under a directory of
+ uploaded files. 
+
+See {cmd}man 2 stat{/} for all values. 
+
+END_DESCR
+
+SYNTAX: octal numbers
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: outBandwidth
+NAME: Outbound Bandwidth
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=inBandwidth}
+
+DESCR: Specifies the maximum allowed outgoing throughput to a single
+IP address regardless of number of connections established.
+The real bandwidth may end up being slightly higher than this setting for efficiency reasons. 
+Bandwidth is allocated in 4KB units. Set to {val}0{/} to disable throttling.
+Per-client bandwidth limits (bytes/sec) can be set at server- or virtual-host levels.
+Virtual host-level settings override server-level settings.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Set the bandwidth in 8KB units for better performance. <br>
+[Security] Trusted IPs or sub-networks are not affected.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: inBandwidth
+NAME: Inbound Bandwidth
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=outBandwidth}
+
+DESCR: Specifies the maximum allowed incoming throughput from a single
+IP address regardless of number of connections established.
+The real bandwidth may end up being slightly higher than this setting for efficiency reasons. 
+Bandwidth is allocated in 1KB units. Set to {val}0{/} to disable throttling.
+Per-client bandwidth limits (bytes/sec) can be set at server- or virtual-host levels.
+Virtual host-level settings override server-level settings.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+[Security] Trusted IPs or sub-networks are not affected.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: staticReqPerSec
+NAME: Static Requests/Second
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=dynReqPerSec}
+
+DESCR: Specifies the maximum number of requests to static content coming from a single
+IP address that can be processed in a single second regardless of the number of
+connections established. 
+When this limit is reached, all future requests are tar-pitted until the next second. 
+Request limits for dynamically generated content are independent of this limit.
+Per-client request limits can be set at server- or virtual host-level. 
+Virtual host-level settings override server-level settings.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+[Security] Trusted IPs or sub-networks are not affected.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+
+[ITEM]
+ID: softLimit
+NAME: Connection Soft Limit
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the soft limit of concurrent connections allowed from one IP. 
+This soft limit can be exceeded temporarily during {ITEM=gracePeriod} as long as 
+the number is below the {ITEM=hardLimit}, but Keep-Alive connections 
+will be closed as soon as possible until the number of connections is lower 
+than the limit. If number of connections is still over the limit after the 
+{ITEM=gracePeriod}, that IP will be blocked for the {ITEM=banPeriod}.<br>
+For example, if a page contains many small graphs, the browser may try to set up 
+many connections at same time, especially for HTTP/1.0 clients. You would want to allow 
+those connections for a short period.<br>
+HTTP/1.1 clients may also set up multiple connections to speed up downloading and SSL 
+ requires separate connections from non-SSL connections. Make sure the limit is set properly, 
+ as not to adversely affect normal service. The recommended limit is between {val}5{/} and {val}10{/}.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] A lower number will enable serving more distinct clients. <br>
+[Security] Trusted IPs or sub-networks are not affected. <br>
+[Performance] Set to a high value when you are performing benchmark tests 
+with a large number of concurrent client machines.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: hardLimit
+NAME: Connection Hard Limit
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum number of allowed concurrent connections from a single IP address. 
+This limit is always enforced and a client will never be able to exceed this limit.  
+HTTP/1.0 clients usually try to set up as many connections as they need to download embedded 
+content at the same time. This limit should be set high enough so that HTTP/1.0 clients can still 
+access the site.  
+Use {ITEM=softLimit} to set the desired connection limit. 
+<br>
+The recommended limit is between {val}20{/} and {val}50{/} depending on the content of your web page and your traffic load. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] A lower number will enable serving more distinct clients. <br>
+[Security] Trusted IPs or sub-networks are not affected. <br>
+[Performance] Set to a high value when you are performing benchmark tests with a large number of concurrent client machines.
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: blockBadReq
+NAME: Block Bad Request
+REQUIRED: 
+APPLY: 3
+SINCE: 4.1.5
+SEE_ALSO: 
+
+DESCR: Block IPs that keep sending badly-formated HTTP requests for the {ITEM=banPeriod}. Default 
+is {val}Yes{/}. This helps to block botnet attacks that repeatedly sending junk requests. 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: gracePeriod
+NAME: Grace Period (sec)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies for how long new connections can be accepted after the number of connections 
+established from one IP is over the <ITEM=softLimit>. Within this period, new connections 
+will be accepted if the total connections is still below the {ITEM=hardLimit}. After this 
+period, if the number of connections still higher than the <ITEM=softLimit>, then that 
+IP will be blocked for the {ITEM=banPeriod}. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance & Security] Set to a proper number big enough for downloading 
+a complete page but low enough to prevent deliberate attacks.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: banPeriod
+NAME: Banned Period (sec)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies for how long new connections will be rejected from an IP at the end of the  
+{ITEM=gracePeriod} if the number of connections is still more than the <ITEM=softLimit>. 
+If an IP gets banned repeatedly, we suggest that you increase your banned period to control abuse.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+
+
+[ITEM]
+ID: cgidSock
+NAME: CGI Daemon Socket
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: A unique socket address used to communicate with the CGI
+daemon. LiteSpeed server uses a standalone CGI daemon to 
+spawn CGI scripts for best performance and security.
+Default socket is
+"uds://$SERVER_ROOT/admin/conf/.cgid.sock". If you need to put in
+another location, specify a Unix domain socket here.
+END_DESCR
+
+SYNTAX: UDS://path 
+END_SYNTAX
+
+EXAMPLE: UDS://tmp/lshttpd/cgid.sock
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+
+
+[ITEM]
+ID: maxCGIInstances
+NAME: Max CGI Instances
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum number of concurrent CGI processes the server can start. 
+For each request to a CGI script, the server needs to start a standalone CGI process. 
+On a Unix system, the number of concurrent processes is limited. Excessive 
+concurrent processes will degrade the performance of the whole system and are one way to perform a DoS attack. 
+LiteSpeed server pipelines requests to CGI scripts 
+and limits concurrent CGI processes to ensure the optimal performance and reliability. 
+The hard limit is {val}2000{/}. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security & Performance] A higher limit does not necessarily translate to faster performance. 
+In most cases, a lower limit gives better performance and security. A higher limit will only help 
+when I/O latency is excessive during CGI processing.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: minUID
+NAME: Minimum UID
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the minimum user ID of external applications.  
+Execution of an external script with a user ID lower than the value specified here will be denied.  
+If LiteSpeed web server is started by "root" user, it can run external applications in the "suEXEC"
+mode like Apache (to change to a user/group ID other than the web server's).
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] Set it high enough to exclude all system/privileged users.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: minGID
+NAME: Minimum GID
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the minimum group ID of external applications. 
+Execution of an external with a group ID lower than the value specified here will be denied. 
+If LiteSpeed web server is started by "root" user, it can run external applications in the "suEXEC"
+mode like Apache (to change to a user/group ID other than the web server's). 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] Set it high enough to exclude all groups used by system users.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: forceGID
+NAME: Force GID
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies a group ID to be used for all external applications started in suEXEC mode. 
+When set to non-zero value, all suEXEC external applications (CGI/FastCGI/LSAPI)
+will use this group ID. This can be used to prevent an external application
+from accessing files owned by other users.
+For example, in a shared hosting environment, LiteSpeed runs as user
+"www-data", group "www-data". Each docroot is owned by a user account,
+with a group of "www-data" and permission mode 0750. If Force GID is set to
+"nogroup" (or any group other than 'www-data'), all suEXEC external applications will run
+as a particular user but in the group "nogroup". These external application processes 
+will still be able to access files owned by that particular user (because of their user ID), 
+but will not have group permission to access anyone else's files. The server, on the other hand, still
+can serve files under any user's docroot directory (because of its group ID).
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] Set it high enough to exclude all groups used by system users.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: CGIPriority
+NAME: CGI Priority
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: Server {ITEM=ServGeneral_Help#serverPriority}
+
+DESCR: Specifies priority of the external application process. Value ranges from
+{val}-20{/} to {val}20{/}. A lower number means a higher priority. 
+A CGI process cannot have a higher priority than the web server. If this
+priority is set to a lower number than the server's, the server's priority will be used for this value.
+END_DESCR
+
+SYNTAX: int
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: CPUSoftLimit
+NAME: CPU Soft Limit
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies CPU consumption time limit in seconds for an external application process. When the process 
+reaches the soft limit, it will be notified by a signal. The operating system's default setting will 
+be used if the value is absent or set to {val}0{/}.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: CPUHardLimit
+NAME: CPU Hard Limit
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies maximum CPU consumption time limit in seconds for an external application process. 
+If the process continues to consume CPU time and reach the hard limit, the process 
+will be force killed. The operating system's default setting will be used if the value is absent or set to {val}0{/}.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: memSoftLimit
+NAME: Memory Soft Limit
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the memory consumption limit in bytes for an external application process
+or an external application started by the server.  
+The main purpose of this limit is to prevent excessive memory usage
+because of software bugs or intentional attacks, not to impose a limit on
+normal usage. Make sure to leave enough head room, otherwise your
+application may fail and 503 error may be returned. It can be set at the server-
+level or at an individual external application level. The server-level limit will be used if
+it is not set at the individual application level.    
+The operating system's default setting will be used if the value is absent at both levels or set to
+{val}0{/}. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Attention] Do not over adjust this limit. This may result in 503 errors
+if your application needs more memory. 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: memHardLimit
+NAME: Memory Hard Limit
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Much the same as {ITEM=memSoftLimit}, except the soft limit can be raised up to the
+hard limit from within a user process. The hard limit can be set at server
+level or at an individual external application level. The server-level limit will be used if  
+it is not set at an individual application level.    
+The operating system's default will be used if the value is absent at both levels or set to
+{val}0{/}. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: [Attention] Do not over adjust this limit. This may result in 503 errors
+if your application need more memory. 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: procSoftLimit
+NAME: Process Soft Limit
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Limits the total number of processes that can be created on behalf
+of a user. All existing processes will be counted
+against this limit, not just new processes to be started. 
+If the limit is set to "10", and there are more than 10 processes
+running under one user, then no new process can be started by the web
+server for that user (through suEXEC). <br>
+The main purpose of this limit is to prevent "fork bomb"
+attacks or excessive usage, not to impose a limit on normal usage. 
+Make sure to leave enough head room. This can be set at the server level or at an  
+individual external application level. The server-level limit will be used if
+it is not set at an individual application level. The operating system's
+default setting will be used if this value is {val}0{/} or absent at
+both levels.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: [Attention] All processes run under the same user ID at
+server level will be counted against this limit. 
+Do not over adjust this limit. Doing so may cause 503 errors if a user needs to create many processes.
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: procHardLimit
+NAME: Process Hard Limit
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Much the same as {ITEM=procSoftLimit}, except the soft limit can be raised up to the
+hard limit from within a user process. The hard limit can be set at the server level or at an  
+individual external application level. The server-level limit will be used if
+it is not set at an individual application level.   
+The operating system's default value will be used if the value is absent at both levels or set to
+{val}0{/}. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: accessDenyDir
+NAME: Access Denied Directories
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies directories that should be blocked from access. 
+Add directories that contain sensitive data to this list to prevent accidentally 
+exposing sensitive files to clients. Append a "*" to the path to include all sub-directories. 
+If both {ITEM=followSymbolLink} and {ITEM=checkSymbolLink} are enabled, symbolic 
+links will be checked against the denied directories.
+END_DESCR
+
+SYNTAX: Comma-delimited list of directories
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] Of critical importance: This setting only prevents serving static 
+files from these directories. This does not prevent exposure by external scripts such as PHP/Ruby/CGI.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessControl_allow
+NAME: Allowed List
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the list of IPs or sub-networks allowed.
+{val}*{/} or {val}ALL{/} are accepted.
+END_DESCR
+
+SYNTAX: Comma delimited list of IP addresses or sub-networks. 
+A trailing "T" can be used to indicate a trusted IP or sub-network, such as {val}192.168.1.*T{/}.
+END_SYNTAX
+
+EXAMPLE: Sub-networks: 
+{val}192.168.1.0/255.255.255.0{/}, {val}192.168.1.0/24{/}, {val}192.168.1{/} or
+{val}192.168.1.*{/}. <br>
+IPv6 addresses: {val}::1{/} or {val}[::1]{/} <br> 
+IPv6 subnets: {val}3ffe:302:11:2:20f:1fff:fe29:717c/64{/} or 
+{val}[3ffe:302:11:2:20f:1fff:fe29:717c]/64{/}. 
+END_EXAMPLE
+
+TIPS: [Security] Trusted IPs or sub-networks set at the server-level access 
+control will be excluded from connection/throttling limits.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: accessControl_deny
+NAME: Denied List
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the list of IPs or sub-networks disallowed.
+END_DESCR
+
+SYNTAX: Comma delimited list of IP addresses or sub-networks. 
+{val}*{/} or {val}ALL{/} are accepted. 
+END_SYNTAX
+
+EXAMPLE: Sub-networks: 
+{val}192.168.1.0/255.255.255.0{/}, {val}192.168.1.0/24{/}, {val}192.168.1{/} or
+{val}192.168.1.*{/}. <br>
+IPv6 addresses: {val}::1{/} or {val}[::1]{/} <br> 
+IPv6 subnets: {val}3ffe:302:11:2:20f:1fff:fe29:717c/64{/} or 
+{val}[3ffe:302:11:2:20f:1fff:fe29:717c]/64{/}. 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: maxConnections
+NAME: Max Connections
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum number of concurrent connections that the server can accept. 
+This includes both plain TCP connections and SSL connections. This setting should not be set to exceed 
+the hard limit set by the server software edition or license: {val}150{/} for Standard Edition, {val}500{/} 
+for VPS license, {val}600{/} for Ultra VPS license. Once the maximum concurrent connections limit is reached, 
+the server will close Keep-Alive connections when they complete active requests. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: When the server is started by "root" user, the server will try to
+adjust the per-process file descriptor limits automatically, however,
+if this fails, you may need to increase this limit manually.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: maxSSLConnections
+NAME: Max SSL Connections
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum number of concurrent SSL connections the server will accept. 
+Since total concurrent SSL and non-SSL connections cannot exceed the limit specified by 
+{ITEM=maxConnections}, the actual number of concurrent SSL connections allowed 
+must be lower than this limit.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: connTimeout
+NAME: Connection Timeout
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: <ITEM=keepAliveTimeout>
+
+DESCR: Specifies the maximum connection idle time allowed during processing one request. 
+The connection will be closed if it has been idle, i.e. no I/O activity, for this period 
+of time. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] Set this as low as you can to help recover dead 
+connections during a potential DoS attack.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: maxKeepAliveReq
+NAME: Max Keep-Alive Requests
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: Virtual Host {ITEM=VirtualHosts_Help#vhMaxKeepAliveReq}
+
+DESCR: Specifies the maximum number of requests that can be served through a keep-alive (persistent) 
+session. The connection will be closed once this limit is reached. You
+can set this limit for each virtual host as well. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Set this to a reasonably high value. A value of "1" or "0" will disable keep-alive.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: smartKeepAlive
+NAME: Smart Keep-Alive
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: Virtual Host {ITEM=VirtualHosts_Help#vhSmartKeepAlive}
+DESCR: Specifies whether to turn on Smart Keep-Alive. This option is
+effective only if {ITEM=maxKeepAliveReq} is greater than 1. If enabled,
+you can also enable/disable it at the virtual host level. Smart keep-alive
+will only establish keep-alive connections for requests of JavaScript,
+CSS Style Sheet, and image files. For html pages, the connection will not be kept alive. This
+will help serve more users more efficiently. Normally a web page
+contains multiple images and scripts that will be cached by the browser after the initial request. 
+It is more efficient to send those non-html static files through a single keep-alive
+connection and have the text/html file sent through another non-keep-alive connection. This
+method will reduce idle connections and in turn increase the capacity to handle more concurrent requests
+and users.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Enable this for high-load web sites.
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: keepAliveTimeout
+NAME: Keep-Alive Timeout
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum idle time between requests from a keep-alive connection. 
+If no new request is received during this period of time, the connection will be closed.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security & Performance] We recommend you to set the value just long enough to handle 
+all requests for a single page view. It is unnecessary to keep connections alive
+for an extended period of time. A smaller value can reduce idle
+connections, increase capacity to service more users, and guard against DoS attacks. {val}2-5{/} seconds is a 
+reasonable range for most applications. LiteSpeed is highly efficient in a non-keep-alive environment.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: sndBufSize
+NAME: Send Buffer Size
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The sending buffer size of each TCP socket. Set to {val}0{/} to use the default 
+buffer size of the operating system. {val}65535{/} is the maximum allowed buffer size.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] If your web site serves large static files, increase the send buffer
+ size to improve performance.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: rcvBufSize
+NAME: Receive Buffer Size
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The receiving buffer size of each TCP socket. Set to {val}0{/} to use the default 
+buffer size of the operating system. {val}65535{/} is the maximum allowed buffer size.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] A large receive buffer will increase performance when processing
+ incoming requests with large payloads, i.e. file uploads.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: eventDispatcher
+NAME: I/O Event Dispatcher 
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies which I/O event dispatcher to use. Different
+operating systems support different types of event dispatcher:
+<ul>
+  <li>Linux kernel 2.4.x supports:
+     <ul><li>poll</li></ul>
+  </li>
+  <li>Linux kernel 2.6.x supports:
+     <ul><li>poll</li><li>epoll</li></ul>
+  </li>
+  <li>FreeBSD supports:
+     <ul><li>poll</li><li>kqueue</li></ul>
+  </li>
+  <li>Solaris supports:
+     <ul><li>poll</li><li>devpoll</li></ul>
+  </li>
+  <li>Mac OS X 10.3 and above supports:
+     <ul><li>poll</li><li>kqueue</li></ul>
+  </li>
+</ul>
+  {val}poll{/} is supported by all platforms, and is the default selection. 
+  For high traffic web sites, an altenative event dispatcher can be used to improve the 
+  scalability of the {ws_lb}. 
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: maxCachedFileSize
+NAME: Max Cached Small File Size
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the largest static file that will be cached in a
+pre-allocated memory buffer. Static files can be served in four different
+ways: memory buffer cache, memory-mapped cache, plain read/write, and sendfile().
+Files whose size is smaller than this setting are served
+from memory buffer cache. Files whose size is larger than this setting, but smaller than the
+{ITEM=maxMMapFileSize} will be served from memory-mapped cache.
+Files whose size is larger than the {ITEM=maxMMapFileSize} will be served via
+plain read/write or sendfile(). It is optimal to serve static files smaller than 4K from the memory
+buffer cache. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: totalInMemCacheSize
+NAME: Total Small File Cache Size
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the total memory that can be allocated to the 
+buffer cache in order to cache/serve small static files.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: maxMMapFileSize
+NAME: Max MMAP File Size
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR:  Specifies the largest static file that will be memory mapped
+(MMAP). 
+ Static files can be served in four different
+ways: memory buffer cache, memory-mapped cache, plain read/write, and sendfile(). 
+Files whose size is smaller than the {ITEM=maxCachedFileSize} are served
+from memory buffer cache. Files whose size is larger than the 
+ {ITEM=maxCachedFileSize}, but smaller than the Max MMAP File Size 
+ will be served from memory-mapped cache.
+Files whose size is larger than the Max MMAP File Size will be served via
+plain read/write or sendfile(). 
+Since the server has a 32bit address space (2GB), it is not recommended to memory map
+very large files. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: totalMMapCacheSize
+NAME: Total MMAP Cache Size
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the total memory that can be allocated for memory-
+mapped cache in order to cache/serve medium sized static files. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: useSendfile
+NAME: Use sendfile()
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to use the sendfile()
+system call to serve static files. Static files can be served in four different
+ways: memory buffer cache, memory-mapped cache, plain read/write, and sendfile().
+Files smaller than the {ITEM=maxCachedFileSize} are served from memory buffer cache. 
+Files larger than the {ITEM=maxCachedFileSize} but smaller than the  
+{ITEM=maxMMapFileSize} will be served from memory-mapped cache. 
+Files larger than the {ITEM=maxMMapFileSize} will be served via
+plain read/write or sendfile(). Sendfile() is a "zero copy" system
+call that can greatly reduce CPU utilization when serving very large
+static files. Sendfile() requires an optimized network card kernel driver
+and thus may not be suitale for some small-vendor network adapters.
+ 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+ 
+[ITEM]
+ID: fileETag
+NAME: File ETag
+REQUIRED: 
+APPLY: 2
+SINCE: 4.2.2
+SEE_ALSO: 
+
+DESCR: Specifies whether to use a file's inode, last-modified time, and size attributes 
+to generate the ETag HTTP response header for static files.  
+All three attributes are enabled by default. 
+If you plan to serve the same file out of mirrored servers, you should not include 
+inode; otherwise, the ETag generated for one file will be different on different servers.
+
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: SSLCryptoDevice
+NAME: SSL Hardware Accelerator
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: {ent_version} Specifies which SSL hardware acceleration device to use. Only
+devices supported by OpenSSL can be used. Select {val}OpenSSL internal
+engine{/} if no device is installed. 
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: maxReqURLLen
+NAME: Max Request URL Length
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum size of a request URL. URL is the full text address used to access
+a server resource including the query string. {val}8192{/} bytes is the hard limit.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security & Performance] Set it reasonably low to reduce memory usage 
+and help identify bogus requests and DoS attacks. <br>2-3K is big enough for most web 
+sites unless the HTTP GET method is used with large query strings instead of POST.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: maxReqHeaderSize
+NAME: Max Request Header Size
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum size of a HTTP request header including request URL. 
+Hard limit is {val}16380{/} bytes. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security & Performance] Set it reasonably low to reduce memory usage and 
+help identify bogus requests and DoS attacks.<br> 4-8K is big enough for most web sites.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: maxReqBodySize
+NAME: Max Request Body Size
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum size of a HTTP request body. For a 32Bit OS, {val}2GB{/} is the hard limit.
+ For a 64Bit OS, it is virtually unlimited. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] To help prevent DoS attacks, try to constrain this limit to only what is really needed. 
+Your swapping space must have enough free space to accommodate this limit.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: maxDynRespHeaderSize
+NAME: Max Dynamic Response Header Size
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum header size of a dynamically generated response. Hard limit is {val}8KB{/}.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Reliability & Performance] Set it reasonably low to help recognize bad 
+responses dynamically generated by external applications. 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: maxDynRespSize
+NAME: Max Dynamic Response Body Size
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum body size of a dynamically generated response. Hard limit is {val}2047MB{/}.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Reliability & Performance] Set the limit reasonably low to help 
+identify bad responses. It is not uncommon to malformed scripts to contain an infinite
+loop which leads to infinity-sized responses.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: enableGzipCompress
+NAME: Enable Compression
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Controls GZIP compression for both static and dynamic HTTP responses. 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Enable it to save network bandwidth. Text-based responses such as 
+html, css, and javascript files benefit the most and on average can be compressed to half 
+of their original size.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: enableDynGzipCompress
+NAME: Enable Dynamic Compression
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Controls GZIP compression for dynamically generated HTTP response. 
+{ITEM=enableGzipCompress} must be set to {val}Yes{/} in order to enable dynamic GZIP compression.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Compressing dynamic responses increases CPU and memory 
+utilization but saves network bandwidth. 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: gzipCompressLevel
+NAME: Compression Level (Dynamic Content)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the level of compression for dynamic content. Ranges 
+from {val}1{/} (lowest) to {val}9{/} (highest). The default is {val}2{/}.
+END_DESCR
+
+SYNTAX: Number between 1 and 9.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Higher compression level will use more memory and CPU cycles. 
+You can set it to a higher level if your machine has additional power. There is not much difference
+between 6 and 9, except 9 uses many more CPU cycles.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: compressibleTypes
+NAME: Compressible Types
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies what MIME types are allowed to be compressed. 
+END_DESCR
+
+SYNTAX: MIME type list separated by commas. Wild card "*" and 
+negate sign "!" are allowed, such as text/*, !text/js.
+END_SYNTAX
+
+EXAMPLE: If you want to compress text/* but not text/css, you can have a rule like 
+{val}text/*, !text/css{/}. "!" will exclude that MIME type.
+END_EXAMPLE
+
+TIPS: [Performance] Only allow types that will benefit from GZIP compression. Binary 
+files such as gif/png/jpeg images and flash files do not benefit from compression.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: gzipAutoUpdateStatic
+NAME: Auto Update Static File
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to let the {ws_lb} to create/update GZIP-compressed 
+edition of compressible static files. 
+If set to {val}Yes{/}, when a file with a MIME
+type listed in {ITEM=compressibleTypes} is requested, the {ws_lb} will
+create or update the corresponding compressed file depending on its timestamp. The compressed file
+is created under the {ITEM=gzipCacheDir}. The file name is based on the MD5
+hash of the path of the original file.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gzipCacheDir
+NAME: Static GZIP Cache Directory
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the path of the directory used to store compressed
+files for static content. The default is {ITEM=swappingDir}.
+END_DESCR
+
+SYNTAX: Directory Path
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+
+[ITEM]
+ID: gzipStaticCompressLevel
+NAME: Compression Level (Static Content)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the level of compression for static content. Ranges 
+from {val}1{/} (lowest) to {val}9{/} (highest). The default is {val}6{/}.
+END_DESCR
+
+SYNTAX: Number between 1 and 9.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: gzipMaxFileSize
+NAME: Max Static File Size
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum size of a static file for which the
+{ws_lb} will create a compressed file automatically. 
+END_DESCR
+
+SYNTAX: Number in bytes not less than 1K.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] It is not recommended to have {ws_lb} create/update
+compressed files for large files. Compressing blocks an entire server process and 
+no further requests can be processed until the compression is completed.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: gzipMinFileSize
+NAME: Min Static File Size
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the minimum size of a static file for which the
+{ws_lb} will create a corresponding compressed file. 
+END_DESCR
+
+SYNTAX: Number in bytes not less than 200.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: It is not necessary to compress very small files as the bandwidth saving is negligible.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+
+[ITEM]
+ID: shType
+NAME: Type
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the type of external application that processes these script files.  
+Available types are: {val}CGI{/}, {val}FastCGI{/}, {val}Web Server{/},
+{val}LSAPI app{/}, {val}Load balancer{/}, or {val}Servlet Engine{/}. 
+For FastCGI, Web Server and Servlet Engine, a {ITEM=shHandlerName} needs to be specified. 
+This is an external application name as predefined in the {PAGE=ExtApp_Help} section.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: shHandlerName
+NAME: Handler Name
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the name of the external application that processes the script files 
+when the handler type is FastCGI, Web Server, LSAPI, Load Balancer, or Servlet Engine.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+
+
+[ITEM]
+ID: docRoot
+NAME: Document Root
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the document root for this virtual host. {val}$VH_ROOT/html{/} 
+is recommended. This directory is referred to as $DOC_ROOT in contexts. 
+END_DESCR
+
+SYNTAX: path3
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: enableGzip
+NAME: Enable GZIP
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=ServTuning_Help#enableGzipCompress}, {ITEM=ServTuning_Help#gzipStaticCompressLevel}, {ITEM=ServTuning_Help#enableDynGzipCompress}, {ITEM=ServTuning_Help#gzipCompressLevel}
+
+DESCR: Specifies whether to enable GZIP compression for this virtual host. 
+This setting is effective only when server-level GZIP compression is enabled.  
+The virtual host can only turn off compression enabled at the server level. 
+Compression settings are configured at the server level (in Tuning-GZIP).
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: enableIpGeo
+NAME: Enable IP Geolocation
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=ServGeneral_Help#useIpInProxyHeader}, {ITEM=ServGeneral_Help#geoipDBFile}, {ITEM=ServGeneral_Help#geoipDBCache}
+
+DESCR: {ent_version} Specifies whether to enable IP geolocation lookup. 
+It can be set at server-, virtual host-, or context-level. 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: vhadminEmails
+NAME: Administrator Email
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies email addresses of the administrators of this virtual host.
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: indexUseServer
+NAME: Use Server Index Files
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to use the server's index file settings. 
+If set to {val}Yes{/}, only the server's settings will be used. 
+If set to {val}No{/}, the server's settings will not be used. 
+If set to {val}Addition{/}, additional index files can be added to server's 
+index file list for this virtual host. If you want to disable index files for 
+this virtual host, you can set the value to {val}No{/} and leave the index files
+field empty.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: autoIndex
+NAME: Auto Index
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=indexFiles}, {ITEM=autoIndexURI}
+
+DESCR: Specifies whether to generate a directory index on the fly when
+index files listed in {ITEM=indexFiles} are not available in a directory.
+This option is customizable at the virtual host and context level, and
+is inherited along the directory tree until it is explicitly
+overridden. You can customize the generated index page. Please check online wiki How-tos.
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] It is recommended to turn off Auto Index wherever
+possible to prevent revealing confidential data.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: autoIndexURI
+NAME: Auto Index URI
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=indexFiles}, {ITEM=autoIndex}
+
+DESCR: Specifies the URI that will be used to generate the index page when
+index files listed in {ITEM=indexFiles} are not available in a directory.
+LiteSpeed web server uses an external script to generate the index page
+providing the maximum customization flexibility. The default script produces an index page with same look
+as Apache's. To customize the generated index page, please read
+online wiki How-tos.
+The directory to be indexed is passed to the script via an
+environment variable "LS_AI_PATH".
+END_DESCR
+
+SYNTAX: URI
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: rewriteInherit
+NAME: Rewrite Inherit
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to inherit rewrite rules from parent
+contexts. If rewrite is enabled and not inherited, rewrite base and
+rewrite rules defined in this context will be used.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+[ITEM]
+ID: rewriteBase
+NAME: Rewrite Base
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the base URL for rewrite rules.
+END_DESCR
+
+SYNTAX: URL
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: logUseServer
+NAME: Use Server Log
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to put log messages from this virtual host into the server 
+log file instead of creating its own log file.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: vhlog_logLevel
+NAME: Log Level
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=ServGeneral_Help#log_debugLevel}
+
+DESCR: Specifies the level of logging. Available levels (from high to low) are {val}ERROR{/}, 
+{val}WARNING{/}, {val}NOTICE{/}, {val}INFO{/}, and {val}DEBUG{/}. 
+Only messages with a level higher than or equal to the current setting will be logged. 
+If you want to set it to DEBUG{/}, you must set the server log level to {val}DEBUG{/} as well. 
+The level of debugging is controlled solely at the server level by {ITEM=ServGeneral_Help#log_debugLevel}.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Unless {ITEM=ServGeneral_Help#log_debugLevel} is set to a level
+other than {val}NONE{/}, {val}DEBUG{/} log level does not have any
+performance impact and is recommended.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: aclogUseServer
+NAME: Log Control
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies where to write the access log. There are three options: 
+1. Write to the server's access log; 2. Create an access log for this virtual host; 3. Disable access logging.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: realmName
+NAME: Realm Name
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies a unique name for the authorization realm.
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: realmType
+NAME: DB Type
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies how user/group data is stored for an authorization realm. Currently,
+user/group data can be stored in flat files or on a LDAP server. 
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: userDBLocation
+NAME: User DB Location
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO:  {ITEM=GroupDBLocation}, {ITEM=userDB_attrPasswd}, {ITEM=userDB_attrMemberOf}
+
+DESCR: Specifies the location of the user database. 
+For DB type {val}Password File{/}, it is the path to the flat file
+containing user/password definitions.
+You can edit this file through the WebAdmin console by clicking on the file name.<br>
+Each line of the user file contains a username followed by a colon, 
+followed by a crypt() encrypted password, optionally followed by a colon 
+and group names that user belongs to. Group names are delimitated by commas. 
+If group information is specified in the user database, then the group
+database will not be checked.<br>
+Example:<blockquote><code>john:HZ.U8kgjnMOHo:admin,user</code></blockquote>
+
+For DB type {val}LDAP{/}, it is the LDAP URL to query for the user
+information. For each valid user, the authentication data stored in the LDAP
+server should contain at least the user id and user password. One and only
+one record should be returned in the LDAP search request based on the
+this URL and username received in the HTTP Authentication header. "$k"
+must be specified in the filter part of the URL and it will be
+replaced with the username. The user password attribute
+must be returned in the query result. The attribute name of the user password
+is specified by {ITEM=userDB_attrPasswd}. Group information can be
+optionally specified by {ITEM=userDB_attrMemberOf}.<br>
+Example: At minimum, a user can be defined in LDAP with object
+classes: uidObject, simpleSecurityObject and organizationalRole. The
+following URL could be used: <br>
+<blockquote><code>ldap://localhost/ou=UserDB,dc=example,dc=com???(&(objectClass=*)(uid=$k))</code></blockquote>
+
+END_DESCR
+
+
+SYNTAX: Path to the user DB file or LDAP URL (RFC 2255).
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] It is recommended to store user password files outside of the document tree. 
+If a user password file has to be placed inside document tree, simply name it with a leading ".ht" 
+like {val}.htuser{/} to prevent it being served as a static file.  LiteSpeed Web Server 
+does not serve files prefixed with ".ht".
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: userDB_attrPasswd
+NAME: Password Attribute
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the name of the password attribute for a user record
+stored in an LDAP server. The default value is {val}userPassword{/}.
+END_DESCR
+
+SYNTAX: string
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: userDB_attrMemberOf
+NAME: Member-of Attribute
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the name of the "Member-of" attribute for a user record 
+stored in an LDAP server. The default value is {val}memberOf{/}. The "Member-of" 
+attribute can be used to specify the group name that the user belongs to.
+END_DESCR
+
+SYNTAX: string
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: groupDB_attrGroupMember
+NAME: Group Member Attribute
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the name of the "Member" attribute for a group record
+stored in an LDAP server. The default value is {val}memberUid{/}. 
+END_DESCR
+
+SYNTAX: string
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: LDAPBindDN
+NAME: LDAP Bind DN
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: {ITEM=LDAPBindPasswd}
+
+DESCR: Specifies a DN used to bind to the server. If the LDAP server 
+requires authentication, a bind DN and password must be specified. If
+not specified, anonymous bind will be used. 
+END_DESCR
+
+SYNTAX: string
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: LDAPBindPasswd
+NAME: LDAP Bind Password
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: {ITEM=LDAPBindDN}
+
+DESCR: Specifies a password used to bind to the server. If the LDAP Server 
+requires authentication, a bind DN and password must be specified.  
+END_DESCR
+
+SYNTAX: string
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: userDBMaxCacheSize
+NAME: User DB Max Cache Size
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum cache size of the user database. 
+Recently accessed user authentication data will be cached in memory 
+to provide maximum performance.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] As a larger cache will consume more memory, 
+a higher value may or may not provide better performance. Set it to an appropriate size according 
+to your user database size and site usage.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: userDBCacheTimeout
+NAME: User DB Cache Timeout
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies how often the backend user database will be checked for changes.  
+Every entry in the cache has a timestamp. 
+When cached data is older than the specified timeout, the backend database will be checked 
+for changes. If there is no change, the timestamp will be reset to the current time, otherwise 
+the new data will be loaded. Sevrer reload and graceful restart will clear the cache immediately.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] If the backend database does not change very often, 
+set a longer timeout for better performance. 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: GroupDBLocation
+NAME: Group DB Location
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=userDBLocation}, Context {ITEM=Context_Help#required}, {ITEM=groupDB_attrGroupMember}
+
+DESCR: Specifies the location of the group database. 
+
+Group information can be set either in the user database or in this
+standalone group DB. For user authentication, the user DB will be checked
+first. If the user DB also contains group information, then the group DB will
+not be checked.  <br>
+
+For the DB type {val}Password File{/}, the group DB location should be the path to 
+the flat file containing group definitions. You can edit this file through the 
+WebAdmin console by clicking on the file name. <br>
+
+Each line of a group file should contain a groupname followed by a colon,  
+followed by space delimited group of user names. <br>Example:<br>
+<blockquote><code>testgroup: user1 user2 user3</code></blockquote> 
+<br>
+
+For the DB type {val}LDAP{/}, the group DB location should be the LDAP URL to query 
+for group information. For each valid group, one and only
+one record should be returned in the LDAP search request based on the
+this URL and the group name specified in {ITEM=Context_Help#required}. "$k"
+must be specified in the filter part of the URL and it will be
+replaced with the group name. The name of the attribute that 
+specifies members in this group
+is specified by {ITEM=groupDB_attrGroupMember}. <br>
+Example: If objectClass posixGroup is being used to store group
+information. The following URL could be used: 
+<br><blockquote><code>ldap://localhost/ou=GroupDB,dc=example,dc=com???(&(objectClass=*)(cn=$k))</code></blockquote>
+<br>
+
+
+END_DESCR
+
+SYNTAX: file3
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] It is recommended to store a group file outside the document tree. 
+If it has to be placed inside document tree, simply name it with a leading ".ht" 
+like {val}.htgroup{/}, to prevent the file being served as a static file.  LiteSpeed Web Server 
+does not serve files prefixed with ".ht".
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: groupDBMaxCacheSize
+NAME: Group DB Max Cache Size
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=userDBMaxCacheSize}
+
+DESCR: Specifies the maximum cache size of the group database. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:  [Performance] As a larger cache will consume more memory, 
+a higher value may or may not provide better performance. Set it to an appropriate size according 
+to your user database size and site usage.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: groupDBCacheTimeout
+NAME: Group DB Cache Timeout
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=userDBCacheTimeout}
+
+DESCR: Specifies how often the backend group database will be checked for changes. 
+For more detail please refer to {ITEM=userDBCacheTimeout}.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: vhaccessControl_allow
+NAME: Allowed List
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the list of IPs or sub-networks allowed.
+END_DESCR
+
+SYNTAX: Comma-delimited list of IP addresses or sub-networks. {val}*{/} or {val}ALL{/} are allowed.  
+Sub-networks can be written as {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/} or {val}192.168.1.*{/}.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: vhName
+NAME: Virtual Host Name
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: A unique name for a virtual host. It is recommended to use the domain name of this virtual host.
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: vhRoot
+NAME: Virtual Host Root
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the root directory of the virtual host. Note: This is <b>NOT</b> 
+the document root. It is recommended to place all files related to the virtual host 
+(like virtual host configuration, log files, html files, CGI scripts, etc.)
+under this directory.Virtual Host Root can be referred to as $VH_ROOT.
+END_DESCR
+
+SYNTAX: path2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Place different virtual hosts on different hard drives.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: configFile
+NAME: Config File
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the configuration file name for this virtual host. 
+If the configuration file is placed under the virtual host root, 
+{val}$VH_ROOT/conf/vhconf.xml{/} is recommended. If it is placed under the server root, 
+{val}$SERVER_ROOT/conf/{VirtualHostName}.xml{/} is recommended.
+END_DESCR
+
+SYNTAX: file3
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: allowSymbolLink
+NAME: Follow Symbolic Link
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to follow symbolic links in this virtual host. 
+{val}IF OWNER MATCH{/} option will follow a symbolic link only if it has the same ownership. 
+This setting overrides the default server-level setting.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance & security] For better security, disable this feature. For better performance, enable it.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: enableScript
+NAME: Enable Script
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether scripting (non-static pages) is allowed in this virtual host. 
+If disabled, CGI, FastCGI, LSAPI, Servlet engines and other scripting languages will not be allowed in this virtual host. 
+Therefore, if you want to use a script handler, you need to enable it here as well.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: restrained
+NAME: Restrained
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether files beyond this virtual host root($VH_ROOT) can be accessed 
+though this web site. If set to {val}Yes{/}, only files under $VH_ROOT can be accessed  
+and access to symbolic links or context pointing to files or directories beyond $VH_ROOT 
+will be denied. This, however, does not limit the accessibility of CGI scripts. This is useful 
+in the shared hosting environment. {ITEM=allowSymbolLink} can be set to {val}Yes{/} to allow 
+users to use symbolic links under $VH_ROOT, but not anything beyond $VH_ROOT.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] Turn it on in the shared hosting environment.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: vhMaxKeepAliveReq
+NAME: Max Keep-Alive Requests
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=ServTuning_Help#maxKeepAliveReq}
+
+DESCR: Specifies the maximum requests that can be served through a keep-alive (persistent) 
+connection. Connections will be closed once this limit is reached. You
+can specify a different limit for different virtual hosts. This number
+cannot exceed the server-level {ITEM=ServTuning_Help#maxKeepAliveReq} limit.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Set to a reasonably high value. A value of "1" or less will 
+disable keep-alive connections. 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: vhSmartKeepAlive
+NAME: Smart Keep-Alive
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to turn on Smart Keep-Alive for this virtual
+host. This option is effective only if the server-level
+{ITEM=ServTuning_Help#smartKeepAlive} is enabled and
+{ITEM=vhMaxKeepAliveReq} is greater than 1.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Enable this for busy web sites.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: setUidMode
+NAME: ExtApp Set UID Mode
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies how user ID is set for an external application process. Three choices
+are available: 
+<ul><li>{val}Server UID{/}: Set the user/group ID of external application processes  to the same as
+the server's user/group ID.</li>
+    <li>{val}CGI File UID{/}: Set the user/group ID of external CGI processes based 
+	on the user/group ID of the executable. This option only applies to CGI, not FastCGI or LSPHP.</li>
+    <li>{val}Doc Root UID{/}: Set the user/group ID of external application processes based 
+	on the user/group ID of the document root of the current virtual host.</li>
+</ul>
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] In the shared hosting environment, it is recommended to
+use the {val}CGI File UID{/} or {val}Doc Root UID{/} modes to prevent files
+owned by one virtual host from being accessed by the external application scripts of another
+virtual host.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: chrootMode
+NAME: ExtApp Chroot Mode
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: {ent_version} Specifies how the root directory is set for an external application
+process. In order to protect confidential system data files from being
+accessed by a vulnerable external application script, an alternative root path can be
+set for the external application process so that files beyond the new root directory become
+inaccessible. This is referred to as a "chroot jail".<br>
+
+Three choices are available: 
+<ul><li>{val}Same as Server{/}: External application processes will be run in the same jail as the server.</li>
+    <li>{val}Virtual Host Root{/}: Set chroot jail to the
+root directory of the virtual host. The external application script will only be able to access files
+inside the virtual host root. </li>
+	<li>{val}Customized Chroot Path{/}: Specify the chroot path {ITEM=chrootPath} below. </li>
+</ul>
+
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: If used properly, chroot will greatly enhance the security
+of external application scripts, but you must make sure the external application script is functional
+in the limited chroot jail environment.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: chrootPath
+NAME: ExtApp Chroot Path
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: {ent_version} Specifies a new root directory for the current host's external application scripts  
+when {ITEM=chrootMode} is set to {val}Customized Chroot Path{/}.
+
+END_DESCR
+
+SYNTAX: path1
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: addDefaultCharset
+NAME: Add Default Charset
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to add a character set tag to the
+	   "Content-Type" response header, when content type is either
+	   "text/html" or "text/plain" without any parameters.
+	   When set to {val}Off{/},  this function is disabled. When set to
+	   {val}On{/}, either the character set specified by
+	   {ITEM=defaultCharsetCustomized} or the default "iso-8859-1" will be added.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: defaultCharsetCustomized
+NAME: Customized Default Charset
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies a character set to be used when {ITEM=addDefaultCharset}
+	   is {val}On{/}. This is optional. The default value is {val}iso-8859-1{/}.
+	   This entry has no effect when {ITEM=addDefaultCharset} is
+	   {val}Off{/}.
+END_DESCR
+
+SYNTAX: Name of a character set, like {val}utf-8{/}
+END_SYNTAX
+
+EXAMPLE: utf-8
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: realm
+NAME: Realm
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the authorization realm for this context. When specified, 
+a valid user name and password must be provided in order to access this context. 
+{TBL=VHSecurity_Help#realms} are set up in the {PAGE=VHSecurity_Help} section. 
+This setting uses each realm's {ITEM=VHSecurity_Help#realmName}.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+
+[ITEM]
+ID: authName
+NAME: Authentication Name
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies an alternative name for the authorization realm for current context. 
+If it is not specified, the original realm name will be used. The authentication name is 
+displayed on the browser's login pop-up.
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+
+[ITEM]
+ID: required
+NAME: Required
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies which user/group can access this context. With this directive, 
+a large user database can be shared amongst contexts with different levels of permission.
+END_DESCR
+
+SYNTAX: Syntax is compatible with Apache, valid syntaxes are 
+<ul>
+<li>{val}user username [username ...]{/} <br> 
+Only listed users can access this context;</li>
+<li> {val}group groupid [groupid ...]{/}<br>
+ Only users belonging to the listed groups can access this context.</li>
+</ul>
+If this setting is not specified, all valid users can access this resource.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+
+[ITEM]
+ID: accessAllowed
+NAME: Access Allowed
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies which IPs or sub-networks are allowed to access resources under this context. Together with 
+{ITEM=accessDenied} and server/virtual host-level access control, accessibility is determined by 
+the smallest scope that a client's IP address falls into. 
+END_DESCR
+
+SYNTAX: Comma-delimited list of IPs/sub-networks. 
+END_SYNTAX
+
+EXAMPLE: Sub-networks can be written as {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/} or {val}192.168.1.*{/}.
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+
+
+[ITEM]
+ID: accessDenied
+NAME: Access Denied
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies which IPs or sub-networks are NOT allowed to access resources under this context. 
+Together with {ITEM=accessAllowed} and server/virtual host-level access control, accessibility is 
+determined by the smallest scope that a client's IP address falls into. 
+END_DESCR
+
+SYNTAX: Comma-delimited list of IPs/sub-networks. 
+END_SYNTAX
+
+EXAMPLE: Sub-networks can be written as {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/} or {val}192.168.1.*{/}.
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+
+[ITEM]
+ID: extAuthorizer
+NAME: Authorizer
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies an external application that can be used to
+generate authorized/unauthorized decisions. Currently, only the FastCGI
+Authorizer is available. For more details about the FastCGI Authorizer role, 
+please visit <a href="http://www.fastcgi.com/">http://www.fastcgi.com</a>.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: uri
+NAME: URI
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the URI for this context. The URI should start with a "/". 
+If a URI ends with a "/", then this context will include all sub-URIs under this URI.
+END_DESCR
+
+SYNTAX: URI
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: javaWebApp_location
+NAME: Location
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the directory that contains the files for this web application. 
+This is the directory containing "WEB-INF/web.xml".
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: servletEngine
+NAME: Servlet Engine
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the name of the servlet engine that serves this web application.
+Servlet engines must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: fcgiapp
+NAME: FastCGI App
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the name of the FastCGI application. 
+This application must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: lsapiapp
+NAME: LiteSpeed SAPI App
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the name of the LiteSpeed SAPI application to be connected to this context.
+This application must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+[ITEM]
+ID: lbapp
+NAME: Load Balancer
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the name of the load balancer to be associated to this context.
+This load balancer is a virtual application, and must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: proxyWebServer
+NAME: Web Server
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the name of the external web server.
+This external web server must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: path
+NAME: Path
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the location of CGI scripts. 
+END_DESCR
+
+SYNTAX: The path can be a directory that contains a group of CGI scripts, 
+like {val}$VH_ROOT/myapp/cgi-bin/{/}. 
+In this case, the context {ITEM=expuri} must end with "/", like {val}/app1/cgi/{/}.  
+The Path can also specify only one CGI script, like {val}$VH_ROOT/myapp/myscript.pl{/}. 
+This script should have the corresponding {ITEM=expuri} {val}/myapp/myscript.pl{/}.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: allowSetUID
+NAME: Allow Set UID
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether the set UID bit is allowed for CGI scripts. If the 
+set UID bit is allowed and the set UID bit is enabled for a CGI script, 
+no matter which user the CGI script was started on behalf of, the user ID of the CGI process will
+switch to the user ID of the owner of the CGI script. <br>
+The default is "Off".
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] Do not allow Set UID CGI scripts whenever possible, as it
+is inherently a security risk.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: externalredirect
+NAME: External Redirect
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether this redirect is external. 
+For external redirection, {ITEM=statuscode} may be specified and 
+{ITEM=destinationuri} can start either with "/" or "http(s)://". 
+For internal redirection, {ITEM=destinationuri} must start with "/".
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: statuscode
+NAME: Status Code
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the response status code of the external redirection. 
+If the status code is between 300 and 399, {ITEM=destinationuri} can be specified.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: destinationuri
+NAME: Destination URI
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the target location of the redirection. 
+If this redirected URI maps to a URI in another redirect context, it will be redirected again. 
+END_DESCR
+
+SYNTAX: This URI can either be a relative URI on the same web site starting with "/", 
+or an absolute URI pointing to different web site starting with "http(s)://".  
+If the {ITEM=expuri} contains regular expression, the destination can reference 
+the matched variables, such as $1 or $2.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: errCode
+NAME: Error Code
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the HTTP status code for the error page. 
+Only the selected HTTP status code will have this customized error page. 
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: errURL
+NAME: URL
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the URL of the customized error page.  
+The server will forward the request to this URL when the corresponding HTTP status code has returned. 
+If this URL refers to a non-existing resource, the built-in error page will be used. 
+The URL can be a static file, a dynamically generated page, or a page on another web site 
+(a URL starting with "http(s)://"). 
+When referring to a page on another web site, the client will receive a redirect status 
+code instead of the original status code.
+END_DESCR
+
+SYNTAX: URL
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: errPageAction
+NAME: Action
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: To change the error page setting, click "Edit". 
+To remove this customized error page, click "Delete".
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: enableCoreDump
+NAME: Enable Core Dump
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to enable core dump when the server is started by "root" user. 
+For most modern Unix systems, processes that change user ID or group ID are not allowed to 
+dump a core file for security reasons. However, it is much easier to identify root 
+cause of a problem with a core dump. This option only works on Linux kernel 2.4 and up.  
+Solaris users should use the {cmd}coreadm{/} command to control this feature.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] Only enable this when you see {val}no core file created{/} in  
+the server log file. Disable it immediately after producing the core file.  
+Please submit a bug report when a core dump has been created.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: consoleSessionTimeout
+NAME: Session Timeout (secs)
+REQUIRED: 
+APPLY: Immediately
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Customize the session timeout length of WebAdmin console. 
+The default is 60 seconds if no value is set.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] Set a proper value for production use, usually less than 300 seconds.
+END_TIPS
+
+[END_ITEM]
+
+[ITEM]
+ID: adminUser
+NAME: Admin User
+REQUIRED: 
+APPLY: Immediately
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Change the user name and password for WebAdmin Console. 
+The old password has to be entered and verified in order to save the changes.  
+END_DESCR
+
+SYNTAX:
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: If you forget the admin password, you cannot change it from the
+WebAdmin console. Please use the following command from shell instead:
+{cmd}[your install dir]/admin/misc/admpass.sh{/} 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+
+[TBL]
+ID: geolocationDB
+NAME: IP to Geolocation DB
+
+DESCR: {ent_version} Multiple MaxMind geolocation databases can be specified here. MaxMind
+has the following type of DBs: Country, Region, City, Organization, ISP and Netspeed. 
+If multiple databases of types "Country", "Region", and "City" are configured, the
+last one will be effective.
+END_DESCR
+
+CONT: geoipDBFile geoipDBCache 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+##################### Common Table definitions #########################
+
+
+
+[TBL]
+ID: servLog
+NAME: Server Log
+
+DESCR: 
+END_DESCR
+
+CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_enableStderrLog 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+[TBL]
+ID: servAcLog
+NAME: Access Log
+
+DESCR: 
+END_DESCR
+
+CONT: accessLog_fileName accessLog_pipedLogger accessLog_logFormat accessLog_logHeader log_rollingSize accessLog_keepDays accessLog_compressArchive
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[TBL]
+ID: servIndex
+NAME: Index Files
+
+DESCR: 
+END_DESCR
+
+CONT: indexFiles autoIndex autoIndexURI
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+[TBL]
+ID: reqTuning
+NAME: Request/Response Tuning
+
+DESCR: 
+END_DESCR
+
+CONT: maxReqURLLen maxReqHeaderSize maxReqBodySize
+      maxDynRespHeaderSize maxDynRespSize 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+
+
+[TBL]
+ID: accessControl
+NAME: Access Control
+
+DESCR: Specifies what sub networks and/or IP addresses can access the server. 
+This is a server-level setting that affects all virtual hosts. You can also set up 
+access control unique to each virtual host. Virtual host settings will NOT 
+override the server settings. <br>
+
+Whether to block/allow an IP is determined by the combination of the allowed list and denied list. 
+If you want to block only certain IPs or sub-networks, put {val}*{/} or {val}ALL{/} in 
+{ITEM=accessControl_allow} and list the blocked IPs or sub-networks in {ITEM=accessControl_deny}. 
+If you want to only allow certain IPs or sub-networks, put {val}*{/} or {val}ALL{/} 
+in {ITEM=accessControl_deny} and list the allowed IPs or sub-networks in {ITEM=accessControl_allow}. 
+The setting of the smallest scope that fits for an IP will be used to determine whether 
+to block or allow that IP. <br>
+
+Trusted IPs or sub-networks must be specified in {ITEM=accessControl_allow} by adding a 
+trailing "T". Trusted IPs or sub-networks are not affected by connection/throttling limits. 
+Only server-level access control can set up trusted IPs/sub-networks.
+END_DESCR
+
+TIPS: [Security] Use this for general restrictions that apply to all virtual hosts.
+END_TIPS
+
+CONT: accessControl_allow accessControl_deny 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+[TBL]
+ID: vhLog
+NAME: Virtual Host Log
+
+DESCR: 
+END_DESCR
+
+CONT: logUseServer log_fileName vhlog_logLevel log_rollingSize 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[TBL]
+ID: vhAcLog
+NAME: Access Log
+
+DESCR: 
+END_DESCR
+
+CONT: aclogUseServer accessLog_fileName accessLog_pipedLogger 
+accessLog_logFormat accessLog_logHeader 
+log_rollingSize accessLog_keepDays 
+accessLog_bytesLog accessLog_compressArchive
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+[TBL]
+ID: vhAccessControl
+NAME: Access Control
+
+DESCR: Specifies what sub-networks and/or IP addresses can access this virtual host 
+in addition to server-level access control. This virtual host setting does NOT override 
+the server setting. Whether to block/allow an IP is determined by the combination 
+of the allowed list and denied list. If you want to block only certain IPs or sub-networks, 
+put {val}*{/} or {val}ALL{/} in the allowed list and list the blocked IPs or 
+sub-networks in the denied list. If you want to only allow certain IPs or sub-networks, 
+put {val}*{/} or {val}ALL{/} in the denied list and list the allowed IPs or 
+sub-networks in the allowed list. The setting of the smallest scope that fits for 
+an IP will be used to determine whether to block or allow access.
+END_DESCR
+
+CONT: vhaccessControl_allow accessControl_deny 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+
+
+
+[TBL]
+ID: coredump
+NAME: General
+
+DESCR: 
+END_DESCR
+
+CONT: enableCoreDump consoleSessionTimeout
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+[TBL]
+ID: adminUsers
+NAME: Web Admin Users
+
+DESCR: 
+END_DESCR
+
+CONT: adminUser
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+[TBL]
+ID: realms
+NAME: Authorization Realms
+
+DESCR: Lists all authorization realms for this virtual host. 
+Authorization realms are used to block unauthorized users from accessing protected web pages.
+A realm is a user directory containing user names and passwords with optional 
+group classifications. Authorization is performed at context level. 
+Since different contexts can share the same realm (user database), so realms are 
+defined separately from the contexts that use them. 
+You can refer to a realm by these names in context configuration. 
+END_DESCR
+
+CONT: realmName realmType userDBLocation userDB_attrPasswd
+userDB_attrMemberOf userDBMaxCacheSize userDBCacheTimeout 
+GroupDBLocation groupDB_attrGroupMember groupDBMaxCacheSize 
+groupDBCacheTimeout LDAPBindDN LDAPBindPasswd
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+################### Common Page Section  #################
+
+
+
+
+[PAGE]
+ID: AdminGeneral_Help 
+NAME: Administration Console Settings
+
+DESCR: Admin Server is a special virtual host dedicated to the WebAdmin console.  
+It is very important to make sure Admin Server is securely protected either by only allowing  
+access from the administrator's machines or by using an encrypted SSL connection. 
+END_DESCR
+
+CONT: coredump vhLog vhAcLog vhAccessControl adminUsers
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+
+[END_HELPDOC]
+

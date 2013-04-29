@@ -1,0 +1,560 @@
+[HELPDOC]
+
+[ITEM]
+ID: lb_name
+NAME: Name
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: A unique name for a cluster.
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: lb_type
+NAME: Type
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the type of cluster. "Layer-7" HTTP load balancing is
+supported in 1.0 release, "Layer-4" load balancing is execpted in 2.0
+release. <br>
+<ul>
+<li>"Layer-7" HTTP load balancing is also known as application-level load
+balancing, is to parse HTTP requests and distribute requests to
+servers based on different types of request contents. <br>
+<li>"Layer-4" load balancing is transport layer load balancing, such as
+TCP and UDP transport protocol. It does not look at the content
+when select a backend server. In theory, it support all kinds of
+applications.
+</ul>
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: lb_mode
+NAME: Mode
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies which mode the load balancer operates in, "Stateless"
+or "Stateful".
+<ul>
+<li>"Stateful" mode track sessions associated with each back-end
+server. It also called "Session Affinity".
+<li>"Stateless" mode does not care about sessions. 
+</ul>
+
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: strategy
+NAME: Strategy
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Select load balancing strategy from the list. 
+
+<ul>
+<li>The round-robin algorithm cycles through a list of backend Server instances in order. 
+<li>The least-load algorithm improves on the round-robin algorithm by
+taking into account current load for each server.
+<li>The least-session algorithm choose the server with fewest session associated.
+</ul>
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sessionExMethod
+NAME: Session Extraction
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specify how to extract session ID from request.
+<ul>
+<li>IP Address: Uses Client IP as session ID.
+<li>Basic Authentication: Uses user name in the basic authentication
+as session ID.
+<li>Query String: Uses a Parameter in request query string as session ID.
+<li>Cookies: Uses a Parameter in cookie as session ID.
+<li>SSL Session: Uses SSL Session ID as session ID.
+<li>JVM Route: JVM Route is an extra section appended to a Servlet
+session ID, which used to identify servlet backend. Example: JSESSIONID=344BA8002DE6FBE2QDF25.tomcat1
+<li>URL Path Parameter: Uses a URL Path Parameter as session ID. 
+</ul>
+
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: sessionId
+NAME: Session ID String
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the Session ID string. The string is used to extract
+the session id value from cookie, query string and URL path parameter.
+
+END_DESCR
+
+SYNTAX: text 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sessionTimeout
+NAME: Session Timeout
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specify for how long a session will be valid, in seconds.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: insertCookie
+NAME: Insert Tracking Cookie
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specify whether to insert a tracking cookie. The tracking
+cookie can be used to reconstruct session cache in case load balancer
+lost it.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+[ITEM]
+ID: cookieName
+NAME: Tracking Cookie Name
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specify the tracking cookie name.
+END_DESCR
+
+SYNTAX: string
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: errMessage
+NAME: Custom Error Message
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specify a custom error message.
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: workerName
+NAME: Name
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: A unique name for a group of worker.
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: worker_type
+NAME: Type
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies type of workers. Worker type can be:
+FastCGI, LiteSpeed SAPI (LSAPI), Servlet Engine, Web Server.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: workerGroupEnabled
+NAME: Enabled
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to enable this worker group.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: sourceIP
+NAME: Source IP
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies a Source IP for connecting to the backend
+worker. It can be overriden in worker configuration.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: defaultTargetPort
+NAME: Default Target Port
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies a default target port for connecting to the backend
+worker. It can be overriden in worker configuration.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: pingUrl
+NAME: Ping URL
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies a HTTP URL that is used to verify the availability of
+a web server backend worker, have no effect to other type of workers.
+END_DESCR
+
+SYNTAX: URL
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: pingInterval
+NAME: Ping Interval
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies how often to ping a backend worker. For web server
+backend, a http request based on "Ping URL" will be sent. For other
+types of backends, an TCP connection attempt will be made to the
+backend server, if it succeed, the backend will be used as a good
+node. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: nodeAddresses
+NAME: Node Address List
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies addresses of nodes in this group. Attributes can be
+specified for a node are "Destination IP", "Destination Port", "Node Tag" and
+"Source IP". Destination IP
+address is manditory, the other attributes are optional. Examples:
+192.168.0.11, (node1)192.168.0.11,
+(node1)192.168.0.10->192.168.0.11:80,
+"node1" is the "Node Tag", "Node Tag" is used to match "JVM Route". 
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[TBL]
+ID: ClusterWorkerGroup
+NAME: Worker Group Definition
+
+DESCR: 
+END_DESCR
+
+CONT: workerName worker_type workerGroupEnabled sourceIP defaultTargetPort maxConns env initTimeout retryTimeout persistConn pcKeepAliveTimeout respBuffer pingUrl pingInterval nodeAddresses
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+[TBL]
+ID: ClusterDef
+NAME: Load Balancer Definition
+
+DESCR: 
+END_DESCR
+
+CONT: lb_name lb_type lb_mode strategy
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+[TBL]
+ID: ClusterSession
+NAME: Session Management
+
+DESCR: 
+END_DESCR
+
+CONT: sessionExMethod sessionId sessionTimeout 
+	  insertCookie cookieName
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+[TBL]
+ID: ClusterErrMsg
+NAME: Custom Error Messages
+
+DESCR: Specify a custom error message in case error occured during
+distributing request to backend servers. Custom error messages
+configured at virtual host level will override this configuration.
+END_DESCR
+
+CONT: errMessage 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[PAGE]
+ID: Clusters_Help 
+NAME: Clusters
+
+DESCR: 
+END_DESCR
+
+CONT:  ClusterDef ClusterSession ClusterErrMsg ClusterWorkerGroup
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]
+

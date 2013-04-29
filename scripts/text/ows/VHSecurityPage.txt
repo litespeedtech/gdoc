@@ -1,0 +1,21 @@
+[HELPDOC]
+
+
+[PAGE]
+ID: VHSecurity_Help 
+NAME: Virtual Host Security
+
+DESCR: 
+END_DESCR
+
+CONT: tpSecFile tpSecThrottle tpSecCGI vhAccessControl realms 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+[END_HELPDOC]
+
+
+
+

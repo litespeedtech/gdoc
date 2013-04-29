@@ -1,0 +1,238 @@
+[HELPDOC]
+
+[ITEM]
+ID: haInterfaceId
+NAME: Name
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: A unique number that identifies one virtual interface.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haVip
+NAME: Virtual IP
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: Specifies the virtual IP address of HA interface. It can be either IPv4 or IPv6 address, and has to be on the same subnet with the real IP address.
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+[ITEM]
+ID: haVipId
+NAME: Virtual IP ID
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: Specifies an ID of the virtual IP address. Please use an integer number between 1 and 10. VIP, VIP ID and VIP Token have to be same for the same HA group.
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+[ITEM]
+ID: haVipToken
+NAME: Virtual IP Token
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: Specifies a token of the virtual IP address, which is required to authenticate interface(carp/vrrp) advertisements. VIP, VIP ID and VIP Token have to be same for the same HA group.
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+[ITEM]
+ID: haNic
+NAME: NIC Name
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: Specifies the NIC name (such as eth0, eth1, etc..) that virtual IP will bind to, required for Linux platform.  
+
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: haRole
+NAME: Role
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: Select the preferred role of the HA interface, either master or slave. 
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haConfiguredStatus
+NAME: Configuration Status
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: Displays the current configuration status versus the real system status for a HA interface. 
+It allows you to apply changes or fix errors. 
+END_DESCR
+
+SYNTAX: Display Information
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: haAction
+NAME: Action
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: Displays available actions based on configuration and real system status. 
+You can add/remove/enable/disable a HA interface based on current status. 
+If you need to apply configuration changes, for any active interface, you need to
+disable it first, then enable it with new configuration. An error message will display
+if the control action fails. 
+
+END_DESCR
+
+SYNTAX: action 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[TBL]
+ID: HAStatus
+NAME: HA Status
+
+DESCR: View the current status of HA interfaces. It displays the configuration 
+from web administration console and real settings from the system side by side. 
+You can also control (add/remove/enable/disable) your virtual interfaces from here. 
+You can also click "Refresh" to retrieve current system status. 
+END_DESCR
+
+CONT: haConfiguredStatus haAction
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+[TBL]
+ID: HAConfig
+NAME: HA Configuration
+
+DESCR: Configure HA virtual interface.
+END_DESCR
+
+CONT: haInterfaceId haVip haVipId haVipToken haNic haRole 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[PAGE]
+ID: HA_Help 
+NAME: High Availability Settings
+
+DESCR: 
+END_DESCR
+
+CONT:  HAConfig HAStatus
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]
+

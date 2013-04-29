@@ -1,0 +1,786 @@
+[HELPDOC]
+
+[ITEM]
+ID: rewriteLogLevel
+NAME: Rewrite Log Level
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: Server {ITEM=ServGeneral_Help#log_logLevel}
+
+DESCR: Specifies the log level of the rewrite engine debug output.
+Value ranges from 0 - 9, 0 will disable logging and 9 will produce the
+most detailed log. The log level of the server error log
+must be set to at least {val}INFO{/} for this option to take effect.
+This is useful when testing your rewrite rules.
+
+END_DESCR
+
+SYNTAX: uint 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: censorLogLevel
+NAME: Log Level
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: Server {ITEM=ServGeneral_Help#log_logLevel}
+
+DESCR: Specifies the log level of the censoring engine debug output.
+Value ranges from 0 - 9, 0 will disable logging and 9 will produce the
+most detailed log. The log level of the server error log
+must be set to at least {val}INFO{/} for this option to take effect.
+This is useful when testing your censoring rules.
+
+END_DESCR
+
+SYNTAX: uint 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: defaultCluster
+NAME: Default Cluster
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the cluster that handle requests to this vhost. 
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: extSrcIP
+NAME: Type
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Select from available IPs.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: extAppType
+NAME: Type
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the type of external application. Choose from
+<ul>
+<li>{val}FastCGI{/}: a FastCGI application with {val}Responder{/}
+role.</li>
+<li>{val}Servlet Engine{/}: a Servlet engine with AJPv13 connector,
+such as tomcat.</li>
+<li>{val}Web Server{/}: a web server or application server that
+support HTTP protocol.</li>
+<li>{val}LSAPI App{/}: an application that communicate with web server
+in LSAPI protocol.</li>
+<li>{val}Piped Logger{/}: an application that can process access log
+entries received on its STDIN stream.</li>
+</ul>
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: dynReqPerSec
+NAME: Requests/Second
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum number of requests to dynamically generated content 
+coming from a single IP address can be processed in each second
+regardless of number of connections established. 
+When the limit is reached, all future requests to dynamic content 
+are tar-pitted until next second. 
+Per client request limit can be set at server or virtual host level where
+virtual host level setting overrides server level setting.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+[Security] Trusted IP or sub-network is not effected
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: extCluster
+NAME: Cluster
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the cluster that handle requests to this context. 
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: accessLog_pipedLogger
+NAME: Piped Logger 
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies an external application that will receive the access log
+data sent by LiteSpeed through a pipe on its STDIN stream (file
+handle 0). When specified, access log will be sent only to the logger application but not the
+access log file specified in previous entry. <br>
+The LiteSpeed load balancer 
+performs simple load balancing among multiple logger applications if
+more than one instance of logger application is configured. 
+LiteSpeed server always attempts
+to keep the number of logger processes as low as possible. Only when 
+one logger application failed to process access log entries in time 
+will the server attempt to spawn another instance of logger
+application. <br>
+If a logger process crashes, the server will start another instance but
+the log data in the stream buffer will be lost. It is possible to lose
+log data if external loggers cannot keep up  
+with the speed and volume of the log stream. <br>
+File path to the logger application should be given here, and
+optionally, number of application instaces can be set before the file
+path, followed by '|'. Example, "4|/path/to/logger/app" tell server to
+start up to 4 logger processes, while, only one logger process will be
+started if "/path/to/logger/app" is used.
+<br>
+
+
+END_DESCR
+
+SYNTAX: [&lt;intances&gt;|]&lt;path_to_logger_app&gt;
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[TBL]
+ID: servProcess
+NAME: Server Process
+
+DESCR: 
+END_DESCR
+
+CONT: serverName runningAs serverPriority inMemBufSize swappingDir autoRestart 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+[TBL]
+ID: servGeneral
+NAME: General Settings
+
+DESCR: 
+END_DESCR
+
+CONT: disableInitLogRotation showVersionNumber 
+enableIpGeo useIpInProxyHeader autoUpdateInterval 
+autoUpdateDownloadPkg adminEmails 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+[TBL]
+ID: perClientConnLimit
+NAME: Per Client Throttling Control
+
+DESCR: These are connection control setting on a per client/IP basis. 
+These settings help to mitigate DoS (Denied of Service) and DDoS (Distributed Denied of Service) attacks.
+END_DESCR
+
+CONT: dynReqPerSec outBandwidth inBandwidth softLimit hardLimit gracePeriod banPeriod 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: connTuning
+NAME: Connection Tuning
+
+DESCR: 
+END_DESCR
+
+CONT: maxConnections maxSSLConnections connTimeout maxKeepAliveReq
+smartKeepAlive keepAliveTimeout sndBufSize rcvBufSize eventDispatcher
+SSLCryptoDevice 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+[TBL]
+ID: gzipTuning
+NAME: GZIP Compression Tuning
+
+DESCR: 
+END_DESCR
+
+CONT: enableGzipCompress gzipCompressLevel compressibleTypes
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+[TBL]
+ID: extapp
+NAME: External App Settings
+
+DESCR: 
+END_DESCR
+
+CONT: extAppType extAppName extAppAddress extSrcIP maxConns env initTimeout 
+retryTimeout persistConn pcKeepAliveTimeout respBuffer 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+[TBL]
+ID: vhGeneral
+NAME: General
+
+DESCR: 
+END_DESCR
+
+CONT: vhMaxKeepAliveReq vhSmartKeepAlive enableGzip enableIpGeo vhadminEmails 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+[TBL]
+ID: vhTop
+NAME: Virtual Host
+
+DESCR: 
+END_DESCR
+
+CONT: vhName defaultCluster configFile 
+dynReqPerSec outBandwidth inBandwidth 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+[TBL]
+ID: errPage
+NAME: Customized Error Pages
+
+DESCR: Whenever the server has a problem in processing a request, 
+the server will return an error code and an html page as the error message 
+to web client. Error codes are defined in the HTTP protocol (see RFC 2616). 
+LiteSpeed server has a built-in default error page for each error code.
+A customized page can be configured for each error code. In LiteSpeed server, 
+error pages can be further customized to be unique for each virtual host. 
+END_DESCR
+
+CONT: errCode errMessage errPageAction 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+[TBL]
+ID: tpSecThrottle
+NAME: Per Client Throttling Control
+
+DESCR: 
+END_DESCR
+
+CONT: dynReqPerSec outBandwidth inBandwidth 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: redirectContext
+NAME: Redirect Context
+
+DESCR: A Redirect Context can be used to forward one URI or a group of URIs to another location. 
+The destination URI can be either on the same web site (internal
+redirect) or an absolute URI pointing to another web site (external redirect).
+END_DESCR
+
+CONT: expuri externalredirect statuscode destinationuri   
+ accessAllowed accessDenied 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: loadBalancerContext
+NAME: Load Balancer Context
+
+DESCR: A Load Balancer Context can be used to forward one URI or a group of URIs to another location. 
+The destination URI can be either on the same web site or an absolute URI pointing to another web site.
+END_DESCR
+
+CONT: expuri extCluster accessAllowed accessDenied realm authName required addDefaultCharset defaultCharsetCustomized
+enableRewrite rewriteInherit rewriteBase rewriteRules enableIpGeo 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+[PAGE]
+ID: ServGeneral_Help 
+NAME: Server General
+
+DESCR: General settings for the load balancer. When a path information is required, 
+it can be either absolute or relative to $SERVER_ROOT. $SERVER_ROOT is the 
+location where LiteSpeed load balancer is installed. For examples, it can be 
+your_home_dir/lslb, /opt/lslb, or etc. The load balancer executable is under $SERVER_ROOT/bin. 
+END_DESCR
+
+CONT: servProcess servGeneral geolocationDB 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: ServLog_Help 
+NAME: Server Log
+
+DESCR: Server log and access log settings for the load balancer. When a path information is required, 
+it can be either absolute or relative to $SERVER_ROOT. $SERVER_ROOT is the 
+location where LiteSpeed load balancer is installed. For examples, it can be 
+your_home_dir/lslb, /opt/lslb, or etc. The load balancer executable is under $SERVER_ROOT/bin. 
+END_DESCR
+
+CONT: servLog servAcLog 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+
+[PAGE]
+ID: ServTuning_Help 
+NAME: Server Tuning
+
+DESCR: 
+END_DESCR
+
+CONT: connTuning reqTuning gzipTuning 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+
+[PAGE]
+ID: ServSecurity_Help 
+NAME: Server Security
+
+DESCR: 
+END_DESCR
+
+CONT: perClientConnLimit accessControl 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: ExtApp_Help 
+NAME: External Application
+
+DESCR: LiteSpeed load balancer supports 5 types of external
+applications: FastCGI, Web Server, Servlet Engine, LSAPI
+Application and Piped Logger. Unlike LiteSpeed web server, all the
+external applications cannot be started by the load balancer.<br>
+<ul>
+<li>FastCGI is a fast, open, and secure web server interface that solves the 
+  performance problems inherent from CGI without introducing the overhead and 
+  complexity of proprietary APIs (Application Programming
+  Interfaces).  For more information, please visit <a
+  href="http://www.fastcgi.com">http://www.fastcgi.com</a><br> 
+  In addition to generating dynamic
+  response (RESPONDER role), a FastCGI application can be used for
+  authentication (AUTHORIZER role) as well.
+<br><br></li>
+<li>Web Server is a server application that supports HTTP 1.0/1.1
+protocols. When communicating with backend web servers, LiteSpeed load
+balancer will always try to utilize "persistent connection" in order to achieve
+highest performance.
+<br><br>
+</li>
+<li>Servlet Engine is an application that implements Java Servlet and
+Java Server Pages like Apache Tomcat and Jetty. LiteSpeed load balancer can communicate
+with Servlet engine through AJPv1.3 (Apache JServ Protocol version 1.3).
+<br><br></li>
+<li>LSAPI (LiteSpeed Server API) Application is an application that communicates with
+LiteSpeed Web Server through LSAPI which is a fast, scalable server interface
+specfically designed for LiteSpeed Web Server to achieve maximum efficiency. <br>
+LSAPI is similar to FastCGI but LSAPI application can be up to 15%
+faster than a comparable FastCGI application.
+For most demanding web applicatin, LSAPI is highly 
+recommended over FastCGI.<br>
+Our tests shows that LSAPI PHP, PHP compiled with LiteSpeed SAPI, is 
+up to 30% faster than FastCGI PHP. 
+For more information about LSAPI and PHP please visit
+<a
+href="http://www.litespeedtech.com/lsapi/">http://www.litespeedtech.com/lsapi/</a>.
+<br><br></li>
+
+<li>Piped Logger is an application that can process access
+log in real-time, for examples, writing access log into database, performing
+real-time statistics calculation, etc.
+<br><br></li>
+
+</ul>
+External applications will be used as a handler of a specific context in LiteSpeed load balancer: 
+
+<br>
+External Applications can be configured at server or virtual host level. 
+When configured at server level, it can be used by all virtual hosts. When configured at 
+virtual host level, it can only be used within the virtual host.
+END_DESCR
+
+CONT: extapp
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+
+[PAGE]
+ID: VirtualHosts_Help 
+NAME: Virtual Host List
+
+DESCR: This page lists all defined virtual hosts. From here you can  add/delete a virtual host or make
+changes to an existing one. 
+END_DESCR
+
+CONT: vhTop 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+
+[PAGE]
+ID: VHGeneral_Help 
+NAME: Virtual Host General
+
+DESCR: 
+END_DESCR
+
+CONT: vhGeneral vhAcLog errPage
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+
+
+[PAGE]
+ID: VHSecurity_Help 
+NAME: Virtual Host Security
+
+DESCR: 
+END_DESCR
+
+CONT: tpSecThrottle vhHotlink vhAccessControl realms reqCensorship reqCensorshipRule
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[PAGE]
+ID: Context_Help 
+NAME: Context
+
+DESCR: Context is a set of resources that can be located by 
+URLs with a common parent URL. The common parent URL is the ID of the context. 
+A web site is comprised of contexts, for example, "/" is the root Context mapped to the 
+document root of a web site; "/cgi-bin/" is Context dedicated to CGI applications. 
+If you think your web site as a URL tree, then every branch is a context which can be 
+identified by the URL of the branching node. A context should be explicitly defined for the 
+following purposes:
+<ul>
+  <li>To use another cluster other than the default one.</li>
+  <li>To redirect requests to another location.</li>
+</ul>
+END_DESCR
+
+CONT: redirectContext loadBalancerContext
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+
+
+[TBL]
+ID: templateGeneral
+NAME: General
+
+DESCR: 
+END_DESCR
+
+CONT: templateName templateFile mappedListeners  
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+[TBL]
+ID: templateMembers
+NAME: Member Virtual Hosts
+
+DESCR: 
+END_DESCR
+
+CONT: templateVHName templateVHDomain templateVHAliases   
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+
+
+
+[PAGE]
+ID: Templates_Help 
+NAME: Virtual Host Templates
+
+PREV_NAV: Listeners_Help
+NEXT_NAV: VirtualHosts_Help
+TOP_NAV: config.html = Configuration
+
+DESCR: Virtual host template can be used to simplify the
+administration of virtual hosts with similar configuration,
+especially, for mass hosting environment. Once a template is configured
+properly, only minimum configuration is required when adding a new virtual
+host. <br>
+Each template contains a template configuration file, a list of mapped listeners
+and a list of member virtual hosts. <br>
+<br>
+The template configuration file
+contains all configuration entries for a virtual host, with some
+fields requiring special values. <br>
+<br>
+To add a template-based virtual host, administrator only needs to
+add a member to the template member list with a unique virtual host name and a
+qualified domain name of that virtual host.
+Lister-to-virtual host mapping will be added automatically for 
+all listeners in the mapped listener list. <br>
+<br>
+Later on, if you need to customize the configuration for a particular
+virtual host, just "instantiate" that member virtual host, a
+standalone virtual host configuration will be created automatically.
+Even when setting up a virtual host with different configuration,
+it is still convenient to use a template as a starting point, and then customize it after instantiation.
+ 
+END_DESCR
+
+CONT: templateGeneral templateMembers
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+
+
+
+
+[PAGENAV]
+
+ID: LSLB_CONF_NAV
+TOP_NAV: config.html = Configuration
+
+NAV_SEQ: 
+ServGeneral_Help 
+ServLog_Help 
+ServTuning_Help 
+ServSecurity_Help
+RequestFilter_Help
+Listeners_Help
+Clusters_Help
+Templates_Help
+VirtualHosts_Help 
+VHGeneral_Help
+VHSecurity_Help
+Rewrite_Help
+Context_Help
+AdminGeneral_Help
+AdminListener_Help
+HA_Help
+
+END_NAV_SEQ
+
+[END_PAGENAV]
+
+[END_HELPDOC]

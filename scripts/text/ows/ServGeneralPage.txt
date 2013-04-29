@@ -1,0 +1,185 @@
+[HELPDOC]
+
+
+
+[ITEM]
+ID: suffix
+NAME: Suffix
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR:  Specifies the script file suffixes that will be handled by this 
+script handler. Suffixes must be unique. 
+
+END_DESCR
+
+SYNTAX: Comma delimited list with period "." character prohibited.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: The server will automatically add a special MIME type ("application/x-httpd-[suffix]") for the first 
+suffix in the list. For example, MIME type "application/x-httpd-php53" will be added 
+for suffix "php53". Suffixes after the first need to set up in the {ITEM=mime} settings.<br>
+Though we list suffixes in this field, the script handlers use MIME types, not suffixes, 
+to decide which scripts to handle. <br>
+ 
+[Performance & Security] Only specify the suffixes you really need.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: httpdWorkers
+NAME: Number of Workers
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the number of httpd workers. 
+
+END_DESCR
+
+SYNTAX: Integer value between 1 and 16.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Set an appropriate number to suit your needs. Adding more workers may not necessarily mean better performance.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: listenerBinding
+NAME: Binding
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies which lshttpd child process the listener is assigned to. 
+Different child processes can be used to handle requests to
+different listeners by manually associating a listener with a
+process. By default, a listener is assigned to all child processes.
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+
+################### TBL #################
+
+[TBL]
+ID: servProcess
+NAME: Server Process
+
+DESCR: 
+END_DESCR
+
+CONT: serverName runningAs serverPriority 
+ inMemBufSize swappingDir autoRestart autoFix503 gracefulRestartTimeout
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+[TBL]
+ID: servGeneral
+NAME: General Settings
+
+DESCR: 
+END_DESCR
+
+CONT: mime mimesuffix mimetype disableInitLogRotation showVersionNumber 
+ enableIpGeo useIpInProxyHeader adminEmails 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[TBL]
+ID: connTuning
+NAME: Connection Tuning
+
+DESCR: 
+END_DESCR
+
+CONT: maxConnections maxSSLConnections connTimeout maxKeepAliveReq
+smartKeepAlive keepAliveTimeout sndBufSize rcvBufSize eventDispatcher
+maxCachedFileSize totalInMemCacheSize maxMMapFileSize totalMMapCacheSize
+useSendfile fileETag SSLCryptoDevice
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+################ PAGE #################
+
+[PAGE]
+ID: ServGeneral_Help 
+NAME: Server General
+
+DESCR: General settings for the whole server. When path information is required in a setting, 
+it can be either absolute or relative to $SERVER_ROOT. $SERVER_ROOT is the 
+location where LiteSpeed web server has been installed (your_home_dir/lsws or 
+/opt/lsws, for example). The server executable is under $SERVER_ROOT/bin. 
+END_DESCR
+
+CONT: servProcess servGeneral servIndex expire geolocationDB servLog servAcLog 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+
+[PAGE]
+ID: VHGeneral_Help 
+NAME: Virtual Host General
+
+DESCR: 
+END_DESCR
+
+CONT: vhGeneral vhLog vhAcLog vhIndex errPage scriptHandler 
+vhExpire  
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+
+
+[END_HELPDOC]

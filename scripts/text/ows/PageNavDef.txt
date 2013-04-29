@@ -1,0 +1,43 @@
+[HELPDOC]
+
+[PAGENAV]
+
+ID: OLSWS_CONF_NAV
+TOP_NAV: config.html = Configuration
+
+NAV_SEQ: 
+ServGeneral_Help 
+ServTuning_Help 
+ServSecurity_Help
+ExtApp_Help
+ScriptHandler_Help 
+Rails_Help
+Listeners_Help
+Templates_Help
+VirtualHosts_Help
+VHGeneral_Help
+VHSecurity_Help
+Rewrite_Help
+Context_Help 
+AdminGeneral_Help
+AdminListener_Help
+
+END_NAV_SEQ
+
+[END_PAGENAV]
+
+[PAGENAV]
+
+ID: OLSWS_CONTROL_NAV
+TOP_NAV: admin.html = Administration
+
+NAV_SEQ:
+ServerStat_Help
+END_NAV_SEQ
+
+[END_PAGENAV]
+
+[END_HELPDOC]
+
+
+

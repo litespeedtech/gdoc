@@ -1,0 +1,128 @@
+body,td,a,p{font-family:Verdana,arial,sans-serif;}
+.ht {
+    BACKGROUND-COLOR: #F0F7FF; FONT-SIZE: 13px; COLOR: #000000;
+}
+
+.ht-title {
+    FONT-WEIGHT: bold; FONT-SIZE: 15px; COLOR: #FFFFFF; BACKGROUND-COLOR: #718FB0;
+}
+.ht-label {
+	FONT-WEIGHT: bold; COLOR: #666699; FONT-SIZE: 13px;
+}
+
+.label-title {
+    FONT-WEIGHT: bold; FONT-SIZE: 12pt; COLOR: #9999CC; TEXT-ALIGN: center; VIRTICAL-ALIGN: text-top !important
+}
+.label-title1 {
+    FONT-WEIGHT: bold; FONT-SIZE: 12pt; COLOR: #9999CC; VIRTICAL-ALIGN: text-top !important
+}
+
+.intro {
+    FONT-SIZE: 13px; TEXT-ALIGN: left;
+}
+.tbl-content {
+    FONT-WEIGHT: bold; FONT-SIZE: 13px; 
+}
+.tbl-content1 table{
+     border-collapse:collapse;
+}
+
+.tbl-content1 td{
+    PADDING-LEFT: 10px; PADDING-RIGHT: 10px; FONT-SIZE: 9pt; TEXT-ALIGN: left;
+}
+
+.tbl-content1 A { COLOR: #003399;  }
+.tbl-content1 A:visited { COLOR: #003399 }
+.tbl-content1 A:hover{ COLOR: #3333CC; TEXT-DECORATION: none }
+
+.tbl-content2 {
+    PADDING-LEFT: 20px; FONT-SIZE: 14px; TEXT-ALIGN: left; line-height:20px;
+}
+
+.tbl-content2 A { COLOR: #003399; TEXT-DECORATION: none }
+.tbl-content2 A:visited { COLOR: #003399; TEXT-DECORATION: none }
+.tbl-content2 A:hover{ COLOR: #3333FF; TEXT-DECORATION: underline }
+ 
+.tbl-content-lead {
+	COLOR:#003399; FONT-WEIGHT: bold; BACKGROUND-COLOR: #EFEFEF;
+}
+.tbl-content-lead A { COLOR:#003399 }
+.tbl-content-lead A:visited { COLOR:#003399 }
+.tbl-content-lead A:hover{ COLOR: #3333CC; TEXT-DECORATION: none }
+.tbl-content-lead1 {
+	COLOR:#003399; FONT-WEIGHT: bold
+}
+
+.top { FONT-SIZE: 11px; TEXT-ALIGN: right; }
+.top A {COLOR: #FFFFFF; }
+.top A:visited{COLOR: #FFFFFF; }
+
+.eg {
+    PADDING-LEFT: 20px; PADDING-RIGHT: 20px; BACKGROUND-COLOR: #EFEFEF;
+}
+.cmd {
+    PADDING-LEFT: 10px; PADDING-RIGHT: 10px; COLOR: #006600; 
+}
+.tag { COLOR: #339999; FONT-WEIGHT: bold }
+.val { COLOR: #000000; FONT-WEIGHT: bold }
+
+.tagI { COLOR: #339999; FONT-WEIGHT: bold }
+.tagI A { COLOR: #339999; TEXT-DECORATION: none }
+.tagI A:visited { COLOR: #339999 }
+.tagI A:hover { COLOR: #339999; TEXT-DECORATION: underline }
+
+.tagP { COLOR: #339999; FONT-WEIGHT: bold }
+.tagP A { COLOR: #339999; TEXT-DECORATION: none }
+.tagP A:visited { COLOR: #339999 }
+.tagP A:hover { COLOR: #339999; TEXT-DECORATION: underline }
+
+.tagQ { COLOR: #339999; FONT-WEIGHT: bold }
+.tagQ A { COLOR: #339999; TEXT-DECORATION: none }
+.tagQ A:visited { COLOR: #339999 }
+.tagQ A:hover { COLOR: #339999; TEXT-DECORATION: underline }
+
+.copyright {
+	FONT-SIZE: 10px; COLOR: #999999; TEXT-ALIGN: center
+}
+.copyright1 {
+	FONT-SIZE: 10px; COLOR: #999999; 
+}
+.copyright A{
+    COLOR: #333399; TEXT-DECORATION: none
+}
+.copyright A:visited{
+    COLOR: #333399; TEXT-DECORATION: none
+}
+.copyright A:hover{
+    COLOR: #3333CC; TEXT-DECORATION: underline
+}
+.ct {
+    FONT-SIZE: 13px; COLOR: #000000; 
+}
+.label1 {
+    FONT-SIZE: 13px; FONT-WEIGHT: bold; COLOR: #000000; 
+}
+.label2 {
+    FONT-SIZE: 11pt; FONT-WEIGHT: bold; COLOR: #000000; 
+}
+.label-blue {
+    FONT-SIZE: 12pt; FONT-WEIGHT: bold; COLOR: #003399; 
+}
+
+
+.nav-bar {  BACKGROUND-COLOR: #DEF3FF; COLOR: #6B6D6B; font-size: 12px; }
+.nav-bar a { color: #6B6D6B; text-decoration: none; }
+.nav-bar a:hover { text-decoration: underline; }
+.nav-bar a visited { color: #6B6D6B }
+
+.qa-title {
+    FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #000000;
+}
+
+.qa{
+    PADDING-LEFT: 15px; FONT-SIZE: 13px; 
+}
+.qa-top { FONT-SIZE: 12px; TEXT-ALIGN: right; FONT-WEIGHT: normal;}
+.qa-top A {COLOR: #6B6D6B; }
+.qa-top A:visited{COLOR: #6B6D6B; }
+
