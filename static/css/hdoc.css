@@ -1,10 +1,51 @@
-body,td,a,p{font-family:Verdana,arial,sans-serif;}
+body,td,a,p{font-family: sans-serif;}
+
+body {
+	color: #222; font-size: 13px;
+}
+
+
+.wrapper {
+	width: 960px; margin: 0 auto; background-color: #FFFFFF;
+}
+
+h1 {
+	font-size: 15pt;
+}
+
+h2 {
+	font-size: 13pt;
+}
+
+h3 {
+	font-size: 12pt;
+}
+
+h1,h2,h3 {
+	margin: 0 0 5px 0;
+	font-weight: 700;
+}
+
+ol {
+	display: block;
+	list-style-type: decimal;
+	margin-left: 1em;
+}
+
+ol li {
+	margin: 0 0 0.5em 0;
+}
+
+.toctop li A { COLOR: #116789; TEXT-DECORATION: none }
+.toctop li A:visited { COLOR: #116789; TEXT-DECORATION: none }
+.toctop li A:hover{ COLOR: #ee9126; TEXT-DECORATION: none }
+
 .ht {
-    BACKGROUND-COLOR: #F0F7FF; FONT-SIZE: 13px; COLOR: #000000;
+    BACKGROUND-COLOR: transparent; FONT-SIZE: 13px; COLOR: #555;
 }
 
 .ht-title {
-    FONT-WEIGHT: bold; FONT-SIZE: 15px; COLOR: #FFFFFF; BACKGROUND-COLOR: #718FB0;
+    FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #FFFFFF; BACKGROUND-COLOR: #555; background-image:linear-gradient(#666666,#555555); border-top-left-radius: 3px; border-top-right-radius: 3px;
 }
 .ht-label {
 	FONT-WEIGHT: bold; COLOR: #666699; FONT-SIZE: 13px;
