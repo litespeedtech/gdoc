@@ -157,36 +157,40 @@ class DocPage
 		$nav = GenTool::getNavBar($this->_prevNav, $this->_topNav, $this->_nextNav);
 		$buf = GenTool::getHeader($nav, $this->_name);
 		if ( $this->_descr )
-			$buf .= '<tr class="intro"><td>' . $this->_descr . '</td></tr>'.$e;
-		$buf .= '<tr><td>&nbsp;</td></tr>' . $e;
+			$buf .= '<p>' . $this->_descr . '</p>'.$e;
+			
 		$helpList = array();
 		if ( $this->_tables )
 		{
-			$buf .= '<tr><td class="tbl-content">Table of Contents</td></tr>'.$e;
-			$buf .= '<tr><td class="tbl-content1"><table cellpadding="2" border="1" cellspacing="0">'.$e;
+			$buf .= '<h4>Table of Contents</h4>';
+			//$buf .= '<div><table class="tbl-content1" cellpadding="2" border="1" cellspacing="0">'.$e;
+			$buf .= '<section class="toc">';
+			
 			foreach ( $this->_tables as $table )
 			{
 				if ( isset($table) )
 					$buf .= $table->toTableOfContents();
 			}
-			$buf .= '</table></td></tr>'. $e;
+			//$buf .= '</table></div>'. $e;
+			$buf .= '</section>' . $e;
 
 		}
-		$buf .= '<tr><td>&nbsp;</td></tr>' . $e;
+		$buf .= '<section>';
 		if ( $this->_items )
 		{
 			foreach ( $this->_items as $item )
 			{
 				if ( $item != NULL )
 				{
-					$buf .= '<tr><td>' .$e;
+					$buf .= '<div class="helpitem">' .$e;
 					$buf .= $item->toDoc();
-					$buf .= '</td></tr>'.$e;
+					$buf .= '</div>'.$e;
 				}
 			}
 		}
+		$buf .= '</section>';
 
-		$buf .= GenTool::getFooter($nav);
+		$buf .= GenTool::getFooter();
 
 		$buf1 = GenTool::translateTag($buf, $base);
 

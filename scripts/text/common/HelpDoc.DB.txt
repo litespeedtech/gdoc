@@ -25,32 +25,6 @@ END_TIPS
 [END_ITEM]
 
 
-[ITEM]
-ID: runningAs
-NAME: Running As
-REQUIRED: 
-APPLY: 1
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies the user/group that the server process runs as. 
-This value was set during installation. To change it, 
-you have to download the installation package and perform an upgrade via command line.
-END_DESCR
-
-SYNTAX: 
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: [Security] Server should not run as a privileged user such as "root". 
-It is critical that the server is configured to run with a un-privileged user/group combination 
-that does not have login/shell access. A user/group of {val}nobody{/} is generally a good choice.
-END_TIPS
-
-[END_ITEM]
-
 
 
 
@@ -1538,11 +1512,11 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies for how long new connections can be accepted after the number of connections 
-established from one IP is over the <ITEM=softLimit>. Within this period, new connections 
+DESCR: Specifies how long new connections can be accepted after the number of connections 
+established from one IP is over the {ITEM=softLimit}. Within this period, new connections 
 will be accepted if the total connections is still below the {ITEM=hardLimit}. After this 
-period, if the number of connections still higher than the <ITEM=softLimit>, then that 
-IP will be blocked for the {ITEM=banPeriod}. 
+period has elapsed, if the number of connections still higher than the {ITEM=softLimit}, 
+then the offending IP will be blocked for the {ITEM=banPeriod}.
 END_DESCR
 
 SYNTAX: uint
@@ -1569,9 +1543,10 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies for how long new connections will be rejected from an IP at the end of the  
-{ITEM=gracePeriod} if the number of connections is still more than the <ITEM=softLimit>. 
-If an IP gets banned repeatedly, we suggest that you increase your banned period to control abuse.
+DESCR: Specifies how long new connections will be rejected from an IP if, after the 
+{ITEM=gracePeriod} has elapsed, the number of connections is still more than 
+the {ITEM=softLimit}. If IPs are getting banned repeatedly, we suggest that you 
+increase your banned period to stiffen the penalty for abuse.
 END_DESCR
 
 SYNTAX: uint
@@ -1584,9 +1559,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
 
 
 
@@ -2076,37 +2048,6 @@ END_TIPS
 
 
 
-[ITEM]
-ID: maxConnections
-NAME: Max Connections
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies the maximum number of concurrent connections that the server can accept. 
-This includes both plain TCP connections and SSL connections. This setting should not be set to exceed 
-the hard limit set by the server software edition or license: {val}150{/} for Standard Edition, {val}500{/} 
-for VPS license, {val}600{/} for Ultra VPS license. Once the maximum concurrent connections limit is reached, 
-the server will close Keep-Alive connections when they complete active requests. 
-END_DESCR
-
-SYNTAX: uint
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: When the server is started by "root" user, the server will try to
-adjust the per-process file descriptor limits automatically, however,
-if this fails, you may need to increase this limit manually.
-END_TIPS
-
-[END_ITEM]
-
-
-
-
 
 [ITEM]
 ID: maxSSLConnections
@@ -2503,7 +2444,7 @@ Files larger than the {ITEM=maxMMapFileSize} will be served via
 plain read/write or sendfile(). Sendfile() is a "zero copy" system
 call that can greatly reduce CPU utilization when serving very large
 static files. Sendfile() requires an optimized network card kernel driver
-and thus may not be suitale for some small-vendor network adapters.
+and thus may not be suitable for some small-vendor network adapters.
  
 END_DESCR
 
@@ -2710,8 +2651,8 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: [Reliability & Performance] Set the limit reasonably low to help 
-identify bad responses. It is not uncommon to malformed scripts to contain an infinite
-loop which leads to infinity-sized responses.
+identify bad responses. It is not uncommon to malformed scripts to contain an 
+infinite loop which leads to infinity-sized responses.
 END_TIPS
 
 [END_ITEM]
@@ -2841,13 +2782,13 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to let the {ws_lb} to create/update GZIP-compressed 
-edition of compressible static files. 
-If set to {val}Yes{/}, when a file with a MIME
-type listed in {ITEM=compressibleTypes} is requested, the {ws_lb} will
-create or update the corresponding compressed file depending on its timestamp. The compressed file
-is created under the {ITEM=gzipCacheDir}. The file name is based on the MD5
-hash of the path of the original file.
+DESCR: Specifies whether to let the {ws_lb} should automatically create/update 
+GZIP-compressed versions of compressible static files. If set to {val}Yes{/}, 
+when a file with a MIME type listed in {ITEM=compressibleTypes} is requested, 
+the {ws_lb} may create or update the corresponding compressed version of 
+the file depending on the compressed file's timestamp. This compressed file 
+is created under the {ITEM=gzipCacheDir}. The file name is based on a MD5 
+hash of the path of the original file. 
 END_DESCR
 
 SYNTAX: bool

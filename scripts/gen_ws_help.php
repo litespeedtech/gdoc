@@ -1,8 +1,11 @@
 <?php
 require("include.php");
 
+define('DOC_TYPE', 'ws');
+
 $pathcommon = 'text/common';
-$pathws = 'text/ws';
+$pathws = 'text/' . DOC_TYPE;
+
 
 $texts = array("$pathcommon/HelpDoc.DB.txt", 
 			"$pathcommon/Listener_Help.txt", 

@@ -151,7 +151,7 @@ class DocTable
 		}
 	}
 
-	function toTableOfContents()
+	function toTableOfContents1()
 	{
 		$buf = '<tr><td class="tbl-content-lead">';
 		if ( isset($this->_descr) )
@@ -174,5 +174,31 @@ class DocTable
 		$buf .= '</td></tr>' . "\n";
 		return $buf;
 	}
+
+
+	function toTableOfContents()
+	{
+		$buf = '<section class="toc-row"><header>';
+		if ( isset($this->_descr) )
+			$buf .= '<a href="#'. $this->_id . '">' . $this->_name . '</a>';
+		else
+			$buf .= $this->_name;
+		$buf .= '</header><p>';
+		
+		if ( isset($this->_items) )
+		{
+			foreach( $this->_items as $itemkey => $item )
+			{
+				if ($item == NULL) {
+					echo "Err: item is empty, table ID = $this->_id , item ID = $itemkey\n";
+				}
+				else if ( $item->_id != $this->_id )
+					$buf .= '<a href="#'.$item->_id.'">'.$item->_name.'</a>&nbsp;|&nbsp;';
+			}
+		}
+		$buf .= '</p></section>' . "\n";
+		return $buf;
+	}	
+	
 }
 ?>

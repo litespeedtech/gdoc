@@ -87,6 +87,62 @@ END_TIPS
 
 
 
+[ITEM]
+ID: runningAs
+NAME: Running As
+REQUIRED: 
+APPLY: 1
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the user/group that the server process runs as. This is set 
+using the parameters "--with-user" and "--with-group" when running the configure 
+command before installation. To reset these values, you must rerun the configure 
+command and reinstall.
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] Server should not run as a privileged user such as "root". 
+It is critical that the server is configured to run with a un-privileged user/group combination 
+that does not have login/shell access. A user/group of {val}nobody{/} is generally a good choice.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: maxConnections
+NAME: Max Connections
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum number of concurrent connections that the server can accept. 
+This includes both plain TCP connections and SSL connections. Once the maximum concurrent connections limit is reached, 
+the server will close Keep-Alive connections when they complete active requests. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: When the server is started by "root" user, the server will try to
+adjust the per-process file descriptor limits automatically, however,
+if this fails, you may need to increase this limit manually.
+END_TIPS
+
+[END_ITEM]
+
 
 
 

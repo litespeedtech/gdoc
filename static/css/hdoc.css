@@ -11,6 +11,7 @@ body {
 
 h1 {
 	font-size: 15pt;
+	border-bottom: 1px solid #ddd;
 }
 
 h2 {
@@ -21,24 +22,65 @@ h3 {
 	font-size: 12pt;
 }
 
+h4 {
+	font-size: 14px;
+}
+
 h1,h2,h3 {
-	margin: 0 0 5px 0;
+	margin: 20px 0 10px 0;
 	font-weight: 700;
 }
 
 ol {
 	display: block;
 	list-style-type: decimal;
-	margin-left: 1em;
 }
 
-ol li {
-	margin: 0 0 0.5em 0;
+ol li, ul li {
+	margin: 0.5em 0 0.5em 0;
 }
 
 .toctop li A { COLOR: #116789; TEXT-DECORATION: none }
 .toctop li A:visited { COLOR: #116789; TEXT-DECORATION: none }
 .toctop li A:hover{ COLOR: #ee9126; TEXT-DECORATION: none }
+
+.helpitem {
+	display: block;
+	margin: 20px 0 10px 0;
+	position: relative;	
+}
+
+.toc-row {
+	display: inline; width: 720px;
+	border: 0 solid #07a;
+	border-width: 1px 0 0 0;
+	padding: 2px 0 0 0;
+	margin: 0 0 10px 0;
+	position: relative;	
+}
+
+.toc-row header {
+	color: #116789;	font-size: 14px; font-weight: bold;
+}
+
+.toc-row header a {
+	color: #116789;	
+}
+
+.toc-row a:hover { color: #ee9126; TEXT-DECORATION: none}
+
+.toc-row p a{
+	color: #222; TEXT-DECORATION: none	
+}
+
+.toc-row p {
+	color: #aaa;	
+}
+
+.toc {
+	display: block; padding: 20px 20px 20px 20px; width: 720px; BACKGROUND-COLOR: #fafafa;
+}
+
 
 .ht {
     BACKGROUND-COLOR: transparent; FONT-SIZE: 13px; COLOR: #555;
@@ -65,7 +107,7 @@ ol li {
     FONT-WEIGHT: bold; FONT-SIZE: 13px; 
 }
 .tbl-content1 table{
-     border-collapse:collapse;
+     border-collapse:collapse;  
 }
 
 .tbl-content1 td{
@@ -123,10 +165,10 @@ ol li {
 .tagQ A:hover { COLOR: #339999; TEXT-DECORATION: underline }
 
 .copyright {
-	FONT-SIZE: 10px; COLOR: #999999; TEXT-ALIGN: center
+	FONT-SIZE: 11px; COLOR: #999999; TEXT-ALIGN: center; border-top: 1px solid #ddd; padding-top: 20px; 
 }
 .copyright1 {
-	FONT-SIZE: 10px; COLOR: #999999; 
+	FONT-SIZE: 11px; COLOR: #999999; border-top: 1px solid #ddd; padding-top: 20px; 
 }
 .copyright A{
     COLOR: #333399; TEXT-DECORATION: none
@@ -151,10 +193,11 @@ ol li {
 }
 
 
-.nav-bar {  BACKGROUND-COLOR: #DEF3FF; COLOR: #6B6D6B; font-size: 12px; }
+.nav-bar {  BACKGROUND-COLOR: #DEF3FF; COLOR: #6B6D6B; font-size: 12px; margin: 0.6em 0 4em 0; text-align: center;}
 .nav-bar a { color: #6B6D6B; text-decoration: none; }
 .nav-bar a:hover { text-decoration: underline; }
 .nav-bar a visited { color: #6B6D6B }
+.nav-bar li { display: inline; margin: 0 1.3em; text-align: center; }
 
 .qa-title {
     FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #000000;

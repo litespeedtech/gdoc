@@ -19,56 +19,74 @@ class GenTool
 
 	function getHeader($nav, $name)
 	{
+		$title = $name;
+		if (DOC_TYPE == 'ows') {
+			$title = "Open LiteSpeed Web Server Users' Manual - $title";
+		}
+		elseif (DOC_TYPE == 'ws') {
+			$title = "LiteSpeed Web Server Users' Manual - $title";
+		}
+		elseif (DOC_TYPE == 'lb') {
+			$title = "LiteSpeed Load Balancer Users' Manual - $title";
+		}
+		else {
+			echo "Error: wrong DOC_TYPE\n";
+		}
 		$e = "\r\n";
-		$buf = '<html>'.$e;
-		$buf .= '<head>'.$e;
-		$buf .= "<title>LiteSpeed Web Server User's Manual - $name</title>$e";
-		$buf .= '<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">'.$e; 
-		$buf .= '<link rel="stylesheet" type="text/css" href="css/hdoc.css">'.$e;
-		$buf .= '</head>'.$e;
-		$buf .= '<body bgcolor="#FFFFFF" text="#000000">'.$e;
-		$buf .= '<a name="top"></a><table width="100%" border="0" cellpadding="0" cellspacing="10">'.$e;
-		if ( isset($nav) )
-			$buf .= '<tr><td>'.$nav.'</td></tr>'.$e;
+		
+		$buf = <<<EOD
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>$title</title>
+  <meta name="description" content="$title." />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="img/favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="css/hdoc.css">
+</head>
+<body>
+<div class="wrapper">
+$nav
 
-		$buf .= '<tr class="label-title"><td>' . $name . '</td></tr>'.$e;
+<h1>$name</h1>
+EOD;
 		return $buf;
 	}
 
 
-	function getFooter($nav)
+	function getFooter()
 	{
-		$e = "\r\n";
-		if ( isset($nav) )
-		{
-			$buf = '<tr rowspan="2"><td>&nbsp;</td></tr>' . $e;
-			$buf .= '<tr><td>'.$nav.'</td></tr>'.$e;
+		if (DOC_TYPE == 'ows') {
+			return '<footer class="copyright">Copyright &copy; 2013. <a href="http://www.litespeedtech.com">Lite Speed Technologies Inc.</a> All rights reserved.</footer>
+				</div>
+				</body>
+				</html>';
 		}
-		$buf .= '<tr rowspan="3"><td>&nbsp;</td></tr>' . $e;
-		$buf .= '<tr><td class="copyright">Copyright &copy; 2003-2013. <a href="http://www.litespeedtech.com">Lite Speed Technologies Inc.</a><br>All rights reserved.</td></tr>';
-		$buf .= '</table>'.$e;
-		$buf .= '</body>'.$e.'</html>'.$e;
-		return $buf;
+		else {
+			return '<footer class="copyright">Copyright &copy; 2003-2013. <a href="http://www.litespeedtech.com">Lite Speed Technologies Inc.</a> All rights reserved.</footer>
+				</div>
+				</body>
+				</html>';
+		}
 	}
 
 	function getNavBar($prev, $top, $next)
 	{
-		$e = "\r\n";
-		$buf = '<table class="nav-bar" width="100%" border="0">'.$e;
-		$buf .= '<tr><td width="30%" align="left"> ';
+		$buf = '<div class="nav-bar"><ul class="nav-bar"><li>';
 		if ( isset( $prev ) && count($prev) == 2 )
 			$buf .= '&#171 <a href="'. trim($prev[0]).'">'.trim($prev[1]).'</a>';
 		
-		$buf .= '</td><td width="40%" align="center"> ';
+		$buf .= '</li><li>';
 		
 		if ( isset( $top ) && count($top) == 2 )
 			$buf .= '<a href="'. trim($top[0]).'">'.trim($top[1]).'</a>';
-			
-		$buf .= '</td><td width="30%" align="right"> ';
+
+		$buf .= '</li><li>';
 		if ( isset( $next ) && count($next) == 2 )
 			$buf .= '<a href="'. trim($next[0]) . '">'.trim($next[1]).'</a> &#187;';
 
-		$buf .= '</td></tr></table>'.$e;
+		$buf .= '</li></ul></div>' . "\r\n";
 		return $buf;
 
 	}
