@@ -155,7 +155,7 @@ NAME: Server Process
 DESCR: 
 END_DESCR
 
-CONT: serverName runningAs serverPriority 
+CONT: serverName httpdWorkers runningAs serverPriority 
  inMemBufSize swappingDir autoRestart autoFix503 gracefulRestartTimeout
 END_CONT
 
