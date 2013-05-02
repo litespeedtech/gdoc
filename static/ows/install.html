@@ -58,7 +58,8 @@
 				cd /usr/ports/textproc/expat2; make install clean; rehash;<br>
 				cd /usr/ports/security/openssl; make install clean; rehash;</p></li>
 	 		<li><strong>Mac OS X</strong>
-	 			<p class="cmd">MacPorts  sudo port install pcre expat openssl geoip zlib</p></li>
+	 			<p>Install MacPorts from http://www.macports.org/install.php#pkg</p>
+	 			<p class="cmd">sudo port install pcre expat openssl libgeoip zlib</p></li>
 		</ul>
 	</li>
 	<li>By default, the Installer will install a sample site on port 8088 and set the WebAdmin console (the LiteSpeed GUI) to port 7080. 
@@ -71,9 +72,6 @@
 <ol>
 	<li><p>For detailed information on controlling the server processes, please see the Administration Guide.</p>
 	<p>To start the server, simply run [your_install_dir]/bin/lswsctrl start. (To stop it, run [your_install_dir]/bin/lswsctrl stop.)</p>
-	</li>
-	<li><p><strong>Build the WebAdmin console:</strong></p>
-	<p>Run <span class="cmd">dist/admin/misc/build_admin_php.sh</span> from the command line to build an admin_php for the WebAdmin console. This PHP is necessary in order to use the WebAdmin console.</p>
 	</li>
 	<li><p>A sample site should be running on the server.</p>
 	<p>To access your site, point your browser to http://[address]:8088/, [address] being the IP address or domain name of your web server machine. Use &quot;localhost&quot; if the server is on the machine you are using. "8088" is the default port. If you chose another port for LiteSpeed during installation, use the port you designated.</p>
@@ -107,13 +105,8 @@ XXXX is a port number. If the port is available, the command will produce no out
 
 <h1>Uninstallation Steps</h1>
 <ol>
-	<li>Simply run <span class="cmd">[your_install_dir]/admin/misc/uninstall.sh</span> and follow the instructions on the screen.</li>
-	<li>The Uninstaller will ask the following questions:
-		<p>whether to keep the log directory</p>
-		<p>whether to keep the configuration directory</p>
-	</li>
-	<li>Directories that were not created by LiteSpeed's Installer will not be touched, even if they are in [your_install_dir]. All the files created by the Installer will be removed.</li>
-	<li>[your_install_dir] will be removed as well, if it is empty.</li>
+ <li>Stop OpenLiteSpeed if it is running:  <span class="cmd">[your_install_dir]/bin/lswsctrl stop</span></li>
+ <li>Remove the install directory:  <span class="cmd">rm -rf [your_install_dir]</span></li>
 </ol>
 
 
