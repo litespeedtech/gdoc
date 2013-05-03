@@ -1,7 +1,5 @@
 <?php
 
-require_once('QAItem.php');
-require_once('QAPage.php');
 
 
 class GenQADoc
@@ -115,4 +113,3 @@ class GenQADoc
 
 }
 
-?>

@@ -1,6 +1,5 @@
 <?php
 
-require_once('Item.php');
 
 
 class ItemBase
@@ -269,4 +268,3 @@ class ItemBase
 	}
 
 }
-?>

@@ -1,5 +1,24 @@
 <?php
-require("include.php");
+
+ini_set('include_path', '.:classes/');
+
+
+require_once('GenTool.php');
+require_once('DocItem.php');
+require_once('DocTable.php');
+require_once('DocPage.php');
+
+require_once('Item.php');
+require_once("ItemBase.php");
+require_once('NavChain.php');
+
+require_once("GenHelpDoc.php");
+require_once("GenHelpTips.php");
+
+require_once('QAItem.php');
+require_once('QAPage.php');
+require_once("GenQADoc.php");
+
 
 define('DOC_TYPE', 'ws');
 

@@ -1,11 +1,5 @@
 <?php
 
-require_once('DocItem.php');
-require_once('DocTable.php');
-require_once('DocPage.php');
-require_once('NavChain.php');
-require_once('ItemBase.php');
-require_once('GenTool.php');
 
 class GenHelpTips
 {
@@ -100,4 +94,3 @@ class GenHelpTips
 		echo ("finish generate tips $outfile \n");
 	}
 }
-?>

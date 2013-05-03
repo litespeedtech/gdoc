@@ -1,5 +1,4 @@
 <?php
-require_once('DocPage.php');
 
 class NavChain
 {
@@ -70,4 +69,3 @@ class NavChain
 
 }
 
-?>

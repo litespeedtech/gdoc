@@ -1,5 +1,4 @@
 <?php
-require_once('DocItem.php');
 
 class DocTable
 {
@@ -201,4 +200,3 @@ class DocTable
 	}	
 	
 }
-?>

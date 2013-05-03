@@ -1,8 +1,4 @@
 <?php
-require_once('DocItem.php');
-require_once('DocTable.php');
-require_once('GenTool.php');
-require_once('ItemBase.php');
 
 class DocPage
 {
@@ -229,4 +225,3 @@ class DocPage
 
 }
 
-?>

@@ -216,4 +216,3 @@ class DocItem
 		return $buf;
 	}
 }
-?>

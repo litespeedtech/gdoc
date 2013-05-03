@@ -30,7 +30,7 @@
 	</li>
 	<li><strong>Memory:</strong> 32MB and up</li>
 	<li><strong>Disk:</strong>
-		<ul><li>Installation: 10MB</li><li>Runtime: 20MB and up, swapping space depends on usage.</li></ul></li>
+		<ul><li>Installation: 200MB</li><li>Runtime: 300MB and up, swapping space depends on usage.</li></ul></li>
 </ul>
 
 <h3>Installation</h3>
@@ -42,28 +42,36 @@
 <h4>Installation Steps:</h4>
 <ol>
 	<li><p>Download and decompress the package into a convenient location:</p>
-	<p class="cmd">wget http://www.litespeedtech.com/packages/openlitespeed.tar.gz; tar zxf openlitespeed.tar.gz</p>
+	<p class="cmd">wget http://open.litespeedtech.com/packages/openlitespeed.1.0.tgz; tar zxf openlitespeed.1.0.tgz</p>
 	</li>
 	
 	<li><p>Go to the installation directory, compile, and install the package as the root user (for production use):</p>
 		<p class="cmd">cd openlitespeed <br>./configure<br>make && make install</p>
-		<p><strong>Note: </strong> The following packages need to be installed before compiling and installing OpenLiteSpeed: pcre, expat, openssl, geoip, zlib.</p>
-		<ul><li><strong>CentOS 5, 6</strong>
+		<p><strong>Note: </strong> The following packages need to be installed before compiling and installing OpenLiteSpeed: PCRE, Expat, OpenSSL, GeoIP, zlib.</p>
+		<ul><li><strong>CentOS 5.* and 6.*</strong>
+			<p class="cmd">wget http://dl.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm;
+rpm -Uvh epel-release-5-4.noarch.rpm  (CentOS 5.* only) </p>
+			<p class="cmd">wget http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm; rpm -Uvh epel-release-6-8.noarch.rpm  (CentOS 6.* only) </p>		
+			<p class="cmd">yum install gcc gcc-c++ make glibc</p>
 			<p class="cmd">yum install pcre-devel expat-devel openssl-devel geoip-devel zlib-devel</p></li>
 			<li><strong>Ubuntu/Debian</strong>
+			<p class="cmd">apt-get install build-essential</p>
 			<p class="cmd">apt-get install libpcre3-dev libexpat1-dev libssl-dev libgeoip-dev zlib1g-dev</p></li>
 	 		<li><strong>FreeBSD</strong>
-				<p class="cmd">pkg_add or ports<br/>cd /usr/ports/devel/pcre; make install clean; rehash;<br>
+				<p class="cmd">Use pkg_add or ports. Here are some examples using ports.<br/><br/>cd /usr/ports/devel/pcre; make install clean; rehash;<br>
 				cd /usr/ports/net/GeoIP; make install clean; rehash;<br>
 				cd /usr/ports/textproc/expat2; make install clean; rehash;<br>
 				cd /usr/ports/security/openssl; make install clean; rehash;</p></li>
 	 		<li><strong>Mac OS X</strong>
-	 			<p>Install MacPorts from http://www.macports.org/install.php#pkg</p>
-	 			<p class="cmd">sudo port install pcre expat openssl libgeoip zlib</p></li>
+	 			<p>Install Xcode from https://developer.apple.com/xcode/</p>
+				<p>Install MacPorts from http://www.macports.org/install.php#pkg</p>
+				<p class="cmd">sudo port install pcre expat openssl libgeoip zlib</p>
+				<p><strong>Note: </strong>When OS X users run the configure command, they need to add a parameter telling the command where to look for the PCRE package if it is added via MacPorts. This is because MacPorts installs it in a non-standard location (/opt/local/). For example:</p> 
+				<p class="cmd">./configure --with-pcre=/opt/local</p></li>
 		</ul>
 	</li>
 	<li>By default, the Installer will install a sample site on port 8088 and set the WebAdmin console (the LiteSpeed GUI) to port 7080. 
-(user: admin  password: 123456)</li>
+(user: admin,  password: 123456, admin email: root@localhost) </li>
 
 </ol>
 
@@ -105,8 +113,8 @@ XXXX is a port number. If the port is available, the command will produce no out
 
 <h1>Uninstallation Steps</h1>
 <ol>
- <li>Stop OpenLiteSpeed if it is running:  <span class="cmd">[your_install_dir]/bin/lswsctrl stop</span></li>
- <li>Remove the install directory:  <span class="cmd">rm -rf [your_install_dir]</span></li>
+	<li>Stop OpenLiteSpeed if it is running: [your_install_dir]/bin/lswsctrl stop</li>
+	<li>Remove the install directory: rm -rf [your_install_dir]
 </ol>
 
 
