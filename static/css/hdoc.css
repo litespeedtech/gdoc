@@ -193,10 +193,10 @@ ol li, ul li {
 }
 
 
-.nav-bar {  BACKGROUND-COLOR: #DEF3FF; COLOR: #6B6D6B; font-size: 12px; margin: 0.6em 0 4em 0; text-align: center;}
-.nav-bar a { color: #6B6D6B; text-decoration: none; }
+.nav-bar {  BACKGROUND-COLOR: #555555; COLOR: #FFFFFF; font-size: 12px; margin: 0.6em 0 4em 0; text-align: center;}
+.nav-bar a { color: #FFFFFF; text-decoration: none; }
 .nav-bar a:hover { text-decoration: underline; }
-.nav-bar a visited { color: #6B6D6B }
+.nav-bar a visited { color: #FFFFFF }
 .nav-bar li { display: inline; margin: 0 1.3em; text-align: center; }
 
 .qa-title {

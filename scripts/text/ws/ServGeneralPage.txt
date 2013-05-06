@@ -685,6 +685,35 @@ END_TIPS
 
 
 
+[ITEM]
+ID: disableInitLogRotation
+NAME: Disable Initial Log Rotation 
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to disable rotation of server error log
+file at startup. Initial log rotation is enabled by default for standard installations. 
+Servers using cPanel, however, always write to the Apache error log and thus ignore this setting.
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
 
 
 ############################ TBL #########################
