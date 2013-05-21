@@ -602,8 +602,8 @@ external applications cannot be started by the load balancer.<br>
 <li>FastCGI is a fast, open, and secure web server interface that solves the 
   performance problems inherent from CGI without introducing the overhead and 
   complexity of proprietary APIs (Application Programming
-  Interfaces).  For more information, please visit <a
-  href="http://www.fastcgi.com">http://www.fastcgi.com</a><br> 
+  Interfaces).  For more information, please visit 
+  {ext-href}http://www.fastcgi.com{ext-href-end}http://www.fastcgi.com{ext-href-end-a}<br> 
   In addition to generating dynamic
   response (RESPONDER role), a FastCGI application can be used for
   authentication (AUTHORIZER role) as well.
@@ -628,8 +628,7 @@ recommended over FastCGI.<br>
 Our tests shows that LSAPI PHP, PHP compiled with LiteSpeed SAPI, is 
 up to 30% faster than FastCGI PHP. 
 For more information about LSAPI and PHP please visit
-<a
-href="http://www.litespeedtech.com/lsapi/">http://www.litespeedtech.com/lsapi/</a>.
+{ext-href}http://www.litespeedtech.com/lsapi/{ext-href-end}http://www.litespeedtech.com/lsapi/{ext-href-end-a}.
 <br><br></li>
 
 <li>Piped Logger is an application that can process access

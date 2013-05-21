@@ -24,7 +24,7 @@ class GenHelpDoc
 		$this->populateData();
 	}
 
-	function genPages($navchain, &$base)
+	function genPages($navchain, $base)
 	{
 		foreach( $navchain as $navId )
 		{
@@ -101,6 +101,10 @@ class GenHelpDoc
 					$itemInd = false;
 					$item = new DocItem($buf);
 					$this->_items[$item->_id] = $item; 
+					if ($item->_id == DEBUG_TAG) {
+						echo "In GenHelpDoc::parseHelpDoc - item \n";
+						var_dump($item);
+					}
 				}
 			}
 			else if ( $tableInd )
@@ -115,6 +119,10 @@ class GenHelpDoc
 					if ( $id == NULL )
 						$id = $table->_name;
 					$this->_tables[$id] = $table;
+					if ($id == DEBUG_TAG) {
+						echo "In GenHelpDoc::parseHelpDoc - table \n";
+						var_dump($table);
+					}
 				}
 			}
 			else if ( $pageInd )
@@ -129,6 +137,10 @@ class GenHelpDoc
 					if ( $id == NULL )
 						$id = $page->_name;
 					$this->_pages[$id] = $page;
+					if ($id == DEBUG_TAG) {
+						echo "In GenHelpDoc::parseHelpDoc - page \n";
+						var_dump($page);
+					}
 				}
 			}
 			else if ( $navInd )

@@ -291,9 +291,9 @@ END_DESCR
 SYNTAX: String. Syntax of censoring rules follows that of Apache's mod_security
 directives. "SecFilter", "SecFilterSelective", and "SecRule" can be 
 used here.  You can copy and paste security rules from an Apache configuration file.<br/>
-For more details about rule syntax, please refer to the <a
-href="http://www.modsecurity.org/documentation/index.html">Mod Security
-documentation</a>.
+For more details about rule syntax, please refer to the 
+{ext-href}http://www.modsecurity.org/documentation/index.html{ext-href-end}Mod Security
+documentation{ext-href-end-a}.
 END_SYNTAX
 
 EXAMPLE: 

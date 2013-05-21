@@ -712,9 +712,34 @@ END_TIPS
 
 
 
+[ITEM]
+ID: extAppAbort
+NAME: External Application Abort
+REQUIRED: 
+APPLY: 
+SINCE: 4.2.3
+SEE_ALSO: 
 
+DESCR: When a client breaks a connection with the server, LiteSpeed Web Server can automatically abort external application processes generating responses for that client. Some users, however, may have (long-running) processes that they wish to continue running whether or not the client is still connected.<br>
+<br>
+There are three options for this:
+<ul>
+<li>No Abort: Never abort external applications because of a broken connection.</li>
+<li>Enable Abort for Requests from External IPs: Only processes started by requests from external IPs will be automatically aborted because of a broken connection. This is the default setting. It is a good setting if you have some internal long-running processes, like some cron jobs.</li>
+<li>Enable Abort for All Requests: External application processes will be automatically aborted if the connection is broken, regardless of the source of the request.</li>
+</ul>
+END_DESCR
 
+SYNTAX: select
+END_SYNTAX
 
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
 
 ############################ TBL #########################
 
@@ -847,8 +872,8 @@ DESCR:
 END_DESCR
 
 CONT: mime mimesuffix mimetype disableInitLogRotation showVersionNumber 
-hideSigInErrorPage enableIpGeo useIpInProxyHeader autoUpdateInterval 
-autoUpdateDownloadPkg adminEmails 
+hideSigInErrorPage enableIpGeo useIpInProxyHeader extAppAbort  
+autoUpdateInterval autoUpdateDownloadPkg adminEmails 
 END_CONT
 
 SEE_ALSO: 

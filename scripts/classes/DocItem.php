@@ -188,6 +188,9 @@ class DocItem
 				$buf .= $this->_apply;
 			$buf .= $end; */
 		}
+		if ( $this->_example != NULL )
+			$buf .= '<tr><td><span class="ht-label">Example: </span>' . $this->_example . $end;
+		
 		if ( $this->_tips != NULL )
 			$buf .= '<tr><td><span class="ht-label">Tips: </span>' . $this->_tips . $end;
 

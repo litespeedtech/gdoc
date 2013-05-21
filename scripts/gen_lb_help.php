@@ -4,6 +4,9 @@ require_once("GenQADoc.php");
 require_once("ItemBase.php");
 require_once("GenHelpTips.php");
 
+// you can define the debug tag here
+define('DEBUG_TAG', 'NO');
+
 $txt = array('HelpDoc.DB.txt', 'LBPages.txt',  'LB_LoadBalancer_Help.txt', 'LB_HA_Help.txt',
 			'Templates_Help.txt', 'Listener_Help.txt', 'ServerStat_Help.txt');
 $base = new ItemBase($txt);

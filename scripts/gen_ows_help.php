@@ -1,6 +1,9 @@
 <?php
 require("include.php");
 
+// you can define the debug tag here
+define('DEBUG_TAG', 'NO');
+
 define('DOC_TYPE', 'ows');
 
 $pathcommon = 'text/common';

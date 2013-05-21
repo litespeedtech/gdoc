@@ -182,14 +182,13 @@ it is compatible with all existing web hosting control panels. <br>
 The user-manageable Rack/Rails configuration file (".ls_rails_config") 
 is located in the user's home directory or virtual host root directory.  
 Syntax is as follows: <br>
-<pre>
-#RailsApp <name> <App Path> <Rails Evn> <Children Processes> <RunOnStart>
-RailsApp testApp "/lsws/testrails" "development" 4 1
 
-#RailsAppMap <name> <domain> <URI>
-RailsAppMap testApp "testrails.com" "/"
-RailsAppMap testApp "test.testrails.com" "/"
-</pre>
+#RailsApp <name> <App Path> <Rails Evn> <Children Processes> <RunOnStart> <br/>
+RailsApp testApp "/lsws/testrails" "development" 4 1 <br/>
+ <br/>
+#RailsAppMap <name> <domain> <URI> <br/>
+RailsAppMap testApp "testrails.com" "/" <br/>
+RailsAppMap testApp "test.testrails.com" "/" <br/>
 <br>
 
 The "App Path" is relative to the user's home directory or the virtual

@@ -22,6 +22,9 @@ require_once("GenQADoc.php");
 
 define('DOC_TYPE', 'ws');
 
+// you can define the debug tag here
+define('DEBUG_TAG', 'NO');
+
 $pathcommon = 'text/common';
 $pathws = 'text/' . DOC_TYPE;
 

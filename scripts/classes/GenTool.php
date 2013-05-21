@@ -91,10 +91,11 @@ EOD;
 
 	}
 
-	function translateTag(&$buf, &$base)
+	function translateTag(&$buf, $base)
 	{
-		$from = array('{tag}', '{cmd}', '{val}', '{/}');
+		$from = array('{tag}', '{cmd}', '{val}', '{/}'); 
 		$to = array('<span class="tag">', '<span class="cmd">', '<span class="val">', '</span>');
+			
 
 		if ( isset ($GLOBALS['ws_lb']) )
 			$buf = str_replace( $GLOBALS['ws_lb'], $GLOBALS['ws_lb_replace'], $buf );
@@ -114,32 +115,38 @@ EOD;
 			$buf1 = str_replace( $from1, $to1, $buf1 );
 		}
 
+		$from = array('{ext-href}', '{ext-href-end}', '{ext-href-end-a}');
+		$to = array('<a href="', '" target="_blank">', '</a>');
+		
+		$buf1 = str_replace( $from, $to, $buf1 );
+		
 		return $buf1;
 	}
 
 
-	function translateTagForTips(&$buf, &$base)
+	function translateTagForTips($buf, $base)
 	{
 		$from = array('{tag}', '{cmd}', '{val}', '{/}');
 
 		if ( isset ($GLOBALS['ws_lb']) )
 			$buf = str_replace( $GLOBALS['ws_lb'], $GLOBALS['ws_lb_replace'], $buf );
 
-		$buf1 = strip_tags(str_replace( $from, '', $buf ), '<br>');
-
 		$pattern = "/\{\s*(ITEM|QA|TBL|PAGE)\s*=[^}]+\}/";
-		$c = preg_match_all($pattern, $buf1, $matches);
+		$c = preg_match_all($pattern, $buf, $matches);
 		if ( $c > 0 )
 		{
 			$from1 = $matches[0];
 			$to1 = array();
 			foreach( $from1 as $f )
 			{
-				$to1[] = strip_tags($base->translate($f), '<br>');
+				$to1[] = '"' . strip_tags($base->translate($f)) . '"';
 			}
-			$buf1 = str_replace( $from1, $to1, $buf1 );
-		}
-
+			$buf = str_replace( $from1, $to1, $buf );
+		} 
+		
+		$buf1 = str_replace( $from, '', $buf );
+		
+		
 		return $buf1;
 	}
 

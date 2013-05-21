@@ -109,10 +109,8 @@ SYNTAX: "[HeaderName]: [HeaderValue]" in each line.
 END_SYNTAX
 
 EXAMPLE: 
-<pre>Cache-control: no-cache, no-store
+Cache-control: no-cache, no-store <br>
 My-header: Custom header value
-</pre>
-
 END_EXAMPLE
 
 TIPS: 

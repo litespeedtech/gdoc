@@ -10,13 +10,13 @@ class GenHelpTips
 	var $_nav;
 	var $_tipsBase;
 
-	function GenHelpTips(&$GenHelpDoc)
+	function GenHelpTips($genHelpDoc)
 	{
-		$this->_index = $GenHelpDoc->_index;
-		$this->_items = $GenHelpDoc->_items;
-		$this->_tables = $GenHelpDoc->_tables;
-		$this->_pages = $GenHelpDoc->_pages;
-		$this->_nav = $GenHelpDoc->_nav;
+		$this->_index = $genHelpDoc->_index;
+		$this->_items = $genHelpDoc->_items;
+		$this->_tables = $genHelpDoc->_tables;
+		$this->_pages = $genHelpDoc->_pages;
+		$this->_nav = $genHelpDoc->_nav;
 		$this->_tipsBase = array();
 	}
 
@@ -53,7 +53,7 @@ class GenHelpTips
 
 	}
 
-	function genTips($navchain, &$base, $outfile)
+	function genTips($navchain, $base, $outfile)
 	{
 		$this->init($navchain);
 
@@ -65,29 +65,46 @@ class GenHelpTips
 		}
 
 
-		$search = array("\r\n", "\n", '&lt;br&gt;', '&amp;lt;', '&amp;gt;');
-		$replace = array(' ', ' ', '<br><br>' , '&lt;', '&gt;');
+		$search = array("\r\n", "\n", '"', "'", '{ext-href}', '{ext-href-end}', '{ext-href-end-a}');
+		$replace = array(' ', ' ', '&quot;', '&#039;', '<a href="', '" target="_blank">', '</a>');
 		ksort($this->_tipsBase);
 		foreach( $this->_tipsBase as $item )
 		{
 			$id = $item->_id;
 			$name = $item->_name;
 			$is_table = (strpos($item->_id, 'TABLE') !== FALSE); 
-			$desc = htmlspecialchars(str_replace($search, $replace, GenTool::translateTagForTips($item->_descr, $base)), ENT_QUOTES);
-			$desc = str_replace($search, $replace, $desc);
+			$desc1 = GenTool::translateTagForTips($item->_descr, $base);
+			$desc = str_replace($search, $replace, $desc1);
 			$tip = '';
 			if ( $item->_tips != "" ) {
-				$tip = htmlspecialchars(str_replace($search, $replace, GenTool::translateTagForTips($item->_tips, $base )), ENT_QUOTES);
+				$tip = GenTool::translateTagForTips($item->_tips, $base );
 				$tip = str_replace($search, $replace, $tip);
 			}
 			$syntax = '';
 			if ( !$is_table && $item->_syntax != "") {
-				$syntax = htmlspecialchars(str_replace($search, $replace, GenTool::translateSyntax(GenTool::translateTagForTips($item->_syntax, $base))), ENT_QUOTES);
+				$syntax = GenTool::translateSyntax(GenTool::translateTagForTips($item->_syntax, $base));
 				$syntax = str_replace($search, $replace, $syntax);
 			}
+			$example = '';
+			if ( $item->_example != "" ) {
+				$example = GenTool::translateTagForTips($item->_example, $base );
+				$example = str_replace($search, $replace, $example);
+			}
 			
-			$buf = "\t\t\$this->db['$id'] = new DATTR_HELP_ITEM('$name', '$desc', '$tip', '$syntax');\n";
+			
+			$buf = "\t\t\$this->db['$id'] = new DATTR_HELP_ITEM('$name', '$desc', '$tip', '$syntax', '$example');\n";
 			fwrite($fd, $buf);
+			
+			if ($id == DEBUG_TAG) {
+				echo "In GenHelpTips::genTips - tipitem $id \n";
+				var_dump($item);
+				
+				echo "In GenHelpTips::genTips - tipbuf $id \n";
+				var_dump($buf);
+				echo "end of var_dump buf \n";
+				
+			}
+			
 		}
 
 		fclose($fd);
