@@ -196,7 +196,7 @@ be read as static content. It is recommended that you put all your CGI
 scripts in a directory and set up a CGI Context to access them. 
 END_DESCR
 
-CONT: expuri path extraHeaders allowSetUID allowOverride 
+CONT: expuri cgi_path extraHeaders allowSetUID allowOverride 
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 enableRewrite rewriteInherit rewriteBase rewriteRules 

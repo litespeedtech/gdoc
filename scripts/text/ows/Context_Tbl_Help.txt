@@ -57,7 +57,7 @@ through LiteSpeed Web Server or through the servlet engine's built-in HTTP serve
   located at /opt/tomcat/webapps/examples/. Through Tomcat's built-in HTTP server, 
   the "examples" web application is thus accessed with a URI like "/examples/***". 
   The corresponding Java Web App Context should thus be configured: 
-  {ITEM=expuri} = {val}/examples/{/}, {ITEM=location} = {val}/opt/tomcat/webapps/examples/{/}.</li>
+  {ITEM=expuri} = {val}/examples/{/}, {ITEM=javaWebApp_location} = {val}/opt/tomcat/webapps/examples/{/}.</li>
   </ul>
 END_DESCR
 
@@ -178,7 +178,7 @@ be read as static content. It is recommended that you put all your CGI
 scripts in a directory and set up a CGI Context to access them. 
 END_DESCR
 
-CONT: expuri path extraHeaders allowSetUID  
+CONT: expuri cgi_path extraHeaders allowSetUID  
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 enableRewrite rewriteInherit rewriteBase rewriteRules 

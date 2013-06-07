@@ -17,7 +17,39 @@ with a "/", then this context will include all sub-URIs under this
 URI. If the context maps to a directory on the file system, a trailing "/" must be added.
 END_SYNTAX
 
-EXAMPLE: A plain URI like {val}/examples/{/} with {ITEM=location} 
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: location
+NAME: Location
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=expuri}
+
+DESCR: Specifies the corresponding location of this context in the file system. 
+END_DESCR
+
+SYNTAX: It can be an absolute path or path relative to $SERVER_ROOT, $VH_ROOT, or $DOC_ROOT. 
+$DOC_ROOT is the default relative path, and can be omitted.<br>
+If the {ITEM=expuri} is a regular expression, then the matched sub-string 
+can be used to form the "Root" string. The matched sub-string can be 
+referenced with the values "$1" - "$9". "$0" and "&" can be used to reference the 
+whole matched string. Additionally, a query string can be set by 
+appending a "?" followed by the query string. Be careful. "&" should
+be escaped as "\&" in the query string.
+END_SYNTAX
+
+EXAMPLE:  A plain URI like {val}/examples/{/} with {ITEM=location} 
 set to {val}/home/john/web_examples{/} will map the request "/examples/foo/bar.html" 
 to file "/home/john/web_examples/foo/bar.html". <br>
 To simulate Apache's mod_userdir, 
@@ -35,8 +67,8 @@ END_TIPS
 
 
 [ITEM]
-ID: location
-NAME: Root
+ID: cgi_path
+NAME: Path
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -62,6 +94,91 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
+
+
+
+[ITEM]
+ID: javaWebApp_location
+NAME: Location
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the directory that contains the files for this web application. 
+This is the directory containing "WEB-INF/web.xml".
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: cgi_path
+NAME: Path
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the location of CGI scripts. 
+END_DESCR
+
+SYNTAX: The path can be a directory that contains a group of CGI scripts, 
+like {val}$VH_ROOT/myapp/cgi-bin/{/}. 
+In this case, the context {ITEM=expuri} must end with "/", like {val}/app1/cgi/{/}.  
+The Path can also specify only one CGI script, like {val}$VH_ROOT/myapp/myscript.pl{/}. 
+This script should have the corresponding {ITEM=expuri} {val}/myapp/myscript.pl{/}.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: allowSetUID
+NAME: Allow Set UID
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether the set UID bit is allowed for CGI scripts. If the 
+set UID bit is allowed and the set UID bit is enabled for a CGI script, 
+no matter which user the CGI script was started on behalf of, the user ID of the CGI process will
+switch to the user ID of the owner of the CGI script. <br>
+The default is "Off".
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] Do not allow Set UID CGI scripts whenever possible, as it
+is inherently a security risk.
+END_TIPS
+
+[END_ITEM]
+
+
 
 
 
@@ -203,6 +320,158 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
+
+
+
+
+[ITEM]
+ID: extAuthorizer
+NAME: Authorizer
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies an external application that can be used to
+generate authorized/unauthorized decisions. Currently, only the FastCGI
+Authorizer is available. For more details about the FastCGI Authorizer role, 
+please visit {ext-href}http://www.fastcgi.com{ext-href-end}http://www.fastcgi.com{ext-href-end-a}.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: servletEngine
+NAME: Servlet Engine
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the name of the servlet engine that serves this web application.
+Servlet engines must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: fcgiapp
+NAME: FastCGI App
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the name of the FastCGI application. 
+This application must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: lsapiapp
+NAME: LiteSpeed SAPI App
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the name of the LiteSpeed SAPI application to be connected to this context.
+This application must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+[ITEM]
+ID: lbapp
+NAME: Load Balancer
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the name of the load balancer to be associated to this context.
+This load balancer is a virtual application, and must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: proxyWebServer
+NAME: Web Server
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the name of the external web server.
+This external web server must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
 
 
 
