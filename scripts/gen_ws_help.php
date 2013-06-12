@@ -44,6 +44,7 @@ $texts = array("$pathcommon/HelpDoc.DB.txt",
 			"$pathws/RequestFilter_Help.txt",
 			"$pathws/ServGeneralPage.txt",
 			"$pathws/VHSecurityPage.txt",
+			"$pathws/WS_Help.txt",
 			"$pathws/PageNavDef.txt");
 
 $base = new ItemBase($texts);

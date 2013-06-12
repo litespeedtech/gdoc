@@ -66,36 +66,6 @@ END_TIPS
 
 
 
-[ITEM]
-ID: cgi_path
-NAME: Path
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: {ITEM=expuri}
-
-DESCR: Specifies the corresponding location of this context in the file system. 
-END_DESCR
-
-SYNTAX: It can be an absolute path or path relative to $SERVER_ROOT, $VH_ROOT, or $DOC_ROOT. 
-$DOC_ROOT is the default relative path, and can be omitted.<br>
-If the {ITEM=expuri} is a regular expression, then the matched sub-string 
-can be used to form the "Root" string. The matched sub-string can be 
-referenced with the values "$1" - "$9". "$0" and "&" can be used to reference the 
-whole matched string. Additionally, a query string can be set by 
-appending a "?" followed by the query string. Be careful. "&" should
-be escaped as "\&" in the query string.
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
 
 [ITEM]
 ID: javaWebApp_location

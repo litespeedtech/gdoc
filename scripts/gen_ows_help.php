@@ -7,7 +7,7 @@ define('DEBUG_TAG', 'NO');
 define('DOC_TYPE', 'ows');
 
 $pathcommon = 'text/common';
-$pathws = 'text/' . DOC_TYPE;
+$pathows = 'text/' . DOC_TYPE;
 
 $texts = array("$pathcommon/HelpDoc.DB.txt", 
 			"$pathcommon/Listener_Help.txt", 
@@ -18,10 +18,11 @@ $texts = array("$pathcommon/HelpDoc.DB.txt",
 			"$pathcommon/Rewrite_Help.txt",
 		    "$pathcommon/Templates_Help.txt",
 			"$pathcommon/ServerStat_Help.txt",
-			"$pathws/Context_Tbl_Help.txt",
-			"$pathws/ServGeneralPage.txt",
-			"$pathws/VHSecurityPage.txt",
-			"$pathws/PageNavDef.txt");
+			"$pathows/Context_Tbl_Help.txt",
+			"$pathows/ServGeneralPage.txt",
+			"$pathows/VHSecurityPage.txt",
+			"$pathows/OWS_Help.txt",
+			"$pathows/PageNavDef.txt");
 
 $base = new ItemBase($texts);
 
