@@ -15,7 +15,9 @@ at: http://en.wikipedia.org/wiki/SPDY
 If you wish to enable SPDY, check the box next to the version(s) you wish to enable.
 END_DESCR
 
-SYNTAX: Check the protocol versions that you want to enable.
+SYNTAX: Check the protocol versions that you want to enable. Leaving all boxes unchecked 
+will enable SPDY/2 and SPDY/3 (the default). If you wish to disable SPDY, check "None" only 
+and leave all other boxes unchecked.
 END_SYNTAX
 
 EXAMPLE: 
