@@ -22,6 +22,7 @@ $texts = array("$pathcommon/HelpDoc.DB.txt",
 			"$pathows/ServGeneralPage.txt",
 			"$pathows/VHSecurityPage.txt",
 			"$pathows/OWS_Help.txt",
+			"$pathows/WebSocketProxy.txt",
 			"$pathows/PageNavDef.txt");
 
 $base = new ItemBase($texts);

@@ -91,14 +91,14 @@ IPv4 sockets can be used for communication over the network.
 UDS can only be used when the external application resides on the same machine as the server.
 END_DESCR
 
-SYNTAX: IPv4 address:port or UDS://path
+SYNTAX: IPv4 or IPV6 address:port or UDS://path
 END_SYNTAX
 
 EXAMPLE: 127.0.0.1:5434 <br> UDS://tmp/lshttpd/php.sock.
 END_EXAMPLE
 
 TIPS: [Security] If the external application runs on the same machine, 
-UDS is preferred. If you have to use an IPv4 socket, 
+UDS is preferred. If you have to use an IPv4|IPV6 socket, 
 set the IP address to {val}localhost{/} or {val}127.0.0.1{/}, 
 so the external application is inaccessible from other machines. <br>
 [Performance] Unix Domain Sockets generally provide higher performance than IPv4 sockets.

@@ -18,7 +18,8 @@ VirtualHosts_Help
 VHGeneral_Help
 VHSecurity_Help
 Rewrite_Help
-Context_Help 
+Context_Help
+VHWebSocket_Help
 AdminGeneral_Help
 AdminListener_Help
 
