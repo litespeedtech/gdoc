@@ -461,15 +461,15 @@ END_TIPS
 
 
 [ITEM]
-ID: sslVersion
-NAME: SSL Version
+ID: sslProtocol
+NAME: SSL Protocol Version
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
 DESCR: Specifies which version of SSL protocol will be used. You can choose from 
-{val}SSLv3{/} and {val}TLSv1{/}.
+{val}SSL v3.0{/} and {val}TLS v1.0{/}. Since OpenSSL 1.0.1, {val}TLS v1.1{/} and {val}TLS v1.2{/} are also supported. 
 END_DESCR
 
 SYNTAX: 
@@ -488,7 +488,7 @@ END_TIPS
 
 
 [ITEM]
-ID: sslEncryptionLevel
+ID: ciphers
 NAME: Encryption Level
 REQUIRED: 
 APPLY: 3
@@ -505,7 +505,102 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: [Security & Performance] Stronger encryption consumes more CPU
-cycles. eNULL means no encryption at all, and therefore has the best performance.
+cycles. 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: enableStapling
+NAME: Enable OCSP Stapling
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Determines whether to enable OCSP stapling, a more efficient way of verifying public key certificates.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: ocspRespMaxAge
+NAME: OCSP Response Max Age (secs)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: This option sets the maximum allowable age for an OCSP response. If an OCSP response is older than this maximum age, the server will contact the OCSP responder for a new response. The default value is {val}86400{/}. Maximum age can be turned off by setting this value to {val}-1{/}.
+END_DESCR
+
+SYNTAX: Integer of seconds
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: ocspResponder
+NAME: OCSP Responder
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the URL of the OCSP responder to be used.
+END_DESCR
+
+SYNTAX: URL starting with {val}http://{/}
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: ocspCACerts
+NAME: OCSP CA Certificates
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the location of the file where OCSP certification authority (CA) certificates are stored. 
+This setting is optional. If this setting is not set, the server will automatically check {ITEM= CACertFile}.
+END_DESCR
+
+SYNTAX: File name which can be an absolute path or relative to $SERVER_ROOT.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
 END_TIPS
 
 [END_ITEM]
@@ -571,16 +666,37 @@ SEE_ALSO:
 
 
 
+[TBL]
+ID: sslCert
+NAME: SSL Private Key & Certificate
+
+DESCR: Every SSL listener requires a paired SSL private key and SSL certificate. 
+Multiple SSL listeners can share the same key and certificate. 
+
+You can generate SSL private keys yourself using an SSL software package, 
+such as OpenSSL. SSL certificates can also be purchased from an authorized certificate 
+issuer like VeriSign or Thawte. You can also sign the certificate yourself. 
+That certificate will not be trusted by web browsers and should not be used on public web 
+sites containing critical data. However, a self-signed certificate is good 
+enough for internal use, e.g. for encrypting traffic 
+to LiteSpeed Web Server's WebAdmin console.
+END_DESCR
+
+CONT: keyFile certFile certChain CACertPath CACertFile
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
 
 
 [TBL]
-ID: sslProtocol
+ID: sslProtocolSetting
 NAME: SSL Protocol
 
 DESCR: Customizes SSL protocols accepted by the listener.
 END_DESCR
 
-CONT: sslVersion sslEncryptionLevel 
+CONT: sslProtocol ciphers 
 END_CONT
 
 SEE_ALSO: 
@@ -588,69 +704,56 @@ SEE_ALSO:
 
 
 
-
-
-
-
-
-
-[PAGE]
-ID: Listeners_Help 
-NAME: Listeners
+[TBL]
+ID: sslFeature
+NAME: Security & Features
 
 DESCR: 
 END_DESCR
 
-CONT: listenerGeneral virtualHostMapping sslSetting sslProtocol
+CONT: renegProtection enableSpdy
 END_CONT
 
 SEE_ALSO: 
-[END_PAGE]
+[END_TBL]
 
 
-[PAGE]
-ID: LB_Listeners_Help 
-NAME: Listeners
+
+[TBL]
+ID: sslOCSP
+NAME: OCSP Stapling
+
+DESCR: Online Certificate Status Protocol (OCSP) is a more efficient method 
+of checking whether a digital certificate is valid. It works by communicating 
+with another server — the OCSP responder — to get verification that the certificate 
+is valid instead of checking through certificate revocation lists (CRL).
+
+OCSP stapling is a further improvement on this protocol, allowing the server to 
+check with the OCSP responder at regular intervals instead of every time a certificate 
+is requested. See the <a href="http://en.wikipedia.org/wiki/OCSP_Stapling">OCSP Wikipedia page</a> for more details.
+END_DESCR
+
+CONT: enableStapling ocspRespMaxAge ocspResponder ocspCACerts
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[TBL]
+ID: sslClientVerify
+NAME: Client Verification
 
 DESCR: 
 END_DESCR
 
-CONT: LB_listenerGeneral virtualHostMapping sslSetting sslProtocol
+CONT: clientVerify verifyDepth crlPath crlFile 
 END_CONT
 
 SEE_ALSO: 
-[END_PAGE]
+[END_TBL]
 
 
-
-
-
-[PAGE]
-ID: AdminListener_Help 
-NAME: Admin Listeners
-
-DESCR: Admin Listeners are dedicated to the Admin Server. Secure (SSL) listeners 
-are recommended for the Admin Server.
-END_DESCR
-
-CONT: LB_listenerGeneral sslSetting sslProtocol
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
-
-[PAGE]
-ID: LB_AdminListener_Help 
-NAME: Admin Listeners
-
-DESCR: Admin Listeners are dedicated to the Admin Server. Secure (SSL) listeners are recommended for the Admin Server.
-END_DESCR
-
-CONT: LB_listenerGeneral sslSetting sslProtocol
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
 
 
 [END_HELPDOC]

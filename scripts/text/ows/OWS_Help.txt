@@ -29,26 +29,36 @@ END_TIPS
 [END_ITEM]
 
 
-[TBL]
-ID: sslSetting
-NAME: SSL Private Key & Certificate
 
-DESCR: Every SSL listener requires a paired SSL private key and SSL certificate. 
-Multiple SSL listeners can share the same key and certificate. 
-You can generate SSL private keys yourself using an SSL software package, 
-such as OpenSSL. SSL certificates can also be purchased from an authorized certificate 
-issuer like VeriSign or Thawte. You can also sign the certificate yourself. 
-That certificate will not be trusted by web browsers and should not be used on public web 
-sites containing critical data. However, a self-signed certificate is good 
-enough for internal use, e.g. for encrypting traffic 
-to LiteSpeed Web Server's WebAdmin console.
+
+[PAGE]
+ID: Listeners_Help 
+NAME: Listeners
+
+DESCR: 
 END_DESCR
 
-CONT: keyFile certFile certChain CACertPath CACertFile clientVerify
-verifyDepth crlPath crlFile renegProtection enableSpdy
+CONT: listenerGeneral virtualHostMapping sslCert sslProtocolSetting sslFeature sslOCSP sslClientVerify
 END_CONT
 
 SEE_ALSO: 
-[END_TBL]
+[END_PAGE]
+
+
+[PAGE]
+ID: AdminListener_Help 
+NAME: Admin Listeners
+
+DESCR: Admin Listeners are dedicated to the Admin Server. Secure (SSL) listeners 
+are recommended for the Admin Server.
+END_DESCR
+
+CONT: LB_listenerGeneral sslCert sslProtocolSetting sslFeature sslClientVerify
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
 
 [END_HELPDOC]
