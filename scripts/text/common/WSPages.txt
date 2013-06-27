@@ -16,6 +16,8 @@ coming from a single IP address that can be processed in each second
 regardless of the number of connections established. 
 When this limit is reached, all future requests to dynamic content 
 are tar-pitted until the next second. 
+
+
 The request limit for static content is independent of this limit.
 This per client request limit can be set at server or virtual host level. 
 Virtual host-level settings override server-level settings.
@@ -48,24 +50,28 @@ SEE_ALSO:
 DESCR: Specifies the external application that will receive the access log
 data sent by LiteSpeed through a pipe on its STDIN stream (file handle is 0). 
 When this field is specified, the access log will be sent only to the logger 
-application and not the access log file specified in previous entry. <br>
+application and not the access log file specified in previous entry.
+
 
 The logger application must be defined in {PAGE=ExtApp_Help} section first. 
 Server-level access logging can only use an external logger application 
 defined at the server level. Virtual host-level access logging can only use
-a logger application defined at the virtual host level.<br>
+a logger application defined at the virtual host level.
+
 
 The logger process is spawned in the same way as other external 
 (CGI/FastCGI/LSAPI) processes. This means it will execute as the 
 user ID specified in the virtual host's {ITEM=VirtualHosts_Help#setUidMode} 
-settings and will never run on behalf of a privileged user. <br>
+settings and will never run on behalf of a privileged user. 
+
 
 LiteSpeed web server performs simple load balancing among multiple logger 
 applications if more than one instance of a logger application is configured. 
 LiteSpeed server always attempts to keep the number of logger applications 
 as low as possible. Only when one logger application fails to process access 
 log entries in time will the server attempt to spawn another instance of 
-the logger application. <br>
+the logger application. 
+
 
 If a logger crashes, the web server will start another instance but the 
 log data in the stream buffer will be lost. It is possible to lose log 
@@ -412,7 +418,7 @@ using the file suffix. (Actually, the suffix is used to determine a MIME
 type which is then mapped to the external application.) External applications 
 must be set up in the {PAGE= ExtApp_Help} tab before they can be selected for 
 use in a script handler.
-<br>
+
 
 You can set up script handler at the server or virtual host level. Server-level
 script handlers apply to all virtual hosts unless overridden in virtual host level. 
@@ -511,22 +517,25 @@ TOP_NAV: config.html = Configuration
 
 
 DESCR: Virtual host templates make it easy to create many new virtual
-hosts with similar configurations. <br>
+hosts with similar configurations. 
+
+
 Each template contains a template configuration file, a list of mapped listeners,
 and a list of member virtual hosts.
-<br>
+
+
 To add a template-based virtual host, the administrator only needs to
 add a member with a unique virtual host name and a
 qualified domain name to the template member list.
 Lister-to-virtual host mapping will be added automatically for 
-all listeners in the template's mapped listener list. <br>
-<br>
+all listeners in the template's mapped listener list. 
+
+
 Later on, if you need to customize the configuration for a particular
 virtual host, just "instantiate" that member virtual host and a
 standalone virtual host configuration will be created automatically.
 Even when setting up a customized virtual host,
 a template can still be a convenient starting point.
- 
 END_DESCR
 
 CONT: templateGeneral templateMembers templateSettings

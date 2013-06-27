@@ -68,11 +68,14 @@ SEE_ALSO:
 DESCR: {ent_version} Specifies the directory where the chroot environment is rooted. 
 Only "root" user can run the {ws_lb} in chroot mode. Whether to run in chroot mode is controlled by 
 {ITEM=enableChroot} option. The installer program will set up the initial chroot environment automatically. 
-This entry is read-only, and if you want to change it, please run the installer again from the command line. <br>
+This entry is read-only, and if you want to change it, please run the installer again from the command line. 
+
+
 In the chroot environment, the {ws_lb} and its child processes cannot access file systems outside of 
 the chroot jail. Chroot is an advanced security feature and additional administration may be required to 
 make it work properly. All required executables, libraries, configuration files, and device files should be 
-recreated within the chroot jail.<br>
+recreated within the chroot jail.
+
 
 As the root directory is changed, you need to pay special attention to path configuration 
 when an absolute path is used. A Unix domain socket or swapping directory is always relative 
@@ -102,8 +105,7 @@ APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: {ent_version} Specifies whether to start
-the {ws_lb} in chroot mode. 
+DESCR: {ent_version} Specifies whether to start the {ws_lb} in chroot mode. 
 The new root directory is set by {ITEM=servChrootPath} during installation.
 END_DESCR
 
@@ -156,7 +158,9 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Enables service auto-recovery, automatically recreating a new server process when the 
-current server exits abnormally.<br> 
+current server exits abnormally.
+
+
 When this option is enabled, there will be two instances of server process "lshttpd". The parent process 
 monitors the child process and will create a new child process if the current one exits abnormally. 
 However, if the current child process exits normally, the parent process will exit as well. You can use 
@@ -173,7 +177,9 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: [Security] The parent process' only job is to monitor the child. It does not interact with 
-the outside world, and therefore is safe to execute as a super user.<br>
+the outside world, and therefore is safe to execute as a super user.
+
+
 [Reliability] This feature should always be enabled for an extra layer of protection against service down time.
 END_TIPS
 
@@ -198,8 +204,6 @@ malfunctioning external applications and a web server restart can often fix
 the error temporarily. If enabled, the server will restart
 automatically whenever there are more than 30 "503" errors within a 30
 seconds span. This feature is enabled by default.
-
-
 END_DESCR
 
 SYNTAX: bool
@@ -281,7 +285,10 @@ SEE_ALSO: {ITEM=inMemBufSize}
 
 DESCR: Specifies the directory where the swapping files should be placed. 
 When the server started in chroot mode, it is relative to the new root directory, 
-otherwise it is relative to the real root.<br>LiteSpeed {ws_lb} uses its own virtual memory 
+otherwise it is relative to the real root.
+
+
+LiteSpeed {ws_lb} uses its own virtual memory 
 to reduce the system memory usage. Virtual memory and disk swapping is used to store big request bodies and 
 dynamically generated responses. The swapping directory should be placed on a disk with enough space.
 END_DESCR
@@ -441,9 +448,10 @@ APPLY: 3
 SINCE: 4.2.3
 SEE_ALSO: 
 
-DESCR: Specifies whether or not to show the lines<br>
-"Powered By LiteSpeed Web Server.<br>
-LiteSpeed Technologies is not responsible for administration and contents of this web site!"<br>
+DESCR: Specifies whether or not to show the lines
+<blockquote>Powered By LiteSpeed Web Server.
+
+LiteSpeed Technologies is not responsible for administration and contents of this web site!"</blockquote>
 on your default error pages.
 END_DESCR
 
@@ -472,6 +480,8 @@ SEE_ALSO:
 DESCR: Specifies whether to use the IP address listed in the X-Forwarded-For HTTP
 request header for all IP address-related features, including
 connection/bandwidth throttling, access control, and IP geolocation.
+
+
 This feature is useful if your web server is behind a load balancer or a proxy server.
 If you select "Trusted IP Only", then X-Forwarded-For IP will be used only when the request
 is coming from trusted IPs defined in the server-level {ITEM=ServSecurity_Help#accessControl_allow}. 
@@ -665,6 +675,7 @@ not need detailed debug logging. Active debug logging will severely degrade serv
 and potentially saturate disk space in a very short time.
 Debug logging includes detailed information for each request and response.
 
+
 It's recommended to set Log Level to {val}DEBUG{/} and Debug Level to {val}NONE{/}. 
 These settings mean that you will not fill up your hard disk with debug logging, 
 but you will be able to use the {ITEM=ServerStat_Help#toggleDebugLog} action to control debug output. 
@@ -807,7 +818,6 @@ SEE_ALSO: {ITEM=accessLog_logHeader}
 DESCR: {ent_version} Specifies the log format for the access
 log. When log format is set, it will override the {ITEM=accessLog_logHeader}
 setting. 
-
 END_DESCR
 
 SYNTAX: String. The syntax of log format is compatible with Apache 2.0's custom 
@@ -815,15 +825,24 @@ SYNTAX: String. The syntax of log format is compatible with Apache 2.0's custom
 END_SYNTAX
 
 EXAMPLE: 
-Common Log Format (CLF)<br>
-    "%h %l %u %t \"%r\" %>s %b"<br>
-Common Log Format with Virtual Host<br>
-    "%v %h %l %u %t \"%r\" %>s %b"<br>
-NCSA extended/combined log format<br>
-    "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\" <br>
-Log cookie value of Foobar
-    "%{Foobar}C"
+Common Log Format (CLF)
 
+    "%h %l %u %t \"%r\" %>s %b"
+
+
+Common Log Format with Virtual Host
+
+    "%v %h %l %u %t \"%r\" %>s %b"
+
+
+NCSA extended/combined log format
+
+    "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\" 
+
+
+Log cookie value of Foobar
+
+    "%{Foobar}C"
 END_EXAMPLE
 
 TIPS: 
@@ -930,6 +949,8 @@ SEE_ALSO:
 
 DESCR: Specifies whether to generate an Expires header for static files. If enabled, an Expires 
 header will be generated based on {ITEM=expiresDefault} and {ITEM=expiresByType}. 
+
+
 This can be set at server, virtual host and context level. Lower level settings will 
 override higher level ones, i.e. context settings will override virtual host settings 
 and virtual host settings will override server settings.
@@ -966,7 +987,9 @@ often. If there is no default setting, no Expires header will be
 generated for types not specified in {ITEM=expiresByType}.
 END_DESCR
 
-SYNTAX: A|Mseconds<br>The file will expire after base time(A|M) plus specified seconds. 
+SYNTAX: A|Mseconds
+
+The file will expire after base time(A|M) plus specified seconds. 
 Base time "A" sets the value to the client's access time and "M" to the file's last modified time.
 END_SYNTAX
 
@@ -994,6 +1017,8 @@ END_DESCR
 
 SYNTAX: Comma delimited list of "MIME-type=A|Mseconds". 
 The file will expire after base time (A|M) plus specified seconds. 
+
+
 Base time "A" sets the value to the client's access time and "M" to the file's last modified time. 
 MIME-type accepts wildcard "*", like image/*.
 END_SYNTAX
@@ -1079,7 +1104,11 @@ SEE_ALSO: {ITEM=checkSymbolLink}.
 
 DESCR: Specifies the server-level default setting of following symbolic links 
 when serving static files. 
+
+
 Choices are {val}Yes{/}, {val}If Owner Match{/} and {val}No{/}. 
+
+
 {val}Yes{/} sets the server to always follow symbolic links. 
 {val}If Owner Match{/} sets the server to follow a symbolic link only if the owner of the link and of the target are same. 
 {val}No{/} means the server will never follow a symbolic link. 
@@ -1195,8 +1224,8 @@ DESCR: Specifies the restricted permission mask for static files that the
 {ws_lb} will not serve. For example, to prohibit serving files that are
 executable, set the mask to {val}0111{/}.
 
-See {cmd}man 2 stat{/} for all values. 
 
+See {cmd}man 2 stat{/} for all values. 
 END_DESCR
 
 SYNTAX: octal numbers
@@ -1224,6 +1253,7 @@ SEE_ALSO: {ITEM=restrictedDirPermissionMask}.
 DESCR: Specifies the restricted permission mask for script files that the
 {ws_lb} will not serve. For example, to prohibit serving PHP scripts that are
 group and world writable, set the mask to {val}022{/}. Default value is {val}000{/}.
+
 
 See {cmd}man 2 stat{/} for all values. 
 
@@ -1256,6 +1286,7 @@ DESCR: Specifies the restricted permission mask of parent directories of script 
 group and world writable, set the mask to {val}022{/}. Default value is
 {val}000{/}. This option can be used to prevent serving scripts under a directory of
  uploaded files. 
+
 
 See {cmd}man 2 stat{/} for all values. 
 
@@ -1299,7 +1330,8 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Set the bandwidth in 8KB units for better performance. <br>
+TIPS: [Performance] Set the bandwidth in 8KB units for better performance.
+
 [Security] Trusted IPs or sub-networks are not affected.
 END_TIPS
 
@@ -1352,6 +1384,8 @@ SEE_ALSO: {ITEM=dynReqPerSec}
 DESCR: Specifies the maximum number of requests to static content coming from a single
 IP address that can be processed in a single second regardless of the number of
 connections established. 
+
+
 When this limit is reached, all future requests are tar-pitted until the next second. 
 Request limits for dynamically generated content are independent of this limit.
 Per-client request limits can be set at server- or virtual host-level. 
@@ -1389,10 +1423,14 @@ This soft limit can be exceeded temporarily during {ITEM=gracePeriod} as long as
 the number is below the {ITEM=hardLimit}, but Keep-Alive connections 
 will be closed as soon as possible until the number of connections is lower 
 than the limit. If number of connections is still over the limit after the 
-{ITEM=gracePeriod}, that IP will be blocked for the {ITEM=banPeriod}.<br>
+{ITEM=gracePeriod}, that IP will be blocked for the {ITEM=banPeriod}.
+
+
 For example, if a page contains many small graphs, the browser may try to set up 
 many connections at same time, especially for HTTP/1.0 clients. You would want to allow 
-those connections for a short period.<br>
+those connections for a short period.
+
+
 HTTP/1.1 clients may also set up multiple connections to speed up downloading and SSL 
  requires separate connections from non-SSL connections. Make sure the limit is set properly, 
  as not to adversely affect normal service. The recommended limit is between {val}5{/} and {val}10{/}.
@@ -1404,8 +1442,10 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] A lower number will enable serving more distinct clients. <br>
-[Security] Trusted IPs or sub-networks are not affected. <br>
+TIPS: [Security] A lower number will enable serving more distinct clients.
+
+[Security] Trusted IPs or sub-networks are not affected. 
+
 [Performance] Set to a high value when you are performing benchmark tests 
 with a large number of concurrent client machines.
 END_TIPS
@@ -1430,7 +1470,8 @@ HTTP/1.0 clients usually try to set up as many connections as they need to downl
 content at the same time. This limit should be set high enough so that HTTP/1.0 clients can still 
 access the site.  
 Use {ITEM=softLimit} to set the desired connection limit. 
-<br>
+
+
 The recommended limit is between {val}20{/} and {val}50{/} depending on the content of your web page and your traffic load. 
 END_DESCR
 
@@ -1440,8 +1481,10 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] A lower number will enable serving more distinct clients. <br>
-[Security] Trusted IPs or sub-networks are not affected. <br>
+TIPS: [Security] A lower number will enable serving more distinct clients.
+
+[Security] Trusted IPs or sub-networks are not affected. 
+
 [Performance] Set to a high value when you are performing benchmark tests with a large number of concurrent client machines.
 END_TIPS
 
@@ -1672,6 +1715,8 @@ DESCR: Specifies a group ID to be used for all external applications started in 
 When set to non-zero value, all suEXEC external applications (CGI/FastCGI/LSAPI)
 will use this group ID. This can be used to prevent an external application
 from accessing files owned by other users.
+
+
 For example, in a shared hosting environment, LiteSpeed runs as user
 "www-data", group "www-data". Each docroot is owned by a user account,
 with a group of "www-data" and permission mode 0750. If Force GID is set to
@@ -1707,6 +1752,8 @@ SEE_ALSO: Server {ITEM=ServGeneral_Help#serverPriority}
 
 DESCR: Specifies priority of the external application process. Value ranges from
 {val}-20{/} to {val}20{/}. A lower number means a higher priority. 
+
+
 A CGI process cannot have a higher priority than the web server. If this
 priority is set to a lower number than the server's, the server's priority will be used for this value.
 END_DESCR
@@ -1793,12 +1840,16 @@ SEE_ALSO:
 
 DESCR: Specifies the memory consumption limit in bytes for an external application process
 or an external application started by the server.  
+
+
 The main purpose of this limit is to prevent excessive memory usage
 because of software bugs or intentional attacks, not to impose a limit on
 normal usage. Make sure to leave enough head room, otherwise your
 application may fail and 503 error may be returned. It can be set at the server-
 level or at an individual external application level. The server-level limit will be used if
-it is not set at the individual application level.    
+it is not set at the individual application level.
+
+
 The operating system's default setting will be used if the value is absent at both levels or set to
 {val}0{/}. 
 END_DESCR
@@ -1830,7 +1881,9 @@ SEE_ALSO:
 DESCR: Much the same as {ITEM=memSoftLimit}, except the soft limit can be raised up to the
 hard limit from within a user process. The hard limit can be set at server
 level or at an individual external application level. The server-level limit will be used if  
-it is not set at an individual application level.    
+it is not set at an individual application level. 
+
+
 The operating system's default will be used if the value is absent at both levels or set to
 {val}0{/}. 
 END_DESCR
@@ -1864,7 +1917,9 @@ of a user. All existing processes will be counted
 against this limit, not just new processes to be started. 
 If the limit is set to {val}10{/}, and there are more than 10 processes
 running under one user, then no new process can be started by the web
-server for that user (through suEXEC). <br>
+server for that user (through suEXEC). 
+
+
 The main purpose of this limit is to prevent "fork bomb"
 attacks or excessive usage, not to impose a limit on normal usage. 
 Make sure to leave enough head room. This can be set at the server level or at an  
@@ -1967,10 +2022,11 @@ SYNTAX: Comma delimited list of IP addresses or sub-networks.
 A trailing "T" can be used to indicate a trusted IP or sub-network, such as {val}192.168.1.*T{/}.
 END_SYNTAX
 
-EXAMPLE: Sub-networks: 
-{val}192.168.1.0/255.255.255.0{/}, {val}192.168.1.0/24{/}, {val}192.168.1{/} or
-{val}192.168.1.*{/}. <br>
-IPv6 addresses: {val}::1{/} or {val}[::1]{/} <br> 
+EXAMPLE: Sub-networks: {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1.0/24{/}, {val}192.168.1{/} or
+{val}192.168.1.*{/}. 
+
+IPv6 addresses: {val}::1{/} or {val}[::1]{/} 
+
 IPv6 subnets: {val}3ffe:302:11:2:20f:1fff:fe29:717c/64{/} or 
 {val}[3ffe:302:11:2:20f:1fff:fe29:717c]/64{/}. 
 END_EXAMPLE
@@ -2002,8 +2058,10 @@ END_SYNTAX
 
 EXAMPLE: Sub-networks: 
 {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1.0/24{/}, {val}192.168.1{/} or
-{val}192.168.1.*{/}. <br>
-IPv6 addresses: {val}::1{/} or {val}[::1]{/} <br> 
+{val}192.168.1.*{/}. 
+
+IPv6 addresses: {val}::1{/} or {val}[::1]{/} 
+
 IPv6 subnets: {val}3ffe:302:11:2:20f:1fff:fe29:717c/64{/} or 
 {val}[3ffe:302:11:2:20f:1fff:fe29:717c]/64{/}. 
 END_EXAMPLE
@@ -2509,8 +2567,9 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: [Security & Performance] Set it reasonably low to reduce memory usage 
-and help identify bogus requests and DoS attacks. <br>2-3K is big enough for most web 
-sites unless the HTTP GET method is used with large query strings instead of POST.
+and help identify bogus requests and DoS attacks. 
+
+2-3K is big enough for most web sites unless the HTTP GET method is used with large query strings instead of POST.
 END_TIPS
 
 [END_ITEM]
@@ -2538,7 +2597,9 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: [Security & Performance] Set it reasonably low to reduce memory usage and 
-help identify bogus requests and DoS attacks.<br> 4-8K is big enough for most web sites.
+help identify bogus requests and DoS attacks.
+
+4-8K is big enough for most web sites.
 END_TIPS
 
 [END_ITEM]
@@ -3346,13 +3407,18 @@ SEE_ALSO:  {ITEM=GroupDBLocation}, {ITEM=userDB_attrPasswd}, {ITEM=userDB_attrMe
 DESCR: Specifies the location of the user database. 
 For DB type {val}Password File{/}, it is the path to the flat file
 containing user/password definitions.
-You can edit this file through the WebAdmin console by clicking on the file name.<br>
+You can edit this file through the WebAdmin console by clicking on the file name.
+
+
 Each line of the user file contains a username followed by a colon, 
 followed by a crypt() encrypted password, optionally followed by a colon 
 and group names that user belongs to. Group names are delimitated by commas. 
 If group information is specified in the user database, then the group
-database will not be checked.<br>
+database will not be checked.
+
+
 Example:<blockquote><code>john:HZ.U8kgjnMOHo:admin,user</code></blockquote>
+
 
 For DB type {val}LDAP{/}, it is the LDAP URL to query for the user
 information. For each valid user, the authentication data stored in the LDAP
@@ -3363,10 +3429,14 @@ must be specified in the filter part of the URL and it will be
 replaced with the username. The user password attribute
 must be returned in the query result. The attribute name of the user password
 is specified by {ITEM=userDB_attrPasswd}. Group information can be
-optionally specified by {ITEM=userDB_attrMemberOf}.<br>
+optionally specified by {ITEM=userDB_attrMemberOf}.
+
+
 Example: At minimum, a user can be defined in LDAP with object
 classes: uidObject, simpleSecurityObject and organizationalRole. The
-following URL could be used: <br>
+following URL could be used: 
+
+
 <blockquote><code>ldap://localhost/ou=UserDB,dc=example,dc=com???(&(objectClass=*)(uid=$k))</code></blockquote>
 
 END_DESCR
@@ -3588,16 +3658,19 @@ DESCR: Specifies the location of the group database.
 Group information can be set either in the user database or in this
 standalone group DB. For user authentication, the user DB will be checked
 first. If the user DB also contains group information, then the group DB will
-not be checked.  <br>
+not be checked. 
+
 
 For the DB type {val}Password File{/}, the group DB location should be the path to 
 the flat file containing group definitions. You can edit this file through the 
-WebAdmin console by clicking on the file name. <br>
+WebAdmin console by clicking on the file name. 
+
 
 Each line of a group file should contain a groupname followed by a colon,  
-followed by space delimited group of user names. <br>Example:<br>
+followed by space delimited group of user names. Example:
+
 <blockquote><code>testgroup: user1 user2 user3</code></blockquote> 
-<br>
+
 
 For the DB type {val}LDAP{/}, the group DB location should be the LDAP URL to query 
 for group information. For each valid group, one and only
@@ -3606,12 +3679,13 @@ this URL and the group name specified in {ITEM=Context_Help#required}. "$k"
 must be specified in the filter part of the URL and it will be
 replaced with the group name. The name of the attribute that 
 specifies members in this group
-is specified by {ITEM=groupDB_attrGroupMember}. <br>
+is specified by {ITEM=groupDB_attrGroupMember}.
+
+
 Example: If objectClass posixGroup is being used to store group
 information. The following URL could be used: 
-<br><blockquote><code>ldap://localhost/ou=GroupDB,dc=example,dc=com???(&(objectClass=*)(cn=$k))</code></blockquote>
-<br>
 
+<blockquote><code>ldap://localhost/ou=GroupDB,dc=example,dc=com???(&(objectClass=*)(cn=$k))</code></blockquote>
 
 END_DESCR
 
@@ -3986,7 +4060,8 @@ DESCR: {ent_version} Specifies how the root directory is set for an external app
 process. In order to protect confidential system data files from being
 accessed by a vulnerable external application script, an alternative root path can be
 set for the external application process so that files beyond the new root directory become
-inaccessible. This is referred to as a "chroot jail".<br>
+inaccessible. This is referred to as a "chroot jail".
+
 
 Three choices are available: 
 <ul><li>{val}Same as Server{/}: External application processes will be run in the same jail as the server.</li>
@@ -4173,10 +4248,12 @@ END_DESCR
 
 SYNTAX: Syntax is compatible with Apache, valid syntaxes are 
 <ul>
-<li>{val}user username [username ...]{/} <br> 
+<li>{val}user username [username ...]{/} 
+
 Only listed users can access this context;</li>
-<li> {val}group groupid [groupid ...]{/}<br>
- Only users belonging to the listed groups can access this context.</li>
+<li> {val}group groupid [groupid ...]{/}
+
+Only users belonging to the listed groups can access this context.</li>
 </ul>
 If this setting is not specified, all valid users can access this resource.
 END_SYNTAX
@@ -4635,7 +4712,8 @@ NAME: Access Control
 DESCR: Specifies what sub networks and/or IP addresses can access the server. 
 This is a server-level setting that affects all virtual hosts. You can also set up 
 access control unique to each virtual host. Virtual host settings will NOT 
-override the server settings. <br>
+override the server settings. 
+
 
 Whether to block/allow an IP is determined by the combination of the allowed list and denied list. 
 If you want to block only certain IPs or sub-networks, put {val}*{/} or {val}ALL{/} in 
@@ -4643,7 +4721,8 @@ If you want to block only certain IPs or sub-networks, put {val}*{/} or {val}ALL
 If you want to only allow certain IPs or sub-networks, put {val}*{/} or {val}ALL{/} 
 in {ITEM=accessControl_deny} and list the allowed IPs or sub-networks in {ITEM=accessControl_allow}. 
 The setting of the smallest scope that fits for an IP will be used to determine whether 
-to block or allow that IP. <br>
+to block or allow that IP. 
+
 
 Trusted IPs or sub-networks must be specified in {ITEM=accessControl_allow} by adding a 
 trailing "T". Trusted IPs or sub-networks are not affected by connection/throttling limits. 

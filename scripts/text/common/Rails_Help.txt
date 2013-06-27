@@ -173,30 +173,36 @@ NAME: Rack/Rails Shared Hosting
 
 DESCR: LiteSpeed's Rack/Rails Shared Hosting settings allow users 
 using our high performance, highly scalable Ruby LSAPI module to 
-easily control their customers' Ruby usage.<br> 
+easily control their customers' Ruby usage.
+
 
 LiteSpeed Rack/Rails hosting solution can deliver the best
 performance with minimum server resource requirement. In addition,
-it is compatible with all existing web hosting control panels. <br>
+it is compatible with all existing web hosting control panels. 
+
 
 The user-manageable Rack/Rails configuration file (".ls_rails_config") 
 is located in the user's home directory or virtual host root directory.  
-Syntax is as follows: <br>
+Syntax is as follows: 
 
-#RailsApp <name> <App Path> <Rails Evn> <Children Processes> <RunOnStart> <br/>
-RailsApp testApp "/lsws/testrails" "development" 4 1 <br/>
- <br/>
-#RailsAppMap <name> <domain> <URI> <br/>
-RailsAppMap testApp "testrails.com" "/" <br/>
-RailsAppMap testApp "test.testrails.com" "/" <br/>
-<br>
+<blockquote>
+#RailsApp <name> <App Path> <Rails Evn> <Children Processes> <RunOnStart>
+
+RailsApp testApp "/lsws/testrails" "development" 4 1 
+
+
+#RailsAppMap <name> <domain> <URI> 
+
+RailsAppMap testApp "testrails.com" "/" 
+
+RailsAppMap testApp "test.testrails.com" "/" 
+</blockquote>
 
 The "App Path" is relative to the user's home directory or the virtual
-host root directory.<br> 
+host root directory.
+
 
 Whenever this file is touched, Rack/Rails applications will be restarted.
-
-
 END_DESCR
 
 CONT: enableRailsHosting railsAppLimit rubyProcLimit 
@@ -204,24 +210,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
-
-
-
-
-################ PAGE ###########
-
-[PAGE]
-ID: Rails_Help 
-NAME: Rails Default Settings
-
-DESCR: 
-END_DESCR
-
-CONT:  railsDefault railsHosting
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
 
 
 

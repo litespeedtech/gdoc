@@ -40,7 +40,9 @@ DESCR: Specifies the corresponding location of this context in the file system.
 END_DESCR
 
 SYNTAX: It can be an absolute path or path relative to $SERVER_ROOT, $VH_ROOT, or $DOC_ROOT. 
-$DOC_ROOT is the default relative path, and can be omitted.<br>
+$DOC_ROOT is the default relative path, and can be omitted.
+
+
 If the {ITEM=expuri} is a regular expression, then the matched sub-string 
 can be used to form the "Root" string. The matched sub-string can be 
 referenced with the values "$1" - "$9". "$0" and "&" can be used to reference the 
@@ -51,7 +53,8 @@ END_SYNTAX
 
 EXAMPLE:  A plain URI like {val}/examples/{/} with {ITEM=location} 
 set to {val}/home/john/web_examples{/} will map the request "/examples/foo/bar.html" 
-to file "/home/john/web_examples/foo/bar.html". <br>
+to file "/home/john/web_examples/foo/bar.html". 
+
 To simulate Apache's mod_userdir, 
 set URI to {val}exp: ^/~([A-Za-z0-9]+)(.*){/}, 
 set {ITEM=location} to {val}/home/$1/public_html$2{/}. With these settings, a request of URI /~john/foo/bar.html will 
@@ -132,7 +135,8 @@ SEE_ALSO:
 DESCR: Specifies whether the set UID bit is allowed for CGI scripts. If the 
 set UID bit is allowed and the set UID bit is enabled for a CGI script, 
 no matter which user the CGI script was started on behalf of, the user ID of the CGI process will
-switch to the user ID of the owner of the CGI script. <br>
+switch to the user ID of the owner of the CGI script. 
+
 The default is "Off".
 END_DESCR
 
@@ -196,7 +200,8 @@ SYNTAX: "[HeaderName]: [HeaderValue]" in each line.
 END_SYNTAX
 
 EXAMPLE: 
-Cache-control: no-cache, no-store <br>
+Cache-control: no-cache, no-store 
+
 My-header: Custom header value
 END_EXAMPLE
 
@@ -218,7 +223,8 @@ SEE_ALSO:
 
 DESCR: Specifies additional MIME types and mappings for this
 	   context. New mappings will override existing mappings under this
-	   context and its children contexts.<br>
+	   context and its children contexts.
+
 	   If you want to show PHP scripts as text files instead of being
 	   executed as scripts, just override the .php mapping to MIME type
 	   "text/plain". 
@@ -229,7 +235,7 @@ SYNTAX: MIME-type1 extension extension ..., MIME-type2 extension ...
 		separate multiple extensions.
 END_SYNTAX
 
-EXAMPLE: {val}image/jpg jpeg jpg, image/gif gif{/}<br>
+EXAMPLE: {val}image/jpg jpeg jpg, image/gif gif{/}
 END_EXAMPLE
 
 TIPS: 

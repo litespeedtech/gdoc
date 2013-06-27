@@ -49,8 +49,10 @@ class DocItem
 			else if ( $descrInd )
 			{
 				$tag = 'END_DESCR';
-				if ( strncmp($tag, $line, strlen($tag)) == 0 )
+				if ( strncmp($tag, $line, strlen($tag)) == 0 ) {
 					$descrInd = false;
+					$this->_descr = trim($this->_descr);	
+				}
 				else
 					$this->_descr .= $line;
 			}
@@ -163,9 +165,9 @@ class DocItem
 
 	function toDoc()
 	{
-		$end = '</td></tr>'."\r\n";
+		$end = '</td></tr>'."\n";
 		$buf = '<a name="'. $this->_id . '"></a>';
-		$buf .= '<table width="'.$this->_width.'" class="ht" border="0" cellpadding="5" cellspacing="0">' . "\r\n";
+		$buf .= '<table width="'.$this->_width.'" class="ht" border="0" cellpadding="5" cellspacing="0">' . "\n";
 		$buf .= '<tr class="ht-title"><td><table width="100%" border="0" cellpadding="0" cellspacing="0">';
 		$buf .= '<tr><td class="ht-title">'.$this->_name.'</td><td class="top"><a href="#top"><img border=0 height=13 width=13 alt="Go to top" src="img/top.gif"></a></td></tr></table>'.$end;
 		$buf .= '<tr><td><span class="ht-label">Description: </span>' . $this->_descr . $end;
@@ -203,7 +205,7 @@ class DocItem
 
 	function toText()
 	{
-		$e = "\r\n";
+		$e = "\n";
 		$buf = '[ITEM]' . $e;
 		$buf .= 'ID: ' . $this->_id . $e;
 		$buf .= 'NAME: ' . $this->_name . $e;

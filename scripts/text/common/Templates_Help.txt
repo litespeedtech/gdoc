@@ -101,7 +101,9 @@ SEE_ALSO:
 
 DESCR: A unique name for this virtual host. This name must be unique among all 
 template member virtual hosts and standalone virtual hosts. Inside a directory 
-path configuration, this name can be referenced by the variable {val}$VH_NAME{/}.<br>
+path configuration, this name can be referenced by the variable {val}$VH_NAME{/}.
+
+
 If a standalone virtual host with the same name is also configured, then
 the member virtual host configuration will be ignored.
 END_DESCR
@@ -135,7 +137,9 @@ If left blank, the virtual host name will be used. This should
 be a fully qualified domain name, but you can use an IP address as well. 
 It is recommended to append {val}:<port>{/} for web sites not on port 80. 
 For configurations containing domain names, this domain can be referenced 
-with variable {val}$VH_DOMAIN{/}. <br> 
+with variable {val}$VH_DOMAIN{/}. 
+
+
 This domain name will be used in the following situations:
 <ol>
   <li>To match the hostname in the Host header when processing a
@@ -173,7 +177,9 @@ SEE_ALSO:
 DESCR: Specifies alternate names for the virtual host. All possible
 hostnames and IP addresses should be added to this list. The wildcard characters
 {val}*{/} and {val}?{/} are allowed in the name.
-Append {val}:<port>{/} for web sites not on port 80. <br> 
+Append {val}:<port>{/} for web sites not on port 80. 
+
+
 Aliases will be used in the following situations:
 <ol>
   <li>To match the hostname in the Host header when processing a
@@ -257,7 +263,9 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies the root directory of this virtual host. If left
-blank, the default virtual host root for this template will be used. <br>
+blank, the default virtual host root for this template will be used.
+
+
 Note: This is <b>NOT</b> the document root. It is recommended to place 
 all files related to the virtual host (like virtual host configuration, 
 log files, html files, CGI scripts, etc.) under this directory.  
@@ -274,14 +282,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
-
-
-
-
-
 
 
 

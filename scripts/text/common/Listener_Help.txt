@@ -161,8 +161,10 @@ END_DESCR
 SYNTAX: Comma-separated list.
 END_SYNTAX
 
-EXAMPLE: www?.example.com <br>
-"*.mydomain.com" will match all subdomains of mydomain.com. <br>
+EXAMPLE: www?.example.com
+
+"*.mydomain.com" will match all subdomains of mydomain.com.
+
 "*" by itself is the catchall domain and will match any unmatched domain names.
 END_EXAMPLE
 
@@ -566,7 +568,10 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the URL of the OCSP responder to be used.
+DESCR: Specifies the URL of the OCSP responder to be used. 
+If not set, the server will attempt to contact the OCSP responder 
+detailed in the certificate authority's issuer certificate. 
+Some issuer certificates may not have an OCSP responder URL specified.
 END_DESCR
 
 SYNTAX: URL starting with {val}http://{/}
@@ -590,8 +595,16 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the location of the file where OCSP certification authority (CA) certificates are stored. 
-This setting is optional. If this setting is not set, the server will automatically check {ITEM= CACertFile}.
+DESCR: Specifies the location of the file where OCSP certificate authority (CA) 
+certificates are stored. These certificates are used to check responses 
+from the OCSP responder (and make sure those responses are not spoofed or 
+otherwise compromised). This file should contain the whole certificate chain. 
+If this file does not contain the root certificate, LSWS should be able to find 
+the root certificate in your system directory without you adding it to the file, 
+but, if this validation fails, you should try adding your root certificate to this file. 
+
+
+This setting is optional. If this setting is not set, the server will automatically check {ITEM= CACertFile}. 
 END_DESCR
 
 SYNTAX: File name which can be an absolute path or relative to $SERVER_ROOT.
@@ -673,6 +686,7 @@ NAME: SSL Private Key & Certificate
 DESCR: Every SSL listener requires a paired SSL private key and SSL certificate. 
 Multiple SSL listeners can share the same key and certificate. 
 
+
 You can generate SSL private keys yourself using an SSL software package, 
 such as OpenSSL. SSL certificates can also be purchased from an authorized certificate 
 issuer like VeriSign or Thawte. You can also sign the certificate yourself. 
@@ -727,6 +741,7 @@ DESCR: Online Certificate Status Protocol (OCSP) is a more efficient method
 of checking whether a digital certificate is valid. It works by communicating 
 with another server — the OCSP responder — to get verification that the certificate 
 is valid instead of checking through certificate revocation lists (CRL).
+
 
 OCSP stapling is a further improvement on this protocol, allowing the server to 
 check with the OCSP responder at regular intervals instead of every time a certificate 

@@ -194,7 +194,9 @@ NAME: Hotlink Control
 
 DESCR: Hotlinks are requests made from an external website to
 files on your own website often referred to as "leeching". This practice
-introduces additional bandwidth usage that you should not be responsible for. <br>
+introduces additional bandwidth usage that you should not be responsible for.
+
+
 LiteSpeed web server can prevent others from hotlinking to content on
 your web site by checking the Referer header within a HTTP request. 
 If the Referer header does not match your website, the request will be denied.

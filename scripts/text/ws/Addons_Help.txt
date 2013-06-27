@@ -14,7 +14,9 @@ SEE_ALSO: {ITEM=disableAdmin}, {ITEM=domainNames}
 DESCR: Specifies whether to enable Microsoft FrontPage Server
 Extensions. When enabled, Microsoft FrontPage can be used to 
 publish web content. A web administration console is available at URL
-{val}http://your.domain/_vti_bin/_vti_adm/fpadmcgi.exe{/}.<br>
+{val}http://your.domain/_vti_bin/_vti_adm/fpadmcgi.exe{/}.
+
+
 Additional FrontPage Server Extensions packages must be installed
 in order to make this work properly.
 
@@ -45,7 +47,9 @@ SEE_ALSO: {ITEM=enableFrontPage}, {ITEM=domainNames}
 DESCR: Specifies whether to disable the web administration console for 
 Microsoft FrontPage Server Extensions. The web administration
 console is available at URL
-{val}http://your.domain/_vti_bin/_vti_adm/fpadmcgi.exe{/}.<br>
+
+{val}http://your.domain/_vti_bin/_vti_adm/fpadmcgi.exe{/}.
+
 Additional FrontPage Server Extensions packages must be installed
 in order to make it work properly. 
 END_DESCR
@@ -76,7 +80,9 @@ SEE_ALSO: {ITEM=disableAdmin}, {ITEM=enableFrontPage}
 DESCR: Specifies the virtual servers that provide Front Page Server
 Extensions service. When a web site is assigned to multiple domain names
 or service ports, FrontPage access is only available to the domain name and port
-combinations specified in this list. <br>
+combinations specified in this list. 
+
+
 Additional FrontPage Server Extensions packages must be installed
 in order to make it work properly. 
 END_DESCR
@@ -85,8 +91,10 @@ SYNTAX: Domain_name:port[, ...] The virtual server name is comprised of domain n
 END_SYNTAX
 
 EXAMPLE: For a web site with domain name "www.mydomain.com" accessible via both
-HTTP and HTTPS connections, the name list should be something like:<br>
-{val}www.mydomain.com:80, www.mydomain.com:443{/} 
+HTTP and HTTPS connections, the name list should be something like:
+<blockquote>
+{val}www.mydomain.com:80, www.mydomain.com:443{/}
+</blockquote> 
 END_EXAMPLE
 
 TIPS: 

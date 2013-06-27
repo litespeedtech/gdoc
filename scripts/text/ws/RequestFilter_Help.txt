@@ -282,15 +282,18 @@ SINCE:
 SEE_ALSO: 
 
 
-DESCR: Specifies a list of censorship rules.<br/>
+DESCR: Specifies a list of censorship rules.
+
+
 If you are using an Apache config file, you have to set up rules in httpd.conf. 
 Rules defined here will have no effect.
-
 END_DESCR
 
 SYNTAX: String. Syntax of censoring rules follows that of Apache's mod_security
 directives. "SecFilter", "SecFilterSelective", and "SecRule" can be 
-used here.  You can copy and paste security rules from an Apache configuration file.<br/>
+used here.  You can copy and paste security rules from an Apache configuration file.
+
+
 For more details about rule syntax, please refer to the 
 {ext-href}http://www.modsecurity.org/documentation/index.html{ext-href-end}Mod Security
 documentation{ext-href-end-a}.

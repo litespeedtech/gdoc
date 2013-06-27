@@ -14,7 +14,6 @@ class DocTable
 
 	function DocTable($buf)
 	{
-		$e = "\r\n";
 		$startInd = false;
 		$descrInd = false;
 		$exampleInd = false;
@@ -43,7 +42,7 @@ class DocTable
 						$this->_descr = NULL;
 				}
 				else
-					$this->_descr .= $line . $e;
+					$this->_descr .= $line;
 			}
 			else if ( $exampleInd )
 			{
@@ -54,7 +53,7 @@ class DocTable
 					$this->_example = trim($this->_example);
 				}
 				else
-					$this->_example .= $line . $e;
+					$this->_example .= $line;
 
 			}
 			else if ( $tipsInd )
@@ -66,7 +65,7 @@ class DocTable
 					$this->_tips = trim($this->_tips);
 				}
 				else
-					$this->_tips .= $line . $e;
+					$this->_tips .= $line;
 			}
 			else if ( $contInd )
 			{
@@ -97,28 +96,28 @@ class DocTable
 						echo "Table error: duplicate description found $this->_id\n";
 					}
 					
-					$this->_descr = substr($line, strlen($tag)) . $e;
+					$this->_descr = substr($line, strlen($tag));
 					$descrInd = true;
 					continue;
 				}
 				$tag = 'EXAMPLE:';
 				if ( strncmp($tag, $line, strlen($tag)) == 0 )
 				{
-					$this->_example = substr($line, strlen($tag)) . $e;
+					$this->_example = substr($line, strlen($tag));
 					$exampleInd = true;
 					continue;
 				}
 				$tag = 'TIPS:';
 				if ( strncmp($tag, $line, strlen($tag)) == 0 )
 				{
-					$this->_tips = substr($line, strlen($tag)) . $e;
+					$this->_tips = substr($line, strlen($tag));
 					$tipsInd = true;
 					continue;
 				}
 				$tag = 'CONT:';
 				if ( strncmp($tag, $line, strlen($tag)) == 0 )
 				{
-					$this->_cont = substr($line, strlen($tag)) . $e;
+					$this->_cont = substr($line, strlen($tag));
 					$contInd = true;
 					continue;
 				}

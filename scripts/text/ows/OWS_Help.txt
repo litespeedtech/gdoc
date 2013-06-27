@@ -12,6 +12,7 @@ DESCR: SPDY is an experimental protocol that runs on top of SSL with the
 goal of reducing page load times. More information can be found 
 at: http://en.wikipedia.org/wiki/SPDY 
 
+
 If you wish to enable SPDY, check the box next to the version(s) you wish to enable.
 END_DESCR
 
@@ -27,6 +28,24 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
+
+
+
+
+################ PAGE ###########
+
+[PAGE]
+ID: Rails_Help 
+NAME: Rack/Rails Settings
+
+DESCR: 
+END_DESCR
+
+CONT:  railsDefault 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
 
 
 

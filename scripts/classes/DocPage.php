@@ -15,7 +15,6 @@ class DocPage
 
 	function DocPage(&$buf)
 	{
-		$e = "\r\n";
 		$startInd = false;
 		$descrInd = false;
 		$contInd = false;
@@ -34,10 +33,12 @@ class DocPage
 			else if ( $descrInd )
 			{
 				$tag = 'END_DESCR';
-				if ( strncmp($tag, $line, strlen($tag)) == 0 )
+				if ( strncmp($tag, $line, strlen($tag)) == 0 ) {
 					$descrInd = false;
+					$this->_descr = trim($this->_descr);	
+				}
 				else
-					$this->_descr .= $line . $e;
+					$this->_descr .= $line;
 			}
 			else if ( $contInd )
 			{
@@ -73,14 +74,14 @@ class DocPage
 					if ($this->_descr != NULL) {
 						echo "Page error: duplicate description found $this->_id\n";
 					}
-					$this->_descr = substr($line, strlen($tag)) . $e;
+					$this->_descr = substr($line, strlen($tag));
 					$descrInd = true;
 					continue;
 				}
 				$tag = 'CONT:';
 				if ( strncmp($tag, $line, strlen($tag)) == 0 )
 				{
-					$this->_cont = substr($line, strlen($tag)) . $e;
+					$this->_cont = substr($line, strlen($tag));
 					$contInd = true;
 					continue;
 				}
@@ -146,20 +147,18 @@ class DocPage
 
 	function genDoc(&$base)
 	{
-		$e = "\r\n";
 		echo ("generating $this->_id  \t\t");
 		
 		$this->transNav($base);
 		$nav = GenTool::getNavBar($this->_prevNav, $this->_topNav, $this->_nextNav);
 		$buf = GenTool::getHeader($nav, $this->_name);
 		if ( $this->_descr )
-			$buf .= '<p>' . $this->_descr . '</p>'.$e;
+			$buf .= '<p>' . $this->_descr . '</p>';
 			
 		$helpList = array();
 		if ( $this->_tables )
 		{
 			$buf .= '<h4>Table of Contents</h4>';
-			//$buf .= '<div><table class="tbl-content1" cellpadding="2" border="1" cellspacing="0">'.$e;
 			$buf .= '<section class="toc">';
 			
 			foreach ( $this->_tables as $table )
@@ -167,8 +166,7 @@ class DocPage
 				if ( isset($table) )
 					$buf .= $table->toTableOfContents();
 			}
-			//$buf .= '</table></div>'. $e;
-			$buf .= '</section>' . $e;
+			$buf .= '</section>' ;
 
 		}
 		$buf .= '<section>';
@@ -178,9 +176,9 @@ class DocPage
 			{
 				if ( $item != NULL )
 				{
-					$buf .= '<div class="helpitem">' .$e;
+					$buf .= '<div class="helpitem">';
 					$buf .= $item->toDoc();
-					$buf .= '</div>'.$e;
+					$buf .= '</div>';
 				}
 			}
 		}

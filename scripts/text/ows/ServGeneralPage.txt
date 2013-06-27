@@ -23,10 +23,11 @@ END_EXAMPLE
 
 TIPS: The server will automatically add a special MIME type ("application/x-httpd-[suffix]") for the first 
 suffix in the list. For example, MIME type "application/x-httpd-php53" will be added 
-for suffix "php53". Suffixes after the first need to set up in the {ITEM=mime} settings.<br>
+for suffix "php53". Suffixes after the first need to set up in the {ITEM=mime} settings.
+
 Though we list suffixes in this field, the script handlers use MIME types, not suffixes, 
-to decide which scripts to handle. <br>
- 
+to decide which scripts to handle. 
+
 [Performance & Security] Only specify the suffixes you really need.
 END_TIPS
 

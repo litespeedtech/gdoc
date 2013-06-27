@@ -115,8 +115,9 @@ EOD;
 			$buf1 = str_replace( $from1, $to1, $buf1 );
 		}
 
-		$from = array('{ext-href}', '{ext-href-end}', '{ext-href-end-a}');
-		$to = array('<a href="', '" target="_blank">', '</a>');
+		
+		$from = array("\n\n\n", "\n\n", "\r\n", "\n", '{ext-href}', '{ext-href-end}', '{ext-href-end-a}');
+		$to = array('<br/><br/>', '<br/>', ' ', ' ', '<a href="', '" target="_blank">', '</a>');
 		
 		$buf1 = str_replace( $from, $to, $buf1 );
 		
@@ -155,16 +156,16 @@ EOD;
 	{
 		switch($syntax)
 		{
-		case 'bool': return 'Select from radio box';
-		case 'text': return NULL;
-		case 'path1': return 'Absolute path.';
-		case 'path2': return 'An absolute path or a relative path to $SERVER_ROOT.'; 
-		case 'file2': return 'File name which can be an absolute path or relative to $SERVER_ROOT.';
-		case 'file3': return 'File name which can be absolute, or relative to $SERVER_ROOT, or relative to $VH_ROOT.'; 
-		case 'path3': return 'A path which can be absolute, or relative to $SERVER_ROOT, or relative to $VH_ROOT.'; 
-		case 'select': return 'Select from drop down list';
-		case 'checkbox': return 'Select from checkbox';
-		case 'uint': return 'Integer number';
+			case 'bool': return 'Select from radio box';
+			case 'text': return NULL;
+			case 'path1': return 'Absolute path.';
+			case 'path2': return 'An absolute path or a relative path to $SERVER_ROOT.'; 
+			case 'file2': return 'File name which can be an absolute path or relative to $SERVER_ROOT.';
+			case 'file3': return 'File name which can be absolute, or relative to $SERVER_ROOT, or relative to $VH_ROOT.'; 
+			case 'path3': return 'A path which can be absolute, or relative to $SERVER_ROOT, or relative to $VH_ROOT.'; 
+			case 'select': return 'Select from drop down list';
+			case 'checkbox': return 'Select from checkbox';
+			case 'uint': return 'Integer number';
 		}
 		return $syntax;
 

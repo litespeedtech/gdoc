@@ -69,7 +69,9 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies whether to turn on cache for the current context, either at the server
-level, virtual host level, or directory level. <br>
+level, virtual host level, or directory level. 
+
+
 Virtual hosts configured through Apache httpd.conf can use the "CacheEnable" and 
 "CacheDisable" directives at the server, virtual host, directory, files, and location 
 level or in .htaccess. "CacheEnable" and "CacheDisable" directives are compatible 
@@ -289,8 +291,12 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies whether to turn on private cache for the current context, either at server 
-level, virtual host level, or directory level. <br>
-Private cache will cache a copy per user based on IP and cookies.<br> 
+level, virtual host level, or directory level. 
+
+
+Private cache will cache a copy per user based on IP and cookies.
+
+ 
 Virtual hosts configured through Apache httpd.conf can use the "CacheEnable private /url" and
 "CacheDisable private /url" directives at server, virtual host, directory, files, and location
  levels or in a .htaccess file. "CacheEnable private" and

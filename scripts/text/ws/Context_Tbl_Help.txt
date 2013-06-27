@@ -38,11 +38,13 @@ NAME: Java Web App Context
 DESCR: Many people running Java applications use the servlet engine to serve static 
 content as well. But no servlet engine is nearly as efficient as LiteSpeed Web Server for these processes. In order to improve the overall performance, 
 LiteSpeed Web Server can be configured as a gateway server, which serves static content 
-and forwards dynamic Java page requests to the servlet engine. <br> 
+and forwards dynamic Java page requests to the servlet engine. 
+
 
 LiteSpeed Web Server requires certain contexts to be defined in order to run a 
 Java application. A Java Web App Context automatically creates all required 
-contexts based on the Java web application's configuration file (WEB-INF/web.xml). <br>
+contexts based on the Java web application's configuration file (WEB-INF/web.xml). 
+
 
 There are a few points you need to keep in mind when setting up a Java Web App Context:
 
@@ -53,8 +55,10 @@ before Java Web App Context can be set up.<li>
 <li>If the web application is packed into a .war file, the .war file must be expanded. 
 The server cannot access compressed archive files.</li>
 <li>For the same resources, the same URL should be used no matter whether it is accessed 
-through LiteSpeed Web Server or through the servlet engine's built-in HTTP server.<br>
- For example, 
+through LiteSpeed Web Server or through the servlet engine's built-in HTTP server.
+
+
+For example, 
   Tomcat 4.1 is installed under /opt/tomcat. Files for the "examples" web application are 
   located at /opt/tomcat/webapps/examples/. Through Tomcat's built-in HTTP server, 
   the "examples" web application is thus accessed with a URI like "/examples/***". 
@@ -297,6 +301,7 @@ DESCR: In LiteSpeed Web Server terminology, a "context" is a virtual location, a
 document root of a website. "/cgi-bin/" is a context farther up on the tree, dedicated 
 to the CGI applications for this site. A context can be explicitly defined in 
 LiteSpeed's WebAdmin console for the following purposes:
+
 <ul>
   <li>To make a file system outside of the document root accessible.</li>
   <li>To block access to certain resources.</li>

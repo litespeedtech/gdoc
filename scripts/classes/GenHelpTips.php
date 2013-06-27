@@ -63,10 +63,10 @@ class GenHelpTips
 			echo "fail to open file $outfile\n";
 			return false;
 		}
+		fwrite($fd, "<?php \n");
 
-
-		$search = array("\r\n", "\n", '"', "'", '{ext-href}', '{ext-href-end}', '{ext-href-end-a}');
-		$replace = array(' ', ' ', '&quot;', '&#039;', '<a href="', '" target="_blank">', '</a>');
+		$search = array("\n\n\n", "\n\n", "\r\n", "\n", '"', "'", '{ext-href}', '{ext-href-end}', '{ext-href-end-a}');
+		$replace = array('<br/><br/>', '<br/>',  ' ', ' ', '&quot;', '&#039;', '<a href="', '" target="_blank">', '</a>');
 		ksort($this->_tipsBase);
 		foreach( $this->_tipsBase as $item )
 		{

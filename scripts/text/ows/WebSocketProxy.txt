@@ -8,15 +8,29 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the URI(s) that will use this WebSocket backend. 
+DESCR: Specifies the URI(s) that will use this WebSocket backend. Traffic to 
+this URI will only be forwarded to the WebSocket backend when it contains 
+a WebSocket upgrade request. 
+
+
+Traffic without this upgrade request will automatically be forwarded to the 
+Context that this URI belongs to. If no Context exists for this URI, 
+LSWS will treat this traffic as though it is accessing a static context with 
+the location {val}$DOC_ROOT/URI{/}.
 END_DESCR
 
-SYNTAX: The URI can be a plain URI (starting with "/") or 
-a Perl-compatible regular expression URI (starting with "exp:"). If a plain URI ends 
-with a "/", then this WebSocket backend will include all sub-URIs under this URI.
+SYNTAX: The URI can be a plain URI (starting with "/") or a Perl-compatible 
+regular expression URI (starting with "exp:"). If a plain URI ends with a "/", 
+then this WebSocket backend will include all sub-URIs under this URI. 
 END_SYNTAX
 
-EXAMPLE:
+EXAMPLE: Using the WebSocket proxy in conjunction with a Context 
+allows you to serve different kinds of traffic in different ways 
+on the same page, thus optimizing performance. You can send WebSocket 
+traffic to the WebSocket backend, while setting up a static context so 
+that LSWS can serve the page's static content, or an LSAPI context so LSWS 
+will serve PHP content (both of which LSWS does more efficiently 
+than the WebSocket backend).
 END_EXAMPLE
 
 TIPS: 
@@ -43,13 +57,16 @@ END_DESCR
 SYNTAX: IPv4 or IPV6 address:port or UDS://path
 END_SYNTAX
 
-EXAMPLE: 127.0.0.1:5434 <br> UDS://tmp/lshttpd/php.sock.
+EXAMPLE: 127.0.0.1:5434 
+
+UDS://tmp/lshttpd/php.sock.
 END_EXAMPLE
 
 TIPS: [Security] If the WebSocket backend runs on the same machine, 
 UDS is preferred. If you have to use an IPv4 or IPv6 socket, 
 set the IP address to localhost or 127.0.0.1, so the WebSocket backend 
 is inaccessible from other machines.
+
 [Performance] Unix Domain Sockets generally provide higher performance than IPv4 or IPv6 sockets.
 END_TIPS
 
