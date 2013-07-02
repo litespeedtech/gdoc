@@ -577,7 +577,7 @@ END_DESCR
 SYNTAX: URL starting with {val}http://{/}
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE: {val}http://rapidssl-ocsp.geotrust.com {/}
 END_EXAMPLE
 
 TIPS: 
