@@ -65,7 +65,7 @@ DESCR: Admin Listeners are dedicated to the Admin Server. Secure (SSL) listeners
 are recommended for the Admin Server.
 END_DESCR
 
-CONT: LB_listenerGeneral sslSetting sslProtocol
+CONT: LB_listenerGeneral sslSetting sslProtocolSetting
 END_CONT
 
 SEE_ALSO: 

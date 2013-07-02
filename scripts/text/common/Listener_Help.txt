@@ -719,21 +719,6 @@ SEE_ALSO:
 
 
 [TBL]
-ID: sslFeature
-NAME: Security & Features
-
-DESCR: 
-END_DESCR
-
-CONT: renegProtection enableSpdy
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
 ID: sslOCSP
 NAME: OCSP Stapling
 

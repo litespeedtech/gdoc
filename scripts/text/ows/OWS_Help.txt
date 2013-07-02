@@ -32,6 +32,21 @@ END_TIPS
 
 
 
+
+[TBL]
+ID: sslFeature
+NAME: Security & Features
+
+DESCR: 
+END_DESCR
+
+CONT: renegProtection enableSpdy
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
 ################ PAGE ###########
 
 [PAGE]
