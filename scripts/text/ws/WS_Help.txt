@@ -50,7 +50,7 @@ NAME: Listeners
 DESCR: 
 END_DESCR
 
-CONT: listenerGeneral virtualHostMapping sslSetting sslProtocolSetting
+CONT: listenerGeneral virtualHostMapping sslSetting sslProtocolSetting sslOCSP
 END_CONT
 
 SEE_ALSO: 
