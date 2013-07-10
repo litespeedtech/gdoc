@@ -744,6 +744,36 @@ END_TIPS
 
 [END_ITEM]
 
+[ITEM]
+ID: ramDiskPath
+NAME: RAM Disk Path
+REQUIRED: 
+APPLY: 
+SINCE: 4.2.4
+SEE_ALSO: 
+
+DESCR: Setting the RAM Disk Path allows you to designate the location of a RAM disk. A RAM disk 
+is a world-writable directory stored in memory. A server with excess RAM can reduce disk I/O by serving 
+content from this RAM disk. Accessing content from RAM is much faster than reading data from the disk. 
+LSWS will use this RAM disk to optimize performance when there is enough memory available.
+
+
+(The RAM disk must be designated in your OS setup before it can be used by the web server. 
+Many Linux distributions assign /dev/shm as a RAM disk by default, but these settings depend on your OS.) 
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
 ############################ TBL #########################
 
 
@@ -884,6 +914,21 @@ SEE_ALSO:
 
 
 [TBL]
+ID: osTuning
+NAME: OS Optimization
+
+DESCR: 
+END_DESCR
+
+CONT: eventDispatcher ramDiskPath SSLCryptoDevice
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
 ID: connTuning
 NAME: Connection Tuning
 
@@ -891,15 +936,26 @@ DESCR:
 END_DESCR
 
 CONT: maxConnections maxSSLConnections connTimeout maxKeepAliveReq
-smartKeepAlive keepAliveTimeout sndBufSize rcvBufSize eventDispatcher
-maxCachedFileSize totalInMemCacheSize maxMMapFileSize totalMMapCacheSize
-useSendfile useAIO AIOBlockSize fileETag SSLCryptoDevice
+smartKeepAlive keepAliveTimeout sndBufSize rcvBufSize
 END_CONT
 
 SEE_ALSO: 
 [END_TBL]
 
 
+[TBL]
+ID: staticTuning
+NAME: Static File Delivery Optimization
+
+DESCR: 
+END_DESCR
+
+CONT: maxCachedFileSize totalInMemCacheSize maxMMapFileSize totalMMapCacheSize
+useSendfile useAIO AIOBlockSize fileETag
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
 
 
 

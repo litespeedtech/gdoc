@@ -209,6 +209,20 @@ SEE_ALSO:
 
 
 [TBL]
+ID: osTuning
+NAME: OS Optimization
+
+DESCR: 
+END_DESCR
+
+CONT: eventDispatcher SSLCryptoDevice
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[TBL]
 ID: connTuning
 NAME: Connection Tuning
 
@@ -216,14 +230,26 @@ DESCR:
 END_DESCR
 
 CONT: maxConnections maxSSLConnections connTimeout maxKeepAliveReq
-smartKeepAlive keepAliveTimeout sndBufSize rcvBufSize eventDispatcher
-maxCachedFileSize totalInMemCacheSize maxMMapFileSize totalMMapCacheSize
-useSendfile fileETag SSLCryptoDevice
+smartKeepAlive keepAliveTimeout sndBufSize rcvBufSize
 END_CONT
 
 SEE_ALSO: 
 [END_TBL]
 
+
+[TBL]
+ID: staticTuning
+NAME: Static File Delivery Optimization
+
+DESCR: 
+END_DESCR
+
+CONT: maxCachedFileSize totalInMemCacheSize maxMMapFileSize totalMMapCacheSize
+useSendfile fileETag
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
 
 
 

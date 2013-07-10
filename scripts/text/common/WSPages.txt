@@ -373,7 +373,7 @@ NAME: Server Tuning
 DESCR: 
 END_DESCR
 
-CONT: connTuning reqTuning gzipTuning 
+CONT: osTuning connTuning reqTuning staticTuning gzipTuning 
 END_CONT
 
 SEE_ALSO: 
