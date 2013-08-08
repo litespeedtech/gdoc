@@ -1683,8 +1683,8 @@ SEE_ALSO:
 
 DESCR: Specifies the minimum group ID of external applications. 
 Execution of an external with a group ID lower than the value specified here will be denied. 
-If LiteSpeed web server is started by "root" user, it can run external applications in the "suEXEC"
-mode like Apache (to change to a user/group ID other than the web server's). 
+If LiteSpeed web server is started by the "root" user, it can run external applications in the "suEXEC"
+mode found in Apache (to change to a user/group ID other than the web server's). 
 END_DESCR
 
 SYNTAX: uint
@@ -1782,7 +1782,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies CPU consumption time limit in seconds for an external application process. When the process 
+DESCR: Specifies CPU consumption time limit in seconds for a CGI process. When the process 
 reaches the soft limit, it will be notified by a signal. The operating system's default setting will 
 be used if the value is absent or set to {val}0{/}.
 END_DESCR
@@ -1810,7 +1810,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies maximum CPU consumption time limit in seconds for an external application process. 
+DESCR: Specifies maximum CPU consumption time limit in seconds for a CGI process. 
 If the process continues to consume CPU time and reach the hard limit, the process 
 will be force killed. The operating system's default setting will be used if the value is absent or set to {val}0{/}.
 END_DESCR
@@ -3674,7 +3674,7 @@ followed by space delimited group of user names. Example:
 
 For the DB type {val}LDAP{/}, the group DB location should be the LDAP URL to query 
 for group information. For each valid group, one and only
-one record should be returned in the LDAP search request based on the
+one record should be returned in the LDAP search request based on 
 this URL and the group name specified in {ITEM=Context_Help#required}. "$k"
 must be specified in the filter part of the URL and it will be
 replaced with the group name. The name of the attribute that 
@@ -4236,17 +4236,18 @@ END_TIPS
 
 [ITEM]
 ID: required
-NAME: Required
+NAME: Require (Authorized Users/Groups)
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies which user/group can access this context. With this directive, 
-a large user database can be shared amongst contexts with different levels of permission.
+DESCR: Specifies which user/group can access this context. This allows you to use 
+one user/group database (specified in {ITEM=realm}) across a number of contexts, but 
+only allow certain users/groups from that database to access this context.
 END_DESCR
 
-SYNTAX: Syntax is compatible with Apache, valid syntaxes are 
+SYNTAX: Syntax is compatible with Apache's Require directive. For example: 
 <ul>
 <li>{val}user username [username ...]{/} 
 
@@ -4255,7 +4256,7 @@ Only listed users can access this context;</li>
 
 Only users belonging to the listed groups can access this context.</li>
 </ul>
-If this setting is not specified, all valid users can access this resource.
+If this setting is not specified, all valid users will be able to access this resource.
 END_SYNTAX
 
 EXAMPLE: 

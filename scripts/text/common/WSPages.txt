@@ -159,9 +159,10 @@ SEE_ALSO:
 
 [TBL]
 ID: cgiResource
-NAME: External Application Resource Control
+NAME: CGI Settings
 
-DESCR: 
+DESCR: The following settings control CGI processes. Memory and process limits also serve as the default for 
+other external applications if limits have not been set explicitly for those applications. 
 END_DESCR
 
 CONT: cgidSock maxCGIInstances minUID minGID forceGID CGIPriority CPUSoftLimit CPUHardLimit memSoftLimit memHardLimit procSoftLimit procHardLimit 
