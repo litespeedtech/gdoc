@@ -230,20 +230,6 @@ SEE_ALSO:
 
 
 
-[TBL]
-ID: vhGeneral
-NAME: General
-
-DESCR: 
-END_DESCR
-
-CONT: docRoot enableGzip enableIpGeo vhadminEmails 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
 
 [TBL]
 ID: vhIndex
@@ -257,11 +243,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
-
-
-
-
-
 
 
 

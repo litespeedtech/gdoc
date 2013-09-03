@@ -30,6 +30,44 @@ END_TIPS
 [END_ITEM]
 
 
+[ITEM]
+ID: spdyAdHeader
+NAME: SPDY Advertisement
+REQUIRED: 
+APPLY: 3
+SINCE: 1.2.5
+SEE_ALSO: 
+
+DESCR: Specify whether to advertise SPDY protocol through "Alternate-Protocol" response header 
+when client access web site through regular HTTP connection. This requires the virtual host have 
+both HTTP and HTTPS connections available, and SPDY support is enabled for HTTPS connections. 
+END_DESCR
+
+SYNTAX: port:protocol string 
+END_SYNTAX
+
+EXAMPLE: If SPDY/3 is enabled on port 443, you can set the string here to "443:npn-spdy/3"  
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[TBL]
+ID: vhGeneral
+NAME: General
+
+DESCR: 
+END_DESCR
+
+CONT: docRoot vhadminEmails enableGzip enableIpGeo spdyAdHeader 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
 
 
 
