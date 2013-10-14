@@ -1,0 +1,56 @@
+<h1>Administration</h1>
+
+<p>LiteSpeed web server can be controlled in three ways: through the WebAdmin interface, from the command line, or by sending signals.</p> 
+
+<p class="label1">1. Through the web administration interface.</p>
+<ul>
+  Log on to the web administration console, and then select <span class="tag">Control</span> on top menu, the drop menu has shortcuts to common tasks. Clicking on <span class="tag">Control</span> to go to a dedicate control panel page. <br>
+Clicking the corresponding link can perform the following task: 
+gracefully restart server, view log, real-time monitoring, reload virtual host, enable/disable virtual host and version management. <br>
+<p><a href="ServerStat_Help.html">More details ...</a></p>
+<p>To change the login name and password for the web interface, run following command from shell:<br>
+	<span class="cmd">[your install dir]/admin/misc/admpass.sh</span> </p>
+</ul>
+<p class="label1">2. Control the server process from command line.</p>
+<ul>
+Assuming the load balancer is installed at /opt/lslb.<br>
+
+Use the <span class="tag">lslbctrl</span> control script in /opt/lslb/bin/ directory.<br>
+<p>
+start the load balancer:<br>
+<span class="cmd">/opt/lslb/bin/lslbctrl start</span>
+</p>
+<p>
+stop load balancer:<br>
+<span class="cmd">/opt/lslb/bin/lslbctrl stop</span>
+</p>
+<p>
+gracefully restart load balancer:<br>
+<span class="cmd">/opt/lslb/bin/lslbctrl restart</span>
+</p>
+</ul>
+
+<p class="label1">3. Control the server process by sending signals.</p>
+<ul>
+You can stop server process by sending signals to server process.<br>
+<br>First you need to know server's process id, either by the pid file or
+"ps" command.<br>
+
+<p>By pid File:<br>
+<span class="cmd">more /tmp/lslbd/lslbd.pid</span></p>
+
+<p>By "ps" command:<br>
+FreeBSD: <span class="cmd">ps -x | grep lslbd</span><br>
+Others: <span class="cmd">ps -ef | grep lslbd</span><br>
+<br>
+If multiple processes are listed, use the process with PPID equal to 1.
+</p>
+<p>
+To stop the web server:
+<span class="cmd">kill XXXX</span>
+   (XXXX is the pid)<br>
+If the server did not stop, use:
+<span class="cmd">kill -9 XXXX</span>
+</p>
+</ul>
+<br><br>

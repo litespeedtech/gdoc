@@ -4612,6 +4612,219 @@ END_TIPS
 [END_ITEM]
 
 
+[ITEM]
+ID: enableHotlinkCtrl
+NAME: Enable Hotlink Protection
+REQUIRED: 1
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to activate hotlink protection.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: suffixes
+NAME: Suffix
+REQUIRED: 1
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies what kinds of files will be protected from hotlinking
+by listing file suffixes.
+END_DESCR
+
+SYNTAX: Comma delimited list. "." is prohibited
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: allowDirectAccess
+NAME: Allow Direct Access
+REQUIRED: 0
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to allow direct access without a referer. 
+A referer header identifies the webpage that linked to the current page. 
+There is no "referer" header in HTTP requests when a user types
+in an address directly in the address box or uses a feature like "save
+target link as". 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: redirectUri
+NAME: Redirect URL
+REQUIRED: 0
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies a URL that a user will be redirected to when a
+hotlinking action is detected. You can redirect users to an image or
+page saying hotlinking is not allowed. If it is not specified, 
+{val}403 Forbidden{/} will be returned. 
+END_DESCR
+
+SYNTAX: Absolute URL
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: onlySelf
+NAME: Only Self Reference
+REQUIRED: 0
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to only allow references from the current web site
+itself. When set to {val}Yes{/}, {ITEM=allowedHosts} has no effect and no
+other web site can link to protected files. This can be convenient if you wish to 
+park multiple domain names on the current web site. 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: allowedHosts
+NAME: Allowed Domains
+REQUIRED: 1
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies which web sites can link to protected content.
+END_DESCR
+
+SYNTAX: Comma delimited list of domain names.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: matchedHosts
+NAME: REGEX Matched Domains
+REQUIRED: 0
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies web sites that can link to protected content in
+regular expressions. The regular expression will match the domain
+name only and not the full URL.
+
+END_DESCR
+
+SYNTAX: Regular expressions
+END_SYNTAX
+
+EXAMPLE: ^.*\.mydomain\.com$
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[TBL]
+ID: vhHotlink
+NAME: Hotlink Control
+
+DESCR: Hotlinks are requests made from an external website to
+files on your own website often referred to as "leeching". This practice
+introduces additional bandwidth usage that you should not be responsible for.
+
+
+LiteSpeed web server can prevent others from hotlinking to content on
+your web site by checking the Referer header within a HTTP request. 
+If the Referer header does not match your website, the request will be denied.
+END_DESCR
+
+CONT: enableHotlinkCtrl suffixes redirectUri allowDirectAccess 
+onlySelf allowedHosts matchedHosts
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
 
 
 

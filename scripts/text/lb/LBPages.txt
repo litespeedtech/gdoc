@@ -56,36 +56,6 @@ END_TIPS
 [END_ITEM]
 
 
-[ITEM]
-ID: censorLogLevel
-NAME: Log Level
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: Server {ITEM=ServGeneral_Help#log_logLevel}
-
-DESCR: Specifies the log level of the censoring engine debug output.
-Value ranges from 0 - 9, 0 will disable logging and 9 will produce the
-most detailed log. The log level of the server error log
-must be set to at least {val}INFO{/} for this option to take effect.
-This is useful when testing your censoring rules.
-
-END_DESCR
-
-SYNTAX: uint 
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
-
 
 [ITEM]
 ID: defaultCluster
@@ -139,7 +109,7 @@ END_TIPS
 
 
 [ITEM]
-ID: extAppType
+ID: LB_extAppType
 NAME: Type
 REQUIRED: 
 APPLY: 3
@@ -398,21 +368,6 @@ SEE_ALSO:
 
 
 
-[TBL]
-ID: extapp
-NAME: External App Settings
-
-DESCR: 
-END_DESCR
-
-CONT: extAppType extAppName extAppAddress extSrcIP maxConns env initTimeout 
-retryTimeout persistConn pcKeepAliveTimeout respBuffer 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
 
 
 [TBL]
@@ -445,6 +400,21 @@ END_CONT
 SEE_ALSO: 
 [END_TBL]
 
+
+
+[TBL]
+ID: LB_extapp
+NAME: External App Settings
+
+DESCR: 
+END_DESCR
+
+CONT: LB_extAppType extAppName extAppAddress extSrcIP maxConns env initTimeout 
+retryTimeout persistConn pcKeepAliveTimeout respBuffer 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
 
 
 
@@ -591,7 +561,7 @@ SEE_ALSO:
 
 
 [PAGE]
-ID: ExtApp_Help 
+ID: LB_ExtApp_Help 
 NAME: External Application
 
 DESCR: LiteSpeed load balancer supports 5 types of external
@@ -645,7 +615,7 @@ When configured at server level, it can be used by all virtual hosts. When confi
 virtual host level, it can only be used within the virtual host.
 END_DESCR
 
-CONT: extapp
+CONT: LB_extapp
 END_CONT
 
 SEE_ALSO: 
@@ -793,10 +763,6 @@ SEE_ALSO:
 ID: Templates_Help 
 NAME: Virtual Host Templates
 
-PREV_NAV: Listeners_Help
-NEXT_NAV: VirtualHosts_Help
-TOP_NAV: config.html = Configuration
-
 DESCR: Virtual host template can be used to simplify the
 administration of virtual hosts with similar configuration,
 especially, for mass hosting environment. Once a template is configured
@@ -858,7 +824,7 @@ NAME: Admin Listeners
 DESCR: Admin Listeners are dedicated to the Admin Server. Secure (SSL) listeners are recommended for the Admin Server.
 END_DESCR
 
-CONT: LB_listenerGeneral sslSetting sslProtocol
+CONT: LB_listenerGeneral sslSetting sslProtocolSetting
 END_CONT
 
 SEE_ALSO: 
@@ -866,31 +832,49 @@ SEE_ALSO:
 
 
 
-[PAGENAV]
 
-ID: LSLB_CONF_NAV
-TOP_NAV: config.html = Configuration
 
-NAV_SEQ: 
-ServGeneral_Help 
-ServLog_Help 
-ServTuning_Help 
-ServSecurity_Help
-RequestFilter_Help
-Listeners_Help
-Clusters_Help
-Templates_Help
-VirtualHosts_Help 
-VHGeneral_Help
-VHSecurity_Help
-Rewrite_Help
-Context_Help
-AdminGeneral_Help
-AdminListener_Help
-HA_Help
+[PAGE]
+ID: index 
+NAME: Home
+STATIC: index.txt
+[END_PAGE]
 
-END_NAV_SEQ
+[PAGE]
+ID: license 
+NAME: License
+STATIC: license.txt
+[END_PAGE]
 
-[END_PAGENAV]
+[PAGE]
+ID: intro 
+NAME: Introduction
+STATIC: intro.txt
+[END_PAGE]
+
+[PAGE]
+ID: security
+NAME: Security
+STATIC: security.txt
+[END_PAGE]
+
+[PAGE]
+ID: install 
+NAME: Installation
+STATIC: install.txt
+[END_PAGE]
+
+[PAGE]
+ID: admin 
+NAME: Administration
+STATIC: admin.txt
+[END_PAGE]
+
+[PAGE]
+ID: config 
+NAME: Configuration
+STATIC: config.txt
+[END_PAGE]
+
 
 [END_HELPDOC]

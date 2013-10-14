@@ -226,7 +226,7 @@ no need to go through all the troubles to define an external application, add a 
 and rewrite rules, etc.
 END_DESCR
 
-CONT: expuri location railsEnv maxConns enableExpires 
+CONT: expuri location railsEnv maxConns env enableExpires 
 expiresDefault expiresByType extraHeaders
 indexFiles autoIndex allowOverride 
 realm authName required accessAllowed accessDenied extAuthorizer

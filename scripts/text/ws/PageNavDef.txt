@@ -1,6 +1,31 @@
 [HELPDOC]
 
 [PAGENAV]
+ID: DOC_ROOT
+NAV_SEQ:
+index
+END_NAV_SEQ:
+[END_PAGENAV]
+
+[PAGENAV]
+
+ID: DOC_NAV
+TOP_NAV: index.html = Home
+
+NAV_SEQ:
+license_std
+license
+intro
+install
+admin
+security
+config 
+
+END_NAV_SEQ
+
+[END_PAGENAV]
+
+[PAGENAV]
 
 ID: LSWS_CONF_NAV
 TOP_NAV: config.html = Configuration

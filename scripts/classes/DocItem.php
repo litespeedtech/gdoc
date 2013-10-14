@@ -13,7 +13,7 @@ class DocItem
 	var $_syntax;
 	var $_example;
 	var $_tips;
-	var $_width='90%';
+	var $_width='100%';
 
 	function loadFromTbl($id, $name, $descr, $tips, $example, $seeAlso)
 	{
@@ -168,8 +168,10 @@ class DocItem
 		$end = '</td></tr>'."\n";
 		$buf = '<a name="'. $this->_id . '"></a>';
 		$buf .= '<table width="'.$this->_width.'" class="ht" border="0" cellpadding="5" cellspacing="0">' . "\n";
-		$buf .= '<tr class="ht-title"><td><table width="100%" border="0" cellpadding="0" cellspacing="0">';
-		$buf .= '<tr><td class="ht-title">'.$this->_name.'</td><td class="top"><a href="#top"><img border=0 height=13 width=13 alt="Go to top" src="img/top.gif"></a></td></tr></table>'.$end;
+		$buf .= '<tr class="ht-title"><td><div>'.$this->_name;
+		$buf .= '<span class="top"><a href="#top"><img border=0 height=13 width=13 alt="Go to top" src="img/top.gif"></a></span></div>'.$end;
+		//$buf .= '<tr class="ht-title"><td><table width="100%" border="0" cellpadding="0" cellspacing="0">';
+		//$buf .= '<tr><td class="ht-title">'.$this->_name.'</td><td class="top"><a href="#top"><img border=0 height=13 width=13 alt="Go to top" src="img/top.gif"></a></td></tr></table>'.$end;
 		$buf .= '<tr><td><span class="ht-label">Description: </span>' . $this->_descr . $end;
 		if ( $this->_syntax != NULL )
 		{
@@ -199,7 +201,7 @@ class DocItem
 		if ( $this->_seeAlso != NULL )
 			$buf .= '<tr><td><span class="ht-label">See Also: </span>'. $this->_seeAlso . $end;
 
-		$buf .= '</table>';
+		$buf .= "</table>\n";
 		return $buf;
 	}
 

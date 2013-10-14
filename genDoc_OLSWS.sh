@@ -10,6 +10,5 @@ cd scripts
 php gen_ows_help.php
 cd ..
 
-cp static/ows/*.html docs/
 cp -Rf static/css docs/
 cp -Rf static/img docs/

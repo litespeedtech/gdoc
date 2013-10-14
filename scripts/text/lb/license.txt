@@ -1,21 +1,7 @@
-<html>
-<head>
-<title>LiteSpeed Web Server User's Manual - Administration</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="stylesheet" type="text/css" href="css/hdoc.css">
-</head>
-<body bgcolor="#FFFFFF" class="ct">
-<table class="nav-bar" width="100%" border="0">
-  <tr>
-    <td width="30%" align="left">&nbsp;</td>
-    <td width="40%" align="center"><a href="index.html">INDEX</a></td>
-    <td width="30%" align="right"><a href="intro.html">Introduction</a> &#187;</td>
-  </tr></table>
+<h1>End-User License Agreement for LiteSpeed
+Software</h1>
 
-<div align="center"><p><h3>End-User License Agreement for LiteSpeed
-Software</h3><p></p></div>
-
-<p><h4>IMPORTANT READ CAREFULLY</h4><p></p>
+<h4>IMPORTANT READ CAREFULLY</h4>
 
 <pre>
 This End-User License Agreement ("EULA") is a legal agreement between
@@ -158,15 +144,3 @@ Copyright (c) 2002-2007 Lite Speed Technologies Inc. All rights reserved.
 
 </pre>
 
-<div>
-<table class="nav-bar" width="100%" border="0">
-  <tr>
-    <td width="30%" align="left">&nbsp;</td>
-    <td width="40%" align="center"><a href="index.html">INDEX</a></td>
-    <td width="30%" align="right"><a href="intro.html">Introduction</a> &#187;</td>
-  </tr></table>
-</div>
-<br><br>
-<div class="copyright">Copyright &copy; 2007-2011. <a href="http://www.litespeedtech.com">Lite Speed Technologies Inc.</a><br>All rights reserved.</div>
-</body>
-</html>

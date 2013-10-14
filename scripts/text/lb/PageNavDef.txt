@@ -1,7 +1,7 @@
 [HELPDOC]
 
 [PAGENAV]
-ID: OLSWS_DOC_ROOT
+ID: DOC_ROOT
 NAV_SEQ:
 index
 END_NAV_SEQ:
@@ -9,7 +9,7 @@ END_NAV_SEQ:
 
 [PAGENAV]
 
-ID: OLSWS_DOC_NAV
+ID: DOC_NAV
 TOP_NAV: index.html = Home
 
 NAV_SEQ:
@@ -26,34 +26,34 @@ END_NAV_SEQ
 
 [PAGENAV]
 
-ID: OLSWS_CONF_NAV
+ID: LSLB_CONF_NAV
 TOP_NAV: config.html = Configuration
 
 NAV_SEQ: 
-ServGeneral_Help 
+ServGeneral_Help
+ServLog_Help 
 ServTuning_Help 
 ServSecurity_Help
-ExtApp_Help
-ScriptHandler_Help 
-Rails_Help
-Listeners_Help
+LB_ExtApp_Help 
+RequestFilter_Help
+LB_Listeners_Help
+Clusters_Help
 Templates_Help
 VirtualHosts_Help
 VHGeneral_Help
 VHSecurity_Help
 Rewrite_Help
-Context_Help
-VHWebSocket_Help
+Context_Help 
 AdminGeneral_Help
-AdminListener_Help
+LB_AdminListener_Help
+HA_Help
 
 END_NAV_SEQ
-
 [END_PAGENAV]
 
 [PAGENAV]
 
-ID: OLSWS_CONTROL_NAV
+ID: LSLB_CONTROL_NAV
 TOP_NAV: admin.html = Administration
 
 NAV_SEQ:

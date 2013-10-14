@@ -613,11 +613,6 @@ SEE_ALSO:
 ID: ServerStat_Help 
 NAME: WebAdmin Console - Service Manager
 
-PREV_NAV: 
-NEXT_NAV: 
-TOP_NAV: admin.html = Administration
-
-
 DESCR: This is a web interface to monitor and control the server and virtual hosts. 
 It provides the following features:
 <ul>

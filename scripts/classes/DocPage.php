@@ -12,6 +12,7 @@ class DocPage
 	var $_tables;
 	var $_items;
 	var $_seeAlso;
+	var $_static;
 
 	function DocPage(&$buf)
 	{
@@ -85,9 +86,17 @@ class DocPage
 					$contInd = true;
 					continue;
 				}
+				$tag = 'STATIC:';
+				if ( strncmp($tag, $line, strlen($tag)) == 0 )
+				{
+					$this->_static = trim(substr($line, strlen($tag)));
+					continue;
+				}				
 			}
 		}
-		$this->_cont = preg_split( "/[\s,]+/", $this->_cont, -1, PREG_SPLIT_NO_EMPTY );
+		if ($this->_cont != NULL) {
+			$this->_cont = preg_split( "/[\s,]+/", $this->_cont, -1, PREG_SPLIT_NO_EMPTY );
+		}
 	}
 
 	function setNav($prevPage, $topPage, $nextPage)
@@ -147,49 +156,70 @@ class DocPage
 
 	function genDoc(&$base)
 	{
-		echo ("generating $this->_id  \t\t");
+		echo ("generating $this->_id  \n");
 		
 		$this->transNav($base);
 		$nav = GenTool::getNavBar($this->_prevNav, $this->_topNav, $this->_nextNav);
-		$buf = GenTool::getHeader($nav, $this->_name);
-		if ( $this->_descr )
-			$buf .= '<p>' . $this->_descr . '</p>';
-			
-		$helpList = array();
-		if ( $this->_tables )
-		{
-			$buf .= '<h4>Table of Contents</h4>';
-			$buf .= '<section class="toc">';
-			
-			foreach ( $this->_tables as $table )
-			{
-				if ( isset($table) )
-					$buf .= $table->toTableOfContents();
-			}
-			$buf .= '</section>' ;
-
+		$buf = GenTool::getHeader($this->_name);
+		$buf .= GenTool::getSideTree("{$this->_id}.html");
+		$buf .= '<div class="contentwrapper">' . $nav;
+		
+		$webbuf = '';
+		
+		if ($this->_static) {
+			$webbuf .= GenTool::getStaticContent($this->_static);
 		}
-		$buf .= '<section>';
-		if ( $this->_items )
-		{
-			foreach ( $this->_items as $item )
+		else {
+			$webbuf .= '<h1>' . $this->_name . '</h1>';
+			if ( $this->_descr ) {
+				$webbuf .= '<p>' . $this->_descr . "</p>\n";
+			}
+				
+			$helpList = array();
+			if ( $this->_tables )
 			{
-				if ( $item != NULL )
+				$webbuf .= '<h4>Table of Contents</h4>';
+				$webbuf .= '<section class="toc">';
+				
+				foreach ( $this->_tables as $table )
 				{
-					$buf .= '<div class="helpitem">';
-					$buf .= $item->toDoc();
-					$buf .= '</div>';
+					if ( isset($table) )
+						$webbuf .= $table->toTableOfContents();
+				}
+				$webbuf .= "</section>\n" ;
+	
+			}
+			$webbuf .= '<section>';
+			if ( $this->_items )
+			{
+				foreach ( $this->_items as $item )
+				{
+					if ( $item != NULL )
+					{
+						$itembuf = $item->toDoc();
+						$itembuf = GenTool::translateTag($itembuf, $base);
+						$webbuf .= '<div class="helpitem">' . $itembuf . "</div>\n";
+					}
 				}
 			}
+			$webbuf .= "</section>\n";
+			//$webbuf = GenTool::translateTag($webbuf, $base);
 		}
-		$buf .= '</section>';
 
+		
+		$buf .= $webbuf;
+
+		$buf .= '</div>'; // contentwrapper
 		$buf .= GenTool::getFooter();
 
-		$buf1 = GenTool::translateTag($buf, $base);
-
 		$docname = '../docs/' . $this->_id . '.html';
-		GenTool::writePage($docname, $buf1);
+		GenTool::writePage($docname, $buf);
+		
+		if (FOR_WEB == 1) {
+			$docname = '../forweb/' . $this->_id . '.html';
+			$webbuf = '<div class="lsdoc_content">' . $webbuf . '</div>';
+			GenTool::writePage($docname, $webbuf);
+		}		
 	}
 
 	function getGuiTips(&$tips_base)

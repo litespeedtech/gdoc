@@ -184,7 +184,7 @@ class DocTable
 			$buf .= '<a href="#'. $this->_id . '">' . $this->_name . '</a>';
 		else
 			$buf .= $this->_name;
-		$buf .= '</header><p>';
+		$buf .= "</header><p>\n";
 		
 		if ( isset($this->_items) )
 		{

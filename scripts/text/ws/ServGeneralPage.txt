@@ -256,6 +256,38 @@ END_TIPS
 
 
 
+[ITEM]
+ID: apacheHandledContent
+NAME: Apache Handled Content
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies resources to be passed to and processed by 
+Apache on the backend. 
+This feature requires running Apache parallel to LiteSpeed on either another
+IP or a different port, so either "Apache Port Offset" or "Apache IP Offset" 
+should be set to a non-zero value. 
+
+
+END_DESCR
+
+SYNTAX: Resources are specified by a comma delimited list of URI, file suffixes, or regular
+expressions. A URI starts with "/"; a suffix starts with ".", a regular expression starts with "exp:". 
+For example: "/svn/, .shtml" lets Apache handle requests with a URI
+starting with "/svn/" or ending with ".shtml". The same effect can be achieved
+with the regular expression "exp:^/svn/, exp:\.shtml$".
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
 
 
 [ITEM]
@@ -288,27 +320,19 @@ END_TIPS
 
 
 [ITEM]
-ID: apacheHandledContent
-NAME: Apache Handled Content
+ID: jitConfig
+NAME: Just In Time Configuration
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies resources to be passed to and processed by 
-Apache on the backend. 
-This feature requires running Apache parallel to LiteSpeed on either another
-IP or a different port, so either "Apache Port Offset" or "Apache IP Offset" 
-should be set to a non-zero value. 
-
-
+DESCR: With just in time configuration, the web server only finalizes vhost configurations when that virtual host 
+is accessed for the first time, instead of loading all configurations at start up. This allows the web server to save 
+memory and speed up server start up.
 END_DESCR
 
-SYNTAX: Resources are specified by a comma delimited list of URI, file suffixes, or regular
-expressions. A URI starts with "/"; a suffix starts with ".", a regular expression starts with "exp:". 
-For example: "/svn/, .shtml" lets Apache handle requests with a URI
-starting with "/svn/" or ending with ".shtml". The same effect can be achieved
-with the regular expression "exp:^/svn/, exp:\.shtml$".
+SYNTAX: bool
 END_SYNTAX
 
 EXAMPLE: 
@@ -318,6 +342,7 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
+
 
 
 
@@ -852,7 +877,7 @@ DESCR:
 END_DESCR
 
 CONT: loadApacheConf autoReloadApacheConf apacheBinPath apacheConfFile
-apachePortOffset apacheIpOffset apacheHandledContent apacheIgnoredModules phpSuExec
+apachePortOffset apacheIpOffset apacheHandledContent apacheIgnoredModules jitConfig phpSuExec
 phpSuExecMaxConn apacheEnableFP apacheEnvVars
 END_CONT
 

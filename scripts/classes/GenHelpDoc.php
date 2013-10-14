@@ -202,25 +202,27 @@ class GenHelpDoc
 		}
 		foreach( array_keys($this->_pages) as $p )
 		{
-			$items = array();
-			foreach( $this->_pages[$p]->_cont as $i )
-			{
-				if (!isset( $this->_tables[$i])) {
-					echo "no index on $i p = $p\n";
-					var_dump($this->_pages[$p]);
+			if ($this->_pages[$p]->_cont != NULL) {
+				$items = array();
+				foreach( $this->_pages[$p]->_cont as $i )
+				{
+					if (!isset( $this->_tables[$i])) {
+						echo "no index on table $i for page = $p\n";
+						var_dump($this->_pages[$p]);
+					}
+					$this->_pages[$p]->_tables[$i] = $this->_tables[$i];
+					if (!is_array($items)) {
+						echo "not array 1 !\n";
+						var_dump($items);
+					}
+					if (!is_array($this->_tables[$i]->_items)) {
+						echo "not array 2!\n";
+						var_dump($this->_tables[$i]->_items);
+					}
+					$items = array_merge($items, $this->_tables[$i]->_items);
 				}
-				$this->_pages[$p]->_tables[$i] = $this->_tables[$i];
-				if (!is_array($items)) {
-					echo "not array 1 !\n";
-					var_dump($items);
-				}
-				if (!is_array($this->_tables[$i]->_items)) {
-					echo "not array 2!\n";
-					var_dump($this->_tables[$i]->_items);
-				}
-				$items = array_merge($items, $this->_tables[$i]->_items);
+				$this->_pages[$p]->_items = $items;
 			}
-			$this->_pages[$p]->_items = $items;
 		}
 	}
 

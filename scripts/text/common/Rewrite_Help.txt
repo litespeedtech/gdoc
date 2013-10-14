@@ -25,34 +25,6 @@ END_TIPS
 [END_ITEM]
 
 
-[ITEM]
-ID: rewriteLogLevel
-NAME: Rewrite Log Level
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: Server {ITEM=ServGeneral_Help#log_logLevel}, Virtual Host {ITEM=VHGeneral_Help#vhlog_logLevel}
-
-
-DESCR: Specifies the level of detail of the rewrite engine's debug output.
-This value ranges from {val}0{/} - {val}9{/}. {val}0{/} disables logging. {val}9{/} produces the
-most detailed log. The server and virtual host's error log {ITEM=ServGeneral_Help#log_logLevel} 
-must be set to at least {val}INFO{/} for this option to take effect.
-This is useful when testing your rewrite rules.
-END_DESCR
-
-SYNTAX: uint 
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
 
 [ITEM]
 ID: rewriteMapName

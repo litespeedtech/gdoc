@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>LiteSpeed Web Server Users' Manual - License</title>
-  <meta name="description" content="LiteSpeed Web Server Users' Manual." />  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="img/favicon.ico" />
-  <link rel="stylesheet" type="text/css" href="css/hdoc.css">
-</head>
-<body>
-<div class="wrapper">
-<div class="nav-bar"><ul class="nav-bar"><li></li><li><a href="index.html">Home</a></li><li><a href="intro.html">Introduction</a> &#187;</li></ul></div>
-
 <h1>End-User License Agreement for LiteSpeed Software</h1>
 
 <h3>IMPORTANT READ CAREFULLY</h3>
@@ -153,11 +139,4 @@ any tier), then the Government's rights in SOFTWARE PRODUCT and
 accompanying documentation shall be only as set forth in this EULA.
 
 
-Copyright (c) 2003-2013 Lite Speed Technologies Inc. All rights reserved.
-
 </pre>
-
-<footer class="copyright">Copyright &copy; 2003-2013. <a href="http://www.litespeedtech.com">Lite Speed Technologies Inc.</a> All rights reserved.</footer>
-</div>
-</body>
-</html>

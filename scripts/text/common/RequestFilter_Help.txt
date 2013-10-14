@@ -26,8 +26,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: censorLogLevel
 NAME: Log Level

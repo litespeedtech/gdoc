@@ -103,33 +103,49 @@ SEE_ALSO:
 
 
 
-[PAGE]
-ID: Listeners_Help 
-NAME: Listeners
-
-DESCR: 
-END_DESCR
-
-CONT: listenerGeneral virtualHostMapping sslCert sslProtocolSetting sslFeature sslOCSP sslClientVerify
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
-
 
 [PAGE]
-ID: AdminListener_Help 
-NAME: Admin Listeners
-
-DESCR: Admin Listeners are dedicated to the Admin Server. Secure (SSL) listeners 
-are recommended for the Admin Server.
-END_DESCR
-
-CONT: LB_listenerGeneral sslCert sslProtocolSetting sslFeature sslClientVerify
-END_CONT
-
-SEE_ALSO: 
+ID: index 
+NAME: Home
+STATIC: index.txt
 [END_PAGE]
+
+[PAGE]
+ID: license 
+NAME: License
+STATIC: license.txt
+[END_PAGE]
+
+[PAGE]
+ID: intro 
+NAME: Introduction
+STATIC: intro.txt
+[END_PAGE]
+
+[PAGE]
+ID: security
+NAME: Security
+STATIC: security.txt
+[END_PAGE]
+
+[PAGE]
+ID: install 
+NAME: Installation
+STATIC: install.txt
+[END_PAGE]
+
+[PAGE]
+ID: admin 
+NAME: Administration
+STATIC: admin.txt
+[END_PAGE]
+
+[PAGE]
+ID: config 
+NAME: Configuration
+STATIC: config.txt
+[END_PAGE]
+
 
 
 

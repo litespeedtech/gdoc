@@ -491,27 +491,98 @@ END_TIPS
 
 [ITEM]
 ID: ciphers
-NAME: Encryption Level
+NAME: Ciphers
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the strength level of SSL encryption.
+DESCR: Specifies the cipher suite to be used to negotiate the SSL handshake. LSWS supports cipher suites implemented in SSL v3.0, TLS v1.0, and TLS v1.2.
 END_DESCR
 
-SYNTAX: Check all the encryption methods that you want to accept.
+SYNTAX: Colon-separated string of cipher specifications. LSWS supports all cipher suites implemented in SSL v3.0, TLS v1.0, and TLS v1.2.
+END_SYNTAX
+
+EXAMPLE: ECDHE-RSA-AES128-SHA256:RC4:HIGH:!MD5:!aNULL:!EDH
+END_EXAMPLE
+
+TIPS: [Security] We recommend ECDHE-RSA-AES128-SHA256:RC4:HIGH:!MD5:!aNULL:!EDH 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: enableECDHE
+NAME: Enable ECDH Key Exchange
+REQUIRED: 
+APPLY: 3
+SINCE: 4.2.5
+SEE_ALSO: 
+
+DESCR: Allows use of Elliptic Curve Diffie-Hellman key exchange for further SSL encryption.
+END_DESCR
+
+SYNTAX: bool
 END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security & Performance] Stronger encryption consumes more CPU
-cycles. 
+TIPS: [Security] ECDH key exchange is more secure than using just an RSA key. ECDH and DH key exchange are equally secure.
+
+[Performance] Enabling ECDH key exchange will increase CPU load and is slower than using just an RSA key.
 END_TIPS
 
 [END_ITEM]
 
+
+[ITEM]
+ID: enableDHE
+NAME: Enable DH Key Exchange
+REQUIRED: 
+APPLY: 3
+SINCE: 4.2.5
+SEE_ALSO: 
+
+DESCR: Allows use of Diffie-Hellman key exchange for further SSL encryption. 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] DH key exchange is more secure than using just an RSA key. ECDH and DH key exchange are equally secure.
+
+[Performance] Enabling DH key exchange will increase CPU load and is slower than ECDH key exchange and RSA. ECDH key exchange is preferred when available.
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: DHParam
+NAME: DH Parameter
+REQUIRED: 
+APPLY: 3
+SINCE: 4.2.5
+SEE_ALSO: 
+
+DESCR: Specifies the location of the Diffie-Hellman parameter file necessary for DH key exchange.
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
 
 [ITEM]
 ID: enableStapling
@@ -622,21 +693,6 @@ END_TIPS
 
 
 [TBL]
-ID: listenerGeneral
-NAME: General
-
-DESCR: 
-END_DESCR
-
-CONT: listenerName listenerIP listenerPort listenerBinding listenerSecure 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
 ID: LB_listenerGeneral
 NAME: General
 
@@ -703,6 +759,7 @@ SEE_ALSO:
 [END_TBL]
 
 
+
 [TBL]
 ID: sslProtocolSetting
 NAME: SSL Protocol
@@ -710,7 +767,7 @@ NAME: SSL Protocol
 DESCR: Customizes SSL protocols accepted by the listener.
 END_DESCR
 
-CONT: sslProtocol ciphers 
+CONT: sslProtocol ciphers enableECDHE enableDHE DHParam
 END_CONT
 
 SEE_ALSO: 

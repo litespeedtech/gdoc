@@ -93,6 +93,34 @@ END_TIPS
 
 
 
+[ITEM]
+ID: rewriteLogLevel
+NAME: Rewrite Log Level
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: Server {ITEM=ServGeneral_Help#log_logLevel}, Virtual Host {ITEM=VHGeneral_Help#vhlog_logLevel}
+
+
+DESCR: Specifies the level of detail of the rewrite engine's debug output.
+This value ranges from {val}0{/} - {val}9{/}. {val}0{/} disables logging. {val}9{/} produces the
+most detailed log. The server and virtual host's error log {ITEM=ServGeneral_Help#log_logLevel} 
+must be set to at least {val}INFO{/} for this option to take effect.
+This is useful when testing your rewrite rules.
+END_DESCR
+
+SYNTAX: uint 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
 
 ########## TBL SECION #############
 
@@ -435,6 +463,21 @@ SEE_ALSO:
 
 
 
+[TBL]
+ID: listenerGeneral
+NAME: General
+
+DESCR: 
+END_DESCR
+
+CONT: listenerName listenerIP listenerPort listenerBinding listenerSecure 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
 
 
 
@@ -493,10 +536,6 @@ SEE_ALSO:
 ID: Templates_Help 
 NAME: Virtual Host Templates
 
-PREV_NAV: Listeners_Help
-NEXT_NAV: VirtualHosts_Help
-TOP_NAV: config.html = Configuration
-
 
 DESCR: Virtual host templates make it easy to create many new virtual
 hosts with similar configurations. 
@@ -527,7 +566,36 @@ SEE_ALSO:
 [END_PAGE]
 
 
+[PAGE]
+ID: Listeners_Help 
+NAME: Listeners
 
+DESCR: 
+END_DESCR
+
+CONT: listenerGeneral virtualHostMapping sslCert sslProtocolSetting sslFeature sslOCSP sslClientVerify
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+
+
+[PAGE]
+ID: AdminListener_Help 
+NAME: Admin Listeners
+
+DESCR: Admin Listeners are dedicated to the Admin Server. Secure (SSL) listeners 
+are recommended for the Admin Server.
+END_DESCR
+
+CONT: LB_listenerGeneral sslCert sslProtocolSetting sslFeature sslClientVerify
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
 
 
 

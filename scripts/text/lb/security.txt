@@ -1,0 +1,45 @@
+<h1>Security</h1>
+
+<p>LiteSpeed Load Balancer is designed with security as top consideration in mind.<br>
+It supports <span class="tag">SSL</span>; has <span class="tag">Access Control</span> at server and virtual host level. Besides those standard features, it also has the following special security features. </p>
+<ol>
+  <li><span class="label1">Connection level limits:</span></li>
+  <p>
+  <ul>
+    <li> IP level throttling: Limits network bandwidth to and from a single IP 
+      address regardless of the number of connections. </li>
+    <li> IP level connection accounting: Limits the number of concurrent connections 
+      from a single IP address. It is controlled by <span class="tag">Connection 
+      Soft Limit</span>, <span class="tag">Connection Hard Limit</span>, <span class="tag">Grace 
+      Period</span> and <span class="tag">Banned Period</span>. </li>
+  </ul>
+  <p></p>
+  <li><span class="label1">Request checking:</span></li>
+  <p> Every HTTP request is strictly checked by LiteSpeed load balancer.<br>
+    "/." is not allowed in a decoded URL, this will deny accessing hidden files 
+    and parent directories. <br>
+    Request size is limited by <span class="tag">Max Request URL Length</span>, 
+    <span class="tag">Max Request Header Length</span> and <span class="tag">Max 
+    Request Body Length</span>. </p>
+
+  <li><span class="label1">Request filtering:</span></li>
+  <p> Request header and body can be checked against signatures of possible attacks
+     like XSS attack or SQL injection attackes, and block those requests in the first place. 
+  </p>
+
+  <li><span class="label1">Backend overloading prevention:</span></li>
+  <p>LiteSpeed load balancer can pipeline requests and control the concurrent level 
+    to an external applications to prevent overloading backend servers. 
+    It caches the response from web server, thus backend server will be immediately available to process 
+    next request without waiting for the response completely received by the client. 
+    In this way, backend server can serve more concurrent requests and will achieve 
+	higher performance and scalability. 
+  </p>
+  <p></p>
+
+  <li><span class="label1">Chroot</span></li>
+  <p> LiteSpeed load balancer can run in chroot environment (known as a chroot jail). 
+    In chroot environment, the server and its children processes cannot access 
+    file system outside of the chroot jail. This protects system from attacks 
+    of malicious code. </p>
+</ol>

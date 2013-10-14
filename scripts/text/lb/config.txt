@@ -1,0 +1,93 @@
+<h1>Configuration</h1>
+
+<a name="con"></a><p class="label1">Concepts</p>
+<p>
+Here are some basic concepts you should know before going into the detail of the configuration.
+</p>
+
+
+<ul><a name="cl"></a>
+<li><span class="label1">Cluster</span></li>
+<p>
+A cluster is a group of backend servers which provide the same type of service. Each server is called a cluster node, or just node. 
+A load balancer will distribute requests to cluster nodes based on some rules. Usually, evenly distribution is preferred.
+A LiteSpeed Load Balancer can be used to service as many clusters as you want. 
+
+<br>
+</p>
+
+<a name="vh"></a>
+<li><span class="label1">Virtual Host</span></li>
+<p>
+LiteSpeed Load Balancer can be used to load balance for multiple web sites (virtual hosts) which sit on different clusters. 
+
+<br>
+</p>
+<a name="l"></a>
+  <li><span class="label1">Listener</span></li>
+
+<p>A listener in LiteSpeed Load Balancer is a server socket that listens on specific IP address 
+and TCP port. 
+</p>
+<p>For each listener, an IP address and a port number need to be specified. 
+IP address can be any valid local IP address or the wild card IP that refers to all 
+the available IP address on that machine. Port is an integer number between 0 and 65535. 
+Official port for HTTP is 80, for HTTPS is 443. 
+However, other ports can be used too. On UNIX machine, only super user "root" 
+has permission to use ports below 1024.</p>
+<p>
+Only one listener is allowed for each IP and port combination.
+Thus if a listener is configured on one port with the wild card IP address, it is not allowed to
+configure another listener on the same port, even only with one particular IP. For example, if there is multiple IP address on the load balancer machine, HTTP traffic needs to be allowed on port 8080 for all IP address, it can be configured in two ways: to set up only one
+listener using the wild card IP (*) and port 8080; or to set up multiple
+listeners, with each one using a particular IP and port 8080. These two methods cannot be mixed on the same port. 
+</p>  
+<p> 
+There are two types of listeners in LiteSpeed load balancer: plain and secure 
+ (SSL). Each secure listener requires a pair of SSL private Key and SSL certificate. 
+ The private key can be generated with SSL toolkit like 
+    OpenSSL. The SSL certificate can be self signed or obtained from 
+    SSL certificate issuer like VeriSign or Thawte. Same private 
+    key and certificate pair can be shared among multiple listeners. </p>
+<br>
+<a name="map"></a><li><span class="label1">Listener to Virtual Host Mapping</span></li>
+<p>
+Every listener has a virtual host lookup table. The data in the lookup 
+    table are key/value pairs. The key is a domain name for that virtual host; 
+    the value is the virtual host itself.</p>
+<p>Here is how it works:<br>
+<ol><li>end user enter a url in browser</li>
+	<li>browser sends DNS lookup request to get the IP address of the load balancer from the domain name</li>
+	<li>browser sends a request to establish a TCP connection with the load balancer on the specific IP and port (a listener)</li>
+	<li>after the connection is established, browser sends a HTTP request including the domain name information of the web site.</li>
+	<li>When the load balancer receives the request, the lookup table associated with that listener will be searched against the domain name in the request, if a match is found, the request will be routed to the virtual host for processing.</li>
+	<li> the load balancer will receive the response from the virtual host on a cluster node and send back to client browser.</li>
+</ol>
+
+<p> It is exactly how name based virtual hosting works; IP based virtual hosting is a special case of it.</p>
+
+<p>In order to make a virtual host accessible through a specific listener, you must
+make sure:</p>
+<ol><li>DNS must be configured properly to map the domain name of the web site to the
+IP used by that listener. How to configure DNS is beyond the scope of this
+document.</li>    <li>The mapping to the virtual host on that domain name must exist in the listener's 
+      lookup table.</li>
+</ol>
+  <p>A catchall virtual host can be specified for one listener with wild card domain name 
+    "*". When server cannot find a matching virtual host, the request will be routed 
+    to the catchall virtual host. If there is no such catchall virtual host configured, 
+    the load balancer will return error code 404.</p>
+
+<p>Our design of Listener to Virtual Host Mapping provides ultra flexibility, which allows</p>
+<ul>
+<li>mapping one listener to one virtual host.</li>
+<li>mapping one listener to different virtual hosts on different domain names.</li>
+<li>mapping multiple listeners to same virtual host.</li>
+<li>mapping multiple listeners to multiple virtual hosts on their respective domain names.</li>
+</ul>
+
+
+<p>Since a SSL certificate is bundled with a listener, if a virtual host requires a dedicated certificate, a dedicated SSL listener must be created for that virtual host.
+In other words, that virtual host must be an IP based virtual host.
+</p>
+</ul>

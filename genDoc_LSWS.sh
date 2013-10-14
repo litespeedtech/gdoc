@@ -6,11 +6,15 @@ else
     mkdir docs
 fi
 
+if [ -e forweb ]; then
+    rm -rf forweb/*
+fi
+mkdir -p forweb/docs
+
 cd scripts
 php gen_ws_help.php
 cd ..
 
-cp static/ws/*.html docs/
 cp -Rf static/css docs/
 cp -Rf static/img docs/
 

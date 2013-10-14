@@ -13,11 +13,11 @@ class GenTool
 
 		fclose($fd);
 
-		echo "finish Page $docname \n" ;
+		echo " ... finish Page $docname \n" ;
 	}
 
 
-	function getHeader($nav, $name)
+	function getHeader($name)
 	{
 		$title = $name;
 		if (DOC_TYPE == 'ows') {
@@ -46,14 +46,35 @@ class GenTool
   <link rel="stylesheet" type="text/css" href="css/hdoc.css">
 </head>
 <body>
-<div class="wrapper">
-$nav
-
-<h1>$name</h1>
+<div class="pagewrapper">
 EOD;
 		return $buf;
 	}
+	
+	function getSideTree($docname)
+	{
+		global $static_dir;
+		$buf = file_get_contents("$static_dir/leftside_toc.txt");
+		$pos = strpos($buf, "<a href=\"$docname\"" );
+		if ($pos !== FALSE) {
+			$buf2 = substr($buf, 0, $pos);
+			$buf2 .= '<span class="current">';
+			$pos2 = strpos($buf, '</a>', $pos);
+			$buf2 .= substr($buf, $pos, $pos2 + 4 - $pos);
+			$buf2 .= '</span>';
+			$buf2 .= substr($buf, $pos2+4);
+			return $buf2;
+		}
+		else
+			return $buf;
+	}
 
+	function getStaticContent($static_file)
+	{
+		global $static_dir;
+		$buf = file_get_contents("$static_dir/$static_file");
+		return $buf;
+	}
 
 	function getFooter()
 	{
@@ -63,8 +84,14 @@ EOD;
 				</body>
 				</html>';
 		}
-		else {
+		elseif (DOC_TYPE == 'ws') {
 			return '<footer class="copyright">Copyright &copy; 2003-2013. <a href="http://www.litespeedtech.com">Lite Speed Technologies Inc.</a> All rights reserved.</footer>
+				</div>
+				</body>
+				</html>';
+		}
+		elseif (DOC_TYPE == 'lb') {
+			return '<footer class="copyright">Copyright &copy; 2007-2013. <a href="http://www.litespeedtech.com">Lite Speed Technologies Inc.</a> All rights reserved.</footer>
 				</div>
 				</body>
 				</html>';
@@ -73,20 +100,30 @@ EOD;
 
 	function getNavBar($prev, $top, $next)
 	{
-		$buf = '<div class="nav-bar"><ul class="nav-bar"><li>';
-		if ( isset( $prev ) && count($prev) == 2 )
+		if ($prev == '' && $top == '' && $next == '')
+			return '';
+		$buf = '<div class="nav-bar"><div class="prev">';
+		if ( isset( $prev ) && count($prev) == 2 ) {
 			$buf .= '&#171 <a href="'. trim($prev[0]).'">'.trim($prev[1]).'</a>';
-		
-		$buf .= '</li><li>';
-		
-		if ( isset( $top ) && count($top) == 2 )
+		}
+		else 
+			$buf .= '&nbsp;';
+		$buf .= '</div><div class="center">';
+		if ( isset( $top ) && count($top) == 2 ) {
 			$buf .= '<a href="'. trim($top[0]).'">'.trim($top[1]).'</a>';
-
-		$buf .= '</li><li>';
-		if ( isset( $next ) && count($next) == 2 )
+		}
+		else 
+			$buf .= '&nbsp;';
+		
+		$buf .= '</div><div class="next">';
+		
+		if ( isset( $next ) && count($next) == 2 ) {
 			$buf .= '<a href="'. trim($next[0]) . '">'.trim($next[1]).'</a> &#187;';
-
-		$buf .= '</li></ul></div>' . "\r\n";
+		}
+		else 
+			$buf .= '&nbsp;';
+		
+		$buf .= '</div></div>' . "\r\n";
 		return $buf;
 
 	}
@@ -117,7 +154,7 @@ EOD;
 
 		
 		$from = array("\n\n\n", "\n\n", "\r\n", "\n", '{ext-href}', '{ext-href-end}', '{ext-href-end-a}');
-		$to = array('<br/><br/>', '<br/>', ' ', ' ', '<a href="', '" target="_blank">', '</a>');
+		$to = array("<br/><br/>\n", "<br/>\n", ' ', ' ', '<a href="', '" target="_blank">', '</a>');
 		
 		$buf1 = str_replace( $from, $to, $buf1 );
 		

@@ -1,33 +1,63 @@
 <?php
-require_once("GenHelpDoc.php");
-require_once("GenQADoc.php");
+
+ini_set('include_path', '.:classes/');
+
+
+require_once('GenTool.php');
+require_once('DocItem.php');
+require_once('DocTable.php');
+require_once('DocPage.php');
+
+require_once('Item.php');
 require_once("ItemBase.php");
+require_once('NavChain.php');
+
+require_once("GenHelpDoc.php");
+require_once("GenWebDoc.php");
 require_once("GenHelpTips.php");
 
+
+define('DOC_TYPE', 'lb');
+
 // you can define the debug tag here
-define('DEBUG_TAG', 'NO');
+define('DEBUG_TAG', 'listenerBinding');
 
-$txt = array('HelpDoc.DB.txt', 'LBPages.txt',  'LB_LoadBalancer_Help.txt', 'LB_HA_Help.txt',
-			'Templates_Help.txt', 'Listener_Help.txt', 'ServerStat_Help.txt');
-$base = new ItemBase($txt);
+define('FOR_WEB', 0);
 
-$lslb_pageNav = array('LSLB_CONF_NAV');
+$pathcommon = 'text/common';
+$pathlb = 'text/' . DOC_TYPE;
+global $static_dir;
+$static_dir = $pathlb;
+
+$texts = array("$pathcommon/HelpDoc.DB.txt", 
+			"$pathcommon/Rewrite_Help.txt",
+			"$pathcommon/Context_Help.txt",
+			"$pathcommon/Templates_Help.txt",
+			"$pathcommon/RequestFilter_Help.txt",
+			"$pathcommon/Listener_Help.txt",
+			"$pathcommon/ExtApp_Help.txt", 
+			"$pathcommon/ServerStat_Help.txt",
+			"$pathlb/LBPages.txt",
+			"$pathlb/LB_LoadBalancer_Help.txt",
+			"$pathlb/LB_HA_Help.txt",
+			"$pathlb/PageNavDef.txt");
+
+$base = new ItemBase($texts);
+
+$lslb_pageNav = array('DOC_ROOT', 'DOC_NAV', 'LSLB_CONF_NAV', 'LSLB_CONTROL_NAV');
 
 $ws_lb = array('{ws_lb}', '{Ws_Lb}', '{WS_LB}', 
 	'{ent_version}', '%LB_%');
 $ws_lb_replace = array('load balancer', 'Load balancer', 'Load Balancer', 
 	'', '');
 
-$h = new GenHelpDoc($txt);
+$h = new GenHelpDoc($texts);
 $h->genPages( $lslb_pageNav, $base);
-
-//$q = new GenQADoc;
-//$q->genAll('Faq_QA.txt', $base);
-//$q->genAll('HowTo_QA.txt', $base);
-//$q->genAll('Trouble_QA.txt', $base);
 
 $tips_file = "../lb_tips.txt";
 $tips = new GenHelpTips($h);
 $tips->genTips($lslb_pageNav, $base, $tips_file);
 
-?>
+// $webdocs = new GenWebDoc();
+// $webdocs->GenerateWebDocs(new MapLSLB());
+
