@@ -557,20 +557,6 @@ END_TIPS
 
 
 
-[TBL]
-ID: serviceMgr
-NAME: Server
-
-DESCR: 
-END_DESCR
-
-CONT: sname pid servAction restart viewlog realtimerpt toggleDebugLog vermgr
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
 
 
 
@@ -604,32 +590,6 @@ END_CONT
 SEE_ALSO: 
 [END_TBL]
 
-
-
-
-
-
-[PAGE]
-ID: ServerStat_Help 
-NAME: WebAdmin Console - Service Manager
-
-DESCR: This is a web interface to monitor and control the server and virtual hosts. 
-It provides the following features:
-<ul>
-<li>Display the current status of the server, listeners and virtual hosts.</li>
-<li>Apply configuration changes with a graceful server restart.</li>
-<li>Enable/disable the service of a particular virtual host.</li>
-<li>View the server log through the log viewer.</li>
-<li>Monitor real-time server statistics.</li>
-<li>Download new versions or switch between installed versions.</li>
-</ul>
-END_DESCR
-
-CONT: serviceMgr serviceMgrListener serviceMgrVh 
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
 
 
 
