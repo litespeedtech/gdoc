@@ -358,8 +358,7 @@ SEE_ALSO: {ITEM=ServSecurity_Help#forceGID}
 
 DESCR: Specifies whether to run PHP script in suEXEC mode when "user"
 and "group" are specified for a virtual host. When set to {val}Yes{/}, PHP
-scripts will be executed as the user specified, as well as the group
-unless {ITEM=ServSecurity_Help#forceGID} is set.
+scripts will be executed under the user (and group unless {ITEM=ServSecurity_Help#forceGID} is set) specified.
 When set to {val}User's Home Directory Only{/}, scripts outside a user's 
 home directory will run as the global user/group that the web server
 run as. When using DirectAdmin, {val}User's Home Directory Only{/} is recommended.
@@ -392,8 +391,8 @@ APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum concurrent PHP requests that can be processed
-when running PHP script in suEXEC mode. This is the maximum number of PHP 
+DESCR: Specifies the maximum number of concurrent PHP processes each user will have access to 
+when running PHP scripts in suEXEC mode. This is the maximum number of PHP 
 processes each user can run. Default value is {val}5{/}.
 
 END_DESCR

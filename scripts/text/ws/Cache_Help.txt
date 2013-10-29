@@ -12,7 +12,7 @@ DESCR: Specifies the directory for holding cached objects. Currently,
 LiteSpeed Cache stores each object in its own file. The file name is a hash of 
 the object key. Multiple levels of directories will be created in order to 
 avoid holding too many files in one directory. This value must be set in 
-order to enable cache feature.
+order to enable cache.
 END_DESCR
 
 SYNTAX: select
@@ -39,8 +39,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum size of an object that can be stored in the cache.
-directory. The default value is "128KB".
+DESCR: Specifies the maximum size of an object that can be stored in the cache directory. The default value is "128KB".
 END_DESCR
 
 SYNTAX: uint
@@ -357,7 +356,7 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: A list of URL segments that will not be cached. Any URL that contains those listed segments will not be cached. 
-Regular string match will be used and regular expressions are not supported. You can add comments 
+String matching is used. Regular expressions are not supported. You can add comments 
 by starting a line with "#". This feature is only available at the server level.
 END_DESCR
 
