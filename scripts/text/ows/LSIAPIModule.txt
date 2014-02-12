@@ -11,7 +11,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the Begin Session Filter Level modules. The filter will be engaged at the point when the TCP/IP session begins.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, diabled or not set, (default). 
+SYNTAX: The filter level can be enabled, disabled or not set, (default). 
 END_SYNTAX
 
 EXAMPLE:
@@ -32,7 +32,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the End Session Filter Level modules. The filter will be engaged at the point when the TCP/IP session is ended.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, diabled or not set, (default). 
+SYNTAX: The filter level can be enabled, disabled or not set, (default). 
 END_SYNTAX
 
 EXAMPLE:
@@ -53,7 +53,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the L4 receiving Filter Level modules. The filter will be engaged at the time when the TCP/IP connection receives data.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, diabled or not set, (default). 
+SYNTAX: The filter level can be enabled, disabled or not set, (default). 
 END_SYNTAX
 
 EXAMPLE:
@@ -74,7 +74,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the L4 sending  Filter Level modules. The filter will be engaged at the point when the TCP/IP connection sends data.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, diabled or not set, (default). 
+SYNTAX: The filter level can be enabled, disabled or not set, (default). 
 END_SYNTAX
 
 EXAMPLE:
@@ -95,7 +95,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the Begin HTTP Begin Connection Filter Level modules. The filter will be engaged at the point when the TCP/IP session begins an HTTP connection.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, diabled or not set, (default). 
+SYNTAX: The filter level can be enabled, disabled or not set, (default). 
 END_SYNTAX
 
 EXAMPLE:
@@ -112,10 +112,10 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Allows enabling or disabling of the Receive Request Header Filter Level modules. The filter will be engaged at the point when the HTTP connection recceives a page request header.  
+DESCR: Allows enabling or disabling of the Receive Request Header Filter Level modules. The filter will be engaged at the point when the HTTP connection receives a page request header.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, diabled or not set, (default). 
+SYNTAX: The filter level can be enabled, disabled or not set, (default). 
 END_SYNTAX
 
 EXAMPLE:
@@ -135,7 +135,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the URI Map Filter Level modules. The filter will be engaged at the point when the HTTP connection maps a URI request to a context.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, diabled or not set, (default). 
+SYNTAX: The filter level can be enabled, disabled or not set, (default). 
 END_SYNTAX
 
 EXAMPLE:
@@ -146,16 +146,16 @@ END_TIPS
 [END_ITEM]
 [ITEM]
 ID: RECV_REQ_BDY
-NAME: Receive Reques Body Filter Level
+NAME: Receive Request Body Filter Level
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Allows enabling or disabling of the Receive Reques Body Filter Level modules. The filter will be engaged at the point when the HTTP connection receives page body data.  
+DESCR: Allows enabling or disabling of the Receive Request Body Filter Level modules. The filter will be engaged at the point when the HTTP connection receives page body data.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, diabled or not set, (default). 
+SYNTAX: The filter level can be enabled, disabled or not set, (default). 
 END_SYNTAX
 
 EXAMPLE:
@@ -175,7 +175,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the Received Request Body Filter Level modules. The filter will be engaged at the point when the HTTP connection finishes receiving page body data.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, diabled or not set, (default). 
+SYNTAX: The filter level can be enabled, disabled or not set, (default). 
 END_SYNTAX
 
 EXAMPLE:
@@ -195,7 +195,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the Receive Response Header Filter Level modules. The filter will be engaged at the point when the HTTP connection creates the response header.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, diabled or not set, (default). 
+SYNTAX: The filter level can be enabled, disabled or not set, (default). 
 END_SYNTAX
 
 EXAMPLE:
@@ -215,7 +215,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the Receive Response Body Filter Level modules. The filter will be engaged at the point when the web server backend receives the response body.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, diabled or not set, (default). 
+SYNTAX: The filter level can be enabled, disabled or not set, (default). 
 END_SYNTAX
 
 EXAMPLE:
@@ -235,7 +235,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the Received Response Body Filter Level modules. The filter will be engaged at the point when the web server backend finishes receiving the response body.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, diabled or not set, (default). 
+SYNTAX: The filter level can be enabled, disabled or not set, (default). 
 END_SYNTAX
 
 EXAMPLE:
@@ -255,7 +255,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the Send Response Header Level modules. The filter will be engaged at the point when the web server is ready to send the response header.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, diabled or not set, (default). 
+SYNTAX: The filter level can be enabled, disabled or not set, (default). 
 END_SYNTAX
 
 EXAMPLE:
@@ -275,7 +275,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the Send Response Body Filter Level modules. The filter will be engaged at the point when the web server is sending the response body.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, diabled or not set, (default). 
+SYNTAX: The filter level can be enabled, disabled or not set, (default). 
 END_SYNTAX
 
 EXAMPLE:
@@ -295,7 +295,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the Send File Response Body Filter Level modules. The filter will be engaged at the point when the web server has sent the response header and is going to send a file.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, diabled or not set, (default). 
+SYNTAX: The filter level can be enabled, disabled or not set, (default). 
 END_SYNTAX
 
 EXAMPLE:
@@ -315,7 +315,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the HTTP End Connection Filter Level modules. The filter will be engaged at the point when the HTTP connection has ended.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, diabled or not set, (default). 
+SYNTAX: The filter level can be enabled, disabled or not set, (default). 
 END_SYNTAX
 
 EXAMPLE:
@@ -381,24 +381,24 @@ adding the hook function in the module.  The listener filter levels are a subset
 server filter levels and are limited to the TCP/IP layer 4 filters.
 Click Save to retain the module configuration.
 
-Virtal Host Configuration:  Select virtual Host from the table of hosts -> Modules tab
+Virtual Host Configuration:  Select virtual Host from the table of hosts -> Modules tab
 Click Add at the upper right of the modules table
 Select the name of the module from the drop-down box next to the Module label.
 Click the yes radio button to enable the module.
 Add Notes and module parameters as needed.
 Click yes next to the filter level that corresponds to the filter level used when 
 adding the hook function in the module.  The virtual host filter levels are a subset of the 
-server filter levels and are limited to the session filters.
+server filter levels and are limited to the HTTP connection filters.
 Click Save to retain the module configuration.
 
-Virtal Host Template Configuration:  Select virtual Host template from the table of templates -> Modules tab
+Virtual Host Template Configuration:  Select virtual Host template from the table of templates -> Modules tab
 Click Add at the upper right of the modules table
 Select the name of the module from the drop-down box next to the Module label.
 Click the yes radio button to enable the module.
 Add Notes and module parameters as needed.
 Click yes next to the filter level that corresponds to the filter level used when 
 adding the hook function in the module.  The virtual host template filter levels are a subset of the 
-server filter levels and are limited to the session filters.
+server filter levels and are limited to the HTTP connection filters.
 Click Save to retain the module configuration.
 
 
