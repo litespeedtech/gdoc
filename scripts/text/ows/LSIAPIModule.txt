@@ -404,7 +404,7 @@ Click Save to retain the module configuration.
 
 END_DESCR
 
-CONT: websocketproxy
+CONT: 
 END_CONT
 
 SEE_ALSO: LSIAPI Developer's Guide.
