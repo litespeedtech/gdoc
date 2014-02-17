@@ -2,11 +2,9 @@
 
 class MapLSWS
 {
-	const URL_BASE = '/index.php/docs/webserver/';
-	const STATIC_DIR = '../static/ws';
-	public $static_map;
-	public $dyn_map;
-	public $url_convert;
+	var $static_map;
+	var $dyn_map;
+	var $url_convert;
 	
 	function __construct()
 	{
@@ -47,7 +45,7 @@ class MapLSWS
 		foreach($map as $id => $link) {
 			$this->url_convert['file'][] = $id . '.html';
 			$this->url_convert['search'][] = $id . '.html';
-			$this->url_convert['replace'][] = $this::URL_BASE . $link;
+			$this->url_convert['replace'][] = '/docs/webserver/' . $link;
 		}
 		$this->url_convert['search'][] = '<h1>';
 		$this->url_convert['replace'][] = '<h2>';
@@ -60,42 +58,18 @@ class MapLSWS
 
 class GenWebDoc
 {
-	public function GenerateWebDocs($Map)
+	function GenerateWebDocs($Map)
 	{
-		//$this->copyStaticFiles($Map->static_map, $Map::STATIC_DIR);
 		$this->convertLinks($Map->url_convert);
 	}  
-	
-	function copyStaticFiles($map, $fromdir)
-	{
-		foreach ($map as $from => $to) {
-			$fromfile = $fromdir . '/' . $from .'.html';
-			$tofile = '../forweb/' . $from .'.html';
-			
-			$buf = file_get_contents($fromfile);
-			$start_pos = strpos($buf, '<section>');
-			if ($start_pos === FALSE) {
-				echo "error:cannot find <section> in file $fromfile - bypass \n";
-				continue;
-			}
-			$start_pos += strlen('<section>');
-			$end_pos = strrpos($buf, '</section>');
-			if ($end_pos === FALSE) {
-				echo "error:cannot find </section> in file $fromfile - bypass \n";
-				continue;
-			}
-			
-			$bufnew = '<div class="lsdoc_content">' . substr($buf, $start_pos, $end_pos - $start_pos) . '</div>';
-			GenTool::writePage($tofile, $bufnew);
-		}
-	}
 	
 	function convertLinks($urlconvert)
 	{
 		$search = $urlconvert['search'];
 		$replace = $urlconvert['replace'];
+		$files = $urlconvert['file'];
 		
-		foreach($urlconvert['file'] as $f) {
+		foreach( $files as $f) {
 			$fromfile = '../forweb/' . $f;
 			$tofile = '../forweb/docs/' . $f;
 			$buf = file_get_contents($fromfile) ;

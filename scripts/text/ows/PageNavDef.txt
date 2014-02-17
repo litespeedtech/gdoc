@@ -36,6 +36,7 @@ ServSecurity_Help
 ExtApp_Help
 ScriptHandler_Help 
 Rails_Help
+Module_Help
 Listeners_Help
 Templates_Help
 VirtualHosts_Help

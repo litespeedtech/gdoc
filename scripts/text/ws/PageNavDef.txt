@@ -46,6 +46,7 @@ VHGeneral_Help
 VHSecurity_Help
 Rewrite_Help
 Context_Help 
+VHWebSocket_Help
 VHAddOns_Help
 AdminGeneral_Help
 AdminListener_Help

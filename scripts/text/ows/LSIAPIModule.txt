@@ -1,8 +1,77 @@
 [HELPDOC]
 
 [ITEM]
-ID: L4_BEGSESSION
-NAME: Begin Session Filter Level
+ID: modulename
+NAME: Module
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Name of the module. Module library must be located under $SERVER_ROOT/modules/modulename.so. Once it's defined, you can reference it in other places from the drop-down.  
+
+END_DESCR
+SYNTAX: the library name of .so. 
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+[ITEM]
+ID: moduleEnabled
+NAME: Enabled
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Set whether to enable this module at this level. Module can be enabled at server, listener and virtual host level. 
+You can enable at server level and disable for a particular virtual host, or you can disable at the server level
+and enable only for a virtual host. You can further customize the hook points if the module is enabled at this level.
+
+END_DESCR
+SYNTAX: bool 
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: modParams
+NAME: Module Parameters
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Set module parameters. You can set different values at different level. 
+
+END_DESCR
+SYNTAX: Specified by the module interface. 
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+[ITEM]
+ID: hookPoints:L4_BEGSESSION
+NAME: Enable Hook::L4_BEGSESSION
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -11,7 +80,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the Begin Session Filter Level modules. The filter will be engaged at the point when the TCP/IP session begins.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, disabled or not set, (default). 
+SYNTAX: bool 
 END_SYNTAX
 
 EXAMPLE:
@@ -22,8 +91,8 @@ END_TIPS
 [END_ITEM]
 
 [ITEM]
-ID: L4_ENDSESSION
-NAME: End Session Filter Level
+ID: hookPoints:L4_ENDSESSION
+NAME: Enable Hook::L4_ENDSESSION
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -32,7 +101,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the End Session Filter Level modules. The filter will be engaged at the point when the TCP/IP session is ended.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, disabled or not set, (default). 
+SYNTAX: bool 
 END_SYNTAX
 
 EXAMPLE:
@@ -43,8 +112,8 @@ END_TIPS
 [END_ITEM]
 
 [ITEM]
-ID: L4_RECVING
-NAME: Receiving Data Filter Level
+ID: hookPoints:L4_RECVING
+NAME: Enable Hook::L4_RECVING
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -53,7 +122,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the L4 receiving Filter Level modules. The filter will be engaged at the time when the TCP/IP connection receives data.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, disabled or not set, (default). 
+SYNTAX: bool 
 END_SYNTAX
 
 EXAMPLE:
@@ -64,8 +133,8 @@ END_TIPS
 [END_ITEM]
 
 [ITEM]
-ID: L4_SENDING
-NAME: Sending Data Filter Level
+ID: hookPoints:L4_SENDING
+NAME: Enable Hook::L4_SENDING
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -74,7 +143,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the L4 sending  Filter Level modules. The filter will be engaged at the point when the TCP/IP connection sends data.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, disabled or not set, (default). 
+SYNTAX: bool 
 END_SYNTAX
 
 EXAMPLE:
@@ -85,8 +154,8 @@ END_TIPS
 [END_ITEM]
 
 [ITEM]
-ID: HTTP_BEGIN
-NAME: HTTP Begin Connection Filter Level
+ID: hookPoints:HTTP_BEGIN
+NAME: Enable Hook::HTTP_BEGIN
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -95,7 +164,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the Begin HTTP Begin Connection Filter Level modules. The filter will be engaged at the point when the TCP/IP session begins an HTTP connection.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, disabled or not set, (default). 
+SYNTAX: bool 
 END_SYNTAX
 
 EXAMPLE:
@@ -104,9 +173,11 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
+
 [ITEM]
-ID: RECV_REQ_HDR
-NAME: Receive Request Header Filter Level
+ID: hookPoints:RECV_REQ_HDR
+NAME: Enable Hook::RECV_REQ_HDR
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -115,7 +186,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the Receive Request Header Filter Level modules. The filter will be engaged at the point when the HTTP connection receives a page request header.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, disabled or not set, (default). 
+SYNTAX: bool 
 END_SYNTAX
 
 EXAMPLE:
@@ -124,9 +195,11 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
+
 [ITEM]
-ID: URI_MAP
-NAME: URI Map Filter Level
+ID: hookPoints:URI_MAP
+NAME: Enable Hook::URI_MAP
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -135,7 +208,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the URI Map Filter Level modules. The filter will be engaged at the point when the HTTP connection maps a URI request to a context.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, disabled or not set, (default). 
+SYNTAX: bool 
 END_SYNTAX
 
 EXAMPLE:
@@ -144,9 +217,11 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
+
 [ITEM]
-ID: RECV_REQ_BDY
-NAME: Receive Request Body Filter Level
+ID: hookPoints:RECV_REQ_BDY
+NAME: Enable Hook::RECV_REQ_BDY
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -155,7 +230,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the Receive Request Body Filter Level modules. The filter will be engaged at the point when the HTTP connection receives page body data.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, disabled or not set, (default). 
+SYNTAX: bool 
 END_SYNTAX
 
 EXAMPLE:
@@ -164,9 +239,11 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
+
 [ITEM]
-ID: RECVED_REQ_BDY
-NAME: Received Request Body Filter Level
+ID: hookPoints:RECVED_REQ_BDY
+NAME: Enable Hook::RECVED_REQ_BDY
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -175,7 +252,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the Received Request Body Filter Level modules. The filter will be engaged at the point when the HTTP connection finishes receiving page body data.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, disabled or not set, (default). 
+SYNTAX: bool 
 END_SYNTAX
 
 EXAMPLE:
@@ -184,9 +261,11 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
+
 [ITEM]
-ID: RECV_RSP_HDR
-NAME: Receive Response Header Filter Level
+ID: hookPoints:RECV_RSP_HDR
+NAME: Enable Hook::RECV_RSP_HDR
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -195,7 +274,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the Receive Response Header Filter Level modules. The filter will be engaged at the point when the HTTP connection creates the response header.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, disabled or not set, (default). 
+SYNTAX: bool 
 END_SYNTAX
 
 EXAMPLE:
@@ -204,9 +283,11 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
+
 [ITEM]
-ID: RECV_RSP_BDY
-NAME: Receive Response Body Filter Level
+ID: hookPoints:RECV_RSP_BDY
+NAME: Enable Hook::RECV_RSP_BDY
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -215,7 +296,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the Receive Response Body Filter Level modules. The filter will be engaged at the point when the web server backend receives the response body.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, disabled or not set, (default). 
+SYNTAX: bool 
 END_SYNTAX
 
 EXAMPLE:
@@ -224,9 +305,11 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
+
 [ITEM]
-ID: RECVED_RSP_BDY
-NAME: Received Response Body Filter Level
+ID: hookPoints:RECVED_RSP_BDY
+NAME: Enable Hook::RECVED_RSP_BDY
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -235,7 +318,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the Received Response Body Filter Level modules. The filter will be engaged at the point when the web server backend finishes receiving the response body.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, disabled or not set, (default). 
+SYNTAX: bool 
 END_SYNTAX
 
 EXAMPLE:
@@ -244,9 +327,11 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
+
 [ITEM]
-ID: SEND_RSP_HDR
-NAME: Send Response Header Filter Level
+ID: hookPoints:SEND_RSP_HDR
+NAME: Enable Hook::SEND_RSP_HDR
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -255,7 +340,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the Send Response Header Level modules. The filter will be engaged at the point when the web server is ready to send the response header.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, disabled or not set, (default). 
+SYNTAX: bool 
 END_SYNTAX
 
 EXAMPLE:
@@ -264,9 +349,11 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
+
 [ITEM]
-ID: SEND_RSP_BDY
-NAME: Send Response Body Filter Level
+ID: hookPoints:SEND_RSP_BDY
+NAME: Enable Hook::SEND_RSP_BDY
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -275,7 +362,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the Send Response Body Filter Level modules. The filter will be engaged at the point when the web server is sending the response body.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, disabled or not set, (default). 
+SYNTAX: bool 
 END_SYNTAX
 
 EXAMPLE:
@@ -284,9 +371,11 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
+
 [ITEM]
-ID: SENDFILE_RSP_BDY
-NAME: Send File Response Body Filter Level
+ID: hookPoints:SENDFILE_RSP_BDY
+NAME: Enable Hook::SENDFILE_RSP_BDY
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -295,7 +384,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the Send File Response Body Filter Level modules. The filter will be engaged at the point when the web server has sent the response header and is going to send a file.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, disabled or not set, (default). 
+SYNTAX: bool 
 END_SYNTAX
 
 EXAMPLE:
@@ -304,9 +393,11 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
+
 [ITEM]
-ID: HTTP_END
-NAME: HTTP End Connection Filter Level
+ID: hookPoints:HTTP_END
+NAME: Enable Hook::HTTP_END
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -315,7 +406,7 @@ SEE_ALSO:
 DESCR: Allows enabling or disabling of the HTTP End Connection Filter Level modules. The filter will be engaged at the point when the HTTP connection has ended.  
 
 END_DESCR
-SYNTAX: The filter level can be enabled, disabled or not set, (default). 
+SYNTAX: bool 
 END_SYNTAX
 
 EXAMPLE:
@@ -326,8 +417,8 @@ END_TIPS
 [END_ITEM]
 
 [ITEM]
-ID: FILTER_PRIORITY
-NAME: Filter Level Priority
+ID: hookPriority
+NAME: Hook Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -336,7 +427,7 @@ SEE_ALSO:
 DESCR: Allows Filter Level Priority to be set for each filter level. The filters will be run lowest priority first.  
 
 END_DESCR
-SYNTAX: The priority value can be from -6000 to 6000. 
+SYNTAX: integer value from -6000 to 6000. 
 END_SYNTAX
 
 EXAMPLE:
@@ -345,6 +436,63 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
+
+################## TBL #############################
+
+
+
+[TBL]
+ID: servModules
+NAME: Server Modules
+
+DESCR: Define and load modules for LiteSpeed web server. Module priority is defined at server level. Hook Points can be 
+overridden at listener, virtual host and context levels. 
+END_DESCR
+
+CONT: modulename moduleEnabled modParams hookPoints:L4_BEGSESSION hookPoints:L4_ENDSESSION hookPoints:L4_RECVING
+hookPoints:L4_SENDING hookPoints:HTTP_BEGIN hookPoints:RECV_REQ_HDR hookPoints:URI_MAP hookPoints:RECV_REQ_BDY
+hookPoints:RECVED_REQ_BDY hookPoints:RECV_RSP_HDR hookPoints:RECV_RSP_BDY hookPoints:RECVED_RSP_BDY 
+hookPoints:SEND_RSP_HDR hookPoints:SEND_RSP_BDY hookPoints:SENDFILE_RSP_BDY hookPoints:HTTP_END 
+hookPriority
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: listenerModules
+NAME: Listener Modules
+
+DESCR: Configure modules at listener level. 
+END_DESCR
+
+CONT: modulename moduleEnabled modParams hookPoints:L4_BEGSESSION hookPoints:L4_ENDSESSION hookPoints:L4_RECVING
+hookPoints:L4_SENDING 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[TBL]
+ID: vhModules
+NAME: Virtual Host Modules
+
+DESCR: Define and load modules for LiteSpeed web server. Module priority is defined at server level. Hook Points can be 
+overridden at listener, virtual host and context levels. 
+END_DESCR
+
+CONT: modulename moduleEnabled modParams hookPoints:HTTP_BEGIN hookPoints:RECV_REQ_HDR 
+hookPoints:URI_MAP hookPoints:RECV_REQ_BDY
+hookPoints:RECVED_REQ_BDY hookPoints:RECV_RSP_HDR hookPoints:RECV_RSP_BDY hookPoints:RECVED_RSP_BDY 
+hookPoints:SEND_RSP_HDR hookPoints:SEND_RSP_BDY hookPoints:SENDFILE_RSP_BDY hookPoints:HTTP_END 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
 
 
 ################ PAGE ####################
@@ -369,7 +517,7 @@ Add Notes and module parameters as needed.
 Click yes next to the filter level that corresponds to the filter level used when 
 adding the hook function in the module.
 Click Save to retain the module configuration.
-The priority value can be set for each filter level here in the server configuraation.  The priority for each filter level can range from -6000 to 6000, lower priority runs first.
+The priority value can be set for each filter level here in the server configuration.  The priority for each filter level can range from -6000 to 6000, lower priority runs first.
 
 Listener Configuration:  Select Listener from the table of listeners -> Modules tab
 Click Add at the upper right of the modules table
@@ -404,10 +552,10 @@ Click Save to retain the module configuration.
 
 END_DESCR
 
-CONT: websocketproxy
+CONT: servModules listenerModules vhModules 
 END_CONT
 
-SEE_ALSO: LSIAPI Developer's Guide.
+SEE_ALSO: 
 [END_PAGE]
 
 

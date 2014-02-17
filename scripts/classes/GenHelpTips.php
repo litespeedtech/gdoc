@@ -50,7 +50,19 @@ class GenHelpTips
 			}
 		}
 
+		// init hard-coded tips
+		//		$this->db['authName'] = new DATTR_HELP_ITEM('Authentication Name', 'Specifies an alternative name for the authorization realm for current context.  If it is not specified, the original realm name will be used. The authentication name is  displayed on the browser&#039;s login pop-up.', '', '', '');
 
+	}
+
+	function get_fixed_tips()
+	{
+		$buf =<<<'EOD'
+		$this->db['note'] = new DATTR_HELP_ITEM('Notes', 'Add a note for yourself.', '', '', '');
+		$this->db['tpextAppName'] = new DATTR_HELP_ITEM('Name', 'A unique name for this external application. In other parts of the the configuration, you will refer to external applications by this name. For virtual host templates, the external application name must contain the $VH_NAME variable to preserve the uniqueness of external application names on different virtual hosts.', '', '', '');
+
+EOD;
+		return $buf;
 	}
 
 	function genTips($navchain, $base, $outfile)
@@ -72,7 +84,7 @@ class GenHelpTips
 		{
 			$id = $item->_id;
 			$name = $item->_name;
-			$is_table = (strpos($item->_id, 'TABLE') !== FALSE); 
+			$is_table = (strpos($item->_id, 'TABLE') !== FALSE);
 			$desc1 = GenTool::translateTagForTips($item->_descr, $base);
 			$desc = str_replace($search, $replace, $desc1);
 			$tip = '';
@@ -90,22 +102,23 @@ class GenHelpTips
 				$example = GenTool::translateTagForTips($item->_example, $base );
 				$example = str_replace($search, $replace, $example);
 			}
-			
-			
+
+
 			$buf = "\t\t\$this->db['$id'] = new DATTR_HELP_ITEM('$name', '$desc', '$tip', '$syntax', '$example');\n";
 			fwrite($fd, $buf);
-			
+
 			if ($id == DEBUG_TAG) {
 				echo "In GenHelpTips::genTips - tipitem $id \n";
 				var_dump($item);
-				
+
 				echo "In GenHelpTips::genTips - tipbuf $id \n";
 				var_dump($buf);
 				echo "end of var_dump buf \n";
-				
+
 			}
-			
+
 		}
+		fwrite($fd, $this->get_fixed_tips());
 
 		fclose($fd);
 		echo ("finish generate tips $outfile \n");

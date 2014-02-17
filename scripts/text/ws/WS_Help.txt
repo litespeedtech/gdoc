@@ -2,33 +2,6 @@
 
 
 
-[TBL]
-ID: sslFeature
-NAME: Security & Features
-
-DESCR: 
-END_DESCR
-
-CONT: renegProtection
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-[TBL]
-ID: vhGeneral
-NAME: General
-
-DESCR: 
-END_DESCR
-
-CONT: docRoot vhadminEmails enableGzip enableIpGeo  
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
 
 [TBL]
 ID: serviceMgr

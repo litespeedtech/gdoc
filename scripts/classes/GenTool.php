@@ -33,14 +33,14 @@ class GenTool
 			echo "Error: wrong DOC_TYPE\n";
 		}
 		$e = "\r\n";
-		
+
 		$buf = <<<EOD
 <!DOCTYPE html>
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>$title</title>
-  <meta name="description" content="$title." />  
+  <meta name="description" content="$title." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="img/favicon.ico" />
   <link rel="stylesheet" type="text/css" href="css/hdoc.css">
@@ -50,7 +50,7 @@ class GenTool
 EOD;
 		return $buf;
 	}
-	
+
 	function getSideTree($docname)
 	{
 		global $static_dir;
@@ -79,19 +79,19 @@ EOD;
 	function getFooter()
 	{
 		if (DOC_TYPE == 'ows') {
-			return '<footer class="copyright">Copyright &copy; 2013. <a href="http://www.litespeedtech.com">Lite Speed Technologies Inc.</a> All rights reserved.</footer>
+			return '<footer class="copyright">Copyright &copy; 2013-2014. <a href="http://www.litespeedtech.com">Lite Speed Technologies Inc.</a> All rights reserved.</footer>
 				</div>
 				</body>
 				</html>';
 		}
 		elseif (DOC_TYPE == 'ws') {
-			return '<footer class="copyright">Copyright &copy; 2003-2013. <a href="http://www.litespeedtech.com">Lite Speed Technologies Inc.</a> All rights reserved.</footer>
+			return '<footer class="copyright">Copyright &copy; 2003-2014. <a href="http://www.litespeedtech.com">Lite Speed Technologies Inc.</a> All rights reserved.</footer>
 				</div>
 				</body>
 				</html>';
 		}
 		elseif (DOC_TYPE == 'lb') {
-			return '<footer class="copyright">Copyright &copy; 2007-2013. <a href="http://www.litespeedtech.com">Lite Speed Technologies Inc.</a> All rights reserved.</footer>
+			return '<footer class="copyright">Copyright &copy; 2007-2014. <a href="http://www.litespeedtech.com">Lite Speed Technologies Inc.</a> All rights reserved.</footer>
 				</div>
 				</body>
 				</html>';
@@ -106,23 +106,23 @@ EOD;
 		if ( isset( $prev ) && count($prev) == 2 ) {
 			$buf .= '&#171 <a href="'. trim($prev[0]).'">'.trim($prev[1]).'</a>';
 		}
-		else 
+		else
 			$buf .= '&nbsp;';
 		$buf .= '</div><div class="center">';
 		if ( isset( $top ) && count($top) == 2 ) {
 			$buf .= '<a href="'. trim($top[0]).'">'.trim($top[1]).'</a>';
 		}
-		else 
+		else
 			$buf .= '&nbsp;';
-		
+
 		$buf .= '</div><div class="next">';
-		
+
 		if ( isset( $next ) && count($next) == 2 ) {
 			$buf .= '<a href="'. trim($next[0]) . '">'.trim($next[1]).'</a> &#187;';
 		}
-		else 
+		else
 			$buf .= '&nbsp;';
-		
+
 		$buf .= '</div></div>' . "\r\n";
 		return $buf;
 
@@ -130,9 +130,9 @@ EOD;
 
 	function translateTag(&$buf, $base)
 	{
-		$from = array('{tag}', '{cmd}', '{val}', '{/}'); 
+		$from = array('{tag}', '{cmd}', '{val}', '{/}');
 		$to = array('<span class="tag">', '<span class="cmd">', '<span class="val">', '</span>');
-			
+
 
 		if ( isset ($GLOBALS['ws_lb']) )
 			$buf = str_replace( $GLOBALS['ws_lb'], $GLOBALS['ws_lb_replace'], $buf );
@@ -152,12 +152,12 @@ EOD;
 			$buf1 = str_replace( $from1, $to1, $buf1 );
 		}
 
-		
+
 		$from = array("\n\n\n", "\n\n", "\r\n", "\n", '{ext-href}', '{ext-href-end}', '{ext-href-end-a}');
 		$to = array("<br/><br/>\n", "<br/>\n", ' ', ' ', '<a href="', '" target="_blank">', '</a>');
-		
+
 		$buf1 = str_replace( $from, $to, $buf1 );
-		
+
 		return $buf1;
 	}
 
@@ -180,15 +180,15 @@ EOD;
 				$to1[] = '"' . strip_tags($base->translate($f)) . '"';
 			}
 			$buf = str_replace( $from1, $to1, $buf );
-		} 
-		
+		}
+
 		$buf1 = str_replace( $from, '', $buf );
-		
-		
+
+
 		return $buf1;
 	}
 
-	
+
 	function translateSyntax($syntax)
 	{
 		switch($syntax)
@@ -196,10 +196,10 @@ EOD;
 			case 'bool': return 'Select from radio box';
 			case 'text': return NULL;
 			case 'path1': return 'Absolute path.';
-			case 'path2': return 'An absolute path or a relative path to $SERVER_ROOT.'; 
+			case 'path2': return 'An absolute path or a relative path to $SERVER_ROOT.';
 			case 'file2': return 'File name which can be an absolute path or relative to $SERVER_ROOT.';
-			case 'file3': return 'File name which can be absolute, or relative to $SERVER_ROOT, or relative to $VH_ROOT.'; 
-			case 'path3': return 'A path which can be absolute, or relative to $SERVER_ROOT, or relative to $VH_ROOT.'; 
+			case 'file3': return 'File name which can be absolute, or relative to $SERVER_ROOT, or relative to $VH_ROOT.';
+			case 'path3': return 'A path which can be absolute, or relative to $SERVER_ROOT, or relative to $VH_ROOT.';
 			case 'select': return 'Select from drop down list';
 			case 'checkbox': return 'Select from checkbox';
 			case 'uint': return 'Integer number';

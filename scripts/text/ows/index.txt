@@ -1,7 +1,7 @@
 <header>
-<h1>OpenLiteSpeed Web Server 1.2 <br/>
+<h1>OpenLiteSpeed Web Server 1.3<br/>
 Users' Manual<br/>
-Rev. 2</h1>
+Rev. 1</h1>
 </header>
 
 <h3>Table of Contents</h3>

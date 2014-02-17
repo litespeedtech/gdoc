@@ -502,6 +502,32 @@ END_TIPS
 [END_ITEM]
 
 
+
+
+[ITEM]
+ID: extUmask
+NAME: umask
+REQUIRED: 
+APPLY: 3
+SINCE: 5.0
+SEE_ALSO: CGI {ITEM=ServSecurity_Help#umask} 
+
+DESCR: Sets default umask for this external application's processes.  
+See {cmd} man 2 umask {/} for details. The default value taken from the server-level  
+{ITEM=ServSecurity_Help#umask} setting. 
+END_DESCR
+
+SYNTAX: value valid range [000]-[777].
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
 [ITEM]
 ID: runOnStartUp
 NAME: Run On Start Up
@@ -571,7 +597,7 @@ END_DESCR
 
 CONT: extAppType extAppName extAppAddress maxConns env initTimeout 
 retryTimeout persistConn pcKeepAliveTimeout respBuffer autoStart
-extMaxIdleTime extAppPath backlog instances extUser extGroup 
+extMaxIdleTime extAppPath backlog instances extUser extGroup extUmask
 runOnStartUp extAppPriority 
 memSoftLimit memHardLimit procSoftLimit procHardLimit
 END_CONT

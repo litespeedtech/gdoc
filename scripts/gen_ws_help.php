@@ -29,8 +29,8 @@ $pathws = 'text/' . DOC_TYPE;
 global $static_dir;
 $static_dir = $pathws;
 
-$texts = array("$pathcommon/HelpDoc.DB.txt", 
-			"$pathcommon/Listener_Help.txt", 
+$texts = array("$pathcommon/HelpDoc.DB.txt",
+			"$pathcommon/Listener_Help.txt",
 			"$pathcommon/WSPages.txt",
 			"$pathcommon/Context_Help.txt",
 			"$pathcommon/ExtApp_Help.txt",
@@ -39,6 +39,7 @@ $texts = array("$pathcommon/HelpDoc.DB.txt",
 		    "$pathcommon/Templates_Help.txt",
 			"$pathcommon/RequestFilter_Help.txt",
 			"$pathcommon/ServerStat_Help.txt",
+			"$pathcommon/WebSocketProxy.txt",
 			"$pathws/Cache_Help.txt",
 			"$pathws/Addons_Help.txt",
 			"$pathws/Context_Tbl_Help.txt",
@@ -51,10 +52,10 @@ $base = new ItemBase($texts);
 
 $lsws_pageNav = array('DOC_ROOT', 'DOC_NAV', 'LSWS_CONF_NAV', 'LSWS_CONTROL_NAV');
 
-$ws_lb = array('{ws_lb}', '{Ws_Lb}', '{WS_LB}', 
-	'{ent_version}', 
+$ws_lb = array('{ws_lb}', '{Ws_Lb}', '{WS_LB}',
+	'{ent_version}',
 	'%LB_%');
-$ws_lb_replace = array('web server', 'Web server', 'Web Server', 
+$ws_lb_replace = array('web server', 'Web server', 'Web Server',
 	'{tag}Enterprise Edition Only{/}',
 	'');
 

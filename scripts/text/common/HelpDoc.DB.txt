@@ -1740,6 +1740,28 @@ END_TIPS
 
 
 
+[ITEM]
+ID: umask
+NAME: umask
+REQUIRED: 
+APPLY: 3
+SINCE: 5.0
+SEE_ALSO: ExtApp {ITEM=ExtApp_Help#extUmask}
+
+DESCR: Sets default umask for CGI processes.  
+See {cmd} man 2 umask {/} for details. This also serves as the default value for external applications  
+{ITEM=ExtApp_Help#extUmask}.      
+END_DESCR
+
+SYNTAX: value valid range [000]-[777].
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
 
 
 [ITEM]

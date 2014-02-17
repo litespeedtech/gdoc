@@ -121,6 +121,31 @@ END_TIPS
 [END_ITEM]
 
 
+[ITEM]
+ID: spdyAdHeader
+NAME: SPDY Advertisement
+REQUIRED: 
+APPLY: 3
+SINCE: 1.2.5
+SEE_ALSO: 
+
+DESCR: Specifies whether to advertise to clients that SPDY protocol is available. If set, LSWS will send an Alternate-Protocol 
+response header when a client accesses SPDY-enabled websites through an HTTP connection. 
+This requires the website to have both HTTP and HTTPS connections set up, and SPDY support enabled. 
+END_DESCR
+
+SYNTAX: port:protocol string 
+END_SYNTAX
+
+EXAMPLE: If SPDY/3 is enabled on port 443, you can set the string to "443:npn-spdy/3"  
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
 
 ########## TBL SECION #############
 
@@ -193,7 +218,7 @@ DESCR: The following settings control CGI processes. Memory and process limits a
 other external applications if limits have not been set explicitly for those applications. 
 END_DESCR
 
-CONT: cgidSock maxCGIInstances minUID minGID forceGID CGIPriority CPUSoftLimit CPUHardLimit memSoftLimit memHardLimit procSoftLimit procHardLimit 
+CONT: cgidSock maxCGIInstances minUID minGID forceGID umask CGIPriority CPUSoftLimit CPUHardLimit memSoftLimit memHardLimit procSoftLimit procHardLimit 
 END_CONT
 
 SEE_ALSO: 
@@ -257,6 +282,20 @@ SEE_ALSO:
 [END_TBL]
 
 
+
+
+[TBL]
+ID: vhGeneral
+NAME: General
+
+DESCR: 
+END_DESCR
+
+CONT: docRoot vhadminEmails enableGzip enableIpGeo spdyAdHeader 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
 
 
 [TBL]
