@@ -22,6 +22,28 @@ END_TIPS
 [END_ITEM]
 
 
+
+[ITEM]
+ID: moduleNameSel
+NAME: Module
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Name of the module. Module library must be located under $SERVER_ROOT/modules/modulename.so. Once it's defined, you can reference it in other places from the drop-down.  
+
+END_DESCR
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
 [ITEM]
 ID: moduleEnabled
 NAME: Enabled
