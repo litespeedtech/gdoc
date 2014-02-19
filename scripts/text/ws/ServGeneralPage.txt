@@ -28,6 +28,35 @@ END_TIPS
 [END_ITEM]
 
 
+[ITEM]
+ID: cpuAffinity
+NAME: CPU Affinity
+REQUIRED: 
+APPLY: 1
+SINCE: 
+SEE_ALSO: 
+
+DESCR: CPU affinity binds a process to one or more CPUs (cores). It is beneficial for a process to always use 
+the same CPU because then the process can make use of data left in CPU cache. If the process moves to a different CPU, 
+there is no use of CPU cache and unnecessary overhead is required.
+
+
+The CPU Affinity setting controls how many CPUs (cores) one LiteSpeed Web Server process will be associated with. 
+The minimum value is {val}1{/}. The maximum value is the number of cores the server has. Generally, {val}1{/} is the best 
+setting because because it creates the strictest use of CPU affinity and thus makes the most use of CPU cache.
+END_DESCR
+
+SYNTAX: Integer value from 1 to the number of cores the server has.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
 
 
 [ITEM]
@@ -911,7 +940,7 @@ NAME: Server Process
 DESCR: 
 END_DESCR
 
-CONT: serverName runningAs serverPriority servChrootPath enableChroot
+CONT: serverName runningAs serverPriority cpuAffinity servChrootPath enableChroot
 enableLVE inMemBufSize swappingDir autoRestart autoFix503 gracefulRestartTimeout
 END_CONT
 

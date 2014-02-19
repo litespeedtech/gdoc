@@ -258,6 +258,24 @@ SEE_ALSO:
 [END_TBL]
 
 
+[TBL]
+ID: moduleContext
+NAME: Module Handler Context
+
+DESCR: A module handler context will associate a URI with a registered module. 
+Modules need to be registered at Server Module Configuration tab.
+END_DESCR
+
+CONT: expuri moduleNameSel extraHeaders
+realm authName required accessAllowed accessDenied extAuthorizer
+addDefaultCharset defaultCharsetCustomized 
+enableIpGeo 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
 ################ PAGE ####################
 
 
@@ -284,7 +302,7 @@ LiteSpeed's WebAdmin console for the following purposes:
 END_DESCR
 
 CONT: generalContext javaWebAppContext servletContext fcgiContext lsapiContext proxyContext 
-cgiContext redirectContext lbContext railsContext
+cgiContext redirectContext lbContext railsContext moduleContext
 END_CONT
 
 SEE_ALSO: 
