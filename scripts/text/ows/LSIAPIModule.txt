@@ -60,10 +60,8 @@ SEE_ALSO:
 DESCR: Enable module filters.
 
 
-Set in the Server configuration to globally assign the default value. If no value is entered in the Listener 
-and Virtual Host configurations, the value will be inherited from the Server configuration.  
-For the Virtual Host Context configuration, the 
-values are inherited from the Virtual Host configuration when not set.
+Set the value in the Server configuration to globally assign the default value. If no value is entered in the Listener 
+and Virtual Host configurations, it will be inherited from the Server configuration.  
 Any values that are set will override the inherited values.
 END_DESCR
 
@@ -90,10 +88,10 @@ SEE_ALSO:
 DESCR: Module Parameters. The module parameters are defined by the module developer.
 
 
-Set in the Server configuration to globally assign the default value. If no value is entered in the Listener 
-and Virtual Host configurations, the value will be inherited from the Server configuration.  
-For the Virtual Host Context configuration, the 
-values are inherited from the Virtual Host configuration when not set.
+Set the value in the Server configuration to globally assign the default value. If no value is entered in the Listener 
+and Virtual Host configurations, it will be inherited from the Server configuration.  
+For the Virtual Host Context configurations, if the value is not set,
+it will be inherited from the Virtual Host configuration.
 Any values that are set will override the inherited values.
 
 END_DESCR
@@ -121,9 +119,9 @@ DESCR: L4 Begin Session Hook. Allows enabling or disabling of the Begin Session 
 The function will be engaged when the TCP/IP connection begins.  
 
 
-Set in the Server configuration to globally assign the default value of enable, disable or not set.  
+Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
 Not set in the Server configuration will be treated as enabled.  If not set in the Listener 
-configuration, the value will be inherited from the Server configuration.
+configuration, it will be inherited from the Server configuration.
 Any values that are set will override the inherited values.
 END_DESCR
 
@@ -149,9 +147,9 @@ DESCR: L4 End Session Hook. Allows enabling or disabling of the End Session Filt
 The function will be engaged when the TCP/IP connection ends.  
 
 
-Set in the Server configuration to globally assign the default value of enable, disable or not set.  
+Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
 Not set in the Server configuration will be treated as enabled.  If not set in the Listener 
-configuration, the value will be inherited from the Server configuration.
+configuration, it will be inherited from the Server configuration.
 Any values that are set will override the inherited values.
 END_DESCR
 
@@ -177,9 +175,9 @@ DESCR: L4 Receiving Hook. Allows enabling or disabling of the Receiving Filter L
 The function will be engaged when the TCP/IP connection receives data.  
 
 
-Set in the Server configuration to globally assign the default value of enable, disable or not set.  
+Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
 Not set in the Server configuration will be treated as enabled.  If not set in the Listener 
-configuration, the value will be inherited from the Server configuration.
+configuration, it will be inherited from the Server configuration.
 Any values that are set will override the inherited values.
 END_DESCR
 
@@ -205,9 +203,9 @@ DESCR: L4 Sending Hook. Allows enabling or disabling of the L4 sending Filter Le
 The function will be engaged when the TCP/IP connection sends data.  
 
 
-Set in the Server configuration to globally assign the default value of enable, disable or not set.  
+Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
 Not set in the Server configuration will be treated as enabled.  If not set in the Listener 
-configuration, the value will be inherited from the Server configuration.
+configuration, it will be inherited from the Server configuration.
 Any values that are set will override the inherited values.
 END_DESCR
 
@@ -233,11 +231,9 @@ DESCR: HTTP Begin Hook. Allows enabling or disabling of the HTTP Begin Session F
 The function will be engaged when the TCP/IP connection begins an HTTP Session.  
 
 
-Set in the Server configuration to globally assign the default value of enable, disable or not set.  
+Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
 Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  For the Virtual Host Context configuration, the 
-values are inherited from the Virtual Host configuration when not set.
-Any values that are set will override the inherited values.
+the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
 END_DESCR
 
 SYNTAX: bool 
@@ -263,11 +259,9 @@ DESCR: HTTP Receive Request Hook. Allows enabling or disabling of the HTTP Recei
 The function will be engaged when the HTTP connection receives a page request header.  
 
 
-Set in the Server configuration to globally assign the default value of enable, disable or not set.  
+Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
 Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  For the Virtual Host Context configuration, the 
-values are inherited from the Virtual Host configuration when not set.
-Any values that are set will override the inherited values.
+the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
 END_DESCR
 
 SYNTAX: bool 
@@ -293,11 +287,9 @@ DESCR: HTTP URI Map Hook. Allows enabling or disabling of the HTTP URI Map Filte
 The function will be engaged when the HTTP connection maps a URI request to a context.  
 
 
-Set in the Server configuration to globally assign the default value of enable, disable or not set.  
+Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
 Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  For the Virtual Host Context configuration, the 
-values are inherited from the Virtual Host configuration when not set.
-Any values that are set will override the inherited values.
+the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
 END_DESCR
 
 SYNTAX: bool 
@@ -323,11 +315,9 @@ DESCR: HTTP Receive Request Body Hook. Allows enabling or disabling of the HTTP 
 The function will be engaged when the HTTP connection receives page body data.  
 
 
-Set in the Server configuration to globally assign the default value of enable, disable or not set.  
+Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
 Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  For the Virtual Host Context configuration, the 
-values are inherited from the Virtual Host configuration when not set.
-Any values that are set will override the inherited values.
+the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
 END_DESCR
 
 SYNTAX: bool 
@@ -353,11 +343,9 @@ DESCR: HTTP Received Request Body Hook. Allows enabling or disabling of the HTTP
 The function will be engaged when the HTTP connection finishes receiving page body data.  
 
 
-Set in the Server configuration to globally assign the default value of enable, disable or not set.  
+Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
 Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  For the Virtual Host Context configuration, the 
-values are inherited from the Virtual Host configuration when not set.
-Any values that are set will override the inherited values.
+the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
 END_DESCR
 
 SYNTAX: bool 
@@ -383,11 +371,9 @@ DESCR: HTTP Receive Response Header Hook. Allows enabling or disabling of the HT
 The function will be engaged when the HTTP connection creates the response header.  
 
 
-Set in the Server configuration to globally assign the default value of enable, disable or not set.  
+Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
 Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  For the Virtual Host Context configuration, the 
-values are inherited from the Virtual Host configuration when not set.
-Any values that are set will override the inherited values.
+the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
 END_DESCR
 
 SYNTAX: bool 
@@ -413,11 +399,9 @@ DESCR: HTTP Receive Response Body Hook. Allows enabling or disabling of the HTTP
 The function will be engaged when the web server backend receives the response body.  
 
 
-Set in the Server configuration to globally assign the default value of enable, disable or not set.  
+Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
 Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  For the Virtual Host Context configuration, the 
-values are inherited from the Virtual Host configuration when not set.
-Any values that are set will override the inherited values.
+the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
 END_DESCR
 SYNTAX: bool 
 END_SYNTAX
@@ -442,11 +426,9 @@ DESCR: HTTP Received Response Body Hook. Allows enabling or disabling of the HTT
 The function will be engaged when the web server backend finishes receiving the response body.  
 
 
-Set in the Server configuration to globally assign the default value of enable, disable or not set.  
+Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
 Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  For the Virtual Host Context configuration, the 
-values are inherited from the Virtual Host configuration when not set.
-Any values that are set will override the inherited values.
+the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
 END_DESCR
 
 SYNTAX: bool 
@@ -472,11 +454,9 @@ DESCR: HTTP Send Response Header Hook. Allows enabling or disabling of the HTTP 
 The function will be engaged when the web server is ready to send the response header.  
 
 
-Set in the Server configuration to globally assign the default value of enable, disable or not set.  
+Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
 Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  For the Virtual Host Context configuration, the 
-values are inherited from the Virtual Host configuration when not set.
-Any values that are set will override the inherited values.
+the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
 END_DESCR
 
 SYNTAX: bool 
@@ -502,11 +482,9 @@ DESCR: HTTP Send Response Body Hook. Allows enabling or disabling of the HTTP Se
 The function will be engaged when the web server is sending the response body.  
 
 
-Set in the Server configuration to globally assign the default value of enable, disable or not set.  
+Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
 Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  For the Virtual Host Context configuration, the 
-values are inherited from the Virtual Host configuration when not set.
-Any values that are set will override the inherited values.
+the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
 END_DESCR
 
 SYNTAX: bool 
@@ -532,11 +510,9 @@ DESCR: HTTP Send File Response Body Hook. Allows enabling or disabling of the HT
 The function will be engaged when the web server has sent the response header and is going to send a file.  
 
 
-Set in the Server configuration to globally assign the default value of enable, disable or not set.  
+Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
 Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  For the Virtual Host Context configuration, the 
-values are inherited from the Virtual Host configuration when not set.
-Any values that are set will override the inherited values.
+the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
 END_DESCR
 
 SYNTAX: bool 
@@ -562,11 +538,9 @@ DESCR: HTTP Session End Hook. Allows enabling or disabling of the HTTP Session E
 The function will be engaged when the HTTP connection has ended.  
 
 
-Set in the Server configuration to globally assign the default value of enable, disable or not set.  
+Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
 Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  For the Virtual Host Context configuration, the 
-values are inherited from the Virtual Host configuration when not set.
-Any values that are set will override the inherited values.
+the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
 END_DESCR
 
 SYNTAX: bool 
@@ -591,7 +565,7 @@ DESCR: Allows Filter Level Priority to be set for each filter level. The priorit
 from -6000 to 6000. The filters will be run lowest priority first.  
 
 The priorities can only be set in the Server configuration.  The Listeners and Virtual Hosts inherit the values.   
-If not set in the Server configuration,the priority will be set to the default value that was set in the module.  
+If not set in the Server configuration, the priority will be set to the default value that was set in the module.  
 END_DESCR
 
 SYNTAX: integer value from -6000 to 6000. 
@@ -617,7 +591,7 @@ DESCR: The Server module configuration globally defines the module configuration
 Once defined, the Listeners and Virtual Hosts have access to the modules and module configurations. 
 
 All modules that are to be processed must be registered in the Server configuration. The Server configuration also 
-defines the default values for module parameter data and filter control.  These values can be inheritted 
+defines the default values for module parameter data and filter control.  These values can be inherited 
 or overridden by the Listener and Virtual Host configuration data.
 
 Module priority is only defined at server level and is inherited by the Listener and Virtual Host configurations.
