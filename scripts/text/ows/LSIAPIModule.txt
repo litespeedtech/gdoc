@@ -51,18 +51,44 @@ END_TIPS
 
 [ITEM]
 ID: moduleEnabled
-NAME: Enabled filters
+NAME: Enable Filters
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Enable module filters.
+DESCR: Set wether to enable the module filters globally. 
 
 
-Set the value in the Server configuration to globally assign the default value. If no value is entered in the Listener 
-and Virtual Host configurations, it will be inherited from the Server configuration.  
-Any values that are set will override the inherited values.
+If it's not set and the module contains filter functions, the default is enabled. 
+You can override this global setting at different levels.  
+END_DESCR
+
+SYNTAX: bool 
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+[ITEM]
+ID: moduleEnabled_lst
+NAME: Enable Filters
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Set wether to enable module filters at listener level. Only if the module has TCP/IP level hooks 
+(L4_BEGSESSION, L4_ENDSESSION, L4_RECVING, L4_SENDING), this setting will take effect.
+
+
+If not set, the default will be inherited from the Server configuration. You only need to set it here if you need to 
+override the default settings. 
 END_DESCR
 
 SYNTAX: bool 
@@ -78,6 +104,32 @@ END_TIPS
 
 
 [ITEM]
+ID: moduleEnabled_vh
+NAME: Enable Filters
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Set wether to enable module filters at virtual host or context level. Only if the module has HTTP level hooks, 
+this setting will take effect.
+
+
+If not set, the virtual host level default will be inherited from the Server configuration. Context level setting will be  
+inherited from virtual host level. You only need to set it here if you need to override the default settings. 
+END_DESCR
+
+SYNTAX: bool 
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+[ITEM]
 ID: modParams
 NAME: Module Parameters
 REQUIRED: 
@@ -85,15 +137,12 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Module Parameters. The module parameters are defined by the module developer.
+DESCR: Set module parameters. The module parameters are defined by the module developer.
 
 
-Set the value in the Server configuration to globally assign the default value. If no value is entered in the Listener 
-and Virtual Host configurations, it will be inherited from the Server configuration.  
-For the Virtual Host Context configurations, if the value is not set,
-it will be inherited from the Virtual Host configuration.
-Any values that are set will override the inherited values.
-
+Set the value in the Server configuration to globally assign the default value. 
+You can override this setting at listener, virtual host or context level. If the value is not set,
+it will be inherited from upper level.
 END_DESCR
 
 SYNTAX: Specified by the module interface. 
@@ -108,24 +157,22 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPoints:L4_BEGSESSION
-NAME: Enable Hook::L4_BEGSESSION
+ID: hookPriority:L4_BEGSESSION
+NAME: Hook::L4_BEGSESSION Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: L4 Begin Session Hook. Allows enabling or disabling of the Begin Session Filter Level functions. 
+DESCR: Set filter priority for L4 Begin Session Hook. 
 The function will be engaged when the TCP/IP connection begins.  
 
 
-Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
-Not set in the Server configuration will be treated as enabled.  If not set in the Listener 
-configuration, it will be inherited from the Server configuration.
-Any values that are set will override the inherited values.
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module.
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
+
 END_SYNTAX
 
 EXAMPLE:
@@ -136,24 +183,22 @@ END_TIPS
 [END_ITEM]
 
 [ITEM]
-ID: hookPoints:L4_ENDSESSION
-NAME: Enable Hook::L4_ENDSESSION
+ID: hookPriority:L4_ENDSESSION
+NAME: Hook::L4_ENDSESSION Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: L4 End Session Hook. Allows enabling or disabling of the End Session Filter Level functions. 
+DESCR: Set filter priority for L4 End Session Hook.  
 The function will be engaged when the TCP/IP connection ends.  
 
 
-Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
-Not set in the Server configuration will be treated as enabled.  If not set in the Listener 
-configuration, it will be inherited from the Server configuration.
-Any values that are set will override the inherited values.
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module.
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
+
 END_SYNTAX
 
 EXAMPLE:
@@ -164,24 +209,22 @@ END_TIPS
 [END_ITEM]
 
 [ITEM]
-ID: hookPoints:L4_RECVING
-NAME: Enable Hook::L4_RECVING
+ID: hookPriority:L4_RECVING
+NAME: Hook::L4_RECVING Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: L4 Receiving Hook. Allows enabling or disabling of the Receiving Filter Level functions. 
+DESCR: Set filter priority for L4 Receiving Hook.  
 The function will be engaged when the TCP/IP connection receives data.  
 
 
-Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
-Not set in the Server configuration will be treated as enabled.  If not set in the Listener 
-configuration, it will be inherited from the Server configuration.
-Any values that are set will override the inherited values.
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module.
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
+
 END_SYNTAX
 
 EXAMPLE:
@@ -192,24 +235,22 @@ END_TIPS
 [END_ITEM]
 
 [ITEM]
-ID: hookPoints:L4_SENDING
-NAME: Enable Hook::L4_SENDING
+ID: hookPriority:L4_SENDING
+NAME: Hook::L4_SENDING Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: L4 Sending Hook. Allows enabling or disabling of the L4 sending Filter Level functions. 
+DESCR: Set filter priority for L4 Sending Hook. 
 The function will be engaged when the TCP/IP connection sends data.  
 
 
-Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
-Not set in the Server configuration will be treated as enabled.  If not set in the Listener 
-configuration, it will be inherited from the Server configuration.
-Any values that are set will override the inherited values.
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module.
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
+
 END_SYNTAX
 
 EXAMPLE:
@@ -220,23 +261,22 @@ END_TIPS
 [END_ITEM]
 
 [ITEM]
-ID: hookPoints:HTTP_BEGIN
-NAME: Enable Hook::HTTP_BEGIN
+ID: hookPriority:HTTP_BEGIN
+NAME: Hook::HTTP_BEGIN Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: HTTP Begin Hook. Allows enabling or disabling of the HTTP Begin Session Filter Level functions. 
+DESCR: Set filter priority for HTTP Begin Hook.  
 The function will be engaged when the TCP/IP connection begins an HTTP Session.  
 
 
-Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
-Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module.
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
+
 END_SYNTAX
 
 EXAMPLE:
@@ -248,23 +288,22 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPoints:RECV_REQ_HDR
-NAME: Enable Hook::RECV_REQ_HDR
+ID: hookPriority:RECV_REQ_HDR
+NAME: Hook::RECV_REQ_HDR Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: HTTP Receive Request Hook. Allows enabling or disabling of the HTTP Receive Request Header Filter Level functions. 
-The function will be engaged when the HTTP connection receives a page request header.  
+DESCR: Set filter priority for HTTP Receive Request Hook.  
+The function will be engaged when the web server receives a request header.  
 
 
-Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
-Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module.
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
+
 END_SYNTAX
 
 EXAMPLE:
@@ -276,23 +315,22 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPoints:URI_MAP
-NAME: Enable Hook::URI_MAP
+ID: hookPriority:URI_MAP
+NAME: Hook::URI_MAP Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: HTTP URI Map Hook. Allows enabling or disabling of the HTTP URI Map Filter Level functions. 
-The function will be engaged when the HTTP connection maps a URI request to a context.  
+DESCR: Set filter priority for HTTP URI Map Hook. 
+The function will be engaged when the web server maps a URI request to a context.  
 
 
-Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
-Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module.
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
+
 END_SYNTAX
 
 EXAMPLE:
@@ -304,23 +342,22 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPoints:RECV_REQ_BDY
-NAME: Enable Hook::RECV_REQ_BDY
+ID: hookPriority:RECV_REQ_BDY
+NAME: Hook::RECV_REQ_BDY Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: HTTP Receive Request Body Hook. Allows enabling or disabling of the HTTP Receive Request Body Filter Level functions. 
-The function will be engaged when the HTTP connection receives page body data.  
+DESCR: Set filter priority for HTTP Receive Request Body Hook.  
+The function will be engaged when the web server receives page body data.  
 
 
-Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
-Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module.
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
+
 END_SYNTAX
 
 EXAMPLE:
@@ -332,23 +369,22 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPoints:RECVED_REQ_BDY
-NAME: Enable Hook::RECVED_REQ_BDY
+ID: hookPriority:RECVED_REQ_BDY
+NAME: Hook::RECVED_REQ_BDY Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: HTTP Received Request Body Hook. Allows enabling or disabling of the HTTP Received Request Body Filter Level functions. 
-The function will be engaged when the HTTP connection finishes receiving page body data.  
+DESCR: Set filter priority for HTTP Received Request Body Hook.  
+The function will be engaged when the web server finishes receiving request body data.  
 
 
-Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
-Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module.
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
+
 END_SYNTAX
 
 EXAMPLE:
@@ -360,23 +396,22 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPoints:RECV_RSP_HDR
-NAME: Enable Hook::RECV_RSP_HDR
+ID: hookPriority:RECV_RSP_HDR
+NAME: Hook::RECV_RSP_HDR Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: HTTP Receive Response Header Hook. Allows enabling or disabling of the HTTP Receive Response Header Filter Level functions. 
-The function will be engaged when the HTTP connection creates the response header.  
+DESCR: Set filter priority for HTTP Receive Response Header Hook.  
+The function will be engaged when the web server creates the response header.  
 
 
-Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
-Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module.
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
+
 END_SYNTAX
 
 EXAMPLE:
@@ -388,22 +423,22 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPoints:RECV_RSP_BDY
-NAME: Enable Hook::RECV_RSP_BDY
+ID: hookPriority:RECV_RSP_BDY
+NAME: Hook::RECV_RSP_BDY Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: HTTP Receive Response Body Hook. Allows enabling or disabling of the HTTP Receive Response Body Filter Level functions. 
+DESCR: Set filter priority for HTTP Receive Response Body Hook.  
 The function will be engaged when the web server backend receives the response body.  
 
 
-Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
-Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module.
 END_DESCR
-SYNTAX: bool 
+
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
+
 END_SYNTAX
 
 EXAMPLE:
@@ -415,23 +450,22 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPoints:RECVED_RSP_BDY
-NAME: Enable Hook::RECVED_RSP_BDY
+ID: hookPriority:RECVED_RSP_BDY
+NAME: Hook::RECVED_RSP_BDY Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: HTTP Received Response Body Hook. Allows enabling or disabling of the HTTP Received Response Body Filter Level functions. 
+DESCR: Set filter priority for HTTP Received Response Body Hook.  
 The function will be engaged when the web server backend finishes receiving the response body.  
 
 
-Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
-Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module.
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
+
 END_SYNTAX
 
 EXAMPLE:
@@ -443,23 +477,22 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPoints:SEND_RSP_HDR
-NAME: Enable Hook::SEND_RSP_HDR
+ID: hookPriority:SEND_RSP_HDR
+NAME: Hook::SEND_RSP_HDR Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: HTTP Send Response Header Hook. Allows enabling or disabling of the HTTP Send Response Header Filter Level functions. 
+DESCR: Set filter priority for HTTP Send Response Header Hook. 
 The function will be engaged when the web server is ready to send the response header.  
 
 
-Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
-Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module.
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
+
 END_SYNTAX
 
 EXAMPLE:
@@ -471,23 +504,21 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPoints:SEND_RSP_BDY
-NAME: Enable Hook::SEND_RSP_BDY
+ID: hookPriority:SEND_RSP_BDY
+NAME: Hook::SEND_RSP_BDY Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: HTTP Send Response Body Hook. Allows enabling or disabling of the HTTP Send Response Body Filter Level functions. 
-The function will be engaged when the web server is sending the response body.  
+DESCR: Set filter priority for HTTP Send Response Body Hook. The function will be engaged when the web server is going to send the response body.  
 
 
-Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
-Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module.
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
+
 END_SYNTAX
 
 EXAMPLE:
@@ -499,23 +530,22 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPoints:SENDFILE_RSP_BDY
-NAME: Enable Hook::SENDFILE_RSP_BDY
+ID: hookPriority:SENDFILE_RSP_BDY
+NAME: Hook::SENDFILE_RSP_BDY Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: HTTP Send File Response Body Hook. Allows enabling or disabling of the HTTP Send File Response Body Filter Level functions. 
-The function will be engaged when the web server has sent the response header and is going to send a file.  
+DESCR: Set filter priority for HTTP Send File Response Body Hook. The function will be engaged before the system call sendfile() for static files.
+This will disable the sendfile() call and use the filter function to transform the data and send out. 
 
 
-Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
-Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module.
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
+
 END_SYNTAX
 
 EXAMPLE:
@@ -527,23 +557,20 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPoints:HTTP_END
-NAME: Enable Hook::HTTP_END
+ID: hookPriority:HTTP_END
+NAME: Hook::HTTP_END Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: HTTP Session End Hook. Allows enabling or disabling of the HTTP Session End Filter Level functions. 
-The function will be engaged when the HTTP connection has ended.  
+DESCR: Set filter priority for HTTP Session End Hook. The function will be engaged when the HTTP connection has ended.  
+  
 
-
-Set the value in the Server configuration to globally assign the default value of enable, disable or not set.  
-Not set in the Server configuration will be treated as enabled.  If not set in the Virtual Host configurations, 
-the value will be inherited from the Server configuration.  Any values that are set will override the inherited values.
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module. 
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
 END_SYNTAX
 
 EXAMPLE:
@@ -553,30 +580,6 @@ TIPS:
 END_TIPS
 [END_ITEM]
 
-[ITEM]
-ID: hookPriority
-NAME: Hook Priority
-REQUIRED: 
-APPLY: 
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Allows Filter Level Priority to be set for each filter level. The priority values can range
-from -6000 to 6000. The filters will be run lowest priority first.  
-
-The priorities can only be set in the Server configuration.  The Listeners and Virtual Hosts inherit the values.   
-If not set in the Server configuration, the priority will be set to the default value that was set in the module.  
-END_DESCR
-
-SYNTAX: integer value from -6000 to 6000. 
-END_SYNTAX
-
-EXAMPLE:
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-[END_ITEM]
 
 
 ################## TBL #############################
@@ -590,17 +593,19 @@ NAME: Server Modules
 DESCR: The Server module configuration globally defines the module configuration data. 
 Once defined, the Listeners and Virtual Hosts have access to the modules and module configurations. 
 
+
 All modules that are to be processed must be registered in the Server configuration. The Server configuration also 
-defines the default values for module parameter data and filter control.  These values can be inherited 
+defines the default values for module parameter data.  These values can be inherited 
 or overridden by the Listener and Virtual Host configuration data.
+
 
 Module priority is only defined at server level and is inherited by the Listener and Virtual Host configurations.
 END_DESCR
 
-CONT: modulename modParams moduleEnabled hookPoints:L4_BEGSESSION hookPoints:L4_ENDSESSION hookPoints:L4_RECVING
-hookPoints:L4_SENDING hookPoints:HTTP_BEGIN hookPoints:RECV_REQ_HDR hookPoints:URI_MAP hookPoints:RECV_REQ_BDY
-hookPoints:RECVED_REQ_BDY hookPoints:RECV_RSP_HDR hookPoints:RECV_RSP_BDY hookPoints:RECVED_RSP_BDY 
-hookPoints:SEND_RSP_HDR hookPoints:SEND_RSP_BDY hookPoints:SENDFILE_RSP_BDY hookPoints:HTTP_END 
+CONT: modulename modParams moduleEnabled hookPriority:L4_BEGSESSION hookPriority:L4_ENDSESSION hookPriority:L4_RECVING
+hookPriority:L4_SENDING hookPriority:HTTP_BEGIN hookPriority:RECV_REQ_HDR hookPriority:URI_MAP hookPriority:RECV_REQ_BDY
+hookPriority:RECVED_REQ_BDY hookPriority:RECV_RSP_HDR hookPriority:RECV_RSP_BDY hookPriority:RECVED_RSP_BDY 
+hookPriority:SEND_RSP_HDR hookPriority:SEND_RSP_BDY hookPriority:SENDFILE_RSP_BDY hookPriority:HTTP_END 
 hookPriority
 END_CONT
 
@@ -613,13 +618,11 @@ SEE_ALSO:
 ID: listenerModules
 NAME: Listener Modules
 
-DESCR: Listener module configuration data is, by default inherited from the Server module configuration.  Enabling modules
-must be independently set for the Listener modules.  Module parameters and filter level enabling can optionally be set to 
-override the Server configuration settings.  The Listener Modules are limited to the TCP/IP Layer 4 filter levels.
+DESCR: Listener module configuration data is, by default inherited from the Server module configuration.  
+The Listener Modules are limited to the TCP/IP Layer 4 filter levels.
 END_DESCR
 
-CONT: modulename modParams moduleEnabled hookPoints:L4_BEGSESSION hookPoints:L4_ENDSESSION hookPoints:L4_RECVING
-hookPoints:L4_SENDING 
+CONT: modulename modParams moduleEnabled_lst 
 END_CONT
 
 SEE_ALSO: 
@@ -630,15 +633,11 @@ SEE_ALSO:
 ID: vhModules
 NAME: Virtual Host Modules
 
-DESCR: Virtual Host module configuration data is, by default inherited from the Server module configuration.  Enabling modules
-must be independently set for the Virtual Host modules.  Module parameters and filter level enabling can optionally be set to 
-override the Server configuration settings.  The Virtual Host Modules are limited to the HTTP filter levels.
+DESCR: Virtual Host module configuration data is, by default inherited from the Server module configuration.  
+The Virtual Host Modules are limited to the HTTP filter levels.
 END_DESCR
 
-CONT: modulename modParams moduleEnabled hookPoints:HTTP_BEGIN hookPoints:RECV_REQ_HDR 
-hookPoints:URI_MAP hookPoints:RECV_REQ_BDY
-hookPoints:RECVED_REQ_BDY hookPoints:RECV_RSP_HDR hookPoints:RECV_RSP_BDY hookPoints:RECVED_RSP_BDY 
-hookPoints:SEND_RSP_HDR hookPoints:SEND_RSP_BDY hookPoints:SENDFILE_RSP_BDY hookPoints:HTTP_END 
+CONT: modulename modParams moduleEnabled_vh 
 END_CONT
 
 SEE_ALSO: 
@@ -654,10 +653,7 @@ DESCR: It's a centralized place to customize module filter settings for virtual 
 Settings for a context URI will override the virtual host or the server level settings.
 END_DESCR
 
-CONT: expuri modParams moduleEnabled hookPoints:HTTP_BEGIN hookPoints:RECV_REQ_HDR 
-hookPoints:URI_MAP hookPoints:RECV_REQ_BDY
-hookPoints:RECVED_REQ_BDY hookPoints:RECV_RSP_HDR hookPoints:RECV_RSP_BDY hookPoints:RECVED_RSP_BDY 
-hookPoints:SEND_RSP_HDR hookPoints:SEND_RSP_BDY hookPoints:SENDFILE_RSP_BDY hookPoints:HTTP_END 
+CONT: expuri modParams moduleEnabled_vh 
 END_CONT
 
 SEE_ALSO: 
