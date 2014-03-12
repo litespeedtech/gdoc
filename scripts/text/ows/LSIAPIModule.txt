@@ -529,33 +529,6 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPriority:SENDFILE_RSP_BDY
-NAME: Hook::SENDFILE_RSP_BDY Priority
-REQUIRED: 
-APPLY: 
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Set filter priority for HTTP Send File Response Body Hook. The function will be engaged before the system call sendfile() for static files.
-This will disable the sendfile() call and use the filter function to transform the data and send out. 
-
-
-It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module.
-END_DESCR
-
-SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
-
-END_SYNTAX
-
-EXAMPLE:
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-[END_ITEM]
-
-
-[ITEM]
 ID: hookPriority:HTTP_END
 NAME: Hook::HTTP_END Priority
 REQUIRED: 
@@ -604,7 +577,7 @@ END_DESCR
 CONT: modulename modParams moduleEnabled hookPriority:L4_BEGSESSION hookPriority:L4_ENDSESSION hookPriority:L4_RECVING
 hookPriority:L4_SENDING hookPriority:HTTP_BEGIN hookPriority:RECV_REQ_HDR hookPriority:URI_MAP hookPriority:RECV_REQ_BDY
 hookPriority:RECVED_REQ_BDY hookPriority:RECV_RSP_HDR hookPriority:RECV_RSP_BDY hookPriority:RECVED_RSP_BDY 
-hookPriority:SEND_RSP_HDR hookPriority:SEND_RSP_BDY hookPriority:SENDFILE_RSP_BDY hookPriority:HTTP_END 
+hookPriority:SEND_RSP_HDR hookPriority:SEND_RSP_BDY hookPriority:HTTP_END 
 hookPriority
 END_CONT
 
