@@ -1943,7 +1943,8 @@ server for that user (through suEXEC).
 
 
 The main purpose of this limit is to prevent "fork bomb"
-attacks or excessive usage, not to impose a limit on normal usage. 
+attacks or excessive usage, not to impose a limit on normal usage (and 
+this setting will be ignored by the server if it is set below certain levels). 
 Make sure to leave enough head room. This can be set at the server level or at an  
 individual external application level. The server-level limit will be used if
 it is not set at an individual application level. The operating system's
