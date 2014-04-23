@@ -327,11 +327,10 @@ APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies a list of Apache modules that should be ignored by LiteSpeed
-while parsing the Apache configuration file. LiteSpeed will treat the listed modules as
-unsupported. Configuration directives enclosed in &lt;IfModule ...&gt;
-... &lt;/IfModule&gt; will also be ignored.
-
+DESCR: Specifies a list of names of Apache modules that should be ignored by LiteSpeed 
+while parsing the Apache configuration file. LiteSpeed will treat the listed modules as 
+unsupported. This will cause configuration directives related to these modules enclosed 
+in matching &lt;IfModule&gt; or &lt;IfDefined&gt; tags to be ignored.
 END_DESCR
 
 SYNTAX: comma delimited list of module names
