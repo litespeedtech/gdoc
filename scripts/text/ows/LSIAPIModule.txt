@@ -655,11 +655,10 @@ or overridden by the Listener and Virtual Host configuration data.
 Module priority is only defined at server level and is inherited by the Listener and Virtual Host configurations.
 END_DESCR
 
-CONT: modulename internalmodule modParams moduleEnabled hookPriority:L4_BEGSESSION hookPriority:L4_ENDSESSION hookPriority:L4_RECVING
-hookPriority:L4_SENDING hookPriority:HTTP_BEGIN hookPriority:RECV_REQ_HDR hookPriority:URI_MAP hookPriority:RECV_REQ_BDY
-hookPriority:RECVED_REQ_BDY hookPriority:RECV_RSP_HDR hookPriority:RECV_RSP_BDY hookPriority:RECVED_RSP_BDY 
-hookPriority:HANDLER_RESTART hookPriority:SEND_RSP_HDR hookPriority:SEND_RSP_BDY hookPriority:HTTP_END 
-hookPriority
+CONT: modulename internalmodule modParams moduleEnabled hookPriority:L4_BEGSESSION hookPriority:L4_ENDSESSION 
+hookPriority:L4_RECVING hookPriority:L4_SENDING hookPriority:HTTP_BEGIN hookPriority:RECV_REQ_HDR hookPriority:URI_MAP 
+hookPriority:RECV_REQ_BDY hookPriority:RECVED_REQ_BDY hookPriority:RECV_RSP_HDR hookPriority:RECV_RSP_BDY 
+hookPriority:RECVED_RSP_BDY hookPriority:HANDLER_RESTART hookPriority:SEND_RSP_HDR hookPriority:SEND_RSP_BDY hookPriority:HTTP_END 
 END_CONT
 
 SEE_ALSO: 
