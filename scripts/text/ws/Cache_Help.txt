@@ -15,7 +15,7 @@ avoid holding too many files in one directory. This value must be set in
 order to enable cache.
 END_DESCR
 
-SYNTAX: select
+SYNTAX: path
 END_SYNTAX
 
 EXAMPLE: 
@@ -26,37 +26,6 @@ storage. RAID0 is recommended.
 END_TIPS
 
 [END_ITEM]
-
-
-
-
-
-[ITEM]
-ID: maxCacheObjSize
-NAME: Max Object Size
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies the maximum size of an object that can be stored in the cache directory. The default value is "128KB".
-END_DESCR
-
-SYNTAX: uint
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: [Performance] It is not recommended to store large objects with low hit
-rates in the cache. This may result in high I/O wait and reduce overall server performance.
-END_TIPS
-
-[END_ITEM]
-
-
-
-
 
 
 [ITEM]
@@ -81,7 +50,7 @@ to all directories below current level. URL parameters will be ignored.
 
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: bool
 END_SYNTAX
 
 EXAMPLE: 
@@ -94,6 +63,30 @@ END_TIPS
 [END_ITEM]
 
 
+
+
+[ITEM]
+ID: cachePolicy:maxCacheObjSize
+NAME: Max Object Size
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum size of an object that can be stored in the cache directory. The default value is "128KB".
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] It is not recommended to store large objects with low hit
+rates in the cache. This may result in high I/O wait and reduce overall server performance.
+END_TIPS
+
+[END_ITEM]
 
 
 [ITEM]
@@ -158,7 +151,7 @@ The default is "No Cache". When a URL rewrite is involved, the server will check
 rewritten URL.
 END_DESCR
 
-SYNTAX: select
+SYNTAX: bool
 END_SYNTAX
 
 EXAMPLE: 
@@ -185,7 +178,7 @@ SEE_ALSO:
 DESCR: Specifies whether to cache a request containing cookies. The default is "No Cache". 
 END_DESCR
 
-SYNTAX: select
+SYNTAX: bool
 END_SYNTAX
 
 EXAMPLE: 
@@ -211,7 +204,7 @@ SEE_ALSO:
 DESCR: Specifies whether to cache a response containing cookies. The default is "No Cache". 
 END_DESCR
 
-SYNTAX: select
+SYNTAX: bool
 END_SYNTAX
 
 EXAMPLE: 
@@ -240,7 +233,7 @@ The default is "No". If set to "Yes", the server may serve a cached object when 
 has been set in Cache-Control.
 END_DESCR
 
-SYNTAX: select
+SYNTAX: bool
 END_SYNTAX
 
 EXAMPLE: 
@@ -266,7 +259,7 @@ The default is "No". If set to "Yes", the response can be cached by the server e
 "no-store", "private" has been set in a Cache-Control header.
 END_DESCR
 
-SYNTAX: select
+SYNTAX: bool
 END_SYNTAX
 
 EXAMPLE: 
@@ -307,7 +300,7 @@ the current level. URL parameters will be ignored.
 
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: bool
 END_SYNTAX
 
 EXAMPLE: 
@@ -414,7 +407,7 @@ NAME: Cache Storage Setting
 DESCR: 
 END_DESCR
 
-CONT: cacheStorePath maxCacheObjSize
+CONT: cacheStorePath 
 END_CONT
 
 SEE_ALSO: 
@@ -428,7 +421,7 @@ NAME: Cache Policy
 DESCR: 
 END_DESCR
 
-CONT: cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
+CONT: cachePolicy:enableCache cachePolicy:maxCacheObjSize cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
  cachePolicy:reqCookieCache cachePolicy:respCookieCache 
 cachePolicy:ignoreReqCacheCtrl cachePolicy:ignoreRespCacheCtrl
 cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds

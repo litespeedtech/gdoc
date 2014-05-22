@@ -37,13 +37,13 @@ Its security features also make it much less vulnerable to various attacks.
     <ul>
 		<li>Supports IP-based and name-based virtual hosting</li>
 		<li>Virtual host templates make virtual hosting configuration easy</li>
-		<li>Compatible with popular hosting control panels like cPanel and Plesk.</li>
+		<li>Compatible with popular hosting control panels like cPanel and Plesk</li>
 	</ul>
    </li>
   <li><p><strong>Per-Directory Configuration File Support (.htaccess)</strong></p>
   <ul>
     <li>Unlike other lightweight web servers, Apache-compatible per-directory configuration 
-    overrides are fully supported by LiteSpeed web Server. These .htacess files 
+    overrides are fully supported by LiteSpeed Web Server. These .htacess files 
     allow you (or your users) to change configurations for any directory under the 
     document root on the fly. This is a must-have for shared hosting.</li>
     <li>Using .htaccess in LiteSpeed Web Server will not degrade the server's performance. 
@@ -114,7 +114,7 @@ reliability of web server is not affected by the quality of third party software
 	
 <h3>Compatibility</h3>
 	<p>LiteSpeed Web Server is designed to be interchangeable with Apache, the most popular server software
- on the Web. LiteSpeed web server can even run directly from Apache's 
+ on the Web. LiteSpeed Web Server can even run directly from Apache's 
 configuration files.</p>
 	<p>LiteSpeed Web Server also uses the same syntax for distributed configuration 
 files (.htacess) and URL rewrite rules, which makes migration as easy as 
