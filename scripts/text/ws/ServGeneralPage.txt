@@ -70,7 +70,7 @@ SEE_ALSO:
 DESCR: Specifies the maximum number of concurrent connections that the server can accept. 
 This includes both plain TCP connections and SSL connections. This setting should not be set to exceed 
 the hard limit set by the server software edition or license: {val}150{/} for Standard Edition, {val}500{/} 
-for VPS license, {val}600{/} for Ultra VPS license. Once the maximum concurrent connections limit is reached, 
+for VPS license, {val}800{/} for Ultra VPS license. Once the maximum concurrent connections limit is reached, 
 the server will close Keep-Alive connections when they complete active requests. 
 END_DESCR
 

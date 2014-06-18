@@ -177,7 +177,7 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPriority:L4_BEGSESSION
+ID: L4_BEGSESSION
 NAME: Hook::L4_BEGSESSION Priority
 REQUIRED: 
 APPLY: 
@@ -205,7 +205,7 @@ END_TIPS
 [END_ITEM]
 
 [ITEM]
-ID: hookPriority:L4_ENDSESSION
+ID: L4_ENDSESSION
 NAME: Hook::L4_ENDSESSION Priority
 REQUIRED: 
 APPLY: 
@@ -233,7 +233,7 @@ END_TIPS
 [END_ITEM]
 
 [ITEM]
-ID: hookPriority:L4_RECVING
+ID: L4_RECVING
 NAME: Hook::L4_RECVING Priority
 REQUIRED: 
 APPLY: 
@@ -261,7 +261,7 @@ END_TIPS
 [END_ITEM]
 
 [ITEM]
-ID: hookPriority:L4_SENDING
+ID: L4_SENDING
 NAME: Hook::L4_SENDING Priority
 REQUIRED: 
 APPLY: 
@@ -289,7 +289,7 @@ END_TIPS
 [END_ITEM]
 
 [ITEM]
-ID: hookPriority:HTTP_BEGIN
+ID: HTTP_BEGIN
 NAME: Hook::HTTP_BEGIN Priority
 REQUIRED: 
 APPLY: 
@@ -318,7 +318,7 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPriority:RECV_REQ_HDR
+ID: RECV_REQ_HDR
 NAME: Hook::RECV_REQ_HDR Priority
 REQUIRED: 
 APPLY: 
@@ -347,7 +347,7 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPriority:URI_MAP
+ID: URI_MAP
 NAME: Hook::URI_MAP Priority
 REQUIRED: 
 APPLY: 
@@ -376,7 +376,7 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPriority:RECV_REQ_BDY
+ID: RECV_REQ_BDY
 NAME: Hook::RECV_REQ_BDY Priority
 REQUIRED: 
 APPLY: 
@@ -405,7 +405,7 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPriority:RECVED_REQ_BDY
+ID: RECVED_REQ_BDY
 NAME: Hook::RECVED_REQ_BDY Priority
 REQUIRED: 
 APPLY: 
@@ -434,7 +434,7 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPriority:RECV_RSP_HDR
+ID: RECV_RSP_HDR
 NAME: Hook::RECV_RSP_HDR Priority
 REQUIRED: 
 APPLY: 
@@ -463,7 +463,7 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPriority:RECV_RSP_BDY
+ID: RECV_RSP_BDY
 NAME: Hook::RECV_RSP_BDY Priority
 REQUIRED: 
 APPLY: 
@@ -492,7 +492,7 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPriority:RECVED_RSP_BDY
+ID: RECVED_RSP_BDY
 NAME: Hook::RECVED_RSP_BDY Priority
 REQUIRED: 
 APPLY: 
@@ -521,7 +521,7 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPriority:HANDLER_RESTART
+ID: HANDLER_RESTART
 NAME: Hook::HANDLER_RESTART Priority
 REQUIRED: 
 APPLY: 
@@ -549,7 +549,7 @@ END_TIPS
 [END_ITEM]
 
 [ITEM]
-ID: hookPriority:SEND_RSP_HDR
+ID: SEND_RSP_HDR
 NAME: Hook::SEND_RSP_HDR Priority
 REQUIRED: 
 APPLY: 
@@ -578,7 +578,7 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPriority:SEND_RSP_BDY
+ID: SEND_RSP_BDY
 NAME: Hook::SEND_RSP_BDY Priority
 REQUIRED: 
 APPLY: 
@@ -607,7 +607,7 @@ END_TIPS
 
 
 [ITEM]
-ID: hookPriority:HTTP_END
+ID: HTTP_END
 NAME: Hook::HTTP_END Priority
 REQUIRED: 
 APPLY: 
@@ -655,10 +655,10 @@ or overridden by the Listener and Virtual Host configuration data.
 Module priority is only defined at server level and is inherited by the Listener and Virtual Host configurations.
 END_DESCR
 
-CONT: modulename internalmodule modParams moduleEnabled hookPriority:L4_BEGSESSION hookPriority:L4_ENDSESSION 
-hookPriority:L4_RECVING hookPriority:L4_SENDING hookPriority:HTTP_BEGIN hookPriority:RECV_REQ_HDR hookPriority:URI_MAP 
-hookPriority:RECV_REQ_BDY hookPriority:RECVED_REQ_BDY hookPriority:RECV_RSP_HDR hookPriority:RECV_RSP_BDY 
-hookPriority:RECVED_RSP_BDY hookPriority:HANDLER_RESTART hookPriority:SEND_RSP_HDR hookPriority:SEND_RSP_BDY hookPriority:HTTP_END 
+CONT: modulename internalmodule modParams moduleEnabled L4_BEGSESSION L4_ENDSESSION 
+L4_RECVING L4_SENDING HTTP_BEGIN RECV_REQ_HDR URI_MAP 
+RECV_REQ_BDY RECVED_REQ_BDY RECV_RSP_HDR RECV_RSP_BDY 
+RECVED_RSP_BDY HANDLER_RESTART SEND_RSP_HDR SEND_RSP_BDY HTTP_END 
 END_CONT
 
 SEE_ALSO: 
