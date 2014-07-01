@@ -634,7 +634,179 @@ END_TIPS
 [END_ITEM]
 
 
+[ITEM]
+ID: SERVER_INIT_DONE
+NAME: Hook::SERVER_INIT_DONE Priority
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
 
+DESCR: Sets the priority for this filter within the Server Initialization Done Hook. 
+
+
+The Server Initialization Done Hook is triggered once upon startup, after the server configuration and
+ initialization is completed, and before any requests are serviced.
+  
+
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module. 
+END_DESCR
+
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+[ITEM]
+ID: WORKER_PREFORK
+NAME: Hook::WORKER_PREFORK Priority
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Sets the priority for this filter within the Worker Prefork Hook. 
+
+
+The Worker Prefork Hook is triggered by the server immediately before a new worker process
+ is started (forked).  This is called for each worker, and may happen during
+ system startup, or if a worker has been restarted.
+  
+
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module. 
+END_DESCR
+
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+[ITEM]
+ID: WORKER_POSTFORK
+NAME: Hook::WORKER_POSTFORK Priority
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Sets the priority for this filter within the Worker Postfork Hook. 
+
+
+The Worker Postfork Hook is triggered by the server immediately after a new worker process
+ has been started (forked). This is called for each worker, and may happen during
+ system startup, or if a worker has been restarted.
+  
+
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module. 
+END_DESCR
+
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+[ITEM]
+ID: WORKER_INIT
+NAME: Hook::WORKER_INIT Priority
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Sets the priority for this filter within the Worker Initialization Hook. 
+
+
+The Worker Initialization Hook is triggered by a worker process after being created by the server.
+ Note that a corresponding Worker Postfork Hook may be called by the server either before or after this callback.
+  
+
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module. 
+END_DESCR
+
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+	
+
+[ITEM]
+ID: WORKER_EXIT
+NAME: Hook::WORKER_EXIT Priority
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Sets the priority for this filter within the Worker Exit Hook. 
+
+
+The Worker Exit Hook is triggered by a worker process just prior to exiting.
+ It is the last hook point to be called by a worker.
+  
+
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module. 
+END_DESCR
+
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]	
+
+
+[ITEM]
+ID: SERVER_EXIT
+NAME: Hook::SERVER_EXIT Priority
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Sets the priority for this filter within the Server Exit Hook. 
+
+
+The Server Exit Hook is triggered by the server process just prior to exiting. It is the last hook point to be called by the server.
+  
+
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module. 
+END_DESCR
+
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]				
+				
 ################## TBL #############################
 
 
@@ -658,7 +830,8 @@ END_DESCR
 CONT: modulename internalmodule modParams moduleEnabled L4_BEGSESSION L4_ENDSESSION 
 L4_RECVING L4_SENDING HTTP_BEGIN RECV_REQ_HDR URI_MAP 
 RECV_REQ_BDY RECVED_REQ_BDY RECV_RSP_HDR RECV_RSP_BDY 
-RECVED_RSP_BDY HANDLER_RESTART SEND_RSP_HDR SEND_RSP_BDY HTTP_END 
+RECVED_RSP_BDY HANDLER_RESTART SEND_RSP_HDR SEND_RSP_BDY HTTP_END SERVER_INIT_DONE 
+WORKER_PREFORK WORKER_POSTFORK WORKER_INIT WORKER_EXIT SERVER_EXIT
 END_CONT
 
 SEE_ALSO: 
