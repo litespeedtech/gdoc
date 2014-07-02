@@ -318,8 +318,8 @@ END_TIPS
 
 
 [ITEM]
-ID: RECV_REQ_HDR
-NAME: Hook::RECV_REQ_HDR Priority
+ID: RECV_REQ_HEADER
+NAME: Hook::RECV_REQ_HEADER Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -376,8 +376,38 @@ END_TIPS
 
 
 [ITEM]
-ID: RECV_REQ_BDY
-NAME: Hook::RECV_REQ_BDY Priority
+ID: HTTP_AUTH
+NAME: Hook::HTTP_AUTH Priority
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Sets the priority for this filter within the HTTP Authentication Hook.
+
+ 
+The HTTP Authentication Hook is triggered after resource mapping and before handler processing.
+ It occurs after HTTP built-in authentication, and can be used to perform additional authentication checking.  
+
+
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module.
+END_DESCR
+
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
+
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+[ITEM]
+ID: RECV_REQ_BODY
+NAME: Hook::RECV_REQ_BODY Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -405,8 +435,8 @@ END_TIPS
 
 
 [ITEM]
-ID: RECVED_REQ_BDY
-NAME: Hook::RECVED_REQ_BDY Priority
+ID: RCVD_REQ_BODY
+NAME: Hook::RCVD_REQ_BODY Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -434,8 +464,8 @@ END_TIPS
 
 
 [ITEM]
-ID: RECV_RSP_HDR
-NAME: Hook::RECV_RSP_HDR Priority
+ID: RECV_RESP_HEADR
+NAME: Hook::RECV_RESP_HEADER Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -463,8 +493,8 @@ END_TIPS
 
 
 [ITEM]
-ID: RECV_RSP_BDY
-NAME: Hook::RECV_RSP_BDY Priority
+ID: RECV_RESP_BODY
+NAME: Hook::RECV_RESP_BODY Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -492,8 +522,8 @@ END_TIPS
 
 
 [ITEM]
-ID: RECVED_RSP_BDY
-NAME: Hook::RECVED_RSP_BDY Priority
+ID: RCVD_RESP_BODY
+NAME: Hook::RCVD_RESP_BODY Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -549,8 +579,8 @@ END_TIPS
 [END_ITEM]
 
 [ITEM]
-ID: SEND_RSP_HDR
-NAME: Hook::SEND_RSP_HDR Priority
+ID: SEND_RESP_HEADER
+NAME: Hook::SEND_RESP_HEADER Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -578,8 +608,8 @@ END_TIPS
 
 
 [ITEM]
-ID: SEND_RSP_BDY
-NAME: Hook::SEND_RSP_BDY Priority
+ID: SEND_RESP_BODY
+NAME: Hook::SEND_RESP_BODY Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
@@ -635,18 +665,48 @@ END_TIPS
 
 
 [ITEM]
-ID: SERVER_INIT_DONE
-NAME: Hook::SERVER_INIT_DONE Priority
+ID: MAIN_INITED
+NAME: Hook::MAIN_INITED Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the Server Initialization Done Hook. 
+DESCR: Sets the priority for this filter within the Main Initialized Hook. 
 
 
-The Server Initialization Done Hook is triggered once upon startup, after the server configuration and
- initialization is completed, and before any requests are serviced.
+The Main Initialized Hook is triggered once upon startup, after the server configuration and
+ initialization is completed by the main (controller) process, and before any requests are serviced.
+  
+
+It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module. 
+END_DESCR
+
+SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+[ITEM]
+ID: MAIN_PREFORK
+NAME: Hook::MAIN_PREFORK Priority
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Sets the priority for this filter within the Main Prefork Hook. 
+
+
+The Main Prefork Hook is triggered by the main (controller) process immediately before
+ a new worker process is started (forked). This is called for each worker, and may happen during
+ system startup, or if a worker has been restarted.
   
 
 It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module. 
@@ -663,18 +723,18 @@ END_TIPS
 [END_ITEM]
 
 [ITEM]
-ID: WORKER_PREFORK
-NAME: Hook::WORKER_PREFORK Priority
+ID: MAIN_POSTFORK
+NAME: Hook::MAIN_POSTFORK Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the Worker Prefork Hook. 
+DESCR: Sets the priority for this filter within the Main Postfork Hook. 
 
 
-The Worker Prefork Hook is triggered by the server immediately before a new worker process
- is started (forked).  This is called for each worker, and may happen during
+The Main Postfork Hook is triggered by the main (controller) process immediately after
+ a new worker process has been started (forked). This is called for each worker, and may happen during
  system startup, or if a worker has been restarted.
   
 
@@ -703,38 +763,8 @@ SEE_ALSO:
 DESCR: Sets the priority for this filter within the Worker Postfork Hook. 
 
 
-The Worker Postfork Hook is triggered by the server immediately after a new worker process
- has been started (forked). This is called for each worker, and may happen during
- system startup, or if a worker has been restarted.
-  
-
-It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module. 
-END_DESCR
-
-SYNTAX: Integer value from -6000 to 6000. Lower value means higher priority.
-END_SYNTAX
-
-EXAMPLE:
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-[END_ITEM]
-
-
-[ITEM]
-ID: WORKER_INIT
-NAME: Hook::WORKER_INIT Priority
-REQUIRED: 
-APPLY: 
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Sets the priority for this filter within the Worker Initialization Hook. 
-
-
-The Worker Initialization Hook is triggered by a worker process after being created by the server.
- Note that a corresponding Worker Postfork Hook may be called by the server either before or after this callback.
+The Worker Postfork Hook is triggered by a worker process after being created by the main (controller) process.
+ Note that a corresponding Main Postfork Hook may be called by the main process either before or after this callback.
   
 
 It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module. 
@@ -752,18 +782,17 @@ END_TIPS
 	
 
 [ITEM]
-ID: WORKER_EXIT
-NAME: Hook::WORKER_EXIT Priority
+ID: WORKER_ATEXIT
+NAME: Hook::WORKER_ATEXIT Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the Worker Exit Hook. 
+DESCR: Sets the priority for this filter within the Worker At Exit Hook. 
 
 
-The Worker Exit Hook is triggered by a worker process just prior to exiting.
- It is the last hook point to be called by a worker.
+The Worker At Exit Hook is triggered by a worker process just prior to exiting. It is the last hook point to be called by a worker.
   
 
 It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module. 
@@ -779,19 +808,19 @@ TIPS:
 END_TIPS
 [END_ITEM]	
 
-
+ 
 [ITEM]
-ID: SERVER_EXIT
-NAME: Hook::SERVER_EXIT Priority
+ID: MAIN_ATEXIT
+NAME: Hook::MAIN_ATEXIT Priority
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the Server Exit Hook. 
+DESCR: Sets the priority for this filter within the Main At Exit Hook. 
 
 
-The Server Exit Hook is triggered by the server process just prior to exiting. It is the last hook point to be called by the server.
+The Main At Exit Hook is triggered by the main (controller) process just prior to exiting. It is the last hook point to be called by the main process.
   
 
 It will only take effect if the module has a hook point here. If it is not set, the priority will be the default value defined in the module. 
@@ -827,11 +856,12 @@ or overridden by the Listener and Virtual Host configuration data.
 Module priority is only defined at server level and is inherited by the Listener and Virtual Host configurations.
 END_DESCR
 
-CONT: modulename internalmodule modParams moduleEnabled L4_BEGSESSION L4_ENDSESSION 
-L4_RECVING L4_SENDING HTTP_BEGIN RECV_REQ_HDR URI_MAP 
-RECV_REQ_BDY RECVED_REQ_BDY RECV_RSP_HDR RECV_RSP_BDY 
-RECVED_RSP_BDY HANDLER_RESTART SEND_RSP_HDR SEND_RSP_BDY HTTP_END SERVER_INIT_DONE 
-WORKER_PREFORK WORKER_POSTFORK WORKER_INIT WORKER_EXIT SERVER_EXIT
+CONT: modulename internalmodule modParams moduleEnabled 
+	L4_BEGINSESSION L4_ENDSESSION L4_RECVING L4_SENDING
+	HTTP_BEGIN RECV_REQ_HEADER URI_MAP HTTP_AUTH
+	RECV_REQ_BODY RCVD_REQ_BODY RECV_RESP_HEADER RECV_RESP_BODY RCVD_RESP_BODY
+	HANDLER_RESTART SEND_RESP_HEADER SEND_RESP_BODY HTTP_END
+	MAIN_INITED MAIN_PREFORK MAIN_POSTFORK WORKER_POSTFORK WORKER_ATEXIT MAIN_ATEXIT
 END_CONT
 
 SEE_ALSO: 
