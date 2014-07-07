@@ -82,8 +82,8 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: A unique socket address used by the external application. 
-IPv4 sockets and Unix Domain Sockets (UDS) are supported. 
-IPv4 sockets can be used for communication over the network.  
+IPv4/IPv6 sockets and Unix Domain Sockets (UDS) are supported. 
+IPv4/IPv6 sockets can be used for communication over the network.  
 UDS can only be used when the external application resides on the same machine as the server.
 END_DESCR
 
@@ -105,6 +105,36 @@ END_TIPS
 
 [END_ITEM]
 
+[ITEM]
+ID: expWSAddress
+NAME: Address
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: HTTP or HTTPS address used by the external web server. 
+END_DESCR
+
+SYNTAX: IPv4 or IPV6 address(:port). Add "https://" in front if the external web server uses https. Port is optional if the external web server uses the standard ports 80 or 443. 
+END_SYNTAX
+
+EXAMPLE: 192.168.0.10 
+
+127.0.0.1:5434
+
+https://10.0.8.9
+
+https://127.0.0.1:5438
+END_EXAMPLE
+
+TIPS: [Security] If you proxy to another web server running on the same machine,  
+set the IP address to {val}localhost{/} or {val}127.0.0.1{/}, 
+so the external application is inaccessible from other machines. 
+
+END_TIPS
+
+[END_ITEM]
 
 
 
@@ -595,7 +625,7 @@ NAME: External Application Settings
 DESCR: 
 END_DESCR
 
-CONT: extAppType extAppName extAppAddress maxConns env initTimeout 
+CONT: extAppType extAppName extAppAddress expWSAddress maxConns env initTimeout 
 retryTimeout persistConn pcKeepAliveTimeout respBuffer autoStart
 extMaxIdleTime extAppPath backlog instances extUser extGroup extUmask
 runOnStartUp extAppPriority 
