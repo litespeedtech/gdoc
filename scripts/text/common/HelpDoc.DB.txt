@@ -3818,7 +3818,8 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: A unique name for a virtual host. It is recommended to use the domain name of this virtual host.
+DESCR: A unique name for a virtual host. It is recommended to use the virtual host's domain name as the Virtual Host Name. 
+Virtual Host Name can be referred to using the variable $VH_NAME.
 END_DESCR
 
 SYNTAX: text
@@ -3845,8 +3846,8 @@ SEE_ALSO:
 
 DESCR: Specifies the root directory of the virtual host. Note: This is <b>NOT</b> 
 the document root. It is recommended to place all files related to the virtual host 
-(like virtual host configuration, log files, html files, CGI scripts, etc.)
-under this directory.Virtual Host Root can be referred to as $VH_ROOT.
+(like log files, html files, CGI scripts, etc.)
+under this directory. Virtual Host Root can be referred to using the variable $VH_ROOT.
 END_DESCR
 
 SYNTAX: path2
@@ -3872,10 +3873,9 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the configuration file name for this virtual host. 
-If the configuration file is placed under the virtual host root, 
-{val}$VH_ROOT/conf/vhconf.xml{/} is recommended. If it is placed under the server root, 
-{val}$SERVER_ROOT/conf/{VirtualHostName}.xml{/} is recommended.
+DESCR: Specifies the configuration file name for this virtual host.
+The configuration file must be under the $SERVER_ROOT/conf/vhosts/ directory. 
+{val}$SERVER_ROOT/conf/vhosts/$VH_NAME/vhconf.conf{/} is recommended.
 END_DESCR
 
 SYNTAX: file3
