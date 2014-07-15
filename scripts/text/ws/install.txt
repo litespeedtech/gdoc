@@ -3,6 +3,7 @@
 <h3>Minimum system requirements</h3>
 <ul><li><strong>Operating System:</strong>
 	<ul><li>Linux(i386): kernel 2.4 and up, glibc-2.2 and up</li>
+		<li>CentOS: 5 and up</li>
 		<li>Ubuntu: 8.04 and up</li>
         <li>Debian: 4 and up</li>
 		<li>Solaris(x86): Sun0S 5.8 and up</li>
