@@ -192,8 +192,8 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies extra response headers to be added.
-Multiple headers can be added, one header per line.
+DESCR: Specifies extra response headers to be added. Multiple headers can be added, one header per line.
+Put "NONE" to disable headers inherited from parent content.
 END_DESCR
 
 SYNTAX: "[HeaderName]: [HeaderValue]" in each line.
