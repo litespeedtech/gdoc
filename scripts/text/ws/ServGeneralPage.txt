@@ -940,7 +940,7 @@ DESCR:
 END_DESCR
 
 CONT: serverName runningAs serverPriority cpuAffinity servChrootPath enableChroot
-enableLVE inMemBufSize swappingDir autoRestart autoFix503 gracefulRestartTimeout
+enableLVE inMemBufSize swappingDir autoFix503 gracefulRestartTimeout
 END_CONT
 
 SEE_ALSO: 

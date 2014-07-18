@@ -289,7 +289,7 @@ NAME: Server Process
 DESCR: 
 END_DESCR
 
-CONT: serverName runningAs serverPriority inMemBufSize swappingDir autoRestart 
+CONT: serverName runningAs serverPriority inMemBufSize swappingDir  
 END_CONT
 
 SEE_ALSO: 

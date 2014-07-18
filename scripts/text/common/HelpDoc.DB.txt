@@ -148,48 +148,6 @@ END_TIPS
 [END_ITEM]
 
 
-
-[ITEM]
-ID: autoRestart
-NAME: Auto Restart
-REQUIRED: 
-APPLY: 2
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Enables service auto-recovery, automatically recreating a new server process when the 
-current server exits abnormally.
-
-
-When this option is enabled, there will be two instances of server process "lshttpd". The parent process 
-monitors the child process and will create a new child process if the current one exits abnormally. 
-However, if the current child process exits normally, the parent process will exit as well. You can use 
-the shell command  {cmd}lswsctrl stop{/} or directly kill the child process, and the parent process will 
-exit assuming that you do want to shut down the server. If the server is started by a super user, 
-the child process will change its ownership based on {ITEM=runningAs} configuration, but the parent 
-process will not change its user/group.
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: [Security] The parent process' only job is to monitor the child. It does not interact with 
-the outside world, and therefore is safe to execute as a super user.
-
-
-[Reliability] This feature should always be enabled for an extra layer of protection against service down time.
-END_TIPS
-
-[END_ITEM]
-
-
-
-
-
-
 [ITEM]
 ID: autoFix503
 NAME: Auto Fix 503 Error 
