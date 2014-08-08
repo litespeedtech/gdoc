@@ -1070,7 +1070,7 @@ Choices are {val}Yes{/}, {val}If Owner Match{/} and {val}No{/}.
 {val}Yes{/} sets the server to always follow symbolic links. 
 {val}If Owner Match{/} sets the server to follow a symbolic link only if the owner of the link and of the target are same. 
 {val}No{/} means the server will never follow a symbolic link. 
-This setting can be overridden on each individual virtual host.
+This setting can be overridden in the virtual host configurations but cannot be overridden from an .htaccess file.
 END_DESCR
 
 SYNTAX: select
