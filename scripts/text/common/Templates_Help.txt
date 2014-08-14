@@ -36,11 +36,11 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies the path to the configuration file of this template. 
-File must locate within $SERVER_ROOT/conf/templates/ with a ".xml" file name.
+File must locate within $SERVER_ROOT/conf/templates/ with a ".conf" file name.
 If the file you designate does not exist, after you try to save the template 
-and error will appear with the link "CLICK TO CREATE". This link will generate 
+an error will appear with the link "CLICK TO CREATE". This link will generate 
 a new empty template file. When you delete the template, the entry will be 
-removed from your configurations, but the actual template config file will not be deleted.  
+removed from your configurations, but the actual template config file will not be deleted.
 END_DESCR
 
 SYNTAX: path
@@ -228,6 +228,57 @@ END_TIPS
 
 [END_ITEM]
 
+[ITEM]
+ID: templateVHConfigFile
+NAME: Instantiated VHost Config File 
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the location of the config file generated when you instantiate a member virtual host. 
+Variable {val}$VH_NAME{/} must appear in the path so each virtual host will have its own file.
+Suggested location is {val}$SERVER_ROOT/conf/vhosts/$VH_NAME/vhconf.conf{/}. This config file will 
+be created only after you move a member vhost out of the template through instantiation.
+END_DESCR
+
+SYNTAX: String with $VH_NAME variable and .conf suffix
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+[ITEM]
+ID: templateVHDocRoot
+NAME: Document Root 
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the unique path for each member virtual host's document root.  
+Variable {val}$VH_NAME{/} or {val}$VH_ROOT{/} must appear in the path so 
+each member virtual host will have its own document root.
+END_EXAMPLE
+
+
+END_DESCR
+
+SYNTAX: string with $VH_NAME or $VH_ROOT variable
+END_SYNTAX
+
+EXAMPLE: $VH_ROOT/public_html/ or $SERVER_ROOT/$VH_NAME/public_html.  
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
 
 [ITEM]
 ID: templateFileRef

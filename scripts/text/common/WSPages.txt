@@ -559,7 +559,7 @@ NAME: Template Settings
 DESCR: 
 END_DESCR
 
-CONT: templateVHRoot templateFileRef 
+CONT: templateVHRoot templateVHConfigFile templateVHDocRoot templateFileRef 
 END_CONT
 
 SEE_ALSO: 
