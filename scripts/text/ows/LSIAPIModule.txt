@@ -72,15 +72,15 @@ END_TIPS
 
 [ITEM]
 ID: moduleEnabled
-NAME: Enable Filters
+NAME: Enable Hooks
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Enables or disables the module filters globally. 
+DESCR: Enables or disables the module hooks globally. 
 
-If the 'Not Set' radio button is selected and the module contains filter functions, the default is enabled. 
+If the 'Not Set' radio button is selected and the module contains hook functions, the default is enabled. 
 The user can override this global setting at each level.  
 END_DESCR
 
@@ -97,13 +97,13 @@ END_TIPS
 
 [ITEM]
 ID: moduleEnabled_lst
-NAME: Enable Filters
+NAME: Enable Hooks
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Enables or disables the module filters at the Listener level. Only if the module has TCP/IP level hooks 
+DESCR: Enables or disables the module hooks at the Listener level. Only if the module has TCP/IP level hooks 
 (L4_BEGSESSION, L4_ENDSESSION, L4_RECVING, L4_SENDING), this setting will take effect.
 
 
@@ -125,13 +125,13 @@ END_TIPS
 
 [ITEM]
 ID: moduleEnabled_vh
-NAME: Enable Filters
+NAME: Enable Hooks
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Enables or disables the module filters at the Virtual Host or Context level. Only if the module has HTTP level hooks, 
+DESCR: Enables or disables the module hooks at the Virtual Host or Context level. Only if the module has HTTP level hooks, 
 this setting will take effect.
 
 
@@ -184,7 +184,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the L4 Begin Session Hook.
+DESCR: Sets the priority for this module callback within the L4 Begin Session Hook.
 
  
 The L4 Begin Session Hook is triggered when the TCP/IP connection begins.  
@@ -212,7 +212,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the L4 End Session Hook.
+DESCR: Sets the priority for this module callback within the L4 End Session Hook.
 
   
 The L4 End Session Hook is triggered when the TCP/IP connection ends.  
@@ -240,7 +240,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the L4 Receiving Hook.
+DESCR: Sets the priority for this module callback within the L4 Receiving Hook.
 
   
 The L4 Receiving Hook is triggered when the TCP/IP connection receives data.  
@@ -268,7 +268,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the L4 Sending Hook.
+DESCR: Sets the priority for this module callback within the L4 Sending Hook.
 
  
 The L4 Sending Hook is triggered when the TCP/IP connection sends data.  
@@ -296,7 +296,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the HTTP Begin Hook.
+DESCR: Sets the priority for this module callback within the HTTP Begin Hook.
 
   
 The HTTP Begin Hook is triggered when the TCP/IP connection begins an HTTP Session.  
@@ -325,7 +325,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the HTTP Receive Request Header Hook.
+DESCR: Sets the priority for this module callback within the HTTP Receive Request Header Hook.
 
   
 The HTTP Receive Request Header Hook is triggered when the web server receives a request header.  
@@ -354,7 +354,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the HTTP URI Map Hook.
+DESCR: Sets the priority for this module callback within the HTTP URI Map Hook.
 
  
 The HTTP URI Map Hook is triggered when the web server maps a URI request to a context.  
@@ -383,7 +383,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the HTTP Authentication Hook.
+DESCR: Sets the priority for this module callback within the HTTP Authentication Hook.
 
  
 The HTTP Authentication Hook is triggered after resource mapping and before handler processing.
@@ -413,7 +413,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the HTTP Receive Request Body Hook.  
+DESCR: Sets the priority for this module callback within the HTTP Receive Request Body Hook.  
 
 
 The HTTP Receive Request Body Hook is triggered when the web server receives request body data.  
@@ -442,7 +442,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the HTTP Received Request Body Hook.  
+DESCR: Sets the priority for this module callback within the HTTP Received Request Body Hook.  
 
 
 The HTTP Received Request Body Hook is triggered when the web server finishes receiving request body data.  
@@ -471,7 +471,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the HTTP Receive Response Header Hook.  
+DESCR: Sets the priority for this module callback within the HTTP Receive Response Header Hook.  
 
 
 The HTTP Receive Response Header Hook is triggered when the web server creates the response header.  
@@ -500,7 +500,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the HTTP Receive Response Body Hook.  
+DESCR: Sets the priority for this module callback within the HTTP Receive Response Body Hook.  
 
 
 The HTTP Receive Response Body Hook is triggered when the web server backend receives the response body.  
@@ -529,7 +529,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the HTTP Received Response Body Hook.  
+DESCR: Sets the priority for this module callback within the HTTP Received Response Body Hook.  
 
 
 The HTTP Received Response Body Hook is triggered when the web server backend finishes receiving the response body.  
@@ -558,7 +558,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the HTTP Handler Restart Hook.
+DESCR: Sets the priority for this module callback within the HTTP Handler Restart Hook.
 
   
 The HTTP Handler Restart Hook is triggered when the web server needs to discard the current response and start processing from beginning, for example, when an internal redirect has been requested.
@@ -586,7 +586,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the HTTP Send Response Header Hook. 
+DESCR: Sets the priority for this module callback within the HTTP Send Response Header Hook. 
 
 
 The HTTP Send Response Header Hook is triggered when the web server is ready to send the response header.  
@@ -615,7 +615,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the HTTP Send Response Body Hook. 
+DESCR: Sets the priority for this module callback within the HTTP Send Response Body Hook. 
 
 
 The HTTP Send Response Body Hook is triggered when the web server is going to send the response body.  
@@ -644,7 +644,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the HTTP Session End Hook. 
+DESCR: Sets the priority for this module callback within the HTTP Session End Hook. 
 
 
 The HTTP Session End Hook is triggered when the HTTP connection has ended.  
@@ -672,7 +672,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the Main Initialized Hook. 
+DESCR: Sets the priority for this module callback within the Main Initialized Hook. 
 
 
 The Main Initialized Hook is triggered once upon startup, after the server configuration and
@@ -701,7 +701,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the Main Prefork Hook. 
+DESCR: Sets the priority for this module callback within the Main Prefork Hook. 
 
 
 The Main Prefork Hook is triggered by the main (controller) process immediately before
@@ -730,7 +730,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the Main Postfork Hook. 
+DESCR: Sets the priority for this module callback within the Main Postfork Hook. 
 
 
 The Main Postfork Hook is triggered by the main (controller) process immediately after
@@ -760,7 +760,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the Worker Postfork Hook. 
+DESCR: Sets the priority for this module callback within the Worker Postfork Hook. 
 
 
 The Worker Postfork Hook is triggered by a worker process after being created by the main (controller) process.
@@ -789,7 +789,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the Worker At Exit Hook. 
+DESCR: Sets the priority for this module callback within the Worker At Exit Hook. 
 
 
 The Worker At Exit Hook is triggered by a worker process just prior to exiting. It is the last hook point to be called by a worker.
@@ -817,7 +817,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the priority for this filter within the Main At Exit Hook. 
+DESCR: Sets the priority for this module callback within the Main At Exit Hook. 
 
 
 The Main At Exit Hook is triggered by the main (controller) process just prior to exiting. It is the last hook point to be called by the main process.
@@ -872,7 +872,7 @@ ID: listenerModules
 NAME: Listener Modules
 
 DESCR: Listener module configuration data is, by default inherited from the Server module configuration.  
-The Listener Modules are limited to the TCP/IP Layer 4 filter levels.
+The Listener Modules are limited to the TCP/IP Layer 4 hooks.
 END_DESCR
 
 CONT: modulename modParams moduleEnabled_lst 
@@ -887,7 +887,7 @@ ID: vhModules
 NAME: Virtual Host Modules
 
 DESCR: Virtual Host module configuration data is, by default inherited from the Server module configuration.  
-The Virtual Host Modules are limited to the HTTP filter levels.
+The Virtual Host Modules are limited to the HTTP level hooks.
 END_DESCR
 
 CONT: modulename modParams moduleEnabled_vh 
@@ -900,9 +900,9 @@ SEE_ALSO:
 
 [TBL]
 ID: vhModuleUrlFilters
-NAME: Virtual Host Module URL Filters
+NAME: Virtual Host Module Context
 
-DESCR: It's a centralized place to customize module filter settings for virtual host contexts.
+DESCR: It's a centralized place to customize module settings for virtual host contexts.
 Settings for a context URI will override the virtual host or the server level settings.
 END_DESCR
 
