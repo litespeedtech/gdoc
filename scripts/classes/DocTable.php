@@ -93,9 +93,9 @@ class DocTable
 				if ( strncmp($tag, $line, strlen($tag)) == 0 )
 				{
 					if ($this->_descr != NULL) {
-						echo "Table error: duplicate description found $this->_id\n";
+						echo "Table error: duplicate description found $this->_id: current descr is {$this->_descr}AA \n";
 					}
-					
+
 					$this->_descr = substr($line, strlen($tag));
 					$descrInd = true;
 					continue;
@@ -138,7 +138,7 @@ class DocTable
 		if ( isset($this->_descr) )
 		{
 			$item = new DocItem(NULL);
-			$item->loadFromTbl($this->_id, $this->_name, $this->_descr, 
+			$item->loadFromTbl($this->_id, $this->_name, $this->_descr,
 							   $this->_tips, $this->_example, $this->_seeAlso);
 			$this->_items[$this->_id] = $item;
 		}
@@ -147,7 +147,7 @@ class DocTable
 		{
 			if (isset($itemBase[$i]))
 				$this->_items[$i] = $itemBase[$i];
-			else 
+			else
 				echo "Err: item $i is not found for tbl def $this->_id \n";
 		}
 	}
@@ -160,7 +160,7 @@ class DocTable
 		else
 			$buf .= $this->_name;
 		$buf .= '</td>'."\n" . '<td>';
-		
+
 		if ( isset($this->_items) )
 		{
 			foreach( $this->_items as $itemkey => $item )
@@ -185,7 +185,7 @@ class DocTable
 		else
 			$buf .= $this->_name;
 		$buf .= "</header><p>\n";
-		
+
 		if ( isset($this->_items) )
 		{
 			foreach( $this->_items as $itemkey => $item )
@@ -199,6 +199,6 @@ class DocTable
 		}
 		$buf .= '</p></section>' . "\n";
 		return $buf;
-	}	
-	
+	}
+
 }

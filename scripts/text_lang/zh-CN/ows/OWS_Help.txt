@@ -1,0 +1,109 @@
+[HELPDOC]
+
+
+
+[TBL]
+ID: serviceMgr
+NAME: Server
+
+DESCR: 
+END_DESCR
+
+CONT: sname pid servAction restart viewlog realtimerpt toggleDebugLog 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+################ PAGE ###########
+
+[PAGE]
+ID: Rails_Help 
+NAME: Rack/Rails Settings
+
+DESCR: 
+END_DESCR
+
+CONT:  railsDefault 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: ServerStat_Help 
+NAME: WebAdmin Console - Service Manager
+
+DESCR: The Service Manager acts as a control room for monitoring the server and controlling certain 
+top-level functions. It provides the following features:
+(The Service Manager can be accessed by clicking on the Actions menu or from home page.)
+<ul>
+<li>Monitor the current status of the server, listeners, and virtual hosts.</li>
+<li>Apply configuration changes with a graceful restart.</li>
+<li>Enable or disable a particular virtual host.</li>
+<li>View the server log through the log viewer.</li>
+<li>Monitor real-time server statistics.</li>
+</ul>
+
+ 
+END_DESCR
+
+CONT: serviceMgr serviceMgrListener serviceMgrVh 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: index 
+NAME: Home
+STATIC: index.txt
+[END_PAGE]
+
+[PAGE]
+ID: license 
+NAME: License
+STATIC: license.txt
+[END_PAGE]
+
+[PAGE]
+ID: intro 
+NAME: Introduction
+STATIC: intro.txt
+[END_PAGE]
+
+[PAGE]
+ID: security
+NAME: Security
+STATIC: security.txt
+[END_PAGE]
+
+[PAGE]
+ID: install 
+NAME: Installation
+STATIC: install.txt
+[END_PAGE]
+
+[PAGE]
+ID: admin 
+NAME: Administration
+STATIC: admin.txt
+[END_PAGE]
+
+[PAGE]
+ID: config 
+NAME: Configuration
+STATIC: config.txt
+[END_PAGE]
+
+
+
+
+[END_HELPDOC]

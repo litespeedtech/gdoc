@@ -1,0 +1,433 @@
+[HELPDOC]
+
+############## Microsoft FrontPage #####################
+
+
+[ITEM]
+ID: enableFrontPage
+NAME: Enable 
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=disableAdmin}, {ITEM=domainNames}
+
+DESCR: Specifies whether to enable Microsoft FrontPage Server
+Extensions. When enabled, Microsoft FrontPage can be used to 
+publish web content. A web administration console is available at URL
+{val}http://your.domain/_vti_bin/_vti_adm/fpadmcgi.exe{/}.
+
+
+Additional FrontPage Server Extensions packages must be installed
+in order to make this work properly.
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: disableAdmin
+NAME: Disable Admin 
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=enableFrontPage}, {ITEM=domainNames}
+
+DESCR: Specifies whether to disable the web administration console for 
+Microsoft FrontPage Server Extensions. The web administration
+console is available at URL
+
+{val}http://your.domain/_vti_bin/_vti_adm/fpadmcgi.exe{/}.
+
+Additional FrontPage Server Extensions packages must be installed
+in order to make it work properly. 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] Disable the administration console when you no longer
+need to manage users or change configurations.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: domainNames
+NAME: Domain Names  
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=disableAdmin}, {ITEM=enableFrontPage}
+
+DESCR: Specifies the virtual servers that provide Front Page Server
+Extensions service. When a web site is assigned to multiple domain names
+or service ports, FrontPage access is only available to the domain name and port
+combinations specified in this list. 
+
+
+Additional FrontPage Server Extensions packages must be installed
+in order to make it work properly. 
+END_DESCR
+
+SYNTAX: Domain_name:port[, ...] The virtual server name is comprised of domain name and port number.
+END_SYNTAX
+
+EXAMPLE: For a web site with domain name "www.mydomain.com" accessible via both
+HTTP and HTTPS connections, the name list should be something like:
+<blockquote>
+{val}www.mydomain.com:80, www.mydomain.com:443{/}
+</blockquote> 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[TBL]
+ID: frontpage
+NAME: Front Page Server Extension
+
+DESCR: 
+END_DESCR
+
+CONT: enableFrontPage disableAdmin domainNames 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+###################### AWSTATS ###################
+
+[ITEM]
+ID: updateMode
+NAME: Update Mode
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies how AWStats statistics are being updated:  
+<ul>
+   <li> {val}Disabled{/}: AWStats is disabled. Statistics will not be updated. </li>
+   <li> {val}Static{/}: Static HTML pages will be created after the statistics have been updated. </li>
+   <li> {val}Dynamic{/}: The statistics will be updated, but static pages will not be created. 
+   HTML pages will be generated dynamically by the CGI script awstats.pl.</li>
+</ul>
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: workingDir
+NAME: Working Directory
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the "DataDir" parameter in the AWStats configuration
+file.  All results files and AWStats databases will be stored there.  This directory should be writable by the owner of
+the document root of this virtual host. Usually the working directory should be set to under 
+the virtual host root like {val}$VH_ROOT/awstats/{/}.
+END_DESCR
+
+SYNTAX: path3
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: awstatsURI
+NAME: AWStats URI
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the URI where the AWStats results can be accessed in this virtual host. 
+END_DESCR
+
+SYNTAX: uri
+END_SYNTAX
+
+EXAMPLE:  If this URI is set to {val}/awstats/{/} for the virtual host www.example.com, 
+then the full URL to the AWStats page would be http://www.example.com/awstats/.
+END_EXAMPLE
+
+TIPS: The URI should be unique on this virtual host. Otherwise, overlapped content
+will be inaccessible.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: siteDomain
+NAME: Site Domain 
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the main domain name of this
+web site. It controls the "SiteDomain" parameter in AWStats's configuration file. 
+It is used by Awstats to generate full URL paths. If not set, 
+the name of this virtual host will be used. 
+
+END_DESCR
+
+SYNTAX: domain name
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: siteAliases
+NAME: Site Aliases 
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies all other possible domain names, IP addresses, and host
+aliases that this virtual host can be accessed with. This value is
+used to populate the "SiteAliases" parameter in AWStats configuration. 
+It is used to analyze the referrer field in log files and to help 
+AWStats to decide if a referrer URL is a local or external URL. 
+For best performance, use the the minimum number of
+possible name/address combinations.
+END_DESCR
+
+SYNTAX: A list of domain names and IP addresses.
+END_SYNTAX
+
+EXAMPLE: {val}www.myserver.com localhost 127.0.0.1 REGEX[mydomain\.(net|org)$]{/}
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: updateInterval
+NAME: Update Interval
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies how often AWstats statistics are updated. Options are
+{val}daily{/} or {val}hourly{/}.
+
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: updateOffset
+NAME: Update Offset
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies when the update should be performed during the {ITEM=updateInterval}.
+END_DESCR
+
+SYNTAX: Number of seconds.
+END_SYNTAX
+
+EXAMPLE: Set this to {val}3600{/} to start statistic processing at 1AM for "Daily" update.  
+END_EXAMPLE
+
+TIPS: If many virtual hosts are hosted on one server, it is recommended to spread out 
+the "Update Offset" to avoid multiple AWstats processes running
+at the same time and server overload. Log processing is a CPU and I/O intensive task.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: securedConn 
+NAME: Secured Connection
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether HTTPS is used to access AWstats statistics.
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: awstatsRealm 
+NAME: Authorization Realm 
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies an authorization realm for the statistical
+results. When specified, only authorized users can view the results. 
+
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+
+[TBL]
+ID: awstats
+NAME: AWStats Integration
+
+DESCR: AWStats is a popular log analyzer that generates advanced web server 
+statistics. LiteSpeed web server seamlessly integrates AWStats into 
+its WebAdmin console. 
+
+END_DESCR
+
+CONT: updateMode workingDir awstatsURI siteDomain
+siteAliases updateInterval updateOffset
+securedConn awstatsRealm 
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+###################### PAGE ################
+
+
+[PAGE]
+ID: VHAddOns_Help 
+NAME: Add-ons
+
+DESCR: 
+END_DESCR
+
+CONT: frontpage awstats 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+
+
+[END_HELPDOC]

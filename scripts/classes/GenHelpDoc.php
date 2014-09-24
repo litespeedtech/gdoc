@@ -71,6 +71,10 @@ class GenHelpDoc
 	function parseHelpDoc($helpDoc)
 	{
 		$fd = fopen($helpDoc, 'r');
+		if (!$fd) {
+			echo "Failed to open helpdoc: $helpDoc\n";
+			return;
+		}
 
 		$startInd = false;
 		$itemInd = false;
@@ -100,7 +104,7 @@ class GenHelpDoc
 				{
 					$itemInd = false;
 					$item = new DocItem($buf);
-					$this->_items[$item->_id] = $item; 
+					$this->_items[$item->_id] = $item;
 					if ($item->_id == DEBUG_TAG) {
 						echo "In GenHelpDoc::parseHelpDoc - item \n";
 						var_dump($item);

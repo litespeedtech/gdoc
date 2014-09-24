@@ -1,0 +1,113 @@
+[HELPDOC]
+
+[ITEM]
+ID: wsuri
+NAME: URI
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the URI(s) that will use this WebSocket backend. Traffic to 
+this URI will only be forwarded to the WebSocket backend when it contains 
+a WebSocket upgrade request. 
+
+
+Traffic without this upgrade request will automatically be forwarded to the 
+Context that this URI belongs to. If no Context exists for this URI, 
+LSWS will treat this traffic as though it is accessing a static context with 
+the location {val}$DOC_ROOT/URI{/}.
+END_DESCR
+
+SYNTAX: The URI can be a plain URI (starting with "/") or a Perl-compatible 
+regular expression URI (starting with "exp:"). If a plain URI ends with a "/", 
+then this WebSocket backend will include all sub-URIs under this URI. 
+END_SYNTAX
+
+EXAMPLE: Using the WebSocket proxy in conjunction with a Context 
+allows you to serve different kinds of traffic in different ways 
+on the same page, thus optimizing performance. You can send WebSocket 
+traffic to the WebSocket backend, while setting up a static context so 
+that LSWS can serve the page's static content, or an LSAPI context so LSWS 
+will serve PHP content (both of which LSWS does more efficiently 
+than the WebSocket backend).
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: wsaddr
+NAME: Address
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: A unique socket address used by the WebSocket backend. 
+IPv4 sockets, IPv6 sockets, and Unix Domain Sockets (UDS) are supported. 
+IPv4 and IPv6 sockets can be used for communication over the network. 
+UDS can only be used when the WebSocket backend resides on the same machine as the server. 
+END_DESCR
+
+SYNTAX: IPv4 or IPV6 address:port or UDS://path
+END_SYNTAX
+
+EXAMPLE: 127.0.0.1:5434 
+
+UDS://tmp/lshttpd/php.sock.
+END_EXAMPLE
+
+TIPS: [Security] If the WebSocket backend runs on the same machine, 
+UDS is preferred. If you have to use an IPv4 or IPv6 socket, 
+set the IP address to localhost or 127.0.0.1, so the WebSocket backend 
+is inaccessible from other machines.
+
+[Performance] Unix Domain Sockets generally provide higher performance than IPv4 or IPv6 sockets.
+END_TIPS
+
+[END_ITEM]
+
+
+[TBL]
+ID: websocketproxy
+NAME: Web Socket Proxy
+
+DESCR: 
+END_DESCR
+
+CONT: wsuri wsaddr
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+################ PAGE ####################
+
+
+
+
+[PAGE]
+ID: VHWebSocket_Help 
+NAME: Web Socket Proxy
+
+DESCR: <a href="http://en.wikipedia.org/wiki/WebSocket">WebSocket</a> is 
+a protocol that can be used instead of HTTP to deliver real-time, bidirectional 
+communication over the Internet. Starting with version 1.1.1, OpenLiteSpeed supports 
+WebSocket backends through the use of WebSocket proxies. These proxies send the WebSocket 
+communication to the appropriate backend stipulated in the {ITEM=wsaddr} field.
+END_DESCR
+
+CONT: websocketproxy
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]

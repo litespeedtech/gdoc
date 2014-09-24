@@ -1,0 +1,642 @@
+[HELPDOC]
+
+
+
+
+[ITEM]
+ID: dynReqPerSec
+NAME: Dynamic Requests/Second
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=staticReqPerSec}
+
+DESCR: Specifies the maximum number of requests to dynamically generated content 
+coming from a single IP address that can be processed in each second
+regardless of the number of connections established. 
+When this limit is reached, all future requests to dynamic content 
+are tar-pitted until the next second. 
+
+
+The request limit for static content is independent of this limit.
+This per client request limit can be set at server or virtual host level. 
+Virtual host-level settings override server-level settings.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+[Security] Trusted IPs or sub-networks are not restrained by this limit.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: accessLog_pipedLogger
+NAME: Piped Logger 
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the external application that will receive the access log
+data sent by LiteSpeed through a pipe on its STDIN stream (file handle is 0). 
+When this field is specified, the access log will be sent only to the logger 
+application and not the access log file specified in previous entry.
+
+
+The logger application must be defined in {PAGE=ExtApp_Help} section first. 
+Server-level access logging can only use an external logger application 
+defined at the server level. Virtual host-level access logging can only use
+a logger application defined at the virtual host level.
+
+
+The logger process is spawned in the same way as other external 
+(CGI/FastCGI/LSAPI) processes. This means it will execute as the 
+user ID specified in the virtual host's {ITEM=VirtualHosts_Help#setUidMode} 
+settings and will never run on behalf of a privileged user. 
+
+
+LiteSpeed web server performs simple load balancing among multiple logger 
+applications if more than one instance of a logger application is configured. 
+LiteSpeed server always attempts to keep the number of logger applications 
+as low as possible. Only when one logger application fails to process access 
+log entries in time will the server attempt to spawn another instance of 
+the logger application. 
+
+
+If a logger crashes, the web server will start another instance but the 
+log data in the stream buffer will be lost. It is possible to lose log 
+data if external loggers cannot keep up with the speed and volume of the log stream.
+END_DESCR
+
+SYNTAX: select 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: rewriteLogLevel
+NAME: Rewrite Log Level
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: Server {ITEM=ServGeneral_Help#log_logLevel}, Virtual Host {ITEM=VHGeneral_Help#vhlog_logLevel}
+
+
+DESCR: Specifies the level of detail of the rewrite engine's debug output.
+This value ranges from {val}0{/} - {val}9{/}. {val}0{/} disables logging. {val}9{/} produces the
+most detailed log. The server and virtual host's error log {ITEM=ServGeneral_Help#log_logLevel} 
+must be set to at least {val}INFO{/} for this option to take effect.
+This is useful when testing your rewrite rules.
+END_DESCR
+
+SYNTAX: uint 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: spdyAdHeader
+NAME: SPDY Advertisement
+REQUIRED: 
+APPLY: 3
+SINCE: 1.2.5
+SEE_ALSO: 
+
+DESCR: Specifies whether to advertise to clients that SPDY protocol is available. If set, LSWS will send an Alternate-Protocol 
+response header when a client accesses SPDY-enabled websites through an HTTP connection. 
+This requires the website to have both HTTP and HTTPS connections set up, and SPDY support enabled. 
+END_DESCR
+
+SYNTAX: port:protocol string 
+END_SYNTAX
+
+EXAMPLE: If SPDY/3 is enabled on port 443, you can set the string to "443:npn-spdy/3"  
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## TBL SECION #############
+
+
+
+
+
+
+
+
+
+
+
+[TBL]
+ID: expire
+NAME: Expire Settings
+
+DESCR: 
+END_DESCR
+
+CONT: enableExpires expiresDefault expiresByType 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: fileAccessControl
+NAME: File Access Control
+
+DESCR: 
+END_DESCR
+
+CONT: followSymbolLink checkSymbolLink forceStrictOwnership requiredPermissionMask
+restrictedPermissionMask restrictedScriptPermissionMask
+restrictedDirPermissionMask 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+[TBL]
+ID: perClientConnLimit
+NAME: Per Client Throttling
+
+DESCR: These are connection control settings based on client IP. 
+These settings help to mitigate DoS (Denial of Service) and DDoS (Distributed Denial of Service) attacks.
+END_DESCR
+
+CONT: staticReqPerSec dynReqPerSec outBandwidth inBandwidth softLimit hardLimit blockBadReq gracePeriod banPeriod 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+[TBL]
+ID: cgiResource
+NAME: CGI Settings
+
+DESCR: The following settings control CGI processes. Memory and process limits also serve as the default for 
+other external applications if limits have not been set explicitly for those applications. 
+END_DESCR
+
+CONT: cgidSock maxCGIInstances minUID minGID forceGID umask CGIPriority CPUSoftLimit CPUHardLimit memSoftLimit memHardLimit procSoftLimit procHardLimit 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+
+
+[TBL]
+ID: accessDeny
+NAME: Access Denied Directories
+
+DESCR: 
+END_DESCR
+
+CONT: accessDenyDir 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+
+
+
+
+[TBL]
+ID: gzipTuning
+NAME: GZIP Compression Tuning
+
+DESCR: 
+END_DESCR
+
+CONT: enableGzipCompress enableDynGzipCompress gzipCompressLevel 
+compressibleTypes gzipAutoUpdateStatic gzipCacheDir gzipStaticCompressLevel 
+gzipMaxFileSize gzipMinFileSize
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: scriptHandler
+NAME: Script Handler Settings
+
+DESCR: 
+END_DESCR
+
+CONT: suffix shType shHandlerName 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+[TBL]
+ID: vhGeneral
+NAME: General
+
+DESCR: 
+END_DESCR
+
+CONT: docRoot vhadminEmails enableGzip enableIpGeo spdyAdHeader 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[TBL]
+ID: vhIndex
+NAME: Index Files
+
+DESCR: 
+END_DESCR
+
+CONT: indexUseServer indexFiles autoIndex autoIndexURI
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: vhExpire
+NAME: Expire Settings
+
+DESCR: 
+END_DESCR
+
+CONT: enableExpires expiresDefault  expiresByType
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: vhTop
+NAME: Virtual Host
+
+DESCR: 
+END_DESCR
+
+CONT: vhName vhRoot configFile allowSymbolLink enableScript
+restrained vhMaxKeepAliveReq vhSmartKeepAlive setUidMode
+chrootMode chrootPath staticReqPerSec dynReqPerSec
+outBandwidth inBandwidth 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[TBL]
+ID: tpSecFile
+NAME: File Access Control
+
+DESCR: 
+END_DESCR
+
+CONT: allowSymbolLink enableScript restrained
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+[TBL]
+ID: tpSecThrottle
+NAME: Per Client Throttling Control
+
+DESCR: 
+END_DESCR
+
+CONT: staticReqPerSec dynReqPerSec outBandwidth inBandwidth 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[TBL]
+ID: tpSecCGI
+NAME: External Application Resource Control
+
+DESCR: 
+END_DESCR
+
+CONT: setUidMode chrootMode chrootPath
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+[TBL]
+ID: errPage
+NAME: Customized Error Pages
+
+DESCR: Whenever the server has a problem processing a request, 
+the server will return an error code and an html page as the error message 
+to the web client. Error codes are defined in the HTTP protocol (see RFC 2616). 
+LiteSpeed web server has a built-in default error page for each error code, but 
+a customized page can be configured for each error code.  
+error pages can also be further customized to be unique for each virtual host. 
+END_DESCR
+
+CONT: errCode errURL errPageAction 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+########## PAGE SECION #############
+
+
+
+
+[PAGE]
+ID: ServTuning_Help 
+NAME: Server Tuning
+
+DESCR: 
+END_DESCR
+
+CONT: osTuning connTuning reqTuning staticTuning gzipTuning 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+
+
+
+[PAGE]
+ID: ServSecurity_Help 
+NAME: Server Security
+
+DESCR: 
+END_DESCR
+
+CONT: fileAccessControl perClientConnLimit cgiResource
+accessDeny accessControl  
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+
+
+
+
+[PAGE]
+ID: ScriptHandler_Help 
+NAME: Script Handler
+
+
+DESCR: LiteSpeed Web Server supports all scripting languages including 
+Perl, PHP, Ruby, Python, Java, etc. Scripts written in these different 
+languages must be brought to the appropriate external application to be processed. 
+LiteSpeed Web Server uses script handlers to decide which external application a 
+script should go to. These script handlers map files to external applications by 
+using the file suffix. (Actually, the suffix is used to determine a MIME 
+type which is then mapped to the external application.) External applications 
+must be set up in the {PAGE= ExtApp_Help} tab before they can be selected for 
+use in a script handler.
+
+
+You can set up script handler at the server or virtual host level. Server-level
+script handlers apply to all virtual hosts unless overridden in virtual host level. 
+Virtual host-level script handlers only apply within that virtual host.
+END_DESCR
+
+
+CONT:  scriptHandler
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+
+
+
+[PAGE]
+ID: VirtualHosts_Help 
+NAME: Virtual Host List
+
+DESCR: This page lists all defined virtual hosts. From here you can add/delete a virtual host or make
+changes to an existing one. Before you add a virtual host, make sure the virtual host root directory exists.
+END_DESCR
+
+CONT: vhTop 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[TBL]
+ID: listenerGeneral
+NAME: General
+
+DESCR: 
+END_DESCR
+
+CONT: listenerName listenerIP listenerPort listenerBinding listenerSecure 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+
+
+[TBL]
+ID: templateGeneral
+NAME: General
+
+DESCR: 
+END_DESCR
+
+CONT: templateName templateFile mappedListeners  
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+[TBL]
+ID: templateMembers
+NAME: Member Virtual Hosts
+
+DESCR: 
+END_DESCR
+
+CONT: templateVHName templateVHDomain templateVHAliases memberVHRoot  
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[TBL]
+ID: templateSettings
+NAME: Template Settings
+
+DESCR: 
+END_DESCR
+
+CONT: templateVHRoot templateVHConfigFile templateVHDocRoot templateFileRef 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+
+
+[PAGE]
+ID: Templates_Help 
+NAME: Virtual Host Templates
+
+
+DESCR: Virtual host templates make it easy to create many new virtual
+hosts with similar configurations. 
+
+
+Each template contains a template configuration file, a list of mapped listeners,
+and a list of member virtual hosts.
+
+
+To add a template-based virtual host, the administrator only needs to
+add a member with a unique virtual host name and a
+qualified domain name to the template member list.
+Lister-to-virtual host mapping will be added automatically for 
+all listeners in the template's mapped listener list. 
+
+
+Later on, if you need to customize the configuration for a particular
+virtual host, just "instantiate" that member virtual host and a
+standalone virtual host configuration will be created automatically.
+Even when setting up a customized virtual host,
+a template can still be a convenient starting point.
+END_DESCR
+
+CONT: templateGeneral templateMembers templateSettings
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[PAGE]
+ID: Listeners_Help 
+NAME: Listeners
+
+DESCR: 
+END_DESCR
+
+CONT: listenerGeneral virtualHostMapping sslCert sslProtocolSetting sslFeature sslOCSP sslClientVerify
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+
+
+[PAGE]
+ID: AdminListener_Help 
+NAME: Admin Listeners
+
+DESCR: Admin Listeners are dedicated to the Admin Server. Secure (SSL) listeners 
+are recommended for the Admin Server.
+END_DESCR
+
+CONT: LB_listenerGeneral sslCert sslProtocolSetting sslFeature sslClientVerify
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[END_HELPDOC]
+

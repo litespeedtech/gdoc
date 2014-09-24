@@ -8,21 +8,35 @@ define('DOC_TYPE', 'ows');
 
 define('FOR_WEB', 0);
 
-$pathcommon = 'text/common';
-$pathows = 'text/' . DOC_TYPE;
-global $static_dir;
-$static_dir = $pathows;
+// define globals
 
-$texts = array("$pathcommon/HelpDoc.DB.txt",
+
+$lsws_pageNav = array('OLSWS_DOC_ROOT', 'OLSWS_DOC_NAV', 'OLSWS_CONF_NAV', 'OLSWS_CONTROL_NAV');
+$lsws_pageNavTips = array_merge($lsws_pageNav, array('OLSWS_TOOLS_NAV'));
+
+$ws_lb = array('{ws_lb}', '{Ws_Lb}', '{WS_LB}',	'{ent_version}','%LB_%');
+$ws_lb_replace = array('web server', 'Web server', 'Web Server', '', '');
+
+
+
+function generate($textpath, $genhelpdoc, $gentips, $tipfile)
+{
+	$pathcommon = $textpath . "/common";
+	$pathows = $textpath . "/ows";
+	global $static_dir, $lsws_pageNav, $lsws_pageNavTips;
+	$static_dir = $pathows;
+
+	$texts = array("$pathcommon/HelpDoc.DB.txt",
 			"$pathcommon/Listener_Help.txt",
 			"$pathcommon/WSPages.txt",
 			"$pathcommon/Context_Help.txt",
 			"$pathcommon/ExtApp_Help.txt",
 			"$pathcommon/Rails_Help.txt",
 			"$pathcommon/Rewrite_Help.txt",
-		    "$pathcommon/Templates_Help.txt",
+			"$pathcommon/Templates_Help.txt",
 			"$pathcommon/ServerStat_Help.txt",
 			"$pathcommon/WebSocketProxy.txt",
+			"$pathcommon/CompilePHP.txt",
 			"$pathows/LSIAPIModule.txt",
 			"$pathows/Context_Tbl_Help.txt",
 			"$pathows/ServGeneralPage.txt",
@@ -30,22 +44,24 @@ $texts = array("$pathcommon/HelpDoc.DB.txt",
 			"$pathows/OWS_Help.txt",
 			"$pathows/PageNavDef.txt");
 
-$base = new ItemBase($texts);
+	$base = new ItemBase($texts);
 
-$lsws_pageNav = array('OLSWS_DOC_ROOT', 'OLSWS_DOC_NAV', 'OLSWS_CONF_NAV', 'OLSWS_CONTROL_NAV');
+	$h = new GenHelpDoc($texts);
+	if ($genhlpdoc)
+		$h->genPages( $lsws_pageNav, $base);
 
-$ws_lb = array('{ws_lb}', '{Ws_Lb}', '{WS_LB}',
-	'{ent_version}',
-	'%LB_%');
-$ws_lb_replace = array('web server', 'Web server', 'Web Server',
-	'',
-	'');
+	if ($gentips) {
+		$tips = new GenPopupTips($h);
+		$tips->genTips($lsws_pageNavTips, $base, $tipfile);
+	}
+}
 
-$h = new GenHelpDoc($texts);
-$h->genPages( $lsws_pageNav, $base);
 
-$tips_file = "../ows_tips.txt";
-$tips = new GenHelpTips($h);
-$tips->genTips($lsws_pageNav, $base, $tips_file);
+$pathtext = 'text';
+generate($pathtext, true, true,  "../en-US_tips.php");
 
+//chinese tips
+echo "output chinese tips \n";
+$pathtext = 'text_lang/zh-CN';
+generate($pathtext, false, true,  "../zh-CN_tips.php");
 

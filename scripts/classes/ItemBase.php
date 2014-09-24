@@ -16,6 +16,10 @@ class ItemBase
 	function parseDoc($doc)
 	{
 		$fd = fopen($doc, 'r');
+		if (!$fd) {
+			echo "failed to open file: $doc \n";
+			return;
+		}
 
 		$qaInd = false;
 		$itemInd = false;
@@ -38,7 +42,7 @@ class ItemBase
 					if ( isset($this->_items[$item->_id]) )
 						echo "duplicate item $item->_id in $doc \n";
 					else
-						$this->_items[$item->_id] = $item; 
+						$this->_items[$item->_id] = $item;
 				}
 			}
 			else if ( $qaInd )
@@ -52,7 +56,7 @@ class ItemBase
 					if ( isset($this->_items[$item->_id]) )
 						echo "duplicate qa $item->_id in $doc \n";
 					else
-						$this->_items[$item->_id] = $item; 
+						$this->_items[$item->_id] = $item;
 
 				}
 			}
@@ -67,7 +71,7 @@ class ItemBase
 					if ( isset($this->_items[$item->_id]) && $this->_items[$item->_id]->_type == 'TBL' )
 						echo "duplicate tbl $item->_id in $doc \n";
 					else
-						$this->_items[$item->_id] = $item; 
+						$this->_items[$item->_id] = $item;
 
 				}
 			}
@@ -82,7 +86,7 @@ class ItemBase
 					if ( isset($this->_items[$item->_id]) )
 						echo "duplicate page $item->_id in $doc \n";
 					else
-						$this->_items[$item->_id] = $item; 
+						$this->_items[$item->_id] = $item;
 				}
 			}
 			else

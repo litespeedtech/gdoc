@@ -1,0 +1,154 @@
+[HELPDOC]
+
+
+[ITEM]
+ID: extrapathenv
+NAME: Extra PATH Environment Variables
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Additional PATH values that will be appended to the current PATH environment variables for build scripts.  
+END_DESCR
+
+SYNTAX: path values separated by ":"
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: installpathprefix
+NAME: Installation Path Prefix
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Sets the value for the "--prefix" configure option. The default installation location is under LiteSpeed Web Server's install directory.  
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE: /usr/local/lsws/lsphp5
+END_EXAMPLE
+
+TIPS: LiteSpeed Web Server can use multiple PHP versions at the same time. If you are installing multiple versions, you should give them different prefixes. 
+END_TIPS
+
+[END_ITEM]
+
+[ITEM]
+ID: compilerflags
+NAME: Compiler Flags
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Add additional compiler flags, like optimized compiler options. 
+END_DESCR
+
+SYNTAX: Supported flags are CFLAGS, CXXFLAGS, CPPFLAGS, LDFLAGS. Use a space to separate different flags. Use single quotes (not double quotes) for flag values.  
+END_SYNTAX
+
+EXAMPLE: CFLAGS='-O3 -msse2 -msse3 -msse4.1 -msse4.2 -msse4 -mavx'
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+[ITEM]
+ID: configureparams
+NAME: Configure Parameters
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Configure parameters for PHP build. Apache-specific parameters and "--prefix" value will be automatically 
+removed and "--with-litespeed" will be automatically appended when you click Next Step. 
+(Prefix can be set in the field above.) This way you can simply copy and paste the configure 
+parameters from the phpinfo() output of an existing working PHP build. 
+END_DESCR
+
+SYNTAX: Space-delimited series of options (with or without double quotes)
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+[ITEM]
+ID: addonmodules
+NAME: Add-on Modules
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR:  Select the add-on modules you wish to use.  
+If you want to use a version not listed here, you can manually update the source code. 
+(The location of the source code is shown in a prompt at this step of the PHP build.) 
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[TBL]
+ID: compilephp
+NAME: Compile PHP
+
+DESCR: 
+END_DESCR
+
+CONT: extrapathenv installpathprefix compilerflags configureparams addonmodules
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+################ PAGE ####################
+
+
+
+
+[PAGE]
+ID: CompilePHP_Help 
+NAME: Compile PHP
+
+DESCR: 
+END_DESCR
+
+CONT: compilephp
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]

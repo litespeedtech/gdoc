@@ -1,0 +1,127 @@
+<h1>Introduction</h1>
+
+<h3>Overview</h3>
+<p>LiteSpeed Web Server is an Apache-interchangeable, high performance, secure, easy-to-use web server.
+It can handle thousands of concurrent connections with a small memory footprint. 
+Its security features also make it much less vulnerable to various attacks.
+</p>
+
+<h3>Basic Features</h3>
+
+<ul>
+  <li><p><strong>HTTP/1.1</strong></p>
+	  <ul>
+	    <li>Chunked transfer encoding</li>
+	    <li>Basic authentication (password file and LDAP backend)</li>
+	    <li>Entity tag</li>
+	    <li>Single and multiple ranges requests</li>
+	    <li>Static/dynamic response compression (gzip)</li>
+		<li>Apache-compatible URL rewrite</li>
+		<li>Microsoft FrontPage Server Extensions 2002</li>
+		<li>IPv6 support</li>
+	    <li>Apache mod_geoip compatible geotargeting support</li>
+	  </ul>
+  </li>
+  <li><p><strong>Dynamic Content Generation</strong></p>
+  <p>LiteSpeed Web Server supports the following dynamic content generation methods:</p>
+	  <ul>
+	    <li>CGI/1.1 with suEXEC</li>
+	    <li>Fast CGI with suEXEC</li>
+		<li>PHP with suEXEC through LiteSpeed PHP SAPI (top-of-the-line PHP performance with a mod_php equivalent feature set)
+	    <li>JSP/servlets (interface with AJP v1.3 compatible backend servlet engine)</li>
+		<li>Proxy (interface with any web server/application server that supports HTTP protocol)</li>
+		<li>Ruby on Rails with suEXEC through Ruby LSAPI module (best-in-class performance, easy deployment, supports dynamic spawning)
+	  </ul>
+  </li>
+  <li><p><strong>Virtual Hosting</strong></p>
+    <ul>
+		<li>Supports IP-based and name-based virtual hosting</li>
+		<li>Virtual host templates make virtual hosting configuration easy</li>
+		<li>Compatible with popular hosting control panels like cPanel and Plesk</li>
+	</ul>
+   </li>
+  <li><p><strong>Per-Directory Configuration File Support (.htaccess)</strong></p>
+  <ul>
+    <li>Unlike other lightweight web servers, Apache-compatible per-directory configuration 
+    overrides are fully supported by LiteSpeed Web Server. These .htacess files 
+    allow you (or your users) to change configurations for any directory under the 
+    document root on the fly. This is a must-have for shared hosting.</li>
+    <li>Using .htaccess in LiteSpeed Web Server will not degrade the server's performance. 
+Compare that to Apache's 40% drop in performance when .htaccess files are used.</li> 
+  </ul>
+  </li>
+ </ul>
+
+<h3>Security</h3>
+	<p>LiteSpeed Web Server provides the following security features:</p>
+	<ul>
+	  <li><strong>SSL</strong>
+	  <p>Supports SSLv3/TLSv1. <i>This product includes software developed by the OpenSSL Project
+	  for use in the OpenSSL Toolkit (http://www.openssl.org/)</i></p></li>
+	
+	  <li><strong>IP Level Throttling</strong>
+	  <p>Network bandwidth and request rate for a single IP address can be limited
+	  regardless of the number of connections. </p></li>
+	  
+	  <li><strong>Comprehensive Connection Accounting</strong>
+	  <p>Comprehensive control of concurrent connections allowed from a single IP address.</p></li>
+	  
+	  <li><strong>Request Filtering</strong>
+  		<p>Apache mod_security compatible request filtering. Block known as well as potential 
+  attempts at SQL/script injection XSS attacks.</p></li>
+  
+	  <li><strong>Access Control</strong>
+	  <p>Access control rules can be set at server, virtual host, and per-directory (context) 
+	  levels.</p> </li>
+	  
+	  <li><strong>External Application Shield</strong>
+	  <p>LiteSpeed Web Server shields CGI, Fast CGI and servlet engines from talking directly 
+	  to web clients to ensure maximum reliability and performance. </p></li>
+	  
+	  <li><strong>CGI Resources Consumption Limit</strong>
+	  <p>LiteSpeed Web Server prevents bad CGI scripts from overloading the server by 
+	  limiting the system resources CGI applications can consume.</p></li>
+	  
+	  <li><strong>suEXEC and chroot CGI/Fast CGI</strong>
+  		<p>LiteSpeed Web Server can run CGI scripts and Fast CGI applications in a chroot jail or a different user/group ID, minimizing possible damages from vulnerable scripts.</p>
+		</li>  		 
+
+	  <li><strong>DoS Attack Prevention</strong>
+	  <p>LiteSpeed Web Server is much less vulnerable to HTTP Denial of Service(DoS) 
+	  and Distributed Denial of Service (DDoS) attacks thanks to IP-level throttling, 
+	  connection accounting, and its outstanding performance and scalability. </p></li>
+	  
+	  <li><strong>Chroot</strong> [Enterprise Edition only]
+  		<p>LiteSpeed Web Server can run in a chroot jail.</p></li> 
+	  
+	</ul>
+
+<h3>Reliability</h3>
+	<p>LiteSpeed Web Server recovers from crashes instantly. LiteSpeed Web Server also runs completely in user space.
+	Thus the server can easily switch between different versions without affecting the reliability of the operating system.
+	</p>
+	<p>CGI, Fast CGI and Servlet engine run in their standalone processes, the
+reliability of web server is not affected by the quality of third party software.</p>
+
+<h3>User Friendly</h3>
+	<ul>
+		<li>No need to build the executable yourself.</li>
+		<li>Easy to install.</li>
+		<li>Easy to control and configure through the WebAdmin interface.</li>
+		<li>Sets up PHP and PHP accelerators automatically.</li>
+		<li>Applies most changes without restarting the server.</li>
+	</ul>
+	
+<h3>Compatibility</h3>
+	<p>LiteSpeed Web Server is designed to be interchangeable with Apache, the most popular server software
+ on the Web. LiteSpeed Web Server can even run directly from Apache's 
+configuration files.</p>
+	<p>LiteSpeed Web Server also uses the same syntax for distributed configuration 
+files (.htacess) and URL rewrite rules, which makes migration as easy as 
+setting the LiteSpeed Web Server document root to the same directory as Apache.</p> 
+	<p>Currently, functionalities of the following Apache modules have been implemented:<br>
+  mod_access, mod_actions, mod_alias, mod_auth, mod_auth_ldap, mod_auth_passthrough, 
+  mod_autoindex, mod_cache, mod_cgi, mod_expires, mod_fastcgi, mod_frontpage, mod_geoip, 
+  mod_gzip/mod_deflate, mod_jk, mod_mime, mod_php, mod_proxy, mod_rewrite, mod_security, 
+  mod_ssl, mod_suexec, and mod_throttle.</p>
+

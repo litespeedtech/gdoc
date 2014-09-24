@@ -1,5 +1,5 @@
 <header>
-<h1>OpenLiteSpeed Web Server 1.4<br/>
+<h1>LiteSpeed Web Server 5.0 <br/>
 Users' Manual<br/>
 Rev. 1</h1>
 </header>
@@ -7,10 +7,10 @@ Rev. 1</h1>
 <h3>Table of Contents</h3>
 <div>
 <ol class="toctop">
-<li><a href="license.html"><strong>License</strong></a></li>
+<li><strong>License</strong> <a href="license_std.html">Standard</a> / <a href="license.html">Enterprise</a></li>
 <li><a href="intro.html"><strong>Introduction</strong></a></li>
 <li><a href="install.html"><strong>Installation/Uninstallation</strong></a></li>
-<li><a href="admin.html"><strong>Administration</strong></a></li>
+<li><strong><a href="admin.html">Administration</a>/<a href="ServerStat_Help.html">Service Manager</a></strong></li>
 <li><a href="security.html"><strong>Security</strong></a></li>
 <li><a href="config.html"><strong>Configurations</strong></a></li>
 </ol>

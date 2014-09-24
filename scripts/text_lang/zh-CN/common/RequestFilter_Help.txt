@@ -1,0 +1,373 @@
+[HELPDOC]
+
+[ITEM]
+ID: enableCensorship
+NAME: Enable Request Filtering
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to enable request content deep inspection. This
+feature is equivalent to Apache's mod_security, which can be used to detect
+and block requests with ill intention by matching them to known signatures. 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: censorLogLevel
+NAME: Log Level
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: Server {ITEM=ServGeneral_Help#log_logLevel}, Virtual Host {ITEM=VHGeneral_Help#vhlog_logLevel}
+
+DESCR: Specifies the level of detail of the request filtering engine's debug output.
+This value ranges from {val}0{/} - {val}9{/}. {val}0{/} disables logging. {val}9{/} produces the
+most detailed log. The the server and virtual host's error log
+{ITEM=ServGeneral_Help#log_logLevel} must be set to at least {val}INFO{/} for this option to take effect.
+This is useful when testing your request filtering rules.
+END_DESCR
+
+SYNTAX: uint 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: secAuditLogEngine
+NAME: Enable Security Audit Log
+REQUIRED: 
+APPLY: 2
+SINCE: 4.1.9
+SEE_ALSO: {ITEM=secAuditLog}
+
+DESCR: Specifies whether to enable audit logging. This
+feature is equivalent to Apache's mod_security audit engine. 
+If it is enabled and {ITEM=secAuditLog} is set, detailed request information will be saved. 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+[ITEM]
+ID: secAuditLog
+NAME: Security Audit Log
+REQUIRED: 
+APPLY: 3
+SINCE: 4.1.9
+SEE_ALSO: {ITEM=secAuditLogEngine}
+
+DESCR: Specifies the path of the security audit log, which gives more detailed information. 
+ This extra information can be useful if, for example, you wish to track the actions of 
+ a particular user. Use {ITEM=secAuditLogEngine} to turn on the logging.   
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+[ITEM]
+ID: defaultAction
+NAME: Default Action
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=ruleSetAction}
+
+DESCR: Specifies the default actions that should be taken when a censoring rule
+is met. Default value is {val}deny,log,status:403{/}, which means to deny access with status code 403 and
+log the incident in the error log.
+
+END_DESCR
+
+SYNTAX: String. This action string is compatible with the syntax of Apache
+mod_security. Please refer to the mod_security manual for more detail. 
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+
+[ITEM]
+ID: scanPOST
+NAME: Scan Request Body
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to check the body of a HTTP POST request. 
+Default is "No".
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: disableSecHtaccess
+NAME: Disable .htaccess Override
+REQUIRED: 
+APPLY: 2
+SINCE: 4.0.17
+SEE_ALSO: 
+
+DESCR: Specifies whether to disable .htaccess override. This is a global setting, only available at the server level. 
+Default is "No".
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: censorRuleSetName
+NAME: Name
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Give a group of censorship rules a name. For display only.
+
+END_DESCR
+
+SYNTAX: String
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+[ITEM]
+ID: ruleSetAction
+NAME: Rule Set Action
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the actions that should be taken when a censoring rule
+in current ruleset is met. If not set, {ITEM=defaultAction} will be
+used. 
+END_DESCR
+
+SYNTAX: String.  This action string uses the same syntax as directive SecDefaultAction in
+ Apache mod_security, please refer to the mod_security manual for more details.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+
+[ITEM]
+ID: censorRuleSetEnabled
+NAME: Enabled 
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to enable this rule set. With this option, a rule set can be
+quickly turned on and off without adding or removing the rule set. Default is "Yes".
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+[ITEM]
+ID: censorRuleSet
+NAME: Rules Definition
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+
+DESCR: Specifies a list of censorship rules.
+
+
+If you are using an Apache config file, you have to set up rules in httpd.conf. 
+Rules defined here will have no effect.
+END_DESCR
+
+SYNTAX: String. Syntax of censoring rules follows that of Apache's mod_security
+directives. "SecFilter", "SecFilterSelective", and "SecRule" can be 
+used here.  You can copy and paste security rules from an Apache configuration file.
+
+
+For more details about rule syntax, please refer to the 
+{ext-href}http://www.modsecurity.org/documentation/index.html{ext-href-end}Mod Security
+documentation{ext-href-end-a}.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: Rules configured here only work for vhosts configured in native LSWS
+configuration, not for vhosts from Apache httpd.conf.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+
+
+
+
+
+
+
+
+
+############################# TBL ####################
+
+
+[TBL]
+ID: reqCensorship
+NAME: Request Filter
+
+DESCR: 
+END_DESCR
+
+CONT: enableCensorship censorLogLevel defaultAction scanPOST disableSecHtaccess secAuditLogEngine secAuditLog
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[TBL]
+ID: reqCensorshipRule
+NAME: Request Filtering Rule Set
+
+DESCR: Rules configured here only work for virtual hosts configured with a native LSWS
+configuration, not for virtual hosts using Apache httpd.conf.
+END_DESCR
+
+CONT: censorRuleSetName ruleSetAction censorRuleSetEnabled censorRuleSet
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+################## PAGE LEVEL ###################
+
+[PAGE]
+ID: RequestFilter_Help
+NAME: Request Filtering
+
+DESCR: LiteSpeed's request filter is equivalent to that in Apache's mod_security. 
+There are two separate rule systems. Rules configured from the WebAdmin console only 
+work for virtual hosts configured via the WebAdmin console in native xml. 
+For virtual hosts configured through Apache httpd.conf, you  
+need to configure mod_security rules through httpd.conf, just like you would with Apache. 
+END_DESCR
+
+CONT: reqCensorship reqCensorshipRule
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+[END_HELPDOC]
+ 

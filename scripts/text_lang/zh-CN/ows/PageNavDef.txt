@@ -19,7 +19,6 @@ install
 admin
 security
 config
-CompilePHP_Help
 
 END_NAV_SEQ
 
