@@ -47,7 +47,7 @@ function generate($textpath, $genhelpdoc, $gentips, $tipfile)
 	$base = new ItemBase($texts);
 
 	$h = new GenHelpDoc($texts);
-	if ($genhlpdoc)
+	if ($genhelpdoc)
 		$h->genPages( $lsws_pageNav, $base);
 
 	if ($gentips) {
