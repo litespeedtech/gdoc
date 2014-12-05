@@ -419,9 +419,7 @@ APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum number of concurrent PHP processes each user will have access to 
-when running PHP scripts in suEXEC mode. This is the maximum number of PHP 
-processes each user can run. Default value is {val}5{/}.
+DESCR: Specifies the maximum number of concurrent PHP processes that can be created by LSWS for each user when running PHP scripts in suEXEC mode. Default value is {val}5{/}.
 
 END_DESCR
 
@@ -431,7 +429,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: 
+TIPS: This limit is per user per lshttpd process. Thus, if you have a 2-CPU license, this limit will be doubled. The limit will be 4x for a 4-CPU license, and so on.
 END_TIPS
 
 [END_ITEM]
@@ -826,6 +824,67 @@ END_TIPS
 [END_ITEM]
 
 
+[ITEM]
+ID: log_enableAioLog
+NAME: Enable AIO Logging
+REQUIRED: 
+APPLY: 3
+SINCE: 4.2.19
+SEE_ALSO: 
+
+DESCR: Specifies whether to enable AIO logging for server log and access log.
+If enabled, asynchronous I/O will be used for writing log messages.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: Enabling AIO logging can help overall server performance when server I/O wait is high.
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: procSoftLimit
+NAME: Process Soft Limit
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Limits the total number of processes that can be created on behalf of a user. All existing processes will be counted against this limit, not just new processes to be started.
+
+
+The limit can be set at the server level or at an individual external application level. The server-level limit will be used if it is not set at an individual application level. 
+The operating system's default setting will be used if this value is 0 or absent at both levels.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+To control how many processes LSWS will make for users in suEXEC mode, use the suEXEC Max Conn setting. PHP scripts can call for forking processes and the number of processes needed for normal functioning can be above the suEXEC Max Conn setting. The main purpose of this limit is as a last line of defense to prevent fork bombs and other attacks caused by PHP processes creating other processes. 
+
+Setting this setting too low can severely hurt functionality. The setting will thus be ignored below certain levels.
+
+When using suEXEC Daemon mode, the actual process limit will be higher than this setting to make sure parent processes are not limited.
+
+END_TIPS
+
+[END_ITEM]
+
+
+
+
 ############################ TBL #########################
 
 
@@ -1004,6 +1063,22 @@ END_DESCR
 
 CONT: maxCachedFileSize totalInMemCacheSize maxMMapFileSize totalMMapCacheSize
 useSendfile useAIO AIOBlockSize fileETag
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+[TBL]
+ID: servLog
+NAME: Server Log
+
+DESCR: 
+END_DESCR
+
+CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_enableStderrLog log_enableAioLog
 END_CONT
 
 SEE_ALSO: 

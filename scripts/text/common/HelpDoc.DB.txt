@@ -1883,50 +1883,6 @@ END_TIPS
 
 
 
-
-[ITEM]
-ID: procSoftLimit
-NAME: Process Soft Limit
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Limits the total number of processes that can be created on behalf
-of a user. All existing processes will be counted
-against this limit, not just new processes to be started. 
-If the limit is set to {val}10{/}, and there are more than 10 processes
-running under one user, then no new process can be started by the web
-server for that user (through suEXEC). 
-
-
-The main purpose of this limit is to prevent "fork bomb"
-attacks or excessive usage, not to impose a limit on normal usage (and 
-this setting will be ignored by the server if it is set below certain levels). 
-Make sure to leave enough head room. This can be set at the server level or at an  
-individual external application level. The server-level limit will be used if
-it is not set at an individual application level. The operating system's
-default setting will be used if this value is {val}0{/} or absent at
-both levels.
-END_DESCR
-
-SYNTAX: uint
-END_SYNTAX
-
-EXAMPLE: [Attention] All processes run under the same user ID at
-server level will be counted against this limit. 
-Do not over adjust this limit. Doing so may cause 503 errors if a user needs to create many processes.
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
-
-
 [ITEM]
 ID: procHardLimit
 NAME: Process Hard Limit
@@ -4830,21 +4786,6 @@ SEE_ALSO:
 
 
 ##################### Common Table definitions #########################
-
-
-
-[TBL]
-ID: servLog
-NAME: Server Log
-
-DESCR: 
-END_DESCR
-
-CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_enableStderrLog 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
 
 
 
