@@ -264,9 +264,6 @@ SEE_ALSO:
 DESCR: Specifies the unique path for each member virtual host's document root.  
 Variable {val}$VH_NAME{/} or {val}$VH_ROOT{/} must appear in the path so 
 each member virtual host will have its own document root.
-END_EXAMPLE
-
-
 END_DESCR
 
 SYNTAX: string with $VH_NAME or $VH_ROOT variable
