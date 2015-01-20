@@ -462,7 +462,7 @@ END_TIPS
 
 [ITEM]
 ID: enableSpdy
-NAME: Enable SPDY
+NAME: Enable SPDY/HTTP2
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -480,6 +480,15 @@ SYNTAX: Check the protocol versions that you want to enable. Leaving all boxes u
 will enable SPDY/2 and SPDY/3 (the default). If you wish to disable SPDY, check "None" only 
 and leave all other boxes unchecked.
 END_SYNTAX
+
+DESCR: HTTP/2 and SPDY are new versions of the HTTP network protocol with the goal of reducing page load times. 
+More information can be found at: http://en.wikipedia.org/wiki/HTTP/2
+END_DESCR
+
+SYNTAX: Check the protocol(s) you wish to enable. Leaving all boxes unchecked will enable SPDY and HTTP/2 support (the default). 
+If you wish to disable SPDY and HTTP/2, check "None" only and leave all other boxes unchecked.
+END_SYNTAX
+
 
 EXAMPLE: 
 END_EXAMPLE

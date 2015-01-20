@@ -203,6 +203,29 @@ END_TIPS
 [END_ITEM]
 
 
+[ITEM]
+ID: enableh2c
+NAME: Enable HTTP/2 Over Cleartext TCP
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to enable HTTP/2 over non-encrypted TCP connections. Default is disabled. 
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
 
 
 ################### TBL #################
