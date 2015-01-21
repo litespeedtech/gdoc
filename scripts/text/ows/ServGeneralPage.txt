@@ -238,7 +238,7 @@ DESCR:
 END_DESCR
 
 CONT: serverName httpdWorkers runningAs serverPriority 
- inMemBufSize swappingDir autoFix503 gracefulRestartTimeout
+ inMemBufSize swappingDir autoFix503 enableh2c gracefulRestartTimeout
 END_CONT
 
 SEE_ALSO: 
