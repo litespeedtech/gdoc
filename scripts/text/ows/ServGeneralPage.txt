@@ -227,6 +227,102 @@ END_TIPS
 [END_ITEM]
 
 
+[ITEM]
+ID: uploadTmpDir
+NAME: Temporary File Directory
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Temporary directory where files being uploaded to server will be stored 
+while request body parser is working. Default value is {val}/tmp/lshttpd/{/}.
+
+END_DESCR
+
+SYNTAX: Absolute path or path starting with $SERVER_ROOT (for Server and VHost levels) or $VH_ROOT (for VHost levels).
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: uploadTmpFilePermission
+NAME: Temporary File Permissions
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Determines file permissions used for files stored in temporary directory. 
+Server level setting is global, can be overridden at VHost level.
+
+END_DESCR
+
+SYNTAX: 3 digits octet number. Default value is 666.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: uploadPassByPath
+NAME: Pass Upload Data by File Path
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specify whether or not to pass upload file data by path. If enabled, file path along with 
+some other information is sent to backend handler instead of file itself when uploading. 
+This saves on CPU resources and file transfer time but requires some updates to 
+backend to implement. If disabled, file content will be transferred to backend handler, 
+request body is still parsed to files.
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [performance] Enable this to speed up file upload processing if backward compatibility is not an issue.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[TBL]
+ID: fileUpload
+NAME: File Upload
+
+DESCR: Provides additional security functionality when uploading files by using a Request Body 
+Parser to parse files to a server local directory where they can be easily scanned for malicious 
+intent by third party modules. Request Body Parser is used when {ITEM=uploadPassByPath} is 
+enabled or a module calls LSIAPI’s set_parse_req_body in the LSI_HKPT_HTTP_BEGIN level. 
+API examples provided in source package.
+END_DESCR
+
+CONT: uploadTmpDir uploadTmpFilePermission uploadPassByPath
+END_CONT
+
+SEE_ALSO: {ITEM=HTTP_BEGIN}
+[END_TBL]
+
 
 ################### TBL #################
 
@@ -334,7 +430,7 @@ location where LiteSpeed web server has been installed (your_home_dir/lsws or
 /opt/lsws, for example). The server executable is under $SERVER_ROOT/bin. 
 END_DESCR
 
-CONT: servProcess servGeneral servIndex expire geolocationDB servLog servAcLog 
+CONT: servProcess servGeneral servIndex expire fileUpload geolocationDB servLog servAcLog 
 END_CONT
 
 SEE_ALSO: 
@@ -350,7 +446,7 @@ NAME: Virtual Host General
 DESCR: 
 END_DESCR
 
-CONT: vhGeneral vhLog vhAcLog vhIndex errPage scriptHandler 
+CONT: vhGeneral vhLog vhAcLog vhIndex errPage expire fileUpload scriptHandler 
 vhExpire  
 END_CONT
 

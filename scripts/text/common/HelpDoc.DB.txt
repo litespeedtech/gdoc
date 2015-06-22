@@ -176,6 +176,30 @@ END_TIPS
 [END_ITEM]
 
 [ITEM]
+ID: enableh2c
+NAME: Enable HTTP/2 Over Cleartext TCP
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to enable HTTP/2 over non-encrypted TCP connections. Default is disabled. 
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
 ID: gracefulRestartTimeout
 NAME: Graceful Restart Timeout 
 REQUIRED: 
@@ -2482,6 +2506,30 @@ END_TIPS
 
 
 
+[ITEM]
+ID: SSLStrongDhKey
+NAME: SSL Strong DH Key
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to use 2048 or 1024 bit DH keys for SSL handshakes. If set to "Yes", 2048 bit DH keys will be used for 2048 bit SSL keys and certificates. 
+1024 bit DH keys will still be used in other situations. Default is "Yes".
+
+Earlier versions of Java do not support DH key size higher than 1024 bits. If Java client compatibility is required, setting should be set to "No".
+END_DESCR
+
+SYNTAX: radio
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
 
 
 

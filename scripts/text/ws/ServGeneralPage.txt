@@ -999,7 +999,7 @@ DESCR:
 END_DESCR
 
 CONT: serverName runningAs serverPriority cpuAffinity servChrootPath enableChroot
-enableLVE inMemBufSize swappingDir autoFix503 gracefulRestartTimeout
+enableLVE inMemBufSize swappingDir autoFix503 enableh2c gracefulRestartTimeout
 END_CONT
 
 SEE_ALSO: 
@@ -1031,7 +1031,7 @@ NAME: OS Optimization
 DESCR: 
 END_DESCR
 
-CONT: eventDispatcher ramDiskPath SSLCryptoDevice
+CONT: eventDispatcher ramDiskPath SSLCryptoDevice SSLStrongDhKey
 END_CONT
 
 SEE_ALSO: 

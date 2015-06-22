@@ -32,18 +32,13 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the type of cluster. "Layer-7" HTTP load balancing is
-supported in 1.0 release, "Layer-4" load balancing is execpted in 2.0
-release. <br>
-<ul>
-<li>"Layer-7" HTTP load balancing is also known as application-level load
-balancing, is to parse HTTP requests and distribute requests to
-servers based on different types of request contents. <br>
-<li>"Layer-4" load balancing is transport layer load balancing, such as
-TCP and UDP transport protocol. It does not look at the content
-when select a backend server. In theory, it support all kinds of
-applications.
-</ul>
+DESCR: Specifies the type of cluster. 
+
+"Layer7" HTTP load balancing, also known as application-level load balancing, parses HTTP requests 
+and distribute requests to servers based on different types of request contents. 
+
+"Layer4" load balancing is transport layer load balancing, such as TCP and UDP transport protocol. 
+It does not look at the content when select a backend server. In theory, Layer 4 load balancing supports every application type.
 END_DESCR
 
 SYNTAX: select
@@ -67,14 +62,13 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies which mode the load balancer operates in, "Stateless"
-or "Stateful".
-<ul>
-<li>"Stateful" mode track sessions associated with each back-end
-server. It also called "Session Affinity".
-<li>"Stateless" mode does not care about sessions. 
-</ul>
+DESCR: Specifies which mode the load balancer operates in, "Stateless" or "Stateful". 
 
+"Stateful" mode track sessions associated with each back-end server. It also called "Session Affinity". 
+
+"Stateless" mode does not care about sessions. 
+
+For the Layer 4 Load Balancer, if the Mode is “Stateful”, it will track the IP address of the client to extract previous sessions.
 END_DESCR
 
 SYNTAX: select
@@ -128,19 +122,20 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specify how to extract session ID from request.
-<ul>
-<li>IP Address: Uses Client IP as session ID.
-<li>Basic Authentication: Uses user name in the basic authentication
-as session ID.
-<li>Query String: Uses a Parameter in request query string as session ID.
-<li>Cookies: Uses a Parameter in cookie as session ID.
-<li>SSL Session: Uses SSL Session ID as session ID.
-<li>JVM Route: JVM Route is an extra section appended to a Servlet
-session ID, which used to identify servlet backend. Example: JSESSIONID=344BA8002DE6FBE2QDF25.tomcat1
-<li>URL Path Parameter: Uses a URL Path Parameter as session ID. 
-</ul>
+DESCR: Specify how to extract session ID from request. 
 
+IP Address: Uses Client IP as session ID. 
+
+Basic Authentication: Uses user name in the basic authentication as session ID. 
+
+Query String: Uses a Parameter in request query string as session ID. 
+
+Cookies: Uses a Parameter in cookie as session ID. 
+
+SSL Session: Uses SSL Session ID as session ID. 
+
+JVM Route: JVM Route is an extra section appended to a Servlet session ID, which used to identify servlet backend. 
+Example: JSESSIONID=344BA8002DE6FBE2QDF25.tomcat1 URL Path Parameter: Uses a URL Path Parameter as session ID.
 END_DESCR
 
 SYNTAX: checkbox
@@ -149,7 +144,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: 
+TIPS: For Layer 4 Load Balancers, only the IP Address extraction method will work.  For Layer 7 Load Balancers, any of the above methods will work.
 END_TIPS
 
 [END_ITEM]
@@ -515,7 +510,7 @@ END_TIPS
 
 [TBL]
 ID: ClusterWorkerGroup
-NAME: Worker Group Definition
+NAME: Layer 7 Worker Group
 
 DESCR: 
 END_DESCR
@@ -527,8 +522,21 @@ SEE_ALSO:
 [END_TBL]
 
 [TBL]
+ID: ClusterWorkerGroupL4
+NAME: Layer 4 Worker Group
+
+DESCR: 
+END_DESCR
+
+CONT: workerName workerGroupEnabled sourceIP defaultTargetPort maxConns initTimeout retryTimeout pingInterval nodeAddresses
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+[TBL]
 ID: ClusterDef
-NAME: Load Balancer Definition
+NAME: Load Balancer
 
 DESCR: 
 END_DESCR
@@ -552,6 +560,7 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
+
 
 [TBL]
 ID: ClusterErrMsg
@@ -578,7 +587,7 @@ NAME: Clusters
 DESCR: 
 END_DESCR
 
-CONT:  ClusterDef ClusterSession ClusterErrMsg ClusterWorkerGroup
+CONT:  ClusterDef ClusterSession ClusterErrMsg ClusterWorkerGroup ClusterWorkerGroupL4
 END_CONT
 
 SEE_ALSO: 

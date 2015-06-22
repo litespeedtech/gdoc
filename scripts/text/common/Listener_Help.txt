@@ -717,21 +717,6 @@ END_TIPS
 
 
 
-[TBL]
-ID: LB_listenerGeneral
-NAME: General
-
-DESCR: 
-END_DESCR
-
-CONT: listenerName listenerIP listenerPort listenerSecure 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
 
 [TBL]
 ID: virtualHostMapping
@@ -847,6 +832,21 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
+
+
+[TBL]
+ID: Admin_listenerGeneral
+NAME: General
+
+DESCR: 
+END_DESCR
+
+CONT: listenerName listenerIP listenerPort listenerSecure
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
 
 
 

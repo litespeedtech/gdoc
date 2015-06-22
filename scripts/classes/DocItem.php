@@ -30,7 +30,7 @@ class DocItem
 		if ( $buf == NULL )
 			return;
 		$startInd = false;
-		$descrInd = false; 
+		$descrInd = false;
 		$syntaxInd = false;
 		$exampleInd = false;
 		$tipsInd = false;
@@ -51,7 +51,7 @@ class DocItem
 				$tag = 'END_DESCR';
 				if ( strncmp($tag, $line, strlen($tag)) == 0 ) {
 					$descrInd = false;
-					$this->_descr = trim($this->_descr);	
+					$this->_descr = trim($this->_descr);
 				}
 				else
 					$this->_descr .= $line;
@@ -175,7 +175,8 @@ class DocItem
 		$buf .= '<tr><td><span class="ht-label">Description: </span>' . $this->_descr . $end;
 		if ( $this->_syntax != NULL )
 		{
-			$syntax = GenTool::translateSyntax($this->_syntax);
+            $gentool = new GenTool;
+			$syntax = $gentool->translateSyntax($this->_syntax);
 			if ( $syntax )
 				$buf .= '<tr><td><span class="ht-label">Syntax: </span>'. $syntax . $end;
 		}
@@ -194,7 +195,7 @@ class DocItem
 		}
 		if ( $this->_example != NULL )
 			$buf .= '<tr><td><span class="ht-label">Example: </span>' . $this->_example . $end;
-		
+
 		if ( $this->_tips != NULL )
 			$buf .= '<tr><td><span class="ht-label">Tips: </span>' . $this->_tips . $end;
 

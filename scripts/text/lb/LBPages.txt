@@ -281,6 +281,56 @@ END_TIPS
 [END_ITEM]
 
 
+[ITEM]
+ID: listenerType
+NAME: Type
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the listener type.  
+
+An “http” listener treats requests as an HTTP Request, so it will parse the request data to use for the load balancing.  
+
+A “tcp” listener will not parse the request data. Rather, it will only parse the client’s IP address and port to do the load balancing.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: mapped_L4_clusters
+NAME: Mapped Cluster
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the cluster that the Layer 4 listener will use for load balancing.  The mapped cluster must be a Layer 4 cluster, which is predefined in "Clusters" tab. 
+
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
 
 [TBL]
 ID: servProcess
@@ -490,6 +540,111 @@ SEE_ALSO:
 
 
 
+[TBL]
+ID: servLog
+NAME: Server Log
+
+DESCR: 
+END_DESCR
+
+CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_enableStderrLog 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+[TBL]
+ID: LB_listenerGeneral
+NAME: General
+
+DESCR: 
+END_DESCR
+
+CONT: listenerName listenerType listenerIP listenerPort listenerSecure mapped_L4_clusters
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+[TBL]
+ID: templateGeneral
+NAME: General
+
+DESCR: 
+END_DESCR
+
+CONT: templateName templateFile mappedListeners  
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+[TBL]
+ID: templateMembers
+NAME: Member Virtual Hosts
+
+DESCR: 
+END_DESCR
+
+CONT: templateVHName templateVHDomain templateVHAliases memberVHRoot  
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+[TBL]
+ID: sslSetting
+NAME: SSL Private Key & Certificate
+
+DESCR: Every SSL listener requires a paired SSL private key and SSL certificate. 
+Multiple SSL listeners can share the same key and certificate. 
+You can generate SSL private keys yourself using an SSL software package, 
+such as OpenSSL. SSL certificates can also be purchased from an authorized certificate 
+issuer like VeriSign or Thawte. You can also sign the certificate yourself. 
+That certificate will not be trusted by web browsers and should not be used on public web 
+sites containing critical data. However, a self-signed certificate is good 
+enough for internal use, e.g. for encrypting traffic 
+to LiteSpeed Web Server's WebAdmin console.
+END_DESCR
+
+CONT: keyFile certFile certChain CACertPath CACertFile clientVerify
+verifyDepth crlPath crlFile renegProtection 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+[TBL]
+ID: serviceMgr
+NAME: Server
+
+DESCR: 
+END_DESCR
+
+CONT: sname pid servAction restart viewlog realtimerpt toggleDebugLog vermgr
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+>>>>>>> 1.8
 
 
 [PAGE]
@@ -698,58 +853,14 @@ SEE_ALSO:
 
 
 
-
 [TBL]
-ID: templateGeneral
-NAME: General
+ID: templateSettings
+NAME: Template Settings
 
 DESCR: 
 END_DESCR
 
-CONT: templateName templateFile mappedListeners  
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-
-
-[TBL]
-ID: templateMembers
-NAME: Member Virtual Hosts
-
-DESCR: 
-END_DESCR
-
-CONT: templateVHName templateVHDomain templateVHAliases   
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-
-
-[TBL]
-ID: sslSetting
-NAME: SSL Private Key & Certificate
-
-DESCR: Every SSL listener requires a paired SSL private key and SSL certificate. 
-Multiple SSL listeners can share the same key and certificate. 
-You can generate SSL private keys yourself using an SSL software package, 
-such as OpenSSL. SSL certificates can also be purchased from an authorized certificate 
-issuer like VeriSign or Thawte. You can also sign the certificate yourself. 
-That certificate will not be trusted by web browsers and should not be used on public web 
-sites containing critical data. However, a self-signed certificate is good 
-enough for internal use, e.g. for encrypting traffic 
-to LiteSpeed Web Server's WebAdmin console.
-END_DESCR
-
-CONT: keyFile certFile certChain CACertPath CACertFile clientVerify
-verifyDepth crlPath crlFile renegProtection 
+CONT: templateVHRoot templateFileRef 
 END_CONT
 
 SEE_ALSO: 
@@ -767,29 +878,32 @@ DESCR: Virtual host template can be used to simplify the
 administration of virtual hosts with similar configuration,
 especially, for mass hosting environment. Once a template is configured
 properly, only minimum configuration is required when adding a new virtual
-host. <br>
+host. 
+
+
 Each template contains a template configuration file, a list of mapped listeners
-and a list of member virtual hosts. <br>
-<br>
-The template configuration file
-contains all configuration entries for a virtual host, with some
-fields requiring special values. <br>
-<br>
+and a list of member virtual hosts. 
+
+
+The template configuration file contains all configuration entries for a virtual host, with some
+fields requiring special values. 
+
+
 To add a template-based virtual host, administrator only needs to
 add a member to the template member list with a unique virtual host name and a
 qualified domain name of that virtual host.
 Lister-to-virtual host mapping will be added automatically for 
-all listeners in the mapped listener list. <br>
-<br>
+all listeners in the mapped listener list.
+
+
 Later on, if you need to customize the configuration for a particular
 virtual host, just "instantiate" that member virtual host, a
 standalone virtual host configuration will be created automatically.
 Even when setting up a virtual host with different configuration,
 it is still convenient to use a template as a starting point, and then customize it after instantiation.
- 
 END_DESCR
 
-CONT: templateGeneral templateMembers
+CONT: templateGeneral templateMembers templateSettings
 END_CONT
 
 SEE_ALSO: 
@@ -807,29 +921,28 @@ NAME: Listeners
 DESCR: 
 END_DESCR
 
-CONT: LB_listenerGeneral virtualHostMapping sslSetting sslProtocolSetting
+CONT: LB_listenerGeneral virtualHostMapping sslCert sslProtocolSetting sslFeature sslOCSP sslClientVerify
 END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
-
 
 
 
 
 [PAGE]
-ID: LB_AdminListener_Help 
+ID: AdminListener_Help 
 NAME: Admin Listeners
 
-DESCR: Admin Listeners are dedicated to the Admin Server. Secure (SSL) listeners are recommended for the Admin Server.
+DESCR: Admin Listeners are dedicated to the Admin Server. Secure (SSL) listeners 
+are recommended for the Admin Server.
 END_DESCR
 
-CONT: LB_listenerGeneral sslSetting sslProtocolSetting
+CONT: Admin_listenerGeneral sslCert sslProtocolSetting sslFeature sslClientVerify
 END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
-
 
 
 
@@ -839,6 +952,7 @@ ID: index
 NAME: Home
 STATIC: index.txt
 [END_PAGE]
+
 
 [PAGE]
 ID: license 
@@ -874,6 +988,31 @@ STATIC: admin.txt
 ID: config 
 NAME: Configuration
 STATIC: config.txt
+[END_PAGE]
+
+
+[PAGE]
+ID: ServerStat_Help 
+NAME: WebAdmin Console - Service Manager
+
+DESCR: The Service Manager acts as a control room for monitoring the server and controlling certain 
+top-level functions. It provides the following features:
+(The Service Manager can be accessed by clicking on the Actions menu or from home page.)
+<ul>
+<li>Monitor the current status of the server, listeners, and virtual hosts.</li>
+<li>Apply configuration changes with a graceful restart.</li>
+<li>Enable or disable a particular virtual host.</li>
+<li>View the server log through the log viewer.</li>
+<li>Monitor real-time server statistics.</li>
+<li>Download new versions or switch between installed versions.</li>
+</ul>
+
+END_DESCR
+
+CONT: serviceMgr serviceMgrListener serviceMgrVh 
+END_CONT
+
+SEE_ALSO: 
 [END_PAGE]
 
 

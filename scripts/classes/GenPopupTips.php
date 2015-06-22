@@ -81,6 +81,7 @@ EOD;
 		}
 		fwrite($fd, "<?php \n\nglobal \$_tipsdb;\n\n");
 
+        $gentool = new GenTool;
 		$search = array("\n\n\n", "\n\n", "\r\n", "\n", '"', "'", '{ext-href}', '{ext-href-end}', '{ext-href-end-a}');
 		$replace = array('<br/><br/>', '<br/>',  ' ', ' ', '&quot;', '&#039;', '<a href="', '" target="_blank">', '</a>');
 		ksort($this->_tipsBase);
@@ -89,21 +90,21 @@ EOD;
 			$id = $item->_id;
 			$name = $item->_name;
 			$is_table = (strpos($item->_id, 'TABLE') !== FALSE);
-			$desc1 = GenTool::translateTagForTips($item->_descr, $base);
+			$desc1 = $gentool->translateTagForTips($item->_descr, $base);
 			$desc = str_replace($search, $replace, $desc1);
 			$tip = '';
 			if ( $item->_tips != "" ) {
-				$tip = GenTool::translateTagForTips($item->_tips, $base );
+				$tip = $gentool->translateTagForTips($item->_tips, $base );
 				$tip = str_replace($search, $replace, $tip);
 			}
 			$syntax = '';
 			if ( !$is_table && $item->_syntax != "") {
-				$syntax = GenTool::translateSyntax(GenTool::translateTagForTips($item->_syntax, $base));
+				$syntax = $gentool->translateSyntax($gentool->translateTagForTips($item->_syntax, $base));
 				$syntax = str_replace($search, $replace, $syntax);
 			}
 			$example = '';
 			if ( $item->_example != "" ) {
-				$example = GenTool::translateTagForTips($item->_example, $base );
+				$example = $gentool->translateTagForTips($item->_example, $base );
 				$example = str_replace($search, $replace, $example);
 			}
 

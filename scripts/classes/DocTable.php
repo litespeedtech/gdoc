@@ -147,8 +147,9 @@ class DocTable
 		{
 			if (isset($itemBase[$i]))
 				$this->_items[$i] = $itemBase[$i];
-			else
+			else {
 				echo "Err: item $i is not found for tbl def $this->_id \n";
+            }
 		}
 	}
 

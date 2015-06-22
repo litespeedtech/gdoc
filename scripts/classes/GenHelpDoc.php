@@ -55,8 +55,12 @@ class GenHelpDoc
 						$this->_pages[$pageId]->setNav( $prevPage, $topPage, $nextPage);
 						$this->_pages[$pageId]->genDoc($base);
 					}
-					else
-						echo "Wrong page ID = $pageId \n";
+					else {
+						echo "Wrong page ID = $pageId for navID $navId \n";
+                        var_dump(array_keys($this->_pages));
+                        die;
+                    }
+
 				}
 
 			}
@@ -70,11 +74,15 @@ class GenHelpDoc
 
 	function parseHelpDoc($helpDoc)
 	{
+        $debug = false;
 		$fd = fopen($helpDoc, 'r');
 		if (!$fd) {
 			echo "Failed to open helpdoc: $helpDoc\n";
 			return;
 		}
+        /*echo "In GenHelpDoc parseHelpDoc $helpDoc\n";
+        if ($helpDoc == 'text/lb/LBPages.txt')
+            $debug = true;*/
 
 		$startInd = false;
 		$itemInd = false;
@@ -105,7 +113,7 @@ class GenHelpDoc
 					$itemInd = false;
 					$item = new DocItem($buf);
 					$this->_items[$item->_id] = $item;
-					if ($item->_id == DEBUG_TAG) {
+					if ($item->_id == DEBUG_TAG || $debug) {
 						echo "In GenHelpDoc::parseHelpDoc - item \n";
 						var_dump($item);
 					}
@@ -123,7 +131,7 @@ class GenHelpDoc
 					if ( $id == NULL )
 						$id = $table->_name;
 					$this->_tables[$id] = $table;
-					if ($id == DEBUG_TAG) {
+					if ($id == DEBUG_TAG || $debug) {
 						echo "In GenHelpDoc::parseHelpDoc - table \n";
 						var_dump($table);
 					}
@@ -141,10 +149,11 @@ class GenHelpDoc
 					if ( $id == NULL )
 						$id = $page->_name;
 					$this->_pages[$id] = $page;
-					if ($id == DEBUG_TAG) {
+					if ($id == DEBUG_TAG || $debug) {
 						echo "In GenHelpDoc::parseHelpDoc - page \n";
 						var_dump($page);
 					}
+                    echo "parsed page id $id \n";
 				}
 			}
 			else if ( $navInd )

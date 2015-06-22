@@ -79,19 +79,19 @@ EOD;
 	function getFooter()
 	{
 		if (DOC_TYPE == 'ows') {
-			return '<footer class="copyright">Copyright &copy; 2013-2015. <a href="http://www.litespeedtech.com">Lite Speed Technologies Inc.</a> All rights reserved.</footer>
+			return '<footer class="copyright">Copyright &copy; 2013-2015. <a href="https://www.litespeedtech.com">LiteSpeed Technologies Inc.</a> All rights reserved.</footer>
 				</div>
 				</body>
 				</html>';
 		}
 		elseif (DOC_TYPE == 'ws') {
-			return '<footer class="copyright">Copyright &copy; 2003-2015. <a href="http://www.litespeedtech.com">Lite Speed Technologies Inc.</a> All rights reserved.</footer>
+			return '<footer class="copyright">Copyright &copy; 2003-2015. <a href="https://www.litespeedtech.com">LiteSpeed Technologies Inc.</a> All rights reserved.</footer>
 				</div>
 				</body>
 				</html>';
 		}
 		elseif (DOC_TYPE == 'lb') {
-			return '<footer class="copyright">Copyright &copy; 2007-2015. <a href="http://www.litespeedtech.com">Lite Speed Technologies Inc.</a> All rights reserved.</footer>
+			return '<footer class="copyright">Copyright &copy; 2007-2015. <a href="https://www.litespeedtech.com">LiteSpeed Technologies Inc.</a> All rights reserved.</footer>
 				</div>
 				</body>
 				</html>';
