@@ -42,11 +42,11 @@ there is no use of CPU cache and unnecessary overhead is required.
 
 
 The CPU Affinity setting controls how many CPUs (cores) one LiteSpeed Web Server process will be associated with. 
-The minimum value is {val}1{/}. The maximum value is the number of cores the server has. Generally, {val}1{/} is the best 
+The minimum value is {val}0{/}, which is the default value and will disable this feature. The maximum value is the number of cores the server has. Generally, {val}1{/} is the best 
 setting because because it creates the strictest use of CPU affinity and thus makes the most use of CPU cache.
 END_DESCR
 
-SYNTAX: Integer value from 1 to the number of cores the server has.
+SYNTAX: Integer value from 1 to the number of cores the server has. 0 will disable it.
 END_SYNTAX
 
 EXAMPLE: 
