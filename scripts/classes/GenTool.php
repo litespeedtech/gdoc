@@ -3,7 +3,7 @@
 class GenTool
 {
 
-	function writePage($docname, &$content)
+	public static function writePage($docname, &$content)
 	{
 		$fd = fopen( $docname, 'w' );
 		if ( !$fd )
@@ -17,7 +17,7 @@ class GenTool
 	}
 
 
-	function getHeader($name)
+	public static function getHeader($name)
 	{
 		$title = $name;
 		if (DOC_TYPE == 'ows') {
@@ -51,7 +51,7 @@ EOD;
 		return $buf;
 	}
 
-	function getSideTree($docname)
+	public static function getSideTree($docname)
 	{
 		global $static_dir;
 		$buf = file_get_contents("$static_dir/leftside_toc.txt");
@@ -69,14 +69,14 @@ EOD;
 			return $buf;
 	}
 
-	function getStaticContent($static_file)
+	public static function getStaticContent($static_file)
 	{
 		global $static_dir;
 		$buf = file_get_contents("$static_dir/$static_file");
 		return $buf;
 	}
 
-	function getFooter()
+	public static function getFooter()
 	{
 		if (DOC_TYPE == 'ows') {
 			return '<footer class="copyright">Copyright &copy; 2013-2015. <a href="https://www.litespeedtech.com">LiteSpeed Technologies Inc.</a> All rights reserved.</footer>
@@ -98,7 +98,7 @@ EOD;
 		}
 	}
 
-	function getNavBar($prev, $top, $next)
+	public static function getNavBar($prev, $top, $next)
 	{
 		if ($prev == '' && $top == '' && $next == '')
 			return '';
@@ -128,7 +128,7 @@ EOD;
 
 	}
 
-	function translateTag(&$buf, $base)
+	public static function translateTag(&$buf, $base)
 	{
 		$from = array('{tag}', '{cmd}', '{val}', '{/}');
 		$to = array('<span class="tag">', '<span class="cmd">', '<span class="val">', '</span>');
@@ -162,7 +162,7 @@ EOD;
 	}
 
 
-	function translateTagForTips($buf, $base)
+	public static function translateTagForTips($buf, $base)
 	{
 		$from = array('{tag}', '{cmd}', '{val}', '{/}');
 
@@ -189,7 +189,7 @@ EOD;
 	}
 
 
-	function translateSyntax($syntax)
+	public static function translateSyntax($syntax)
 	{
 		switch($syntax)
 		{

@@ -1,21 +1,6 @@
 <?php
 
-ini_set('include_path', '.:classes/');
-
-
-require_once('GenTool.php');
-require_once('DocItem.php');
-require_once('DocTable.php');
-require_once('DocPage.php');
-
-require_once('Item.php');
-require_once("ItemBase.php");
-require_once('NavChain.php');
-
-require_once("GenHelpDoc.php");
-require_once("GenWebDoc.php");
-require_once("GenHelpTips.php");
-
+require("include.php");
 
 define('DOC_TYPE', 'lb');
 
