@@ -523,8 +523,6 @@ END_TIPS
 
 [END_ITEM]
 
-
-
 [ITEM]
 ID: useAIO
 NAME: Use AIO
@@ -824,31 +822,6 @@ END_TIPS
 [END_ITEM]
 
 
-[ITEM]
-ID: log_enableAioLog
-NAME: Enable AIO Logging
-REQUIRED: 
-APPLY: 3
-SINCE: 4.2.19
-SEE_ALSO: 
-
-DESCR: Specifies whether to enable AIO logging for server log and access log.
-If enabled, asynchronous I/O will be used for writing log messages.
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: Enabling AIO logging can help overall server performance when server I/O wait is high.
-END_TIPS
-
-[END_ITEM]
-
-
-
 
 [ITEM]
 ID: procSoftLimit
@@ -1063,22 +1036,6 @@ END_DESCR
 
 CONT: maxCachedFileSize totalInMemCacheSize maxMMapFileSize totalMMapCacheSize
 useSendfile useAIO AIOBlockSize fileETag
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-
-[TBL]
-ID: servLog
-NAME: Server Log
-
-DESCR: 
-END_DESCR
-
-CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_enableStderrLog log_enableAioLog
 END_CONT
 
 SEE_ALSO: 
