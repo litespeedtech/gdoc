@@ -1,0 +1,295 @@
+#################### TITLE ####################
+
+[TBL]
+ID: servProcess
+NAME: Server Process
+
+DESCR: 
+END_DESCR
+
+CONT: serverName runningAs serverPriority inMemBufSize swappingDir  
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: servGeneral
+NAME: General Settings
+
+DESCR: 
+END_DESCR
+
+CONT: disableInitLogRotation showVersionNumber 
+enableIpGeo useIpInProxyHeader autoUpdateInterval 
+autoUpdateDownloadPkg adminEmails 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: perClientConnLimit
+NAME: Per Client Throttling Control
+
+DESCR: These are connection control setting on a per client/IP basis. 
+These settings help to mitigate DoS (Denied of Service) and DDoS (Distributed Denied of Service) attacks.
+END_DESCR
+
+CONT: dynReqPerSec outBandwidth inBandwidth softLimit hardLimit gracePeriod banPeriod 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: connTuning
+NAME: Connection Tuning
+
+DESCR: 
+END_DESCR
+
+CONT: maxConnections maxSSLConnections connTimeout maxKeepAliveReq
+smartKeepAlive keepAliveTimeout sndBufSize rcvBufSize eventDispatcher
+SSLCryptoDevice 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: gzipTuning
+NAME: GZIP Compression Tuning
+
+DESCR: 
+END_DESCR
+
+CONT: enableGzipCompress gzipCompressLevel compressibleTypes
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: vhGeneral
+NAME: General
+
+DESCR: 
+END_DESCR
+
+CONT: vhMaxKeepAliveReq vhSmartKeepAlive enableGzip enableIpGeo vhadminEmails 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: vhTop
+NAME: Virtual Host
+
+DESCR: 
+END_DESCR
+
+CONT: vhName defaultCluster configFile 
+dynReqPerSec outBandwidth inBandwidth 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: LB_extapp
+NAME: External App Settings
+
+DESCR: 
+END_DESCR
+
+CONT: LB_extAppType extAppName extAppAddress extSrcIP maxConns env initTimeout 
+retryTimeout persistConn pcKeepAliveTimeout respBuffer 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: errPage
+NAME: Customized Error Pages
+
+DESCR: Whenever the server has a problem in processing a request, 
+the server will return an error code and an html page as the error message 
+to web client. Error codes are defined in the HTTP protocol (see RFC 2616). 
+LiteSpeed server has a built-in default error page for each error code.
+A customized page can be configured for each error code. In LiteSpeed server, 
+error pages can be further customized to be unique for each virtual host. 
+END_DESCR
+
+CONT: errCode errMessage errPageAction 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: tpSecThrottle
+NAME: Per Client Throttling Control
+
+DESCR: 
+END_DESCR
+
+CONT: dynReqPerSec outBandwidth inBandwidth 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: redirectContext
+NAME: Redirect Context
+
+DESCR: A Redirect Context can be used to forward one URI or a group of URIs to another location. 
+The destination URI can be either on the same web site (internal
+redirect) or an absolute URI pointing to another web site (external redirect).
+END_DESCR
+
+CONT: expuri externalredirect statuscode destinationuri   
+ accessAllowed accessDenied 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: loadBalancerContext
+NAME: Load Balancer Context
+
+DESCR: A Load Balancer Context can be used to forward one URI or a group of URIs to another location. 
+The destination URI can be either on the same web site or an absolute URI pointing to another web site.
+END_DESCR
+
+CONT: expuri extCluster accessAllowed accessDenied realm authName required addDefaultCharset defaultCharsetCustomized
+enableRewrite rewriteInherit rewriteBase rewriteRules enableIpGeo 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: LB_listenerGeneral
+NAME: General
+
+DESCR: 
+END_DESCR
+
+CONT: listenerName listenerType listenerIP listenerPort listenerSecure mapped_L4_clusters
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: templateGeneral
+NAME: General
+
+DESCR: 
+END_DESCR
+
+CONT: templateName templateFile mappedListeners  
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: templateMembers
+NAME: Member Virtual Hosts
+
+DESCR: 
+END_DESCR
+
+CONT: templateVHName templateVHDomain templateVHAliases memberVHRoot  
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: sslSetting
+NAME: SSL Private Key & Certificate
+
+DESCR: Every SSL listener requires a paired SSL private key and SSL certificate. 
+Multiple SSL listeners can share the same key and certificate. 
+You can generate SSL private keys yourself using an SSL software package, 
+such as OpenSSL. SSL certificates can also be purchased from an authorized certificate 
+issuer like VeriSign or Thawte. You can also sign the certificate yourself. 
+That certificate will not be trusted by web browsers and should not be used on public web 
+sites containing critical data. However, a self-signed certificate is good 
+enough for internal use, e.g. for encrypting traffic 
+to LiteSpeed Web Server's WebAdmin console.
+END_DESCR
+
+CONT: keyFile certFile certChain CACertPath CACertFile clientVerify
+verifyDepth crlPath crlFile renegProtection 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: serviceMgr
+NAME: Server
+
+DESCR: 
+END_DESCR
+
+CONT: sname pid servAction restart viewlog realtimerpt toggleDebugLog vermgr
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: templateSettings
+NAME: Template Settings
+
+DESCR: 
+END_DESCR
+
+CONT: templateVHRoot templateFileRef 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
