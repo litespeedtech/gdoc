@@ -1,3 +1,6 @@
+[HELPDOC]
+
+
 #################### TITLE ####################
 
 [TBL]
@@ -293,3 +296,5 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
+
+[END_HELPDOC]
