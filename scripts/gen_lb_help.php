@@ -25,7 +25,8 @@ $texts = array("$pathcommon/HelpDoc.DB.txt",
 			"$pathlb/LBPages.txt",
 			"$pathlb/LB_LoadBalancer_Help.txt",
 			"$pathlb/LB_HA_Help.txt",
-			"$pathlb/PageNavDef.txt");
+			"$pathlb/PageNavDef.txt",
+                        "$pathlb/LB_Tables.txt");
 
 $base = new ItemBase($texts);
 
