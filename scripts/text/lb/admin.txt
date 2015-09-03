@@ -15,7 +15,6 @@ Clicking on one of the shortcuts or the corresponding link on the dedicated cont
 <li>Enable/Disable virtual hosts</li>
 <li>Version management.</li>
 </ul>
-<br>
 <p><a href="ServerStat_Help.html">More details ...</a></p>
 <p>To change the username and password combination for the load balancer's WebAdmin Console, run following command from shell:<br>
 	<span class="cmd">[your install dir]/admin/misc/admpass.sh</span> </p>
