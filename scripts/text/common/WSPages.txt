@@ -1,8 +1,6 @@
 [HELPDOC]
 
 
-
-
 [ITEM]
 ID: dynReqPerSec
 NAME: Dynamic Requests/Second
@@ -36,6 +34,30 @@ END_TIPS
 [END_ITEM]
 
 
+
+[ITEM]
+ID: serverPriority
+NAME: Priority
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: External App {ITEM=ExtApp_Help#extAppPriority}, {ITEM=ServSecurity_Help#CGIPriority}
+
+DESCR: Specifies priority of the server processes. Value ranges from
+{val}-20{/} to {val}20{/}. A lower number means higher priority.
+END_DESCR
+
+SYNTAX: Integer number
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Usually a higher priority leads to slightly higher
+web performance on a busy server. Do not set priority higher than that of database processes.
+END_TIPS
+
+[END_ITEM]
 
 
 
@@ -91,11 +113,9 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: rewriteLogLevel
-NAME: Rewrite Log Level
+NAME: Log Level
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -119,6 +139,7 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
+
 
 
 [ITEM]
@@ -148,15 +169,6 @@ END_TIPS
 
 
 ########## TBL SECION #############
-
-
-
-
-
-
-
-
-
 
 
 [TBL]
@@ -191,8 +203,6 @@ SEE_ALSO:
 
 
 
-
-
 [TBL]
 ID: perClientConnLimit
 NAME: Per Client Throttling
@@ -206,7 +216,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
-
 
 
 
@@ -226,10 +235,6 @@ SEE_ALSO:
 
 
 
-
-
-
-
 [TBL]
 ID: accessDeny
 NAME: Access Denied Directories
@@ -242,12 +247,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
-
-
-
-
-
-
 
 
 
@@ -283,7 +282,6 @@ SEE_ALSO:
 
 
 
-
 [TBL]
 ID: vhGeneral
 NAME: General
@@ -296,6 +294,7 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
+
 
 
 [TBL]
@@ -345,6 +344,7 @@ SEE_ALSO:
 [END_TBL]
 
 
+
 [TBL]
 ID: tpSecFile
 NAME: File Access Control
@@ -357,6 +357,8 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
+
+
 
 [TBL]
 ID: tpSecThrottle
@@ -372,6 +374,7 @@ SEE_ALSO:
 [END_TBL]
 
 
+
 [TBL]
 ID: tpSecCGI
 NAME: External Application Resource Control
@@ -384,8 +387,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
-
-
 
 
 
@@ -409,10 +410,7 @@ SEE_ALSO:
 
 
 
-
 ########## PAGE SECION #############
-
-
 
 
 [PAGE]
@@ -430,9 +428,6 @@ SEE_ALSO:
 
 
 
-
-
-
 [PAGE]
 ID: ServSecurity_Help 
 NAME: Server Security
@@ -446,10 +441,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
-
-
-
-
 
 
 
@@ -480,9 +471,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
-
-
-
 
 
 
@@ -517,10 +505,6 @@ SEE_ALSO:
 
 
 
-
-
-
-
 [TBL]
 ID: templateGeneral
 NAME: General
@@ -533,8 +517,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
-
-
 
 
 
@@ -552,6 +534,7 @@ SEE_ALSO:
 [END_TBL]
 
 
+
 [TBL]
 ID: templateSettings
 NAME: Template Settings
@@ -564,10 +547,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
-
-
-
-
 
 
 
@@ -605,6 +584,7 @@ SEE_ALSO:
 [END_PAGE]
 
 
+
 [PAGE]
 ID: Listeners_Help 
 NAME: Listeners
@@ -617,8 +597,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
-
-
 
 
 
@@ -638,9 +616,9 @@ SEE_ALSO:
 
 
 
-
 ################# TBL ########################################
 ############# memSoftLimit memHardLimit procSoftLimit procHardLimit is shared items #############
+
 
 [TBL]
 ID: extapp
@@ -762,4 +740,3 @@ SEE_ALSO:
 
 
 [END_HELPDOC]
-
