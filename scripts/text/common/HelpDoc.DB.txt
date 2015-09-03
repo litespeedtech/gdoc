@@ -1,6 +1,7 @@
 [HELPDOC]
 
-########## ITEM SECION #############
+########## ITEM SECTION #############
+
 
 [ITEM]
 ID: serverName
@@ -14,206 +15,6 @@ DESCR: A unique name for this server. You can use $HOSTNAME as value.
 END_DESCR
 
 SYNTAX: text
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
-
-
-
-[ITEM]
-ID: serverPriority
-NAME: Priority
-REQUIRED: 
-APPLY: 2
-SINCE: 
-SEE_ALSO: External App {ITEM=ExtApp_Help#extAppPriority}, {ITEM=ServSecurity_Help#CGIPriority}
-
-DESCR: Specifies priority of the server processes. Value ranges from
-{val}-20{/} to {val}20{/}. A lower number means higher priority.
-END_DESCR
-
-SYNTAX: Integer number
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: [Performance] Usually, higher priority leads to slightly higher
-web performance on a busy server. Do not set priority higher than that of database processes.
-END_TIPS
-
-[END_ITEM]
-
-
-
-
-
-[ITEM]
-ID: servChrootPath
-NAME: Chroot Path
-REQUIRED: 
-APPLY: 1
-SINCE: 
-SEE_ALSO: 
-
-DESCR: {ent_version} Specifies the directory where the chroot environment is rooted. 
-Only "root" user can run the {ws_lb} in chroot mode. Whether to run in chroot mode is controlled by 
-{ITEM=enableChroot} option. The installer program will set up the initial chroot environment automatically. 
-This entry is read-only, and if you want to change it, please run the installer again from the command line. 
-
-
-In the chroot environment, the {ws_lb} and its child processes cannot access file systems outside of 
-the chroot jail. Chroot is an advanced security feature and additional administration may be required to 
-make it work properly. All required executables, libraries, configuration files, and device files should be 
-recreated within the chroot jail.
-
-
-As the root directory is changed, you need to pay special attention to path configuration 
-when an absolute path is used. A Unix domain socket or swapping directory is always relative 
-to the new root directory. All other path configurations are always relative to the real root. 
-END_DESCR
-
-SYNTAX: 
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: [security] Use chroot for better security.
-END_TIPS
-
-[END_ITEM]
-
-
-
-
-
-[ITEM]
-ID: enableChroot
-NAME: Enable chroot
-REQUIRED: 
-APPLY: 2
-SINCE: 
-SEE_ALSO: 
-
-DESCR: {ent_version} Specifies whether to start the {ws_lb} in chroot mode. 
-The new root directory is set by {ITEM=servChrootPath} during installation.
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
-
-[ITEM]
-ID: enableLVE
-NAME: Cloud-Linux 
-REQUIRED: 
-APPLY: 2
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies whether to enable CloudLinux's Lightweight Virtual Environment (LVE)
- when it exists. You can use LiteSpeed with LVE to achieve better resource management.
- For more information, please check http://www.cloudlinux.com.
-END_DESCR
-
-SYNTAX: select
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-[ITEM]
-ID: autoFix503
-NAME: Auto Fix 503 Error 
-REQUIRED: 
-APPLY: 2
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies whether to try to fix the "503 Service Unavailable" error by
-restarting the {ws_lb} gracefully. A "503" error is usually caused by
-malfunctioning external applications and a web server restart can often fix
-the error temporarily. If enabled, the server will restart
-automatically whenever there are more than 30 "503" errors within a 30
-seconds span. This feature is enabled by default.
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-[ITEM]
-ID: enableh2c
-NAME: Enable HTTP/2 Over Cleartext TCP
-REQUIRED: 
-APPLY: 2
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies whether to enable HTTP/2 over non-encrypted TCP connections. Default is disabled. 
-
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-[ITEM]
-ID: gracefulRestartTimeout
-NAME: Graceful Restart Timeout 
-REQUIRED: 
-APPLY: 2
-SINCE: 
-SEE_ALSO: 
-
-DESCR: During a graceful restart, even after the new server instance is up, the old instance will continue 
-to handle existing requests. This timeout defines how long the previous instance shall wait before exit. 
-Default value is 300 seconds. -1 means wait forever. 0 means no wait and abort immediately.
-
-END_DESCR
-
-SYNTAX: int
 END_SYNTAX
 
 EXAMPLE: 
@@ -255,8 +56,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: swappingDir
 NAME: Swapping Directory
@@ -266,12 +65,11 @@ SINCE:
 SEE_ALSO: {ITEM=inMemBufSize} 
 
 DESCR: Specifies the directory where the swapping files should be placed. 
-When the server started in chroot mode, it is relative to the new root directory, 
-otherwise it is relative to the real root.
+When the server is started in chroot mode, this directory is relative to the new root directory, 
+otherwise it is relative to the real root directory.
 
-
-LiteSpeed {ws_lb} uses its own virtual memory 
-to reduce the system memory usage. Virtual memory and disk swapping is used to store big request bodies and 
+LiteSpeed {WS_LB} uses its own virtual memory 
+to reduce system memory usage. Virtual memory and disk swapping are used to store large request bodies and 
 dynamically generated responses. The swapping directory should be placed on a disk with enough space.
 END_DESCR
 
@@ -288,6 +86,260 @@ END_TIPS
 
 
 
+[ITEM]
+ID: showVersionNumber
+NAME: Server Signature
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to show the server signature and version number in
+the response header's "Server" value. There are three options: when set
+to {val}Hide Version{/}, only {val}LiteSpeed{/} is shown. When set to 
+{val}Show Version{/}, LiteSpeed and the version number are shown.
+{ent_version} When set to {val}Hide Full Header{/}, the entire Server header will not be
+shown in the response header.
+END_DESCR
+
+SYNTAX: select 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] Set to {val}Hide Version{/} if you do not wish to expose the server version number.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableIpGeo
+NAME: Enable IP Geolocation
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=ServGeneral_Help#useIpInProxyHeader}, {ITEM=ServGeneral_Help#geoipDBFile}, {ITEM=ServGeneral_Help#geoipDBCache}
+
+DESCR: {ent_version} Specifies whether to enable/disable IP Geolocation lookup. 
+It can be set at server-, virtual host-, or context-level. IP Geolocation is disabled
+by default when using value "Not Set". 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: useIpInProxyHeader
+NAME: Use Client IP in Header
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+
+DESCR: Specifies whether to use the IP address listed in the "X-Forwarded-For" HTTP
+request header for all IP address-related features, including
+connection/bandwidth throttling, access control, and IP geolocation.
+
+
+This feature is useful if your web server is behind a load balancer or a proxy server.
+If you select "Trusted IP Only", then X-Forwarded-For IP will be used only when the request
+is coming from trusted IPs defined in the server-level {ITEM=ServSecurity_Help#accessControl_allow}. 
+END_DESCR
+
+SYNTAX: select 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: servChrootPath
+NAME: Chroot Path
+REQUIRED: 
+APPLY: 1
+SINCE: 
+SEE_ALSO: 
+
+DESCR: {ent_version} Specifies the directory where the chroot environment is rooted. 
+Only "root" user can run the {ws_lb} in chroot mode. Whether to run in chroot mode is controlled by 
+{ITEM=enableChroot} option. The installer program will set up the initial chroot environment automatically. 
+This entry is read-only, and if you want to change it, please run the installer again from the command line. 
+
+
+In the chroot environment, the {ws_lb} and its child processes cannot access file systems outside of 
+the chroot jail. Chroot is an advanced security feature and additional administration may be required to 
+make it work properly. All required executables, libraries, configuration files, and device files should be 
+recreated within the chroot jail.
+
+
+As the root directory is changed, you need to pay special attention to path configuration 
+when an absolute path is used. A Unix domain socket or swapping directory is always relative 
+to the new root directory. All other path configurations are always relative to the real root. 
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [security] Use chroot for better security.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableChroot
+NAME: Enable chroot
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: {ent_version} Specifies whether to start the {ws_lb} in chroot mode. 
+The new root directory is set by {ITEM=servChrootPath} during installation.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableLVE
+NAME: Cloud-Linux 
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to enable CloudLinux's Lightweight Virtual Environment (LVE)
+ when it exists. You can use LiteSpeed with LVE to achieve better resource management.
+ For more information, please check http://www.cloudlinux.com.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: autoFix503
+NAME: Auto Fix 503 Error 
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to try to fix the "503 Service Unavailable" error by
+restarting the {ws_lb} gracefully. A "503" error is usually caused by
+malfunctioning external applications and a web server restart can often fix
+the error temporarily. If enabled, the server will restart
+automatically whenever there are more than 30 "503" errors within a 30
+seconds span. This feature is enabled by default.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableh2c
+NAME: Enable HTTP/2 Over Cleartext TCP
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to enable HTTP/2 over non-encrypted TCP connections. Default is disabled. 
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gracefulRestartTimeout
+NAME: Graceful Restart Timeout 
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: During a graceful restart, even after the new server instance is up, the old instance will continue 
+to handle existing requests. This timeout defines how long the previous instance shall wait before exit. 
+Default value is 300 seconds. -1 means wait forever. 0 means no wait and abort immediately.
+
+END_DESCR
+
+SYNTAX: int
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
 
 
 
@@ -317,8 +369,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: mimesuffix
 NAME: Suffixes
@@ -340,6 +390,7 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
+
 
 
 [ITEM]
@@ -392,36 +443,6 @@ END_TIPS
 
 
 
-
-
-[ITEM]
-ID: showVersionNumber
-NAME: Server Signature
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies whether to show the server signature and version number in
-the response header Server value. There are three options: When set
-to {val}Hide Version{/}, only {val}LiteSpeed{/} is shown. When set to 
-{val}Show Version{/},  the LiteSpeed and the version number are shown.
-{ent_version} When set to {val}Hide Full Header{/}, the whole Server header will not be
-shown in the response header.
-END_DESCR
-
-SYNTAX: bool 
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: [Security] Set to {val}Hide Version{/} if you do not wish to expose the server version number.
-END_TIPS
-
-[END_ITEM]
-
-
 [ITEM]
 ID: hideSigInErrorPage
 NAME: Hide Error Page Signature
@@ -446,42 +467,7 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 
-[END_ITEM]
-
-
-
-[ITEM]
-ID: useIpInProxyHeader
-NAME: Use Client IP in Header
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-
-DESCR: Specifies whether to use the IP address listed in the X-Forwarded-For HTTP
-request header for all IP address-related features, including
-connection/bandwidth throttling, access control, and IP geolocation.
-
-
-This feature is useful if your web server is behind a load balancer or a proxy server.
-If you select "Trusted IP Only", then X-Forwarded-For IP will be used only when the request
-is coming from trusted IPs defined in the server-level {ITEM=ServSecurity_Help#accessControl_allow}. 
-END_DESCR
-
-SYNTAX: select 
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
+[END_ITEM
 
 
 
@@ -506,9 +492,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
 
 
 
@@ -565,8 +548,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: log_fileName
 NAME: File Name
@@ -588,8 +569,6 @@ TIPS: [Performance] Place the log file on a separate disk.
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -624,8 +603,6 @@ hard disk with debug logging, but you will be able to use the {ITEM=ServerStat_H
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -669,8 +646,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: log_rollingSize
 NAME: Rolling Size
@@ -696,10 +671,6 @@ TIPS: Append "K", "M", "G" to the number for kilo-, mega- and giga- bytes.
 END_TIPS
 
 [END_ITEM]
-
-
-
-
 
 
 
@@ -730,9 +701,6 @@ END_TIPS
 
 
 
-
-
-
 [ITEM]
 ID: accessLog_fileName
 NAME: File Name
@@ -754,9 +722,6 @@ TIPS: [Performance] Put access log file on a separate disk.
 END_TIPS
 
 [END_ITEM]
-
-
-
 
 
 
@@ -783,9 +748,6 @@ TIPS: [Performance] Put the log file on a separate disk.
 END_TIPS
 
 [END_ITEM]
-
-
-
 
 
 
@@ -834,10 +796,6 @@ END_TIPS
 
 
 
-
-
-
-
 [ITEM]
 ID: accessLog_logHeader
 NAME: Log Headers
@@ -860,8 +818,6 @@ TIPS: [Performance] Turn this off if you do not need these headers in the access
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -893,7 +849,6 @@ END_TIPS
 
 
 
-
 [ITEM]
 ID: accessLog_compressArchive
 NAME: Compress Archive
@@ -915,9 +870,6 @@ TIPS:Log files are highly compressible and this is recommended to reduce disk us
 END_TIPS
 
 [END_ITEM]
-
-
-
 
 
 
@@ -948,7 +900,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
 
 
 
@@ -985,7 +936,6 @@ END_TIPS
 
 
 
-
 [ITEM]
 ID: expiresByType
 NAME: Expires By Type
@@ -1015,11 +965,6 @@ END_TIPS
 
 
 
-
-
-
-
-
 [ITEM]
 ID: geoipDBFile
 NAME: DB File Path
@@ -1041,8 +986,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -1069,11 +1012,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
-
-
 
 
 [ITEM]
@@ -1111,8 +1049,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: checkSymbolLink
 NAME: Check Symbolic Link
@@ -1137,6 +1073,7 @@ TIPS: [Performance & security] For best security, enable this option. For best p
 END_TIPS
 
 [END_ITEM]
+
 
 
 [ITEM]
@@ -1165,6 +1102,7 @@ END_TIPS
 [END_ITEM]
 
 
+
 [ITEM]
 ID: requiredPermissionMask
 NAME: Required Permission Mask
@@ -1189,8 +1127,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -1223,7 +1159,6 @@ END_TIPS
 
 
 
-
 [ITEM]
 ID: restrictedScriptPermissionMask
 NAME: Script Restricted Permission Mask
@@ -1251,7 +1186,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
 
 
 
@@ -1287,9 +1221,6 @@ END_TIPS
 
 
 
-
-
-
 [ITEM]
 ID: outBandwidth
 NAME: Outbound Bandwidth
@@ -1318,8 +1249,6 @@ TIPS: [Performance] Set the bandwidth in 8KB units for better performance.
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -1353,8 +1282,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: staticReqPerSec
 NAME: Static Requests/Second
@@ -1385,10 +1312,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
-
 
 
 
@@ -1436,8 +1359,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: hardLimit
 NAME: Connection Hard Limit
@@ -1473,6 +1394,7 @@ END_TIPS
 [END_ITEM]
 
 
+
 [ITEM]
 ID: blockBadReq
 NAME: Block Bad Request
@@ -1495,7 +1417,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
 
 
 
@@ -1528,8 +1449,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: banPeriod
 NAME: Banned Period (sec)
@@ -1554,8 +1473,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -1584,11 +1501,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
-
-
 
 
 
@@ -1624,8 +1536,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: minUID
 NAME: Minimum UID
@@ -1653,8 +1563,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: minGID
 NAME: Minimum GID
@@ -1679,9 +1587,6 @@ TIPS: [Security] Set it high enough to exclude all groups used by system users.
 END_TIPS
 
 [END_ITEM]
-
-
-
 
 
 
@@ -1746,6 +1651,7 @@ END_TIPS
 [END_ITEM]
 
 
+
 [ITEM]
 ID: CGIPriority
 NAME: CGI Priority
@@ -1775,9 +1681,6 @@ END_TIPS
 
 
 
-
-
-
 [ITEM]
 ID: CPUSoftLimit
 NAME: CPU Soft Limit
@@ -1804,8 +1707,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: CPUHardLimit
 NAME: CPU Hard Limit
@@ -1829,8 +1730,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -1872,8 +1771,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: memHardLimit
 NAME: Memory Hard Limit
@@ -1906,7 +1803,6 @@ END_TIPS
 
 
 
-
 [ITEM]
 ID: procHardLimit
 NAME: Process Hard Limit
@@ -1933,8 +1829,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -2000,8 +1894,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: accessControl_deny
 NAME: Denied List
@@ -2034,9 +1926,6 @@ END_TIPS
 
 
 
-
-
-
 [ITEM]
 ID: maxSSLConnections
 NAME: Max SSL Connections
@@ -2061,8 +1950,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -2093,9 +1980,6 @@ END_TIPS
 
 
 
-
-
-
 [ITEM]
 ID: maxKeepAliveReq
 NAME: Max Keep-Alive Requests
@@ -2119,8 +2003,6 @@ TIPS: [Performance] Set this to a reasonably high value. A value of "1" or "0" w
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -2185,8 +2067,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: sndBufSize
 NAME: Send Buffer Size
@@ -2210,8 +2090,6 @@ TIPS: [Performance] If your web site serves large static files, increase the sen
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -2286,8 +2164,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: maxCachedFileSize
 NAME: Max Cached Small File Size
@@ -2320,8 +2196,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: totalInMemCacheSize
 NAME: Total Small File Cache Size
@@ -2344,8 +2218,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -2384,8 +2256,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: totalMMapCacheSize
 NAME: Total MMAP Cache Size
@@ -2408,9 +2278,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
 
 
 
@@ -2448,6 +2315,7 @@ END_TIPS
 [END_ITEM]
 
  
+
 [ITEM]
 ID: fileETag
 NAME: File ETag
@@ -2474,9 +2342,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
 
 
 
@@ -2561,8 +2426,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: maxReqHeaderSize
 NAME: Max Request Header Size
@@ -2588,8 +2451,6 @@ help identify bogus requests and DoS attacks.
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -2619,8 +2480,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: maxDynRespHeaderSize
 NAME: Max Dynamic Response Header Size
@@ -2643,8 +2502,6 @@ responses dynamically generated by external applications.
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -2674,8 +2531,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: enableGzipCompress
 NAME: Enable Compression
@@ -2702,8 +2557,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: enableDynGzipCompress
 NAME: Enable Dynamic Compression
@@ -2727,7 +2580,6 @@ utilization but saves network bandwidth.
 END_TIPS
 
 [END_ITEM]
-
 
 
 
@@ -2758,8 +2610,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: compressibleTypes
 NAME: Compressible Types
@@ -2784,8 +2634,6 @@ files such as gif/png/jpeg images and flash files do not benefit from compressio
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -2844,10 +2692,6 @@ END_TIPS
 
 
 
-
-
-
-
 [ITEM]
 ID: gzipStaticCompressLevel
 NAME: Compression Level (Static Content)
@@ -2870,8 +2714,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -2902,8 +2744,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: gzipMinFileSize
 NAME: Min Static File Size
@@ -2926,10 +2766,6 @@ TIPS: It is not necessary to compress very small files as the bandwidth saving i
 END_TIPS
 
 [END_ITEM]
-
-
-
-
 
 
 
@@ -2961,8 +2797,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: shHandlerName
 NAME: Handler Name
@@ -2988,11 +2822,6 @@ END_TIPS
 
 
 
-
-
-
-
-
 [ITEM]
 ID: docRoot
 NAME: Document Root
@@ -3015,8 +2844,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -3047,31 +2874,6 @@ END_TIPS
 
 
 
-
-[ITEM]
-ID: enableIpGeo
-NAME: Enable IP Geolocation
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: {ITEM=ServGeneral_Help#useIpInProxyHeader}, {ITEM=ServGeneral_Help#geoipDBFile}, {ITEM=ServGeneral_Help#geoipDBCache}
-
-DESCR: {ent_version} Specifies whether to enable IP geolocation lookup. 
-It can be set at server-, virtual host-, or context-level. 
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
 [ITEM]
 ID: vhadminEmails
 NAME: Administrator Email
@@ -3093,8 +2895,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -3128,8 +2928,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: autoIndex
 NAME: Auto Index
@@ -3157,8 +2955,6 @@ possible to prevent revealing confidential data.
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -3193,7 +2989,6 @@ END_TIPS
 
 
 
-
 [ITEM]
 ID: rewriteInherit
 NAME: Rewrite Inherit
@@ -3217,6 +3012,8 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
+
+
 
 [ITEM]
 ID: rewriteBase
@@ -3242,7 +3039,6 @@ END_TIPS
 
 
 
-
 [ITEM]
 ID: logUseServer
 NAME: Use Server Log
@@ -3265,8 +3061,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -3300,8 +3094,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: aclogUseServer
 NAME: Log Control
@@ -3324,7 +3116,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
 
 
 
@@ -3352,8 +3143,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: realmType
 NAME: DB Type
@@ -3376,8 +3165,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -3440,6 +3227,7 @@ does not serve files prefixed with ".ht".
 END_TIPS
 
 [END_ITEM]
+
 
 
 [ITEM]
@@ -3569,7 +3357,6 @@ END_TIPS
 
 
 
-
 [ITEM]
 ID: userDBMaxCacheSize
 NAME: User DB Max Cache Size
@@ -3595,8 +3382,6 @@ to your user database size and site usage.
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -3626,7 +3411,6 @@ set a longer timeout for better performance.
 END_TIPS
 
 [END_ITEM]
-
 
 
 
@@ -3690,8 +3474,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: groupDBMaxCacheSize
 NAME: Group DB Max Cache Size
@@ -3715,7 +3497,6 @@ to your user database size and site usage.
 END_TIPS
 
 [END_ITEM]
-
 
 
 
@@ -3744,8 +3525,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: vhaccessControl_allow
 NAME: Allowed List
@@ -3771,7 +3550,6 @@ END_TIPS
 
 
 
-
 [ITEM]
 ID: vhName
 NAME: Virtual Host Name
@@ -3794,7 +3572,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
 
 
 
@@ -3825,8 +3602,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: configFile
 NAME: Config File
@@ -3850,7 +3625,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
 
 
 
@@ -3880,8 +3654,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: enableScript
 NAME: Enable Script
@@ -3905,7 +3677,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
 
 
 
@@ -3938,7 +3709,6 @@ END_TIPS
 
 
 
-
 [ITEM]
 ID: vhMaxKeepAliveReq
 NAME: Max Keep-Alive Requests
@@ -3967,7 +3737,6 @@ END_TIPS
 
 
 
-
 [ITEM]
 ID: vhSmartKeepAlive
 NAME: Smart Keep-Alive
@@ -3992,7 +3761,6 @@ TIPS: [Performance] Enable this for busy web sites.
 END_TIPS
 
 [END_ITEM]
-
 
 
 
@@ -4028,8 +3796,6 @@ virtual host.
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -4070,7 +3836,6 @@ in the limited chroot jail environment.
 END_TIPS
 
 [END_ITEM]
-
 
 
 
@@ -4156,8 +3921,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: realm
 NAME: Realm
@@ -4185,10 +3948,6 @@ END_TIPS
 
 
 
-
-
-
-
 [ITEM]
 ID: authName
 NAME: Authentication Name
@@ -4212,10 +3971,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
-
 
 
 
@@ -4254,10 +4009,6 @@ END_TIPS
 
 
 
-
-
-
-
 [ITEM]
 ID: accessAllowed
 NAME: Access Allowed
@@ -4281,11 +4032,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
-
-
 
 
 
@@ -4315,10 +4061,6 @@ END_TIPS
 
 
 
-
-
-
-
 [ITEM]
 ID: uri
 NAME: URI
@@ -4341,7 +4083,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
 
 
 
@@ -4372,8 +4113,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: statuscode
 NAME: Status Code
@@ -4396,8 +4135,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -4429,8 +4166,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: errCode
 NAME: Error Code
@@ -4453,8 +4188,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -4488,8 +4221,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: errPageAction
 NAME: Action
@@ -4512,8 +4243,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -4547,7 +4276,6 @@ END_TIPS
 
 
 
-
 [ITEM]
 ID: consoleSessionTimeout
 NAME: Session Timeout (secs)
@@ -4570,6 +4298,8 @@ TIPS: [Security] Set a proper value for production use, usually less than 300 se
 END_TIPS
 
 [END_ITEM]
+
+
 
 [ITEM]
 ID: adminUser
@@ -4597,6 +4327,7 @@ END_TIPS
 [END_ITEM]
 
 
+
 [ITEM]
 ID: enableHotlinkCtrl
 NAME: Enable Hotlink Protection
@@ -4618,7 +4349,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
 
 
 
@@ -4672,7 +4402,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
 
 
 
@@ -4730,7 +4459,6 @@ END_TIPS
 
 
 
-
 [ITEM]
 ID: allowedHosts
 NAME: Allowed Domains
@@ -4752,7 +4480,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
 
 
 
@@ -4783,6 +4510,32 @@ END_TIPS
 
 
 
+[ITEM]
+ID: log_enableAioLog
+NAME: Enable AIO Logging
+REQUIRED: 
+APPLY: 3
+SINCE: 4.2.19
+SEE_ALSO: 
+
+DESCR: Specifies whether to enable AIO logging for server log and access log.
+If enabled, asynchronous I/O will be used for writing log messages.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: Enabling AIO logging can help overall server performance when server I/O wait is high.
+END_TIPS
+
+[END_ITEM]
+
+
+
+##################### Common Table definitions #########################
 
 
 [TBL]
@@ -4808,13 +4561,6 @@ SEE_ALSO:
 
 
 
-
-
-
-
-
-
-
 [TBL]
 ID: geolocationDB
 NAME: IP to Geolocation DB
@@ -4833,9 +4579,19 @@ SEE_ALSO:
 
 
 
-##################### Common Table definitions #########################
 
+[TBL]
+ID: servLog
+NAME: Server Log
 
+DESCR: 
+END_DESCR
+
+CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_enableStderrLog log_enableAioLog
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
 
 
 
