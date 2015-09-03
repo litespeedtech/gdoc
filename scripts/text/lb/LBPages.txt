@@ -10,8 +10,8 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies the user/group that the server process runs as. 
-This value was set during installation. To change it, 
-you have to download the installation package and perform an upgrade via command line.
+This value is set during installation. In order to change it, 
+you must download the installation package and perform an upgrade via the command line.
 END_DESCR
 
 SYNTAX: 
@@ -20,21 +20,48 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] Server should not run as a privileged user such as "root". 
-It is critical that the server is configured to run with a un-privileged user/group combination 
-that does not have login/shell access. A user/group of {val}nobody{/} is generally a good choice.
+TIPS: [Security] Server should not be run as a privileged user, such as "root". 
+It is critical that the server is configured to run as an un-privileged user/group combination 
+that does not have login/shell access. A user and group of {val}nobody{/} is generally a good choice.
 END_TIPS
 
 [END_ITEM]
 
 
+
+[ITEM]
+ID: serverPriority
+NAME: Priority
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: External App {ITEM=ExtApp_Help#extAppPriority}, {ITEM=ServSecurity_Help#CGIPriority}
+
+DESCR: Specifies priority of the server processes. Value ranges from
+{val}-20{/} to {val}20{/}. A lower number equates to a higher priority.
+END_DESCR
+
+SYNTAX: Integer number
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Usually a higher priority leads to slightly higher
+web performance on a busy server. Do not set priority higher than that of database processes.
+END_TIPS
+
+[END_ITEM]
+
+
+
 [ITEM]
 ID: rewriteLogLevel
-NAME: Rewrite Log Level
+NAME: Log Level
 REQUIRED: 
 APPLY: 3
 SINCE: 
-SEE_ALSO: Server {ITEM=ServGeneral_Help#log_logLevel}
+SEE_ALSO:
 
 DESCR: Specifies the log level of the rewrite engine debug output.
 Value ranges from 0 - 9, 0 will disable logging and 9 will produce the
@@ -65,7 +92,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the cluster that handle requests to this vhost. 
+DESCR: Specifies the default cluster used for handling requests to this vhost. 
 END_DESCR
 
 SYNTAX: select
@@ -78,7 +105,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
 
 
 
@@ -103,8 +129,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -144,7 +168,6 @@ END_TIPS
 
 
 
-
 [ITEM]
 ID: dynReqPerSec
 NAME: Requests/Second
@@ -176,9 +199,6 @@ END_TIPS
 
 
 
-
-
-
 [ITEM]
 ID: extCluster
 NAME: Cluster
@@ -200,8 +220,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -235,8 +253,6 @@ path, followed by '|'. Example, "4|/path/to/logger/app" tell server to
 start up to 4 logger processes, while, only one logger process will be
 started if "/path/to/logger/app" is used.
 <br>
-
-
 END_DESCR
 
 SYNTAX: [&lt;intances&gt;|]&lt;path_to_logger_app&gt;
@@ -249,8 +265,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -281,6 +295,7 @@ END_TIPS
 [END_ITEM]
 
 
+
 [ITEM]
 ID: listenerType
 NAME: Type
@@ -308,6 +323,7 @@ END_TIPS
 [END_ITEM]
 
 
+
 [ITEM]
 ID: mapped_L4_clusters
 NAME: Mapped Cluster
@@ -332,6 +348,7 @@ END_TIPS
 [END_ITEM]
 
 
+
 [TBL]
 ID: servProcess
 NAME: Server Process
@@ -344,7 +361,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
-
 
 
 
@@ -362,8 +378,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
-
-
 
 
 
@@ -400,8 +414,6 @@ SEE_ALSO:
 
 
 
-
-
 [TBL]
 ID: gzipTuning
 NAME: GZIP Compression Tuning
@@ -417,9 +429,6 @@ SEE_ALSO:
 
 
 
-
-
-
 [TBL]
 ID: vhGeneral
 NAME: General
@@ -432,7 +441,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
-
 
 
 
@@ -488,8 +496,6 @@ SEE_ALSO:
 
 
 
-
-
 [TBL]
 ID: tpSecThrottle
 NAME: Per Client Throttling Control
@@ -541,22 +547,6 @@ SEE_ALSO:
 
 
 [TBL]
-ID: servLog
-NAME: Server Log
-
-DESCR: 
-END_DESCR
-
-CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_enableStderrLog 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-
-[TBL]
 ID: LB_listenerGeneral
 NAME: General
 
@@ -568,7 +558,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
-
 
 
 
@@ -587,8 +576,6 @@ SEE_ALSO:
 
 
 
-
-
 [TBL]
 ID: templateMembers
 NAME: Member Virtual Hosts
@@ -601,8 +588,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
-
-
 
 
 
@@ -630,8 +615,6 @@ SEE_ALSO:
 
 
 
-
-
 [TBL]
 ID: serviceMgr
 NAME: Server
@@ -644,6 +627,9 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
+
+
+
 >>>>>>> 1.8
 
 
@@ -683,7 +669,6 @@ SEE_ALSO:
 
 
 
-
 [PAGE]
 ID: ServTuning_Help 
 NAME: Server Tuning
@@ -696,7 +681,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
-
 
 
 
@@ -778,7 +762,6 @@ SEE_ALSO:
 
 
 
-
 [PAGE]
 ID: VirtualHosts_Help 
 NAME: Virtual Host List
@@ -792,7 +775,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
-
 
 
 
@@ -811,8 +793,6 @@ SEE_ALSO:
 
 
 
-
-
 [PAGE]
 ID: VHSecurity_Help 
 NAME: Virtual Host Security
@@ -825,6 +805,7 @@ END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
+
 
 
 [PAGE]
@@ -852,7 +833,6 @@ SEE_ALSO:
 
 
 
-
 [TBL]
 ID: templateSettings
 NAME: Template Settings
@@ -865,8 +845,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
-
-
 
 
 
@@ -911,9 +889,6 @@ SEE_ALSO:
 
 
 
-
-
-
 [PAGE]
 ID: LB_Listeners_Help 
 NAME: Listeners
@@ -926,7 +901,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
-
 
 
 
@@ -946,12 +920,12 @@ SEE_ALSO:
 
 
 
-
 [PAGE]
 ID: index 
 NAME: Home
 STATIC: index.txt
 [END_PAGE]
+
 
 
 [PAGE]
@@ -960,11 +934,15 @@ NAME: License
 STATIC: license.txt
 [END_PAGE]
 
+
+
 [PAGE]
 ID: intro 
 NAME: Introduction
 STATIC: intro.txt
 [END_PAGE]
+
+
 
 [PAGE]
 ID: security
@@ -972,11 +950,15 @@ NAME: Security
 STATIC: security.txt
 [END_PAGE]
 
+
+
 [PAGE]
 ID: install 
 NAME: Installation
 STATIC: install.txt
 [END_PAGE]
+
+
 
 [PAGE]
 ID: admin 
@@ -984,11 +966,14 @@ NAME: Administration
 STATIC: admin.txt
 [END_PAGE]
 
+
+
 [PAGE]
 ID: config 
 NAME: Configuration
 STATIC: config.txt
 [END_PAGE]
+
 
 
 [PAGE]
@@ -1014,6 +999,7 @@ END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
+
 
 
 [END_HELPDOC]
