@@ -7,12 +7,14 @@
   Log in to the web administration console and hover over <span class="tag">Actions</span> in the top menu. The drop menu contains shortcuts to common tasks. Clicking on 
 <span class="tag">Actions</span> will take you to a dedicate control panel page.<br>
 Clicking on one of the shortcuts or the corresponding link on the dedicated control panel page can perform the following tasks: 
+<ul>
 <li>Gracefully restart the server</li> 
 <li>View log</li>
 <li>Real-time monitoring</li>
 <li>Reload virtual hosts</li>
 <li>Enable/Disable virtual hosts</li>
 <li>Version management.</li>
+</ul>
 <br>
 <p><a href="ServerStat_Help.html">More details ...</a></p>
 <p>To change the username and password combination for the load balancer's WebAdmin Console, run following command from shell:<br>
