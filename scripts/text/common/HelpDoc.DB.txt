@@ -467,7 +467,7 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 
-[END_ITEM
+[END_ITEM]
 
 
 
@@ -479,7 +479,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies how often the update agent will check for a new product release. Options are "Daily", "Weekly", or "Monthly".
+DESCR: Specifies how often the update agent will check for a new product release. Options are "Daily", "Weekly", and "Monthly".
 END_DESCR
 
 SYNTAX: select 
