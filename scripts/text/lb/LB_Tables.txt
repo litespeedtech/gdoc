@@ -1,8 +1,6 @@
 [HELPDOC]
 
 
-#################### TITLE ####################
-
 [TBL]
 ID: servProcess
 NAME: Server Process
@@ -325,6 +323,83 @@ DESCR: Configure HA virtual interface.
 END_DESCR
 
 CONT: haInterfaceId haVip haVipId haVipToken haNic haRole 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: ClusterWorkerGroup
+NAME: Layer 7 Worker Group
+
+DESCR: 
+END_DESCR
+
+CONT: workerName worker_type workerGroupEnabled sourceIP defaultTargetPort maxConns env initTimeout retryTimeout persistConn pcKeepAliveTimeout respBuffer pingUrl pingInterval nodeAddresses
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[TBL]
+ID: ClusterWorkerGroupL4
+NAME: Layer 4 Worker Group
+
+DESCR: 
+END_DESCR
+
+CONT: workerName workerGroupEnabled sourceIP defaultTargetPort maxConns initTimeout retryTimeout pingInterval nodeAddresses
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: ClusterDef
+NAME: Load Balancer
+
+DESCR: 
+END_DESCR
+
+CONT: lb_name lb_type lb_mode strategy
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: ClusterSession
+NAME: Session Management
+
+DESCR: 
+END_DESCR
+
+CONT: sessionExMethod sessionId sessionTimeout 
+	  insertCookie cookieName
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: ClusterErrMsg
+NAME: Custom Error Messages
+
+DESCR: Specify a custom error message in case error occured during
+distributing request to backend servers. Custom error messages
+configured at virtual host level will override this configuration.
+END_DESCR
+
+CONT: errMessage 
 END_CONT
 
 SEE_ALSO: 
