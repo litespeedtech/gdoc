@@ -1,8 +1,6 @@
 [HELPDOC]
 
 
-
-
 [ITEM]
 ID: sname
 NAME: Name - Server
@@ -25,8 +23,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -166,9 +162,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
 
 
 
