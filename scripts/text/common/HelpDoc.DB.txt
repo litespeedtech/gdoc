@@ -182,7 +182,7 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: {ent_version} Specifies the directory where the chroot environment is rooted. 
-Only "root" user can run the {ws_lb} in chroot mode. Whether to run in chroot mode is controlled by 
+Only "root" user can run {ws_lb} in chroot mode. Whether to run in chroot mode is controlled by 
 {ITEM=enableChroot} option. The installer program will set up the initial chroot environment automatically. 
 This entry is read-only, and if you want to change it, please run the installer again from the command line. 
 

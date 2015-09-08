@@ -8,7 +8,8 @@ NAME: Server Process
 DESCR: 
 END_DESCR
 
-CONT: serverName runningAs serverPriority inMemBufSize swappingDir  
+CONT: serverName runningAs serverPriority 
+servChrootPath enableChroot inMemBufSize swappingDir  
 END_CONT
 
 SEE_ALSO: 
@@ -189,8 +190,10 @@ DESCR: A Load Balancer Context can be used to forward one URI or a group of URIs
 The destination URI can be either on the same web site or an absolute URI pointing to another web site.
 END_DESCR
 
-CONT: expuri extCluster accessAllowed accessDenied realm authName required addDefaultCharset defaultCharsetCustomized
-enableRewrite rewriteInherit rewriteBase rewriteRules enableIpGeo 
+CONT: expuri extCluster realm authName required accessAllowed accessDenied cachePolicy:enableCache cachePolicy:maxCacheObjSize cachePolicy:expireInSeconds 
+cachePolicy:maxStaleAge cachePolicy:qsCache cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl cachePolicy:ignoreRespCacheCtrl 
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds enableRewrite rewriteInherit rewriteBase rewriteRules addDefaultCharset defaultCharsetCustomized 
+enableIpGeo 
 END_CONT
 
 SEE_ALSO: 

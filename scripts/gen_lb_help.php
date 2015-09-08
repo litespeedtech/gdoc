@@ -22,10 +22,12 @@ $texts = array("$pathcommon/HelpDoc.DB.txt",
 			"$pathcommon/Listener_Help.txt",
 			"$pathcommon/ExtApp_Help.txt",
 			"$pathcommon/ServerStat_Help.txt",
+                        "$pathcommon/Cache_Help.txt",
 			"$pathlb/LBPages.txt",
 			"$pathlb/LB_LoadBalancer_Help.txt",
 			"$pathlb/LB_HA_Help.txt",
 			"$pathlb/PageNavDef.txt",
+                        "$pathlb/LB_Server_General.txt",
                         "$pathlb/LB_Tables.txt");
 
 $base = new ItemBase($texts);

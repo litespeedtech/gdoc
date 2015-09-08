@@ -1,0 +1,58 @@
+[HELPDOC]
+
+
+############ Server Process ############
+
+[ITEM]
+ID: runningAs
+NAME: Running As
+REQUIRED: 
+APPLY: 1
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the user/group that the server process runs as. 
+This value is set during installation. In order to change it, 
+you must download the installation package and perform an upgrade via the command line.
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] Server should not be run as a privileged user, such as "root". 
+It is critical that the server is configured to run as an un-privileged user/group combination 
+that does not have login/shell access. A user and group of {val}nobody{/} is generally a good choice.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: serverPriority
+NAME: Priority
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: External App {ITEM=ExtApp_Help#extAppPriority}, {ITEM=ServSecurity_Help#CGIPriority}
+
+DESCR: Specifies priority of the server processes. Value ranges from
+{val}-20{/} to {val}20{/}. A lower number equates to a higher priority.
+END_DESCR
+
+SYNTAX: Integer number
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Usually a higher priority leads to slightly higher
+web performance on a busy server. Do not set priority higher than that of database processes.
+END_TIPS
+
+[END_ITEM]
+
+[END_HELPDOC]

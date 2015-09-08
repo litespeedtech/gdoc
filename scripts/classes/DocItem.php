@@ -132,7 +132,7 @@ class DocItem
 				if ( strncmp($tag, $line, strlen($tag)) == 0 )
 				{
 					if ($this->_descr != NULL) {
-						echo "Item error: duplicate description found $this->_id\n";
+						echo("Item error: duplicate description found $this->_id \n Existing descr = " . $this->_descr . "\n New descr = " . substr($line, strlen($tag)));
 					}
 					$this->_descr = substr($line, strlen($tag));
 					$descrInd = true;

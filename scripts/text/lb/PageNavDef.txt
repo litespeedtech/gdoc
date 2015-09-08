@@ -36,6 +36,7 @@ ServTuning_Help
 ServSecurity_Help
 LB_ExtApp_Help 
 RequestFilter_Help
+Cache_Help
 LB_Listeners_Help
 Clusters_Help
 Templates_Help
