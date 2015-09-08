@@ -3436,7 +3436,7 @@ WebAdmin console by clicking on the file name.
 
 
 Each line of a group file should contain a groupname followed by a colon,  
-followed by space delimited group of user names. Example:
+followed by space delimited group of usernames. Example:
 
 <blockquote><code>testgroup: user1 user2 user3</code></blockquote> 
 
@@ -3930,7 +3930,7 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies the authorization realm for this context. When specified, 
-a valid user name and password must be provided in order to access this context. 
+a valid username and password must be provided in order to access this context. 
 {TBL=VHSecurity_Help#realms} are set up in the {PAGE=VHSecurity_Help} section. 
 This setting uses each realm's {ITEM=VHSecurity_Help#realmName}.
 END_DESCR
@@ -4309,7 +4309,7 @@ APPLY: Immediately
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Change the user name and password for WebAdmin Console. 
+DESCR: Change the username and password for WebAdmin Console. 
 The old password has to be entered and verified in order to save the changes.  
 END_DESCR
 
@@ -4780,7 +4780,7 @@ NAME: Authorization Realms
 
 DESCR: Lists all authorization realms for this virtual host. 
 Authorization realms are used to block unauthorized users from accessing protected web pages.
-A realm is a user directory containing user names and passwords with optional 
+A realm is a user directory containing usernames and passwords with optional 
 group classifications. Authorization is performed at context level. 
 Since different contexts can share the same realm (user database), so realms are 
 defined separately from the contexts that use them. 

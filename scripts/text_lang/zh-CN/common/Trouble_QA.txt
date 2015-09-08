@@ -35,7 +35,7 @@ SEE_ALSO:
 ID: pass
 Q: I forgot my password for the web administration interface, what should I do?
 
-A: Please run <span class="cmd">$SERVER_ROOT/admin/misc/admpass.sh</span> to reset the user name and password.
+A: Please run <span class="cmd">$SERVER_ROOT/admin/misc/admpass.sh</span> to reset the username and password.
 END_A
 
 SEE_ALSO: 

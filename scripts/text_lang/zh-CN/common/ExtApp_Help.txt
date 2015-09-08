@@ -496,10 +496,10 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: extGroup
 
-DESCR: Specifies user name that the external application will run as. If not set, the external application will run as the user of the web server.   
+DESCR: Specifies username that the external application will run as. If not set, the external application will run as the user of the web server.   
 END_DESCR
 
-SYNTAX: Valid user name.
+SYNTAX: Valid username.
 END_SYNTAX
 
 EXAMPLE: 

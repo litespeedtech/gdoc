@@ -89,7 +89,7 @@
       <li> If a previously installed copy exists, the Installer will ask you to choose either
         upgrade, reinstall, or change directory. Upgrading will keep your current 
         configurations.</li>
-      <li> Administrator's user name and password for the WebAdmin interface.</li>
+      <li> Administrator's username and password for the WebAdmin interface.</li>
       <li> What control panel, if any, you will use with LSWS.</li>
       <li> User and group that the server process will run on behalf of.</li>
       <li> TCP port for normal web service.</li>
@@ -131,7 +131,7 @@
     the port for WebAdmin during installation, use that port instead.) 
     Remember that for [address] you can use "localhost" if you're using the 
     machine the server is on. The administration interface welcome page should 
-    load. Click the "Log on" link and use the administrator's user name and 
+    load. Click the "Log on" link and use the administrator's username and 
     password specified during installation to log on. For detailed information 
     regarding configuration, please refer to our <a href="config.html">Configuration
     Guide</a>, or click the "help" link on top of each page. 

@@ -152,7 +152,7 @@ DESCR: Specify how to extract session ID from request.
 
 IP Address: Uses Client IP as session ID. 
 
-Basic Authentication: Uses user name in the basic authentication as session ID. 
+Basic Authentication: Uses username in the basic authentication as session ID. 
 
 Query String: Uses a Parameter in request query string as session ID. 
 
