@@ -1,5 +1,9 @@
 [HELPDOC]
 
+
+#### HA Interface Config ####
+
+
 [ITEM]
 ID: haInterfaceId
 NAME: Name
@@ -46,6 +50,8 @@ END_TIPS
 
 [END_ITEM]
 
+
+
 [ITEM]
 ID: haVipId
 NAME: Virtual IP ID
@@ -67,6 +73,8 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
+
+
 
 [ITEM]
 ID: haVipToken
@@ -90,6 +98,8 @@ END_TIPS
 
 [END_ITEM]
 
+
+
 [ITEM]
 ID: haNic
 NAME: NIC Name
@@ -112,6 +122,7 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
+
 
 
 [ITEM]
@@ -162,6 +173,7 @@ END_TIPS
 [END_ITEM]
 
 
+#### HA Status ####
 [ITEM]
 ID: haAction
 NAME: Action
@@ -188,10 +200,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
-
 
 
 

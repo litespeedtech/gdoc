@@ -784,19 +784,6 @@ SEE_ALSO:
 [END_TBL]
 
 
-[TBL]
-ID: sslFeature
-NAME: Security & Features
-
-DESCR: 
-END_DESCR
-
-CONT: renegProtection enableSpdy
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
 
 [TBL]
 ID: sslOCSP
@@ -832,23 +819,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
-
-
-[TBL]
-ID: Admin_listenerGeneral
-NAME: General
-
-DESCR: 
-END_DESCR
-
-CONT: listenerName listenerIP listenerPort listenerSecure
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
 
 
 [END_HELPDOC]

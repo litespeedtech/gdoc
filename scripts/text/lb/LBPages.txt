@@ -341,7 +341,7 @@ NAME: Server Tuning
 DESCR: 
 END_DESCR
 
-CONT: connTuning reqTuning gzipTuning 
+CONT: connTuning reqTuning gzipTuning sslSessionTBL
 END_CONT
 
 SEE_ALSO: 
@@ -498,10 +498,6 @@ SEE_ALSO:
 
 
 
-
-
-
-
 [PAGE]
 ID: Templates_Help 
 NAME: Virtual Host Templates
@@ -559,7 +555,7 @@ SEE_ALSO:
 
 
 [PAGE]
-ID: AdminListener_Help 
+ID: LB_AdminListener_Help 
 NAME: Admin Listeners
 
 DESCR: Admin Listeners are dedicated to the Admin Server. Secure (SSL) listeners 

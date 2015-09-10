@@ -307,7 +307,7 @@ NAME: HA Status
 DESCR: View the current status of HA interfaces. It displays the configuration 
 from web administration console and real settings from the system side by side. 
 You can also control (add/remove/enable/disable) your virtual interfaces from here. 
-You can also click "Refresh" to retrieve current system status. 
+Click "Refresh" to retrieve current system status. 
 END_DESCR
 
 CONT: haConfiguredStatus haAction
@@ -394,6 +394,21 @@ SEE_ALSO:
 
 
 [TBL]
+ID: Admin_listenerGeneral
+NAME: General
+
+DESCR: 
+END_DESCR
+
+CONT: listenerName listenerType listenerIP listenerPort listenerSecure
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
 ID: ClusterErrMsg
 NAME: Custom Error Messages
 
@@ -407,5 +422,20 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
+
+
+[TBL]
+ID: sslFeature
+NAME: Security & Features
+
+DESCR: 
+END_DESCR
+
+CONT: renegProtection sslSessionCache sslSessionTickets
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
 
 [END_HELPDOC]
