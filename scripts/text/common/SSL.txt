@@ -37,7 +37,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Enables session tickets.  If "Not Set", the server will use openSSL's default ticket.
+DESCR: Enables session tickets. If "Not Set", the server will use openSSL's default ticket.
 
 END_DESCR
 
@@ -65,8 +65,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:   (optional)  - 0 to int max
-    Sets the maximun number of SSL Session IDs to store in the cache.  Default is 1 million.
+DESCR: Sets the maximum number of SSL session IDs to store in the cache. Default is 1,000,000.
 
 END_DESCR
 
@@ -80,33 +79,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
-[ITEM]
-ID: sslSessionCacheSize
-NAME: Session Cache Size (bytes)
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR:   (optional)  - 0 to int max
-    Sets the maximun number of SSL Session IDs to store in the cache.  Default is 1 million.
-
-END_DESCR
-
-SYNTAX: Integer number
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS:
-END_TIPS
-
-[END_ITEM]
-
 
 
 [ITEM]
@@ -117,9 +89,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:   0 to int max
-    Sets the expiration time for the SSL Session IDs.  Default is 1 hour. 
-This value determines how long a session ID will be valid within the cache before a renegotiation is required.
+DESCR: This value determines how long a session ID will be valid within the cache before a renegotiation is required. Default is 3,600.
 
 END_DESCR
 
@@ -138,18 +108,18 @@ END_TIPS
 
 [ITEM]
 ID: shmDefaultDir
-NAME: 
+NAME: Default SHM Directory
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:  Changes shared memory's default directory to the specified path.  If the directory does not exist, it will be created. 
-All shm data will be stored in this directory unless otherwise specified.
+DESCR: Changes shared memory's default directory to the specified path. If the directory does not exist, it will be created. 
+All SHM data will be stored in this directory unless otherwise specified.
 
 END_DESCR
 
-SYNTAX: path
+SYNTAX: Path
 END_SYNTAX
 
 EXAMPLE: 
@@ -170,8 +140,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:   216000 (1 hour) to int max
-    Sets the lifetime of a ticket.  Default is 1 hour.  This value determines how long a session ticket will be valid before a renegotiation is required.
+DESCR: This value determines how long a session ticket will be valid before a renegotiation is required. Default is 3,600.
 
 
 END_DESCR
@@ -197,10 +166,12 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:   Allows the SSL Ticket Key to be created/maintained by an administrator.  The file must be 48 bytes long.  If this option is left empty, the load balancer 
-will generate and rotate its own set of keys.  IMPORTANT: To maintain forward secrecy, it is strongly recommended to change the key every ticketLifetime
- seconds.  If this cannot be done, it is recommended to just leave this field empty.
+DESCR: Allows the SSL Ticket Key to be created/maintained by an administrator. The file must be 48 bytes long. If this option is left empty, the load balancer 
+will generate and rotate its own set of keys. 
 
+
+IMPORTANT: To maintain forward secrecy, it is strongly recommended to change the key every <b>SSL Session Ticket Lifetime</b>
+ seconds. If this cannot be done, it is recommended to leave this field empty.
 
 END_DESCR
 
@@ -225,8 +196,8 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:   Sets the base directory that dynamic ssl certificates will be stored in.  For example, $SERVER_ROOT/certStore/.  Certificates, 
-keys, and CA Bundles are expected to be named "cert", "key", and "ca", respectively.
+DESCR: Sets the base directory that dynamic ssl certificates will be stored in. 
+Certificates, keys, and CA Bundles are expected to be named "cert", "key", and "ca", respectively.
 
 
 END_DESCR
@@ -234,7 +205,7 @@ END_DESCR
 SYNTAX: Path
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE: $SERVER_ROOT/certStore/
 END_EXAMPLE
 
 TIPS:
@@ -252,15 +223,17 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:  0 to 4. The number of directory levels the certificate files will be in.  For example, if it is 2, "example.com" would be in BaseDir/e/x/example.com/.  Similar 
-to "Session.save_path" in http://php.net/manual/en/session.configuration.php#ini.session.save-path
+DESCR: The number of directory levels the certificate files will be in. 
+
+
+This is similar to "Session.save_path" in <a>http://php.net/manual/en/session.configuration.php#ini.session.save-path</a>
 
 END_DESCR
 
 SYNTAX: Integer number
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE: If set to 2, "example.com" would be in BaseDir/e/x/example.com/
 END_EXAMPLE
 
 TIPS:
@@ -278,8 +251,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:   300 to int max
-    Sets the expire time of dynamically loaded certificates before it is invalidated.
+DESCR: Sets the expire time of a dynamically loaded certificate before it is invalidated.
 
 END_DESCR
 
@@ -304,8 +276,8 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:   Sets the refresh time of dynamically loaded certificates before it will check for file validity.  If 
-the file is removed after refresh time, the cert will be invalidated.  If the file is updated after refresh time, the cert will be updated.
+DESCR: Sets the refresh time of a dynamically loaded certificate before it will check for file validity. If 
+the file is removed after refresh time, the cert will be invalidated. If the file is updated after refresh time, the cert will be updated.
 
 END_DESCR
 
@@ -331,8 +303,11 @@ SINCE:
 SEE_ALSO: 
 
 DESCR:  Allows listeners/vhosts to set multiple SSL certificates.  If multiple certificates are enabled, the certificates/keys 
-are expected to follow a naming scheme.  If the cert is named server.crt, other possible cert names are server.crt.rsa, server.crt.dsa, server.crt.ecc. If "Not Set", defaults to "No".
+are expected to follow a naming scheme.  If the cert is named server.crt, other possible cert names are server.crt.rsa, server.crt.dsa, server.crt.ecc. If 
+"Not Set", defaults to "No".
 
+
+ Must be set to "Yes" for LSLB multiprocessing to work correctly.
 END_DESCR
 
 SYNTAX: bool
