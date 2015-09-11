@@ -302,7 +302,7 @@ SEE_ALSO:
 
 [TBL]
 ID: HAStatus
-NAME: HA Status
+NAME: Status
 
 DESCR: View the current status of HA interfaces. It displays the configuration 
 from web administration console and real settings from the system side by side. 
@@ -320,12 +320,12 @@ SEE_ALSO:
 
 [TBL]
 ID: HAConfig
-NAME: HA Configuration
+NAME: Config
 
-DESCR: Configure HA virtual interface.
+DESCR:
 END_DESCR
 
-CONT: haInterfaceId haVip haVipId haVipToken haNic haRole 
+CONT: haRep_serverAddr haRep_replCluster haRep_heartBeatInterval haRep_heartBeatTimeout haRep_isGzipStream haInterfaceId haVip haVipId haVipToken haNic haRole 
 END_CONT
 
 SEE_ALSO: 
@@ -340,7 +340,8 @@ NAME: Layer 7 Worker Group
 DESCR: 
 END_DESCR
 
-CONT: workerName worker_type workerGroupEnabled sourceIP defaultTargetPort maxConns env initTimeout retryTimeout persistConn pcKeepAliveTimeout respBuffer pingUrl pingInterval nodeAddresses
+CONT: workerName worker_type workerGroupEnabled sourceIP defaultTargetPort maxConns env initTimeout retryTimeout 
+persistConn pcKeepAliveTimeout respBuffer pingUrl pingInterval nodeAddresses
 END_CONT
 
 SEE_ALSO: 

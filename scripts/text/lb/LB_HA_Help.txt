@@ -149,6 +149,133 @@ END_TIPS
 
 
 
+#### High Availability Replication ####
+
+
+[ITEM]
+ID: haRep_serverAddr
+NAME: Server Address
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: ???
+END_DESCR
+
+SYNTAX: IP Address
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haRep_replCluster
+NAME: Replication Cluster
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: ???
+END_DESCR
+
+SYNTAX: ???
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haRep_heartBeatInterval
+NAME: Heart Beat Interval (secs)
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: Sets the time interval that "I am alive" message will be sent. (CHECK) 
+END_DESCR
+
+SYNTAX: Integer number
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haRep_heartBeatTimeout
+NAME: Heart Beat Timeout (secs)
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: Sets the time interval after which, if "I am alive" message is not sent, it(what is it here?) will be considered to have failed. Must be set higher than 
+<b>Heart Beat interval (secs)</b>. (CHECK)
+END_DESCR
+
+SYNTAX: Integer number
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haRep_isGzipStream
+NAME: Is Gzip Stream (Change)
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: ???
+END_DESCR
+
+SYNTAX: Select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+#### High Availability Status ####
+
+
 [ITEM]
 ID: haConfiguredStatus
 NAME: Configuration Status
