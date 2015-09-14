@@ -304,9 +304,6 @@ END_TIPS
 
 
 
-
-
-
 [ITEM]
 ID: haAction
 NAME: Action
@@ -339,14 +336,81 @@ END_TIPS
 #########################################
 
 
+[TBL]
+ID: HAInterface
+NAME: Interface
+
+DESCR:
+END_DESCR
+
+CONT: haInterfaceId haVip haVipId haVipToken haNic haRole
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: HAReplication
+NAME: Replication
+
+DESCR: Set the port for replication and replication cluster for this LSLB server. You can also configure Heart Beat settings and 
+enable/disable Gzip for load balancer traffic.
+END_DESCR
+
+CONT: haRep_serverAddr haRep_replCluster haRep_heartBeatInterval haRep_heartBeatTimeout haRep_isGzipStream haInterfaceId haVip haVipId haVipToken haNic haRole 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: HAStatus
+NAME: Status
+
+DESCR: View the current status of HA interfaces. It displays the configuration 
+from web administration console and real settings from the system side by side. 
+You can also control (add/remove/enable/disable) your virtual interfaces from here. 
+Click "Refresh" to retrieve current system status. 
+END_DESCR
+
+CONT: haConfiguredStatus haAction
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+#########################################
+
+
+
 [PAGE]
-ID: HA_Help 
-NAME: High Availability Settings
+ID: HA_Status 
+NAME: High Availability Status
 
 DESCR: 
 END_DESCR
 
-CONT:  HAConfig HAStatus
+CONT: HAStatus
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: HA_Config 
+NAME: High Availability Config
+
+DESCR: 
+END_DESCR
+
+CONT: HAReplication HAInterface
 END_CONT
 
 SEE_ALSO: 
@@ -354,4 +418,3 @@ SEE_ALSO:
 
 
 [END_HELPDOC]
-

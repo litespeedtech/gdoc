@@ -29,7 +29,8 @@
         <li><a href="Context_Help.html">Context</a></li>
 	<li><a href="AdminGeneral_Help.html">Admin Server</a></li>
 	<li><a href="LB_AdminListener_Help.html">Admin Listeners</a></li>
-	<li><a href="HA_Help.html">High Availability Settings</a></li>	
+	<li><a href="HA_Config.html">High Availability Config</a></li>
+        <li><a href="HA_Status.html">High Availability Status</a></li>
 	</ul>
 </li>
 </ul>

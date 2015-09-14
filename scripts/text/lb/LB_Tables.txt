@@ -301,39 +301,6 @@ SEE_ALSO:
 
 
 [TBL]
-ID: HAStatus
-NAME: Status
-
-DESCR: View the current status of HA interfaces. It displays the configuration 
-from web administration console and real settings from the system side by side. 
-You can also control (add/remove/enable/disable) your virtual interfaces from here. 
-Click "Refresh" to retrieve current system status. 
-END_DESCR
-
-CONT: haConfiguredStatus haAction
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: HAConfig
-NAME: Config
-
-DESCR:
-END_DESCR
-
-CONT: haRep_serverAddr haRep_replCluster haRep_heartBeatInterval haRep_heartBeatTimeout haRep_isGzipStream haInterfaceId haVip haVipId haVipToken haNic haRole 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
 ID: ClusterWorkerGroup
 NAME: Layer 7 Worker Group
 
