@@ -273,66 +273,6 @@ END_TIPS
 
 
 
-#### High Availability Status ####
-
-
-[ITEM]
-ID: haConfiguredStatus
-NAME: Configuration Status
-REQUIRED: 
-APPLY: 3
-SINCE: 2.0
-SEE_ALSO: 
-
-DESCR: Displays the current configuration status versus the real system status for a HA interface. 
-It allows you to apply changes or fix errors. 
-END_DESCR
-
-SYNTAX: Display Information
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-#### HA Status ####
-
-
-
-[ITEM]
-ID: haAction
-NAME: Action
-REQUIRED: 
-APPLY: 3
-SINCE: 2.0
-SEE_ALSO: 
-
-DESCR: Displays available actions based on configuration and real system status. 
-You can add/remove/enable/disable a HA interface based on current status. 
-If you need to apply configuration changes, for any active interface, you need to
-disable it first, then enable it with new configuration. An error message will display
-if the control action fails. 
-
-END_DESCR
-
-SYNTAX: action 
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
 #########################################
 
 
@@ -367,40 +307,7 @@ SEE_ALSO:
 
 
 
-[TBL]
-ID: HAStatus
-NAME: Status
-
-DESCR: View the current status of HA interfaces. It displays the configuration 
-from web administration console and real settings from the system side by side. 
-You can also control (add/remove/enable/disable) your virtual interfaces from here. 
-Click "Refresh" to retrieve current system status. 
-END_DESCR
-
-CONT: haConfiguredStatus haAction
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
 #########################################
-
-
-
-[PAGE]
-ID: HA_Status 
-NAME: High Availability Status
-
-DESCR: 
-END_DESCR
-
-CONT: HAStatus
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
-
 
 
 [PAGE]

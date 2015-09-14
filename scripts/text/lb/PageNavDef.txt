@@ -48,7 +48,6 @@ Context_Help
 AdminGeneral_Help
 LB_AdminListener_Help
 HA_Config
-HA_Status
 
 END_NAV_SEQ
 [END_PAGENAV]
