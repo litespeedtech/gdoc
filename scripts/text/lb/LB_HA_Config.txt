@@ -84,7 +84,8 @@ APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: Specifies a token of the virtual IP address, which is required to authenticate interface(carp/vrrp) advertisements. VIP, VIP ID and VIP Token have to be same for the same HA group.
+DESCR: Specifies a token of the virtual IP address, which is required to authenticate interface(carp/vrrp) advertisements. VIP, VIP ID and VIP Token 
+have to be same for the same HA group.
 END_DESCR
 
 SYNTAX: text
@@ -187,7 +188,7 @@ SEE_ALSO:
 DESCR: List of replicators, by their IP Address and port number, that are a part of this replication cluster.
 END_DESCR
 
-SYNTAX: Comma separated list of IP:port
+SYNTAX: Comma separated list in the form IP:port
 END_SYNTAX
 
 EXAMPLE: 
@@ -273,7 +274,7 @@ END_TIPS
 
 
 
-#########################################
+########### Tables ############
 
 
 [TBL]
@@ -307,7 +308,7 @@ SEE_ALSO:
 
 
 
-#########################################
+########### Pages ############
 
 
 [PAGE]
