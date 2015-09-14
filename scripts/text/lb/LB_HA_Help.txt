@@ -160,10 +160,10 @@ APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: ???
+DESCR: Local IP address and port to be used for replication.
 END_DESCR
 
-SYNTAX: IP Address
+SYNTAX: IP:port
 END_SYNTAX
 
 EXAMPLE: 
@@ -184,10 +184,10 @@ APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: ???
+DESCR: List of replicators, by their IP Address and port number, that are a part of this replication cluster.
 END_DESCR
 
-SYNTAX: ???
+SYNTAX: Comma separated list of IP:port
 END_SYNTAX
 
 EXAMPLE: 
@@ -208,10 +208,10 @@ APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: Sets the time interval that "I am alive" message will be sent. (CHECK) 
+DESCR: Sets the time interval that "I am alive" message will be sent.
 END_DESCR
 
-SYNTAX: Integer number
+SYNTAX: uint
 END_SYNTAX
 
 EXAMPLE: 
@@ -232,11 +232,11 @@ APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: Sets the time interval after which, if "I am alive" message is not sent, it(what is it here?) will be considered to have failed. Must be set higher than 
-<b>Heart Beat interval (secs)</b>. (CHECK)
+DESCR: Sets the time interval after which, if "I am alive" message is not sent, replicator will be considered to have failed. Must be set higher than 
+<b>Heart Beat interval (secs)</b>.
 END_DESCR
 
-SYNTAX: Integer number
+SYNTAX: uint
 END_SYNTAX
 
 EXAMPLE: 
@@ -257,10 +257,10 @@ APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: ???
+DESCR: Set Gzip compression for replicator traffic.
 END_DESCR
 
-SYNTAX: Select
+SYNTAX: bool
 END_SYNTAX
 
 EXAMPLE: 
@@ -301,6 +301,224 @@ END_TIPS
 
 
 #### HA Status ####
+
+
+[ITEM]
+ID: 
+NAME: Configured VIP
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR:  ???
+END_DESCR
+
+SYNTAX: IP Address
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: 
+NAME: VIP ID (duplicate?)
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: ???
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: 
+NAME: NIC
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: ??? 
+END_DESCR
+
+SYNTAX: ???
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: 
+NAME: Configuration Status
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: 
+END_DESCR
+
+SYNTAX: ??? 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+ITEM]
+ID: 
+NAME: System VIP
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: ???
+END_DESCR
+
+SYNTAX: IP Address
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+ITEM]
+ID: 
+NAME: System VIP ID
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: ???
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+ITEM]
+ID: 
+NAME: NIC Name
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: ???
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+ITEM]
+ID: 
+NAME: System Role
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: ???
+END_DESCR
+
+SYNTAX: ???
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+ITEM]
+ID: 
+NAME: System Status
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: ??? 
+END_DESCR
+
+SYNTAX: ??? 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
 [ITEM]
 ID: haAction
 NAME: Action
@@ -328,6 +546,9 @@ END_TIPS
 
 [END_ITEM]
 
+
+
+#########################################
 
 
 [PAGE]

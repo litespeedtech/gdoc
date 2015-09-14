@@ -465,7 +465,7 @@ NAME: Virtual Host Security
 DESCR: 
 END_DESCR
 
-CONT: tpSecThrottle vhHotlink vhAccessControl realms reqCensorship reqCensorshipRule
+CONT: tpSecThrottle vhAccessControl realms reqCensorship reqCensorshipRule
 END_CONT
 
 SEE_ALSO: 
