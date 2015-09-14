@@ -26,7 +26,7 @@ $texts = array("$pathcommon/HelpDoc.DB.txt",
                         "$pathcommon/SSL.txt",
 			"$pathlb/LBPages.txt",
 			"$pathlb/LB_LoadBalancer_Help.txt",
-			"$pathlb/LB_HA_Help.txt",
+			"$pathlb/LB_HA_Config.txt",
 			"$pathlb/PageNavDef.txt",
                         "$pathlb/LB_Server_General.txt",
                         "$pathlb/LB_Tables.txt");
