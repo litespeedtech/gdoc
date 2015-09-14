@@ -59,7 +59,7 @@ class GenHelpTips
 	{
 		$buf =<<<EOD
 		\$this->db['note'] = new DATTR_HELP_ITEM('Notes', 'Add a note for yourself.', '', '', '');
-		\$this->db['tpextAppName'] = new DATTR_HELP_ITEM('Name', 'A unique name for this external application. In other parts of the the configuration, you will refer to external applications by this name. For virtual host templates, the external application name must contain the $VH_NAME variable to preserve the uniqueness of external application names on different virtual hosts.', '', '', '');
+		\$this->db['tpextAppName'] = new DATTR_HELP_ITEM('Name', 'A unique name for this external application. In other parts of the the configuration, you will refer to external applications by this name. For virtual host templates, the external application name must contain the \$VH_NAME variable to preserve the uniqueness of external application names on different virtual hosts.', '', '', '');
 
 EOD;
 		return $buf;
