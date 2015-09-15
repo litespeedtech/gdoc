@@ -399,6 +399,83 @@ END_TIPS
 [END_ITEM]
 
 
+
+[ITEM]
+ID: autoUpdateInterval
+NAME: Check For Update
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies how often the update agent will check for a new product release. Options are "Daily", "Weekly", and "Monthly".
+END_DESCR
+
+SYNTAX: select 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: autoUpdateDownloadPkg
+NAME: Download Updates
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to auto-download a new product release package file
+when available. If a new package has been successfully downloaded, an online one-click
+upgrade can be performed via the WebAdmin console under
+Service Manager - {ITEM=ServerStat_Help#vermgr}. 
+END_DESCR
+
+SYNTAX: select 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: adminEmails
+NAME: Administrator Email
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the server administrator's email address(es). 
+If specified, administrators will be notified by email of important events (for example,  
+when the LiteSpeed service is restarted automatically due to crash detection or when license is expiring). 
+END_DESCR
+
+SYNTAX: Comma delimited list of email address.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: Email alert feature will only work if the server has an active MX server such as postfix, exim, or sendmail.
+END_TIPS
+
+[END_ITEM]
+
+
 ############# Index Files #############
 
 
@@ -425,5 +502,161 @@ TIPS: [Performance] Only set index files that you need.
 END_TIPS
 
 [END_ITEM]
+
+
+
+############# HT Access #############
+
+############# Expires Settings #############
+
+
+[ITEM]
+ID: enableExpires
+NAME: Enable Expires
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to generate an Expires header for static files. If enabled, an Expires 
+header will be generated based on {ITEM=expiresDefault} and {ITEM=expiresByType}. 
+
+
+This can be set at server, virtual host and context level. Lower level settings will 
+override higher level ones, i.e. context settings will override virtual host settings 
+and virtual host settings will override server settings.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: expiresDefault
+NAME: Expires Default
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies default settings for Expires header generation. This setting takes effect 
+when {ITEM=enableExpires} is set to "Yes". It can be overridden by {ITEM=expiresByType}. 
+Do not set this default at the server or virtual host level unless you have to, 
+since it will generate Expires headers for all pages. Most of time this should be 
+set at the context level for certain directories that do not change
+often. If there is no default setting, no Expires header will be
+generated for types not specified in {ITEM=expiresByType}.
+END_DESCR
+
+SYNTAX: A|Mseconds
+
+The file will expire after base time(A|M) plus specified seconds. 
+Base time "A" sets the value to the client's access time and "M" to the file's last modified time.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: expiresByType
+NAME: Expires By Type
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies Expires header settings for individual MIME types.
+END_DESCR
+
+SYNTAX: Comma delimited list of "MIME-type=A|Mseconds". 
+The file will expire after base time (A|M) plus specified seconds. 
+
+
+Base time "A" sets the value to the client's access time and "M" to the file's last modified time. 
+MIME-type accepts wildcard "*", like image/*.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# IP to GeoLocation DB #############
+
+
+[ITEM]
+ID: geoipDBFile
+NAME: DB File Path
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: {ent_version} Specifies the path to MaxMind GeoIP database.
+END_DESCR
+
+SYNTAX: file path
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: geoipDBCache
+NAME: DB Cache Type
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: {ent_version} Specifies what kind of cache mode should be used. Cache modes are:
+Standard, MemoryCache, CheckCache and IndexCache. MemoryCache is recommended and is the default. 
+
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Using Apache Configuration File #############
+############# Apache Style Configurations #############
+
 
 [END_HELPDOC]

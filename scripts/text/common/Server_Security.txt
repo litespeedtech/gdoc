@@ -1,0 +1,218 @@
+[HELPDOC]
+
+############# File Access #############
+
+
+[ITEM]
+ID: followSymbolLink
+NAME: Follow Symbolic Link
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=checkSymbolLink}.
+
+DESCR: Specifies the server-level default setting of following symbolic links 
+when serving static files. 
+
+
+Choices are {val}Yes{/}, {val}If Owner Match{/} and {val}No{/}. 
+
+
+{val}Yes{/} sets the server to always follow symbolic links. 
+{val}If Owner Match{/} sets the server to follow a symbolic link only if the owner of the link and of the target are same. 
+{val}No{/} means the server will never follow a symbolic link. 
+This setting can be overridden in the virtual host configurations but cannot be overridden from an .htaccess file.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance & security] For best security select {val}No{/} or {val}If Owner Match{/}. 
+For best performance, select {val}Yes{/}. 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: checkSymbolLink
+NAME: Check Symbolic Link
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=followSymbolLink}, {ITEM=accessDenyDir} 
+
+DESCR: Specifies whether to check symbolic links against {ITEM=accessDenyDir} 
+when {ITEM=followSymbolLink} is turned on. If enabled, the canonical real path of the resource 
+referred by a URL will be checked against the configurable access denied directories. 
+Access will be denied if it falls inside an access denied directory.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance & security] For best security, enable this option. For best performance, disable it.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: forceStrictOwnership
+NAME: Force Strict Ownership Checking
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to enforce strict file ownership checking. 
+If it is enabled, the web server will check if the owner of the file being served is the same as 
+the owner of the virtual host. If it is different, a 403 Access Denied Error will be returned.
+This is turned off by default.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [security] For shared hosting, enable this check for better security.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: requiredPermissionMask
+NAME: Required Permission Mask
+REQUIRED: 
+APPLY: 3
+SINCE: 1.3
+SEE_ALSO: {ITEM=restrictedPermissionMask}.
+
+DESCR: Specifies the required permission mask for static files that the
+{ws_lb} will serve. For example, if only files that are readable
+by everyone can be served, set the value to {val}0004{/}.
+See {cmd}man 2 stat{/} for all values.
+END_DESCR
+
+SYNTAX: octal numbers
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: restrictedPermissionMask
+NAME: Restricted Permission Mask
+REQUIRED: 
+APPLY: 3
+SINCE: 1.3
+SEE_ALSO: {ITEM=requiredPermissionMask}.
+
+DESCR: Specifies the restricted permission mask for static files that the
+{ws_lb} will not serve. For example, to prohibit serving files that are
+executable, set the mask to {val}0111{/}.
+
+
+See {cmd}man 2 stat{/} for all values. 
+END_DESCR
+
+SYNTAX: octal numbers
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: restrictedScriptPermissionMask
+NAME: Script Restricted Permission Mask
+REQUIRED: 
+APPLY: 3
+SINCE: 4.1.5
+SEE_ALSO: {ITEM=restrictedDirPermissionMask}.
+
+DESCR: Specifies the restricted permission mask for script files that the
+{ws_lb} will not serve. For example, to prohibit serving PHP scripts that are
+group and world writable, set the mask to {val}022{/}. Default value is {val}000{/}.
+
+
+See {cmd}man 2 stat{/} for all values. 
+
+END_DESCR
+
+SYNTAX: octal numbers
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: restrictedDirPermissionMask
+NAME: Script Directory Restricted Permission Mask
+REQUIRED: 
+APPLY: 3
+SINCE: 4.1.5
+SEE_ALSO: {ITEM=restrictedScriptPermissionMask}.
+
+DESCR: Specifies the restricted permission mask of parent directories of script files that the
+{ws_lb} will not serve. For example, to prohibit serving PHP scripts in a directory that is
+group and world writable, set the mask to {val}022{/}. Default value is
+{val}000{/}. This option can be used to prevent serving scripts under a directory of
+ uploaded files. 
+
+
+See {cmd}man 2 stat{/} for all values. 
+
+END_DESCR
+
+SYNTAX: octal numbers
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Per Client Throttling #############
+############# CGI Settings #############
+############# Access Denied Directories #############
+############# Access Control #############
+
+[END_HELPDOC]

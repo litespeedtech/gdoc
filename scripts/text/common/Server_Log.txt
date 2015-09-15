@@ -1,0 +1,306 @@
+[HELPDOC]
+
+############# Server Log #############
+
+[ITEM]
+ID: log_fileName
+NAME: File Name
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the path for the log file. 
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Place the log file on a separate disk. 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: log_logLevel
+NAME: Log Level
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=log_debugLevel}
+
+DESCR: Specifies the level of logging to include in your log file. 
+Available levels (from high to low) are: {val}ERROR{/}, 
+{val}WARNING{/}, {val}NOTICE{/}, {val}INFO{/} and {val}DEBUG{/}.
+ Only messages with level higher or equal to the current setting will
+be logged.  
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Using {val}DEBUG{/} log level does not have any
+performance impact, unless {ITEM=log_debugLevel} is set to a level
+other than {val}NONE{/}. It's recommended to set Log Level to {val}DEBUG{/} and
+Debug Level to {val}NONE{/}. These settings mean that you will not fill up your 
+hard disk with debug logging, but you will be able to use the {ITEM=ServerStat_Help#toggleDebugLog}
+ action to control debug output. This action can turn debug logging on and off on the fly, 
+ and is useful for debugging busy production servers. 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: log_debugLevel
+NAME: Debug Level
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=log_logLevel}, {ITEM=ServerStat_Help#toggleDebugLog}
+
+DESCR: Specifies the level of debug logging. 
+{ITEM=log_logLevel} must be set to {val}DEBUG{/} to use this feature. 
+Debug logging is disabled when "Debug Level" is set
+to {val}NONE{/} even if {ITEM=log_logLevel} is set to {val}DEBUG{/}. 
+{ITEM=ServerStat_Help#toggleDebugLog} can be used to control debug
+level on a live server without restarting.
+
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Important! Always set this to {val}NONE{/} if you do
+not need detailed debug logging. Active debug logging will severely degrade service performance
+and potentially saturate disk space in a very short time.
+Debug logging includes detailed information for each request and response.
+
+
+It's recommended to set Log Level to {val}DEBUG{/} and Debug Level to {val}NONE{/}. 
+These settings mean that you will not fill up your hard disk with debug logging, 
+but you will be able to use the {ITEM=ServerStat_Help#toggleDebugLog} action to control debug output. 
+This action can turn debug logging on and off on the fly, and is useful for debugging busy production servers.
+
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: log_rollingSize
+NAME: Rolling Size (bytes)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies when the current log file needs to be rolled over, also known as log rotation. 
+When the file size is over the rollover limit, the active log file will be renamed 
+to log_name.mm_dd_yyyy(.sequence) in the same directory and a new active log file will be created.
+The actual size of the rotated log file once it is created will sometimes be a little bigger than 
+this size limit. Set to {val}0{/} to disable log rotation. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: Append "K", "M", "G" to the number for kilo-, mega- and giga- bytes.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: log_enableStderrLog
+NAME: Enable stderr Log
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to write to log when receiving stderr output from any
+process started by the server. 
+If enabled, stderr messages will be logged in the same directory as the server log with 
+the fixed name "stderr.log". If disabled, all stderr output will be discarded.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: Turn it on if you need to debug configured external applications: i.e. PHP, Ruby, Java, Python, Perl.
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Access Log #############
+
+
+[ITEM]
+ID: accessLog_fileName
+NAME: File Name
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the file name of the access log file. 
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Put access log file on a separate disk.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessLog_logFormat
+NAME: Log Format
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=accessLog_logHeader}
+
+DESCR: {ent_version} Specifies the log format for the access
+log. When log format is set, it will override the {ITEM=accessLog_logHeader}
+setting. 
+END_DESCR
+
+SYNTAX: String. The syntax of log format is compatible with Apache 2.0's custom 
+{ext-href}http://httpd.apache.org/docs/2.0/mod/mod_log_config.html#formats{ext-href-end}log format{ext-href-end-a}.
+END_SYNTAX
+
+EXAMPLE: 
+Common Log Format (CLF)
+
+    "%h %l %u %t \"%r\" %>s %b"
+
+
+Common Log Format with Virtual Host
+
+    "%v %h %l %u %t \"%r\" %>s %b"
+
+
+NCSA extended/combined log format
+
+    "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\" 
+
+
+Log cookie value of Foobar
+
+    "%{Foobar}C"
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessLog_logHeader
+NAME: Log Headers
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=accessLog_logFormat}
+
+DESCR: Specifies whether to log HTTP request headers: {val}Referer{/},
+{val}UserAgent{/}, and {val}Host{/}.
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Turn this off if you do not need these headers in the access log.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessLog_keepDays
+NAME: Keep Days
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies how many days the access log file will be kept on disk. 
+Only rotated log files older than specified number of days will be deleted. The current 
+log file will not be touched regardless how many days' data it contains. 
+If you do not want to auto-delete stale and very old log files,
+set this value to {val}0{/}.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessLog_compressArchive
+NAME: Compress Archive
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to compress rotated log files in order to save disk space.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:Log files are highly compressible and this is recommended to reduce disk usage for old logs.
+END_TIPS
+
+[END_ITEM]
+
+
+[END_HELPDOC]
