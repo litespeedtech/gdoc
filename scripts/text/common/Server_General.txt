@@ -1,0 +1,25 @@
+[HELPDOC]
+
+[ITEM]
+ID: serverName
+NAME: Server Name
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: A unique name for this server. You can use $HOSTNAME as value. 
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+[END_HELPDOC]
