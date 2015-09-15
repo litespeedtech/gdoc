@@ -1,0 +1,35 @@
+[HELPDOC]
+
+
+############# Script Handler Definition #############
+
+
+[ITEM]
+ID: shType
+NAME: Handler Type
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the type of external application that processes these script files.  
+Available types are: {val}CGI{/}, {val}FastCGI{/}, {val}Web Server{/},
+{val}LSAPI app{/}, {val}Load balancer{/}, or {val}Servlet Engine{/}. 
+For FastCGI, Web Server and Servlet Engine, a {ITEM=shHandlerName} needs to be specified. 
+This is an external application name as predefined in the {PAGE=ExtApp_Help} section.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[END_HELPDOC]
