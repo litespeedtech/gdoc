@@ -1,0 +1,81 @@
+[HELPDOC]
+
+
+############# Context Definition #############
+
+
+[ITEM]
+ID: mimetype
+NAME: MIME Type
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: A MIME type consists of a type and subtype in the format of "type/subtype". 
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: rewriteInherit
+NAME: Rewrite Inherit
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to inherit rewrite rules from parent
+contexts. If rewrite is enabled and not inherited, rewrite base and
+rewrite rules defined in this context will be used.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: rewriteBase
+NAME: Rewrite Base
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the base URL for rewrite rules.
+END_DESCR
+
+SYNTAX: URL
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[END_HELPDOC]

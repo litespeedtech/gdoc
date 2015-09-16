@@ -127,17 +127,18 @@ END_TIPS
 
 
 [ITEM]
-ID: haRole
-NAME: Role
+ID: haPriority
+NAME: Priority
 REQUIRED: 
 APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: Select the preferred role of the HA interface, either master or slave. 
+DESCR: Sets the priority for this load balancer server, where a higher number equals a higher priority. The highest priority load balancer 
+will act as the master, with the others in the cluster acting as slaves.
 END_DESCR
 
-SYNTAX: select
+SYNTAX: uint
 END_SYNTAX
 
 EXAMPLE: 

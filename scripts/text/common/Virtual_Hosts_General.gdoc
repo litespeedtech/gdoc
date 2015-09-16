@@ -1,0 +1,183 @@
+[HELPDOC]
+
+
+############# General #############
+
+
+[ITEM]
+ID: docRoot
+NAME: Document Root
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the document root for this virtual host. {val}$VH_ROOT/html{/} 
+is recommended. This directory is referred to as $DOC_ROOT in contexts. 
+END_DESCR
+
+SYNTAX: path3
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhadminEmails
+NAME: Administrator Email
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies email address(es) of the administrator(s) of this virtual host.
+END_DESCR
+
+SYNTAX: Comma separated list of email addresses
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableGzip
+NAME: Enable GZIP
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=ServTuning_Help#enableGzipCompress}, {ITEM=ServTuning_Help#gzipStaticCompressLevel}, {ITEM=ServTuning_Help#enableDynGzipCompress}, {ITEM=ServTuning_Help#gzipCompressLevel}
+
+DESCR: Specifies whether to enable GZIP compression for this virtual host. 
+This setting is effective only when server-level GZIP compression is enabled.  
+The virtual host can only turn off compression enabled at the server level. 
+Compression settings are configured at the server level (in Tuning-GZIP).
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Index Files #############
+
+
+[ITEM]
+ID: indexUseServer
+NAME: Use Server Index Files
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to use the server's index file settings. 
+If set to {val}Yes{/}, only the server's settings will be used. 
+If set to {val}No{/}, the server's settings will not be used. 
+If set to {val}Addition{/}, additional index files can be added to server's 
+index file list for this virtual host. If you want to disable index files for 
+this virtual host, you can set the value to {val}No{/} and leave the index files
+field empty.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: autoIndex
+NAME: Auto Index
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=indexFiles}, {ITEM=autoIndexURI}
+
+DESCR: Specifies whether to generate a directory index on the fly when
+index files listed in {ITEM=indexFiles} are not available in a directory.
+This option is customizable at the virtual host and context level, and
+is inherited along the directory tree until it is explicitly
+overridden. You can customize the generated index page. Please check online wiki How-tos.
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] It is recommended to turn off Auto Index wherever
+possible to prevent revealing confidential data.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: autoIndexURI
+NAME: Auto Index URI
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=indexFiles}, {ITEM=autoIndex}
+
+DESCR: Specifies the URI that will be used to generate the index page when
+index files listed in {ITEM=indexFiles} are not available in a directory.
+LiteSpeed web server uses an external script to generate the index page
+providing the maximum customization flexibility. The default script produces an index page with same look
+as Apache's. To customize the generated index page, please read
+online wiki How-tos.
+The directory to be indexed is passed to the script via an
+environment variable "LS_AI_PATH".
+END_DESCR
+
+SYNTAX: URI
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Customized Error Pages #############
+############# HT Access #############
+############# Expires Settings #############
+############# Apache Style Configurations #############
+
+
+[END_HELPDOC]

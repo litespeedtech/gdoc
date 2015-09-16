@@ -1,0 +1,90 @@
+[HELPDOC]
+
+
+############# Virtual Host Log #############
+
+
+[ITEM]
+ID: logUseServer
+NAME: Use Server's Log
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to put log messages from this virtual host into the server 
+log file instead of creating its own log file.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhlog_logLevel
+NAME: Log Level
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=ServGeneral_Help#log_debugLevel}
+
+DESCR: Specifies the level of logging. Available levels (from high to low) are {val}ERROR{/}, 
+{val}WARNING{/}, {val}NOTICE{/}, {val}INFO{/}, and {val}DEBUG{/}. 
+Only messages with a level higher than or equal to the current setting will be logged. 
+If you want to set it to DEBUG{/}, you must set the server log level to {val}DEBUG{/} as well. 
+The level of debugging is controlled solely at the server level by {ITEM=ServGeneral_Help#log_debugLevel}.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Unless {ITEM=ServGeneral_Help#log_debugLevel} is set to a level
+other than {val}NONE{/}, {val}DEBUG{/} log level does not have any
+performance impact and is recommended.
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Access Log #############
+
+
+[ITEM]
+ID: aclogUseServer
+NAME: Log Control
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies where to write the access log. There are three options: 
+1. Write to the server's access log; 2. Create an access log for this virtual host; 3. Disable access logging.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[END_HELPDOC]

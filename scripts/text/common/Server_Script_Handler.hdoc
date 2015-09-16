@@ -32,4 +32,29 @@ END_TIPS
 
 
 
+[ITEM]
+ID: shHandlerName
+NAME: Handler Name
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the name of the external application that processes the script files 
+when the handler type is FastCGI, Web Server, LSAPI, Load Balancer, or Servlet Engine.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
 [END_HELPDOC]

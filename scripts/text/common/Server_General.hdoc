@@ -476,6 +476,34 @@ END_TIPS
 [END_ITEM]
 
 
+
+########## MIME Type Entry ##########
+
+
+[ITEM]
+ID: mimesuffix
+NAME: Suffixes
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: You can list multiple suffixes for the same MIME type, using comma to separate.
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# Index Files #############
 
 
