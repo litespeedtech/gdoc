@@ -1,0 +1,127 @@
+[HELPDOC]
+
+
+############# Hotlink Protection #############
+
+############# Access Control #############
+
+############# Realms List #############
+
+########## New Realm ##########
+
+
+[ITEM]
+ID: realmType
+NAME: DB Type
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies how user/group data is stored for an authorization realm. Currently,
+user/group data can be stored in flat files or on a LDAP server. 
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## Password File Realm Definition ##########
+
+
+[ITEM]
+ID: realmName
+NAME: Realm Name
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies a unique name for the authorization realm.
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: userDBLocation
+NAME: User DB Location
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO:  {ITEM=GroupDBLocation}, {ITEM=userDB_attrPasswd}, {ITEM=userDB_attrMemberOf}
+
+DESCR: Specifies the location of the user database. 
+For DB type {val}Password File{/}, it is the path to the flat file
+containing user/password definitions.
+You can edit this file through the WebAdmin console by clicking on the file name.
+
+
+Each line of the user file contains a username followed by a colon, 
+followed by a crypt() encrypted password, optionally followed by a colon 
+and group names that user belongs to. Group names are delimitated by commas. 
+If group information is specified in the user database, then the group
+database will not be checked.
+
+
+Example:<blockquote><code>john:HZ.U8kgjnMOHo:admin,user</code></blockquote>
+
+
+For DB type {val}LDAP{/}, it is the LDAP URL to query for the user
+information. For each valid user, the authentication data stored in the LDAP
+server should contain at least the user id and user password. One and only
+one record should be returned in the LDAP search request based on the
+this URL and username received in the HTTP Authentication header. "$k"
+must be specified in the filter part of the URL and it will be
+replaced with the username. The user password attribute
+must be returned in the query result. The attribute name of the user password
+is specified by {ITEM=userDB_attrPasswd}. Group information can be
+optionally specified by {ITEM=userDB_attrMemberOf}.
+
+
+Example: At minimum, a user can be defined in LDAP with object
+classes: uidObject, simpleSecurityObject and organizationalRole. The
+following URL could be used: 
+
+
+<blockquote><code>ldap://localhost/ou=UserDB,dc=example,dc=com???(&(objectClass=*)(uid=$k))</code></blockquote>
+
+END_DESCR
+
+
+SYNTAX: Path to the user DB file or LDAP URL (RFC 2255).
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] It is recommended to store user password files outside of the document tree. 
+If a user password file has to be placed inside document tree, simply name it with a leading ".ht" 
+like {val}.htuser{/} to prevent it being served as a static file.  LiteSpeed Web Server 
+does not serve files prefixed with ".ht".
+END_TIPS
+
+[END_ITEM]
+
+
+
+[END_HELPDOC]

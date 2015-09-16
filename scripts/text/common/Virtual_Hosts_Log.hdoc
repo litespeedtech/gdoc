@@ -87,4 +87,30 @@ END_TIPS
 
 
 
+[ITEM]
+ID: accessLog_bytesLog
+NAME: Bytes Log
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the path to the bandwidth bytes log file. When
+specified, a cPanel compatible bandwidth log will be created. This will log 
+the total bytes transferred for a request including both the request and reply body.
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Put the log file on a separate disk.
+END_TIPS
+
+[END_ITEM]
+
+
+
 [END_HELPDOC]
