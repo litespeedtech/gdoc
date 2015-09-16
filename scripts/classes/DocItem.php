@@ -2,20 +2,21 @@
 
 class DocItem
 {
-	var $_id;
-	var $_name;
-	var $_required;
-	var $_apply;
-	var $_since;
-	var $_seeAlso;
+	public $_id;
+	public $_name;
+    public $_ns = '';
+	public $_required;
+	public $_apply;
+	public $_since;
+	public $_seeAlso;
 
-	var $_descr;
-	var $_syntax;
-	var $_example;
-	var $_tips;
-	var $_width='100%';
+	public $_descr;
+	public $_syntax;
+	public $_example;
+	public $_tips;
+	public $_width='100%';
 
-	function loadFromTbl($id, $name, $descr, $tips, $example, $seeAlso)
+	public function loadFromTbl($id, $name, $descr, $tips, $example, $seeAlso)
 	{
 		$this->_id = $id;
 		$this->_name = $name;
@@ -25,7 +26,7 @@ class DocItem
 		$this->_seeAlso = $seeAlso;
 	}
 
-	function DocItem($buf)
+	public function DocItem($buf)
 	{
 		if ( $buf == NULL )
 			return;
@@ -104,6 +105,12 @@ class DocItem
 					$this->_name = trim(substr($line, strlen($tag)));
 					continue;
 				}
+                $tag = 'NS:';
+				if ( strncmp($tag, $line, strlen($tag)) == 0 )
+				{
+					$this->_ns = trim(substr($line, strlen($tag)));
+					continue;
+				}
 				$tag = 'REQUIRED:';
 				if ( strncmp($tag, $line, strlen($tag)) == 0 )
 				{
@@ -163,7 +170,7 @@ class DocItem
 		}
 	}
 
-	function toDoc()
+	public function toDoc()
 	{
 		$end = '</td></tr>'."\n";
 		$buf = '<a name="'. $this->_id . '"></a>';
@@ -206,7 +213,7 @@ class DocItem
 		return $buf;
 	}
 
-	function toText()
+	public function toText()
 	{
 		$e = "\n";
 		$buf = '[ITEM]' . $e;

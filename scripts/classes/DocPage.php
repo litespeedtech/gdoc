@@ -2,19 +2,20 @@
 
 class DocPage
 {
-	var $_id;
-	var $_name;
-	var $_prevNav;
-	var $_nextNav;
-	var $_topNav;
-	var $_descr = '';
-	var $_cont;
-	var $_tables;
-	var $_items;
-	var $_seeAlso;
-	var $_static;
+	public $_id;
+	public $_name;
+    public $_ns;
+	public $_prevNav;
+	public $_nextNav;
+	public $_topNav;
+	public $_descr = '';
+	public $_cont;
+	public $_tables;
+	public $_items;
+	public $_seeAlso;
+	public $_static;
 
-	function DocPage(&$buf)
+	public function DocPage(&$buf)
 	{
 		$startInd = false;
 		$descrInd = false;
@@ -63,6 +64,12 @@ class DocPage
 					$this->_name = trim(substr($line, strlen($tag)));
 					continue;
 				}
+                $tag = 'NS:';
+				if ( strncmp($tag, $line, strlen($tag)) == 0 )
+				{
+					$this->_ns = trim(substr($line, strlen($tag)));
+					continue;
+				}
 				$tag = 'SEE_ALSO:';
 				if ( strncmp($tag, $line, strlen($tag)) == 0 )
 				{
@@ -99,7 +106,7 @@ class DocPage
 		}
 	}
 
-	function setNav($prevPage, $topPage, $nextPage)
+	public function setNav($prevPage, $topPage, $nextPage)
 	{
 		if ( $prevPage == NULL )
 			$this->_prevNav = NULL;
@@ -121,7 +128,7 @@ class DocPage
 			$this->_nextNav = array($nextPage);
 	}
 
-	function transNav(&$base)
+	public function transNav(&$base)
 	{
 		if ( $this->_prevNav != NULL && count($this->_prevNav) == 1 )
 		{
@@ -137,7 +144,7 @@ class DocPage
 		}
 	}
 
-	function idToLink($id, &$base)
+	public function idToLink($id, &$base)
 	{
 		$nav = array();
 		$nav[0] = $id . '.html';
@@ -154,12 +161,12 @@ class DocPage
 	}
 
 
-	function genDoc(&$base)
+	public function genDoc(&$base)
 	{
 		echo ("generating $this->_id  \n");
 
         $gentool = new GenTool;
-        
+
 		$this->transNav($base);
 		$nav = $gentool->getNavBar($this->_prevNav, $this->_topNav, $this->_nextNav);
 		$buf = $gentool->getHeader($this->_name);
@@ -224,7 +231,7 @@ class DocPage
 		}
 	}
 
-	function getGuiTips(&$tips_base)
+	public function getGuiTips(&$tips_base)
 	{
 		if ( $this->_items )
 		{

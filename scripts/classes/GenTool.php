@@ -53,7 +53,8 @@ EOD;
 
 	public static function getSideTree($docname)
 	{
-		global $static_dir;
+		global $config;
+        $static_dir = $config['static_dir'][0];
 		$buf = file_get_contents("$static_dir/leftside_toc.txt");
 		$pos = strpos($buf, "<a href=\"$docname\"" );
 		if ($pos !== FALSE) {
@@ -71,7 +72,8 @@ EOD;
 
 	public static function getStaticContent($static_file)
 	{
-		global $static_dir;
+		global $config;
+        $static_dir = $config['static_dir'][0];
 		$buf = file_get_contents("$static_dir/$static_file");
 		return $buf;
 	}
@@ -208,5 +210,98 @@ EOD;
 
 	}
 
+    public static function inCurrentNameSpace($ole)
+    {
+        if ($ole == '')
+            return true;
+        if (DOC_TYPE == 'lb' && strpos($old, 'L') !== false) {
+            return true;
+        }
+        if (DOC_TYPE == 'ws' && strpos($old, 'E') !== false) {
+            return true;
+        }
+        if (DOC_TYPE == 'ows' && strpos($old, 'O') !== false) {
+            return true;
+        }
+        return false;
+    }
 
+    public static function generate($textpath, $genhelpdoc, $gentips, $tipfile)
+    {
+        $pathcommon = $textpath . "/common";
+        $pathself = $textpath . '/' . DOC_TYPE;
+        global $static_dir, $lsws_pageNav, $lsws_pageNavTips;
+        $static_dir = $pathself;
+
+        $texts = array();
+        $path = $textpath . "/common";
+        $pathfiles = scandir($path);
+        foreach ($pathfiles as $f) {
+            if (strpos($f, '.hdoc') !== false) {
+                $texts[] = $path . '/'. $f;
+            }
+        }
+        $path = $textpath .  '/' . DOC_TYPE;
+        $pathfiles = scandir($path);
+        foreach ($pathfiles as $f) {
+            if (strpos($f, '.hdoc') !== false) {
+                $texts[] = $path . '/'. $f;
+            }
+        }
+        $base = new ItemBase($texts);
+
+        $h = new GenHelpDoc($texts);
+        if ($genhelpdoc)
+            $h->genPages( $lsws_pageNav, $base);
+
+        if ($gentips) {
+            $tips = new GenPopupTips($h);
+            $tips->genTips($lsws_pageNavTips, $base, $tipfile);
+        }
+    }
+
+
+    public static function generateGDoc()
+    {
+        global $config;
+
+        // generate english
+        $textpath = $config['base_dir'] . '/text';
+
+        $texts = array();
+        $path = $textpath . "/common";
+        $pathfiles = scandir($path);
+        foreach ($pathfiles as $f) {
+            if (strpos($f, '.hdoc') !== false) {
+                $texts[] = $path . '/'. $f;
+            }
+        }
+
+        $path = $textpath .  '/' . DOC_TYPE;
+        $config['static_dir'] = array($path);
+
+        $pathfiles = scandir($path);
+        foreach ($pathfiles as $f) {
+            if (strpos($f, '.hdoc') !== false) {
+                $texts[] = $path . '/'. $f;
+            }
+        }
+        $base = new ItemBase($texts);
+
+        $h = new GenHelpDoc($texts);
+        if (isset($config['doc_nav'])) {
+            $h->genPages( $config['doc_nav'], $base);
+        }
+
+        if (isset($config['tip_nav'])) {
+            $tips = new GenPopupTips($h);
+            $tipfile = $config['tips_dir'] . '/' . DOC_TYPE . '_tips';
+            $tips->genTips($config['tip_nav'], $base, $tipfile);
+        }
+
+        // generate lang
+        foreach ($config['lang'] as $lang) {
+
+        }
+    }
 }

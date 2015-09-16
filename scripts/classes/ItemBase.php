@@ -39,10 +39,12 @@ class ItemBase
 				{
 					$itemInd = false;
 					$item = new Item($buf, 'ITEM');
-					if ( isset($this->_items[$item->_id]) )
-						echo "duplicate item $item->_id in $doc \n";
-					else
-						$this->_items[$item->_id] = $item;
+                    if (GenTool::inCurrentNameSpace($item->_ns)) {
+                        if ( isset($this->_items[$item->_id]) )
+                            echo "duplicate item $item->_id in $doc \n";
+                        else
+                            $this->_items[$item->_id] = $item;
+                    }
 				}
 			}
 			else if ( $qaInd )
@@ -53,11 +55,12 @@ class ItemBase
 				{
 					$qaInd = false;
 					$item = new Item($buf, 'QA');
-					if ( isset($this->_items[$item->_id]) )
-						echo "duplicate qa $item->_id in $doc \n";
-					else
-						$this->_items[$item->_id] = $item;
-
+                    if (GenTool::inCurrentNameSpace($item->_ns)) {
+                        if ( isset($this->_items[$item->_id]) )
+                            echo "duplicate qa $item->_id in $doc \n";
+                        else
+                            $this->_items[$item->_id] = $item;
+                    }
 				}
 			}
 			else if ( $tableInd )
@@ -68,11 +71,12 @@ class ItemBase
 				{
 					$tableInd = false;
 					$item = new Item($buf, 'TBL');
-					if ( isset($this->_items[$item->_id]) && $this->_items[$item->_id]->_type == 'TBL' )
-						echo "duplicate tbl $item->_id in $doc \n";
-					else
-						$this->_items[$item->_id] = $item;
-
+                    if (GenTool::inCurrentNameSpace($item->_ns)) {
+                        if ( isset($this->_items[$item->_id]) && $this->_items[$item->_id]->_type == 'TBL' )
+                            echo "duplicate tbl $item->_id in $doc \n";
+                        else
+                            $this->_items[$item->_id] = $item;
+                    }
 				}
 			}
 			else if ( $pageInd )
@@ -83,11 +87,13 @@ class ItemBase
 				{
 					$pageInd = false;
 					$item = new Item($buf, 'PAGE');
-					if ( isset($this->_items[$item->_id]) )
-						echo "duplicate page $item->_id in $doc \n";
-					else
-						$this->_items[$item->_id] = $item;
-				}
+                    if (GenTool::inCurrentNameSpace($item->_ns)) {
+                        if ( isset($this->_items[$item->_id]) )
+                            echo "duplicate page $item->_id in $doc \n";
+                        else
+                            $this->_items[$item->_id] = $item;
+                    }
+                }
 			}
 			else
 			{

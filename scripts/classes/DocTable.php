@@ -2,17 +2,18 @@
 
 class DocTable
 {
-	var $_id;
-	var $_name;
-	var $_seeAlso;
+	public $_id;
+	public $_name;
+    public $_ns;
+	public $_seeAlso;
 
-	var $_descr;
-	var $_example;
-	var $_tips;
-	var $_cont;
-	var $_items;
+	public $_descr;
+	public $_example;
+	public $_tips;
+	public $_cont;
+	public $_items;
 
-	function DocTable($buf)
+	public function DocTable($buf)
 	{
 		$startInd = false;
 		$descrInd = false;
@@ -89,7 +90,13 @@ class DocTable
 					$this->_name = trim(substr($line, strlen($tag)));
 					continue;
 				}
-				$tag = 'DESCR:';
+                $tag = 'NS:';
+				if ( strncmp($tag, $line, strlen($tag)) == 0 )
+				{
+					$this->_ns = trim(substr($line, strlen($tag)));
+					continue;
+				}	
+                $tag = 'DESCR:';
 				if ( strncmp($tag, $line, strlen($tag)) == 0 )
 				{
 					if ($this->_descr != NULL) {
@@ -132,7 +139,7 @@ class DocTable
 		$this->_cont = preg_split( "/[\s,]+/", $this->_cont, -1, PREG_SPLIT_NO_EMPTY );
 	}
 
-	function insertItems(&$itemBase)
+	public function insertItems(&$itemBase)
 	{
 		$this->_items = array();
 		if ( isset($this->_descr) )
@@ -153,7 +160,7 @@ class DocTable
 		}
 	}
 
-	function toTableOfContents1()
+	public function toTableOfContents1()
 	{
 		$buf = '<tr><td class="tbl-content-lead">';
 		if ( isset($this->_descr) )
@@ -178,7 +185,7 @@ class DocTable
 	}
 
 
-	function toTableOfContents()
+	public function toTableOfContents()
 	{
 		$buf = '<section class="toc-row"><header>';
 		if ( isset($this->_descr) )

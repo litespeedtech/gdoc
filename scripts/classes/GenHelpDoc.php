@@ -24,8 +24,31 @@ class GenHelpDoc
 		$this->populateData();
 	}
 
-	function genPages($navchain, $base)
+    private function getNavChain($root)
+    {
+        $chain = array();
+        if (!isset($this->_nav[$root])) {
+            echo "Wrong Nav ID $root\n";
+        }
+        else {
+            $chain[] = $root;
+            $nav = $this->_nav[$root];
+            if ($nav->_cont != NULL) {
+                foreach ($nav->_cont as $child) {
+                    $children = $this->getNavChain($child);
+                    $chain = array_merge($chain, $children);
+                }
+            }
+
+        }
+        return $chain;
+
+    }
+
+	public function genPages($navRootId, $base)
 	{
+        $navchain = $this->getNavChain($navRootId);
+
 		foreach( $navchain as $navId )
 		{
 			if ( isset($this->_nav[$navId]) )
@@ -112,11 +135,13 @@ class GenHelpDoc
 				{
 					$itemInd = false;
 					$item = new DocItem($buf);
-					$this->_items[$item->_id] = $item;
-					if ($item->_id == DEBUG_TAG || $debug) {
-						echo "In GenHelpDoc::parseHelpDoc - item \n";
-						var_dump($item);
-					}
+                    if (GenTool::inCurrentNameSpace($item->_ns)) {
+                        $this->_items[$item->_id] = $item;
+                        if ($item->_id == DEBUG_TAG || $debug) {
+                            echo "In GenHelpDoc::parseHelpDoc - item \n";
+                            var_dump($item);
+                        }
+                    }
 				}
 			}
 			else if ( $tableInd )
@@ -130,11 +155,13 @@ class GenHelpDoc
 					$id = $table->_id;
 					if ( $id == NULL )
 						$id = $table->_name;
-					$this->_tables[$id] = $table;
-					if ($id == DEBUG_TAG || $debug) {
-						echo "In GenHelpDoc::parseHelpDoc - table \n";
-						var_dump($table);
-					}
+                    if (GenTool::inCurrentNameSpace($table->_ns)) {
+                        $this->_tables[$id] = $table;
+                        if ($id == DEBUG_TAG || $debug) {
+                            echo "In GenHelpDoc::parseHelpDoc - table \n";
+                            var_dump($table);
+                        }
+                    }
 				}
 			}
 			else if ( $pageInd )
@@ -148,12 +175,14 @@ class GenHelpDoc
 					$id = $page->_id;
 					if ( $id == NULL )
 						$id = $page->_name;
-					$this->_pages[$id] = $page;
-					if ($id == DEBUG_TAG || $debug) {
-						echo "In GenHelpDoc::parseHelpDoc - page \n";
-						var_dump($page);
-					}
-                    echo "parsed page id $id \n";
+                    if (GenTool::inCurrentNameSpace($item->_ns)) {
+                        $this->_pages[$id] = $page;
+                        if ($id == DEBUG_TAG || $debug) {
+                            echo "In GenHelpDoc::parseHelpDoc - page \n";
+                            var_dump($page);
+                        }
+                        echo "parsed page id $id \n";
+                    }
 				}
 			}
 			else if ( $navInd )
@@ -164,8 +193,10 @@ class GenHelpDoc
 				{
 					$navInd = false;
 					$navchain = new NavChain($buf);
-					$id = $navchain->_id;
-					$this->_nav[$id] = $navchain;
+                    if (GenTool::inCurrentNameSpace($navchain->_ns)) {
+                        $id = $navchain->_id;
+                        $this->_nav[$id] = $navchain;
+                    }
 				}
 			}
 			else

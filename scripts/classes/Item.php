@@ -2,9 +2,10 @@
 
 class Item
 {
-	var $_id;
-	var $_name;
-	var $_type; // PAGE, QA, ITEM, TBL
+	public $_id;
+	public $_name;
+	public $_type; // PAGE, QA, ITEM, TBL
+    public $_ns = '';
 
 	function Item($buf, $type)
 	{
@@ -41,6 +42,12 @@ class Item
 				if ( strncmp($tag, $line, strlen($tag)) == 0 )
 				{
 					$this->_name = trim(substr($line, strlen($tag)));
+					break;
+				}
+                $tag = 'NS:';
+				if ( strncmp($tag, $line, strlen($tag)) == 0 )
+				{
+					$this->_ns = trim(substr($line, strlen($tag)));
 					break;
 				}
 			}

@@ -4,14 +4,17 @@ class NavChain
 {
 	var $_id;
 //	var $_name;
+    var $_ns;
 	var $_topNav;
 	var $_pages;
+    public $_cont;
 
 	function NavChain(&$buf)
 	{
 		$e = "\r\n";
 		$startInd = false;
 		$seqInd = false;
+        $contInd = false;
 		$seqDef = '';
 
 		foreach( $buf as $line )
@@ -34,6 +37,14 @@ class NavChain
 				else
 					$seqDef .= $line . $e;
 			}
+			else if ( $contInd )
+			{
+				$tag = 'END_CONT';
+				if ( strncmp($tag, $line, strlen($tag)) == 0 )
+					$contInd = false;
+				else
+					$this->_cont .= ' '. $line ;
+			}
 			else
 			{
 				$tag = 'ID:';
@@ -42,6 +53,13 @@ class NavChain
 					$this->_id = trim(substr($line, strlen($tag)));
 					continue;
 				}
+                $tag = 'NS:';
+				if ( strncmp($tag, $line, strlen($tag)) == 0 )
+				{
+					$this->_ns = trim(substr($line, strlen($tag)));
+					continue;
+				}
+
 				/*$tag = 'NAME:';
 				if ( strncmp($tag, $line, strlen($tag)) == 0 )
 				{
@@ -61,10 +79,22 @@ class NavChain
 					$seqInd = true;
 					continue;
 				}
+				$tag = 'CONT:';
+				if ( strncmp($tag, $line, strlen($tag)) == 0 )
+				{
+					$this->_cont = substr($line, strlen($tag));
+					$contInd = true;
+					continue;
+				}
 			}
 		}
 		$this->_pages = preg_split( "/[\s,]+/", $seqDef, -1, PREG_SPLIT_NO_EMPTY );
+		if ($this->_cont != NULL) {
+			$this->_cont = preg_split( "/[\s,]+/", $this->_cont, -1, PREG_SPLIT_NO_EMPTY );
+		}
+
 	}
+
 
 
 }

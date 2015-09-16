@@ -20,14 +20,33 @@ class GenPopupTips
 		$this->_tipsBase = array();
 	}
 
-	function init($navchain)
+    private function getNavChain($root)
+    {
+        $chain = array();
+        if (!isset($this->_nav[$root])) {
+            echo "Wrong Nav ID $root\n";
+        }
+        else {
+            $chain[] = $root;
+            $nav = $this->_nav[$root];
+            if ($nav->_cont != NULL) {
+                foreach ($nav->_cont as $child) {
+                    $children = $this->getNavChain($child);
+                    $chain = array_merge($chain, $children);
+                }
+            }
+
+        }
+        return $chain;
+
+    }
+
+    private function init($navRootId)
 	{
 		//get nav items
-		if (!is_array($navchain)) {
-			echo "illegal navchain - " . print_r($navchain, true);
-			return;
-		}
-		foreach( $navchain as $navId )
+        $navchain = $this->getNavChain($navRootId);
+
+        foreach( $navchain as $navId )
 		{
 			if ( isset($this->_nav[$navId]) )
 			{
@@ -59,6 +78,7 @@ class GenPopupTips
 
 	}
 
+
 	function get_fixed_tips()
 	{
 		$buf =<<<EOD
@@ -69,9 +89,9 @@ EOD;
 		return $buf;
 	}
 
-	function genTips($navchain, $base, $outfile)
+	function genTips($navRootId, $base, $outfile)
 	{
-		$this->init($navchain);
+		$this->init($navRootId);
 
 		$fd = fopen($outfile, 'w');
 		if ( !$fd )
