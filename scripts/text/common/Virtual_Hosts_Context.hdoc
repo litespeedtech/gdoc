@@ -5,6 +5,111 @@
 
 
 [ITEM]
+ID: uri
+NAME: URI
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the URI for this context. The URI should start with a "/". 
+If a URI ends with a "/", then this context will include all sub-URIs under this URI.
+END_DESCR
+
+SYNTAX: URI
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: externalredirect
+NAME: External Redirect
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether this redirect is external. 
+For external redirection, {ITEM=statuscode} may be specified and 
+{ITEM=destinationuri} can start either with "/" or "http(s)://". 
+For internal redirection, {ITEM=destinationuri} must start with "/".
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: statuscode
+NAME: Status Code
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the response status code of the external redirection. 
+If the status code is between 300 and 399, {ITEM=destinationuri} can be specified.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: destinationuri
+NAME: Destination URI
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the target location of the redirection. 
+If this redirected URI maps to a URI in another redirect context, it will be redirected again. 
+END_DESCR
+
+SYNTAX: This URI can either be a relative URI on the same web site starting with "/", 
+or an absolute URI pointing to different web site starting with "http(s)://".  
+If the {ITEM=expuri} contains regular expression, the destination can reference 
+the matched variables, such as $1 or $2.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: mimetype
 NAME: MIME Type
 REQUIRED: 
@@ -22,6 +127,146 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: realm
+NAME: Realm
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the authorization realm for this context. When specified, 
+a valid username and password must be provided in order to access this context. 
+{TBL=VHSecurity_Help#realms} are set up in the {PAGE=VHSecurity_Help} section. 
+This setting uses each realm's {ITEM=VHSecurity_Help#realmName}.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: authName
+NAME: Authentication Name
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies an alternative name for the authorization realm for current context. 
+If it is not specified, the original realm name will be used. The authentication name is 
+displayed on the browser's login pop-up.
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: required
+NAME: Require (Authorized Users/Groups)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies which user/group can access this context. This allows you to use 
+one user/group database (specified in {ITEM=realm}) across a number of contexts, but 
+only allow certain users/groups from that database to access this context.
+END_DESCR
+
+SYNTAX: Syntax is compatible with Apache's Require directive. For example: 
+<ul>
+<li>{val}user username [username ...]{/} 
+
+Only listed users can access this context;</li>
+<li> {val}group groupid [groupid ...]{/}
+
+Only users belonging to the listed groups can access this context.</li>
+</ul>
+If this setting is not specified, all valid users will be able to access this resource.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessAllowed
+NAME: Access Allowed
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies which IPs or sub-networks are allowed to access resources under this context. Together with 
+{ITEM=accessDenied} and server/virtual host-level access control, accessibility is determined by 
+the smallest scope that a client's IP address falls into. 
+END_DESCR
+
+SYNTAX: Comma-delimited list of IPs/sub-networks. 
+END_SYNTAX
+
+EXAMPLE: Sub-networks can be written as {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/} or {val}192.168.1.*{/}.
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessDenied
+NAME: Access Denied
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies which IPs or sub-networks are NOT allowed to access resources under this context. 
+Together with {ITEM=accessAllowed} and server/virtual host-level access control, accessibility is 
+determined by the smallest scope that a client's IP address falls into. 
+END_DESCR
+
+SYNTAX: Comma-delimited list of IPs/sub-networks. 
+END_SYNTAX
+
+EXAMPLE: Sub-networks can be written as {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/} or {val}192.168.1.*{/}.
+END_EXAMPLE
+
+TIPS: 
 END_TIPS
 
 [END_ITEM]
@@ -69,6 +314,62 @@ SYNTAX: URL
 END_SYNTAX
 
 EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: addDefaultCharset
+NAME: Add Default Charset
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to add a character set tag to the
+	   "Content-Type" response header, when content type is either
+	   "text/html" or "text/plain" without any parameters.
+	   When set to {val}Off{/},  this function is disabled. When set to
+	   {val}On{/}, either the character set specified by
+	   {ITEM=defaultCharsetCustomized} or the default "iso-8859-1" will be added.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: defaultCharsetCustomized
+NAME: Customized Default Charset
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies a character set to be used when {ITEM=addDefaultCharset}
+	   is {val}On{/}. This is optional. The default value is {val}iso-8859-1{/}.
+	   This entry has no effect when {ITEM=addDefaultCharset} is
+	   {val}Off{/}.
+END_DESCR
+
+SYNTAX: Name of a character set, like {val}utf-8{/}
+END_SYNTAX
+
+EXAMPLE: utf-8
 END_EXAMPLE
 
 TIPS: 

@@ -417,7 +417,7 @@ a customized page can be configured for each error code.
 error pages can also be further customized to be unique for each virtual host. 
 END_DESCR
 
-CONT: errCode errURL errPageAction 
+CONT: errCode errURL
 END_CONT
 
 SEE_ALSO: 

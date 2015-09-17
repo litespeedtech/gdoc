@@ -124,4 +124,302 @@ END_TIPS
 
 
 
+[ITEM]
+ID: userDBMaxCacheSize
+NAME: User DB Max Cache Size
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum cache size of the user database. 
+Recently accessed user authentication data will be cached in memory 
+to provide maximum performance.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] As a larger cache will consume more memory, 
+a higher value may or may not provide better performance. Set it to an appropriate size according 
+to your user database size and site usage.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: userDBCacheTimeout
+NAME: User DB Cache Timeout (secs)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies how often the backend user database will be checked for changes.  
+Every entry in the cache has a timestamp. 
+When cached data is older than the specified timeout, the backend database will be checked 
+for changes. If there is no change, the timestamp will be reset to the current time, otherwise 
+the new data will be loaded. Sevrer reload and graceful restart will clear the cache immediately.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] If the backend database does not change very often, 
+set a longer timeout for better performance. 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: GroupDBLocation
+NAME: Group DB Location
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=userDBLocation}, Context {ITEM=Context_Help#required}, {ITEM=groupDB_attrGroupMember}
+
+DESCR: Specifies the location of the group database. 
+
+Group information can be set either in the user database or in this
+standalone group DB. For user authentication, the user DB will be checked
+first. If the user DB also contains group information, then the group DB will
+not be checked. 
+
+
+For the DB type {val}Password File{/}, the group DB location should be the path to 
+the flat file containing group definitions. You can edit this file through the 
+WebAdmin console by clicking on the file name. 
+
+
+Each line of a group file should contain a groupname followed by a colon,  
+followed by space delimited group of usernames. Example:
+
+<blockquote><code>testgroup: user1 user2 user3</code></blockquote> 
+
+
+For the DB type {val}LDAP{/}, the group DB location should be the LDAP URL to query 
+for group information. For each valid group, one and only
+one record should be returned in the LDAP search request based on 
+this URL and the group name specified in {ITEM=Context_Help#required}. "$k"
+must be specified in the filter part of the URL and it will be
+replaced with the group name. The name of the attribute that 
+specifies members in this group
+is specified by {ITEM=groupDB_attrGroupMember}.
+
+
+Example: If objectClass posixGroup is being used to store group
+information. The following URL could be used: 
+
+<blockquote><code>ldap://localhost/ou=GroupDB,dc=example,dc=com???(&(objectClass=*)(cn=$k))</code></blockquote>
+
+END_DESCR
+
+SYNTAX: file3
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] It is recommended to store a group file outside the document tree. 
+If it has to be placed inside document tree, simply name it with a leading ".ht" 
+like {val}.htgroup{/}, to prevent the file being served as a static file.  LiteSpeed Web Server 
+does not serve files prefixed with ".ht".
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: groupDBMaxCacheSize
+NAME: Group DB Max Cache Size
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=userDBMaxCacheSize}
+
+DESCR: Specifies the maximum cache size of the group database. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:  [Performance] As a larger cache will consume more memory, 
+a higher value may or may not provide better performance. Set it to an appropriate size according 
+to your user database size and site usage.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: groupDBCacheTimeout
+NAME: Group DB Cache Timeout (secs)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=userDBCacheTimeout}
+
+DESCR: Specifies how often the backend group database will be checked for changes. 
+For more detail please refer to {ITEM=userDBCacheTimeout}.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## LDAP Realm Definition ##########
+
+
+[ITEM]
+ID: userDB_attrPasswd
+NAME: Password Attribute
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the name of the password attribute for a user record
+stored in an LDAP server. The default value is {val}userPassword{/}.
+END_DESCR
+
+SYNTAX: string
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: userDB_attrMemberOf
+NAME: Member-of Attribute
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the name of the "Member-of" attribute for a user record 
+stored in an LDAP server. The default value is {val}memberOf{/}. The "Member-of" 
+attribute can be used to specify the group name that the user belongs to.
+END_DESCR
+
+SYNTAX: string
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: groupDB_attrGroupMember
+NAME: Group Member Attribute
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the name of the "Member" attribute for a group record
+stored in an LDAP server. The default value is {val}memberUid{/}. 
+END_DESCR
+
+SYNTAX: string
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: LDAPBindDN
+NAME: LDAP Bind DN
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: {ITEM=LDAPBindPasswd}
+
+DESCR: Specifies a DN used to bind to the server. If the LDAP server 
+requires authentication, a bind DN and password must be specified. If
+not specified, anonymous bind will be used. 
+END_DESCR
+
+SYNTAX: string
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: LDAPBindPasswd
+NAME: LDAP Bind Password
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: {ITEM=LDAPBindDN}
+
+DESCR: Specifies a password used to bind to the server. If the LDAP Server 
+requires authentication, a bind DN and password must be specified.  
+END_DESCR
+
+SYNTAX: string
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
 [END_HELPDOC]

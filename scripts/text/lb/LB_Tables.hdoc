@@ -141,7 +141,7 @@ A customized page can be configured for each error code. In LiteSpeed server,
 error pages can be further customized to be unique for each virtual host. 
 END_DESCR
 
-CONT: errCode errMessage errPageAction 
+CONT: errCode errMessage
 END_CONT
 
 SEE_ALSO: 

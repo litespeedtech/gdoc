@@ -1,0 +1,330 @@
+[HELPDOC]
+
+############# Base #############
+
+
+[ITEM]
+ID: vhName
+NAME: Virtual Host Name
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: A unique name for a virtual host. It is recommended to use the virtual host's domain name as the Virtual Host Name. 
+Virtual Host Name can be referred to using the variable $VH_NAME.
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhRoot
+NAME: Virtual Host Root
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the root directory of the virtual host. Note: This is <b>NOT</b> 
+the document root. It is recommended to place all files related to the virtual host 
+(like log files, html files, CGI scripts, etc.)
+under this directory. Virtual Host Root can be referred to using the variable $VH_ROOT.
+END_DESCR
+
+SYNTAX: path2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Place different virtual hosts on different hard drives.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: configFile
+NAME: Config File
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the configuration file name for this virtual host.
+The configuration file must be under the $SERVER_ROOT/conf/vhosts/ directory. 
+{val}$SERVER_ROOT/conf/vhosts/$VH_NAME/vhconf.conf{/} is recommended.
+END_DESCR
+
+SYNTAX: file3
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Connection #############
+
+
+[ITEM]
+ID: vhMaxKeepAliveReq
+NAME: Max Keep-Alive Requests
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=ServTuning_Help#maxKeepAliveReq}
+
+DESCR: Specifies the maximum requests that can be served through a keep-alive (persistent) 
+connection. Connections will be closed once this limit is reached. You
+can specify a different limit for different virtual hosts. This number
+cannot exceed the server-level {ITEM=ServTuning_Help#maxKeepAliveReq} limit.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Set to a reasonably high value. A value of "1" or less will 
+disable keep-alive connections. 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhSmartKeepAlive
+NAME: Smart Keep-Alive
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to turn on Smart Keep-Alive for this virtual
+host. This option is effective only if the server-level
+{ITEM=ServTuning_Help#smartKeepAlive} is enabled and
+{ITEM=vhMaxKeepAliveReq} is greater than 1.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Enable this for busy web sites.
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Security #############
+
+
+[ITEM]
+ID: allowSymbolLink
+NAME: Follow Symbolic Link
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to follow symbolic links in this virtual host. 
+{val}IF OWNER MATCH{/} option will follow a symbolic link only if it has the same ownership. 
+This setting overrides the default server-level setting.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance & security] For better security, disable this feature. For better performance, enable it.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableScript
+NAME: Enable Script
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether scripting (non-static pages) is allowed in this virtual host. 
+If disabled, CGI, FastCGI, LSAPI, Servlet engines and other scripting languages will not be allowed in this virtual host. 
+Therefore, if you want to use a script handler, you need to enable it here as well.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: restrained
+NAME: Restrained
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether files beyond this virtual host root($VH_ROOT) can be accessed 
+though this web site. If set to {val}Yes{/}, only files under $VH_ROOT can be accessed  
+and access to symbolic links or context pointing to files or directories beyond $VH_ROOT 
+will be denied. This, however, does not limit the accessibility of CGI scripts. This is useful 
+in the shared hosting environment. {ITEM=allowSymbolLink} can be set to {val}Yes{/} to allow 
+users to use symbolic links under $VH_ROOT, but not anything beyond $VH_ROOT.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] Turn it on in the shared hosting environment.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: setUidMode
+NAME: ExtApp Set UID Mode
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies how user ID is set for an external application process. Three choices
+are available: 
+<ul><li>{val}Server UID{/}: Set the user/group ID of external application processes  to the same as
+the server's user/group ID.</li>
+    <li>{val}CGI File UID{/}: Set the user/group ID of external CGI processes based 
+	on the user/group ID of the executable. This option only applies to CGI, not FastCGI or LSPHP.</li>
+    <li>{val}Doc Root UID{/}: Set the user/group ID of external application processes based 
+	on the user/group ID of the document root of the current virtual host.</li>
+</ul>
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] In the shared hosting environment, it is recommended to
+use the {val}CGI File UID{/} or {val}Doc Root UID{/} modes to prevent files
+owned by one virtual host from being accessed by the external application scripts of another
+virtual host.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: chrootMode
+NAME: ExtApp Chroot Mode
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: {ent_version} Specifies how the root directory is set for an external application
+process. In order to protect confidential system data files from being
+accessed by a vulnerable external application script, an alternative root path can be
+set for the external application process so that files beyond the new root directory become
+inaccessible. This is referred to as a "chroot jail".
+
+
+Three choices are available: 
+<ul><li>{val}Same as Server{/}: External application processes will be run in the same jail as the server.</li>
+    <li>{val}Virtual Host Root{/}: Set chroot jail to the
+root directory of the virtual host. The external application script will only be able to access files
+inside the virtual host root. </li>
+	<li>{val}Customized Chroot Path{/}: Specify the chroot path {ITEM=chrootPath} below. </li>
+</ul>
+
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: If used properly, chroot will greatly enhance the security
+of external application scripts, but you must make sure the external application script is functional
+in the limited chroot jail environment.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: chrootPath
+NAME: ExtApp Chroot Path
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: {ent_version} Specifies a new root directory for the current host's external application scripts  
+when {ITEM=chrootMode} is set to {val}Customized Chroot Path{/}.
+
+END_DESCR
+
+SYNTAX: path1
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Per Client Throttling #############
+
+
+[END_HELPDOC]

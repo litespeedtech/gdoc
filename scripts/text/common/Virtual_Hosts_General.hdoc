@@ -175,6 +175,63 @@ END_TIPS
 
 
 ############# Customized Error Pages #############
+
+
+[ITEM]
+ID: errCode
+NAME: Error Code
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the HTTP status code for the error page. 
+Only the selected HTTP status code will have this customized error page. 
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: errURL
+NAME: URL
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the URL of the customized error page.  
+The server will forward the request to this URL when the corresponding HTTP status code has returned. 
+If this URL refers to a non-existing resource, the built-in error page will be used. 
+The URL can be a static file, a dynamically generated page, or a page on another web site 
+(a URL starting with "http(s)://"). 
+When referring to a page on another web site, the client will receive a redirect status 
+code instead of the original status code.
+END_DESCR
+
+SYNTAX: URL
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# HT Access #############
 ############# Expires Settings #############
 ############# Apache Style Configurations #############

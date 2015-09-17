@@ -3609,33 +3609,6 @@ END_TIPS
 
 
 
-
-
-[ITEM]
-ID: vhaccessControl_allow
-NAME: 允许列表
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-DESCR: 指定允许的IP地址或子网的列表。
-END_DESCR
-
-SYNTAX: 用逗号分割的IP地址或子网列表。允许使用{val}*{/} 或 {val}ALL{/} 。
-子网可以写成{val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/} 或 {val}192.168.1.*{/}。
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
-
 [ITEM]
 ID: vhName
 NAME: 虚拟主机名
@@ -4300,35 +4273,6 @@ END_TIPS
 
 
 
-
-
-[ITEM]
-ID: errPageAction
-NAME: 动作
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: 要改变错误页面设置，单击“编辑”。
-要删除此自定义错误页面，点击“删除”。
-END_DESCR
-
-SYNTAX: 
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
-
-
 [ITEM]
 ID: enableCoreDump
 NAME: 启用Core Dump
@@ -4756,7 +4700,7 @@ DESCR: 除了服务器级别的设置外，您还可以额外指定哪个子网�
 
 END_DESCR
 
-CONT: vhaccessControl_allow accessControl_deny 
+CONT: accessControl_allow accessControl_deny 
 END_CONT
 
 SEE_ALSO: 
