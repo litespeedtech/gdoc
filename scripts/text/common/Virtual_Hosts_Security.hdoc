@@ -629,4 +629,27 @@ SEE_ALSO:
 [END_TBL]
 
 
+[TBL]
+ID: realms
+NAME: Authorization Realms
+
+DESCR: Lists all authorization realms for this virtual host. 
+Authorization realms are used to block unauthorized users from accessing protected web pages.
+A realm is a user directory containing usernames and passwords with optional 
+group classifications. Authorization is performed at context level. 
+Since different contexts can share the same realm (user database), so realms are 
+defined separately from the contexts that use them. 
+You can refer to a realm by these names in context configuration. 
+END_DESCR
+
+CONT: realmName realmType userDBLocation userDB_attrPasswd
+userDB_attrMemberOf userDBMaxCacheSize userDBCacheTimeout 
+GroupDBLocation groupDB_attrGroupMember groupDBMaxCacheSize 
+groupDBCacheTimeout LDAPBindDN LDAPBindPasswd
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
 [END_HELPDOC]

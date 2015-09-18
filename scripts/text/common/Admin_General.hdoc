@@ -95,4 +95,54 @@ END_TIPS
 ############# Access Log #############
 
 
+################ Tables ################
+
+
+[TBL]
+ID: coredump
+NAME: General
+
+DESCR: 
+END_DESCR
+
+CONT: enableCoreDump consoleSessionTimeout
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+[TBL]
+ID: adminUsers
+NAME: Web Admin Users
+
+DESCR: 
+END_DESCR
+
+CONT: adminUser
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: AdminGeneral_Help 
+NAME: Administration Console Settings
+
+DESCR: Admin Server is a special virtual host dedicated to the WebAdmin console.  
+It is very important to make sure Admin Server is securely protected either by only allowing  
+access from the administrator's machines or by using an encrypted SSL connection. 
+END_DESCR
+
+CONT: coredump vhLog vhAcLog accessControl adminUsers
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
 [END_HELPDOC]
