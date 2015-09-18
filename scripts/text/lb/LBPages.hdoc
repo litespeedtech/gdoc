@@ -117,48 +117,7 @@ END_TIPS
 
 
 
-[ITEM]
-ID: accessLog_pipedLogger
-NAME: Piped Logger 
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
 
-DESCR: Specifies an external application that will receive the access log
-data sent by LiteSpeed through a pipe on its STDIN stream (file
-handle 0). When specified, access log will be sent only to the logger application but not the
-access log file specified in previous entry. <br>
-The LiteSpeed load balancer 
-performs simple load balancing among multiple logger applications if
-more than one instance of logger application is configured. 
-LiteSpeed server always attempts
-to keep the number of logger processes as low as possible. Only when 
-one logger application failed to process access log entries in time 
-will the server attempt to spawn another instance of logger
-application. <br>
-If a logger process crashes, the server will start another instance but
-the log data in the stream buffer will be lost. It is possible to lose
-log data if external loggers cannot keep up  
-with the speed and volume of the log stream. <br>
-File path to the logger application should be given here, and
-optionally, number of application instaces can be set before the file
-path, followed by '|'. Example, "4|/path/to/logger/app" tell server to
-start up to 4 logger processes, while, only one logger process will be
-started if "/path/to/logger/app" is used.
-<br>
-END_DESCR
-
-SYNTAX: [&lt;intances&gt;|]&lt;path_to_logger_app&gt;
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
 
 
 
@@ -243,9 +202,6 @@ END_TIPS
 
 
 
->>>>>>> 1.8
-
-
 [PAGE]
 ID: ServGeneral_Help 
 NAME: Server General
@@ -282,33 +238,11 @@ SEE_ALSO:
 
 
 
-[PAGE]
-ID: ServTuning_Help 
-NAME: Server Tuning
-
-DESCR: 
-END_DESCR
-
-CONT: connTuning reqTuning gzipTuning sslSessionTBL
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
 
 
 
-[PAGE]
-ID: ServSecurity_Help 
-NAME: Server Security
 
-DESCR: 
-END_DESCR
 
-CONT: perClientConnLimit accessControl 
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
 
 
 

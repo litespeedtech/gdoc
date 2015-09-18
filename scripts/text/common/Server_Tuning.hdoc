@@ -877,4 +877,39 @@ SEE_ALSO:
 [END_TBL]
 
 
+
+################ Pages ################
+
+
+[PAGE]
+ID: ServTuning_Help 
+NAME: Server Tuning
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: osTuning connTuning reqTuning staticTuning gzipTuning 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: ServTuning_Help 
+NAME: Server Tuning
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: connTuning reqTuning gzipTuning sslSessionTBL
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
 [END_HELPDOC]

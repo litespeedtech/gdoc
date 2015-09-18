@@ -1031,4 +1031,40 @@ SEE_ALSO:
 [END_TBL]
 
 
+
+################ Pages ################
+
+
+[PAGE]
+ID: ServSecurity_Help 
+NAME: Server Security
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: fileAccessControl perClientConnLimit cgiResource
+accessDeny accessControl  
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: ServSecurity_Help 
+NAME: Server Security
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: perClientConnLimit accessControl 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
 [END_HELPDOC]

@@ -75,10 +75,6 @@ END_TIPS
 
 
 
-
-
-
-
 [ITEM]
 ID: railsAppLimit
 NAME: Max Apps Per Account
@@ -104,8 +100,6 @@ otherwise it may affect the performance of whole server if one user abuses it.
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -141,12 +135,6 @@ END_TIPS
 [END_ITEM]
 
 
-
-
-
-
-
-
 [TBL]
 ID: railsDefault
 NAME: Ruby Rack/Rails Settings
@@ -163,7 +151,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
-
 
 
 
@@ -210,8 +197,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
-
-
 
 
 [END_HELPDOC]
