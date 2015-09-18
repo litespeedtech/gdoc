@@ -127,7 +127,7 @@ EOD;
 			}
 
 
-			$buf = "\t\t\$this->db['$id'] = new DATTR_HELP_ITEM('$name', '$desc', '$tip', '$syntax', '$example');\n";
+			$buf = "\t\t\$this->db['$id'] = new DATTR_HELP_ITEM(\"$name\", '$desc', '$tip', '$syntax', '$example');\n";
 			fwrite($fd, $buf);
 
 			if ($id == DEBUG_TAG) {
