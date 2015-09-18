@@ -1,32 +1,7 @@
 [HELPDOC]
 
 
-[ITEM]
-ID: rewriteLogLevel
-NAME: Log Level
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO:
 
-DESCR: Specifies the log level of the rewrite engine debug output.
-Value ranges from 0 - 9, 0 will disable logging and 9 will produce the
-most detailed log. The log level of the server error log
-must be set to at least {val}INFO{/} for this option to take effect.
-This is useful when testing your rewrite rules.
-
-END_DESCR
-
-SYNTAX: uint 
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
 
 
 
@@ -114,34 +89,7 @@ END_TIPS
 
 
 
-[ITEM]
-ID: dynReqPerSec
-NAME: Requests/Second
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
 
-DESCR: Specifies the maximum number of requests to dynamically generated content 
-coming from a single IP address can be processed in each second
-regardless of number of connections established. 
-When the limit is reached, all future requests to dynamic content 
-are tar-pitted until next second. 
-Per client request limit can be set at server or virtual host level where
-virtual host level setting overrides server level setting.
-END_DESCR
-
-SYNTAX: uint
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-[Security] Trusted IP or sub-network is not effected
-END_TIPS
-
-[END_ITEM]
 
 
 

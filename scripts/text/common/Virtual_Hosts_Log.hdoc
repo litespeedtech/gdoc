@@ -119,6 +119,7 @@ END_TIPS
 [TBL]
 ID: vhLog
 NAME: Virtual Host Log
+NS: EO
 
 DESCR: 
 END_DESCR

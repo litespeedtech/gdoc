@@ -247,6 +247,73 @@ END_TIPS
 
 
 [ITEM]
+ID: dynReqPerSec
+NAME: Dynamic Requests/Second
+NS: EO
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=staticReqPerSec}
+
+DESCR: Specifies the maximum number of requests to dynamically generated content 
+coming from a single IP address that can be processed in each second
+regardless of the number of connections established. 
+When this limit is reached, all future requests to dynamic content 
+are tar-pitted until the next second. 
+
+
+The request limit for static content is independent of this limit.
+This per client request limit can be set at server or virtual host level. 
+Virtual host-level settings override server-level settings.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+[Security] Trusted IPs or sub-networks are not restrained by this limit.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: dynReqPerSec
+NAME: Requests/Second
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum number of requests to dynamically generated content 
+coming from a single IP address can be processed in each second
+regardless of number of connections established. 
+When the limit is reached, all future requests to dynamic content 
+are tar-pitted until next second. 
+Per client request limit can be set at server or virtual host level where
+virtual host level setting overrides server level setting.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+[Security] Trusted IP or sub-network is not effected
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: outBandwidth
 NAME: Outbound Bandwidth (bytes/sec)
 REQUIRED: 

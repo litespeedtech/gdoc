@@ -1,37 +1,7 @@
 [HELPDOC]
 
 
-[ITEM]
-ID: dynReqPerSec
-NAME: Dynamic Requests/Second
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: {ITEM=staticReqPerSec}
 
-DESCR: Specifies the maximum number of requests to dynamically generated content 
-coming from a single IP address that can be processed in each second
-regardless of the number of connections established. 
-When this limit is reached, all future requests to dynamic content 
-are tar-pitted until the next second. 
-
-
-The request limit for static content is independent of this limit.
-This per client request limit can be set at server or virtual host level. 
-Virtual host-level settings override server-level settings.
-END_DESCR
-
-SYNTAX: uint
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-[Security] Trusted IPs or sub-networks are not restrained by this limit.
-END_TIPS
-
-[END_ITEM]
 
 
 
@@ -101,35 +71,6 @@ data if external loggers cannot keep up with the speed and volume of the log str
 END_DESCR
 
 SYNTAX: select 
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
-ID: rewriteLogLevel
-NAME: Log Level
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: Server {ITEM=ServGeneral_Help#log_logLevel}, Virtual Host {ITEM=VHGeneral_Help#vhlog_logLevel}
-
-
-DESCR: Specifies the level of detail of the rewrite engine's debug output.
-This value ranges from {val}0{/} - {val}9{/}. {val}0{/} disables logging. {val}9{/} produces the
-most detailed log. The server and virtual host's error log {ITEM=ServGeneral_Help#log_logLevel} 
-must be set to at least {val}INFO{/} for this option to take effect.
-This is useful when testing your rewrite rules.
-END_DESCR
-
-SYNTAX: uint 
 END_SYNTAX
 
 EXAMPLE: 

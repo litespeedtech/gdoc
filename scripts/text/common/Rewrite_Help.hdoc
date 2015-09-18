@@ -1,5 +1,66 @@
 [HELPDOC]
 
+
+ITEM]
+ID: rewriteLogLevel
+NAME: Log Level
+NS: EO
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: Server {ITEM=ServGeneral_Help#log_logLevel}, Virtual Host {ITEM=VHGeneral_Help#vhlog_logLevel}
+
+
+DESCR: Specifies the level of detail of the rewrite engine's debug output.
+This value ranges from {val}0{/} - {val}9{/}. {val}0{/} disables logging. {val}9{/} produces the
+most detailed log. The server and virtual host's error log {ITEM=ServGeneral_Help#log_logLevel} 
+must be set to at least {val}INFO{/} for this option to take effect.
+This is useful when testing your rewrite rules.
+END_DESCR
+
+SYNTAX: uint 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: rewriteLogLevel
+NAME: Log Level
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO:
+
+DESCR: Specifies the log level of the rewrite engine debug output.
+Value ranges from 0 - 9, 0 will disable logging and 9 will produce the
+most detailed log. The log level of the server error log
+must be set to at least {val}INFO{/} for this option to take effect.
+This is useful when testing your rewrite rules.
+
+END_DESCR
+
+SYNTAX: uint 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
 [ITEM]
 ID: enableRewrite
 NAME: Enable Rewrite
@@ -245,6 +306,7 @@ END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
+
 
 
 [END_HELPDOC]
