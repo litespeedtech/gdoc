@@ -9,7 +9,7 @@ NAME: Virtual Host Security
 DESCR: 
 END_DESCR
 
-CONT: tpSecFile tpSecThrottle tpSecCGI vhHotlink vhAccessControl realms reqCensorship reqCensorshipRule
+CONT: tpSecFile tpSecThrottle tpSecCGI vhHotlink accessControl realms reqCensorship reqCensorshipRule
 END_CONT
 
 SEE_ALSO: 

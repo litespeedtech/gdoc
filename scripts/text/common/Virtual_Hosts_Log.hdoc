@@ -113,4 +113,38 @@ END_TIPS
 
 
 
+################ Tables ################
+
+
+[TBL]
+ID: vhLog
+NAME: Virtual Host Log
+
+DESCR: 
+END_DESCR
+
+CONT: logUseServer log_fileName vhlog_logLevel log_rollingSize 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[TBL]
+ID: vhAcLog
+NAME: Access Log
+
+DESCR: 
+END_DESCR
+
+CONT: aclogUseServer accessLog_fileName accessLog_pipedLogger 
+accessLog_logFormat accessLog_logHeader 
+log_rollingSize accessLog_keepDays 
+accessLog_bytesLog accessLog_compressArchive
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
 [END_HELPDOC]

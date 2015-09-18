@@ -858,4 +858,23 @@ END_TIPS
 [END_ITEM]
 
 
+
+################ Tables ################
+
+
+[TBL]
+ID: reqTuning
+NAME: Request/Response Tuning
+
+DESCR: 
+END_DESCR
+
+CONT: maxReqURLLen maxReqHeaderSize maxReqBodySize
+      maxDynRespHeaderSize maxDynRespSize 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
 [END_HELPDOC]

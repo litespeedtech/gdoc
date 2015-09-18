@@ -926,4 +926,42 @@ END_TIPS
 [END_ITEM]
 
 
+
+################ Tables ################
+
+
+[TBL]
+ID: accessControl
+NAME: Access Control
+
+DESCR: Specifies what sub networks and/or IP addresses can access the server. 
+At the server-level, this setting will affect all virtual hosts. You can also set up 
+access control unique to each virtual host at the virtual host-level. Virtual host settings will NOT 
+override server settings. 
+
+
+Whether to block/allow an IP is determined by the combination of the allowed list and the denied list. 
+If you want to block only certain IPs or sub-networks, put {val}*{/} or {val}ALL{/} in 
+the {ITEM=accessControl_allow} and list the blocked IPs or sub-networks in the {ITEM=accessControl_deny}. 
+If you want to only allow certain IPs or sub-networks, put {val}*{/} or {val}ALL{/} 
+in the {ITEM=accessControl_deny} and list the allowed IPs or sub-networks in the {ITEM=accessControl_allow}. 
+The setting of the smallest scope that fits for an IP will be used to determine whether 
+to block or allow that IP. 
+
+
+<b>Server-level:</b> Trusted IPs or sub-networks must be specified in the {ITEM=accessControl_allow} by adding a 
+trailing "T". Trusted IPs or sub-networks are not affected by connection/throttling limits. 
+Only server-level access control can set up trusted IPs/sub-networks.
+END_DESCR
+
+TIPS: [Security] Use this at the server-level for general restrictions that apply to all virtual hosts.
+END_TIPS
+
+CONT: accessControl_allow accessControl_deny 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
 [END_HELPDOC]

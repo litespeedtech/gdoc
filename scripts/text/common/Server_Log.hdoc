@@ -155,6 +155,31 @@ END_TIPS
 
 
 
+[ITEM]
+ID: log_enableAioLog
+NAME: Enable AIO Logging
+REQUIRED: 
+APPLY: 3
+SINCE: 4.2.19
+SEE_ALSO: 
+
+DESCR: Specifies whether to enable AIO logging for server log and access log.
+If enabled, asynchronous I/O will be used for writing log messages.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: Enabling AIO logging can help overall server performance when server I/O wait is high.
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# Access Log #############
 
 
@@ -301,6 +326,39 @@ TIPS:Log files are highly compressible and this is recommended to reduce disk us
 END_TIPS
 
 [END_ITEM]
+
+
+
+################ Tables ################
+
+
+[TBL]
+ID: servLog
+NAME: Server Log
+
+DESCR: 
+END_DESCR
+
+CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_enableStderrLog log_enableAioLog
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: servAcLog
+NAME: Access Log
+
+DESCR: 
+END_DESCR
+
+CONT: accessLog_fileName accessLog_pipedLogger accessLog_logFormat accessLog_logHeader log_rollingSize accessLog_keepDays accessLog_compressArchive
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
 
 
 [END_HELPDOC]

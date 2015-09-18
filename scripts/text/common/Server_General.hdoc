@@ -687,4 +687,42 @@ END_TIPS
 ############# Apache Style Configurations #############
 
 
+
+################ Tables ################
+
+
+[TBL]
+ID: servIndex
+NAME: Index Files
+
+DESCR: 
+END_DESCR
+
+CONT: indexFiles autoIndex autoIndexURI
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+
+[TBL]
+ID: geolocationDB
+NAME: IP to Geolocation DB
+
+DESCR: {ent_version} Multiple MaxMind geolocation databases can be specified here. MaxMind
+has the following type of DBs: Country, Region, City, Organization, ISP and Netspeed. 
+If multiple databases of types "Country", "Region", and "City" are configured, the
+last one will be effective.
+END_DESCR
+
+CONT: geoipDBFile geoipDBCache 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
 [END_HELPDOC]

@@ -1,0 +1,98 @@
+[HELPDOC]
+
+
+############# Uncategorized #############
+
+
+[ITEM]
+ID: adminUser
+NAME: Admin User
+REQUIRED: 
+APPLY: Immediately
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Change the username and password for WebAdmin Console. 
+The old password has to be entered and verified in order to save the changes.  
+END_DESCR
+
+SYNTAX:
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: If you forget the admin password, you cannot change it from the
+WebAdmin console. Please use the following command from shell instead:
+{cmd}[your install dir]/admin/misc/admpass.sh{/} 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# General #############
+
+
+[ITEM]
+ID: enableCoreDump
+NAME: Enable Core Dump
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to enable core dump when the server is started by "root" user. 
+For most modern Unix systems, processes that change user ID or group ID are not allowed to 
+dump a core file for security reasons. However, it is much easier to identify root 
+cause of a problem with a core dump. This option only works on Linux kernel 2.4 and up.  
+Solaris users should use the {cmd}coreadm{/} command to control this feature.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] Only enable this when you see {val}no core file created{/} in  
+the server log file. Disable it immediately after producing the core file.  
+Please submit a bug report when a core dump has been created.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: consoleSessionTimeout
+NAME: Session Timeout (secs)
+REQUIRED: 
+APPLY: Immediately
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Customize the session timeout length of WebAdmin console. 
+The default is 60 seconds if no value is set.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] Set a proper value for production use, usually less than 300 seconds.
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Virtual Host Log #############
+
+
+############# Access Log #############
+
+
+[END_HELPDOC]
