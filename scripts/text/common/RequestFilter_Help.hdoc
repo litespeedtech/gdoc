@@ -328,7 +328,7 @@ NAME: Request Filter
 DESCR: 
 END_DESCR
 
-CONT: enableCensorship censorLogLevel defaultAction scanPOST disableSecHtaccess secAuditLogEngine secAuditLog
+CONT: enableCensorship censorLogLevel defaultAction scanPOST uploadTmpDir disableSecHtaccess secAuditLogEngine secAuditLog
 END_CONT
 
 SEE_ALSO: 
