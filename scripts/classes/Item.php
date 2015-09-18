@@ -36,7 +36,7 @@ class Item
 				if ( strncmp($tag, $line, strlen($tag)) == 0 )
 				{
 					$this->_name = trim(substr($line, strlen($tag)));
-					break;
+					continue;
 				}
 				$tag = 'Q:';
 				if ( strncmp($tag, $line, strlen($tag)) == 0 )
@@ -48,7 +48,7 @@ class Item
 				if ( strncmp($tag, $line, strlen($tag)) == 0 )
 				{
 					$this->_ns = trim(substr($line, strlen($tag)));
-					break;
+					continue;
 				}
 			}
 		}

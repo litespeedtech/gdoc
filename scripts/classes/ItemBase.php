@@ -40,6 +40,8 @@ class ItemBase
 					$itemInd = false;
 					$item = new Item($buf, 'ITEM');
                     if (GenTool::inCurrentNameSpace($item->_ns)) {
+                        if ($item->_id == 'dynReqPerSec')
+                            var_dump($item);
                         if ( isset($this->_items[$item->_id]) )
                             echo "duplicate item $item->_id in $doc \n";
                         else

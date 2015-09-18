@@ -263,7 +263,9 @@ class GenHelpDoc
 						echo "not array 2!\n";
 						var_dump($this->_tables[$i]->_items);
 					}
-					$items = array_merge($items, $this->_tables[$i]->_items);
+                    else {
+                        $items = array_merge($items, $this->_tables[$i]->_items);
+                    }
 				}
 				$this->_pages[$p]->_items = $items;
 			}
