@@ -294,7 +294,12 @@ EOD;
         }
 
         if (isset($config['tip_nav'])) {
-            $tips = new GenPopupTips($h);
+            if (DOC_TYPE == 'ows') {
+                $tips = new GenPopupTips($h);
+            }
+            else {
+                $tips = new GenHelpTips($h);
+            }
             $tipfile = $config['tips_dir'] . '/' . DOC_TYPE . '_tips';
             $tips->genTips($config['tip_nav'], $base, $tipfile);
         }

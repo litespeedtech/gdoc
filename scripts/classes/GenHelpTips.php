@@ -20,9 +20,32 @@ class GenHelpTips
 		$this->_tipsBase = array();
 	}
 
-	function init($navchain)
+    private function getNavChain($root)
+    {
+        $chain = array();
+        if (!isset($this->_nav[$root])) {
+            echo "Wrong Nav ID $root\n";
+        }
+        else {
+            $chain[] = $root;
+            $nav = $this->_nav[$root];
+            if ($nav->_cont != NULL) {
+                foreach ($nav->_cont as $child) {
+                    $children = $this->getNavChain($child);
+                    $chain = array_merge($chain, $children);
+                }
+            }
+
+        }
+        return $chain;
+
+    }
+
+	function init($navRootId)
 	{
 		//get nav items
+        $navchain = $this->getNavChain($navRootId);
+
 		foreach( $navchain as $navId )
 		{
 			if ( isset($this->_nav[$navId]) )
