@@ -1,5 +1,9 @@
 [HELPDOC]
 
+
+########## Cache Storage Settings ##########
+
+
 [ITEM]
 ID: cacheStorePath
 NAME: Storage Path
@@ -26,6 +30,10 @@ storage. RAID0 is recommended.
 END_TIPS
 
 [END_ITEM]
+
+
+
+########## Cache Policy ##########
 
 
 [ITEM]
@@ -64,7 +72,6 @@ END_TIPS
 
 
 
-
 [ITEM]
 ID: cachePolicy:maxCacheObjSize
 NAME: Max Object Size
@@ -89,9 +96,10 @@ END_TIPS
 [END_ITEM]
 
 
+
 [ITEM]
 ID: cachePolicy:expireInSeconds
-NAME: Cache Expire Time (Seconds)
+NAME: Cache Expire Time (seconds)
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -115,7 +123,7 @@ END_TIPS
 
 [ITEM]
 ID: cachePolicy:maxStaleAge
-NAME: Cache Stale Age (Seconds)
+NAME: Cache Stale Age (seconds)
 REQUIRED: 
 APPLY: 3
 SINCE: 4.2.2
@@ -164,9 +172,6 @@ END_TIPS
 
 
 
-
-
-
 [ITEM]
 ID: cachePolicy:reqCookieCache
 NAME: Cache Request with Cookie
@@ -191,8 +196,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: cachePolicy:respCookieCache
 NAME: Cache Response with Cookie
@@ -214,9 +217,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
 
 
 
@@ -272,8 +272,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: cachePolicy:enablePrivateCache
 NAME: Enable Private Cache
@@ -314,10 +312,9 @@ END_TIPS
 
 
 
-
 [ITEM]
 ID: cachePolicy:privateExpireInSeconds
-NAME: Private Cache Expire Time (Seconds)
+NAME: Private Cache Expire Time (seconds)
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -338,6 +335,8 @@ END_TIPS
 [END_ITEM]
 
 
+
+########## Do-Not-Cache URL ##########
 
 
 [ITEM]
@@ -363,6 +362,11 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
+
+
+
+########## Do-Not-Cache Domains ##########
+
 
 [ITEM]
 ID: noCacheDomain
@@ -391,18 +395,12 @@ END_TIPS
 
 
 
-
-
-
-
-
-
-######################## TBL #####################
+############# Tables #############
 
 
 [TBL]
 ID: cacheStorage
-NAME: Cache Storage Setting
+NAME: Cache Storage Settings
 
 DESCR: 
 END_DESCR
@@ -412,6 +410,7 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
+
 
 
 [TBL]
@@ -430,6 +429,8 @@ END_CONT
 SEE_ALSO: 
 [END_TBL]
 
+
+
 [TBL]
 ID: noCacheURLList
 NAME: Do-Not-Cache URL
@@ -442,6 +443,8 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
+
+
 
 [TBL]
 ID: noCacheDomainList
@@ -456,8 +459,10 @@ END_CONT
 SEE_ALSO: 
 [END_TBL]
 
-##################### PAGE #######################
- 
+
+
+################ Pages #################
+
 [PAGE]
 ID: Cache_Help
 NAME: Page Cache Settings
@@ -473,4 +478,3 @@ SEE_ALSO:
 
 
 [END_HELPDOC]
- 
