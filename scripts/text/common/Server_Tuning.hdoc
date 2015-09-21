@@ -878,6 +878,40 @@ SEE_ALSO:
 
 
 
+[TBL]
+ID: gzipTuning
+NAME: GZIP Compression Tuning
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: enableGzipCompress enableDynGzipCompress gzipCompressLevel 
+compressibleTypes gzipAutoUpdateStatic gzipCacheDir gzipStaticCompressLevel 
+gzipMaxFileSize gzipMinFileSize
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: gzipTuning
+NAME: GZIP Compression Tuning
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: enableGzipCompress gzipCompressLevel compressibleTypes
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
 ################ Pages ################
 
 

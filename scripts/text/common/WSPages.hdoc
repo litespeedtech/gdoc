@@ -2,39 +2,6 @@
 
 
 
-
-
-
-[ITEM]
-ID: serverPriority
-NAME: Priority
-REQUIRED: 
-APPLY: 2
-SINCE: 
-SEE_ALSO: External App {ITEM=ExtApp_Help#extAppPriority}, {ITEM=ServSecurity_Help#CGIPriority}
-
-DESCR: Specifies priority of the server processes. Value ranges from
-{val}-20{/} to {val}20{/}. A lower number means higher priority.
-END_DESCR
-
-SYNTAX: Integer number
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: [Performance] Usually a higher priority leads to slightly higher
-web performance on a busy server. Do not set priority higher than that of database processes.
-END_TIPS
-
-[END_ITEM]
-
-
-
-
-
-
-
 [ITEM]
 ID: spdyAdHeader
 NAME: SPDY Advertisement
@@ -97,22 +64,6 @@ SEE_ALSO:
 
 
 [TBL]
-ID: perClientConnLimit
-NAME: Per Client Throttling
-
-DESCR: These are connection control settings based on client IP. 
-These settings help to mitigate DoS (Denial of Service) and DDoS (Distributed Denial of Service) attacks.
-END_DESCR
-
-CONT: staticReqPerSec dynReqPerSec outBandwidth inBandwidth softLimit hardLimit blockBadReq gracePeriod banPeriod 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
 ID: cgiResource
 NAME: CGI Settings
 
@@ -144,23 +95,6 @@ SEE_ALSO:
 
 
 [TBL]
-ID: gzipTuning
-NAME: GZIP Compression Tuning
-
-DESCR: 
-END_DESCR
-
-CONT: enableGzipCompress enableDynGzipCompress gzipCompressLevel 
-compressibleTypes gzipAutoUpdateStatic gzipCacheDir gzipStaticCompressLevel 
-gzipMaxFileSize gzipMinFileSize
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
 ID: scriptHandler
 NAME: Script Handler Settings
 
@@ -168,36 +102,6 @@ DESCR:
 END_DESCR
 
 CONT: suffix shType shHandlerName 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: vhGeneral
-NAME: General
-
-DESCR: 
-END_DESCR
-
-CONT: docRoot vhadminEmails enableGzip enableIpGeo spdyAdHeader 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: vhIndex
-NAME: Index Files
-
-DESCR: 
-END_DESCR
-
-CONT: indexUseServer indexFiles autoIndex autoIndexURI
 END_CONT
 
 SEE_ALSO: 
@@ -221,24 +125,6 @@ SEE_ALSO:
 
 
 [TBL]
-ID: vhTop
-NAME: Virtual Host
-
-DESCR: 
-END_DESCR
-
-CONT: vhName vhRoot configFile allowSymbolLink enableScript
-restrained vhMaxKeepAliveReq vhSmartKeepAlive setUidMode
-chrootMode chrootPath staticReqPerSec dynReqPerSec
-outBandwidth inBandwidth 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
 ID: tpSecFile
 NAME: File Access Control
 
@@ -254,36 +140,6 @@ SEE_ALSO:
 
 
 [TBL]
-ID: sslFeature
-NAME: Security & Features
-
-DESCR: 
-END_DESCR
-
-CONT: renegProtection enableSpdy
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: tpSecThrottle
-NAME: Per Client Throttling Control
-
-DESCR: 
-END_DESCR
-
-CONT: staticReqPerSec dynReqPerSec outBandwidth inBandwidth 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
 ID: tpSecCGI
 NAME: External Application Resource Control
 
@@ -291,26 +147,6 @@ DESCR:
 END_DESCR
 
 CONT: setUidMode chrootMode chrootPath
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: errPage
-NAME: Customized Error Pages
-
-DESCR: Whenever the server has a problem processing a request, 
-the server will return an error code and an html page as the error message 
-to the web client. Error codes are defined in the HTTP protocol (see RFC 2616). 
-LiteSpeed web server has a built-in default error page for each error code, but 
-a customized page can be configured for each error code.  
-error pages can also be further customized to be unique for each virtual host. 
-END_DESCR
-
-CONT: errCode errURL
 END_CONT
 
 SEE_ALSO: 
@@ -356,19 +192,7 @@ SEE_ALSO:
 
 
 
-[PAGE]
-ID: VirtualHosts_Help 
-NAME: Virtual Host List
 
-DESCR: This page lists all defined virtual hosts. From here you can add/delete a virtual host or make
-changes to an existing one. Before you add a virtual host, make sure the virtual host root directory exists.
-END_DESCR
-
-CONT: vhTop 
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
 
 
 
@@ -384,101 +208,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
-
-
-
-[TBL]
-ID: templateGeneral
-NAME: General
-
-DESCR: 
-END_DESCR
-
-CONT: templateName templateFile mappedListeners  
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: templateMembers
-NAME: Member Virtual Hosts
-
-DESCR: 
-END_DESCR
-
-CONT: templateVHName templateVHDomain templateVHAliases memberVHRoot  
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: templateSettings
-NAME: Template Settings
-
-DESCR: 
-END_DESCR
-
-CONT: templateVHRoot templateVHConfigFile templateVHDocRoot templateFileRef 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: Admin_listenerGeneral
-NAME: General
-
-DESCR: 
-END_DESCR
-
-CONT: listenerName listenerIP listenerPort listenerSecure
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[PAGE]
-ID: Templates_Help 
-NAME: Virtual Host Templates
-
-
-DESCR: Virtual host templates make it easy to create many new virtual
-hosts with similar configurations. 
-
-
-Each template contains a template configuration file, a list of mapped listeners,
-and a list of member virtual hosts.
-
-
-To add a template-based virtual host, the administrator only needs to
-add a member with a unique virtual host name and a
-qualified domain name to the template member list.
-Lister-to-virtual host mapping will be added automatically for 
-all listeners in the template's mapped listener list. 
-
-
-Later on, if you need to customize the configuration for a particular
-virtual host, just "instantiate" that member virtual host and a
-standalone virtual host configuration will be created automatically.
-Even when setting up a customized virtual host,
-a template can still be a convenient starting point.
-END_DESCR
-
-CONT: templateGeneral templateMembers templateSettings
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
 
 
 

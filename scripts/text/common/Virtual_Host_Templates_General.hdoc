@@ -1,0 +1,39 @@
+[HELP_DOC]
+
+
+############# Tables #############
+
+
+[TBL]
+ID: templateSettings
+NAME: Template Settings
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: templateVHRoot templateVHConfigFile templateVHDocRoot templateFileRef 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: templateSettings
+NAME: Template Settings
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: templateVHRoot templateFileRef 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[END_HELPDOC]

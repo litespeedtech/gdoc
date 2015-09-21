@@ -327,4 +327,80 @@ END_TIPS
 ############# Per Client Throttling #############
 
 
+
+############# Tables #############
+
+
+[TBL]
+ID: vhTop
+NAME: Virtual Host
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: vhName vhRoot configFile allowSymbolLink enableScript
+restrained vhMaxKeepAliveReq vhSmartKeepAlive setUidMode
+chrootMode chrootPath staticReqPerSec dynReqPerSec
+outBandwidth inBandwidth 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: vhTop
+NAME: Virtual Host
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: vhName defaultCluster configFile 
+dynReqPerSec outBandwidth inBandwidth 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: VirtualHosts_Help 
+NAME: Virtual Host List
+NS: EO
+
+DESCR: This page lists all defined virtual hosts. From here you can add/delete a virtual host or make
+changes to an existing one. Before you add a virtual host, make sure the virtual host root directory exists.
+END_DESCR
+
+CONT: vhTop 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: VirtualHosts_Help 
+NAME: Virtual Host List
+NS: L
+
+DESCR: This page lists all defined virtual hosts. From here you can add/delete a virtual host or make
+changes to an existing one. 
+END_DESCR
+
+CONT: vhTop 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
 [END_HELPDOC]

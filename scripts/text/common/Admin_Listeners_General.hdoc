@@ -1,0 +1,38 @@
+[HELPDOC]
+
+
+############# Tables #############
+
+
+[TBL]
+ID: Admin_listenerGeneral
+NAME: General
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: listenerName listenerIP listenerPort listenerSecure
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: Admin_listenerGeneral
+NAME: General
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: listenerName listenerType listenerIP listenerPort listenerSecure
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[END_HELPDOC]

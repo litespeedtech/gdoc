@@ -1,0 +1,150 @@
+[HELPDOC]
+
+
+############# Tables #############
+
+
+[TBL]
+ID: templateGeneral
+NAME: General
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: templateName templateFile mappedListeners  
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: templateGeneral
+NAME: General
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: templateName templateFile mappedListeners  
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: templateMembers
+NAME: Member Virtual Hosts
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: templateVHName templateVHDomain templateVHAliases memberVHRoot  
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: templateMembers
+NAME: Member Virtual Hosts
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: templateVHName templateVHDomain templateVHAliases memberVHRoot  
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: Templates_Help 
+NAME: Virtual Host Templates
+NS: EO
+
+DESCR: Virtual host templates make it easy to create many new virtual
+hosts with similar configurations. 
+
+
+Each template contains a template configuration file, a list of mapped listeners,
+and a list of member virtual hosts.
+
+
+To add a template-based virtual host, the administrator only needs to
+add a member with a unique virtual host name and a
+qualified domain name to the template member list.
+Lister-to-virtual host mapping will be added automatically for 
+all listeners in the template's mapped listener list. 
+
+
+Later on, if you need to customize the configuration for a particular
+virtual host, just "instantiate" that member virtual host and a
+standalone virtual host configuration will be created automatically.
+Even when setting up a customized virtual host,
+a template can still be a convenient starting point.
+END_DESCR
+
+CONT: templateGeneral templateMembers templateSettings
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: Templates_Help 
+NAME: Virtual Host Templates
+NS: L
+
+DESCR: Virtual host template can be used to simplify the
+administration of virtual hosts with similar configuration,
+especially, for mass hosting environment. Once a template is configured
+properly, only minimum configuration is required when adding a new virtual
+host. 
+
+
+Each template contains a template configuration file, a list of mapped listeners
+and a list of member virtual hosts. 
+
+
+The template configuration file contains all configuration entries for a virtual host, with some
+fields requiring special values. 
+
+
+To add a template-based virtual host, administrator only needs to
+add a member to the template member list with a unique virtual host name and a
+qualified domain name of that virtual host.
+Lister-to-virtual host mapping will be added automatically for 
+all listeners in the mapped listener list.
+
+
+Later on, if you need to customize the configuration for a particular
+virtual host, just "instantiate" that member virtual host, a
+standalone virtual host configuration will be created automatically.
+Even when setting up a virtual host with different configuration,
+it is still convenient to use a template as a starting point, and then customize it after instantiation.
+END_DESCR
+
+CONT: templateGeneral templateMembers templateSettings
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]

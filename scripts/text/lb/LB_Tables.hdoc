@@ -35,22 +35,6 @@ SEE_ALSO:
 
 
 [TBL]
-ID: perClientConnLimit
-NAME: Per Client Throttling Control
-
-DESCR: These are connection control setting on a per client/IP basis. 
-These settings help to mitigate DoS (Denied of Service) and DDoS (Distributed Denied of Service) attacks.
-END_DESCR
-
-CONT: dynReqPerSec outBandwidth inBandwidth softLimit hardLimit gracePeriod banPeriod 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
 ID: connTuning
 NAME: Connection Tuning
 
@@ -68,52 +52,6 @@ SEE_ALSO:
 
 
 [TBL]
-ID: gzipTuning
-NAME: GZIP Compression Tuning
-
-DESCR: 
-END_DESCR
-
-CONT: enableGzipCompress gzipCompressLevel compressibleTypes
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: vhGeneral
-NAME: General
-
-DESCR: 
-END_DESCR
-
-CONT: vhMaxKeepAliveReq vhSmartKeepAlive enableGzip enableIpGeo vhadminEmails 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: vhTop
-NAME: Virtual Host
-
-DESCR: 
-END_DESCR
-
-CONT: vhName defaultCluster configFile 
-dynReqPerSec outBandwidth inBandwidth 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
 ID: LB_extapp
 NAME: External App Settings
 
@@ -122,41 +60,6 @@ END_DESCR
 
 CONT: LB_extAppType extAppName extAppAddress extSrcIP maxConns env initTimeout 
 retryTimeout persistConn pcKeepAliveTimeout respBuffer 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: errPage
-NAME: Customized Error Pages
-
-DESCR: Whenever the server has a problem in processing a request, 
-the server will return an error code and an html page as the error message 
-to web client. Error codes are defined in the HTTP protocol (see RFC 2616). 
-LiteSpeed server has a built-in default error page for each error code.
-A customized page can be configured for each error code. In LiteSpeed server, 
-error pages can be further customized to be unique for each virtual host. 
-END_DESCR
-
-CONT: errCode errMessage
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: tpSecThrottle
-NAME: Per Client Throttling Control
-
-DESCR: 
-END_DESCR
-
-CONT: dynReqPerSec outBandwidth inBandwidth 
 END_CONT
 
 SEE_ALSO: 
@@ -217,36 +120,6 @@ SEE_ALSO:
 
 
 [TBL]
-ID: templateGeneral
-NAME: General
-
-DESCR: 
-END_DESCR
-
-CONT: templateName templateFile mappedListeners  
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: templateMembers
-NAME: Member Virtual Hosts
-
-DESCR: 
-END_DESCR
-
-CONT: templateVHName templateVHDomain templateVHAliases memberVHRoot  
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
 ID: sslSetting
 NAME: SSL Private Key & Certificate
 
@@ -278,21 +151,6 @@ DESCR:
 END_DESCR
 
 CONT: sname pid servAction restart viewlog realtimerpt toggleDebugLog vermgr
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: templateSettings
-NAME: Template Settings
-
-DESCR: 
-END_DESCR
-
-CONT: templateVHRoot templateFileRef 
 END_CONT
 
 SEE_ALSO: 
@@ -362,21 +220,6 @@ SEE_ALSO:
 
 
 [TBL]
-ID: Admin_listenerGeneral
-NAME: General
-
-DESCR: 
-END_DESCR
-
-CONT: listenerName listenerType listenerIP listenerPort listenerSecure
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
 ID: ClusterErrMsg
 NAME: Custom Error Messages
 
@@ -386,20 +229,6 @@ configured at virtual host level will override this configuration.
 END_DESCR
 
 CONT: errMessage 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-[TBL]
-ID: sslFeature
-NAME: Security & Features
-
-DESCR: 
-END_DESCR
-
-CONT: renegProtection sslSessionCache sslSessionTickets
 END_CONT
 
 SEE_ALSO: 

@@ -30,29 +30,4 @@ END_TIPS
 [END_ITEM]
 
 
-
-[ITEM]
-ID: serverPriority
-NAME: Priority
-REQUIRED: 
-APPLY: 2
-SINCE: 
-SEE_ALSO: External App {ITEM=ExtApp_Help#extAppPriority}, {ITEM=ServSecurity_Help#CGIPriority}
-
-DESCR: Specifies priority of the server processes. Value ranges from
-{val}-20{/} to {val}20{/}. A lower number equates to a higher priority.
-END_DESCR
-
-SYNTAX: Integer number
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: [Performance] Usually a higher priority leads to slightly higher
-web performance on a busy server. Do not set priority higher than that of database processes.
-END_TIPS
-
-[END_ITEM]
-
 [END_HELPDOC]

@@ -1,0 +1,37 @@
+[HELPDOC]
+
+
+############# Tables #############
+
+
+[TBL]
+ID: sslFeature
+NAME: Security & Features
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: renegProtection enableSpdy
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: sslFeature
+NAME: Security & Features
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: renegProtection sslSessionCache sslSessionTickets
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+[END_HELPDOC]

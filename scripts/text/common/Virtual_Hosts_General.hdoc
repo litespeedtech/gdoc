@@ -237,4 +237,96 @@ END_TIPS
 ############# Apache Style Configurations #############
 
 
+
+############# Tables ##############
+
+
+[TBL]
+ID: vhGeneral
+NAME: General
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: docRoot vhadminEmails enableGzip enableIpGeo spdyAdHeader 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: vhIndex
+NAME: Index Files
+
+DESCR: 
+END_DESCR
+
+CONT: indexUseServer indexFiles autoIndex autoIndexURI
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: vhGeneral
+NAME: General
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: vhMaxKeepAliveReq vhSmartKeepAlive enableGzip enableIpGeo vhadminEmails 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: errPage
+NAME: Customized Error Pages
+NS: EO
+
+DESCR: Whenever the server has a problem processing a request, 
+the server will return an error code and an html page as the error message 
+to the web client. Error codes are defined in the HTTP protocol (see RFC 2616). 
+LiteSpeed web server has a built-in default error page for each error code, but 
+a customized page can be configured for each error code.  
+error pages can also be further customized to be unique for each virtual host. 
+END_DESCR
+
+CONT: errCode errURL
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: errPage
+NAME: Customized Error Pages
+NS: L
+
+DESCR: Whenever the server has a problem in processing a request, 
+the server will return an error code and an html page as the error message 
+to web client. Error codes are defined in the HTTP protocol (see RFC 2616). 
+LiteSpeed server has a built-in default error page for each error code.
+A customized page can be configured for each error code. In LiteSpeed server, 
+error pages can be further customized to be unique for each virtual host. 
+END_DESCR
+
+CONT: errCode errMessage
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
 [END_HELPDOC]
