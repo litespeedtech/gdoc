@@ -228,33 +228,6 @@ END_TIPS
 
 
 
-
-
-[ITEM]
-ID: uploadTmpFilePermission
-NAME: Temporary File Permissions
-REQUIRED: 
-APPLY: 2
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Determines file permissions used for files stored in temporary directory. 
-Server level setting is global, can be overridden at VHost level.
-
-END_DESCR
-
-SYNTAX: 3 digits octet number. Default value is 666.
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
 [ITEM]
 ID: uploadPassByPath
 NAME: Pass Upload Data by File Path

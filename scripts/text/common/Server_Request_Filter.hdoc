@@ -4,7 +4,7 @@
 [ITEM]
 ID: uploadTmpDir
 NAME: Temporary File Path
-NS: LO 
+NS: O 
 REQUIRED: 
 APPLY: 2
 SINCE: 
@@ -16,6 +16,59 @@ while request body parser is working. Default value is {val}/tmp/lshttpd/{/}.
 END_DESCR
 
 SYNTAX: Absolute path or path starting with $SERVER_ROOT (for Server and VHost levels) or $VH_ROOT (for VHost levels).
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: uploadTmpDir
+NAME: Temporary File Path
+NS: L 
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Temporary directory where files being uploaded to server will be stored 
+while request body parser is working. Default value is {val}/tmp{/}.
+
+END_DESCR
+
+SYNTAX: Absolute path or path starting with $SERVER_ROOT (for Server and VHost levels) or $VH_ROOT (for VHost levels).
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: uploadTmpFilePermission
+NAME: Temporary File Permissions
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Determines file permissions used for files stored in temporary directory. 
+Server level setting is global, can be overridden at VHost level.
+
+END_DESCR
+
+SYNTAX: 3 digits octet number. Default value is 666.
 END_SYNTAX
 
 EXAMPLE: 
