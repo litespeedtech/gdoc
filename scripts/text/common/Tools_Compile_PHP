@@ -24,6 +24,7 @@ END_TIPS
 [END_ITEM]
 
 
+
 [ITEM]
 ID: installpathprefix
 NAME: Installation Path Prefix
@@ -46,6 +47,8 @@ END_TIPS
 
 [END_ITEM]
 
+
+
 [ITEM]
 ID: compilerflags
 NAME: Compiler Flags
@@ -67,6 +70,8 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
+
+
 
 [ITEM]
 ID: configureparams
@@ -93,6 +98,8 @@ END_TIPS
 
 [END_ITEM]
 
+
+
 [ITEM]
 ID: addonmodules
 NAME: Add-on Modules
@@ -118,6 +125,10 @@ END_TIPS
 [END_ITEM]
 
 
+
+############# Tables #############
+
+
 [TBL]
 ID: compilephp
 NAME: Compile PHP
@@ -132,9 +143,8 @@ SEE_ALSO:
 [END_TBL]
 
 
-################ PAGE ####################
 
-
+################ Pages ################
 
 
 [PAGE]
