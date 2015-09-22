@@ -1,5 +1,9 @@
 [HELPDOC]
 
+
+########## Web Socket Definition ##########
+
+
 [ITEM]
 ID: wsuri
 NAME: URI
@@ -73,6 +77,10 @@ END_TIPS
 [END_ITEM]
 
 
+
+############# Tables #############
+
+
 [TBL]
 ID: websocketproxy
 NAME: Web Socket Proxy
@@ -87,9 +95,8 @@ SEE_ALSO:
 [END_TBL]
 
 
-################ PAGE ####################
 
-
+################ Pages ################
 
 
 [PAGE]
