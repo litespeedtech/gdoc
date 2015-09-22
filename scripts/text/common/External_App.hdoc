@@ -1,6 +1,8 @@
 [HELPDOC]
 
 
+########## New External App ##########
+
 
 [ITEM]
 ID: extAppType
@@ -46,6 +48,10 @@ END_TIPS
 [END_ITEM]
 
 
+
+########## App Definition ##########
+
+
 [ITEM]
 ID: extAppName
 NAME: Name
@@ -68,8 +74,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -104,6 +108,8 @@ so the external application is inaccessible from other machines.
 END_TIPS
 
 [END_ITEM]
+
+
 
 [ITEM]
 ID: expWSAddress
@@ -169,8 +175,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: env
 NAME: Environment
@@ -195,11 +199,9 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: initTimeout
-NAME: Initial Request Timeout
+NAME: Initial Request Timeout (secs)
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -227,11 +229,9 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: retryTimeout
-NAME: Retry Timeout
+NAME: Retry Timeout (secs)
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -251,7 +251,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
 
 
 
@@ -281,9 +280,10 @@ END_TIPS
 [END_ITEM]
 
 
+
 [ITEM]
 ID: pcKeepAliveTimeout
-NAME: Keep Alive Timeout
+NAME: Keep Alive Timeout (secs)
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -333,45 +333,6 @@ END_TIPS
 
 
 
-
-
-[ITEM]
-ID: extMaxIdleTime
-NAME: Max Idle Time
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies the maximum idle time before an external application
-is stopped by the server. When set to "-1", the external application
-will not be stopped by the server. The default value is "-1". This feature
-allows resources used by idle applications to be freed. It is
-especially useful in the mass hosting environment when you need to define
-many applications running in "setuid" mode for the sake of maximum
-security. 
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: [Performance] This feature is especially useful in the mass hosting environment. 
-In order to prevent files owned by one virtual host from being accessed by the 
-external application scripts of another virtual host, mass hosting often requires 
-many different applications running at the same time in SetUID mode. Set this Max 
-Idle Time low to prevent these external applications from idling unnecessarily.
-END_TIPS
-
-[END_ITEM]
-
-
-
-
-
-
 [ITEM]
 ID: extAppPath
 NAME: Command
@@ -400,9 +361,6 @@ END_TIPS
 
 
 
-
-
-
 [ITEM]
 ID: backlog
 NAME: Back Log
@@ -424,8 +382,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -482,6 +438,7 @@ END_TIPS
 [END_ITEM]
 
 
+
 [ITEM]
 ID: extGroup
 NAME: suEXEC Group
@@ -502,7 +459,6 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
-
 
 
 
@@ -528,6 +484,7 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
 
 
 [ITEM]
@@ -557,6 +514,39 @@ END_TIPS
 
 
 
+[ITEM]
+ID: extMaxIdleTime
+NAME: Max Idle Time
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum idle time before an external application
+is stopped by the server. When set to "-1", the external application
+will not be stopped by the server. The default value is "-1". This feature
+allows resources used by idle applications to be freed. It is
+especially useful in the mass hosting environment when you need to define
+many applications running in "setuid" mode for the sake of maximum
+security. 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] This feature is especially useful in the mass hosting environment. 
+In order to prevent files owned by one virtual host from being accessed by the 
+external application scripts of another virtual host, mass hosting often requires 
+many different applications running at the same time in SetUID mode. Set this Max 
+Idle Time low to prevent these external applications from idling unnecessarily.
+END_TIPS
+
+[END_ITEM]
+
+
 
 [ITEM]
 ID: extAppPriority
@@ -582,5 +572,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
+
 
 [END_HELPDOC]
