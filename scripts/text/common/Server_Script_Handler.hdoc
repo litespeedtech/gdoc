@@ -57,4 +57,54 @@ END_TIPS
 
 
 
+############# Tables #############
+
+
+[TBL]
+ID: scriptHandler
+NAME: Script Handler Definition
+
+DESCR: 
+END_DESCR
+
+CONT: suffix shType shHandlerName 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: ScriptHandler_Help 
+NAME: Script Handler
+
+
+DESCR: LiteSpeed Web Server supports all scripting languages including 
+Perl, PHP, Ruby, Python, Java, etc. Scripts written in these different 
+languages must be brought to the appropriate external application to be processed. 
+LiteSpeed Web Server uses script handlers to decide which external application a 
+script should go to. These script handlers map files to external applications by 
+using the file suffix. (Actually, the suffix is used to determine a MIME 
+type which is then mapped to the external application.) External applications 
+must be set up in the {PAGE= ExtApp_Help} tab before they can be selected for 
+use in a script handler.
+
+
+You can set up script handler at the server or virtual host level. Server-level
+script handlers apply to all virtual hosts unless overridden in virtual host level. 
+Virtual host-level script handlers only apply within that virtual host.
+END_DESCR
+
+
+CONT:  scriptHandler
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
 [END_HELPDOC]

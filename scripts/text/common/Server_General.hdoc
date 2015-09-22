@@ -760,6 +760,19 @@ SEE_ALSO:
 
 
 
+[TBL]
+ID: expire
+NAME: Expires Settings
+
+DESCR: 
+END_DESCR
+
+CONT: enableExpires expiresDefault expiresByType 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
 
 
 [TBL]

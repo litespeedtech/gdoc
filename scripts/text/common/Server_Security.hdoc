@@ -998,6 +998,88 @@ END_TIPS
 
 
 [TBL]
+ID: fileAccessControl
+NAME: File Access
+
+DESCR: 
+END_DESCR
+
+CONT: followSymbolLink checkSymbolLink forceStrictOwnership requiredPermissionMask
+restrictedPermissionMask restrictedScriptPermissionMask
+restrictedDirPermissionMask 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: perClientConnLimit
+NAME: Per Client Throttling
+NS: EO
+
+DESCR: These are connection control settings based on client IP. 
+These settings help to mitigate DoS (Denial of Service) and DDoS (Distributed Denial of Service) attacks.
+END_DESCR
+
+CONT: staticReqPerSec dynReqPerSec outBandwidth inBandwidth softLimit hardLimit blockBadReq gracePeriod banPeriod 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: perClientConnLimit
+NAME: Per Client Throttling
+NS: L
+
+DESCR: These are connection control setting on a per client/IP basis. 
+These settings help to mitigate DoS (Denied of Service) and DDoS (Distributed Denied of Service) attacks.
+END_DESCR
+
+CONT: dynReqPerSec outBandwidth inBandwidth softLimit hardLimit gracePeriod banPeriod 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: cgiResource
+NAME: CGI Settings
+
+DESCR: The following settings control CGI processes. Memory and process limits also serve as the default for 
+other external applications if limits have not been set explicitly for those applications. 
+END_DESCR
+
+CONT: cgidSock maxCGIInstances minUID minGID forceGID umask CGIPriority CPUSoftLimit CPUHardLimit memSoftLimit memHardLimit procSoftLimit procHardLimit 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: accessDeny
+NAME: Access Denied Directories
+
+DESCR: 
+END_DESCR
+
+CONT: accessDenyDir 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
 ID: accessControl
 NAME: Access Control
 
@@ -1025,40 +1107,6 @@ TIPS: [Security] Use this at the server-level for general restrictions that appl
 END_TIPS
 
 CONT: accessControl_allow accessControl_deny 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: perClientConnLimit
-NAME: Per Client Throttling
-NS: EO
-
-DESCR: These are connection control settings based on client IP. 
-These settings help to mitigate DoS (Denial of Service) and DDoS (Distributed Denial of Service) attacks.
-END_DESCR
-
-CONT: staticReqPerSec dynReqPerSec outBandwidth inBandwidth softLimit hardLimit blockBadReq gracePeriod banPeriod 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: perClientConnLimit
-NAME: Per Client Throttling Control
-NS: L
-
-DESCR: These are connection control setting on a per client/IP basis. 
-These settings help to mitigate DoS (Denied of Service) and DDoS (Distributed Denied of Service) attacks.
-END_DESCR
-
-CONT: dynReqPerSec outBandwidth inBandwidth softLimit hardLimit gracePeriod banPeriod 
 END_CONT
 
 SEE_ALSO: 

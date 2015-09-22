@@ -608,37 +608,6 @@ END_TIPS
 ################ Tables ################
 
 
-[TBL]
-ID: tpSecThrottle
-NAME: Per Client Throttling Control
-NS: EO
-
-DESCR: 
-END_DESCR
-
-CONT: staticReqPerSec dynReqPerSec outBandwidth inBandwidth 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: tpSecThrottle
-NAME: Per Client Throttling Control
-NS: L
-
-DESCR: 
-END_DESCR
-
-CONT: dynReqPerSec outBandwidth inBandwidth 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
 
 [TBL]
 ID: vhHotlink

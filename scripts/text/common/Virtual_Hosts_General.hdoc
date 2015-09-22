@@ -80,6 +80,32 @@ END_TIPS
 
 
 
+[ITEM]
+ID: spdyAdHeader
+NAME: SPDY Advertisement
+REQUIRED: 
+APPLY: 3
+SINCE: 1.2.5
+SEE_ALSO: 
+
+DESCR: Specifies whether to advertise to clients that SPDY protocol is available. If set, LSWS will send an Alternate-Protocol 
+response header when a client accesses SPDY-enabled websites through an HTTP connection. 
+This requires the website to have both HTTP and HTTPS connections set up, and SPDY support enabled. 
+END_DESCR
+
+SYNTAX: port:protocol string 
+END_SYNTAX
+
+EXAMPLE: If SPDY/3 is enabled on port 443, you can set the string to "443:npn-spdy/3"  
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# Index Files #############
 
 
@@ -323,6 +349,21 @@ error pages can be further customized to be unique for each virtual host.
 END_DESCR
 
 CONT: errCode errMessage
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: vhExpire
+NAME: Expire Settings
+
+DESCR: 
+END_DESCR
+
+CONT: enableExpires expiresDefault  expiresByType
 END_CONT
 
 SEE_ALSO: 

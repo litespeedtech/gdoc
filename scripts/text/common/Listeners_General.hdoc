@@ -175,6 +175,21 @@ END_TIPS
 
 
 [TBL]
+ID: listenerGeneral
+NAME: Address Settings
+
+DESCR: 
+END_DESCR
+
+CONT: listenerName listenerIP listenerPort listenerBinding listenerSecure 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
 ID: virtualHostMapping
 NAME: Virtual Host Mappings
 
@@ -197,6 +212,24 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
+
+
+
+################ Pages ###############
+
+
+[PAGE]
+ID: Listeners_Help 
+NAME: Listener General
+
+DESCR: 
+END_DESCR
+
+CONT: listenerGeneral virtualHostMapping sslCert sslProtocolSetting sslFeature sslOCSP sslClientVerify
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
 
 
 [END_HELPDOC]
