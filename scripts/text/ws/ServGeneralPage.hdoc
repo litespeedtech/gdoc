@@ -436,11 +436,6 @@ END_TIPS
 
 
 
-
-
-
-
-
 [ITEM]
 ID: apacheEnvVars
 NAME: Apache Environment Variables
@@ -492,8 +487,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -576,7 +569,6 @@ END_TIPS
 
 
 
-
 [ITEM]
 ID: suffix
 NAME: Suffix
@@ -614,8 +606,6 @@ different file suffixes, but also based on the locations of files.
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -677,8 +667,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: accessFileName
 NAME: Access File Name
@@ -731,7 +719,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
 
 
 
@@ -791,6 +778,8 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
+
+
 
 [ITEM]
 ID: ramDiskPath
@@ -926,8 +915,6 @@ SEE_ALSO:
 
 
 
-
-
 [TBL]
 ID: apacheConfigFile
 NAME: Using Apache Configuration File
@@ -945,9 +932,6 @@ SEE_ALSO:
 
 
 
-
-
-
 [TBL]
 ID: apacheConfig
 NAME: Apache Style Configuration
@@ -960,7 +944,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
-
 
 
 
@@ -980,7 +963,6 @@ SEE_ALSO:
 
 
 
-
 [TBL]
 ID: servGeneral
 NAME: General Settings
@@ -995,6 +977,7 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
+
 
 
 [TBL]
@@ -1025,6 +1008,7 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
+
 
 
 [TBL]
@@ -1077,8 +1061,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
-
-
 
 
 

@@ -197,6 +197,37 @@ END_TIPS
 
 
 
+[ITEM]
+ID: memberVHRoot
+NAME: Member Virtual Host Root 
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the root directory of this virtual host. If left
+blank, the default virtual host root for this template will be used.
+
+
+Note: This is <b>NOT</b> the document root. It is recommended to place 
+all files related to the virtual host (like virtual host configuration, 
+log files, html files, CGI scripts, etc.) under this directory.  
+Virtual host root can be referred to as $VH_ROOT. 
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# Tables #############
 
 
@@ -249,7 +280,7 @@ and a list of member virtual hosts.
 To add a template-based virtual host, the administrator only needs to
 add a member with a unique virtual host name and a
 qualified domain name to the template member list.
-Lister-to-virtual host mapping will be added automatically for 
+Listener-to-virtual host mapping will be added automatically for 
 all listeners in the template's mapped listener list. 
 
 
@@ -291,7 +322,7 @@ fields requiring special values.
 To add a template-based virtual host, administrator only needs to
 add a member to the template member list with a unique virtual host name and a
 qualified domain name of that virtual host.
-Lister-to-virtual host mapping will be added automatically for 
+Listener-to-virtual host mapping will be added automatically for 
 all listeners in the mapped listener list.
 
 

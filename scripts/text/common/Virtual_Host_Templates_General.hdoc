@@ -30,6 +30,85 @@ END_TIPS
 
 
 
+[ITEM]
+ID: templateVHConfigFile
+NAME: Instantiated VHost Config File 
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the location of the config file generated when you instantiate a member virtual host. 
+Variable {val}$VH_NAME{/} must appear in the path so each virtual host will have its own file.
+Suggested location is {val}$SERVER_ROOT/conf/vhosts/$VH_NAME/vhconf.conf{/}. This config file will 
+be created only after you move a member vhost out of the template through instantiation.
+END_DESCR
+
+SYNTAX: String with $VH_NAME variable and .conf suffix
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: templateVHDocRoot
+NAME: Document Root 
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the unique path for each member virtual host's document root.  
+Variable {val}$VH_NAME{/} or {val}$VH_ROOT{/} must appear in the path so 
+each member virtual host will have its own document root.
+END_DESCR
+
+SYNTAX: string with $VH_NAME or $VH_ROOT variable
+END_SYNTAX
+
+EXAMPLE: $VH_ROOT/public_html/ or $SERVER_ROOT/$VH_NAME/public_html.  
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: templateFileRef
+NAME: File Name Used In Template 
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies a path for the file to be used for member virtual hosts.  
+Variable {val}$VH_NAME{/} or {val}$VH_ROOT{/} must appear in the path so 
+each member virtual host will have its own file.
+END_DESCR
+
+SYNTAX: string
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# Tables #############
 
 
@@ -62,7 +141,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
-
 
 
 [END_HELPDOC]
