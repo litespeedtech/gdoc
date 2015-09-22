@@ -50,9 +50,6 @@ END_TIPS
 
 
 
-
-
-
 [ITEM]
 ID: servAction
 NAME: Actions
@@ -88,8 +85,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: restart
 NAME: Apply Changes/Graceful Restart
@@ -117,7 +112,6 @@ TIPS: Graceful restart takes less than 2 seconds to generate a new server proces
 END_TIPS
 
 [END_ITEM]
-
 
 
 
@@ -196,8 +190,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: realtimerpt
 NAME: Real-Time Statistics
@@ -249,8 +241,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: toggleDebugLog
 NAME: Toggle Debug Logging
@@ -289,9 +279,6 @@ END_TIPS
 
 
 
-
-
-
 [ITEM]
 ID: lname
 NAME: Name - Listener
@@ -317,8 +304,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: lstatus
 NAME: Status - Listener
@@ -340,9 +325,6 @@ TIPS: If the listener is in the {val}Error{/} state, you can view the server log
 END_TIPS
 
 [END_ITEM]
-
-
-
 
 
 
@@ -372,9 +354,6 @@ END_TIPS
 
 
 
-
-
-
 [ITEM]
 ID: vname
 NAME: Name - Virtual Host
@@ -397,9 +376,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
 
 
 
@@ -437,9 +413,6 @@ END_TIPS
 
 
 
-
-
-
 [ITEM]
 ID: vaction
 NAME: Actions - Virtual Host
@@ -462,8 +435,6 @@ TIPS: It is good idea to disable a virtual host temporarily when updating its co
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -492,8 +463,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: vdisable
 NAME: Disable
@@ -516,9 +485,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
 
 
 
@@ -549,10 +515,6 @@ END_TIPS
 
 
 
-
-
-
-
 [TBL]
 ID: serviceMgrListener
 NAME: Listeners
@@ -568,8 +530,6 @@ SEE_ALSO:
 
 
 
-
-
 [TBL]
 ID: serviceMgrVh
 NAME: Virtual Hosts
@@ -582,8 +542,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
-
-
 
 
 [END_HELPDOC]

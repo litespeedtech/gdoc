@@ -1,6 +1,8 @@
 [QADOC]
 
+
 ########## ITEM SECION #############
+
 
 [QA]
 ID: start
@@ -22,6 +24,7 @@ SEE_ALSO:
 [END_QA]
 
 
+
 [QA]
 ID: crash
 Q: The server crashed, what should I do?
@@ -33,6 +36,7 @@ SEE_ALSO:
 [END_QA]
 
 
+
 [QA]
 ID: pass
 Q: I forgot my password for the web administration interface, what should I do?
@@ -42,6 +46,7 @@ END_A
 
 SEE_ALSO: 
 [END_QA]
+
 
 
 [QA]
@@ -78,6 +83,7 @@ END_A
 
 SEE_ALSO: 
 [END_QA]
+
 
 
 [QA]
@@ -124,9 +130,9 @@ and all necessary dynamic libraries should be available in the chroot file syste
 
 END_A
 
-
 SEE_ALSO: 
 [END_QA]
+
 
 
 [QA]
@@ -140,6 +146,7 @@ END_A
 
 SEE_ALSO: 
 [END_QA]
+
 
 
 [QA]
@@ -158,6 +165,7 @@ SEE_ALSO:
 
 ########## PAGE SECION #############
 
+
 [PAGE]
 ID: Trouble_QA 
 NAME: Trouble Shooting
@@ -174,5 +182,5 @@ END_CONT
 SEE_ALSO: 
 [END_PAGE]
 
-[END_QADOC]
 
+[END_QADOC]

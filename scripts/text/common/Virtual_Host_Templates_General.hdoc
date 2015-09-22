@@ -1,6 +1,35 @@
 [HELP_DOC]
 
 
+########## Template Settings ##########
+
+
+[ITEM]
+ID: templateVHRoot
+NAME: Default Virtual Host Root 
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the default root directory for member virtual hosts using this template. 
+Variable {val}$VH_NAME{/} must appear in the path. This will allow each member template 
+to be automatically assigned a separate root directory based on its name. 
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# Tables #############
 
 
