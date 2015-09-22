@@ -1,5 +1,9 @@
 [HELPDOC]
 
+
+########## Rack//Rails Settings ##########
+
+
 [ITEM]
 ID: rubyBin
 NAME: Ruby Path
@@ -48,6 +52,9 @@ END_TIPS
 
 [END_ITEM]
 
+
+
+########## Rack/Rails Shared Hosting ##########
 
 
 [ITEM]
@@ -133,6 +140,10 @@ otherwise it may affect the performance of the whole server if one user abuses i
 END_TIPS
 
 [END_ITEM]
+
+
+
+############# Tables #############
 
 
 [TBL]

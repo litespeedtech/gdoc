@@ -1,6 +1,35 @@
 [HELPDOC]
 
 
+########## Rewrite Control ##########
+
+
+[ITEM]
+ID: enableRewrite
+NAME: Enable Rewrite
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to enable LiteSpeed's URL rewrite engine.
+This option can be customized at virtual host- and context-level, and
+is inherited along the directory tree until it is explicitly overridden. 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
 ITEM]
 ID: rewriteLogLevel
 NAME: Log Level
@@ -61,30 +90,7 @@ END_TIPS
 
 
 
-[ITEM]
-ID: enableRewrite
-NAME: Enable Rewrite
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies whether to enable LiteSpeed's URL rewrite engine.
-This option can be customized at virtual host- and context-level, and
-is inherited along the directory tree until it is explicitly overridden. 
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
+########## Rewrite Map ##########
 
 
 [ITEM]
@@ -122,8 +128,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
 
 
 
@@ -197,6 +201,8 @@ END_TIPS
 
 
 
+########## Rewrite Rules ##########
+
 
 [ITEM]
 ID: rewriteRules
@@ -245,7 +251,7 @@ END_TIPS
 
 
 
-
+############# Tables #############
 
 
 [TBL]
@@ -261,6 +267,8 @@ END_CONT
 SEE_ALSO: 
 [END_TBL]
 
+
+
 [TBL]
 ID: rewriteMap
 NAME: Rewrite Map
@@ -273,6 +281,8 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
+
+
 
 [TBL]
 ID: RewriteRules
@@ -289,10 +299,8 @@ SEE_ALSO:
 
 
 
+################ Pages ################
 
-
-
-############### PAGE #################
 
 [PAGE]
 ID: Rewrite_Help 
@@ -306,7 +314,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
-
 
 
 [END_HELPDOC]
