@@ -334,6 +334,65 @@ END_TIPS
 
 
 [ITEM]
+ID: autoStart
+NAME: Auto Start
+NS: E
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether you want the web server to start the
+application automatically. Only FastCGI and LSAPI applications
+running on the same machine can be started automatically. The IP in the
+{ITEM=extAppAddress} must be a local IP. Starting through the LiteSpeed 
+CGI Daemon instead of a main server process will help reduce system overhead.  
+CGI Daemon Async mode (non-blocking event-driven method) is recommended for servers with high I/O wait.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: autoStart
+NAME: Auto Start
+NS: O
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether you want the web server to start the
+application automatically. Only FastCGI and LSAPI applications
+running on the same machine can be started automatically. The IP in the
+{ITEM=extAppAddress} must be a local IP. Starting through the LiteSpeed 
+CGI Daemon instead of a main server process will help reduce system overhead.  
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: extAppPath
 NAME: Command
 REQUIRED: 
