@@ -1,4 +1,8 @@
-[QADOC]########## ITEM SECION #############
+[QADOC]
+
+
+########## ITEM SECION #############
+
 
 [QA]
 ID: qa_incfd
@@ -50,7 +54,9 @@ rebooting the machine.</p>
 END_A
 
 SEE_ALSO: 
+
 [END_QA]
+
 
 
 [QA]
@@ -88,7 +94,9 @@ Use the following guidelines to setup name based virtual hosting.
 END_A
 
 SEE_ALSO: 
+
 [END_QA]
+
 
 
 [QA]
@@ -120,7 +128,9 @@ certificate needs to be assigned for each IP based virtual host as well.
 END_A
 
 SEE_ALSO: 
+
 [END_QA]
+
 
 
 [QA]
@@ -197,7 +207,9 @@ attacks at the HTTP protocol level. The following configuration will help agains
 END_A
 
 SEE_ALSO: 
+
 [END_QA]
+
 
 
 [QA]
@@ -248,7 +260,9 @@ memory and CPU cycles.
 END_A
 
 SEE_ALSO: 
+
 [END_QA]
+
 
 
 [QA]
@@ -321,6 +335,7 @@ END_A
 
 SEE_ALSO: 
 [END_QA]
+
 
 
 [QA]
@@ -416,10 +431,6 @@ END_A
 
 SEE_ALSO: 
 [END_QA]
-
-
-
-
 
 
 
@@ -527,7 +538,6 @@ SEE_ALSO:
 
 
 
-
 [QA]
 ID: qa_phplsapi
 Q: How to build PHP binary with LiteSpeed SAPI?
@@ -587,7 +597,6 @@ SEE_ALSO:
 
 
 
-
 [QA]
 ID: qa_phpfcgi
 Q: How to build PHP binary with FCGI SAPI?
@@ -639,7 +648,6 @@ SEE_ALSO:
 
 
 
-
 [QA]
 ID: qa_phpacc
 Q: How to setup PHP Accelerators?
@@ -658,6 +666,7 @@ END_A
 
 SEE_ALSO: 
 [END_QA]
+
 
 
 [QA]
@@ -680,8 +689,6 @@ END_A
 
 SEE_ALSO:
 [END_QA]
-
-
 
 
 
@@ -799,6 +806,7 @@ SEE_ALSO:
 [END_QA]
 
 
+
 [QA]
 ID: qa_mapache
 Q: How to migrate from Apache?
@@ -846,6 +854,7 @@ END_A
 
 SEE_ALSO: 
 [END_QA]
+
 
 
 [QA]
@@ -897,6 +906,7 @@ SEE_ALSO:
 [END_QA]
 
 
+
 [QA]
 ID: qa_selfcert
 Q: How to create self-signed certificate?
@@ -928,6 +938,7 @@ SEE_ALSO:
 [END_QA]
 
 
+
 [QA]
 ID: qa_cert
 Q: How to get a SSL certificate from certificate issuers?
@@ -957,6 +968,7 @@ END_A
 
 SEE_ALSO: 
 [END_QA]
+
 
 
 [QA]
@@ -1017,9 +1029,6 @@ SEE_ALSO:
 
 
 
-
-
-
 [QA]
 ID: qa_frontpage
 Q: How to install Microsoft FrontPage Server Extension 2002 with LiteSpeed web server?
@@ -1074,8 +1083,6 @@ SEE_ALSO:
 
 
 
-
-
 [QA]
 ID: qa_autoindex
 Q: How to customize auto index script?
@@ -1105,13 +1112,10 @@ anywhere you like, but if you want to share it among all virtual
 hosts, just place it under {cmd}lsws/share/autoindex/{/}
 directory. <br>
 
-
 END_A
 
 SEE_ALSO: 
 [END_QA]
-
-
 
 
 
@@ -1257,9 +1261,6 @@ SEE_ALSO:
 
 
 
-
-
-
 [QA]
 ID: qa_template
 Q: How to use template to configure a group of virtual hosts with similar configuration?
@@ -1330,11 +1331,8 @@ SEE_ALSO:
 
 
 
-
-
-
-
 ########## PAGE SECION #############
+
 
 [PAGE]
 ID: HowTo_QA 
@@ -1356,5 +1354,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
+
 
 [END_QADOC]

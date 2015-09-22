@@ -2,6 +2,7 @@
 
 ########## ITEM SECION #############
 
+
 [QA]
 ID: isfree
 Q: Is LiteSpeed web server free?
@@ -10,6 +11,7 @@ A: There are 2 editions: Standard and Enterprise. The Standard Edition is free f
 END_A
 SEE_ALSO: 
 [END_QA]
+
 
 
 [QA]
@@ -24,6 +26,7 @@ SEE_ALSO:
 [END_QA]
 
 
+
 [QA]
 ID: support
 Q: What kinds of support are available?
@@ -33,6 +36,7 @@ Stand Edition users can get free community based support at the <a href="http://
 END_A
 SEE_ALSO: 
 [END_QA]
+
 
 
 [QA]
@@ -50,6 +54,7 @@ SEE_ALSO:
 [END_QA]
 
 
+
 [QA]
 ID: fast
 Q: Why is LiteSpeed server so fast?
@@ -58,6 +63,7 @@ A: Clean and optimal network processing architecture designed from the ground up
 END_A
 SEE_ALSO: 
 [END_QA]
+
 
 
 [QA]
@@ -89,7 +95,6 @@ SEE_ALSO:
 
 
 
-
 [QA]
 ID: faq_ipv6
 Q: Does LiteSpeed server supports IPv6?
@@ -97,7 +102,6 @@ A: Yes. IPv6 is supported since release 2.0.
 END_A
 SEE_ALSO: 
 [END_QA]
-
 
 
 
@@ -123,6 +127,7 @@ SEE_ALSO:
 [END_QA]
 
 
+
 [QA]
 ID: php
 Q: Does LiteSpeed server support PHP?
@@ -133,6 +138,8 @@ END_A
 SEE_ALSO: 
 [END_QA]
 
+
+
 [QA]
 ID: miscScripts
 Q: Does LiteSpeed server support Ruby, Perl, Python, Java Server Pages, etc?
@@ -141,6 +148,7 @@ A: Yes. Any external script or application that support the CGI, FastCGI, or LSA
 END_A
 SEE_ALSO: 
 [END_QA]
+
 
 
 [QA]
@@ -154,6 +162,7 @@ Litespeed web server. You can turn on pre-built "Turck MMCache" or
 END_A
 SEE_ALSO: 
 [END_QA]
+
 
 
 [QA]
@@ -184,7 +193,6 @@ SEE_ALSO:
 
 
 
-
 [QA]
 ID: phpconf
 Q: Can PHP configuration settings be changed in LiteSpeed
@@ -197,6 +205,8 @@ in Apache mod_php.
 END_A
 SEE_ALSO: 
 [END_QA]
+
+
 
 [QA]
 ID: jsp
@@ -219,6 +229,8 @@ END_A
 SEE_ALSO: 
 [END_QA]
 
+
+
 [QA]
 ID: dnet
 Q: Does LiteSpeed web server support ASP.NET?
@@ -227,6 +239,7 @@ A: Yes with FastCGI binding to <a href="http://www.go-mono.org">Mono</a>.
 END_A
 SEE_ALSO: 
 [END_QA]
+
 
 
 [QA]
@@ -278,7 +291,6 @@ SEE_ALSO:
 
 
 
-
 [QA]
 ID: modpl
 Q: Is there a mod_perl equivalent for LiteSpeed server?
@@ -297,6 +309,7 @@ SEE_ALSO:
 [END_QA]
 
 
+
 [QA]
 ID: apm
 Q: Are Apache modules supported?
@@ -310,6 +323,7 @@ SEE_ALSO:
 [END_QA]
 
 
+
 [QA]
 ID: ssi
 Q: Are Server Side Includes (SSI) supported?
@@ -318,6 +332,7 @@ A: Yes. Since release 4.0, SSI is supported.
 END_A
 SEE_ALSO: 
 [END_QA]
+
 
 
 [QA]
@@ -331,8 +346,6 @@ SEE_ALSO:
 
 
 
-
-
 [QA]
 ID: cp
 Q: Can I run multiple copies of LiteSpeed server on one machine?
@@ -341,6 +354,7 @@ A: No. Only one instance of LiteSpeed server can exist at the same time.
 END_A
 SEE_ALSO: 
 [END_QA]
+
 
 
 [QA]
@@ -366,7 +380,6 @@ SEE_ALSO:
 
 
 
-
 [QA]
 ID: base
 Q: Is LiteSpeed server based on any existing web server?
@@ -378,8 +391,6 @@ belong to their respective owners.
 END_A
 SEE_ALSO: 
 [END_QA]
-
-
 
 
 
@@ -396,7 +407,9 @@ SEE_ALSO:
 [END_QA]
 
 
+
 ########## PAGE SECION #############
+
 
 [PAGE]
 ID: Faq_QA 
@@ -417,5 +430,5 @@ END_CONT
 SEE_ALSO: 
 [END_PAGE]
 
-[END_QADOC]
 
+[END_QADOC]
