@@ -411,9 +411,9 @@ class HelpDB
 
         foreach ($types as $type => $style) {
             if ( preg_match("/^\{\s*$type\s*=\s*(\S+)\s*\}/", $tag, $matches) ) {
-                $id = $tag;
+                $id = $matches[1];
                 $pid = "";
-                if ( preg_match("/(.+)#(.+)/", $tag, $m2) ) {
+                if ( preg_match("/(.+)#(.+)/", $id, $m2) ) {
                     $id = $m2[2];
                     $pid = $m2[1] . ".html";
                 }
@@ -424,7 +424,7 @@ class HelpDB
                             . $name . '</a></span>';
                 }
                 else {
-                    echo "Reference none existing $type -- $id\n";
+                    echo "Reference non existing $type : $id -- $tag \n";
                     $buf = '<span class="error">'.$tag.'</span>';
                 }
                 return $buf;
