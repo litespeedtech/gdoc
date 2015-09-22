@@ -1,19 +1,43 @@
 <?php
 
-class DocTable
+class DocTable extends Item
 {
-	public $_id;
-	public $_name;
-    public $_ns;
-	public $_seeAlso;
+	protected $_seeAlso;
 
-	public $_descr;
-	public $_example;
-	public $_tips;
-	public $_cont;
-	public $_items;
+	protected $_descr;
+	protected $_example;
+	protected $_tips;
+	protected $_cont;
+	protected $_items;
 
-	public function DocTable($buf)
+    public function __construct($buf='')
+    {
+        $this->_type = Item::TYPE_TBL;
+        $this->_items = array();
+
+        if ( $buf != '' ) {
+			$this->parseDoc($buf);
+            if ($this->_descr) {
+                $selfItem = new DocItem();
+                $selfItem->initFromTbl( 'TABLE' . $this->_id, $this->_name, $this->_descr,
+							   $this->_tips, $this->_example, $this->_seeAlso);
+            	$this->_items[$this->_id] = $selfItem;
+            }
+        }
+    }
+
+    public function applyLanguagePack($peer)
+    {
+        if (parent::applyLanguagePack($peer)) {
+            $this->_lang[CUR_LANG]['descr'] = $peer->_descr;
+            $this->_lang[CUR_LANG]['example'] = $peer->_example;
+            $this->_lang[CUR_LANG]['tips'] = $peer->_tips;
+            return true;
+        }
+        return false;
+    }
+
+	protected function parseDoc($buf)
 	{
 		$startInd = false;
 		$descrInd = false;
@@ -95,12 +119,12 @@ class DocTable
 				{
 					$this->_ns = trim(substr($line, strlen($tag)));
 					continue;
-				}	
+				}
                 $tag = 'DESCR:';
 				if ( strncmp($tag, $line, strlen($tag)) == 0 )
 				{
 					if ($this->_descr != NULL) {
-						echo "Table error: duplicate description found $this->_id: current descr is {$this->_descr}AA \n";
+                        $this->showErr("Table error: duplicate description found current descr is {$this->_descr}");
 					}
 
 					$this->_descr = substr($line, strlen($tag));
@@ -139,26 +163,20 @@ class DocTable
 		$this->_cont = preg_split( "/[\s,]+/", $this->_cont, -1, PREG_SPLIT_NO_EMPTY );
 	}
 
-	public function insertItems(&$itemBase)
-	{
-		$this->_items = array();
-		if ( isset($this->_descr) )
-		{
-			$item = new DocItem(NULL);
-			$item->loadFromTbl($this->_id, $this->_name, $this->_descr,
-							   $this->_tips, $this->_example, $this->_seeAlso);
-			$this->_items[$this->_id] = $item;
-		}
+    public function getCont()
+    {
+        return $this->_cont;
+    }
 
-		foreach( $this->_cont as $i )
-		{
-			if (isset($itemBase[$i]))
-				$this->_items[$i] = $itemBase[$i];
-			else {
-				echo "Err: item $i is not found for tbl def $this->_id \n";
-            }
-		}
-	}
+    public function addContItem($item)
+    {
+        $this->_items[$item->getId()] = $item;
+    }
+
+    public function getItems()
+    {
+        return $this->_items;
+    }
 
 	public function toTableOfContents1()
 	{
@@ -189,22 +207,15 @@ class DocTable
 	{
 		$buf = '<section class="toc-row"><header>';
 		if ( isset($this->_descr) )
-			$buf .= '<a href="#'. $this->_id . '">' . $this->_name . '</a>';
+			$buf .= '<a href="#'. $this->_id . '">' . $this->getName() . '</a>';
 		else
-			$buf .= $this->_name;
+			$buf .= $this->getName();
 		$buf .= "</header><p>\n";
 
-		if ( isset($this->_items) )
-		{
-			foreach( $this->_items as $itemkey => $item )
-			{
-				if ($item == NULL) {
-					echo "Err: item is empty, table ID = $this->_id , item ID = $itemkey\n";
-				}
-				else if ( $item->_id != $this->_id )
-					$buf .= '<a href="#'.$item->_id.'">'.$item->_name.'</a>&nbsp;|&nbsp;';
-			}
-		}
+        foreach( $this->_items as $itemkey => $item ) {
+            if ( $itemkey != $this->_id )
+                $buf .= '<a href="#'.$itemkey.'">'.$item->getName().'</a>&nbsp;|&nbsp;';
+        }
 		$buf .= '</p></section>' . "\n";
 		return $buf;
 	}

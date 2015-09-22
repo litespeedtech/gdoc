@@ -1,21 +1,67 @@
 <?php
 
-class DocPage
+class DocPage extends Item
 {
-	public $_id;
-	public $_name;
-    public $_ns;
-	public $_prevNav;
-	public $_nextNav;
-	public $_topNav;
-	public $_descr = '';
+    protected $_nav;
+
+    public $_descr = '';
 	public $_cont;
 	public $_tables;
 	public $_items;
 	public $_seeAlso;
 	public $_static;
 
-	public function DocPage(&$buf)
+    public function __construct($buf='')
+    {
+        $this->_type = Item::TYPE_PAGE;
+		if ( $buf != '' ) {
+			$this->parseDoc($buf);
+        }
+        $this->_tables = array();
+        $this->_items = array();
+    }
+
+    public function applyLanguagePack($peer)
+    {
+        if (parent::applyLanguagePack($peer)) {
+            $this->_lang[CUR_LANG]['descr'] = $peer->_descr;
+            $this->_lang[CUR_LANG]['name'] = $peer->_name;
+            return true;
+        }
+        return false;
+    }
+
+    public function getCont()
+    {
+        return $this->_cont;
+    }
+
+    public function getItems()
+    {
+        return $this->_items;
+    }
+
+    public function addContTbl($tbl)
+    {
+        $this->_tables[$tbl->getId()] = $tbl;
+        $items = $tbl->getItems();
+        foreach ($items as $item) {
+            $id = $item->getId();
+            if (!isset($this->_items[$id])) {
+                $this->_items[$id] = $item;
+            }
+        }
+    }
+
+    public function getDescr()
+    {
+        if ((CUR_LANG != DEFAULT_LANG) && isset($this->_lang[CUR_LANG]['descr']))
+            return $this->_lang[CUR_LANG]['descr'];
+        else
+            return $this->_descr;
+    }
+
+	protected function parseDoc($buf)
 	{
 		$startInd = false;
 		$descrInd = false;
@@ -80,7 +126,7 @@ class DocPage
 				if ( strncmp($tag, $line, strlen($tag)) == 0 )
 				{
 					if ($this->_descr != NULL) {
-						echo "Page error: duplicate description found $this->_id\n";
+						$this->showErr("Page error: duplicate description found");
 					}
 					$this->_descr = substr($line, strlen($tag));
 					$descrInd = true;
@@ -104,84 +150,42 @@ class DocPage
 		if ($this->_cont != NULL) {
 			$this->_cont = preg_split( "/[\s,]+/", $this->_cont, -1, PREG_SPLIT_NO_EMPTY );
 		}
+        else {
+            $this->_cont = array();
+        }
 	}
 
 	public function setNav($prevPage, $topPage, $nextPage)
 	{
-		if ( $prevPage == NULL )
-			$this->_prevNav = NULL;
-		else
-			$this->_prevNav = array($prevPage);
-
-		if ( $topPage == NULL )
-			$this->_topNav = NULL;
-		else
-		{
-			$this->_topNav = preg_split("/=/",
-										 trim($topPage),
-										 -1, PREG_SPLIT_NO_EMPTY);
-		}
-
-		if ( $nextPage == NULL )
-			$this->_nextNav = NULL;
-		else
-			$this->_nextNav = array($nextPage);
+        if ($this->_nav != NULL) {
+            $this->showErr('Already setNav for page');
+        }
+        else {
+            $this->_nav = array('prev' => $prevPage, 'top' => $topPage, 'next' => $nextPage);
+        }
 	}
 
-	public function transNav(&$base)
-	{
-		if ( $this->_prevNav != NULL && count($this->_prevNav) == 1 )
-		{
-			$this->_prevNav = $this->idToLink($this->_prevNav[0], $base);
-		}
-		if ( $this->_topNav != NULL && count($this->_topNav) == 1 )
-		{
-			$this->_topNav = $this->idToLink($this->_topNav[0], $base);
-		}
-		if ( $this->_nextNav != NULL && count($this->_nextNav) == 1 )
-		{
-			$this->_nextNav = $this->idToLink($this->_nextNav[0], $base);
-		}
-	}
-
-	public function idToLink($id, &$base)
-	{
-		$nav = array();
-		$nav[0] = $id . '.html';
-		$item = $base->_items[$id];
-		if ( $item->_type != 'PAGE' )
-		{
-			echo "wrong idToLink -- not PAGE -- $id $item->_type \n";
-		}
-		else
-		{
-			$nav[1] = $item->_name;
-		}
-		return $nav;
-	}
-
-
-	public function genDoc(&$base)
+	public function genDoc($db)
 	{
 		echo ("generating $this->_id  \n");
 
+        global $config;
+
         $gentool = new GenTool;
 
-		$this->transNav($base);
-		$nav = $gentool->getNavBar($this->_prevNav, $this->_topNav, $this->_nextNav);
-		$buf = $gentool->getHeader($this->_name);
+		$buf = $gentool->getHeader($this->_name);//header name still show english
 		$buf .= $gentool->getSideTree("{$this->_id}.html");
-		$buf .= '<div class="contentwrapper">' . $nav;
+		$buf .= '<div class="contentwrapper">' . GenTool::getNavBar($this->_nav);
 
 		$webbuf = '';
 
 		if ($this->_static) {
-			$webbuf .= $gentool->getStaticContent($this->_static);
+			$webbuf .= $db->getStaticContent($this->_static);
 		}
 		else {
-			$webbuf .= '<h1>' . $this->_name . '</h1>';
+			$webbuf .= '<h1>' . $this->getName() . '</h1>';
 			if ( $this->_descr ) {
-				$webbuf .= '<p>' . $this->_descr . "</p>\n";
+				$webbuf .= '<p>' . $this->getDescr() . "</p>\n";
 			}
 
 			$helpList = array();
@@ -206,7 +210,7 @@ class DocPage
 					if ( $item != NULL )
 					{
 						$itembuf = $item->toDoc();
-						$itembuf = $gentool->translateTag($itembuf, $base);
+						$itembuf = GenTool::translateTag($itembuf, $db);
 						$webbuf .= '<div class="helpitem">' . $itembuf . "</div>\n";
 					}
 				}
@@ -221,17 +225,17 @@ class DocPage
 		$buf .= '</div>'; // contentwrapper
 		$buf .= $gentool->getFooter();
 
-		$docname = '../docs/' . $this->_id . '.html';
-		$gentool->writePage($docname, $buf);
+        $docname = $config['DOCS_DIR'] . $this->_id . '.html';
+		GenTool::writePage($docname, $buf);
 
-		if (FOR_WEB == 1) {
-			$docname = '../forweb/' . $this->_id . '.html';
+        if ($config['FOR_WEB']) {
+			$docname = $config['WEB_DIR'] . $this->_id . '.html';
 			$webbuf = '<div class="lsdoc_content">' . $webbuf . '</div>';
-			$gentool->writePage($docname, $webbuf);
+			GenTool::writePage($docname, $webbuf);
 		}
 	}
 
-	public function getGuiTips(&$tips_base)
+	/*public function getGuiTips(&$tips_base)
 	{
 		if ( $this->_items )
 		{
@@ -259,6 +263,6 @@ class DocPage
 		}
 
 	}
-
+*/
 }
 

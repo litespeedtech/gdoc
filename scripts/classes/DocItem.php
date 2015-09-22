@@ -1,22 +1,27 @@
 <?php
 
-class DocItem
+class DocItem extends Item
 {
-	public $_id;
-	public $_name;
-    public $_ns = '';
-	public $_required;
-	public $_apply;
-	public $_since;
-	public $_seeAlso;
+	protected $_required;
+	protected $_apply;
+	protected $_since;
+	protected $_seeAlso;
 
-	public $_descr;
-	public $_syntax;
-	public $_example;
-	public $_tips;
-	public $_width='100%';
+	protected $_descr;
+	protected $_syntax;
+	protected $_example;
+	protected $_tips;
+	protected $_width='100%';
 
-	public function loadFromTbl($id, $name, $descr, $tips, $example, $seeAlso)
+    public function __construct($buf='')
+    {
+        $this->_type = Item::TYPE_ITEM;
+		if ( $buf != '' ) {
+			$this->parseDoc($buf);
+        }
+    }
+
+	public function initFromTbl($id, $name, $descr, $tips, $example, $seeAlso)
 	{
 		$this->_id = $id;
 		$this->_name = $name;
@@ -26,10 +31,52 @@ class DocItem
 		$this->_seeAlso = $seeAlso;
 	}
 
-	public function DocItem($buf)
+    public function applyLanguagePack($peer)
+    {
+        if (parent::applyLanguagePack($peer)) {
+            $this->_lang[CUR_LANG]['descr'] = $peer->_descr;
+            $this->_lang[CUR_LANG]['syntax'] = $peer->_syntax;
+            $this->_lang[CUR_LANG]['example'] = $peer->_example;
+            $this->_lang[CUR_LANG]['tips'] = $peer->_tips;
+            return true;
+        }
+        return false;
+    }
+
+    public function getDescr()
+    {
+        if ((CUR_LANG != DEFAULT_LANG) && isset($this->_lang[CUR_LANG]['descr']))
+            return $this->_lang[CUR_LANG]['descr'];
+        else
+            return $this->_descr;
+    }
+
+    public function getSyntax()
+    {
+        if ((CUR_LANG != DEFAULT_LANG) && isset($this->_lang[CUR_LANG]['syntax']))
+            return $this->_lang[CUR_LANG]['syntax'];
+        else
+            return $this->syntax;
+    }
+
+    public function getExample()
+    {
+        if ((CUR_LANG != DEFAULT_LANG) && isset($this->_lang[CUR_LANG]['example']))
+            return $this->_lang[CUR_LANG]['example'];
+        else
+            return $this->_example;
+    }
+
+    public function getTips()
+    {
+        if ((CUR_LANG != DEFAULT_LANG) && isset($this->_lang[CUR_LANG]['tips']))
+            return $this->_lang[CUR_LANG]['tips'];
+        else
+            return $this->_tips;
+    }
+
+    protected function parseDoc($buf)
 	{
-		if ( $buf == NULL )
-			return;
 		$startInd = false;
 		$descrInd = false;
 		$syntaxInd = false;
@@ -139,7 +186,7 @@ class DocItem
 				if ( strncmp($tag, $line, strlen($tag)) == 0 )
 				{
 					if ($this->_descr != NULL) {
-						echo("Item error: duplicate description found $this->_id \n Existing descr = " . $this->_descr . "\n New descr = " . substr($line, strlen($tag)));
+						$this->showErr("Item error: duplicate description found \n Existing descr = " . $this->_descr . "\n New descr = " . substr($line, strlen($tag)));
 					}
 					$this->_descr = substr($line, strlen($tag));
 					$descrInd = true;
@@ -175,15 +222,15 @@ class DocItem
 		$end = '</td></tr>'."\n";
 		$buf = '<a name="'. $this->_id . '"></a>';
 		$buf .= '<table width="'.$this->_width.'" class="ht" border="0" cellpadding="5" cellspacing="0">' . "\n";
-		$buf .= '<tr class="ht-title"><td><div>'.$this->_name;
+		$buf .= '<tr class="ht-title"><td><div>'.$this->getName();
 		$buf .= '<span class="top"><a href="#top"><img border=0 height=13 width=13 alt="Go to top" src="img/top.gif"></a></span></div>'.$end;
 		//$buf .= '<tr class="ht-title"><td><table width="100%" border="0" cellpadding="0" cellspacing="0">';
 		//$buf .= '<tr><td class="ht-title">'.$this->_name.'</td><td class="top"><a href="#top"><img border=0 height=13 width=13 alt="Go to top" src="img/top.gif"></a></td></tr></table>'.$end;
-		$buf .= '<tr><td><span class="ht-label">Description: </span>' . $this->_descr . $end;
+		$buf .= '<tr><td><span class="ht-label">Description: </span>' . $this->getDescr . $end;
 		if ( $this->_syntax != NULL )
 		{
             $gentool = new GenTool;
-			$syntax = $gentool->translateSyntax($this->_syntax);
+			$syntax = $gentool->translateSyntax($this->getSyntax());
 			if ( $syntax )
 				$buf .= '<tr><td><span class="ht-label">Syntax: </span>'. $syntax . $end;
 		}
@@ -201,10 +248,10 @@ class DocItem
 			$buf .= $end; */
 		}
 		if ( $this->_example != NULL )
-			$buf .= '<tr><td><span class="ht-label">Example: </span>' . $this->_example . $end;
+			$buf .= '<tr><td><span class="ht-label">Example: </span>' . $this->getExample() . $end;
 
 		if ( $this->_tips != NULL )
-			$buf .= '<tr><td><span class="ht-label">Tips: </span>' . $this->_tips . $end;
+			$buf .= '<tr><td><span class="ht-label">Tips: </span>' . $this->getTips() . $end;
 
 		if ( $this->_seeAlso != NULL )
 			$buf .= '<tr><td><span class="ht-label">See Also: </span>'. $this->_seeAlso . $end;
@@ -218,15 +265,15 @@ class DocItem
 		$e = "\n";
 		$buf = '[ITEM]' . $e;
 		$buf .= 'ID: ' . $this->_id . $e;
-		$buf .= 'NAME: ' . $this->_name . $e;
+		$buf .= 'NAME: ' . $this->getName() . $e;
 		$buf .= 'REQUIRED: ' . $this->_required . $e;
 		$buf .= 'APPLY: ' . $this->_apply . $e;
 		$buf .= 'SINCE: ' . $this->_since . $e;
 		$buf .= 'SEE_ALSO: ' . $this->_seeAlso . $e . $e;
-		$buf .= 'DESCR: ' . $this->_descr . $e . 'END_DESCR' . $e . $e;
-		$buf .= 'SYNTAX: ' . $this->_syntax . $e . 'END_SYNTAX'. $e . $e;
-		$buf .= 'EXAMPLE: ' . $this->_example . 'END_EXAMPLE' . $e . $e;
-		$buf .= 'TIPS: ' . $this->_tips . $e . 'END_TIPS'. $e . $e;
+		$buf .= 'DESCR: ' . $this->getDescr() . $e . 'END_DESCR' . $e . $e;
+		$buf .= 'SYNTAX: ' . $this->getSyntax() . $e . 'END_SYNTAX'. $e . $e;
+		$buf .= 'EXAMPLE: ' . $this->getExample() . 'END_EXAMPLE' . $e . $e;
+		$buf .= 'TIPS: ' . $this->getTips() . $e . 'END_TIPS'. $e . $e;
 		$buf .= '[END_ITEM]' . $e;
 		return $buf;
 	}

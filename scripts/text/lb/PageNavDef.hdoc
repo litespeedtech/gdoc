@@ -26,7 +26,7 @@ END_CONT
 [PAGENAV]
 
 ID: DOC_NAV
-TOP_NAV: index.html = Home
+TOP_NAV: index
 
 NAV_SEQ:
 license
@@ -43,7 +43,7 @@ END_NAV_SEQ
 [PAGENAV]
 
 ID: LSLB_CONF_NAV
-TOP_NAV: config.html = Configuration
+TOP_NAV: config
 
 NAV_SEQ: 
 ServGeneral_Help
@@ -71,7 +71,7 @@ END_NAV_SEQ
 [PAGENAV]
 
 ID: LSLB_CONTROL_NAV
-TOP_NAV: admin.html = Administration
+TOP_NAV: admin
 
 NAV_SEQ:
 ServerStat_Help

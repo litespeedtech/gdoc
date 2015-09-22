@@ -5,7 +5,7 @@ class MapLSWS
 	var $static_map;
 	var $dyn_map;
 	var $url_convert;
-	
+
 	function __construct()
 	{
 		$this->dyn_map = array(
@@ -15,7 +15,7 @@ class MapLSWS
 			'RequestFilter_Help' => 'config/reqfilter',
 			'Cache_Help' => 'config/cache',
 			'ExtApp_Help' => 'config/extapps',
-			'ScriptHandler_Help' => 'config/scripthandler', 
+			'ScriptHandler_Help' => 'config/scripthandler',
 			'Rails_Help' => 'config/rails',
 			'Listeners_Help' => 'config/listeners',
 			'Templates_Help' => 'config/templates',
@@ -29,7 +29,7 @@ class MapLSWS
 			'AdminListener_Help' => 'config/adminlistener',
 			'ServerStat_Help' => 'admin/service',
 		);
-		
+
 		$this->static_map = array(
 			'index' => '',
 			'license_std' => 'license-standard',
@@ -40,7 +40,7 @@ class MapLSWS
 			'security' => 'security',
 			'config' => 'config'
 		);
-		
+
 		$map = array_merge($this->dyn_map, $this->static_map);
 		foreach($map as $id => $link) {
 			$this->url_convert['file'][] = $id . '.html';
@@ -61,17 +61,18 @@ class GenWebDoc
 	function GenerateWebDocs($Map)
 	{
 		$this->convertLinks($Map->url_convert);
-	}  
-	
+	}
+
 	function convertLinks($urlconvert)
 	{
+        global $config;
 		$search = $urlconvert['search'];
 		$replace = $urlconvert['replace'];
 		$files = $urlconvert['file'];
-		
+
 		foreach( $files as $f) {
-			$fromfile = '../forweb/' . $f;
-			$tofile = '../forweb/docs/' . $f;
+			$fromfile = $config['tips_dir'] . '/forweb/' . $f;
+			$tofile = $config['tips_dir'] . '/forweb/docs/' . $f;
 			$buf = file_get_contents($fromfile) ;
 			if ($buf === FALSE) {
 				echo "ConvertLinks:fail to open $fromfile \n";

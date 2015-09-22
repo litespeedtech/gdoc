@@ -1,15 +1,48 @@
 <?php
 
-class NavChain
+class NavChain extends Item
 {
-	var $_id;
-//	var $_name;
-    var $_ns;
-	var $_topNav;
-	var $_pages;
-    public $_cont;
+	protected $_topNav;
+	protected $_seq;
+    protected $_cont;
 
-	function NavChain(&$buf)
+    protected $_children;
+
+    public function __construct($buf='')
+    {
+        $this->_type = Item::TYPE_NAV;
+		if ( $buf != '' ) {
+			$this->parseDoc($buf);
+        }
+
+    }
+
+    public function getCont()
+    {
+        return $this->_cont;
+    }
+
+    public function getSeq()
+    {
+        return $this->_seq;
+    }
+
+    public function getTopNav()
+    {
+        return $this->_topNav;
+    }
+
+    public function setChildren($children)
+    {
+        $this->_children = $children;
+    }
+
+    public function getChildren()
+    {
+        return $this->_children;
+    }
+
+	protected function parseDoc($buf)
 	{
 		$e = "\r\n";
 		$startInd = false;
@@ -60,12 +93,6 @@ class NavChain
 					continue;
 				}
 
-				/*$tag = 'NAME:';
-				if ( strncmp($tag, $line, strlen($tag)) == 0 )
-				{
-					$this->_name = trim(substr($line, strlen($tag)));
-					continue;
-				}*/
 				$tag = 'TOP_NAV:';
 				if ( strncmp($tag, $line, strlen($tag)) == 0 )
 				{
@@ -88,10 +115,13 @@ class NavChain
 				}
 			}
 		}
-		$this->_pages = preg_split( "/[\s,]+/", $seqDef, -1, PREG_SPLIT_NO_EMPTY );
+		$this->_seq = preg_split( "/[\s,]+/", $seqDef, -1, PREG_SPLIT_NO_EMPTY );
 		if ($this->_cont != NULL) {
 			$this->_cont = preg_split( "/[\s,]+/", $this->_cont, -1, PREG_SPLIT_NO_EMPTY );
 		}
+        else {
+            $this->_cont = array();
+        }
 
 	}
 
