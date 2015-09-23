@@ -81,6 +81,6 @@ abstract class Item
 
     public function dumpDebug()
     {
-        $this->showErr(print_r($this, true), 'DEBUG');
+        $this->showErr('DUMP', 'DEBUG');
     }
 }
