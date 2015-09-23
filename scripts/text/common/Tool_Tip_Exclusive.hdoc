@@ -1,0 +1,57 @@
+[HELPDOC]
+
+
+[ITEM]
+ID: notesTip
+NAME: Notes
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO:
+
+DESCR: Add notes for yourself.
+
+SYNTAX:
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[TBL]
+ID: notesTBL
+NAME: Notes
+
+DESCR: 
+END_DESCR
+
+CONT: notesTip
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[PAGE]
+ID: Tool_Tips
+Name: Notes
+
+DESCR:
+END_DESCR
+
+CONT: notesTBL
+END_CONT
+
+SEE_ALSO:
+
+[END_PAGE]
+
+
+[END_HELPDOC]
