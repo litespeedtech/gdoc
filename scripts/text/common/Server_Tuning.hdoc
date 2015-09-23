@@ -33,7 +33,7 @@ operating systems support different types of event dispatcher:
 </ul>
   {val}poll{/} is supported by all platforms, and is the default selection. 
   For high traffic web sites, an altenative event dispatcher can be used to improve the 
-  scalability of the {ws_lb}. 
+  scalability of the server. 
 END_DESCR
 
 SYNTAX: select
@@ -735,10 +735,10 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to let the {ws_lb} should automatically create/update 
-GZIP-compressed versions of compressible static files. If set to {val}Yes{/}, 
+DESCR: Specifies whether to let the server automatically create/update 
+GZIP-compressed versions of compressible static files or not. If set to {val}Yes{/}, 
 when a file with a MIME type listed in {ITEM=compressibleTypes} is requested, 
-the {ws_lb} may create or update the corresponding compressed version of 
+the server may create or update the corresponding compressed version of 
 the file depending on the compressed file's timestamp. This compressed file 
 is created under the {ITEM=gzipCacheDir}. The file name is based on a MD5 
 hash of the path of the original file. 
@@ -816,7 +816,7 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies the maximum size of a static file for which the
-{ws_lb} will create a compressed file automatically. 
+server will create a compressed file automatically. 
 END_DESCR
 
 SYNTAX: Number in bytes not less than 1K.
@@ -825,7 +825,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] It is not recommended to have {ws_lb} create/update
+TIPS: [Performance] It is not recommended to have the server create/update
 compressed files for large files. Compressing blocks an entire server process and 
 no further requests can be processed until the compression is completed.
 END_TIPS
@@ -843,7 +843,7 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies the minimum size of a static file for which the
-{ws_lb} will create a corresponding compressed file. 
+server will create a corresponding compressed file. 
 END_DESCR
 
 SYNTAX: Number in bytes not less than 200.

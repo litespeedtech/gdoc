@@ -101,7 +101,7 @@ SINCE: 1.3
 SEE_ALSO: {ITEM=restrictedPermissionMask}.
 
 DESCR: Specifies the required permission mask for static files that the
-{ws_lb} will serve. For example, if only files that are readable
+server will serve. For example, if only files that are readable
 by everyone can be served, set the value to {val}0004{/}.
 See {cmd}man 2 stat{/} for all values.
 END_DESCR
@@ -128,7 +128,7 @@ SINCE: 1.3
 SEE_ALSO: {ITEM=requiredPermissionMask}.
 
 DESCR: Specifies the restricted permission mask for static files that the
-{ws_lb} will not serve. For example, to prohibit serving files that are
+server will not serve. For example, to prohibit serving files that are
 executable, set the mask to {val}0111{/}.
 
 
@@ -157,7 +157,7 @@ SINCE: 4.1.5
 SEE_ALSO: {ITEM=restrictedDirPermissionMask}.
 
 DESCR: Specifies the restricted permission mask for script files that the
-{ws_lb} will not serve. For example, to prohibit serving PHP scripts that are
+server will not serve. For example, to prohibit serving PHP scripts that are
 group and world writable, set the mask to {val}022{/}. Default value is {val}000{/}.
 
 
@@ -187,7 +187,7 @@ SINCE: 4.1.5
 SEE_ALSO: {ITEM=restrictedScriptPermissionMask}.
 
 DESCR: Specifies the restricted permission mask of parent directories of script files that the
-{ws_lb} will not serve. For example, to prohibit serving PHP scripts in a directory that is
+server will not serve. For example, to prohibit serving PHP scripts in a directory that is
 group and world writable, set the mask to {val}022{/}. Default value is
 {val}000{/}. This option can be used to prevent serving scripts under a directory of
  uploaded files. 

@@ -91,12 +91,12 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: {ent_version} Specifies the directory where the chroot environment is rooted. 
-Only "root" user can run {ws_lb} in chroot mode. Whether to run in chroot mode is controlled by 
+Only "root" user can run the server in chroot mode. Whether to run in chroot mode is controlled by 
 {ITEM=enableChroot} option. The installer program will set up the initial chroot environment automatically. 
 This entry is read-only, and if you want to change it, please run the installer again from the command line. 
 
 
-In the chroot environment, the {ws_lb} and its child processes cannot access file systems outside of 
+In the chroot environment, the server and its child processes cannot access file systems outside of 
 the chroot jail. Chroot is an advanced security feature and additional administration may be required to 
 make it work properly. All required executables, libraries, configuration files, and device files should be 
 recreated within the chroot jail.
@@ -128,7 +128,7 @@ APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: {ent_version} Specifies whether to start the {ws_lb} in chroot mode. 
+DESCR: {ent_version} Specifies whether to start the server in chroot mode. 
 The new root directory is set by {ITEM=servChrootPath} during installation.
 END_DESCR
 
@@ -212,7 +212,7 @@ DESCR: Specifies the directory where the swapping files should be placed.
 When the server is started in chroot mode, this directory is relative to the new root directory, 
 otherwise it is relative to the real root directory.
 
-LiteSpeed {WS_LB} uses its own virtual memory 
+The server uses its own virtual memory 
 to reduce system memory usage. Virtual memory and disk swapping are used to store large request bodies and 
 dynamically generated responses. The swapping directory should be placed on a disk with enough space.
 END_DESCR
@@ -239,7 +239,7 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies whether to try to fix the "503 Service Unavailable" error by
-restarting the {ws_lb} gracefully. A "503" error is usually caused by
+restarting the server gracefully. A "503" error is usually caused by
 malfunctioning external applications and a web server restart can often fix
 the error temporarily. If enabled, the server will restart
 automatically whenever there are more than 30 "503" errors within a 30

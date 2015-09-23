@@ -153,7 +153,7 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies the maximum number of concurrent connections that can be established 
-between the {ws_lb} and an external application. This setting controls how 
+between the server and an external application. This setting controls how 
 many requests can be processed concurrently by an external application,  
 however, the real limit also depends on the external application itself. 
 Setting this value higher will not help if the external application is not fast enough
@@ -207,9 +207,9 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum time in seconds the {ws_lb} will wait for the external 
+DESCR: Specifies the maximum time in seconds the server will wait for the external 
 application to respond to the first request over a new established connection. 
-If the {ws_lb} does not receive any data from the external application
+If the server does not receive any data from the external application
 within this timeout limit, it will mark this connection as bad. This
 helps to identify communication problems with external applications as
 quickly as possible. If some requests take longer to 
@@ -237,7 +237,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the period of time that the {ws_lb} waits before
+DESCR: Specifies the period of time that the server waits before
 retrying an external application that had a prior communication problem.
 END_DESCR
 
