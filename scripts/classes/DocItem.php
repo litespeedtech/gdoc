@@ -62,7 +62,7 @@ class DocItem extends Item
         if (($lang != DEFAULT_LANG) && isset($this->_lang[$lang]['syntax']))
             return $this->_lang[$lang]['syntax'];
         else
-            return $this->syntax;
+            return $this->_syntax;
     }
 
     public function getExample()
