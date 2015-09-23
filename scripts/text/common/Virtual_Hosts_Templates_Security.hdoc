@@ -5,6 +5,20 @@
 ############# Tables #############
 
 
+[TBL]
+ID: tpSecFile
+NAME: File Access Control
+
+DESCR: 
+END_DESCR
+
+CONT: allowSymbolLink enableScript restrained
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
 
 [TBL]
 ID: tpSecThrottle
@@ -31,6 +45,21 @@ DESCR:
 END_DESCR
 
 CONT: dynReqPerSec outBandwidth inBandwidth 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: tpSecCGI
+NAME: External Application Resource Control
+
+DESCR: 
+END_DESCR
+
+CONT: setUidMode chrootMode chrootPath
 END_CONT
 
 SEE_ALSO: 

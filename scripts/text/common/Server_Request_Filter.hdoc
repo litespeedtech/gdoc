@@ -397,11 +397,28 @@ NAME: Request Filter
 DESCR: 
 END_DESCR
 
-CONT: enableCensorship censorLogLevel defaultAction scanPOST uploadTmpDir disableSecHtaccess secAuditLogEngine secAuditLog
+CONT: enableCensorship censorLogLevel defaultAction scanPOST uploadTmpDir uploadTmpFilePermission secAuditLogEngine secAuditLog
 END_CONT
 
 SEE_ALSO: 
 [END_TBL]
+
+
+
+[TBL]
+ID: reqCensorship
+NAME: Request Filter
+NS: E
+
+DESCR: 
+END_DESCR
+
+CONT: enableCensorship censorLogLevel defaultAction scanPOST disableSecHtaccess secAuditLogEngine secAuditLog
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
 
 
 [TBL]
