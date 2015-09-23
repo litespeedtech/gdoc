@@ -168,17 +168,14 @@ class HelpDB
             return;
         }
 
-        if (in_array($id, $config['DEBUG_TAG'])) {
-            $item->dumpDebug();
-        }
-        else {
-            $item->showErr('addToDB', 'DEBUG');
-        }
-
         $lang = $config['CUR_LANG'];
 
-        if (in_array($id, $config['DEBUG_TAG'])) {
-            $item->dumpDebug();
+        if (DEBUG) {
+            $item->showErr('addToDB', 'DEBUG');
+
+            if (in_array($id, $config['DEBUG_TAG'])) {
+                $item->dumpDebug();
+            }
         }
 
         if ($lang == DEFAULT_LANG) {
@@ -447,24 +444,4 @@ class HelpDB
 		echo "unable to match tag $tag\n";
 	}
 
-/*
- * 	function get_fixed_tips()
-	{
-		$buf =<<<EOD
-		\$_tipsdb['note'] = new DAttrHelp('Notes', 'Add a note for yourself.', '', '', '');
-		\$_tipsdb['tpextAppName'] = new DAttrHelp('Name', 'A unique name for this external application. In other parts of the the configuration, you will refer to external applications by this name. For virtual host templates, the external application name must contain the \$VH_NAME variable to preserve the uniqueness of external application names on different virtual hosts.', '', '', '');
-
-EOD;
-		return $buf;
-	}
- * 	function get_fixed_tips()
-	{
-		$buf =<<<EOD
-		\$this->db['note'] = new DATTR_HELP_ITEM('Notes', 'Add a note for yourself.', '', '', '');
-		\$this->db['c'] = new DATTR_HELP_ITEM('Name', 'A unique name for this external application. In other parts of the the configuration, you will refer to external applications by this name. For virtual host templates, the external application name must contain the \$VH_NAME variable to preserve the uniqueness of external application names on different virtual hosts.', '', '', '');
-
-EOD;
-		return $buf;
-	}
- */
 }

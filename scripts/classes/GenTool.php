@@ -111,9 +111,7 @@ EOD;
     public static function translateTag( &$buf)
     {
         global $config, $db ;
-        if ( isset($config['ws_lb']) ) {
-            $buf = str_replace($config['ws_lb'], $config['ws_lb_replace'], $buf) ;
-        }
+        $buf = str_replace($config['ws_lb'], $config['ws_lb_replace'], $buf) ;
 
         $from = array( '{tag}', '{cmd}', '{val}', '{/}' ) ;
         $to = array( '<span class="tag">', '<span class="cmd">', '<span class="val">', '</span>' ) ;
@@ -143,8 +141,7 @@ EOD;
     public static function translateTagForTips( $buf)
     {
         global $config, $db ;
-        if ( isset($config['ws_lb']) )
-            $buf = str_replace($config['ws_lb'], $config['ws_lb_replace'], $buf) ;
+        $buf = str_replace($config['ws_lb'], $config['ws_lb_replace'], $buf) ;
 
         $from = array( '{tag}', '{cmd}', '{val}', '{/}' ) ;
 
@@ -230,6 +227,7 @@ EOD;
             }
 			fwrite($fd, $buf);
 
+            if (DEBUG) {
 			if (in_array($id, $config['DEBUG_TAG'])) {
 				echo "In GenHelpTips::genTips - tipitem $id \n";
 				var_dump($item);
@@ -239,6 +237,7 @@ EOD;
 				echo "end of var_dump buf \n";
 
 			}
+            }
 
 		}
 		//fwrite($fd, $this->get_fixed_tips());
