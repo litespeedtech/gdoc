@@ -108,9 +108,9 @@ EOD;
         return $buf ;
     }
 
-    public static function translateTag( &$buf, $db )
+    public static function translateTag( &$buf)
     {
-        global $config ;
+        global $config, $db ;
         if ( isset($config['ws_lb']) ) {
             $buf = str_replace($config['ws_lb'], $config['ws_lb_replace'], $buf) ;
         }
@@ -140,9 +140,9 @@ EOD;
         return $buf1 ;
     }
 
-    public static function translateTagForTips( $buf, $db)
+    public static function translateTagForTips( $buf)
     {
-        global $config ;
+        global $config, $db ;
         if ( isset($config['ws_lb']) )
             $buf = str_replace($config['ws_lb'], $config['ws_lb_replace'], $buf) ;
 
@@ -204,21 +204,21 @@ EOD;
 			$id = $item->getId();
 			$name = $item->getName();
 			$is_table = (strpos($id, 'TABLE') !== FALSE);
-			$desc1 = GenTool::translateTagForTips($item->getDescr(), $db);
+			$desc1 = GenTool::translateTagForTips($item->getDescr());
 			$desc = str_replace($search, $replace, $desc1);
 			$tip = '';
 			if ( $tips = $item->getTips() ) {
-				$tip = GenTool::translateTagForTips($tips, $db );
+				$tip = GenTool::translateTagForTips($tips);
 				$tip = str_replace($search, $replace, $tip);
 			}
 			$syntax = '';
 			if ( !$is_table && $item->getSyntax()) {
-				$syntax = GenTool::translateSyntax(GenTool::translateTagForTips($item->getSyntax(), $base));
+				$syntax = GenTool::translateSyntax(GenTool::translateTagForTips($item->getSyntax()));
 				$syntax = str_replace($search, $replace, $syntax);
 			}
 			$example = '';
 			if ( $item->getExample() ) {
-				$example = GenTool::translateTagForTips($item->getExample(), $base );
+				$example = GenTool::translateTagForTips($item->getExample());
 				$example = str_replace($search, $replace, $example);
 			}
 

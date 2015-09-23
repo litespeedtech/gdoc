@@ -45,8 +45,11 @@ abstract class Item
 
     public function getName()
     {
-        if ((CUR_LANG != DEFAULT_LANG) && isset($this->_lang[CUR_LANG]['name']))
-            return $this->_lang[CUR_LANG]['name'];
+        global $config;
+        $lang = $config['CUR_LANG'];
+
+        if (($lang != DEFAULT_LANG) && isset($this->_lang[$lang]['name']))
+            return $this->_lang[$lang]['name'];
         else
             return $this->_name;
     }
@@ -56,17 +59,17 @@ abstract class Item
         $this->_src = $curfile;
     }
 
-    public function applyLanguagePack($item)
+    public function applyLanguagePack($item, $lang)
     {
         if ($this->_id != $item->_id || $this->_type != $item->_type) {
-            $this->showErr('apply language ' . CUR_LANG . ' failed, item does not match');
+            $this->showErr('apply language ' . $lang . ' failed, item does not match');
             return false;
         }
 
-        if (!isset($this->_lang[CUR_LANG]))
-            $this->_lang[CUR_LANG] = array();
+        if (!isset($this->_lang[$lang]))
+            $this->_lang[$lang] = array();
 
-        $this->_lang[CUR_LANG]['name'] = $item->_name;
+        $this->_lang[$lang]['name'] = $item->_name;
 
         return true;
     }

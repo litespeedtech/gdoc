@@ -35,7 +35,7 @@ class HelpDB
 
         global $config ;
 
-        define('CUR_LANG', DEFAULT_LANG);
+        $config['CUR_LANG'] = DEFAULT_LANG;
 
         // generate english
         $helpDocs = $this->getFileList($config['base_dir'] . '/text' );
@@ -46,7 +46,7 @@ class HelpDB
 
         foreach ($config['lang'] as $lang) {
             if ($lang != DEFAULT_LANG) {
-                define('CUR_LANG', $lang);
+                $config['CUR_LANG'] = $lang;
 
                 $helpDocs = $this->getFileList($config['base_dir'] . '/text_lang/' . $lang);
                 foreach( $helpDocs as $doc ) {
@@ -63,15 +63,22 @@ class HelpDB
         global $config;
 
         foreach ($config['lang'] as $lang) {
-            define('CUR_LANG', $lang);
+            $config['CUR_LANG'] = $lang;
 
-            if (CUR_LANG == DEFAULT_LANG) {
+            if ($lang == DEFAULT_LANG) {
                 $config['DOCS_DIR'] = $config['outdir']['docs'];
                 $config['WEB_DIR'] = $config['outdir']['web'];
             }
             else {
-                $config['DOCS_DIR'] = $config['outdir']['docs_lang'] . CUR_LANG . '/';
-                $config['WEB_DIR'] = $config['outdir']['web_lang'] . CUR_LANG . '/';
+                $config['DOCS_DIR'] = $config['outdir']['docs_lang'] . $lang . '/';
+                $config['WEB_DIR'] = $config['outdir']['web_lang'] . $lang . '/';
+            }
+
+            if (!file_exists($config['DOCS_DIR'])) {
+                mkdir($config['DOCS_DIR']);
+            }
+            if (!file_exists($config['WEB_DIR'])) {
+                mkdir($config['WEB_DIR']);
             }
 
             if ( isset($config['doc_nav']) ) {
@@ -85,11 +92,11 @@ class HelpDB
             }
 
             if ( isset($config['tip_nav']) ) {
-                if (CUR_LANG == DEFAULT_LANG) {
+                if ($lang == DEFAULT_LANG) {
                     $tipfile = $config['outdir']['tips'] . DOC_TYPE . '_tips' ;
                 }
                 else {
-                    $tipfile = $config['outdir']['tips_lang'] . CUR_LANG . '_tips' ;
+                    $tipfile = $config['outdir']['tips_lang'] . $lang . '_tips' ;
                 }
                 GenTool::genTips($this, $tipfile) ;
             }
@@ -98,7 +105,6 @@ class HelpDB
 
 
         if ( $config['FOR_WEB'] ) {
-            define('CUR_LANG', DEFAULT_LANG);
             $webdocs = new GenWebDoc() ;
             $webdocs->GenerateWebDocs(new MapLSWS()) ;
         }
@@ -108,10 +114,11 @@ class HelpDB
 
     public function getStaticContent( $filename )
     {
+        global $config;
         $buf = '';
         if (isset($this->_static[$filename])) {
-            if (isset($this->_static[$filename][CUR_LANG]))
-                $file = $this->_static[$filename][CUR_LANG];
+            if (isset($this->_static[$filename][$config['CUR_LANG']]))
+                $file = $this->_static[$filename][$config['CUR_LANG']];
             else
                 $file = $this->_static[$filename][DEFAULT_LANG];
 
@@ -126,6 +133,7 @@ class HelpDB
 
     private function getFileList( $textpath)
     {
+        global $config;
         $texts = array() ;
         $path = array('common', DOC_TYPE) ;
         foreach ($path as $p) {
@@ -136,7 +144,7 @@ class HelpDB
                         $texts[] = $dir . '/' . $f ;
                     }
                     elseif (strpos($f, '.txt') !== false) {
-                        $this->_static[$f][CUR_LANG] = $dir . '/' . $f ;
+                        $this->_static[$f][$config['CUR_LANG']] = $dir . '/' . $f ;
                     }
                 }
             }
@@ -159,13 +167,15 @@ class HelpDB
         }
 
         global $config;
+        $lang = $config['CUR_LANG'];
+
         if (in_array($id, $config['DEBUG_TAG'])) {
             $item->dumpDebug();
         }
 
-        if (CUR_LANG == DEFAULT_LANG) {
+        if ($lang == DEFAULT_LANG) {
             if (isset($this->_index[$id])) {
-                $this->_index[$id]->showErr('duplicated ID first');
+                $this->_index[$id]->showErr('duplicated ID first' . $lang . ' defaultlang ' . DEFAULT_LANG);
                 $item->showErr('duplicated ID current, ignore');
             }
             else {
@@ -178,7 +188,7 @@ class HelpDB
                 $item->showErr('In language file, but not in English, ignore');
             }
             else {
-                $this->_index[$id]->applyLanguagePack($item);
+                $this->_index[$id]->applyLanguagePack($item, $lang);
             }
 
         }
@@ -335,8 +345,10 @@ class HelpDB
 
         if (isset($config['doc_nav'])) {
             //doc pages
-            $navchain = $this->getNavChain($config['doc_nav']);
-            $this->_db[Item::TYPE_NAV][$config['doc_nav']]->setChildren($navchain);
+            $navId = $config['doc_nav'];
+            $navchain = $this->getNavChain($navId);
+            $navroot = $this->_db[Item::TYPE_NAV][$navId];
+            $navroot->setChildren($navchain);
 
             foreach( $navchain as $nav )
             {

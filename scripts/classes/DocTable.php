@@ -26,12 +26,12 @@ class DocTable extends Item
         }
     }
 
-    public function applyLanguagePack($peer)
+    public function applyLanguagePack($peer, $lang)
     {
-        if (parent::applyLanguagePack($peer)) {
-            $this->_lang[CUR_LANG]['descr'] = $peer->_descr;
-            $this->_lang[CUR_LANG]['example'] = $peer->_example;
-            $this->_lang[CUR_LANG]['tips'] = $peer->_tips;
+        if (parent::applyLanguagePack($peer, $lang)) {
+            $this->_lang[$lang]['descr'] = $peer->_descr;
+            $this->_lang[$lang]['example'] = $peer->_example;
+            $this->_lang[$lang]['tips'] = $peer->_tips;
             return true;
         }
         return false;

@@ -31,13 +31,13 @@ class DocItem extends Item
 		$this->_seeAlso = $seeAlso;
 	}
 
-    public function applyLanguagePack($peer)
+    public function applyLanguagePack($peer, $lang)
     {
-        if (parent::applyLanguagePack($peer)) {
-            $this->_lang[CUR_LANG]['descr'] = $peer->_descr;
-            $this->_lang[CUR_LANG]['syntax'] = $peer->_syntax;
-            $this->_lang[CUR_LANG]['example'] = $peer->_example;
-            $this->_lang[CUR_LANG]['tips'] = $peer->_tips;
+        if (parent::applyLanguagePack($peer, $lang)) {
+            $this->_lang[$lang]['descr'] = $peer->_descr;
+            $this->_lang[$lang]['syntax'] = $peer->_syntax;
+            $this->_lang[$lang]['example'] = $peer->_example;
+            $this->_lang[$lang]['tips'] = $peer->_tips;
             return true;
         }
         return false;
@@ -45,32 +45,44 @@ class DocItem extends Item
 
     public function getDescr()
     {
-        if ((CUR_LANG != DEFAULT_LANG) && isset($this->_lang[CUR_LANG]['descr']))
-            return $this->_lang[CUR_LANG]['descr'];
+        global $config;
+        $lang = $config['CUR_LANG'];
+
+        if (($lang != DEFAULT_LANG) && isset($this->_lang[$lang]['descr']))
+            return $this->_lang[$lang]['descr'];
         else
             return $this->_descr;
     }
 
     public function getSyntax()
     {
-        if ((CUR_LANG != DEFAULT_LANG) && isset($this->_lang[CUR_LANG]['syntax']))
-            return $this->_lang[CUR_LANG]['syntax'];
+        global $config;
+        $lang = $config['CUR_LANG'];
+
+        if (($lang != DEFAULT_LANG) && isset($this->_lang[$lang]['syntax']))
+            return $this->_lang[$lang]['syntax'];
         else
             return $this->syntax;
     }
 
     public function getExample()
     {
-        if ((CUR_LANG != DEFAULT_LANG) && isset($this->_lang[CUR_LANG]['example']))
-            return $this->_lang[CUR_LANG]['example'];
+        global $config;
+        $lang = $config['CUR_LANG'];
+
+        if (($lang != DEFAULT_LANG) && isset($this->_lang[$lang]['example']))
+            return $this->_lang[$lang]['example'];
         else
             return $this->_example;
     }
 
     public function getTips()
     {
-        if ((CUR_LANG != DEFAULT_LANG) && isset($this->_lang[CUR_LANG]['tips']))
-            return $this->_lang[CUR_LANG]['tips'];
+        global $config;
+        $lang = $config['CUR_LANG'];
+
+        if (($lang != DEFAULT_LANG) && isset($this->_lang[$lang]['tips']))
+            return $this->_lang[$lang]['tips'];
         else
             return $this->_tips;
     }

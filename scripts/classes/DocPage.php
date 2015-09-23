@@ -21,11 +21,11 @@ class DocPage extends Item
         $this->_items = array();
     }
 
-    public function applyLanguagePack($peer)
+    public function applyLanguagePack($peer, $lang)
     {
-        if (parent::applyLanguagePack($peer)) {
-            $this->_lang[CUR_LANG]['descr'] = $peer->_descr;
-            $this->_lang[CUR_LANG]['name'] = $peer->_name;
+        if (parent::applyLanguagePack($peer, $lang)) {
+            $this->_lang[$lang]['descr'] = $peer->_descr;
+            $this->_lang[$lang]['name'] = $peer->_name;
             return true;
         }
         return false;
@@ -55,8 +55,11 @@ class DocPage extends Item
 
     public function getDescr()
     {
-        if ((CUR_LANG != DEFAULT_LANG) && isset($this->_lang[CUR_LANG]['descr']))
-            return $this->_lang[CUR_LANG]['descr'];
+        global $config;
+        $lang = $config['CUR_LANG'];
+
+        if (($lang != DEFAULT_LANG) && isset($this->_lang[$lang]['descr']))
+            return $this->_lang[$lang]['descr'];
         else
             return $this->_descr;
     }
