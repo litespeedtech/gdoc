@@ -393,6 +393,7 @@ END_TIPS
 [TBL]
 ID: reqCensorship
 NAME: Request Filter
+NS: L
 
 DESCR: 
 END_DESCR
@@ -443,6 +444,7 @@ SEE_ALSO:
 [PAGE]
 ID: RequestFilter_Help
 NAME: Request Filtering
+NS: LE
 
 DESCR: LiteSpeed's request filter is equivalent to that in Apache's mod_security. 
 There are two separate rule systems. Rules configured from the WebAdmin console only 
