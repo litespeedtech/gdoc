@@ -1,10 +1,4 @@
 .cvsignore
-docs/
-forweb/
-ows_tips.txt
-ws_tips.txt
-lb_tips.txt
-zh-CN_tips.php
-en-US_tips.php
+output/
 
 nbproject/

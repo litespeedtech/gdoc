@@ -71,8 +71,8 @@ class GenWebDoc
 		$files = $urlconvert['file'];
 
 		foreach( $files as $f) {
-			$fromfile = $config['tips_dir'] . '/forweb/' . $f;
-			$tofile = $config['tips_dir'] . '/forweb/docs/' . $f;
+			$fromfile = $config['outdir']['web'] . $f;
+			$tofile = $config['outdir']['web'] . 'docs/' . $f;
 			$buf = file_get_contents($fromfile) ;
 			if ($buf === FALSE) {
 				echo "ConvertLinks:fail to open $fromfile \n";
