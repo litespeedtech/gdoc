@@ -7,6 +7,12 @@ else
     exit
 fi
 
+if [ "$2" != "" ] ; then
+    DEBUG=1
+else
+    DEBUG=0
+fi
+
 CUR_DIR=`pwd`
 SCRIPT_DIR=`dirname "$0"`
 cd "${SCRIPT_DIR}"
@@ -24,7 +30,7 @@ mkdir -p output/forweb/lang
 mkdir -p output/docs_lang
 
 cd scripts
-php gen_main.php $DOCTYPE
+php gen_main.php $DOCTYPE $DEBUG
 cd ..
 
 cp -Rf static/css output/docs/
