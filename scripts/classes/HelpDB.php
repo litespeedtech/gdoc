@@ -155,6 +155,8 @@ class HelpDB
 
     private function addToDB($item, $curfile)
     {
+        global $config;
+
         if (!$item->inCurrentNameSpace())
             return;
 
@@ -166,7 +168,13 @@ class HelpDB
             return;
         }
 
-        global $config;
+        if (in_array($id, $config['DEBUG_TAG'])) {
+            $item->dumpDebug();
+        }
+        else {
+            $item->showErr('addToDB', 'DEBUG');
+        }
+
         $lang = $config['CUR_LANG'];
 
         if (in_array($id, $config['DEBUG_TAG'])) {
@@ -202,9 +210,7 @@ class HelpDB
 			echo "Failed to open helpdoc: $helpDoc\n";
 			return;
 		}
-        /*echo "In GenHelpDoc parseHelpDoc $helpDoc\n";
-        if ($helpDoc == 'text/lb/LBPages.txt')
-            $debug = true;*/
+        echo " ... parsing $helpDoc\n";
 
 		$startInd = false;
 		$itemInd = false;
@@ -233,8 +239,7 @@ class HelpDB
 				if ( strncmp( $tag, $tmp, strlen($tag) ) == 0 )
 				{
 					$itemInd = false;
-					$item = new DocItem($buf);
-                    $this->addToDB($item, $helpDoc);
+                    $this->addToDB(new DocItem($buf), $helpDoc);
 				}
 			}
 			else if ( $tableInd )
@@ -244,8 +249,7 @@ class HelpDB
 				if ( strncmp( $tag, $tmp, strlen($tag) ) == 0 )
 				{
 					$tableInd = false;
-					$table = new DocTable($buf);
-                    $this->addToDB($table, $helpDoc);
+                    $this->addToDB(new DocTable($buf), $helpDoc);
 				}
 			}
 			else if ( $pageInd )
@@ -255,8 +259,7 @@ class HelpDB
 				if ( strncmp( $tag, $tmp, strlen($tag) ) == 0 )
 				{
 					$pageInd = false;
-					$page = new DocPage($buf);
-                    $this->addToDB($page, $helpDoc);
+                    $this->addToDB(new DocPage($buf), $helpDoc);
 				}
 			}
 			else if ( $navInd )
@@ -266,8 +269,7 @@ class HelpDB
 				if ( strncmp( $tag, $tmp, strlen($tag) ) == 0 )
 				{
 					$navInd = false;
-					$navchain = new NavChain($buf);
-                    $this->addToDB($navchain, $helpDoc);
+                    $this->addToDB(new NavChain($buf), $helpDoc);
 				}
 			}
 			else
