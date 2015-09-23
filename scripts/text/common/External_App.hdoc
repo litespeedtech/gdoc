@@ -640,6 +640,7 @@ END_TIPS
 [TBL]
 ID: extapp
 NAME: External Application Settings
+NS: EO
 
 DESCR: 
 END_DESCR
@@ -662,6 +663,7 @@ SEE_ALSO:
 [PAGE]
 ID: ExtApp_Help 
 NAME: External Application
+NS: EO
 
 DESCR: LiteSpeed web server can forward requests to external applications to 
 process and generate dynamic content. 

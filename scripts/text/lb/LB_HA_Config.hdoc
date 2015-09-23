@@ -280,12 +280,12 @@ END_TIPS
 
 [TBL]
 ID: HAInterface
-NAME: Interface
+NAME: HA Virtual Interface Configuration
 
 DESCR:
 END_DESCR
 
-CONT: haInterfaceId haVip haVipId haVipToken haNic haRole
+CONT: haInterfaceId haVip haVipId haVipToken haNic haPriority
 END_CONT
 
 SEE_ALSO: 
@@ -301,7 +301,7 @@ DESCR: Set the port for replication and replication cluster for this LSLB server
 enable/disable Gzip for load balancer traffic.
 END_DESCR
 
-CONT: haRep_serverAddr haRep_replCluster haRep_heartBeatInterval haRep_heartBeatTimeout haRep_isGzipStream haInterfaceId haVip haVipId haVipToken haNic haRole 
+CONT: haRep_serverAddr haRep_replCluster haRep_heartBeatInterval haRep_heartBeatTimeout haRep_isGzipStream
 END_CONT
 
 SEE_ALSO: 

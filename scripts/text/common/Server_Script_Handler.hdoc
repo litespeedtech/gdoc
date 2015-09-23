@@ -63,6 +63,7 @@ END_TIPS
 [TBL]
 ID: scriptHandler
 NAME: Script Handler Definition
+NS: EO
 
 DESCR: 
 END_DESCR
@@ -81,7 +82,7 @@ SEE_ALSO:
 [PAGE]
 ID: ScriptHandler_Help 
 NAME: Script Handler
-
+NS: EO
 
 DESCR: LiteSpeed Web Server supports all scripting languages including 
 Perl, PHP, Ruby, Python, Java, etc. Scripts written in these different 

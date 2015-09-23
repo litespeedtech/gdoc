@@ -67,8 +67,6 @@ such as tomcat.</li>
 support HTTP protocol.</li>
 <li>{val}LSAPI App{/}: an application that communicate with web server
 in LSAPI protocol.</li>
-<li>{val}Piped Logger{/}: an application that can process access log
-entries received on its STDIN stream.</li>
 </ul>
 END_DESCR
 
@@ -297,10 +295,6 @@ SEE_ALSO:
 
 
 
-
-
-
-
 [PAGE]
 ID: VHGeneral_Help 
 NAME: Virtual Host General
@@ -353,10 +347,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
-
-
-
-
 
 
 

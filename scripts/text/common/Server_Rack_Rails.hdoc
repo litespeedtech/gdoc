@@ -149,6 +149,7 @@ END_TIPS
 [TBL]
 ID: railsDefault
 NAME: Ruby Rack/Rails Settings
+NS: EO
 
 DESCR: Default configurations for Ruby Rack/Rails applications.
 END_DESCR
@@ -168,6 +169,7 @@ SEE_ALSO:
 [TBL]
 ID: railsHosting
 NAME: Rack/Rails Shared Hosting
+NS: EO
 
 DESCR: LiteSpeed's Rack/Rails Shared Hosting settings allow users 
 using our high performance, highly scalable Ruby LSAPI module to 

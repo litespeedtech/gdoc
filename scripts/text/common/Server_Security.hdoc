@@ -1051,6 +1051,7 @@ SEE_ALSO:
 [TBL]
 ID: cgiResource
 NAME: CGI Settings
+NS: EO
 
 DESCR: The following settings control CGI processes. Memory and process limits also serve as the default for 
 other external applications if limits have not been set explicitly for those applications. 
