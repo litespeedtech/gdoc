@@ -432,7 +432,7 @@ class HelpDB
                 if (isset($this->_db[$type][$id])) {
                     $name = $this->_db[$type][$id]->getName();
                     $buf = '<span class="' . $style . '"><a href="'
-                            . $pageId . '#' . $item->_id . '">'
+                            . $pageId . '#' . $id . '">'
                             . $name . '</a></span>';
                 }
                 else {
