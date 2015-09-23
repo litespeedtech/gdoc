@@ -157,6 +157,30 @@ END_TIPS
 
 
 [ITEM]
+ID: extCluster
+NAME: Cluster
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the cluster that handle requests to this context. 
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: proxyWebServer
 NAME: Web Server
 REQUIRED: 

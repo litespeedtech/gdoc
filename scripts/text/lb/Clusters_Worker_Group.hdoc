@@ -1,0 +1,64 @@
+[HELPDOC]
+
+
+########## Layer 7 Worker Group ##########
+
+
+[ITEM]
+ID: LB_extAppType
+NAME: Type
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the type of external application. Choose from
+<ul>
+<li>{val}FastCGI{/}: a FastCGI application with {val}Responder{/}
+role.</li>
+<li>{val}Servlet Engine{/}: a Servlet engine with AJPv13 connector,
+such as tomcat.</li>
+<li>{val}Web Server{/}: a web server or application server that
+support HTTP protocol.</li>
+<li>{val}LSAPI App{/}: an application that communicate with web server
+in LSAPI protocol.</li>
+</ul>
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: extSrcIP
+NAME: Type
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Select from available IPs.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[END_HELPDOC]

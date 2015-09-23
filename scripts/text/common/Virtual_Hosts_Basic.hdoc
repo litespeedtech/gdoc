@@ -56,6 +56,30 @@ END_TIPS
 
 
 [ITEM]
+ID: defaultCluster
+NAME: Default Cluster
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the default cluster used for handling requests to this vhost. 
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: configFile
 NAME: Config File
 REQUIRED: 

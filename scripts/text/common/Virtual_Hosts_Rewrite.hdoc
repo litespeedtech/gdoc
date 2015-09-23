@@ -30,7 +30,7 @@ END_TIPS
 
 
 
-ITEM]
+[ITEM]
 ID: rewriteLogLevel
 NAME: Log Level
 NS: EO

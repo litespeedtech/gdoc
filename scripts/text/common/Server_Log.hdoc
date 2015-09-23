@@ -434,11 +434,28 @@ END_TIPS
 [TBL]
 ID: servLog
 NAME: Server Log
+NS: LE
 
 DESCR: 
 END_DESCR
 
 CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_enableStderrLog log_enableAioLog
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: servLog
+NAME: Server Log
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_enableStderrLog 
 END_CONT
 
 SEE_ALSO: 

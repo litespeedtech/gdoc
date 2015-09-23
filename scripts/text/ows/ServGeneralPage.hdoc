@@ -203,30 +203,6 @@ END_TIPS
 [END_ITEM]
 
 
-[ITEM]
-ID: enableh2c
-NAME: Enable HTTP/2 Over Cleartext TCP
-REQUIRED: 
-APPLY: 2
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies whether to enable HTTP/2 over non-encrypted TCP connections. Default is disabled. 
-
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
 
 [ITEM]
 ID: uploadPassByPath
@@ -308,20 +284,6 @@ END_CONT
 SEE_ALSO: 
 [END_TBL]
 
-
-
-[TBL]
-ID: servLog
-NAME: Server Log
-
-DESCR: 
-END_DESCR
-
-CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_enableStderrLog 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
 
 
 [TBL]
