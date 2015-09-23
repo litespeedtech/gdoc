@@ -238,7 +238,7 @@ class DocItem extends Item
 		$buf .= '<span class="top"><a href="#top"><img border=0 height=13 width=13 alt="Go to top" src="img/top.gif"></a></span></div>'.$end;
 		//$buf .= '<tr class="ht-title"><td><table width="100%" border="0" cellpadding="0" cellspacing="0">';
 		//$buf .= '<tr><td class="ht-title">'.$this->_name.'</td><td class="top"><a href="#top"><img border=0 height=13 width=13 alt="Go to top" src="img/top.gif"></a></td></tr></table>'.$end;
-		$buf .= '<tr><td><span class="ht-label">Description: </span>' . $this->getDescr . $end;
+		$buf .= '<tr><td><span class="ht-label">Description: </span>' . $this->getDescr() . $end;
 		if ( $this->_syntax != NULL )
 		{
             $gentool = new GenTool;
