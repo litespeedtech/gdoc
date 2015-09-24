@@ -115,7 +115,7 @@ abstract class Item
         }
 
         if ($tagdef->isMultiEntry) {
-            if ($this->_fields[$tag] == NULL) {
+            if (!isset($this->_fields[$tag])) {
                 $this->_fields[$tag] = array();
             }
             $this->_fields[$tag][] = $value;
