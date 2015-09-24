@@ -2,3 +2,5 @@
 output/
 
 nbproject/
+/static/DTblDef.php
+/static/DTblDeflb.php

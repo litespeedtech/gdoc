@@ -8,6 +8,16 @@ NAME: Server Process
 DESCR: 
 END_DESCR
 
+EDITTIP: The user and group setting of the server process cannot be modified. This was set up during installation. You have to reinstall to change this option.
+END_EDITTIP
+
+EDITTIP: Swapping directory is recommended to be placed on a local disk such as /tmp. Network drive should be avoided at all cost. Swap
+ will be when configured memory i/o buffer is exhausted.
+END_EDITTIP
+
+EDITTIP: When you enable "Auto Restart" the monitor process will automatically launch a new server process and service will resume instantly if a crash is detected.
+END_EDITTIP
+
 CONT: serverName runningAs serverPriority 
 servChrootPath enableChroot inMemBufSize swappingDir  
 END_CONT
@@ -23,6 +33,9 @@ NAME: General Settings
 
 DESCR: 
 END_DESCR
+
+EDITTIP: You can enter multiple admin emails: use comma to separate.
+END_EDITTIP
 
 CONT: disableInitLogRotation showVersionNumber 
 enableIpGeo useIpInProxyHeader autoUpdateInterval 
@@ -40,6 +53,12 @@ NAME: Connection Tuning
 
 DESCR: 
 END_DESCR
+
+EDITTIP: Numbers can be represented as 10240, 10K or 1M.
+END_EDITTIP
+
+EDITTIP: If send/receive buffer size is 0, default TCP buffer size will be used.
+END_EDITTIP
 
 CONT: maxConnections maxSSLConnections connTimeout maxKeepAliveReq
 smartKeepAlive keepAliveTimeout sndBufSize rcvBufSize eventDispatcher
