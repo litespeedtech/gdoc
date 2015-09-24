@@ -26,11 +26,11 @@ class HelpDB
     public function buildDB()
     {
         $this->_db = array(
-            Item::TYPE_ITEM => array(),
-            Item::TYPE_TBL => array(),
-            Item::TYPE_PAGE => array(),
-            Item::TYPE_QA => array(),
-            Item::TYPE_NAV => array()
+            HelpDocDef::TYPE_ITEM => array(),
+            HelpDocDef::TYPE_TBL => array(),
+            HelpDocDef::TYPE_PAGE => array(),
+            HelpDocDef::TYPE_QA => array(),
+            HelpDocDef::TYPE_NAV => array()
         );
 
         global $config ;
@@ -82,11 +82,13 @@ class HelpDB
             }
 
             if ( isset($config['doc_nav']) ) {
-                $navchain = $this->_db[Item::TYPE_NAV][$config['doc_nav']]->getChildren();
+                $navchain = $this->_db[HelpDocDef::TYPE_NAV][$config['doc_nav']]->getChildren();
                 foreach($navchain as $nav) {
-                    foreach($nav->getSeq() as $pid) {
-                        $page = $this->getNavPage($pid);
-                        $page->genDoc($this);
+                    if ($seq = $nav->getSeq()) {
+                        foreach($seq as $pid) {
+                            $page = $this->getNavPage($pid);
+                            $page->genDoc($this);
+                        }
                     }
                 }
             }
@@ -153,14 +155,13 @@ class HelpDB
         return $texts ;
     }
 
-    private function addToDB($item, $curfile)
+    private function addToDB($item)
     {
         global $config;
 
         if (!$item->inCurrentNameSpace())
             return;
 
-        $item->setSrc($curfile);
         $type = $item->getType();
         $id = $item->getId();
         if ($id == NULL) {
@@ -180,7 +181,7 @@ class HelpDB
 
         if ($lang == DEFAULT_LANG) {
             if (isset($this->_index[$id])) {
-                $this->_index[$id]->showErr('duplicated ID first' . $lang . ' defaultlang ' . DEFAULT_LANG);
+                $this->_index[$id]->showErr('duplicated ID first ' . $lang . ' defaultlang ' . DEFAULT_LANG);
                 $item->showErr('duplicated ID current, ignore');
             }
             else {
@@ -193,7 +194,7 @@ class HelpDB
                 $item->showErr('In language file, but not in English, ignore');
             }
             else {
-                $this->_index[$id]->applyLanguagePack($item, $lang);
+                $this->_index[$id]->applyLanguagePack($lang, $item);
             }
 
         }
@@ -207,100 +208,57 @@ class HelpDB
 			echo "Failed to open helpdoc: $helpDoc\n";
 			return;
 		}
-        echo " ... parsing $helpDoc\n";
+        if (DEBUG) {
+            echo " ... parsing $helpDoc\n";
+        }
 
+        $root = HelpDocDef::TYPE_HELPDOC;
+        $def = HelpDocDef::Get($root);
 		$startInd = false;
-		$itemInd = false;
-		$tableInd = false;
-		$pageInd = false;
-		$navInd = false;
-		$buf = array();
+        $curTag = '';
+        $curBuf = NULL;
 
 		while ( !feof($fd) )
 		{
 			$tmp = fgets($fd, 4096);
-			$tag = '[END_HELPDOC]';
+
+            $tag = '[END_' . $root . ']';
 			if ( strncmp( $tag, $tmp, strlen($tag) ) == 0 )
 				break;
 
 			if ( !$startInd )
 			{
-				$tag = '[HELPDOC]';
-				if ( strncmp( $tag, $tmp, strlen($tag) ) == 0 )
-					$startInd = true;
+                $tag = '[' . $root . ']';
+				if ( strncmp( $tag, $tmp, strlen($tag) ) == 0 ) {
+                    $startInd = true;
+                }
 			}
-			else if ( $itemInd )
+			elseif ( $curTag )
 			{
-				$buf[] = $tmp;
-				$tag = '[END_ITEM]';
+				$tag = '[END_' . $curTag . ']';
 				if ( strncmp( $tag, $tmp, strlen($tag) ) == 0 )
 				{
-					$itemInd = false;
-                    $this->addToDB(new DocItem($buf), $helpDoc);
+					$itemClass = $def[$curTag];
+                    $item = new $itemClass($curBuf, $helpDoc);
+                    $this->addToDB($item);
+                    $curTag = '';
+                    $curBuf = NULL;
 				}
-			}
-			else if ( $tableInd )
-			{
-				$buf[] = $tmp;
-				$tag = '[END_TBL]';
-				if ( strncmp( $tag, $tmp, strlen($tag) ) == 0 )
-				{
-					$tableInd = false;
-                    $this->addToDB(new DocTable($buf), $helpDoc);
-				}
-			}
-			else if ( $pageInd )
-			{
-				$buf[] = $tmp;
-				$tag = '[END_PAGE]';
-				if ( strncmp( $tag, $tmp, strlen($tag) ) == 0 )
-				{
-					$pageInd = false;
-                    $this->addToDB(new DocPage($buf), $helpDoc);
-				}
-			}
-			else if ( $navInd )
-			{
-				$buf[] = $tmp;
-				$tag = '[END_PAGENAV]';
-				if ( strncmp( $tag, $tmp, strlen($tag) ) == 0 )
-				{
-					$navInd = false;
-                    $this->addToDB(new NavChain($buf), $helpDoc);
-				}
+                else {
+                    $curBuf[] = $tmp;
+                }
 			}
 			else
 			{
-				$tag = '[ITEM]';
-				if ( strncmp( $tag, $tmp, strlen($tag) ) == 0 )
-				{
-					$itemInd = true;
-					$buf = array();
-					$buf[] = $tmp;
-					continue;
-				}
-				$tag = '[TBL]';
-				if ( strncmp( $tag, $tmp, strlen($tag) ) == 0 )
-				{
-					$tableInd = true;
-					$buf = array();
-					$buf[] = $tmp;
-					continue;
-				}
-				$tag = '[PAGE]';
-				if ( strncmp( $tag, $tmp, strlen($tag) ) == 0 )
-				{
-					$pageInd = true;
-					$buf = array();
-					$buf[] = $tmp;
-				}
-				$tag = '[PAGENAV]';
-				if ( strncmp( $tag, $tmp, strlen($tag) ) == 0 )
-				{
-					$navInd = true;
-					$buf = array();
-					$buf[] = $tmp;
-				}
+                foreach ($def as $id => $itemClass) {
+                    $tag = '[' . $id . ']';
+                    if ( strncmp( $tag, $tmp, strlen($tag) ) == 0 )
+                    {
+                        $curTag = $id;
+                        $curBuf = array();
+                        break;
+                    }
+                }
 			}
 		}
 		fclose($fd);
@@ -311,33 +269,37 @@ class HelpDB
     {
         if ($id == NULL)
             return NULL;
-        if (!isset($this->_db[Item::TYPE_PAGE][$id])) {
+        if (!isset($this->_db[HelpDocDef::TYPE_PAGE][$id])) {
             die("fail to getNavPage seq $id\n");
         }
-        return $this->_db[Item::TYPE_PAGE][$id];
+        return $this->_db[HelpDocDef::TYPE_PAGE][$id];
     }
 
 	private function populateData()
 	{
         global $config;
-		foreach( $this->_db[Item::TYPE_TBL] as $tbl ) {
-            foreach ($tbl->getCont() as $id) {
-                if (isset($this->_db[Item::TYPE_ITEM][$id])) {
-                    $tbl->addContItem($this->_db[Item::TYPE_ITEM][$id]);
-                }
-                else {
-                    $tbl->showErr('cannot find item definition for content tag ' . $id);
+		foreach( $this->_db[HelpDocDef::TYPE_TBL] as $tbl ) {
+            if ($cont = $tbl->getCont()) {
+                foreach ($cont as $id) {
+                    if (isset($this->_db[HelpDocDef::TYPE_ITEM][$id])) {
+                        $tbl->addContItem($this->_db[HelpDocDef::TYPE_ITEM][$id]);
+                    }
+                    else {
+                        $tbl->showErr('cannot find item definition for content tag ' . $id);
+                    }
                 }
             }
 		}
 
-		foreach( $this->_db[Item::TYPE_PAGE] as $page) {
-            foreach ($page->getCont() as $tid) {
-                if (isset($this->_db[Item::TYPE_TBL][$tid])) {
-                    $page->addContTbl($this->_db[Item::TYPE_TBL][$tid]);
-                }
-                else {
-                    $page->showErr('cannot find table definition for content tag ' . $tid);
+		foreach( $this->_db[HelpDocDef::TYPE_PAGE] as $page) {
+            if ($cont = $page->getCont()) {
+                foreach ($cont as $tid) {
+                    if (isset($this->_db[HelpDocDef::TYPE_TBL][$tid])) {
+                        $page->addContTbl($this->_db[HelpDocDef::TYPE_TBL][$tid]);
+                    }
+                    else {
+                        $page->showErr('cannot find table definition for content tag ' . $tid);
+                    }
                 }
             }
 		}
@@ -346,26 +308,27 @@ class HelpDB
             //doc pages
             $navId = $config['doc_nav'];
             $navchain = $this->getNavChain($navId);
-            $navroot = $this->_db[Item::TYPE_NAV][$navId];
+            $navroot = $this->_db[HelpDocDef::TYPE_NAV][$navId];
             $navroot->setChildren($navchain);
 
             foreach( $navchain as $nav )
             {
-                $seq = $nav->getSeq();
-                $topPage = $this->getNavPage($nav->getTopNav());
+                if ($seq = $nav->getSeq()) {
+                    $topPage = $this->getNavPage($nav->getTopNav());
 
-                $c = count($seq);
+                    $c = count($seq);
 
-                for ( $i = 0 ; $i < $c ; ++$i )
-                {
-                    $curId = $seq[$i];
-                    $prevId = ($i > 0) ? $seq[$i-1] : '';
-                    $nextId = ($i < ($c-1)) ? $seq[$i+1] : '';
+                    for ( $i = 0 ; $i < $c ; ++$i )
+                    {
+                        $curId = $seq[$i];
+                        $prevId = ($i > 0) ? $seq[$i-1] : '';
+                        $nextId = ($i < ($c-1)) ? $seq[$i+1] : '';
 
-                    $curPage = $this->getNavPage($curId);
-                    $prevPage = $this->getNavPage($prevId);
-                    $nextPage = $this->getNavPage($nextId);
-                    $curPage->setNav( $prevPage, $topPage, $nextPage);
+                        $curPage = $this->getNavPage($curId);
+                        $prevPage = $this->getNavPage($prevId);
+                        $nextPage = $this->getNavPage($nextId);
+                        $curPage->setNav( $prevPage, $topPage, $nextPage);
+                    }
                 }
             }
 
@@ -374,17 +337,18 @@ class HelpDB
         if (isset($config['tip_nav'])) {
             // tips
             $navchain = $this->getNavChain($config['tip_nav']);
-            $this->_db[Item::TYPE_NAV][$config['tip_nav']]->setChildren($navchain);
+            $this->_db[HelpDocDef::TYPE_NAV][$config['tip_nav']]->setChildren($navchain);
 
             foreach( $navchain as $nav )
             {
-                $seq = $nav->getSeq();
-                foreach ($seq as $pid) {
-                    $page = $this->getNavPage($pid);
-                    $items = $page->getItems();
-                    foreach ($items as $id => $item) {
-                        if (!isset($this->_tips[$id]))
-                            $this->_tips[$id] = $item;
+                if ($seq = $nav->getSeq()) {
+                    foreach ($seq as $pid) {
+                        $page = $this->getNavPage($pid);
+                        $items = $page->getItems();
+                        foreach ($items as $id => $item) {
+                            if (!isset($this->_tips[$id]))
+                                $this->_tips[$id] = $item;
+                        }
                     }
                 }
             }
@@ -397,15 +361,17 @@ class HelpDB
     private function getNavChain($navId)
     {
         $chain = array();
-        if (!isset($this->_db[Item::TYPE_NAV][$navId])) {
+        if (!isset($this->_db[HelpDocDef::TYPE_NAV][$navId])) {
             echo "Wrong Nav ID $root\n";
         }
         else {
-            $nav = $this->_db[Item::TYPE_NAV][$navId];
+            $nav = $this->_db[HelpDocDef::TYPE_NAV][$navId];
             $chain[] = $nav;
-            foreach ($nav->getCont() as $childId) {
-                $children = $this->getNavChain($childId);
-                $chain = array_merge($chain, $children);
+            if ($cont = $nav->getCont()) {
+                foreach ($cont as $childId) {
+                    $children = $this->getNavChain($childId);
+                    $chain = array_merge($chain, $children);
+                }
             }
         }
 
@@ -415,10 +381,10 @@ class HelpDB
 	public function translate($tag)
 	{
         $types = array(
-            Item::TYPE_ITEM => 'tagl',
-            Item::TYPE_TBL => 'tagl',
-            Item::TYPE_PAGE => 'tagP',
-            Item::TYPE_QA => 'tagQ');
+            HelpDocDef::TYPE_ITEM => 'tagl',
+            HelpDocDef::TYPE_TBL => 'tagl',
+            HelpDocDef::TYPE_PAGE => 'tagP',
+            HelpDocDef::TYPE_QA => 'tagQ');
 
         foreach ($types as $type => $style) {
             if ( preg_match("/^\{\s*$type\s*=\s*(\S+)\s*\}/", $tag, $matches) ) {
