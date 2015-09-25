@@ -623,6 +623,20 @@ your web site by checking the Referer header within a HTTP request.
 If the Referer header does not match your website, the request will be denied.
 END_DESCR
 
+EDITTIP: Set "Allow Direct Access" to "Yes" if it is preferred to allow direct 
+access without a referrer. For e.g., there is no referrer when a user key in a url in a browser and some proxy will suppress "Referrer" header.
+END_EDITTIP
+
+EDITTIP: If "Redirect URL" is set, a hotlink attempt will be redirected to the url specified; otherwise, access denied status code will be returned.
+END_EDITTIP
+
+EDITTIP: Set "Only Self Reference" to "Yes" will only allow links from same web site and there is no need to specify "Allowed Domains". It is more 
+convinent when multiple domains are parked.
+END_EDITTIP
+
+EDITTIP: If "Only Self Reference" set to "No", "Allowed Domains" must be specified.
+END_EDITTIP
+
 CONT: enableHotlinkCtrl suffixes redirectUri allowDirectAccess 
 onlySelf allowedHosts matchedHosts
 END_CONT
