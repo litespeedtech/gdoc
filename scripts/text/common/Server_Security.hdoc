@@ -1023,6 +1023,19 @@ DESCR: These are connection control settings based on client IP.
 These settings help to mitigate DoS (Denial of Service) and DDoS (Distributed Denial of Service) attacks.
 END_DESCR
 
+EDITTIP: Set IP level throttle limit here. The number will be rounded up to 4K units. Set to "0" to disable throttling.
+END_EDITTIP
+
+EDITTIP: Set concurrent connection Limits coming from one client (per IP address). This helps against DoS attack.
+END_EDITTIP
+
+EDITTIP: Number of connections can temporarily exceed Soft Limit during Grace Period as long as under Hard Limit. After Grace Period, if it is 
+still above Soft Limit, then no more connections will be allowed from that IP for time of Banned Period.
+END_EDITTIP
+
+EDITTIP: See help for more details.
+END_EDITTIP
+
 CONT: staticReqPerSec dynReqPerSec outBandwidth inBandwidth softLimit hardLimit blockBadReq gracePeriod banPeriod 
 END_CONT
 
@@ -1039,6 +1052,19 @@ NS: L
 DESCR: These are connection control setting on a per client/IP basis. 
 These settings help to mitigate DoS (Denied of Service) and DDoS (Distributed Denied of Service) attacks.
 END_DESCR
+
+EDITTIP: Set IP level throttle limit here. The number will be rounded up to 4K units. Set to "0" to disable throttling.
+END_EDITTIP
+
+EDITTIP: Set concurrent connection Limits coming from one client (per IP address). This helps against DoS attack.
+END_EDITTIP
+
+EDITTIP: Number of connections can temporarily exceed Soft Limit during Grace Period as long as under Hard Limit. After Grace Period, if it 
+is still above Soft Limit, then no more connections will be allowed from that IP for time of Banned Period.
+END_EDITTIP
+
+EDITTIP: See help for more details.
+END_EDITTIP
 
 CONT: dynReqPerSec outBandwidth inBandwidth softLimit hardLimit gracePeriod banPeriod 
 END_CONT
@@ -1103,6 +1129,21 @@ to block or allow that IP.
 trailing "T". Trusted IPs or sub-networks are not affected by connection/throttling limits. 
 Only server-level access control can set up trusted IPs/sub-networks.
 END_DESCR
+
+EDITTIP: You can set up access control at server, virtual host and context levels. If there is access control 
+at server level, the virtual host rules will be applied after the server rules are satisfied.
+END_EDITTIP
+
+EDITTIP: To deny access from certain address, put "ALL" in allowed list, and put subnet or IP in denied 
+list. To allow only certain IP or subnet to access the site, put "ALL" in denied list and specify the address in the allowed list.
+END_EDITTIP
+
+EDITTIP: Input format can be an IP like 192.168.0.2, a sub-network like 192.168.*, or a subnet/netmask like 192.168.128.5/255.255.128.0.
+END_EDITTIP
+
+EDITTIP: If you have trusted IP or sub-network, then you must specify them in allowed list by adding a trailing "T" such as 
+192.168.1.*T. Trusted IP or sub-network is not limited by connection/throttling limit.
+END_EDITTIP
 
 TIPS: [Security] Use this at the server-level for general restrictions that apply to all virtual hosts.
 END_TIPS
