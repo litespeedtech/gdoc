@@ -229,7 +229,7 @@ following purposes:
 </ul>
 END_DESCR
 
-CONT: redirectContext loadBalancerContext
+CONT: newContext redirectContext loadBalancerContext
 END_CONT
 
 SEE_ALSO: 

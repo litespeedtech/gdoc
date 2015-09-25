@@ -3,31 +3,6 @@
 ################## TBL #############################
 
 
-
-[TBL]
-ID: generalContext
-NAME: Static Context
-
-DESCR: Context settings are used to specify special settings for files in a 
-certain location. These settings can be used to bring in files outside of 
-the document root (like Apache's Alias or AliasMatch directives),  
-or to protect a particular directory using authorization realms, or to 
-block or restrict access to a particular directory within the document root.
-END_DESCR
-
-CONT: expuri location allowBrowse enableExpires expiresDefault expiresByType
-extraHeaders addMIMEType forceType defaultType autoIndex indexFiles  
-realm authName required accessAllowed accessDenied extAuthorizer
-addDefaultCharset defaultCharsetCustomized 
-enableRewrite rewriteInherit rewriteBase rewriteRules
-enableIpGeo 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
 [TBL]
 ID: javaWebAppContext
 NAME: Java Web App Context
@@ -301,7 +276,7 @@ LiteSpeed's WebAdmin console for the following purposes:
 </ul>
 END_DESCR
 
-CONT: generalContext javaWebAppContext servletContext fcgiContext lsapiContext proxyContext 
+CONT: newContext generalContext javaWebAppContext servletContext fcgiContext lsapiContext proxyContext 
 cgiContext redirectContext lbContext railsContext moduleContext
 END_CONT
 

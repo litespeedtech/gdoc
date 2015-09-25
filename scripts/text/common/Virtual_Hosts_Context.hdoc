@@ -1,7 +1,127 @@
 [HELPDOC]
 
 
-############# Context Definition #############
+########## New Context ##########
+
+
+[ITEM]
+ID: ctxType
+NAME: Context Type
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The type of context created determines it's usage.<br><br><b>Redirect</b> context can set up an internal or external redirect URI.
+END_DESCR
+
+EDITTIP: <b>Redirect</b> context can set up an internal or external redirect URI.
+END_EDITTIP
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: ctxType
+NAME: Context Type
+NS: E
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The type of context created determines it's usage.:<br><br><b>Static</b> context can be used to map a URI to a directory either outside document root or within it.<br>
+<b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine.<br>
+<b>Servlet</b> context is used to import a specific servlet under a web application.<br>
+<b>Fast CGI</b> context is a mount point of Fast CGI application.<br>
+<b>Proxy</b> context enables this virtual host to serve as a transparant reverse proxy server to an external web server or application server.<br>
+<b>CGI</b> context can be used to specify a directory only contains CGI scripts.<br>
+<b>Redirect</b> context can set up an internal or external redirect URI.<br>
+<b>Rack/Rails</b> context is specifically used for Rack/Rails applications.<br>
+END_DESCR
+
+EDITTIP: <b>Static</b> context can be used to map a URI to a directory either outside document root or within it.
+END_EDITTIP
+
+EDITTIP: <b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine.
+END_EDITTIP
+
+EDITTIP: <b>Servlet</b> context is used to import a specific servlet under a web application.
+END_EDITTIP
+
+EDITTIP: <b>Fast CGI</b> context is a mount point of Fast CGI application.
+END_EDITTIP
+
+EDITTIP: <b>Proxy</b> context enables this virtual host to serve as a transparant reverse proxy server to an external web server or application server.
+END_EDITTIP
+
+EDITTIP: <b>CGI</b> context can be used to specify a directory only contains CGI scripts.
+END_EDITTIP
+
+EDITTIP: <b>Redirect</b> context can set up an internal or external redirect URI.
+END_EDITTIP
+
+EDITTIP: <b>Rack/Rails</b> context is specifically used for Rack/Rails applications.
+END_EDITTIP
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: ctx_type
+NAME: Context Type
+NS: O
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The type of context created determines it's usage.<br><br><b>Static</b> context can be used to map a URI to a directory either outside document root or within it.<br>
+<b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine.<br>
+<b>Servlet</b> context is used to import a specific servlet under a web application.<br>
+<b>Fast CGI</b> context is a mount point of Fast CGI application.<br>
+<b>Proxy</b> context enables this virtual host to serve as a transparant reverse proxy server to an external web server or application server.<br>
+<b>CGI</b> context can be used to specify a directory only contains CGI scripts.<br>
+<b>Redirect</b> context can set up an internal or external redirect URI.<br>
+<b>Rack/Rails</b> context is specifically used for Rack/Rails applications.<br>
+<b>Module handler</b> context is a mount point of hander type modules.<br>
+END_DESCR
+
+EDITTIP: <b>Static</b> context can be used to map a URI to a directory either outside document root or within it.
+END_EDITTIP
+
+EDITTIP: <b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine.
+END_EDITTIP
+
+EDITTIP: <b>Servlet</b> context is used to import a specific servlet under a web application.
+END_EDITTIP
+
+EDITTIP: <b>Fast CGI</b> context is a mount point of Fast CGI application.
+END_EDITTIP
+
+EDITTIP: <b>Proxy</b> context enables this virtual host to serve as a transparant reverse proxy server to an external web server or application server.
+END_EDITTIP
+
+EDITTIP: <b>CGI</b> context can be used to specify a directory only contains CGI scripts.
+END_EDITTIP
+
+EDITTIP: <b>Redirect</b> context can set up an internal or external redirect URI.
+END_EDITTIP
+
+EDITTIP: <b>Rack/Rails</b> context is specifically used for Rack/Rails applications.
+END_EDITTIP
+
+EDITTIP: <b>Module handler</b> context is a mount point of hander type modules.
+END_EDITTIP
+
+[END_ITEM]
+
+
+
+########## Context Definition ##########
 
 
 [ITEM]
@@ -843,6 +963,72 @@ END_TIPS
 
 [END_ITEM]
 
+
+
+############# Tables #############
+
+
+[TBL]
+ID: newContext
+NAME: Common Context Attributes
+
+CONT: ctxType
+END_CONT
+
+[END_TBL]
+
+
+
+[TBL]
+ID: generalContext
+NAME: Static Context
+NS: E
+
+DESCR: Context settings are used to specify special settings for files in a 
+certain location. These settings can be used to bring in files outside of 
+the document root (like Apache's Alias or AliasMatch directives),  
+or to protect a particular directory using authorization realms, or to 
+block or restrict access to a particular directory within the document root.
+END_DESCR
+
+CONT: expuri location allowBrowse enableExpires expiresDefault expiresByType
+extraHeaders addMIMEType forceType defaultType autoIndex indexFiles allowOverride 
+realm authName required accessAllowed accessDenied extAuthorizer
+addDefaultCharset defaultCharsetCustomized 
+enableRewrite rewriteInherit rewriteBase rewriteRules
+cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
+cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl 
+cachePolicy:ignoreRespCacheCtrl cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
+enableIpGeo apacheConf
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: generalContext
+NAME: Static Context
+NS: O
+
+DESCR: Context settings are used to specify special settings for files in a 
+certain location. These settings can be used to bring in files outside of 
+the document root (like Apache's Alias or AliasMatch directives),  
+or to protect a particular directory using authorization realms, or to 
+block or restrict access to a particular directory within the document root.
+END_DESCR
+
+CONT: expuri location allowBrowse enableExpires expiresDefault expiresByType
+extraHeaders addMIMEType forceType defaultType autoIndex indexFiles  
+realm authName required accessAllowed accessDenied extAuthorizer
+addDefaultCharset defaultCharsetCustomized 
+enableRewrite rewriteInherit rewriteBase rewriteRules
+enableIpGeo 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
 
 
 [END_HELPDOC]
