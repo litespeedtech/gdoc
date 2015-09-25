@@ -581,6 +581,12 @@ NAME: SSL Protocol
 DESCR: Customizes SSL protocols accepted by the listener.
 END_DESCR
 
+EDITTIP: "Yes" must be selected for <b>Secure</b> in General > Address Settings.
+END_EDITTIP
+
+EDITTIP: For SSL versions and encryption levels, please select all you want to accept.
+END_EDITTIP
+
 CONT: sslProtocol ciphers enableECDHE enableDHE DHParam
 END_CONT
 

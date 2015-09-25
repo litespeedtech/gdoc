@@ -330,14 +330,14 @@ END_TIPS
 
 [ITEM]
 ID: lmap
-NAME: Virtual Host Mappings
+NAME: Virtual Hosts Mappings
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Virtual Host Mappings shows currently established mappings to virtual hosts from this listener. 
-The virtual host name is in brackets and is followed by the matching domain name(s) for this listener.
+DESCR: Shows currently established mappings to virtual hosts from a particular listener. 
+The virtual host name appears in brackets and is followed by the matching domain name(s) for this listener.
 END_DESCR
 
 SYNTAX: 
