@@ -48,27 +48,6 @@ END_TIPS
 [END_ITEM]
 
 
-[ITEM]
-ID: moduleNameSel
-NAME: Module
-REQUIRED: 
-APPLY: 
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Name of the module. The module must be registered under the Server Module Configuration tab.  
-Once it is registered, the module name will be available in the drop down box for the Listener and Virtual Host configurations.
-END_DESCR
-
-SYNTAX: select
-END_SYNTAX
-
-EXAMPLE:
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-[END_ITEM]
 
 [ITEM]
 ID: moduleEnabled
