@@ -87,43 +87,6 @@ SEE_ALSO:
 
 
 [TBL]
-ID: redirectContext
-NAME: Redirect Context
-
-DESCR: A Redirect Context can be used to forward one URI or a group of URIs to another location. 
-The destination URI can be either on the same web site (internal
-redirect) or an absolute URI pointing to another web site (external redirect).
-END_DESCR
-
-CONT: expuri externalredirect statuscode destinationuri   
- accessAllowed accessDenied 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: loadBalancerContext
-NAME: Load Balancer Context
-
-DESCR: A Load Balancer Context can be used to forward one URI or a group of URIs to another location. 
-The destination URI can be either on the same web site or an absolute URI pointing to another web site.
-END_DESCR
-
-CONT: expuri extCluster realm authName required accessAllowed accessDenied cachePolicy:enableCache cachePolicy:maxCacheObjSize cachePolicy:expireInSeconds 
-cachePolicy:maxStaleAge cachePolicy:qsCache cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl cachePolicy:ignoreRespCacheCtrl 
-cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds enableRewrite rewriteInherit rewriteBase rewriteRules addDefaultCharset defaultCharsetCustomized 
-enableIpGeo 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
 ID: LB_listenerGeneral
 NAME: General
 

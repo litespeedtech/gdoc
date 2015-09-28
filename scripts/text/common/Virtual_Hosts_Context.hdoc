@@ -1010,8 +1010,8 @@ NS: E
 
 DESCR: Context settings are used to specify special settings for files in a 
 certain location. These settings can be used to bring in files outside of 
-the document root (like Apache's Alias or AliasMatch directives),  
-or to protect a particular directory using authorization realms, or to 
+the document root (like Apache's Alias or AliasMatch directives), 
+to protect a particular directory using authorization realms, or to 
 block or restrict access to a particular directory within the document root.
 END_DESCR
 
@@ -1038,8 +1038,8 @@ NS: O
 
 DESCR: Context settings are used to specify special settings for files in a 
 certain location. These settings can be used to bring in files outside of 
-the document root (like Apache's Alias or AliasMatch directives),  
-or to protect a particular directory using authorization realms, or to 
+the document root (like Apache's Alias or AliasMatch directives), 
+to protect a particular directory using authorization realms, or to 
 block or restrict access to a particular directory within the document root.
 END_DESCR
 
@@ -1357,6 +1357,35 @@ SEE_ALSO:
 [TBL]
 ID: cgiContext
 NAME: CGI Context
+NS: E
+
+DESCR: A CGI context defines scripts in a particular directory as CGI scripts. 
+This directory can be inside or outside of the document root. 
+When a file under this directory is requested, the server will always 
+try to execute it as a CGI script, no matter if it's executable or not. 
+In this way, file content under a CGI Context is always protected and cannot 
+be read as static content. It is recommended that you put all your CGI 
+scripts in a directory and set up a CGI Context to access them. 
+END_DESCR
+
+CONT: expuri cgi_path extraHeaders allowSetUID allowOverride 
+realm authName required accessAllowed accessDenied extAuthorizer 
+addDefaultCharset defaultCharsetCustomized 
+enableRewrite rewriteInherit rewriteBase rewriteRules 
+cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
+cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl 
+cachePolicy:ignoreRespCacheCtrl cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
+enableIpGeo apacheConf
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: cgiContext
+NAME: CGI Context
 NS: O
 
 DESCR: A CGI context defines scripts in a particular directory as CGI scripts. 
@@ -1381,27 +1410,17 @@ SEE_ALSO:
 
 
 [TBL]
-ID: cgiContext
-NAME: CGI Context
-NS: E
+ID: loadBalancerContext
+NAME: Load Balancer Context
 
-DESCR: A CGI context defines scripts in a particular directory as CGI scripts. 
-This directory can be inside or outside of the document root. 
-When a file under this directory is requested, the server will always 
-try to execute it as a CGI script, no matter if it's executable or not. 
-In this way, file content under a CGI Context is always protected and cannot 
-be read as static content. It is recommended that you put all your CGI 
-scripts in a directory and set up a CGI Context to access them. 
+DESCR: A Load Balancer Context can be used to forward one URI or a group of URIs to another location. 
+The destination URI can be either on the same web site or an absolute URI pointing to another web site.
 END_DESCR
 
-CONT: expuri cgi_path extraHeaders allowSetUID allowOverride 
-realm authName required accessAllowed accessDenied extAuthorizer 
-addDefaultCharset defaultCharsetCustomized 
-enableRewrite rewriteInherit rewriteBase rewriteRules 
-cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
-cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl 
-cachePolicy:ignoreRespCacheCtrl cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
-enableIpGeo apacheConf
+CONT: expuri extCluster realm authName required accessAllowed accessDenied cachePolicy:enableCache cachePolicy:maxCacheObjSize cachePolicy:expireInSeconds 
+cachePolicy:maxStaleAge cachePolicy:qsCache cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl cachePolicy:ignoreRespCacheCtrl 
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds enableRewrite rewriteInherit rewriteBase rewriteRules addDefaultCharset defaultCharsetCustomized 
+enableIpGeo 
 END_CONT
 
 SEE_ALSO: 
@@ -1449,6 +1468,25 @@ CONT: expuri lbapp realm authName required
 accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 enableIpGeo 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: redirectContext
+NAME: Redirect Context
+NS: L
+
+DESCR: A Redirect Context can be used to forward one URI or a group of URIs to another location. 
+The destination URI can be either on the same web site (internal
+redirect) or an absolute URI pointing to another web site (external redirect).
+END_DESCR
+
+CONT: expuri externalredirect statuscode destinationuri   
+ accessAllowed accessDenied 
 END_CONT
 
 SEE_ALSO: 
