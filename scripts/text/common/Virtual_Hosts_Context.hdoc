@@ -152,12 +152,77 @@ END_TIPS
 [ITEM]
 ID: expuri
 NAME: URI
+NS: L
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=location}
 
-DESCR: Specifies the URI for this context. 
+DESCR: Specifies the URI for this context.
+<br><br>
+<b>Applies To:</b> Load Balancer Context and Redirect Context.
+END_DESCR
+
+SYNTAX:  The URI can be a plain URI (starting with "/") or 
+a Perl compatible regular expression URI (starting with "exp:"). If a plain URI ends 
+with a "/", then this context will include all sub-URIs under this
+URI. If the context maps to a directory on the file system, a trailing "/" must be added.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: expuri
+NAME: URI
+NS: E
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=location}
+
+DESCR: Specifies the URI for this context.
+<br><br>
+<b>Applies To:</b> Static Context, Servlet Context, FastCGI Context, LiteSpeed SAPI Context, Proxy Context, CGI Context, Load Balancer Context, 
+Redirect Context, and Rack/Rails Context.
+END_DESCR
+
+SYNTAX:  The URI can be a plain URI (starting with "/") or 
+a Perl compatible regular expression URI (starting with "exp:"). If a plain URI ends 
+with a "/", then this context will include all sub-URIs under this
+URI. If the context maps to a directory on the file system, a trailing "/" must be added.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: expuri
+NAME: URI
+NS: O
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=location}
+
+DESCR: Specifies the URI for this context.
+<br><br>
+<b>Applies To:</b> Static Context, Servlet Context, FastCGI Context, LiteSpeed SAPI Context, Proxy Context, CGI Context, Load Balancer Context, 
+Redirect Context, Rack/Rails Context, and Module Handler Context.
 END_DESCR
 
 SYNTAX:  The URI can be a plain URI (starting with "/") or 
@@ -996,7 +1061,7 @@ END_TIPS
 ID: newContext
 NAME: Common Context Attributes
 
-CONT: ctxType
+CONT: ctxType expuri
 END_CONT
 
 [END_TBL]
@@ -1015,7 +1080,7 @@ to protect a particular directory using authorization realms, or to
 block or restrict access to a particular directory within the document root.
 END_DESCR
 
-CONT: expuri location allowBrowse enableExpires expiresDefault expiresByType
+CONT: location allowBrowse enableExpires expiresDefault expiresByType
 extraHeaders addMIMEType forceType defaultType autoIndex indexFiles allowOverride 
 realm authName required accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized 
@@ -1043,7 +1108,7 @@ to protect a particular directory using authorization realms, or to
 block or restrict access to a particular directory within the document root.
 END_DESCR
 
-CONT: expuri location allowBrowse enableExpires expiresDefault expiresByType
+CONT: location allowBrowse enableExpires expiresDefault expiresByType
 extraHeaders addMIMEType forceType defaultType autoIndex indexFiles  
 realm authName required accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized 
@@ -1173,7 +1238,7 @@ This URI has the same requirements as for a {TBL=javaWebAppContext}.
 END_DESCR
 
 
-CONT: expuri servletEngine extraHeaders allowOverride realm authName required
+CONT: servletEngine extraHeaders allowOverride realm authName required
 accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
@@ -1200,7 +1265,7 @@ This URI has the same requirements as for a {TBL=javaWebAppContext}.
 END_DESCR
 
 
-CONT: expuri servletEngine extraHeaders realm authName required
+CONT: servletEngine extraHeaders realm authName required
 accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 enableIpGeo 
@@ -1221,7 +1286,7 @@ a script handler or mapped to a URL through FastCGI context. A FastCGI context w
 associate a URI with a FastCGI application. 
 END_DESCR
 
-CONT: expuri fcgiapp extraHeaders allowOverride 
+CONT: fcgiapp extraHeaders allowOverride 
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
@@ -1245,7 +1310,7 @@ a script handler or mapped to a URL through FastCGI context. A FastCGI context w
 associate a URI with a FastCGI application. 
 END_DESCR
 
-CONT: expuri fcgiapp extraHeaders  
+CONT: fcgiapp extraHeaders  
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 enableIpGeo 
@@ -1268,7 +1333,7 @@ Currently PHP, Ruby and Python have LSAPI modules. LSAPI, as it is developed spe
 LiteSpeed web server, is the most efficient way to communicate with LiteSpeed web server.  
 END_DESCR
 
-CONT: expuri lsapiapp extraHeaders allowOverride 
+CONT: lsapiapp extraHeaders allowOverride 
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
@@ -1294,7 +1359,7 @@ Currently PHP, Ruby and Python have LSAPI modules. LSAPI, as it is developed spe
 LiteSpeed web server, is the most efficient way to communicate with LiteSpeed web server.  
 END_DESCR
 
-CONT: expuri lsapiapp extraHeaders  
+CONT: lsapiapp extraHeaders  
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 enableIpGeo 
@@ -1317,7 +1382,7 @@ web server that this virtual host proxies for  has to be defined in {PAGE=ExtApp
 before you can set up a Proxy Context.
 END_DESCR
 
-CONT: expuri proxyWebServer extraHeaders 
+CONT: proxyWebServer extraHeaders 
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
@@ -1343,7 +1408,7 @@ web server that this virtual host proxies for  has to be defined in {PAGE=ExtApp
 before you can set up a Proxy Context.
 END_DESCR
 
-CONT: expuri proxyWebServer extraHeaders 
+CONT: proxyWebServer extraHeaders 
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 enableIpGeo
@@ -1368,7 +1433,7 @@ be read as static content. It is recommended that you put all your CGI
 scripts in a directory and set up a CGI Context to access them. 
 END_DESCR
 
-CONT: expuri cgi_path extraHeaders allowSetUID allowOverride 
+CONT: cgi_path extraHeaders allowSetUID allowOverride 
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 enableRewrite rewriteInherit rewriteBase rewriteRules 
@@ -1397,7 +1462,7 @@ be read as static content. It is recommended that you put all your CGI
 scripts in a directory and set up a CGI Context to access them. 
 END_DESCR
 
-CONT: expuri cgi_path extraHeaders allowSetUID  
+CONT: cgi_path extraHeaders allowSetUID  
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 enableRewrite rewriteInherit rewriteBase rewriteRules 
@@ -1417,7 +1482,7 @@ DESCR: A Load Balancer Context can be used to forward one URI or a group of URIs
 The destination URI can be either on the same web site or an absolute URI pointing to another web site.
 END_DESCR
 
-CONT: expuri extCluster realm authName required accessAllowed accessDenied cachePolicy:enableCache cachePolicy:maxCacheObjSize cachePolicy:expireInSeconds 
+CONT: extCluster realm authName required accessAllowed accessDenied cachePolicy:enableCache cachePolicy:maxCacheObjSize cachePolicy:expireInSeconds 
 cachePolicy:maxStaleAge cachePolicy:qsCache cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl cachePolicy:ignoreRespCacheCtrl 
 cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds enableRewrite rewriteInherit rewriteBase rewriteRules addDefaultCharset defaultCharsetCustomized 
 enableIpGeo 
@@ -1439,7 +1504,7 @@ A Load Balancer Context will associate a URI to be load balanced by the load bal
 END_DESCR
 
 
-CONT: expuri lbapp allowOverride realm authName required
+CONT: lbapp allowOverride realm authName required
 accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
@@ -1464,7 +1529,7 @@ A Load Balancer Context will associate a URI to be load balanced by the load bal
 END_DESCR
 
 
-CONT: expuri lbapp realm authName required
+CONT: lbapp realm authName required
 accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 enableIpGeo 
@@ -1485,7 +1550,7 @@ The destination URI can be either on the same web site (internal
 redirect) or an absolute URI pointing to another web site (external redirect).
 END_DESCR
 
-CONT: expuri externalredirect statuscode destinationuri   
+CONT: externalredirect statuscode destinationuri   
  accessAllowed accessDenied 
 END_CONT
 
@@ -1504,7 +1569,7 @@ The destination URI can be either on the same web site (an internal
 redirect) or an absolute URI pointing to another web site (an external redirect).
 END_DESCR
 
-CONT: expuri externalredirect statuscode destinationuri allowOverride realm 
+CONT externalredirect statuscode destinationuri allowOverride realm 
 authName required accessAllowed accessDenied extAuthorizer
 END_CONT
 
@@ -1523,7 +1588,7 @@ The destination URI can be either on the same web site (an internal
 redirect) or an absolute URI pointing to another web site (an external redirect).
 END_DESCR
 
-CONT: expuri externalredirect statuscode destinationuri realm 
+CONT externalredirect statuscode destinationuri realm 
 authName required accessAllowed accessDenied extAuthorizer
 END_CONT
 
@@ -1544,7 +1609,7 @@ no need to go through all the troubles to define an external application, add a 
 and rewrite rules, etc.
 END_DESCR
 
-CONT: expuri location railsEnv maxConns env enableExpires 
+CONT: location railsEnv maxConns env enableExpires 
 expiresDefault expiresByType extraHeaders
 indexFiles autoIndex allowOverride 
 realm authName required accessAllowed accessDenied extAuthorizer
@@ -1573,7 +1638,7 @@ no need to go through all the troubles to define an external application, add a 
 and rewrite rules, etc.
 END_DESCR
 
-CONT: expuri location railsEnv maxConns env enableExpires 
+CONT: location railsEnv maxConns env enableExpires 
 expiresDefault expiresByType extraHeaders
 indexFiles autoIndex  
 realm authName required accessAllowed accessDenied extAuthorizer
@@ -1595,7 +1660,7 @@ DESCR: A module handler context will associate a URI with a registered module.
 Modules need to be registered at Server Module Configuration tab.
 END_DESCR
 
-CONT: expuri moduleNameSel extraHeaders
+CONT: moduleNameSel extraHeaders
 realm authName required accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized 
 enableIpGeo 
@@ -1607,6 +1672,31 @@ SEE_ALSO:
 
 
 ################ Pages ################
+
+
+[PAGE]
+ID: Context_Help 
+NAME: Context
+NS: L
+
+DESCR: Context is a set of resources that can be located by 
+URLs with a common parent URL. The common parent URL is the ID of the context. 
+A web site is comprised of contexts, for example, "/" is the root Context mapped to the 
+document root of a web site; "/cgi-bin/" is Context dedicated to CGI applications. 
+If you think your web site as a URL tree, then every branch is a context which can be 
+identified by the URL of the branching node. A context should be explicitly defined for the 
+following purposes:
+<ul>
+  <li>To use another cluster other than the default one.</li>
+  <li>To redirect requests to another location.</li>
+</ul>
+END_DESCR
+
+CONT: newContext loadBalancerContext redirectContext
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
 
 
 [PAGE]

@@ -1,7 +1,6 @@
 [HELPDOC]
 
 
-
 [ITEM]
 ID: maxConnections
 NAME: Max Connections
@@ -205,31 +204,6 @@ DESCR:
 END_DESCR
 
 CONT: tpSecThrottle accessControl realms reqCensorship reqCensorshipRule
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
-
-
-
-[PAGE]
-ID: Context_Help 
-NAME: Context
-
-DESCR: Context is a set of resources that can be located by 
-URLs with a common parent URL. The common parent URL is the ID of the context. 
-A web site is comprised of contexts, for example, "/" is the root Context mapped to the 
-document root of a web site; "/cgi-bin/" is Context dedicated to CGI applications. 
-If you think your web site as a URL tree, then every branch is a context which can be 
-identified by the URL of the branching node. A context should be explicitly defined for the 
-following purposes:
-<ul>
-  <li>To use another cluster other than the default one.</li>
-  <li>To redirect requests to another location.</li>
-</ul>
-END_DESCR
-
-CONT: newContext redirectContext loadBalancerContext
 END_CONT
 
 SEE_ALSO: 
