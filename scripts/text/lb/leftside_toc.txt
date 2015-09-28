@@ -27,6 +27,10 @@
 	<li><a href="VHSecurity_Help.html">Virtual Host Security</a></li>
 	<li><a href="Rewrite_Help.html">Rewrite</a></li>
         <li><a href="Context_Help.html">Context</a></li>
+                <ul class="level3">
+                <li><a href="LB_Context.html">Load Balancer Context</a></li>
+                <li><a href="Redirect_Context.html">Redirect Context</a></li>
+                </ul>
 	<li><a href="AdminGeneral_Help.html">Admin Server</a></li>
 	<li><a href="LB_AdminListener_Help.html">Admin Listeners</a></li>
 	<li><a href="HA_Config.html">High Availability Config</a></li>

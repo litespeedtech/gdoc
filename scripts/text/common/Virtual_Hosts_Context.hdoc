@@ -83,7 +83,7 @@ END_EDITTIP
 
 
 [ITEM]
-ID: ctx_type
+ID: ctxType
 NAME: Context Type
 NS: O
 REQUIRED: 
@@ -1014,7 +1014,7 @@ END_TIPS
 
 [TBL]
 ID: newContext
-NAME: Common Context Attributes
+NAME: Context Attributes
 
 CONT: ctxType
 END_CONT
@@ -1647,7 +1647,7 @@ following purposes:
 </ul>
 END_DESCR
 
-CONT: newContext loadBalancerContext redirectContext
+CONT: newContext
 END_CONT
 
 SEE_ALSO: 
@@ -1675,8 +1675,7 @@ LiteSpeed's WebAdmin console for the following purposes:
 </ul>
 END_DESCR
 
-CONT: newContext generalContext javaWebAppContext servletContext fcgiContext lsapiContext proxyContext 
-cgiContext redirectContext lbContext railsContext
+CONT: newContext
 END_CONT
 
 SEE_ALSO: 
@@ -1705,11 +1704,187 @@ LiteSpeed's WebAdmin console for the following purposes:
 </ul>
 END_DESCR
 
-CONT: newContext generalContext javaWebAppContext servletContext fcgiContext lsapiContext proxyContext 
-cgiContext redirectContext lbContext railsContext moduleContext
+CONT: newContext
 END_CONT
 
 SEE_ALSO: 
+[END_PAGE]
+
+
+[PAGE]
+ID: Static_Context
+NAME: Static Context
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: generalContext
+END_CONT
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: Java_Web_App_Context 
+NAME: Java Web App Context
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: javaWebAppContext
+END_CONT
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: Servlet_Context 
+NAME: Servlet Context
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: servletContext
+END_CONT
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: FCGI_Context
+NAME: Fast CGI Context
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: fcgiContext
+END_CONT
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: LSAPI_Context 
+NAME: LiteSpeed SAPI Context
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: lsapiContext
+END_CONT
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: Proxy_Context 
+NAME: Proxy Context
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: proxyContext
+END_CONT
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: CGI_Context 
+NAME: CGI Context
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: cgiContext
+END_CONT
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: LB_Context 
+NAME: Load Balancer Context
+NS: L
+
+DESCR:
+END_DESCR
+
+CONT: loadBalancerContext
+END_CONT
+
+[END_PAGE]loadBalancerContext
+
+
+
+[PAGE]
+ID: LB_Context 
+NAME: Load Balancer Context
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: lbContext
+END_CONT
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: Redirect_Context 
+NAME: Redirect Context
+
+DESCR:
+END_DESCR
+
+CONT: redirectContext
+END_CONT
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: Rails_Context 
+NAME: Rack/Rails Context
+NS:EO
+
+DESCR:
+END_DESCR
+
+CONT: railsContext
+END_CONT
+
+[END_PAGE]
+
+
+[PAGE]
+ID: Module_Context 
+NAME: Module Handler Context
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: moduleContext
+END_CONT
+
 [END_PAGE]
 
 

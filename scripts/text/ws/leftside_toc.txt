@@ -27,6 +27,18 @@
 	<li><a href="VHSecurity_Help.html">Virtual Host Security</a></li>
 	<li><a href="Rewrite_Help.html">Rewrite</a></li>
 	<li><a href="Context_Help.html">Context</a></li>
+                <ul class="level3">
+                <li><a href="Static_Context.html">Static Context</a></li>
+                <li><a href="Java_Web_App_Context.html">Java Web App Context</a></li>
+                <li><a href="Servlet_Context.html">Servlet Context</a></li>
+                <li><a href="FCGI_Context.html">Fast CGI Context</a></li>
+                <li><a href="LSAPI_Context.html">LiteSpeed SAPI Context</a></li>
+                <li><a href="Proxy_Context.html">Proxy Context</a></li>
+                <li><a href="CGI_Context.html">CGI Context</a></li>
+                <li><a href="LB_Context.html">Load Balancer Context</a></li>
+                <li><a href="Redirect_Context.html">Redirect Context</a></li>
+                <li><a href="Rails_Context.html">Rack/Rails Context</a></li>
+                </ul>
 	<li><a href="VHAddOns_Help.html">Add-ons</a></li>
 	<li><a href="AdminGeneral_Help.html">Admin Server</a></li>
 	<li><a href="AdminListener_Help.html">Admin Listeners</a></li>
