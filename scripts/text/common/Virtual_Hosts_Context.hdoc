@@ -40,6 +40,7 @@ DESCR: The type of context created determines it's usage.:<br><br><b>Static</b> 
 <b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine.<br>
 <b>Servlet</b> context is used to import a specific servlet under a web application.<br>
 <b>Fast CGI</b> context is a mount point of Fast CGI application.<br>
+<b>LiteSpeed SAPI</b> context can be used to associate a URI with an LSAPI application.<br>
 <b>Proxy</b> context enables this virtual host to serve as a transparant reverse proxy server to an external web server or application server.<br>
 <b>CGI</b> context can be used to specify a directory only contains CGI scripts.<br>
 <b>Load Balancer</b> context can set up an internal or external redirect URI.<br>
@@ -57,6 +58,9 @@ EDITTIP: <b>Servlet</b> context is used to import a specific servlet under a web
 END_EDITTIP
 
 EDITTIP: <b>Fast CGI</b> context is a mount point of Fast CGI application.
+END_EDITTIP
+
+EDITTIP: <b>LiteSpeed SAPI</b> context can be used to associate a URI with an LSAPI application.
 END_EDITTIP
 
 EDITTIP: <b>Proxy</b> context enables this virtual host to serve as a transparant reverse proxy server to an external web server or application server.
@@ -91,6 +95,7 @@ DESCR: The type of context created determines it's usage.<br><br><b>Static</b> c
 <b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine.<br>
 <b>Servlet</b> context is used to import a specific servlet under a web application.<br>
 <b>Fast CGI</b> context is a mount point of Fast CGI application.<br>
+<b>LiteSpeed SAPI</b> context can be used to associate a URI with an LSAPI application.<br>
 <b>Proxy</b> context enables this virtual host to serve as a transparant reverse proxy server to an external web server or application server.<br>
 <b>CGI</b> context can be used to specify a directory only contains CGI scripts.<br>
 <b>Load Balancer</b> context can set up an internal or external redirect URI.<br>
@@ -109,6 +114,9 @@ EDITTIP: <b>Servlet</b> context is used to import a specific servlet under a web
 END_EDITTIP
 
 EDITTIP: <b>Fast CGI</b> context is a mount point of Fast CGI application.
+END_EDITTIP
+
+EDITTIP: <b>LiteSpeed SAPI</b> context can be used to associate a URI with an LSAPI application.
 END_EDITTIP
 
 EDITTIP: <b>Proxy</b> context enables this virtual host to serve as a transparant reverse proxy server to an external web server or application server.
