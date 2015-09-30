@@ -358,15 +358,16 @@ END_TIPS
 [TBL]
 ID: vhTop
 NAME: Virtual Host
-NS: EO
+NS: L
 
 DESCR: 
 END_DESCR
 
-CONT: vhName vhRoot configFile allowSymbolLink enableScript
-restrained vhMaxKeepAliveReq vhSmartKeepAlive setUidMode
-chrootMode chrootPath staticReqPerSec dynReqPerSec
-outBandwidth inBandwidth 
+EDITTIP: Set up the default cluster here, all traffic will be served by this cluster unless contexts has been defined.
+END_EDITTIP
+
+CONT: vhName defaultCluster configFile 
+dynReqPerSec outBandwidth inBandwidth 
 END_CONT
 
 SEE_ALSO: 
@@ -377,13 +378,27 @@ SEE_ALSO:
 [TBL]
 ID: vhTop
 NAME: Virtual Host
-NS: L
+NS: EO
 
 DESCR: 
 END_DESCR
 
-CONT: vhName defaultCluster configFile 
-dynReqPerSec outBandwidth inBandwidth 
+EDITTIP: All directories must preexist. This web interface will not create directory for you. If you are creating a new virtual host, you 
+can create empty root directory you and set up from beginning; or you can copy the DEFAULT virtual root that shipped with the package to this virtual 
+host root and then modify it.
+END_EDITTIP
+
+EDITTIP: Virtual host root ($VH_ROOT) can be absolute path or relative to $SERVER_ROOT. Config File can be relative to $VH_ROOT.
+END_EDITTIP
+
+EDITTIP: Turn on Restrained in shared hosting enviroment.
+END_EDITTIP
+
+
+CONT: vhName vhRoot configFile allowSymbolLink enableScript
+restrained vhMaxKeepAliveReq vhSmartKeepAlive setUidMode
+chrootMode chrootPath staticReqPerSec dynReqPerSec
+outBandwidth inBandwidth 
 END_CONT
 
 SEE_ALSO: 

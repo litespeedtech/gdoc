@@ -133,9 +133,44 @@ SEE_ALSO:
 [TBL]
 ID: vhAcLog
 NAME: Access Log
+NS: L
 
 DESCR: 
 END_DESCR
+
+EDITTIP: When required, you can disable access logging for this virtual host save disk i/o.
+END_EDITTIP
+
+EDITTIP: A new log file will be created if current log file exceeds the rolling size. File size is in bytes and you use multiple formats: 10240, 10K or 1M.
+ENS_EDITTIP
+
+CONT: aclogUseServer accessLog_fileName accessLog_pipedLogger 
+accessLog_logFormat accessLog_logHeader 
+log_rollingSize accessLog_keepDays 
+accessLog_bytesLog accessLog_compressArchive
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: vhAcLog
+NAME: Access Log
+NS: EO
+
+DESCR: 
+END_DESCR
+
+EDITTIP: When required, you can disable access logging for this virtual host save disk i/o.
+END_EDITTIP
+
+EDITTIP: Log file path can be either an absolute path or a relative path to $SERVER_ROOT, $VH_ROOT.
+END_EDITTIP
+
+EDITTIP: A new log file will be created if current log file exceeds the rolling size. File size is in bytes and you use multiple formats: 10240, 10K or 1M.
+ENS_EDITTIP
 
 CONT: aclogUseServer accessLog_fileName accessLog_pipedLogger 
 accessLog_logFormat accessLog_logHeader 

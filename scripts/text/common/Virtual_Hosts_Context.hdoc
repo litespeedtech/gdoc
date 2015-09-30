@@ -1505,8 +1505,12 @@ The destination URI can be either on the same web site (internal
 redirect) or an absolute URI pointing to another web site (external redirect).
 END_DESCR
 
-CONT: expuri externalredirect statuscode destinationuri   
- accessAllowed accessDenied 
+EDITTIP: Set up redirect URI here. If it is an external redirect, you can specify the status code. Internal 
+redirect has to start with "/", external redirect can either start with "/" or with "http(s)://".
+END_EDITTIP
+
+CONT: expuri externalredirect statuscode destinationuri realm authName 
+required accessAllowed accessDenied 
 END_CONT
 
 SEE_ALSO: 
@@ -1523,6 +1527,10 @@ DESCR: A Redirect Context can be used to forward one URI or a group of URIs to a
 The destination URI can be either on the same web site (an internal
 redirect) or an absolute URI pointing to another web site (an external redirect).
 END_DESCR
+
+EDITTIP: Set up redirect URI here. If it is an external redirect, you can specify the status code. Internal 
+redirect has to start with "/", external redirect can either start with "/" or with "http(s)://".
+END_EDITTIP
 
 CONT: expuri externalredirect statuscode destinationuri allowOverride realm 
 authName required accessAllowed accessDenied extAuthorizer
@@ -1542,6 +1550,10 @@ DESCR: A Redirect Context can be used to forward one URI or a group of URIs to a
 The destination URI can be either on the same web site (an internal
 redirect) or an absolute URI pointing to another web site (an external redirect).
 END_DESCR
+
+EDITTIP: Set up redirect URI here. If it is an external redirect, you can specify the status 
+code. Internal redirect has to start with "/", external redirect can either start with "/" or with "http(s)://".
+END_EDITTIP
 
 CONT: expuri externalredirect statuscode destinationuri realm 
 authName required accessAllowed accessDenied extAuthorizer
