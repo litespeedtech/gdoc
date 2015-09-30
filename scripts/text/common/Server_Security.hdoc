@@ -912,6 +912,15 @@ If both {ITEM=followSymbolLink} and {ITEM=checkSymbolLink} are enabled, symbolic
 links will be checked against the denied directories.
 END_DESCR
 
+EDITTIP: Enter a full path if you want to deny access for specific directory; entering a path followed by * will disable all the sub directories.
+END_EDITTIP
+
+EDITTIP: Path can be either absolute or relative to $SERVER_ROOT, use comma to separate.
+END_EDITTIP
+
+EDITTIP: If both Follow Symbolic Link and Check Symbolic Link are enabled, symbolic links will be checked against the denied directories.
+END_EDITTIP
+
 SYNTAX: Comma-delimited list of directories
 END_SYNTAX
 
@@ -1004,6 +1013,13 @@ NAME: File Access
 DESCR: 
 END_DESCR
 
+EDITTIP: If Follow-Symbolic-Link is enabled, you can still disable it at virtual host level.
+END_EDITTIP
+
+EDITTIP: Check-Symbolic-Link control will take effect only if Follow-Symbolic-Link is turned on. 
+This controls whether symbolic links are checked against Access Denied Directories.
+END_EDITTIP
+
 CONT: followSymbolLink checkSymbolLink forceStrictOwnership requiredPermissionMask
 restrictedPermissionMask restrictedScriptPermissionMask
 restrictedDirPermissionMask 
@@ -1082,6 +1098,21 @@ NS: EO
 DESCR: The following settings control CGI processes. Memory and process limits also serve as the default for 
 other external applications if limits have not been set explicitly for those applications. 
 END_DESCR
+
+EDITTIP: Limits resources that CGI program can use. This helps against DoS attack.
+END_EDITTIP
+
+EDITTIP: Max CGI Instances controls how many CGI processes the web server can launch.
+END_EDITTIP
+
+EDITTIP: Process soft/hard limit controls how many processes are allowed for one user. This includes all the processes spawned by CGI application. This is OS level limit.
+END_EDITTIP
+
+EDITTIP: Set to 0 or empty will use operation system default value for all soft/hard limits.
+END_EDITTIP
+
+EDITTIP: The soft limit is the value that the kernel enforces for the corresponding resource. The hard limit acts as a ceiling for the soft limit
+END_EDITTIP 
 
 CONT: cgidSock maxCGIInstances minUID minGID forceGID umask CGIPriority CPUSoftLimit CPUHardLimit memSoftLimit memHardLimit procSoftLimit procHardLimit 
 END_CONT

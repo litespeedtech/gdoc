@@ -188,6 +188,9 @@ mod_rewrite document{ext-href-end-a}.
 
 END_DESCR
 
+EDITTIP: Enter URI for location. URI must start with "/".
+END_EDITTIP
+
 SYNTAX: string 
 END_SYNTAX
 
