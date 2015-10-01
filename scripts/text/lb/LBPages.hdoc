@@ -119,69 +119,6 @@ SEE_ALSO:
 
 
 [PAGE]
-ID: LB_ExtApp_Help 
-NAME: External Application
-
-DESCR: LiteSpeed load balancer supports 5 types of external
-applications: FastCGI, Web Server, Servlet Engine, LSAPI
-Application and Piped Logger. Unlike LiteSpeed web server, all the
-external applications cannot be started by the load balancer.<br>
-<ul>
-<li>FastCGI is a fast, open, and secure web server interface that solves the 
-  performance problems inherent from CGI without introducing the overhead and 
-  complexity of proprietary APIs (Application Programming
-  Interfaces).  For more information, please visit 
-  {ext-href}http://www.fastcgi.com{ext-href-end}http://www.fastcgi.com{ext-href-end-a}<br> 
-  In addition to generating dynamic
-  response (RESPONDER role), a FastCGI application can be used for
-  authentication (AUTHORIZER role) as well.
-<br><br></li>
-<li>Web Server is a server application that supports HTTP 1.0/1.1
-protocols. When communicating with backend web servers, LiteSpeed load
-balancer will always try to utilize "persistent connection" in order to achieve
-highest performance.
-<br><br>
-</li>
-<li>Servlet Engine is an application that implements Java Servlet and
-Java Server Pages like Apache Tomcat and Jetty. LiteSpeed load balancer can communicate
-with Servlet engine through AJPv1.3 (Apache JServ Protocol version 1.3).
-<br><br></li>
-<li>LSAPI (LiteSpeed Server API) Application is an application that communicates with
-LiteSpeed Web Server through LSAPI which is a fast, scalable server interface
-specfically designed for LiteSpeed Web Server to achieve maximum efficiency. <br>
-LSAPI is similar to FastCGI but LSAPI application can be up to 15%
-faster than a comparable FastCGI application.
-For most demanding web applicatin, LSAPI is highly 
-recommended over FastCGI.<br>
-Our tests shows that LSAPI PHP, PHP compiled with LiteSpeed SAPI, is 
-up to 30% faster than FastCGI PHP. 
-For more information about LSAPI and PHP please visit
-{ext-href}http://www.litespeedtech.com/lsapi/{ext-href-end}http://www.litespeedtech.com/lsapi/{ext-href-end-a}.
-<br><br></li>
-
-<li>Piped Logger is an application that can process access
-log in real-time, for examples, writing access log into database, performing
-real-time statistics calculation, etc.
-<br><br></li>
-
-</ul>
-External applications will be used as a handler of a specific context in LiteSpeed load balancer: 
-
-<br>
-External Applications can be configured at server or virtual host level. 
-When configured at server level, it can be used by all virtual hosts. When configured at 
-virtual host level, it can only be used within the virtual host.
-END_DESCR
-
-CONT: LB_extapp
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
-
-
-
-[PAGE]
 ID: VHGeneral_Help 
 NAME: Virtual Host General
 

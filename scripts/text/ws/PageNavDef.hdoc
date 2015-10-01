@@ -22,7 +22,7 @@ NAV_SEQ:
 index
 END_NAV_SEQ:
 
-CONT:  DOC_NAV LSWS_CONF_NAV LSWS_CONTROL_NAV CONTEXT_ITEMS_NAV
+CONT: DOC_NAV LSWS_CONF_NAV LSWS_CONTROL_NAV EXT_APPS_ITEMS_NAV CONTEXT_ITEMS_NAV
 END_CONT
 [END_PAGENAV]
 
@@ -69,6 +69,24 @@ VHWebSocket_Help
 VHAddOns_Help
 AdminGeneral_Help
 AdminListener_Help
+
+END_NAV_SEQ
+
+[END_PAGENAV]
+
+[PAGENAV]
+
+ID: EXT_APPS_ITEMS_NAV
+TOP_NAV: ExtApp_Help
+
+NAV_SEQ: 
+External_FCGI
+External_FCGI_Auth
+External_LSAPI
+External_Servlet
+External_WS
+External_PL
+External_LB
 
 END_NAV_SEQ
 
