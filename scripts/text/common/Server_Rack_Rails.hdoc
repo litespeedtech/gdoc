@@ -154,6 +154,9 @@ NS: EO
 DESCR: Default configurations for Ruby Rack/Rails applications.
 END_DESCR
 
+EDITTIP: Ruby Path is the path of ruby executable. For e.g., /usr/local/bin/ruby. It has to be an absolute path.
+END_EDITTIP
+
 CONT: rubyBin railsEnv maxConns env initTimeout 
 retryTimeout pcKeepAliveTimeout respBuffer 
 extMaxIdleTime backlog runOnStartUp extAppPriority 

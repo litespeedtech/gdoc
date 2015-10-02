@@ -68,6 +68,15 @@ NS: EO
 DESCR: 
 END_DESCR
 
+EDITTIP: Script handler can be a CGI, a FCGI app, a module handler, a Servlet engine, or a proxy to Web server.
+END_EDITTIP
+
+EDITTIP: Except CGI, other handlers need to be predefined in "External App" section.
+END_EDITTIP
+
+EDITTIP: If the web site supports php or jsp, please set up here.
+END_EDITTIP
+
 CONT: suffix shType shHandlerName 
 END_CONT
 
