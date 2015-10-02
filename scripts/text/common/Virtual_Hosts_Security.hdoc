@@ -674,4 +674,46 @@ SEE_ALSO:
 [END_TBL]
 
 
+
+[TBL]
+ID: UsrDBEntry
+NAME: User DB Entries
+
+DESCR:
+END_DESCR
+
+EDITTIP: If you enter group information here, the group DB will not be checked.
+END_EDITTIP
+
+EDITTIP: You can enter multiple groups, use comma to separate. Space will be treated as part of a group name.
+END_EDITTIP
+
+CONT:
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: GroupDBEntry
+NAME: Group DB Entries
+
+DESCR:
+END_DESCR
+
+EDITTIP: Group DB will be checked only if the user in the user DB does not contain group information..
+END_EDITTIP
+
+EDITTIP: Use comma to separate multiple users.
+END_EDITTIP
+
+CONT:
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
 [END_HELPDOC]
