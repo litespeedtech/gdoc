@@ -658,6 +658,12 @@ defined separately from the contexts that use them.
 You can refer to a realm by these names in context configuration. 
 END_DESCR
 
+EDITTIP: Define your HT Access realm here, this can be used for contexts.
+END_EDITTIP
+
+EDITTIP: Currently password file and LDAP are supported for user DB and group DB.
+END_EDITTIP
+
 CONT: realmName realmType userDBLocation userDB_attrPasswd
 userDB_attrMemberOf userDBMaxCacheSize userDBCacheTimeout 
 GroupDBLocation groupDB_attrGroupMember groupDBMaxCacheSize 

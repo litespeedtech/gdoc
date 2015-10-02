@@ -1035,6 +1035,27 @@ to protect a particular directory using authorization realms, or to
 block or restrict access to a particular directory within the document root.
 END_DESCR
 
+EDITTIP: Static context can be used to map a URI to a directory either outside document root or within it. The directory can be absolute path or relative to document 
+root(default), $VH_ROOT or $SERVER_ROOT.
+END_EDITTIP
+
+EDITTIP: Check "Accessible" will allow browsing static files in this context. You may want to disable it to prevent viewing static files, for e.g. when you update the content.
+END_EDITTIP
+
+EDITTIP: Expires settings will override virtual host and server level settings. Expires Default syntax is A|Mseconds, means after base 
+time (A or M) plus the specified time in seconds, the file will expire. "A" means client access time, "M" means file modified time.
+END_EDITTIP
+
+EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
+default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
+directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
+"Require" are allowed.
+END_EDITTIP
+
+EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
+additional requirements can be specified.
+END_EDITTIP
+
 CONT: expuri location allowBrowse enableExpires expiresDefault expiresByType
 extraHeaders addMIMEType forceType defaultType autoIndex indexFiles allowOverride 
 realm authName required accessAllowed accessDenied extAuthorizer
@@ -1062,6 +1083,28 @@ the document root (like Apache's Alias or AliasMatch directives),
 to protect a particular directory using authorization realms, or to 
 block or restrict access to a particular directory within the document root.
 END_DESCR
+
+EDITTIP: Static context can be used to map a URI to a directory either outside document root or within it. The directory 
+can be absolute path or relative to document root(default), $VH_ROOT or $SERVER_ROOT.
+END_EDITTIP
+
+EDITTIP: Check "Accessible" will allow browsing static files in this context. You may want to disable it to prevent viewing static 
+files, for e.g. when you update the content.
+END_EDITTIP
+
+EDITTIP: Expires settings will override virtual host and server level settings. Expires Default syntax is A|Mseconds, means after base 
+time (A or M) plus the specified time in seconds, the file will expire. "A" means client access time, "M" means file modified time.
+END_EDITTIP
+
+EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
+default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
+directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
+"Require" are allowed.
+END_EDITTIP
+
+EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
+additional requirements can be specified.
+END_EDITTIP
 
 CONT: expuri location allowBrowse enableExpires expiresDefault expiresByType
 extraHeaders addMIMEType forceType defaultType autoIndex indexFiles  
@@ -1113,6 +1156,33 @@ For example,
   </ul>
 END_DESCR
 
+EDITTIP: Java web app context is used to automatically import a predefined Java Application in an 
+AJPv13 compilant Java servlet engine, the servlet engine should be set up in external app section (either server or virtual host level).
+END_EDITTIP
+
+EDITTIP: Location is the directory that contains web application files, which includes WEB-INF/ sub directory.
+END_EDITTIP
+
+EDITTIP: The web server will automatically import configuration file of web application, which usually is WEB-INF/web.xml under the driectory specified by "location".
+END_EDITTIP
+
+EDITTIP: If the servlet engine runs on a different machine, it is recommended to make a copy of webapps directory locally. Otherwise you must put the 
+files in a common accessible network drive, which may affect performance.
+END_EDITTIP
+
+EDITTIP: Expires settings will override virtual host and server level settings. Expires Default syntax is A|Mseconds, means after base 
+time (A or M) plus the specified time in seconds, the file will expire. "A" means client access time, "M" means file modified time.
+END_EDITTIP
+
+EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
+default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
+directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
+"Require" are allowed.
+END_EDITTIP
+
+EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
+additional requirements can be specified.
+END_EDITTIP
 
 CONT: uri javaWebApp_location servletEngine enableExpires
 expiresDefault expiresByType extraHeaders autoIndex indexFiles 
@@ -1167,6 +1237,33 @@ For example,
   </ul>
 END_DESCR
 
+EDITTIP: Java web app context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine, the 
+servlet engine should be set up in external app section (either server or virtual host level). 
+END_EDITTIP
+
+EDITTIP: Location is the directory that contains web application files, which includes WEB-INF/ sub directory.
+END_EDITTIP
+
+EDITTIP: The web server will automatically import configuration file of web application, which usually is WEB-INF/web.xml under the driectory specified by "location".
+END_EDITTIP
+
+EDITTIP: If the servlet engine runs on a different machine, it is recommended to make a copy of webapps directory locally. Otherwise you must put the files in a 
+common accessible network drive, which may affect performance.
+END_EDITTIP
+
+EDITTIP: Expires settings will override virtual host and server level settings. Expires Default syntax is A|Mseconds, means after base 
+time (A or M) plus the specified time in seconds, the file will expire. "A" means client access time, "M" means file modified time.
+END_EDITTIP
+
+EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
+default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
+directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
+"Require" are allowed.
+END_EDITTIP
+
+EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
+additional requirements can be specified.
+END_EDITTIP
 
 CONT: uri javaWebApp_location servletEngine enableExpires
 expiresDefault expiresByType extraHeaders autoIndex indexFiles 
@@ -1192,6 +1289,19 @@ or you want to protect different servlets with different authorization realms.
 This URI has the same requirements as for a {TBL=javaWebAppContext}. 
 END_DESCR
 
+EDITTIP: Servlet context is used to import a specific servlet under a web application, whereas a "Java Web App" 
+context will import every thing automatically. You do not need to set up individual Servlet Context for each servlet defined in a web application.
+END_EDITTIP
+
+EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
+default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
+directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
+"Require" are allowed.
+END_EDITTIP
+
+EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
+additional requirements can be specified.
+END_EDITTIP
 
 CONT: expuri servletEngine extraHeaders allowOverride realm authName required
 accessAllowed accessDenied extAuthorizer 
@@ -1219,6 +1329,19 @@ or you want to protect different servlets with different authorization realms.
 This URI has the same requirements as for a {TBL=javaWebAppContext}. 
 END_DESCR
 
+EDITTIP: Servlet context is used to import a specific servlet under a web application, whereas a "Java Web App" context will import every thing automatically. You do 
+not need to set up individual Servlet Context for each servlet defined in a web application.
+END_EDITTIP
+
+EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
+default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
+directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
+"Require" are allowed.
+END_EDITTIP
+
+EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
+additional requirements can be specified.
+END_EDITTIP
 
 CONT: expuri servletEngine extraHeaders realm authName required
 accessAllowed accessDenied extAuthorizer 

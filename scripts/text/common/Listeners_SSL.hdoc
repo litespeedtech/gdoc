@@ -577,6 +577,23 @@ SEE_ALSO:
 [TBL]
 ID: sslProtocolSetting
 NAME: SSL Protocol
+NS: L
+
+EDITTIP: "secure" checkbox on Listener General - Address Settings needs to be enabled.
+END_EDITTIP
+
+CONT: sslProtocol ciphers enableECDHE enableDHE DHParam
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: sslProtocolSetting
+NAME: SSL Protocol
+NS: EO
 
 DESCR: Customizes SSL protocols accepted by the listener.
 END_DESCR
