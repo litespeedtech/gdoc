@@ -123,6 +123,19 @@ NAME: Virtual Host Log
 DESCR: 
 END_DESCR
 
+EDITTIP: If you use server setting, the log will write to the server file which is set up at server level.
+END_EDITTIP
+
+EDITTIP: Log file path can be either absolute path or relative to $SERVER_ROOT, $VH_ROOT.
+END_EDITTIP
+
+EDITTIP: If you want to set Log Level to DEBUG, you must set server log level to DEBUG as well. The level of 
+debugging is solely controlled by Server DEBUG Level. Use DEBUG only if you have to since it has great impact on server performance and may fill up disk space quickly.
+END_EDITTIP
+
+EDITTIP: A new file will be created if current log file exceeds the rolling size. The size is in bytes, you can put 10240, 10K or 1M.
+END_EDITTIP
+
 CONT: logUseServer log_fileName vhlog_logLevel log_rollingSize 
 END_CONT
 

@@ -275,6 +275,15 @@ NS: EO
 DESCR: 
 END_DESCR
 
+EDITTIP: Set up your document root here, which can be absolute path or relative to $SERV_ROOT or $VH_ROOT
+END_EDITTIP
+
+EDITTIP: Document root is referred as $DOC_ROOT in this virtual host, which can be used in other path configuration.
+END_EDITTIP
+
+EDITTIP: You can enter multiple admin emails, separated by comma.
+END_EDITTIP
+
 CONT: docRoot vhadminEmails enableGzip enableIpGeo spdyAdHeader 
 END_CONT
 
@@ -289,6 +298,18 @@ NAME: Index Files
 
 DESCR: 
 END_DESCR
+
+EDITTIP: You can use default server level settings for index files or use your own ones.
+END_EDITTIP
+
+EDITTIP: You can use your settings in addition to the server settings.
+END_EDITTIP
+
+EDITTIP: You can disable index file by not using server settings and blanking vhost settings.
+END_EDITTIP
+
+EDITTI: You can enable/disable "auto index" at context level.
+END_EDITTIP
 
 CONT: indexUseServer indexFiles autoIndex autoIndexURI
 END_CONT
@@ -326,6 +347,9 @@ LiteSpeed web server has a built-in default error page for each error code, but
 a customized page can be configured for each error code.  
 error pages can also be further customized to be unique for each virtual host. 
 END_DESCR
+
+EDITTIP: You can set up your customized error pages for different error codes.
+END_EDITTIP
 
 CONT: errCode errURL
 END_CONT
