@@ -1364,6 +1364,19 @@ a script handler or mapped to a URL through FastCGI context. A FastCGI context w
 associate a URI with a FastCGI application. 
 END_DESCR
 
+EDITTIP: Fast CGI context is a mount point of Fast CGI application. The Fast CGI Application must be pre-defined at server level or virtual host level.
+END_EDITTIP
+
+EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
+default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
+directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
+"Require" are allowed.
+END_EDITTIP
+
+EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
+additional requirements can be specified.
+END_EDITTIP
+
 CONT: expuri fcgiapp extraHeaders allowOverride 
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
@@ -1387,6 +1400,19 @@ DESCR: FastCGI applications cannot be used directly. A FastCGI application must 
 a script handler or mapped to a URL through FastCGI context. A FastCGI context will 
 associate a URI with a FastCGI application. 
 END_DESCR
+
+EDITTIP: Fast CGI context is a mount point of Fast CGI application. The Fast CGI Application must be pre-defined at server level or virtual host level.
+END_EDITTIP
+
+EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
+default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
+directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
+"Require" are allowed.
+END_EDITTIP
+
+EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
+additional requirements can be specified.
+END_EDITTIP
 
 CONT: expuri fcgiapp extraHeaders  
 realm authName required accessAllowed accessDenied extAuthorizer 
@@ -1460,6 +1486,12 @@ web server that this virtual host proxies for  has to be defined in {PAGE=ExtApp
 before you can set up a Proxy Context.
 END_DESCR
 
+EDITTIP: Proxy context enables this virtual host serving as a transparant reverse proxy server to an external web server or application server.
+END_EDITTIP
+
+EDITTIP: External web server must be pre-defined under External App at server or virtual host level.
+END_EDITTIP
+
 CONT: expuri proxyWebServer extraHeaders 
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
@@ -1486,6 +1518,12 @@ web server that this virtual host proxies for  has to be defined in {PAGE=ExtApp
 before you can set up a Proxy Context.
 END_DESCR
 
+EDITTIP: Proxy context enables this virtual host serving as a transparant reverse proxy server to an external web server or application server.
+END_EDITTIP
+
+EDITTIP: External web server must be pre-defined under External App at server or virtual host level.
+END_EDITTIP
+
 CONT: expuri proxyWebServer extraHeaders 
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
@@ -1510,6 +1548,24 @@ In this way, file content under a CGI Context is always protected and cannot
 be read as static content. It is recommended that you put all your CGI 
 scripts in a directory and set up a CGI Context to access them. 
 END_DESCR
+
+EDITTIP: A CGI context can be used to specify a directory only contains CGI scripts. Path can be absolute path or relative to $SERVER_ROOT, $VH_ROOT 
+or $DOC_ROOT(default). Path and URI must be ended with "/" for a cgi-bin directory.
+END_EDITTIP
+
+EDITTIP: If only a specific script is needed in that directory, it is recommended to create a CGI context for that script only. In this case, path and 
+URI need not be a directory. For e.g., path can be ~/myapp/myscript.pl, URI can be /myapp/myscript.pl. All other files will not be served as CGI.
+END_EDITTIP
+
+EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
+default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
+directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
+"Require" are allowed.
+END_EDITTIP
+
+EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
+additional requirements can be specified.
+END_EDITTIP
 
 CONT: expuri cgi_path extraHeaders allowSetUID allowOverride 
 realm authName required accessAllowed accessDenied extAuthorizer 
@@ -1539,6 +1595,24 @@ In this way, file content under a CGI Context is always protected and cannot
 be read as static content. It is recommended that you put all your CGI 
 scripts in a directory and set up a CGI Context to access them. 
 END_DESCR
+
+EDITTIP: A CGI context can be used to specify a directory only contains CGI scripts. Path can be absolute path or relative to 
+$SERVER_ROOT, $VH_ROOT or $DOC_ROOT(default). Path and URI must be ended with "/" for a cgi-bin directory.
+END_EDITTIP
+
+EDITTIP: If only a specific script is needed in that directory, it is recommended to create a CGI context for that script only. In 
+this case, path and URI need not be a directory. For e.g., path can be ~/myapp/myscript.pl, URI can be /myapp/myscript.pl. All other files will not be served as CGI.
+END_EDITTIP
+
+EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
+default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
+directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
+"Require" are allowed.
+END_EDITTIP
+
+EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
+additional requirements can be specified.
+END_EDITTIP
 
 CONT: expuri cgi_path extraHeaders allowSetUID  
 realm authName required accessAllowed accessDenied extAuthorizer 
@@ -1655,6 +1729,16 @@ EDITTIP: Set up redirect URI here. If it is an external redirect, you can specif
 redirect has to start with "/", external redirect can either start with "/" or with "http(s)://".
 END_EDITTIP
 
+EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
+default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
+directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
+"Require" are allowed.
+END_EDITTIP
+
+EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
+additional requirements can be specified.
+END_EDITTIP
+
 CONT: expuri externalredirect statuscode destinationuri allowOverride realm 
 authName required accessAllowed accessDenied extAuthorizer
 END_CONT
@@ -1678,6 +1762,16 @@ EDITTIP: Set up redirect URI here. If it is an external redirect, you can specif
 code. Internal redirect has to start with "/", external redirect can either start with "/" or with "http(s)://".
 END_EDITTIP
 
+EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
+default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
+directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
+"Require" are allowed.
+END_EDITTIP
+
+EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
+additional requirements can be specified.
+END_EDITTIP
+
 CONT: expuri externalredirect statuscode destinationuri realm 
 authName required accessAllowed accessDenied extAuthorizer
 END_CONT
@@ -1698,6 +1792,20 @@ only mounting the URL and the application's root directory is required. There is
 no need to go through all the troubles to define an external application, add a 404 handler, 
 and rewrite rules, etc.
 END_DESCR
+
+EDITTIP: Rack/Rails context is for easy configuration of running Rack/Rails application. You 
+only need to specify the root location of your rack/rails application in the "Location" field.
+END_EDITTIP
+
+EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
+default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
+directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
+"Require" are allowed.
+END_EDITTIP
+
+EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
+additional requirements can be specified.
+END_EDITTIP
 
 CONT: expuri location railsEnv maxConns env enableExpires 
 expiresDefault expiresByType extraHeaders
@@ -1727,6 +1835,20 @@ only mounting the URL and the application's root directory is required. There is
 no need to go through all the troubles to define an external application, add a 404 handler, 
 and rewrite rules, etc.
 END_DESCR
+
+EDITTIP: Rack/Rails context is for easy configuration of running Rack/Rails application. You only 
+need to specify the root location of your rack/rails application in the "Location" field.
+END_EDITTIP
+
+EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
+default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
+directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
+"Require" are allowed.
+END_EDITTIP
+
+EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
+additional requirements can be specified.
+END_EDITTIP
 
 CONT: expuri location railsEnv maxConns env enableExpires 
 expiresDefault expiresByType extraHeaders
