@@ -99,7 +99,7 @@ class DocPage extends Item
 			{
 				foreach ( $this->_items as $item )
 				{
-					if ( $item != NULL )
+					if ( $item != NULL && $item->hasValue('DESCR') )
 					{
 						$itembuf = $item->toDoc();
 						$itembuf = GenTool::translateTag($itembuf, $db);

@@ -107,9 +107,10 @@ class DocItem extends Item
             $buf = "\$_tipsdb['$id'] = new DAttrHelp('$name', '$desc', '$tip', '$syntax', '$example');\n\n";
         }
         else {
-            $buf = "\t\t\$this->db['$id'] = new DATTR_HELP_ITEM(\"$name\", '$desc', '$tip', '$syntax', '$example');\n";
+            $buf = "\$this->db['$id'] = new DATTR_HELP_ITEM(\"$name\", '$desc', '$tip', '$syntax', '$example');\n";
         }
 
+        global $config;
         if (DEBUG && in_array($id, $config['DEBUG_TAG'])) {
             $this->showErr('In toToolTip ' . $buf, 'DEBUG');
 
@@ -117,4 +118,22 @@ class DocItem extends Item
         return $buf;
     }
 
+    public function toEditTip()
+    {
+		$search = array("\n", '"', "'", '{ext-href}', '{ext-href-end}', '{ext-href-end-a}');
+		$replace = array(' ', '&quot;', '&#039;', '<a href="', '" target="_blank">', '</a>');
+
+        $buf = '';
+        if ($this->hasValue('EDITTIP')) {
+            $id = $this->getDefaultValue('ID');
+            $tips = $this->getValueInLang('EDITTIP');
+            $buf .= '$this->edb[\'' . $id . '\'] = array(';
+            foreach ($tips as $tip) {
+                $buf .= "'" . str_replace($search, $replace, $tip) . "',";
+            }
+            $buf = rtrim($buf, ',');
+            $buf .= "); \n";
+        }
+        return $buf;
+    }
 }

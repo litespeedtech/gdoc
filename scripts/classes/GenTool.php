@@ -198,8 +198,18 @@ EOD;
 
         foreach( $db->_tips as $item )
 		{
-			$buf = $item->toToolTip();
-			fwrite($fd, $buf);
+            if ( $item->hasValue('DESCR') ) {
+                $buf = $item->toToolTip();
+                fwrite($fd, $buf);
+            }
+		}
+
+        foreach( $db->_tips as $item )
+		{
+            if ( $item->hasValue('EDITTIP') ) {
+    			if ( $buf = $item->toEditTip() )
+                    fwrite($fd, $buf);
+            }
 		}
 
 		fclose($fd);

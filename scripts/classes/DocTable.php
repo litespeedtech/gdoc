@@ -12,7 +12,7 @@ class DocTable extends Item
 
         if ( $buf != '' ) {
 			$this->parseDoc($buf);
-            if ($this->hasValue('DESCR')) {
+            if ($this->hasValue('DESCR') || $this->hasValue('EDITTIP')) {
                 $selfItem = new DocItem();
                 $selfItem->initFromTbl($this);
             	$this->_items[$this->getId()] = $selfItem;
