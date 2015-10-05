@@ -114,9 +114,17 @@ SEE_ALSO:
 [TBL]
 ID: adminUsers
 NAME: Web Admin Users
+NS: EO
 
 DESCR: 
 END_DESCR
+
+EDITTIP: You need to know the old password in order to change it.
+END_EDITTIP
+
+EDITTIP: If you forget the admin password, you cannot change it from here for security reason. Please use the following command from shell: <br><br>
+[your install dir]/admin/misc/admpass.sh. This script will override all the user ids and reset to one admin user.
+END_EDITTIP
 
 CONT: adminUser
 END_CONT

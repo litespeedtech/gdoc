@@ -872,6 +872,25 @@ access control file (.htaccess file).
 
 END_DESCR
 
+EDITTIP: Allow Override configuration is available in three levels: server level, virtual host level and context level. Server level is 
+the overall control, i.e. lower level can disable a setting which is enabled by upper level, but cannot enable a setting which is disabled by upper level.
+END_EDITTIP
+
+EDITTIP: When all checkboxes are unchecked, default setting will be used.
+END_EDITTIP
+
+EDITTIP: When nothing but "None" is checked, access control file will be ignored.
+END_EDITTIP
+
+EDITTIP: When "Access Control" is checked, directives "Order", "Allow" and "Deny" are allowed.
+END_EDITTIP
+
+EDITTIP: When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", "Require" are allowed. 
+END_EDITTIP
+
+EDITTIP: It is recommended to use a hidden access file, simply put file name starting with ".", like ".htaccess". LiteSpeed web server does not serve hidden files.
+END_EDITTIP
+
 CONT: allowOverride accessFileName 
 END_CONT
 

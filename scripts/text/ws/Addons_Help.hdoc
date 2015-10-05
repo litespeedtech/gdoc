@@ -111,6 +111,9 @@ NAME: Front Page Server Extension
 DESCR: 
 END_DESCR
 
+EDITTIP: Domain names are comma-dilimited list of domain:port. For e.g. www.domain1.com:80, www.domain2.com:443
+END_EDITTIP
+
 CONT: enableFrontPage disableAdmin domainNames 
 END_CONT
 
