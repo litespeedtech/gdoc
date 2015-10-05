@@ -7,6 +7,42 @@
 [ITEM]
 ID: extAppType
 NAME: Type
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the type of external application. Choose from
+<ul>
+<li>{val}FastCGI{/}: a FastCGI application with {val}Responder{/}
+role.</li>
+<li>{val}Servlet Engine{/}: a Servlet engine with AJPv13 connector,
+such as tomcat.</li>
+<li>{val}Web Server{/}: a web server or application server that
+support HTTP protocol.</li>
+<li>{val}LSAPI App{/}: an application that communicate with web server
+in LSAPI protocol.</li>
+</ul>
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: extAppType
+NAME: Type
+NS: EO
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -81,6 +117,79 @@ END_TIPS
 
 
 [ITEM]
+ID: workerName
+NAME: Name
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: A unique name for a group of worker.
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: workerGroupEnabled
+NAME: Enabled
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to enable this worker group.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sourceIP
+NAME: Source IP
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies a Source IP for connecting to the backend
+worker. It can be overriden in worker configuration.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: extAppAddress
 NAME: Address
 REQUIRED: 
@@ -141,6 +250,30 @@ TIPS: [Security] If you proxy to another web server running on the same machine,
 set the IP address to {val}localhost{/} or {val}127.0.0.1{/}, 
 so the external application is inaccessible from other machines. 
 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: extSrcIP
+NAME: Type
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Select from available IPs.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
 END_TIPS
 
 [END_ITEM]
@@ -743,6 +876,38 @@ END_TIPS
 
 
 [TBL]
+ID: ClusterWorkerGroup
+NAME: Layer 7 Worker Group
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: workerName extAppType workerGroupEnabled sourceIP defaultTargetPort maxConns env initTimeout retryTimeout 
+persistConn pcKeepAliveTimeout respBuffer pingUrl pingInterval nodeAddresses
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[TBL]
+ID: ClusterWorkerGroupL4
+NAME: Layer 4 Worker Group
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: workerName workerGroupEnabled sourceIP defaultTargetPort maxConns initTimeout retryTimeout pingInterval nodeAddresses
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
 ID: extapp
 NAME: External Application Settings
 NS: EO
@@ -761,6 +926,7 @@ SEE_ALSO:
 [TBL]
 ID: extFCGI
 NAME: Fast CGI
+NS: EO
 
 DESCR: 
 END_DESCR
@@ -832,6 +998,7 @@ SEE_ALSO:
 [TBL]
 ID: extLSAPI
 NAME: LiteSpeed SAPI
+NS: EO
 
 DESCR: 
 END_DESCR
@@ -851,6 +1018,7 @@ SEE_ALSO:
 [TBL]
 ID: extServlet
 NAME: Servlet Engine
+NS: EO
 
 DESCR: 
 END_DESCR
@@ -867,6 +1035,7 @@ SEE_ALSO:
 [TBL]
 ID: extWS
 NAME: Web Server
+NS: EO
 
 DESCR: 
 END_DESCR
@@ -932,171 +1101,11 @@ SEE_ALSO:
 ################ Pages ################
 
 
-[PAGE]
-ID: LB_ExtApp_Help 
-NAME: External Application
-NS: L
-
-DESCR: LiteSpeed load balancer supports 5 types of external
-applications: FastCGI, Web Server, Servlet Engine, LSAPI
-Application and Piped Logger. Unlike LiteSpeed web server, all the
-external applications cannot be started by the load balancer.<br>
-<ul>
-<li>FastCGI is a fast, open, and secure web server interface that solves the 
-  performance problems inherent from CGI without introducing the overhead and 
-  complexity of proprietary APIs (Application Programming
-  Interfaces).  For more information, please visit 
-  {ext-href}http://www.fastcgi.com{ext-href-end}http://www.fastcgi.com{ext-href-end-a}<br> 
-  In addition to generating dynamic
-  response (RESPONDER role), a FastCGI application can be used for
-  authentication (AUTHORIZER role) as well.
-<br><br></li>
-<li>Web Server is a server application that supports HTTP 1.0/1.1
-protocols. When communicating with backend web servers, LiteSpeed load
-balancer will always try to utilize "persistent connection" in order to achieve
-highest performance.
-<br><br>
-</li>
-<li>Servlet Engine is an application that implements Java Servlet and
-Java Server Pages like Apache Tomcat and Jetty. LiteSpeed load balancer can communicate
-with Servlet engine through AJPv1.3 (Apache JServ Protocol version 1.3).
-<br><br></li>
-<li>LSAPI (LiteSpeed Server API) Application is an application that communicates with
-LiteSpeed Web Server through LSAPI which is a fast, scalable server interface
-specfically designed for LiteSpeed Web Server to achieve maximum efficiency. <br>
-LSAPI is similar to FastCGI but LSAPI application can be up to 15%
-faster than a comparable FastCGI application.
-For most demanding web applicatin, LSAPI is highly 
-recommended over FastCGI.<br>
-Our tests shows that LSAPI PHP, PHP compiled with LiteSpeed SAPI, is 
-up to 30% faster than FastCGI PHP. 
-For more information about LSAPI and PHP please visit
-{ext-href}http://www.litespeedtech.com/lsapi/{ext-href-end}http://www.litespeedtech.com/lsapi/{ext-href-end-a}.
-<br><br></li>
-
-<li>Piped Logger is an application that can process access
-log in real-time, for examples, writing access log into database, performing
-real-time statistics calculation, etc.
-<br><br></li>
-
-</ul>
-External applications will be used as a handler of a specific context in LiteSpeed load balancer: 
-
-<br>
-External Applications can be configured at server or virtual host level. 
-When configured at server level, it can be used by all virtual hosts. When configured at 
-virtual host level, it can only be used within the virtual host.
-END_DESCR
-
-CONT: LB_extapp
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
-
-
-
-[PAGE]
-ID: ExtApp_Help 
-NAME: External Application
-NS: EO
-
-DESCR: LiteSpeed web server can forward requests to external applications to 
-process and generate dynamic content. 
- 
-Since 2.0, LiteSpeed Web Server has supported seven types of external
-applications: CGI, FastCGI, web server, servlet engine, LiteSpeed SAPI
-application, load balancer, and piped logger.
-
-<ul>
-<li>CGI stands for Common Gateway Interface. The current standard is CGI/1.1. 
-   CGI applications run in standalone processes. A CGI process is started 
-   for each request and will exit after finishing the request. 
-</li>
-<li>FastCGI is a fast, open, and secure web server interface that solves the 
-  performance problems inherent in CGI without introducing the overhead and 
-  complexity of proprietary APIs (Application Programming
-  Interfaces).  For more information, please visit {ext-href}http://www.fastcgi.com{ext-href-end}http://www.fastcgi.com{ext-href-end-a}.
-
-  On LiteSpeed Web Server, FastCGI applications can take two roles: 
-  generating dynamic responses (a responder role) or authorizing requests 
-  (an authorizer role). LiteSpeed Web Server further defines two types of 
-  FastCGI applications: local FastCGI and remote FastCGI. 
-  Local FastCGI applications are started automatically by the web server
-  on demand. Remote FastCGI applications are not started by the web server. 
-  (They can run on a remote machine or on the same machine.)
-</li>
-<li>a web server is a server application that supports HTTP 1.0/1.1
-protocols. LiteSpeed web server can serve as a transparent reverse proxy
-to accelerate and protect web servers and application servers. 
-When communicating with backend web servers, LiteSpeed will
-always try to utilize persistent connections in order to achieve the 
-highest performance.</li>
-<li>A servlet engine is an application, like Apache Tomcat and Jetty, 
-that implements Java servlets and Java Server Pages. LiteSpeed can communicate
-with servlet engines through AJPv1.3 (Apache JServ Protocol version 1.3).
-Servlet engine cannot be started by the web server and can be setup to run on a
-remote machine. </li>
-<li>A LiteSpeed SAPI (LiteSpeed Server Application Programming Interface) 
-application is an application that communicates with LiteSpeed Web Server through 
-LSAPI, a fast, scalable server interface specifically designed for LiteSpeed Web 
-Server to achieve maximum efficiency.
-
-LSAPI's mechanism of action are similar to FastCGI, but LSAPI applications can be
-up to 30% faster than comparable FastCGI applications. LSAPI is highly 
-recommended over FastCGI for supported applications. 
-(LSAPI currently supports applications written in PHP, Ruby, and Python.)
-
-For more information about LSAPI, please visit
-{ext-href}http://www.litespeedtech.com/products/litespeed-sapi/overview/{ext-href-end}http://www.litespeedtech.com/products/litespeed-sapi/overview/{ext-href-end-a}.
-</li>
-<li>A load balancer is a virtual external application, which assigns
-requests to backend worker applications based on workload. Worker
-applications can be CGI, FastCGI, web server, servlet engine, or LSAPI
-applications. Different types of applications can
-be mixed together under one load balancer. Load balancers and piped
-loggers cannot be used as worker applications.</li>
-<li>A piped logger is an application that can process access
-logs in real-time, writing an access log into database or performing
-real-time statistics calculations, for example.</li>
-</ul>
-
-Unlike CGI applications, FastCGI applications, LSAPI applications, and 
-servlet engine do not exit after processing a request. The application process will stay/persist and serve 
-as many requests as it can. The socket connection can be reused for multiple requests as well. 
-
-External applications can be set up in the {PAGE=ExtApp_Help} section. 
-External applications cannot, however, function on their own. Additional settings must 
-be configured so that the web server knows which requests to send to which application. 
-There are two ways to to configure this in LiteSpeed Web Server: 
-<ol>
-  <li> Set the external application as a handler for a specific context.</li> 
-  <li> Set the external application as a handler of a script language via file suffix binding.</li>
-</ol> 
-
-FastCGI applications, LSAPI applications, web servers, servlet engines,
-and load balancers have to be defined in the {PAGE=ExtApp_Help} 
-section before you can configure them to handle a context or script suffix . 
-It is not necessary to define CGI applications in the {PAGE=ExtApp_Help} section. 
-
-
-External applications can be configured at the server level or at the virtual host level. 
-When configured at the server level, the application can be used by all virtual hosts. When configured at the
-virtual host level, it can only be used by that virtual host.
-
-END_DESCR
-
-CONT: extapp
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
-
-
 
 [PAGE]
 ID: External_FCGI
 NAME: Fast CGI App
+NS: EO
 
 DESCR:
 END_DESCR
@@ -1128,7 +1137,7 @@ SEE_ALSO:
 [PAGE]
 ID: External_LSAPI
 NAME: LiteSpeed SAPI App
-
+NS: EO
 DESCR:
 END_DESCR
 
@@ -1143,6 +1152,7 @@ SEE_ALSO:
 [PAGE]
 ID: External_Servlet
 NAME: Servlet Engine
+NS: EO
 
 DESCR:
 END_DESCR
@@ -1158,6 +1168,7 @@ SEE_ALSO:
 [PAGE]
 ID: External_WS
 NAME: Web Server
+NS: EO
 
 DESCR:
 END_DESCR

@@ -24,7 +24,7 @@ NAV_SEQ:
 index
 END_NAV_SEQ
 
-CONT: DOC_NAV LSLB_CONF_NAV LSLB_CONTROL_NAV EXT_APPS_ITEMS_NAV CONTEXT_ITEMS_NAV
+CONT: DOC_NAV LSLB_CONF_NAV LSLB_CONTROL_NAV CONTEXT_ITEMS_NAV
 END_CONT
 [END_PAGENAV]
 
@@ -55,7 +55,6 @@ ServGeneral_Help
 ServLog_Help 
 ServTuning_Help 
 ServSecurity_Help
-LB_ExtApp_Help 
 RequestFilter_Help
 Cache_Help
 LB_Listeners_Help
@@ -71,21 +70,6 @@ LB_AdminListener_Help
 HA_Config
 
 END_NAV_SEQ
-[END_PAGENAV]
-
-[PAGENAV]
-
-ID: EXT_APPS_ITEMS_NAV
-TOP_NAV: LB_ExtApp_Help
-
-NAV_SEQ: 
-External_FCGI
-External_LSAPI
-External_Servlet
-External_WS
-
-END_NAV_SEQ
-
 [END_PAGENAV]
 
 [PAGENAV]

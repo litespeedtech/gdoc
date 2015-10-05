@@ -71,22 +71,6 @@ SEE_ALSO:
 
 
 [TBL]
-ID: LB_extapp
-NAME: External App Settings
-
-DESCR: 
-END_DESCR
-
-CONT: LB_extAppType extAppName extAppAddress extSrcIP maxConns env initTimeout 
-retryTimeout persistConn pcKeepAliveTimeout respBuffer 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
 ID: LB_listenerGeneral
 NAME: General
 
@@ -153,33 +137,7 @@ SEE_ALSO:
 
 
 
-[TBL]
-ID: ClusterWorkerGroup
-NAME: Layer 7 Worker Group
 
-DESCR: 
-END_DESCR
-
-CONT: workerName worker_type workerGroupEnabled sourceIP defaultTargetPort maxConns env initTimeout retryTimeout 
-persistConn pcKeepAliveTimeout respBuffer pingUrl pingInterval nodeAddresses
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-[TBL]
-ID: ClusterWorkerGroupL4
-NAME: Layer 4 Worker Group
-
-DESCR: 
-END_DESCR
-
-CONT: workerName workerGroupEnabled sourceIP defaultTargetPort maxConns initTimeout retryTimeout pingInterval nodeAddresses
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
 
 
 
