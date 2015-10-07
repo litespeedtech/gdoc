@@ -30,6 +30,33 @@ END_TIPS
 
 
 [ITEM]
+ID: vhlog_fileName
+NAME: File Name
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the path for the log file. 
+END_DESCR
+
+EDITTIP: Log file path can be either absolute path or relative to $SERVER_ROOT, $VH_ROOT.
+END_EDITTIP
+
+SYNTAX: file3
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Place the log file on a separate disk. 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: vhlog_logLevel
 NAME: Log Level
 REQUIRED: 
@@ -88,6 +115,59 @@ END_TIPS
 
 
 [ITEM]
+ID: vhaccessLog_fileName
+NAME: File Name
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the file name of the access log file. 
+END_DESCR
+
+SYNTAX: file3
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Put access log file on a separate disk.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhaccessLog_fileName
+NAME: File Name
+NS: EO
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the file name of the access log file. 
+END_DESCR
+
+EDITTIP: Log file path can be either an absolute path or a relative path to $SERVER_ROOT, $VH_ROOT.
+END_EDITTIP
+
+SYNTAX: file3
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Put access log file on a separate disk.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: accessLog_bytesLog
 NAME: Bytes Log
 REQUIRED: 
@@ -126,17 +206,11 @@ END_DESCR
 EDITTIP: If you use server setting, the log will write to the server file which is set up at server level.
 END_EDITTIP
 
-EDITTIP: Log file path can be either absolute path or relative to $SERVER_ROOT, $VH_ROOT.
-END_EDITTIP
-
 EDITTIP: If you want to set Log Level to DEBUG, you must set server log level to DEBUG as well. The level of 
 debugging is solely controlled by Server DEBUG Level. Use DEBUG only if you have to since it has great impact on server performance and may fill up disk space quickly.
 END_EDITTIP
 
-EDITTIP: A new file will be created if current log file exceeds the rolling size. The size is in bytes, you can put 10240, 10K or 1M.
-END_EDITTIP
-
-CONT: logUseServer log_fileName vhlog_logLevel log_rollingSize 
+CONT: logUseServer vhlog_fileName vhlog_logLevel log_rollingSize 
 END_CONT
 
 SEE_ALSO: 
@@ -154,10 +228,7 @@ END_DESCR
 EDITTIP: When required, you can disable access logging for this virtual host save disk i/o.
 END_EDITTIP
 
-EDITTIP: A new log file will be created if current log file exceeds the rolling size. File size is in bytes and you use multiple formats: 10240, 10K or 1M.
-ENS_EDITTIP
-
-CONT: aclogUseServer accessLog_fileName accessLog_pipedLogger 
+CONT: aclogUseServer vhaccessLog_fileName accessLog_pipedLogger 
 accessLog_logFormat accessLog_logHeader 
 log_rollingSize accessLog_keepDays 
 accessLog_bytesLog accessLog_compressArchive
@@ -179,13 +250,7 @@ END_DESCR
 EDITTIP: When required, you can disable access logging for this virtual host save disk i/o.
 END_EDITTIP
 
-EDITTIP: Log file path can be either an absolute path or a relative path to $SERVER_ROOT, $VH_ROOT.
-END_EDITTIP
-
-EDITTIP: A new log file will be created if current log file exceeds the rolling size. File size is in bytes and you use multiple formats: 10240, 10K or 1M.
-ENS_EDITTIP
-
-CONT: aclogUseServer accessLog_fileName accessLog_pipedLogger 
+CONT: aclogUseServer vhaccessLog_fileName accessLog_pipedLogger 
 accessLog_logFormat accessLog_logHeader 
 log_rollingSize accessLog_keepDays 
 accessLog_bytesLog accessLog_compressArchive

@@ -353,6 +353,7 @@ END_TIPS
 [ITEM]
 ID: censorRuleSet
 NAME: Rules Definition
+NS: L
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -365,6 +366,47 @@ DESCR: Specifies a list of censorship rules.
 If you are using an Apache config file, you have to set up rules in httpd.conf. 
 Rules defined here will have no effect.
 END_DESCR
+
+SYNTAX: String. Syntax of censoring rules follows that of Apache's mod_security
+directives. "SecFilter", "SecFilterSelective", and "SecRule" can be 
+used here.  You can copy and paste security rules from an Apache configuration file.
+
+
+For more details about rule syntax, please refer to the 
+{ext-href}http://www.modsecurity.org/documentation/index.html{ext-href-end}Mod Security
+documentation{ext-href-end-a}.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: Rules configured here only work for vhosts configured in native LSWS
+configuration, not for vhosts from Apache httpd.conf.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: censorRuleSet
+NAME: Rules Definition
+NS: E
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+
+DESCR: Specifies a list of censorship rules.
+
+
+If you are using an Apache config file, you have to set up rules in httpd.conf. 
+Rules defined here will have no effect.
+END_DESCR
+
+EDITTIP: If you are using apache config file, you have to set up rules in httpd.conf and rules defined here have no effect.
+END_EDITTIP
 
 SYNTAX: String. Syntax of censoring rules follows that of Apache's mod_security
 directives. "SecFilter", "SecFilterSelective", and "SecRule" can be 
@@ -425,7 +467,7 @@ SEE_ALSO:
 [TBL]
 ID: reqCensorshipRule
 NAME: Request Filtering Rule Set
-NS: L
+NS: LE
 
 DESCR: Rules configured here only work for virtual hosts configured with a native LSWS
 configuration, not for virtual hosts using Apache httpd.conf.
@@ -435,27 +477,7 @@ CONT: censorRuleSetName ruleSetAction censorRuleSetEnabled censorRuleSet
 END_CONT
 
 SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: reqCensorshipRule
-NAME: Request Filtering Rule Set
-NS: E
-
-DESCR: Rules configured here only work for virtual hosts configured with a native LSWS
-configuration, not for virtual hosts using Apache httpd.conf.
-END_DESCR
-
-EDITTIP: If you are using apache config file, you have to set up rules in httpd.conf and rules defined here has no effect.
-END_EDITTIP
-
-CONT: censorRuleSetName ruleSetAction censorRuleSetEnabled censorRuleSet
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
+[END_TBL]l
 
 
 

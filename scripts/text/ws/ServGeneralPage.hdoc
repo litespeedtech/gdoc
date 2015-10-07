@@ -579,8 +579,10 @@ SEE_ALSO:
 
 DESCR:  Specifies the script file suffixes that will be handled by this 
 script handler. Suffixes must be unique. 
-
 END_DESCR
+
+EDITTIP: If the web site supports php or jsp, please set up here.
+END_EDITTIP
 
 SYNTAX: Comma delimited list with period "." character prohibited.
 END_SYNTAX

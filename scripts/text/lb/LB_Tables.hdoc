@@ -77,19 +77,6 @@ NAME: General
 DESCR: 
 END_DESCR
 
-EDITTIP: Give listener a name that is easy to understand and remember.
-END_EDITTIP
-
-EDITTIP: Select an IP address from the list, if you don't specify a particular address, the system will bind to all the available IP address on this machine.
-END_EDITTIP
-
-EDITTIP: Input a unique port number on this IP for this listener. Only super user (root) can use port lower than 1024. Port 80 is the default HTTP port; port 
-443 is the default HTTPS port.
-END_EDITTIP
-
-EDITTIP: Selecting "Yes" for <b>Secure</b> will make this listener use https. You must then configure this further in SSL settings..
-END_EDITTIP
-
 CONT: listenerName listenerType listenerIP listenerPort listenerSecure mapped_L4_clusters
 END_CONT
 

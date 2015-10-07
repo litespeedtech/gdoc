@@ -16,6 +16,9 @@ DESCR: Specifies path to Ruby executable. Generally, it is /usr/bin/ruby
 or /usr/local/bin/ruby depending on where Ruby has been installed to.
 END_DESCR
 
+EDITTIP: Ruby Path is the path of ruby executable. For e.g., /usr/local/bin/ruby. It has to be an absolute path.
+END_EDITTIP
+
 SYNTAX: path1
 END_SYNTAX
 
@@ -153,9 +156,6 @@ NS: EO
 
 DESCR: Default configurations for Ruby Rack/Rails applications.
 END_DESCR
-
-EDITTIP: Ruby Path is the path of ruby executable. For e.g., /usr/local/bin/ruby. It has to be an absolute path.
-END_EDITTIP
 
 CONT: rubyBin railsEnv maxConns env initTimeout 
 retryTimeout pcKeepAliveTimeout respBuffer 

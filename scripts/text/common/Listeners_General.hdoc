@@ -15,6 +15,9 @@ SEE_ALSO:
 DESCR: A unique name for this listener.
 END_DESCR
 
+EDITTIP: Give listener a name that is easy to understand and remember.
+END_EDITTIP
+
 SYNTAX: text
 END_SYNTAX
 
@@ -44,6 +47,9 @@ clients, an IPv4-mapped IPv6 address should be used instead of a
 plain IPv4 address. An IPv4-mapped IPv6 address is written as [::FFFF:x.x.x.x].
 END_DESCR
 
+EDITTIP: Select an IP address from the list, if you don't specify a particular address, the system will bind to all the available IP address on this machine.
+END_EDITTIP
+
 SYNTAX: select
 END_SYNTAX
 
@@ -71,6 +77,10 @@ lower than {val}1024{/}. Port {val}80{/} is the default HTTP port. Port {val}443
 is the default HTTPS port. 
 END_DESCR
 
+EDITTIP: Input a unique port number on this IP for this listener. Only super user (root) can use ports lower than 1024. Port 80 is the default HTTP port; port 
+443 is the default HTTPS port.
+END_EDITTIP
+
 SYNTAX: uint
 END_SYNTAX
 
@@ -95,6 +105,9 @@ SEE_ALSO:
 DESCR: Specifies whether this is a secure (SSL) listener. 
 For secure listeners, additional SSL settings need to be set properly.
 END_DESCR
+
+EDITTIP: Selecting "Yes" for <b>Secure</b> will make this listener use https. You must then configure this further in SSL settings.
+END_EDITTIP
 
 SYNTAX: bool
 END_SYNTAX
@@ -123,6 +136,12 @@ SEE_ALSO:
 DESCR: Specifies the name of a virtual host. 
 END_DESCR
 
+EDITTIP: Select the virtual hosts that you want to map to this listener.
+END_EDITTIP
+
+EDITTIP: If you have not set up the virtual host you want to map, you can skip this step and come back later.
+END_EDITTIP
+
 SYNTAX: select
 END_SYNTAX
 
@@ -150,6 +169,12 @@ characters "*" and "?" are allowed. "?" only represents one character.
 "*" represents any numbers of characters. 
 Duplicated domain names are not allowed. 
 END_DESCR
+
+EDITTIP: Enter all the domains that you want this listener to respond to. Use comma "," to separate individual domain.
+END_EDITTIP
+
+EDITTIP: You can choose only one virtual host to handle all unspecified domains, put "*" in domains.
+END_EDITTIP
 
 SYNTAX: Comma-separated list.
 END_SYNTAX
@@ -182,19 +207,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-EDITTIP: Give listener a name that is easy to understand and remember.
-END_EDITTIP
-
-EDITTIP: Select an IP address from the list, if you don't specify a particular address, the system will bind to all the available IP address on this machine.
-END_EDITTIP
-
-EDITTIP: Input a unique port number on this IP for this listener. Only super user (root) can use port lower than 1024. Port 80 is the default HTTP port; port 
-443 is the default HTTPS port.
-END_EDITTIP
-
-EDITTIP: Selecting "Yes" for <b>Secure</b> will make this listener use https. You must then configure this further in SSL settings.
-END_EDITTIP
-
 CONT: listenerName listenerIP listenerPort listenerBinding listenerSecure 
 END_CONT
 
@@ -216,18 +228,6 @@ One listener can allow one catchall virtual host with the domain name value "*".
 When there is no explicitly matched domain name in the listener's mapping, 
 the listener will forward the request to that catchall virtual host.
 END_DESCR
-
-EDITTIP: Select the virtual hosts that you want to map to this listener.
-END_EDITTIP
-
-EDITTIP: Enter all the domains that you want this listener to respond to. Use comma "," to separate individual domain.
-END_EDITTIP
-
-EDITTIP: You can choose only one virtual host to handle all unspecified domains, put "*" in domains.
-END_EDITTIP
-
-EDITTIP: If you have not set up the virtual host you want to map, you can skip this step and come back later.
-END_EDITTIP
 
 TIPS: [Performance] Only add necessary mappings. If the listener is mapped  
 to only one virtual host, then only set up a catchall mapping "*".

@@ -13,6 +13,9 @@ SEE_ALSO:
 DESCR: Specifies the path for the log file. 
 END_DESCR
 
+EDITTIP: Log file path can be either an absolute path or relative to $SERVER_ROOT.
+END_EDITTIP
+
 SYNTAX: file2
 END_SYNTAX
 
@@ -115,6 +118,9 @@ The actual size of the rotated log file once it is created will sometimes be a l
 this size limit. Set to {val}0{/} to disable log rotation. 
 END_DESCR
 
+EDITTIP: A new log file will be created if current log file exceeds the rolling size. File size is in bytes and can be in multiple input formats: 10240, 10K or 1M.
+END_EDITTIP
+
 SYNTAX: uint
 END_SYNTAX
 
@@ -141,6 +147,9 @@ process started by the server.
 If enabled, stderr messages will be logged in the same directory as the server log with 
 the fixed name "stderr.log". If disabled, all stderr output will be discarded.
 END_DESCR
+
+EDITTIP: Stderr Log is located in the same directory as the Server Log. If enabled, all External Application output to stderr will be logged in this file.
+END_EDITTIP
 
 SYNTAX: bool
 END_SYNTAX
@@ -193,6 +202,9 @@ SEE_ALSO:
 
 DESCR: Specifies the file name of the access log file. 
 END_DESCR
+
+EDITTIP: Log file path can be either be an absolute path or relative to $SERVER_ROOT.
+END_EDITTIP
 
 SYNTAX: file2
 END_SYNTAX
@@ -439,15 +451,6 @@ NS: LE
 DESCR: 
 END_DESCR
 
-EDITTIP: Log file path can be either an absolute path or relative to $SERVER_ROOT.
-END_EDITTIP
-
-EDITTIP: A new log file will be created if current log file exceeds the rolling size. File size is in bytes and you can use multiple input formats: 10240, 10K or 1M.
-END_EDITTIP
-
-EDITTIP: Stderr Log is located in the same directory as the Server Log. If enabled, all External Application output to stderr will be logged in this file.
-END_EDITTIP
-
 CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_enableStderrLog log_enableAioLog
 END_CONT
 
@@ -464,15 +467,6 @@ NS: O
 DESCR: 
 END_DESCR
 
-EDITTIP: Log file path can be either an absolute path or relative to $SERVER_ROOT.
-END_EDITTIP
-
-EDITTIP: A new log file will be created if current log file exceeds the rolling size. File size is in bytes and you can use multiple input formats: 10240, 10K or 1M.
-END_EDITTIP
-
-EDITTIP: Stderr Log is located in the same directory as the Server Log. If enabled, all External Application output to stderr will be logged in this file.
-END_EDITTIP
-
 CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_enableStderrLog 
 END_CONT
 
@@ -487,12 +481,6 @@ NAME: Access Log
 
 DESCR: 
 END_DESCR
-
-EDITTIP: Log file path can be either be an absolute path or relative to $SERVER_ROOT.
-END_EDITTIP
-
-EDITTIP: A new log file will be created if current log file exceeds the rolling size. File size is in bytes and you can use multiple input formats: 10240, 10K or 1M.
-END_EDITTIP
 
 CONT: accessLog_fileName accessLog_pipedLogger accessLog_logFormat accessLog_logHeader log_rollingSize accessLog_keepDays accessLog_compressArchive
 END_CONT

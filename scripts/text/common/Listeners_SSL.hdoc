@@ -153,6 +153,12 @@ DESCR: Specifies which version of SSL protocol will be used. You can choose from
 {val}SSL v3.0{/} and {val}TLS v1.0{/}. Since OpenSSL 1.0.1, {val}TLS v1.1{/} and {val}TLS v1.2{/} are also supported. 
 END_DESCR
 
+EDITTIP: "Yes" must be selected for <b>Secure</b> in General > Address Settings.
+END_EDITTIP
+
+EDITTIP: For SSL versions and encryption levels, please select all you want to accept.
+END_EDITTIP
+
 SYNTAX: 
 END_SYNTAX
 
@@ -579,9 +585,6 @@ ID: sslProtocolSetting
 NAME: SSL Protocol
 NS: L
 
-EDITTIP: "secure" checkbox on Listener General - Address Settings needs to be enabled.
-END_EDITTIP
-
 CONT: sslProtocol ciphers enableECDHE enableDHE DHParam
 END_CONT
 
@@ -597,12 +600,6 @@ NS: EO
 
 DESCR: Customizes SSL protocols accepted by the listener.
 END_DESCR
-
-EDITTIP: "Yes" must be selected for <b>Secure</b> in General > Address Settings.
-END_EDITTIP
-
-EDITTIP: For SSL versions and encryption levels, please select all you want to accept.
-END_EDITTIP
 
 CONT: sslProtocol ciphers enableECDHE enableDHE DHParam
 END_CONT

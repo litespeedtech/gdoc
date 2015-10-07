@@ -109,7 +109,9 @@ APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: Specifies the NIC name (such as eth0, eth1, etc..) that virtual IP will bind to, required for Linux platform.  
+DESCR: Specifies the NIC name (such as eth0, eth1, etc..) that virtual IP will bind to, required for Linux platform.
+<br><br>
+<b>Note:</b> Even though it is required, this setting will have no effect on FreeBSD platforms.
 END_DESCR
 
 SYNTAX: text
@@ -129,6 +131,8 @@ SEE_ALSO:
 
 DESCR: Sets the priority for this load balancer server, where a higher number equals a higher priority. The highest priority load balancer 
 will act as the master, with the others in the cluster acting as slaves.
+<br><br>
+<b>Note:</b> This is reversed for FreeBSD platforms where the lower the number is, the higher that numbers priority.
 END_DESCR
 
 SYNTAX: uint

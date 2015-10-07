@@ -19,6 +19,9 @@ For FastCGI, Web Server and Servlet Engine, a {ITEM=shHandlerName} needs to be s
 This is an external application name as predefined in the {PAGE=ExtApp_Help} section.
 END_DESCR
 
+EDITTIP: Script handler can be a CGI, an FCGI app, a module handler, a Servlet engine, or a proxy to Web server.
+END_EDITTIP
+
 SYNTAX: select
 END_SYNTAX
 
@@ -44,6 +47,9 @@ DESCR: Specifies the name of the external application that processes the script 
 when the handler type is FastCGI, Web Server, LSAPI, Load Balancer, or Servlet Engine.
 END_DESCR
 
+EDITTIP: Except CGI, other handlers need to be predefined in the "External App" section.
+END_EDITTIP
+
 SYNTAX: select
 END_SYNTAX
 
@@ -67,15 +73,6 @@ NS: EO
 
 DESCR: 
 END_DESCR
-
-EDITTIP: Script handler can be a CGI, a FCGI app, a module handler, a Servlet engine, or a proxy to Web server.
-END_EDITTIP
-
-EDITTIP: Except CGI, other handlers need to be predefined in "External App" section.
-END_EDITTIP
-
-EDITTIP: If the web site supports php or jsp, please set up here.
-END_EDITTIP
 
 CONT: suffix shType shHandlerName 
 END_CONT
