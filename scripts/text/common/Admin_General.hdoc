@@ -4,32 +4,6 @@
 ############# Uncategorized #############
 
 
-[ITEM]
-ID: adminUser
-NAME: Admin User
-REQUIRED: 
-APPLY: Immediately
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Change the username and password for WebAdmin Console. 
-The old password has to be entered and verified in order to save the changes.  
-END_DESCR
-
-SYNTAX:
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: If you forget the admin password, you cannot change it from the
-WebAdmin console. Please use the following command from shell instead:
-{cmd}[your install dir]/admin/misc/admpass.sh{/} 
-END_TIPS
-
-[END_ITEM]
-
-
 
 ############# General #############
 
@@ -106,26 +80,6 @@ DESCR:
 END_DESCR
 
 CONT: enableCoreDump consoleSessionTimeout
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-[TBL]
-ID: adminUsers
-NAME: Web Admin Users
-
-DESCR: 
-END_DESCR
-
-EDITTIP: You need to know the old password in order to change it.
-END_EDITTIP
-
-EDITTIP: If you forget the admin password, you cannot change it from here for security reason. Please use the following command from shell: <br><br>
-[your install dir]/admin/misc/admpass.sh. This script will override all the user ids and reset to one admin user.
-END_EDITTIP
-
-CONT: adminUser
 END_CONT
 
 SEE_ALSO: 
