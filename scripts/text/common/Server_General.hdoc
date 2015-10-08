@@ -609,6 +609,48 @@ override higher level ones, i.e. context settings will override virtual host set
 and virtual host settings will override server settings.
 END_DESCR
 
+EDITTIP: Expires can be set at server, virtual host or context level. Lower level settings will override higher 
+level settings: virtual host settings will override server settings.
+END_EDITTIP
+
+EDITTIP: Expires syntax, "A|Mseconds" means after base time (A or M) plus the specified time in seconds, the file will expire. "A" means client access time, "M" means file 
+modified time. You can override this default setting by different MIME types: A86400 means the file will expire after 1 day based on client access time.
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableExpiresContext
+NAME: Enable Expires
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to generate an Expires header for static files. If enabled, an Expires 
+header will be generated based on {ITEM=expiresDefault} and {ITEM=expiresByType}. 
+
+
+This can be set at server, virtual host and context level. Lower level settings will 
+override higher level ones, i.e. context settings will override virtual host settings 
+and virtual host settings will override server settings.
+END_DESCR
+
+EDITTIP: Expires settings will override virtual host and server level settings. Expires Default syntax is A|Mseconds, means after base 
+time (A or M) plus the specified time in seconds, the file will expire. "A" means client access time, "M" means file modified time.
+END_EDITTIP
+
 SYNTAX: bool
 END_SYNTAX
 
@@ -766,13 +808,6 @@ NAME: Expires Settings
 
 DESCR: 
 END_DESCR
-
-EDITTIP: Expires can be set at server, virtual host or context level. Lower level will override higher level settings: virtual host setting will override server settings.
-END_EDITTIP
-
-EDITTIP: Expires syntax, "A|Mseconds" means after base time (A or M) plus the specified time in seconds, the file will expire. "A" means client access time, "M" means file 
-modified time. You can override this default setting by different MIME type: A86400 means the file will expire after 1 day based on client access time.
-END_EDITTIP
 
 EDITTIP: Expires By Type will override default settings. Each entry is in the format of "MIME-type=A|Mseconds" with no space in between. You can input multiple entries 
 separated by comma.
