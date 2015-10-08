@@ -24,6 +24,9 @@ Choices are {val}Yes{/}, {val}If Owner Match{/} and {val}No{/}.
 This setting can be overridden in the virtual host configurations but cannot be overridden from an .htaccess file.
 END_DESCR
 
+EDITTIP: If Follow-Symbolic-Link is enabled, you can still disable it at virtual host level.
+END_EDITTIP
+
 SYNTAX: select
 END_SYNTAX
 
@@ -51,6 +54,10 @@ when {ITEM=followSymbolLink} is turned on. If enabled, the canonical real path o
 referred by a URL will be checked against the configurable access denied directories. 
 Access will be denied if it falls inside an access denied directory.
 END_DESCR
+
+EDITTIP: Check-Symbolic-Link control will take effect only if Follow-Symbolic-Link is turned on. 
+This controls whether symbolic links are checked against Access Denied Directories.
+END_EDITTIP
 
 SYNTAX: bool
 END_SYNTAX
@@ -400,6 +407,13 @@ HTTP/1.1 clients may also set up multiple connections to speed up downloading an
  as not to adversely affect normal service. The recommended limit is between {val}5{/} and {val}10{/}.
 END_DESCR
 
+EDITTIP: Set IP level throttle limit here. The number will be rounded up to 4K units. Set to "0" to disable throttling.
+END_EDITTIP
+
+EDITTIP: Number of connections can temporarily exceed Soft Limit during Grace Period as long as under Hard Limit. After Grace Period, if it is 
+still above Soft Limit, then no more connections will be allowed from that IP for time of Banned Period.
+END_EDITTIP
+
 SYNTAX: uint
 END_SYNTAX
 
@@ -436,6 +450,9 @@ Use {ITEM=softLimit} to set the desired connection limit.
 
 The recommended limit is between {val}20{/} and {val}50{/} depending on the content of your web page and your traffic load. 
 END_DESCR
+
+EDITTIP: Set concurrent connection Limits coming from one client (per IP address). This helps against DoS attack.
+END_EDITTIP
 
 SYNTAX: uint
 END_SYNTAX
@@ -582,6 +599,12 @@ LiteSpeed server pipelines requests to CGI scripts
 and limits concurrent CGI processes to ensure the optimal performance and reliability. 
 The hard limit is {val}2000{/}. 
 END_DESCR
+
+EDITTIP: Limits resources that CGI program can use. This helps against DoS attack.
+END_EDITTIP
+
+EDITTIP: Max CGI Instances controls how many CGI processes the web server can launch.
+END_EDITTIP
 
 SYNTAX: uint
 END_SYNTAX
@@ -1013,13 +1036,6 @@ NAME: File Access
 DESCR: 
 END_DESCR
 
-EDITTIP: If Follow-Symbolic-Link is enabled, you can still disable it at virtual host level.
-END_EDITTIP
-
-EDITTIP: Check-Symbolic-Link control will take effect only if Follow-Symbolic-Link is turned on. 
-This controls whether symbolic links are checked against Access Denied Directories.
-END_EDITTIP
-
 CONT: followSymbolLink checkSymbolLink forceStrictOwnership requiredPermissionMask
 restrictedPermissionMask restrictedScriptPermissionMask
 restrictedDirPermissionMask 
@@ -1039,19 +1055,6 @@ DESCR: These are connection control settings based on client IP.
 These settings help to mitigate DoS (Denial of Service) and DDoS (Distributed Denial of Service) attacks.
 END_DESCR
 
-EDITTIP: Set IP level throttle limit here. The number will be rounded up to 4K units. Set to "0" to disable throttling.
-END_EDITTIP
-
-EDITTIP: Set concurrent connection Limits coming from one client (per IP address). This helps against DoS attack.
-END_EDITTIP
-
-EDITTIP: Number of connections can temporarily exceed Soft Limit during Grace Period as long as under Hard Limit. After Grace Period, if it is 
-still above Soft Limit, then no more connections will be allowed from that IP for time of Banned Period.
-END_EDITTIP
-
-EDITTIP: See help for more details.
-END_EDITTIP
-
 CONT: staticReqPerSec dynReqPerSec outBandwidth inBandwidth softLimit hardLimit blockBadReq gracePeriod banPeriod 
 END_CONT
 
@@ -1069,19 +1072,6 @@ DESCR: These are connection control setting on a per client/IP basis.
 These settings help to mitigate DoS (Denied of Service) and DDoS (Distributed Denied of Service) attacks.
 END_DESCR
 
-EDITTIP: Set IP level throttle limit here. The number will be rounded up to 4K units. Set to "0" to disable throttling.
-END_EDITTIP
-
-EDITTIP: Set concurrent connection Limits coming from one client (per IP address). This helps against DoS attack.
-END_EDITTIP
-
-EDITTIP: Number of connections can temporarily exceed Soft Limit during Grace Period as long as under Hard Limit. After Grace Period, if it 
-is still above Soft Limit, then no more connections will be allowed from that IP for time of Banned Period.
-END_EDITTIP
-
-EDITTIP: See help for more details.
-END_EDITTIP
-
 CONT: dynReqPerSec outBandwidth inBandwidth softLimit hardLimit gracePeriod banPeriod 
 END_CONT
 
@@ -1098,21 +1088,6 @@ NS: EO
 DESCR: The following settings control CGI processes. Memory and process limits also serve as the default for 
 other external applications if limits have not been set explicitly for those applications. 
 END_DESCR
-
-EDITTIP: Limits resources that CGI program can use. This helps against DoS attack.
-END_EDITTIP
-
-EDITTIP: Max CGI Instances controls how many CGI processes the web server can launch.
-END_EDITTIP
-
-EDITTIP: Process soft/hard limit controls how many processes are allowed for one user. This includes all the processes spawned by CGI application. This is OS level limit.
-END_EDITTIP
-
-EDITTIP: Set to 0 or empty will use operation system default value for all soft/hard limits.
-END_EDITTIP
-
-EDITTIP: The soft limit is the value that the kernel enforces for the corresponding resource. The hard limit acts as a ceiling for the soft limit
-END_EDITTIP 
 
 CONT: cgidSock maxCGIInstances minUID minGID forceGID umask CGIPriority CPUSoftLimit CPUHardLimit memSoftLimit memHardLimit procSoftLimit procHardLimit 
 END_CONT
@@ -1215,7 +1190,7 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: perClientConnLimit accessControl 
+CONT: vhBandwidthThrottlingControl perClientConnLimit accessControl 
 END_CONT
 
 SEE_ALSO: 

@@ -28,7 +28,7 @@ NS: EO
 DESCR: 
 END_DESCR
 
-CONT: staticReqPerSec dynReqPerSec outBandwidth inBandwidth 
+CONT: staticReqPerSec dynReqPerSec outBandwidth inBandwidth
 END_CONT
 
 SEE_ALSO: 

@@ -336,6 +336,27 @@ SEE_ALSO:
 
 
 
+[TBL]
+ID: replicationStatus
+NAME: Replication Status
+
+DESCR: Displays the status of currently "live" replicators in the replication cluster by their server addresses, as well as the number of active sessions on record 
+for each replicator. 
+The source replicator (usually the first to come online) will have a highlighted <b>SRC</b> tag in front of it's Server Address. It is this replicators job to actively 
+sync it's data to the other replicators in the replication cluster. These other replicators will be compared against the source replicator to determine if they are
+"in Sync" or "out of Sync".
+<br><br>
+<b>SSL Session</b> will show the number of currently cached SSL sessions for the current load balancer.
+<br><br>
+<b>ID Session</b> will show the session count in the session cache of each cluster defined in the load balancer.
+<br><br>
+Replication will happen in real-time as changes are written to shared memory.
+END_DESCR
+
+[END_TBL]
+
+
+
 ########### Pages ############
 
 

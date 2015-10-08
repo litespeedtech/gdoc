@@ -608,6 +608,20 @@ END_TIPS
 ################ Tables ################
 
 
+[TBL]
+ID: vhBandwidthThrottlingControl
+NAME: VHost Bandwidth Throttling Control
+NS: L
+
+DESCR:
+END_DESCR
+
+CONT: totalBandwidth
+END_CONT
+
+[END_TBL]
+
+
 
 [TBL]
 ID: vhHotlink

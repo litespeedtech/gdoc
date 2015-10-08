@@ -615,10 +615,6 @@ level settings. In terms of overwrite priority:
 Context Level > Virtual Host Level > Server Level
 END_EDITTIP
 
-EDITTIP: Expires syntax, "A|Mseconds" means after base time (A or M) plus the specified time in seconds, the file will expire. "A" means client access time, "M" means file 
-modified time. You can override this default setting by different MIME types: A86400 means the file will expire after 1 day based on client access time.
-END_EDITTIP
-
 SYNTAX: bool
 END_SYNTAX
 
@@ -649,6 +645,13 @@ often. If there is no default setting, no Expires header will be
 generated for types not specified in {ITEM=expiresByType}.
 END_DESCR
 
+EDITTIP: Expires syntax, "A|Mseconds" means after base time (A or M) plus the specified time in seconds, the file will expire. "A" means client access time, "M" means file 
+modified time. You can override this default setting by different MIME types: A86400 means the file will expire after 1 day based on client access time.
+END_EDITTIP
+
+EDITTIP: Here are some common numbers: 1 hour = 3600 sec, 1 day = 86400 sec, 1 week = 604800 sec, 1 month = 2592000 sec, 1 year = 31536000 sec.
+END_EDITTIP
+
 SYNTAX: A|Mseconds
 
 The file will expire after base time(A|M) plus specified seconds. 
@@ -675,6 +678,10 @@ SEE_ALSO:
 
 DESCR: Specifies Expires header settings for individual MIME types.
 END_DESCR
+
+EDITTIP: Expires By Type will override default settings. Each entry is in the format of "MIME-type=A|Mseconds" with no space in between. You can input multiple entries 
+separated by comma.
+END_EDITTIP
 
 SYNTAX: Comma delimited list of "MIME-type=A|Mseconds". 
 The file will expire after base time (A|M) plus specified seconds. 
@@ -776,13 +783,6 @@ NAME: Expires Settings
 
 DESCR: 
 END_DESCR
-
-EDITTIP: Expires By Type will override default settings. Each entry is in the format of "MIME-type=A|Mseconds" with no space in between. You can input multiple entries 
-separated by comma.
-END_EDITTIP
-
-EDITTIP: Here are some common numbers: 1 hour = 3600 sec, 1 day = 86400 sec, 1 week = 604800 sec, 1 month = 2592000 sec, 1 year = 31536000 sec.
-END_EDITTIP
 
 CONT: enableExpires expiresDefault expiresByType 
 END_CONT

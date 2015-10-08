@@ -348,11 +348,107 @@ END_TIPS
 
 
 
+[ITEM]
+ID: totalBandwidth
+NAME: Total Output Bandwidth (KB/sec)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Sets a limit for the total output bandwidth in KB/s for this virtual host. Once this limit is reached throttling will occur.
+END_DESCR
+
+[END_ITEM]
+
+
+
 ############# Per Client Throttling #############
 
 
 
 ############# Tables #############
+
+
+
+[TBL]
+ID: vhBase
+NAME: Base
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: vhName vhRoot configFile
+END_CONT
+
+[END_TBL]
+
+
+
+[TBL]
+ID: vhConnection
+NAME: Connection
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: vhMaxKeepAliveReq vhSmartKeepAlive
+END_CONT
+
+[END_TBL]
+
+
+
+[TBL]
+ID: vhSecurity
+NAME: Security
+NS: E
+
+DESCR: 
+END_DESCR
+
+CONT: allowSymbolLink enableScript
+restrained setUidMode
+chrootMode chrootPath totalBandwidth
+END_CONT
+
+[END_TBL]
+
+
+
+[TBL]
+ID: vhSecurity
+NAME: Security
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: allowSymbolLink enableScript
+restrained setUidMode
+chrootMode chrootPath
+END_CONT
+
+[END_TBL]
+
+
+
+[TBL]
+ID: vhPClientThrottling
+NAME: Virtual Host
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: staticReqPerSec dynReqPerSec
+outBandwidth inBandwidth 
+END_CONT
+
+[END_TBL]
+
 
 
 [TBL]
@@ -411,14 +507,14 @@ SEE_ALSO:
 
 [PAGE]
 ID: VirtualHosts_Help 
-NAME: Virtual Host List
+NAME: Virtual Hosts Basic
 NS: EO
 
 DESCR: This page lists all defined virtual hosts. From here you can add/delete a virtual host or make
 changes to an existing one. Before you add a virtual host, make sure the virtual host root directory exists.
 END_DESCR
 
-CONT: vhTop 
+CONT: vhBase vhConnection vhSecurity vhPClientThrottling
 END_CONT
 
 SEE_ALSO: 
