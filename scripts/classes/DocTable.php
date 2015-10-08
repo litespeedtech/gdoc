@@ -75,7 +75,7 @@ class DocTable extends Item
 		$buf .= "</header><p>\n";
 
         foreach( $this->_items as $itemkey => $item ) {
-            if ( $itemkey != $this->getId() )
+            if ( $itemkey != $this->getId() && $item->hasValue('DESCR') )
                 $buf .= '<a href="#'.$itemkey.'">'.$item->getName().'</a>&nbsp;|&nbsp;';
         }
 		$buf .= '</p></section>' . "\n";

@@ -104,7 +104,7 @@ class DocItem extends Item
         }
 
         if (DOC_TYPE == 'ows') {
-            $buf = "\$_tipsdb['$id'] = new DAttrHelp('$name', '$desc', '$tip', '$syntax', '$example');\n\n";
+            $buf = "\$_tipsdb['$id'] = new DAttrHelp(\"$name\", '$desc', '$tip', '$syntax', '$example');\n\n";
         }
         else {
             $buf = "\$this->db['$id'] = new DATTR_HELP_ITEM(\"$name\", '$desc', '$tip', '$syntax', '$example');\n";
