@@ -367,7 +367,7 @@ NAME: High Availability Config
 DESCR: 
 END_DESCR
 
-CONT: HAReplication HAInterface HAStatus
+CONT: HAReplication HAInterface HAStatus replicationStatus
 END_CONT
 
 SEE_ALSO: 
