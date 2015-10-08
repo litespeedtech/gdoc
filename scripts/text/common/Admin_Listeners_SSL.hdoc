@@ -28,7 +28,7 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: renegProtection sslSessionCache sslSessionTickets
+CONT: renegProtection sslSessionCache sslSessionTickets enableSpdy
 END_CONT
 
 SEE_ALSO: 
