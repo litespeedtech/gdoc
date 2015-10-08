@@ -1,5 +1,5 @@
 <header>
-<h1>LiteSpeed Load Balancer 1.9<br/>
+<h1>LiteSpeed Load Balancer 2.0<br/>
 Users' Manual<br/>
 Rev. 1</h1>
 </header>

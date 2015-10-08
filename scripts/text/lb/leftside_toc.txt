@@ -1,6 +1,6 @@
 <div class="sidetree">
 <h3>LiteSpeed Load Balancer <a href="index.html"> Users' Manual</a></h3>
-<h5>Version 1.9 Rev. 1 </h5>
+<h5>Version 2.0 Rev. 1 </h5>
 <hr/>
 <div>
 <ul class="toctop">
