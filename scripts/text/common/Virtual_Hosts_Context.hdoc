@@ -1052,7 +1052,7 @@ EDITTIP: A Context can be protected with predefined realm, which is set up in th
 additional requirements can be specified.
 END_EDITTIP
 
-CONT: expuri location allowBrowse enableExpiresContext expiresDefault expiresByType
+CONT: expuri location allowBrowse enableExpires expiresDefault expiresByType
 extraHeaders addMIMEType forceType defaultType autoIndex indexFiles allowOverride 
 realm authName required accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized 
@@ -1098,7 +1098,7 @@ EDITTIP: A Context can be protected with predefined realm, which is set up in th
 additional requirements can be specified.
 END_EDITTIP
 
-CONT: expuri location allowBrowse enableExpiresContext expiresDefault expiresByType
+CONT: expuri location allowBrowse enableExpires expiresDefault expiresByType
 extraHeaders addMIMEType forceType defaultType autoIndex indexFiles  
 realm authName required accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized 
@@ -1172,7 +1172,7 @@ EDITTIP: A Context can be protected with predefined realm, which is set up in th
 additional requirements can be specified.
 END_EDITTIP
 
-CONT: uri javaWebApp_location servletEngine enableExpiresContext
+CONT: uri javaWebApp_location servletEngine enableExpires
 expiresDefault expiresByType extraHeaders autoIndex indexFiles 
 allowOverride realm
 authName required accessAllowed accessDenied extAuthorizer
@@ -1249,7 +1249,7 @@ EDITTIP: A Context can be protected with predefined realm, which is set up in th
 additional requirements can be specified.
 END_EDITTIP
 
-CONT: uri javaWebApp_location servletEngine enableExpiresContext
+CONT: uri javaWebApp_location servletEngine enableExpires
 expiresDefault expiresByType extraHeaders autoIndex indexFiles 
 realm authName required accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized 
@@ -1791,7 +1791,7 @@ EDITTIP: A Context can be protected with predefined realm, which is set up in th
 additional requirements can be specified.
 END_EDITTIP
 
-CONT: expuri location railsEnv maxConns env enableExpiresContext 
+CONT: expuri location railsEnv maxConns env enableExpires 
 expiresDefault expiresByType extraHeaders
 indexFiles autoIndex allowOverride 
 realm authName required accessAllowed accessDenied extAuthorizer
@@ -1834,7 +1834,7 @@ EDITTIP: A Context can be protected with predefined realm, which is set up in th
 additional requirements can be specified.
 END_EDITTIP
 
-CONT: expuri location railsEnv maxConns env enableExpiresContext 
+CONT: expuri location railsEnv maxConns env enableExpires 
 expiresDefault expiresByType extraHeaders
 indexFiles autoIndex  
 realm authName required accessAllowed accessDenied extAuthorizer
