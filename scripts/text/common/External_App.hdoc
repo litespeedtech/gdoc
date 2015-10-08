@@ -120,6 +120,39 @@ END_TIPS
 
 
 [ITEM]
+ID: extWorkers
+NAME: Workers
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 
+END_DESCR
+
+EDITTIP: Load balancing workers must be previously defined.
+END_EDITTIP
+
+EDITTIP: Available ExtApp Types are fcgi(Fast CGI App), fcgiauth(Fast CGI Authorizer), lsapi(LSAPI App), servlet(Servlet/JSP Engine), proxy(Web Server).
+END_EDITTIP
+
+EDITTIP: Different types of external applications can be mixed in one load balancing cluster.
+END_EDITTIP
+
+SYNTAX: A comma-separated list in the form ExternalAppType::ExternalAppName
+END_SYNTAX
+
+EXAMPLE: fcgi::localPHP, proxy::backend1
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: workerName
 NAME: Name
 REQUIRED: 
@@ -127,7 +160,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: A unique name for a group of worker.
+DESCR: A unique name for a group of workers.
 END_DESCR
 
 SYNTAX: text
@@ -1058,22 +1091,7 @@ NS: EO
 DESCR: 
 END_DESCR
 
-EDITTIP: Load balancing workers must be previously defined.
-END_EDITTIP
-
-EDITTIP: Format is a comma-separated list of <extAppType>::<extAppName>.
-END_EDITTIP
-
-EDITTIP: Available ExtApp Types are fcgi(Fast CGI App), fcgiauth(Fast CGI Authorizer), lsapi(LSAPI App), servlet(Servlet/JSP Engine), proxy(Web Server)
-END_EDITTIP
-
-EDITTIP: Different types of external applications can be mixed in one load balancing cluster.
-END_EDITTIP
-
-EDITTIP: Example: fcgi::localPHP, proxy::backend1
-END_EDITTIP
-
-CONT: extAppName
+CONT: extAppName extWorkers
 END_CONT
 
 SEE_ALSO: 
