@@ -341,6 +341,9 @@ DESCR: Specifies the maximum size of a HTTP request header including request URL
 Hard limit is {val}16380{/} bytes. 
 END_DESCR
 
+EDITTIP: Numbers can be represented like 10240, 10K or 1M.
+END_EDITTIP
+
 SYNTAX: uint
 END_SYNTAX
 
@@ -659,6 +662,10 @@ DESCR: Controls GZIP compression for dynamically generated HTTP response.
 {ITEM=enableGzipCompress} must be set to {val}Yes{/} in order to enable dynamic GZIP compression.
 END_DESCR
 
+EDITTIP: Dynamic GZIP compression control will be effective only if GZIP Compression is enabled.
+END_EDITTIP
+
+
 SYNTAX: bool
 END_SYNTAX
 
@@ -685,6 +692,9 @@ DESCR: Specifies the level of compression for dynamic content. Ranges
 from {val}1{/} (lowest) to {val}9{/} (highest). The default is {val}2{/}.
 END_DESCR
 
+EDITTIP: GZIP Compression level ranges from 1 (Minimum) to 9 (Maximum).
+END_EDITTIP
+
 SYNTAX: Number between 1 and 9.
 END_SYNTAX
 
@@ -710,6 +720,11 @@ SEE_ALSO:
 
 DESCR: Specifies what MIME types are allowed to be compressed. 
 END_DESCR
+
+EDITTIP: Compressible Types is a list of MIME types that are compressible, separated by commas. You can use wildcard "*" for MIME types, like */*, text/*. You 
+can put "!" in front to exclude certain types. The order of the list is important if you use "!". For e.g., a list like "text/*, !text/css, !text/js" will 
+compress all text file except for css and js.
+END_EDITTIP
 
 SYNTAX: MIME type list separated by commas. Wild card "*" and 
 negate sign "!" are allowed, such as text/*, !text/js.
@@ -1187,9 +1202,6 @@ NAME: Request/Response Tuning
 DESCR: 
 END_DESCR
 
-EDITTIP: Numbers can be represented like 10240, 10K or 1M.
-END_EDITTIP
-
 CONT: maxReqURLLen maxReqHeaderSize maxReqBodySize
       maxDynRespHeaderSize maxDynRespSize 
 END_CONT
@@ -1206,17 +1218,6 @@ NS: EO
 
 DESCR: 
 END_DESCR
-
-EDITTIP: Dynamic GZIP compression control will be effective only if GZIP Compression is enabled.
-END_EDITTIP
-
-EDITTIP: GZIP Compression level ranges from 1 (Minimum) to 9 (Maximum).
-END_EDITTIP
-
-EDITTIP: Compressible Types is a list of MIME types that are compressible, separated by commas. You can use wildcard "*" for MIME types, like */*, text/*. You 
-can put "!" in front to exclude certain types. The order of the list is important if you use "!". For e.g., a list like "text/*, !text/css, !text/js" will 
-compress all text file except for css and js.
-END_EDITTIP
 
 CONT: enableGzipCompress enableDynGzipCompress gzipCompressLevel 
 compressibleTypes gzipAutoUpdateStatic gzipCacheDir gzipStaticCompressLevel 
@@ -1235,14 +1236,6 @@ NS: L
 
 DESCR: 
 END_DESCR
-
-EDITTIP: GZIP Compression level ranges from 1 (Minimum) to 9 (Maximum).
-END_EDITTIP
-
-EDITTIP: Compressible Types is a list of MIME types that are compressible, separated by commas. You can use wildcard "*" for MIME types, like */*, text/*. You 
-can put "!" in front to exclude certain types. The order of the list is important if you use "!". For e.g., a list like "text/*, !text/css, !text/js" will 
-compress all text file except for css and js.
-END_EDITTIP
 
 CONT: enableGzipCompress gzipCompressLevel compressibleTypes
 END_CONT
