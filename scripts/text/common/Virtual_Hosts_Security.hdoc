@@ -731,4 +731,34 @@ SEE_ALSO:
 [END_TBL]
 
 
+
+[TBL]
+ID: UsrDBEntry
+NAME: User DB Entry
+
+DESCR:
+END_DESCR
+
+CONT: group
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: GroupDBEntry
+NAME: Group DB Entry
+
+DESCR:
+END_DESCR
+
+CONT: user
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
 [END_HELPDOC]
