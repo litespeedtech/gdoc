@@ -337,6 +337,10 @@ It is always relative to the real root when an absolute path is given in chroot 
 Click on the file name to view/edit the detailed MIME entries.
 END_DESCR
 
+EDITTIP: MIME settings can be edited from previous page. You can specify the mime configuration file location which can be either be an absolute path or relative 
+to $SERVER_ROOT.
+END_EDITTIP
+
 SYNTAX: file2
 END_SYNTAX
 

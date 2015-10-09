@@ -246,10 +246,6 @@ NAME: General Settings
 DESCR: 
 END_DESCR
 
-EDITTIP: MIME settings can be edited from previous page. You can specify the mime configuration file location which can be either be an absolute path or 
-relative to $SERVER_ROOT.
-END_EDITTIP
-
 CONT: mime mimesuffix mimetype disableInitLogRotation showVersionNumber 
  enableIpGeo useIpInProxyHeader adminEmails 
 END_CONT
