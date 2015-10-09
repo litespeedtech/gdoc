@@ -229,16 +229,6 @@ NAME: Server Process
 DESCR: 
 END_DESCR
 
-EDITTIP: The user and group setting of the server process cannot be modified. This was set up during installation. You have to reinstall to change this option.
-END_EDITTIP
-
-EDITTIP: Swapping directory is recommended to be placed on a local disk such as /tmp. Network drive should be avoided at all cost. Swap will be when configured 
-memory i/o buffer is exhausted.
-END_EDITTIP
-
-EDITTIP: When you enable "Auto Restart" the monitor process will automatically launch a new server process and service will resume instantly if a crash is detected.
-END_EDITTIP
-
 CONT: serverName httpdWorkers runningAs serverPriority 
  inMemBufSize swappingDir autoFix503 enableh2c gracefulRestartTimeout
 END_CONT
@@ -258,9 +248,6 @@ END_DESCR
 
 EDITTIP: MIME settings can be edited from previous page. You can specify the mime configuration file location which can be either be an absolute path or 
 relative to $SERVER_ROOT.
-END_EDITTIP
-
-EDITTIP: You can enter multiple admin emails: use comma to separate.
 END_EDITTIP
 
 CONT: mime mimesuffix mimetype disableInitLogRotation showVersionNumber 
@@ -292,12 +279,6 @@ NAME: Connection Tuning
 
 DESCR: 
 END_DESCR
-
-EDITTIP: Numbers can be represented as 10240, 10K or 1M.
-END_EDITTIP
-
-EDITTIP: If send/receive buffer size is 0, default TCP buffer size will be used.
-END_EDITTIP
 
 CONT: maxConnections maxSSLConnections connTimeout maxKeepAliveReq
 smartKeepAlive keepAliveTimeout sndBufSize rcvBufSize

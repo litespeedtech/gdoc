@@ -258,6 +258,12 @@ DESCR: The sending buffer size of each TCP socket. Set to {val}0{/} to use the d
 buffer size of the operating system. {val}65535{/} is the maximum allowed buffer size.
 END_DESCR
 
+EDITTIP: Numbers can be represented as 10240, 10K or 1M.
+END_EDITTIP
+
+EDITTIP: If send/receive buffer size is 0, default TCP buffer size will be used.
+END_EDITTIP
+
 SYNTAX: uint
 END_SYNTAX
 

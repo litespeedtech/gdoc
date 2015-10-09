@@ -15,6 +15,9 @@ SEE_ALSO:
 DESCR: A unique name for this server. You can use $HOSTNAME as value. 
 END_DESCR
 
+EDITTIP: The user and group setting of the server process cannot be modified. This was set up during installation. You have to reinstall to change this option.
+END_EDITTIP
+
 SYNTAX: text
 END_SYNTAX
 
@@ -217,6 +220,10 @@ to reduce system memory usage. Virtual memory and disk swapping are used to stor
 dynamically generated responses. The swapping directory should be placed on a disk with enough space.
 END_DESCR
 
+EDITTIP: Swapping directory is recommended to be placed on a local disk such as /tmp. Network drive should be avoided at all cost. Swap
+ will be when configured memory i/o buffer is exhausted.
+END_EDITTIP
+
 SYNTAX: path1
 END_SYNTAX
 
@@ -245,6 +252,9 @@ the error temporarily. If enabled, the server will restart
 automatically whenever there are more than 30 "503" errors within a 30
 seconds span. This feature is enabled by default.
 END_DESCR
+
+EDITTIP: When you enable "Auto Restart" the monitor process will automatically launch a new server process and service will resume instantly if a crash is detected.
+END_EDITTIP
 
 SYNTAX: bool
 END_SYNTAX
@@ -517,6 +527,9 @@ DESCR: Specifies the server administrator's email address(es).
 If specified, administrators will be notified by email of important events (for example,  
 when the LiteSpeed service is restarted automatically due to crash detection or when license is expiring). 
 END_DESCR
+
+EDITTIP: You can enter multiple admin emails: use comma to separate.
+END_EDITTIP
 
 SYNTAX: Comma delimited list of email address.
 END_SYNTAX
