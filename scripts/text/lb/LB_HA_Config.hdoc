@@ -15,6 +15,9 @@ SEE_ALSO:
 DESCR: A unique number that identifies one virtual interface.
 END_DESCR
 
+EDITTIP: Additions/Deletions/Changes made will not take effect until applied through HA -> Status page.
+END_EDITTIP
+
 SYNTAX: uint
 END_SYNTAX
 
@@ -276,9 +279,6 @@ NAME: HA Virtual Interface Configuration
 
 DESCR: Additions/Deletions/Changes made will not take effect until applied through HA -> Status page.
 END_DESCR
-
-EDITTIP: Additions/Deletions/Changes made will not take effect until applied through HA -> Status page.
-END_EDITTIP
 
 CONT: haInterfaceId haVip haVipId haVipToken haNic haPriority
 END_CONT
