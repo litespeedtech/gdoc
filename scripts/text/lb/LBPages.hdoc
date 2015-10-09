@@ -140,7 +140,7 @@ NAME: Virtual Host Security
 DESCR: 
 END_DESCR
 
-CONT: tpSecThrottle accessControl realms UsrDBEntry GroupDBEntry reqCensorship reqCensorshipRule
+CONT: tpSecThrottle accessControl realms reqCensorship reqCensorshipRule
 END_CONT
 
 SEE_ALSO: 
