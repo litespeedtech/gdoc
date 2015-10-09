@@ -724,41 +724,8 @@ END_DESCR
 CONT: realmName realmType userDBLocation userDB_attrPasswd
 userDB_attrMemberOf userDBMaxCacheSize userDBCacheTimeout 
 GroupDBLocation groupDB_attrGroupMember groupDBMaxCacheSize 
-groupDBCacheTimeout LDAPBindDN LDAPBindPasswd
+groupDBCacheTimeout LDAPBindDN LDAPBindPasswd group user
 END_CONT
 
 SEE_ALSO: 
 [END_TBL]
-
-
-
-[TBL]
-ID: UsrDBEntry
-NAME: User DB Entry
-
-DESCR:
-END_DESCR
-
-CONT: group
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: GroupDBEntry
-NAME: Group DB Entry
-
-DESCR:
-END_DESCR
-
-CONT: user
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-[END_HELPDOC]
