@@ -629,7 +629,7 @@ END_TIPS
 
 
 [ITEM]
-ID: groups
+ID: group
 NAME: Groups
 REQUIRED: 
 APPLY: 3
@@ -649,7 +649,7 @@ END_EDITTIP
 
 
 [ITEM]
-ID: users
+ID: user
 NAME: Users
 REQUIRED: 
 APPLY: 3
@@ -739,7 +739,7 @@ NAME: User DB Entry
 DESCR:
 END_DESCR
 
-CONT: groups
+CONT: group
 END_CONT
 
 SEE_ALSO: 
@@ -754,7 +754,7 @@ NAME: Group DB Entry
 DESCR:
 END_DESCR
 
-CONT: users
+CONT: user
 END_CONT
 
 SEE_ALSO: 
