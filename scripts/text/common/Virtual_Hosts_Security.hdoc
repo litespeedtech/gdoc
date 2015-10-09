@@ -67,6 +67,9 @@ page saying hotlinking is not allowed. If it is not specified,
 {val}403 Forbidden{/} will be returned. 
 END_DESCR
 
+EDITTIP: If "Redirect URL" is set, a hotlink attempt will be redirected to the url specified; otherwise, access denied status code will be returned.
+END_EDITTIP
+
 SYNTAX: Absolute URL
 END_SYNTAX
 
@@ -95,6 +98,10 @@ in an address directly in the address box or uses a feature like "save
 target link as". 
 END_DESCR
 
+EDITTIP: Set "Allow Direct Access" to "Yes" if it is preferred to allow direct 
+access without a referrer. For e.g., there is no referrer when a user key in a url in a browser and some proxy will suppress "Referrer" header.
+END_EDITTIP
+
 SYNTAX: bool
 END_SYNTAX
 
@@ -121,6 +128,13 @@ itself. When set to {val}Yes{/}, {ITEM=allowedHosts} has no effect and no
 other web site can link to protected files. This can be convenient if you wish to 
 park multiple domain names on the current web site. 
 END_DESCR
+
+EDITTIP: Set "Only Self Reference" to "Yes" will only allow links from same web site and there is no need to specify "Allowed Domains". It is more 
+convinent when multiple domains are parked.
+END_EDITTIP
+
+EDITTIP: If "Only Self Reference" set to "No", "Allowed Domains" must be specified.
+END_EDITTIP
 
 SYNTAX: bool
 END_SYNTAX
@@ -205,6 +219,9 @@ DESCR: Specifies how user/group data is stored for an authorization realm. Curre
 user/group data can be stored in flat files or on a LDAP server. 
 END_DESCR
 
+EDITTIP: Currently password file and LDAP are supported for user DB and group DB.
+END_EDITTIP
+
 SYNTAX: select
 END_SYNTAX
 
@@ -231,6 +248,9 @@ SEE_ALSO:
 
 DESCR: Specifies a unique name for the authorization realm.
 END_DESCR
+
+EDITTIP: Define your HT Access realm here, this can be used for contexts.
+END_EDITTIP
 
 SYNTAX: text
 END_SYNTAX
@@ -605,6 +625,49 @@ END_TIPS
 
 
 
+####### User DB Entry #######
+
+
+[ITEM]
+ID: groups
+NAME: Groups
+REQUIRED: 
+APPLY: 3
+SINCE: 
+
+DESCR: 
+END_DESCR
+
+EDITTIP: If you enter group information here, the group DB will not be checked.
+END_EDITTIP
+
+EDITTIP: You can enter multiple groups, use comma to separate. Space will be treated as part of a group name.
+END_EDITTIP
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: users
+NAME: Users
+REQUIRED: 
+APPLY: 3
+SINCE: 
+
+DESCR: 
+END_DESCR
+
+EDITTIP: Group DB will be checked only if the user in the user DB does not contain group information..
+END_EDITTIP
+
+EDITTIP: Use comma to separate multiple users.
+END_EDITTIP
+
+[END_ITEM]
+
+
+
 ################ Tables ################
 
 
@@ -637,20 +700,6 @@ your web site by checking the Referer header within a HTTP request.
 If the Referer header does not match your website, the request will be denied.
 END_DESCR
 
-EDITTIP: Set "Allow Direct Access" to "Yes" if it is preferred to allow direct 
-access without a referrer. For e.g., there is no referrer when a user key in a url in a browser and some proxy will suppress "Referrer" header.
-END_EDITTIP
-
-EDITTIP: If "Redirect URL" is set, a hotlink attempt will be redirected to the url specified; otherwise, access denied status code will be returned.
-END_EDITTIP
-
-EDITTIP: Set "Only Self Reference" to "Yes" will only allow links from same web site and there is no need to specify "Allowed Domains". It is more 
-convinent when multiple domains are parked.
-END_EDITTIP
-
-EDITTIP: If "Only Self Reference" set to "No", "Allowed Domains" must be specified.
-END_EDITTIP
-
 CONT: enableHotlinkCtrl suffixes redirectUri allowDirectAccess 
 onlySelf allowedHosts matchedHosts
 END_CONT
@@ -672,12 +721,6 @@ defined separately from the contexts that use them.
 You can refer to a realm by these names in context configuration. 
 END_DESCR
 
-EDITTIP: Define your HT Access realm here, this can be used for contexts.
-END_EDITTIP
-
-EDITTIP: Currently password file and LDAP are supported for user DB and group DB.
-END_EDITTIP
-
 CONT: realmName realmType userDBLocation userDB_attrPasswd
 userDB_attrMemberOf userDBMaxCacheSize userDBCacheTimeout 
 GroupDBLocation groupDB_attrGroupMember groupDBMaxCacheSize 
@@ -691,18 +734,12 @@ SEE_ALSO:
 
 [TBL]
 ID: UsrDBEntry
-NAME: User DB Entries
+NAME: User DB Entry
 
 DESCR:
 END_DESCR
 
-EDITTIP: If you enter group information here, the group DB will not be checked.
-END_EDITTIP
-
-EDITTIP: You can enter multiple groups, use comma to separate. Space will be treated as part of a group name.
-END_EDITTIP
-
-CONT:
+CONT: groups
 END_CONT
 
 SEE_ALSO: 
@@ -712,18 +749,12 @@ SEE_ALSO:
 
 [TBL]
 ID: GroupDBEntry
-NAME: Group DB Entries
+NAME: Group DB Entry
 
 DESCR:
 END_DESCR
 
-EDITTIP: Group DB will be checked only if the user in the user DB does not contain group information..
-END_EDITTIP
-
-EDITTIP: Use comma to separate multiple users.
-END_EDITTIP
-
-CONT:
+CONT: users
 END_CONT
 
 SEE_ALSO: 
