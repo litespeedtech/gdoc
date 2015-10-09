@@ -208,6 +208,39 @@ DESCR: Specifies the name of the servlet engine that serves this web application
 Servlet engines must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
 END_DESCR
 
+EDITTIP: If the servlet engine runs on a different machine, it is recommended to make a copy of webapps directory locally. Otherwise you must put the 
+files in a common accessible network drive, which may affect performance.
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: javaServletEngine
+NAME: Servlet Engine
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the name of the servlet engine that serves this web application.
+Servlet engines must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
+END_DESCR
+
+EDITTIP: If the servlet engine runs on a different machine, it is recommended to make a copy of webapps directory locally. Otherwise you must put the 
+files in a common accessible network drive, which may affect performance.
+END_EDITTIP
+
 SYNTAX: select
 END_SYNTAX
 
@@ -232,6 +265,9 @@ SEE_ALSO:
 DESCR: Specifies the name of the FastCGI application. 
 This application must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
 END_DESCR
+
+EDITTIP: Fast CGI context is a mount point of Fast CGI application. The Fast CGI Application must be pre-defined at server level or virtual host level.
+END_EDITTIP
 
 SYNTAX: select
 END_SYNTAX
@@ -332,6 +368,12 @@ DESCR: Specifies the name of the external web server.
 This external web server must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
 END_DESCR
 
+EDITTIP: Proxy context enables this virtual host serving as a transparant reverse proxy server to an external web server or application server.
+END_EDITTIP
+
+EDITTIP: External web server must be pre-defined under External App at server or virtual host level.
+END_EDITTIP
+
 SYNTAX: select
 END_SYNTAX
 
@@ -386,6 +428,50 @@ END_TIPS
 
 
 [ITEM]
+ID: rails_location
+NAME: Location
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=expuri}
+
+DESCR: Specifies the corresponding location of this context in the file system. 
+END_DESCR
+
+EDITTIP: Rack/Rails context is for easy configuration of running Rack/Rails application. You 
+only need to specify the root location of your rack/rails application in the "Location" field.
+END_EDITTIP
+
+SYNTAX: It can be an absolute path or path relative to $SERVER_ROOT, $VH_ROOT, or $DOC_ROOT. 
+$DOC_ROOT is the default relative path, and can be omitted.
+
+
+If the {ITEM=expuri} is a regular expression, then the matched sub-string 
+can be used to form the "Root" string. The matched sub-string can be 
+referenced with the values "$1" - "$9". "$0" and "&" can be used to reference the 
+whole matched string. Additionally, a query string can be set by 
+appending a "?" followed by the query string. Be careful. "&" should
+be escaped as "\&" in the query string.
+END_SYNTAX
+
+EXAMPLE:  A plain URI like {val}/examples/{/} with {ITEM=location} 
+set to {val}/home/john/web_examples{/} will map the request "/examples/foo/bar.html" 
+to file "/home/john/web_examples/foo/bar.html". 
+
+To simulate Apache's mod_userdir, 
+set URI to {val}exp: ^/~([A-Za-z0-9]+)(.*){/}, 
+set {ITEM=location} to {val}/home/$1/public_html$2{/}. With these settings, a request of URI /~john/foo/bar.html will 
+map to file /home/john/public_html/foo/bar.html.
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: javaWebApp_location
 NAME: Location
 REQUIRED: 
@@ -396,6 +482,16 @@ SEE_ALSO:
 DESCR: Specifies the directory that contains the files for this web application. 
 This is the directory containing "WEB-INF/web.xml".
 END_DESCR
+
+EDITTIP: Java web app context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine, the 
+servlet engine should be set up in external app section (either server or virtual host level). 
+END_EDITTIP
+
+EDITTIP: Location is the directory that contains web application files, which includes WEB-INF/ sub directory.
+END_EDITTIP
+
+EDITTIP: The web server will automatically import configuration file of web application, which usually is WEB-INF/web.xml under the driectory specified by "location".
+END_EDITTIP
 
 SYNTAX: path
 END_SYNTAX
@@ -420,6 +516,14 @@ SEE_ALSO:
 
 DESCR: Specifies the location of CGI scripts. 
 END_DESCR
+
+EDITTIP: A CGI context can be used to specify a directory only contains CGI scripts. Path can be absolute path or relative to $SERVER_ROOT, $VH_ROOT 
+or $DOC_ROOT(default). Path and URI must be ended with "/" for a cgi-bin directory.
+END_EDITTIP
+
+EDITTIP: If only a specific script is needed in that directory, it is recommended to create a CGI context for that script only. In this case, path and 
+URI need not be a directory. For e.g., path can be ~/myapp/myscript.pl, URI can be /myapp/myscript.pl. All other files will not be served as CGI.
+END_EDITTIP
 
 SYNTAX: The path can be a directory that contains a group of CGI scripts, 
 like {val}$VH_ROOT/myapp/cgi-bin/{/}. 
@@ -450,6 +554,14 @@ DESCR: Specifies whether this context can be accessed. Set to {val}No{/} to deny
 You can use this feature to protect the specified directory from being visited. 
 You may use it when you are updating contents for this context or you have special data in this directory.
 END_DESCR
+
+EDITTIP: Static context can be used to map a URI to a directory either outside document root or within it. The directory 
+can be absolute path or relative to document root(default), $VH_ROOT or $SERVER_ROOT.
+END_EDITTIP
+
+EDITTIP: Check "Accessible" will allow browsing static files in this context. You may want to disable it to prevent viewing static 
+files, for e.g. when you update the content.
+END_EDITTIP
 
 SYNTAX: bool
 END_SYNTAX
@@ -507,6 +619,10 @@ For external redirection, {ITEM=statuscode} may be specified and
 {ITEM=destinationuri} can start either with "/" or "http(s)://". 
 For internal redirection, {ITEM=destinationuri} must start with "/".
 END_DESCR
+
+EDITTIP: Set up redirect URI here. If it is an external redirect, you can specify the status code. Internal 
+redirect has to start with "/", external redirect can either start with "/" or with "http(s)://".
+END_EDITTIP
 
 SYNTAX: 
 END_SYNTAX
@@ -725,6 +841,10 @@ a valid username and password must be provided in order to access this context.
 {TBL=VHSecurity_Help#realms} are set up in the {PAGE=VHSecurity_Help} section. 
 This setting uses each realm's {ITEM=VHSecurity_Help#realmName}.
 END_DESCR
+
+EDITTIP: A Context can be protected with a predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
+additional requirements can be specified.
+END_EDITTIP
 
 SYNTAX: select
 END_SYNTAX
@@ -1035,25 +1155,8 @@ to protect a particular directory using authorization realms, or to
 block or restrict access to a particular directory within the document root.
 END_DESCR
 
-EDITTIP: Static context can be used to map a URI to a directory either outside document root or within it. The directory can be absolute path or relative to document 
-root(default), $VH_ROOT or $SERVER_ROOT.
-END_EDITTIP
-
-EDITTIP: Check "Accessible" will allow browsing static files in this context. You may want to disable it to prevent viewing static files, for e.g. when you update the content.
-END_EDITTIP
-
-EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
-default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
-directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
-"Require" are allowed.
-END_EDITTIP
-
-EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
-additional requirements can be specified.
-END_EDITTIP
-
 CONT: expuri location allowBrowse enableExpires expiresDefault expiresByType
-extraHeaders addMIMEType forceType defaultType autoIndex indexFiles allowOverride 
+extraHeaders addMIMEType forceType defaultType indexFiles autoIndex allowOverrideContext 
 realm authName required accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized 
 enableRewrite rewriteInherit rewriteBase rewriteRules
@@ -1080,26 +1183,8 @@ to protect a particular directory using authorization realms, or to
 block or restrict access to a particular directory within the document root.
 END_DESCR
 
-EDITTIP: Static context can be used to map a URI to a directory either outside document root or within it. The directory 
-can be absolute path or relative to document root(default), $VH_ROOT or $SERVER_ROOT.
-END_EDITTIP
-
-EDITTIP: Check "Accessible" will allow browsing static files in this context. You may want to disable it to prevent viewing static 
-files, for e.g. when you update the content.
-END_EDITTIP
-
-EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
-default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
-directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
-"Require" are allowed.
-END_EDITTIP
-
-EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
-additional requirements can be specified.
-END_EDITTIP
-
 CONT: expuri location allowBrowse enableExpires expiresDefault expiresByType
-extraHeaders addMIMEType forceType defaultType autoIndex indexFiles  
+extraHeaders addMIMEType forceType defaultType indexFiles autoIndex 
 realm authName required accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized 
 enableRewrite rewriteInherit rewriteBase rewriteRules
@@ -1148,33 +1233,9 @@ For example,
   </ul>
 END_DESCR
 
-EDITTIP: Java web app context is used to automatically import a predefined Java Application in an 
-AJPv13 compilant Java servlet engine, the servlet engine should be set up in external app section (either server or virtual host level).
-END_EDITTIP
-
-EDITTIP: Location is the directory that contains web application files, which includes WEB-INF/ sub directory.
-END_EDITTIP
-
-EDITTIP: The web server will automatically import configuration file of web application, which usually is WEB-INF/web.xml under the driectory specified by "location".
-END_EDITTIP
-
-EDITTIP: If the servlet engine runs on a different machine, it is recommended to make a copy of webapps directory locally. Otherwise you must put the 
-files in a common accessible network drive, which may affect performance.
-END_EDITTIP
-
-EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
-default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
-directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
-"Require" are allowed.
-END_EDITTIP
-
-EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
-additional requirements can be specified.
-END_EDITTIP
-
-CONT: uri javaWebApp_location servletEngine enableExpires
+CONT: uri javaWebApp_location javaServletEngine enableExpires
 expiresDefault expiresByType extraHeaders autoIndex indexFiles 
-allowOverride realm
+allowOverrideContext realm
 authName required accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized 
 cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
@@ -1225,31 +1286,7 @@ For example,
   </ul>
 END_DESCR
 
-EDITTIP: Java web app context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine, the 
-servlet engine should be set up in external app section (either server or virtual host level). 
-END_EDITTIP
-
-EDITTIP: Location is the directory that contains web application files, which includes WEB-INF/ sub directory.
-END_EDITTIP
-
-EDITTIP: The web server will automatically import configuration file of web application, which usually is WEB-INF/web.xml under the driectory specified by "location".
-END_EDITTIP
-
-EDITTIP: If the servlet engine runs on a different machine, it is recommended to make a copy of webapps directory locally. Otherwise you must put the files in a 
-common accessible network drive, which may affect performance.
-END_EDITTIP
-
-EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
-default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
-directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
-"Require" are allowed.
-END_EDITTIP
-
-EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
-additional requirements can be specified.
-END_EDITTIP
-
-CONT: uri javaWebApp_location servletEngine enableExpires
+CONT: uri javaWebApp_location javaServletEngine enableExpires
 expiresDefault expiresByType extraHeaders autoIndex indexFiles 
 realm authName required accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized 
@@ -1273,21 +1310,7 @@ or you want to protect different servlets with different authorization realms.
 This URI has the same requirements as for a {TBL=javaWebAppContext}. 
 END_DESCR
 
-EDITTIP: Servlet context is used to import a specific servlet under a web application, whereas a "Java Web App" 
-context will import every thing automatically. You do not need to set up individual Servlet Context for each servlet defined in a web application.
-END_EDITTIP
-
-EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
-default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
-directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
-"Require" are allowed.
-END_EDITTIP
-
-EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
-additional requirements can be specified.
-END_EDITTIP
-
-CONT: expuri servletEngine extraHeaders allowOverride realm authName required
+CONT: expuri servletEngine extraHeaders allowOverrideContext realm authName required
 accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
@@ -1313,20 +1336,6 @@ or you want to protect different servlets with different authorization realms.
 This URI has the same requirements as for a {TBL=javaWebAppContext}. 
 END_DESCR
 
-EDITTIP: Servlet context is used to import a specific servlet under a web application, whereas a "Java Web App" context will import every thing automatically. You do 
-not need to set up individual Servlet Context for each servlet defined in a web application.
-END_EDITTIP
-
-EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
-default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
-directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
-"Require" are allowed.
-END_EDITTIP
-
-EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
-additional requirements can be specified.
-END_EDITTIP
-
 CONT: expuri servletEngine extraHeaders realm authName required
 accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
@@ -1348,20 +1357,7 @@ a script handler or mapped to a URL through FastCGI context. A FastCGI context w
 associate a URI with a FastCGI application. 
 END_DESCR
 
-EDITTIP: Fast CGI context is a mount point of Fast CGI application. The Fast CGI Application must be pre-defined at server level or virtual host level.
-END_EDITTIP
-
-EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
-default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
-directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
-"Require" are allowed.
-END_EDITTIP
-
-EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
-additional requirements can be specified.
-END_EDITTIP
-
-CONT: expuri fcgiapp extraHeaders allowOverride 
+CONT: expuri fcgiapp extraHeaders allowOverrideContext 
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
@@ -1384,19 +1380,6 @@ DESCR: FastCGI applications cannot be used directly. A FastCGI application must 
 a script handler or mapped to a URL through FastCGI context. A FastCGI context will 
 associate a URI with a FastCGI application. 
 END_DESCR
-
-EDITTIP: Fast CGI context is a mount point of Fast CGI application. The Fast CGI Application must be pre-defined at server level or virtual host level.
-END_EDITTIP
-
-EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
-default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
-directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
-"Require" are allowed.
-END_EDITTIP
-
-EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
-additional requirements can be specified.
-END_EDITTIP
 
 CONT: expuri fcgiapp extraHeaders  
 realm authName required accessAllowed accessDenied extAuthorizer 
@@ -1421,7 +1404,7 @@ Currently PHP, Ruby and Python have LSAPI modules. LSAPI, as it is developed spe
 LiteSpeed web server, is the most efficient way to communicate with LiteSpeed web server.  
 END_DESCR
 
-CONT: expuri lsapiapp extraHeaders allowOverride 
+CONT: expuri lsapiapp extraHeaders allowOverrideContext 
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
@@ -1470,12 +1453,6 @@ web server that this virtual host proxies for  has to be defined in {PAGE=ExtApp
 before you can set up a Proxy Context.
 END_DESCR
 
-EDITTIP: Proxy context enables this virtual host serving as a transparant reverse proxy server to an external web server or application server.
-END_EDITTIP
-
-EDITTIP: External web server must be pre-defined under External App at server or virtual host level.
-END_EDITTIP
-
 CONT: expuri proxyWebServer extraHeaders 
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
@@ -1502,12 +1479,6 @@ web server that this virtual host proxies for  has to be defined in {PAGE=ExtApp
 before you can set up a Proxy Context.
 END_DESCR
 
-EDITTIP: Proxy context enables this virtual host serving as a transparant reverse proxy server to an external web server or application server.
-END_EDITTIP
-
-EDITTIP: External web server must be pre-defined under External App at server or virtual host level.
-END_EDITTIP
-
 CONT: expuri proxyWebServer extraHeaders 
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
@@ -1533,25 +1504,7 @@ be read as static content. It is recommended that you put all your CGI
 scripts in a directory and set up a CGI Context to access them. 
 END_DESCR
 
-EDITTIP: A CGI context can be used to specify a directory only contains CGI scripts. Path can be absolute path or relative to $SERVER_ROOT, $VH_ROOT 
-or $DOC_ROOT(default). Path and URI must be ended with "/" for a cgi-bin directory.
-END_EDITTIP
-
-EDITTIP: If only a specific script is needed in that directory, it is recommended to create a CGI context for that script only. In this case, path and 
-URI need not be a directory. For e.g., path can be ~/myapp/myscript.pl, URI can be /myapp/myscript.pl. All other files will not be served as CGI.
-END_EDITTIP
-
-EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
-default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
-directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
-"Require" are allowed.
-END_EDITTIP
-
-EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
-additional requirements can be specified.
-END_EDITTIP
-
-CONT: expuri cgi_path extraHeaders allowSetUID allowOverride 
+CONT: expuri cgi_path extraHeaders allowSetUID allowOverrideContext 
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 enableRewrite rewriteInherit rewriteBase rewriteRules 
@@ -1579,24 +1532,6 @@ In this way, file content under a CGI Context is always protected and cannot
 be read as static content. It is recommended that you put all your CGI 
 scripts in a directory and set up a CGI Context to access them. 
 END_DESCR
-
-EDITTIP: A CGI context can be used to specify a directory only contains CGI scripts. Path can be absolute path or relative to 
-$SERVER_ROOT, $VH_ROOT or $DOC_ROOT(default). Path and URI must be ended with "/" for a cgi-bin directory.
-END_EDITTIP
-
-EDITTIP: If only a specific script is needed in that directory, it is recommended to create a CGI context for that script only. In 
-this case, path and URI need not be a directory. For e.g., path can be ~/myapp/myscript.pl, URI can be /myapp/myscript.pl. All other files will not be served as CGI.
-END_EDITTIP
-
-EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
-default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
-directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
-"Require" are allowed.
-END_EDITTIP
-
-EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
-additional requirements can be specified.
-END_EDITTIP
 
 CONT: expuri cgi_path extraHeaders allowSetUID  
 realm authName required accessAllowed accessDenied extAuthorizer 
@@ -1640,7 +1575,7 @@ A Load Balancer Context will associate a URI to be load balanced by the load bal
 END_DESCR
 
 
-CONT: expuri lbapp allowOverride realm authName required
+CONT: expuri lbapp allowOverrideContext realm authName required
 accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
@@ -1686,10 +1621,6 @@ The destination URI can be either on the same web site (internal
 redirect) or an absolute URI pointing to another web site (external redirect).
 END_DESCR
 
-EDITTIP: Set up redirect URI here. If it is an external redirect, you can specify the status code. Internal 
-redirect has to start with "/", external redirect can either start with "/" or with "http(s)://".
-END_EDITTIP
-
 CONT: expuri externalredirect statuscode destinationuri realm authName 
 required accessAllowed accessDenied 
 END_CONT
@@ -1709,21 +1640,7 @@ The destination URI can be either on the same web site (an internal
 redirect) or an absolute URI pointing to another web site (an external redirect).
 END_DESCR
 
-EDITTIP: Set up redirect URI here. If it is an external redirect, you can specify the status code. Internal 
-redirect has to start with "/", external redirect can either start with "/" or with "http(s)://".
-END_EDITTIP
-
-EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
-default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
-directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
-"Require" are allowed.
-END_EDITTIP
-
-EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
-additional requirements can be specified.
-END_EDITTIP
-
-CONT: expuri externalredirect statuscode destinationuri allowOverride realm 
+CONT: expuri externalredirect statuscode destinationuri allowOverrideContext realm 
 authName required accessAllowed accessDenied extAuthorizer
 END_CONT
 
@@ -1741,20 +1658,6 @@ DESCR: A Redirect Context can be used to forward one URI or a group of URIs to a
 The destination URI can be either on the same web site (an internal
 redirect) or an absolute URI pointing to another web site (an external redirect).
 END_DESCR
-
-EDITTIP: Set up redirect URI here. If it is an external redirect, you can specify the status 
-code. Internal redirect has to start with "/", external redirect can either start with "/" or with "http(s)://".
-END_EDITTIP
-
-EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
-default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
-directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
-"Require" are allowed.
-END_EDITTIP
-
-EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
-additional requirements can be specified.
-END_EDITTIP
 
 CONT: expuri externalredirect statuscode destinationuri realm 
 authName required accessAllowed accessDenied extAuthorizer
@@ -1777,23 +1680,9 @@ no need to go through all the troubles to define an external application, add a 
 and rewrite rules, etc.
 END_DESCR
 
-EDITTIP: Rack/Rails context is for easy configuration of running Rack/Rails application. You 
-only need to specify the root location of your rack/rails application in the "Location" field.
-END_EDITTIP
-
-EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
-default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
-directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
-"Require" are allowed.
-END_EDITTIP
-
-EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
-additional requirements can be specified.
-END_EDITTIP
-
-CONT: expuri location railsEnv maxConns env enableExpires 
+CONT: expuri rails_location railsEnv maxConns env enableExpires 
 expiresDefault expiresByType extraHeaders
-indexFiles autoIndex allowOverride 
+indexFiles autoIndex allowOverrideContext 
 realm authName required accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized 
 enableRewrite rewriteInherit rewriteBase rewriteRules 
@@ -1820,21 +1709,7 @@ no need to go through all the troubles to define an external application, add a 
 and rewrite rules, etc.
 END_DESCR
 
-EDITTIP: Rack/Rails context is for easy configuration of running Rack/Rails application. You only 
-need to specify the root location of your rack/rails application in the "Location" field.
-END_EDITTIP
-
-EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
-default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
-directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
-"Require" are allowed.
-END_EDITTIP
-
-EDITTIP: A Context can be protected with predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
-additional requirements can be specified.
-END_EDITTIP
-
-CONT: expuri location railsEnv maxConns env enableExpires 
+CONT: expuri rails_location railsEnv maxConns env enableExpires 
 expiresDefault expiresByType extraHeaders
 indexFiles autoIndex  
 realm authName required accessAllowed accessDenied extAuthorizer
