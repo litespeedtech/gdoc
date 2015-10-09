@@ -16,6 +16,9 @@ DESCR: Specifies whether to put log messages from this virtual host into the ser
 log file instead of creating its own log file.
 END_DESCR
 
+EDITTIP: If you use server setting, the log will write to the server file which is set up at server level.
+END_EDITTIP
+
 SYNTAX: bool
 END_SYNTAX
 
@@ -41,6 +44,10 @@ DESCR: Specifies the path for the log file.
 END_DESCR
 
 EDITTIP: Log file path can be either absolute path or relative to $SERVER_ROOT, $VH_ROOT.
+END_EDITTIP
+
+EDITTIP: If you want to set Log Level to DEBUG, you must set server log level to DEBUG as well. The level of 
+debugging is solely controlled by Server DEBUG Level. Use DEBUG only if you have to since it has great impact on server performance and may fill up disk space quickly.
 END_EDITTIP
 
 SYNTAX: file3
@@ -98,8 +105,16 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies where to write the access log. There are three options: 
-1. Write to the server's access log; 2. Create an access log for this virtual host; 3. Disable access logging.
+<br><br>
+1. Write to the server's access log
+<br><br>
+2. Create an access log for this virtual host
+<br><br>
+3. Disable access logging.
 END_DESCR
+
+EDITTIP: When required, you can disable access logging for this virtual host save disk i/o.
+END_EDITTIP
 
 SYNTAX: select
 END_SYNTAX
@@ -203,13 +218,6 @@ NAME: Virtual Host Log
 DESCR: 
 END_DESCR
 
-EDITTIP: If you use server setting, the log will write to the server file which is set up at server level.
-END_EDITTIP
-
-EDITTIP: If you want to set Log Level to DEBUG, you must set server log level to DEBUG as well. The level of 
-debugging is solely controlled by Server DEBUG Level. Use DEBUG only if you have to since it has great impact on server performance and may fill up disk space quickly.
-END_EDITTIP
-
 CONT: logUseServer vhlog_fileName vhlog_logLevel log_rollingSize 
 END_CONT
 
@@ -224,9 +232,6 @@ NS: L
 
 DESCR: 
 END_DESCR
-
-EDITTIP: When required, you can disable access logging for this virtual host save disk i/o.
-END_EDITTIP
 
 CONT: aclogUseServer vhaccessLog_fileName accessLog_pipedLogger 
 accessLog_logFormat accessLog_logHeader 
@@ -246,9 +251,6 @@ NS: EO
 
 DESCR: 
 END_DESCR
-
-EDITTIP: When required, you can disable access logging for this virtual host save disk i/o.
-END_EDITTIP
 
 CONT: aclogUseServer vhaccessLog_fileName accessLog_pipedLogger 
 accessLog_logFormat accessLog_logHeader 
