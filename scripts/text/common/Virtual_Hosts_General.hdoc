@@ -144,7 +144,7 @@ END_EDITTIP
 EDITTIP: You can disable index files by not using server settings and blanking vhost settings.
 END_EDITTIP
 
-EDITTI: You can enable/disable "auto index" at context level.
+EDITTIP: You can enable/disable "auto index" at context level.
 END_EDITTIP
 
 SYNTAX: select

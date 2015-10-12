@@ -347,7 +347,7 @@ DESCR: Specifies the maximum size of a HTTP request header including request URL
 Hard limit is {val}16380{/} bytes. 
 END_DESCR
 
-EDITTIP: Numbers can be represented like 10240, 10K or 1M.
+EDITTIP: Numbers can be represented as 10240, 10K or 1M.
 END_EDITTIP
 
 SYNTAX: uint

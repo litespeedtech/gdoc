@@ -821,43 +821,6 @@ END_TIPS
 [ITEM]
 ID: procSoftLimit
 NAME: Process Soft Limit
-NS: L
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Limits the total number of processes that can be created on behalf of a user. All existing processes will be counted against this limit, not just new 
-processes to be started.
-
-
-The limit can be set at the server level or at an individual external application level. The server-level limit will be used if it is not set at an 
-individual application level. 
-The operating system's default setting will be used if this value is 0 or absent at both levels.
-END_DESCR
-
-EDITTIP: Process soft/hard limit controls how many processes are allowed for one user. This includes all the processes spawned by CGI application. OS level limit is used if not set.
-END_EDITTIP
-
-EDITTIP: Set to 0 or empty will use operation system default value for all soft/hard limits.
-END_EDITTIP
-
-EDITTIP: The soft limit is the value that the kernel enforces for the corresponding resource. The hard limit acts as a ceiling for the soft limit
-END_EDITTIP 
-
-SYNTAX: uint
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-[END_ITEM]
-
-
-
-[ITEM]
-ID: procSoftLimit
-NAME: Process Soft Limit
 NS: E
 REQUIRED: 
 APPLY: 3
