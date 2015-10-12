@@ -330,7 +330,7 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: vhMaxKeepAliveReq vhSmartKeepAlive enableGzip enableIpGeo vhadminEmails 
+CONT: vhMaxKeepAliveReq vhSmartKeepAlive enableGzip enableIpGeo
 END_CONT
 
 SEE_ALSO: 
