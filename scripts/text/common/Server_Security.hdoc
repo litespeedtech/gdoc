@@ -600,7 +600,7 @@ and limits concurrent CGI processes to ensure the optimal performance and reliab
 The hard limit is {val}2000{/}. 
 END_DESCR
 
-EDITTIP: Limits resources that CGI program can use. This helps against DoS attack.
+EDITTIP: Limits resources that a CGI program can use. This helps against DoS attacks.
 END_EDITTIP
 
 EDITTIP: Max CGI Instances controls how many CGI processes the web server can launch.

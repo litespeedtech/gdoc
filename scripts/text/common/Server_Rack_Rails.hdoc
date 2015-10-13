@@ -16,7 +16,7 @@ DESCR: Specifies path to Ruby executable. Generally, it is /usr/bin/ruby
 or /usr/local/bin/ruby depending on where Ruby has been installed to.
 END_DESCR
 
-EDITTIP: Ruby Path is the path of ruby executable. For e.g., /usr/local/bin/ruby. It has to be an absolute path.
+EDITTIP: <b>Ruby Path</b> is the path of a ruby executable. For e.g., /usr/local/bin/ruby. It has to be an absolute path.
 END_EDITTIP
 
 SYNTAX: path1

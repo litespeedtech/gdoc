@@ -253,7 +253,7 @@ automatically whenever there are more than 30 "503" errors within a 30
 seconds span. This feature is enabled by default.
 END_DESCR
 
-EDITTIP: When you enable "Auto Restart" the monitor process will automatically launch a new server process and service will resume instantly if a crash is detected.
+EDITTIP: When you enable <b>Auto Fix 503 Error</b>, the monitor process will automatically launch a new server process and service will resume instantly if a crash is detected.
 END_EDITTIP
 
 SYNTAX: bool
@@ -337,7 +337,7 @@ It is always relative to the real root when an absolute path is given in chroot 
 Click on the file name to view/edit the detailed MIME entries.
 END_DESCR
 
-EDITTIP: MIME settings can be edited from previous page. You can specify the mime configuration file location which can be either be an absolute path or relative 
+EDITTIP: MIME settings can be edited from the previous page. You can specify the mime configuration file location which can be either be an absolute path or relative 
 to $SERVER_ROOT.
 END_EDITTIP
 
@@ -630,6 +630,7 @@ EDITTIP: Expires can be set at the Server/Virtual Host/Context level. Lower leve
 level settings. In terms of overwrite priority:
 <br><br>
 Context Level > Virtual Host Level > Server Level
+<br><br>
 END_EDITTIP
 
 SYNTAX: bool

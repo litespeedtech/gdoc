@@ -127,13 +127,13 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: 
+DESCR: List of worker groups previously defined in the external load balancer.
 END_DESCR
 
 EDITTIP: Load balancing workers must be previously defined.
 END_EDITTIP
 
-EDITTIP: Available ExtApp Types are fcgi(Fast CGI App), fcgiauth(Fast CGI Authorizer), lsapi(LSAPI App), servlet(Servlet/JSP Engine), proxy(Web Server).
+EDITTIP: Available ExtApp Types are fcgi(Fast CGI App), lsapi(LSAPI App), servlet(Servlet/JSP Engine), proxy(Web Server).
 END_EDITTIP
 
 EDITTIP: Different types of external applications can be mixed in one load balancing cluster.
