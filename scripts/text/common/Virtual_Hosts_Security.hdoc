@@ -629,7 +629,7 @@ END_TIPS
 
 
 [ITEM]
-ID: group
+ID: UDBgroup
 NAME: Groups
 REQUIRED: 
 APPLY: 3
@@ -724,7 +724,7 @@ END_DESCR
 CONT: realmName realmType userDBLocation userDB_attrPasswd
 userDB_attrMemberOf userDBMaxCacheSize userDBCacheTimeout 
 GroupDBLocation groupDB_attrGroupMember groupDBMaxCacheSize 
-groupDBCacheTimeout LDAPBindDN LDAPBindPasswd group users
+groupDBCacheTimeout LDAPBindDN LDAPBindPasswd UDBgroup users
 END_CONT
 
 SEE_ALSO: 

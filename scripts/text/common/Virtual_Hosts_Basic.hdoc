@@ -42,7 +42,7 @@ the document root. It is recommended to place all files related to the virtual h
 under this directory. Virtual Host Root can be referred to using the variable $VH_ROOT.
 END_DESCR
 
-EDITTIP: All directories must preexist. This web interface will not create directory for you. If you are creating a new virtual host, you 
+EDITTIP: All directories must pre-exist. This web interface will not create directory for you. If you are creating a new virtual host, you 
 can create an empty root directory and set it up from the beginning; or you can copy the DEFAULT virtual root that shipped with the package to this virtual 
 host root and modify it.
 END_EDITTIP

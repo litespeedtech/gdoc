@@ -941,7 +941,7 @@ END_EDITTIP
 EDITTIP: Path can be either absolute or relative to $SERVER_ROOT, use comma to separate.
 END_EDITTIP
 
-EDITTIP: If both Follow Symbolic Link and Check Symbolic Link are enabled, symbolic links will be checked against the denied directories.
+EDITTIP: If both <b>Follow Symbolic Link</b> and <b>Check Symbolic Link</b> are enabled, symbolic links will be checked against the denied directories.
 END_EDITTIP
 
 SYNTAX: Comma-delimited list of directories
