@@ -94,7 +94,7 @@ class HelpDB
             }
 
             if ( isset($config['tip_nav']) ) {
-                if ($lang == DEFAULT_LANG) {
+                if ($lang == DEFAULT_LANG && count($config['lang']) == 1) {
                     $tipfile = $config['outdir']['tips'] . DOC_TYPE . '_tips' ;
                 }
                 else {
@@ -140,7 +140,7 @@ class HelpDB
         $path = array('common', DOC_TYPE) ;
         foreach ($path as $p) {
             $dir = $textpath . '/' . $p;
-            if ($pathfiles = scandir($dir)) {
+            if (is_dir($dir) && ($pathfiles = scandir($dir))) {
                 foreach ( $pathfiles as $f ) {
                     if ( strpos($f, '.hdoc') !== false ) {
                         $texts[] = $dir . '/' . $f ;
@@ -217,10 +217,12 @@ class HelpDB
 		$startInd = false;
         $curTag = '';
         $curBuf = NULL;
+        $curLine = 0;
 
 		while ( !feof($fd) )
 		{
 			$tmp = fgets($fd, 4096);
+            $curLine ++;
 
             $tag = '[END_' . $root . ']';
 			if ( strncmp( $tag, $tmp, strlen($tag) ) == 0 )
@@ -239,7 +241,7 @@ class HelpDB
 				if ( strncmp( $tag, $tmp, strlen($tag) ) == 0 )
 				{
 					$itemClass = $def[$curTag];
-                    $item = new $itemClass($curBuf, $helpDoc);
+                    $item = new $itemClass($curBuf, $helpDoc, $curLine);
                     $this->addToDB($item);
                     $curTag = '';
                     $curBuf = NULL;

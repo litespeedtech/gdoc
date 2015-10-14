@@ -8,6 +8,7 @@ abstract class Item
     protected $_lang = array();
 
     protected $_src;
+    protected $_startLine = -1;
 
     public function inCurrentNameSpace()
     {
@@ -189,7 +190,7 @@ abstract class Item
 
     public function showErr($errMesg, $errType='ERR')
     {
-        echo '[' . $errType . '] ' . $this->_type . ' ID:' . $this->getId() . ' in ' . $this->_src . ' : ' . $errMesg . "\n";
+        echo '[' . $errType . '] ' . $this->_type . ' ID:' . $this->getId() . ' in ' . $this->_src . ' [' . $this->_startLine . ']  : ' . $errMesg . "\n";
     }
 
     public function dumpDebug()

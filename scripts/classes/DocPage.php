@@ -7,10 +7,11 @@ class DocPage extends Item
 	public $_tables;
 	public $_items;
 
-    public function __construct($buf='', $src='')
+    public function __construct($buf='', $src='', $start=-1)
     {
         $this->_type = HelpDocDef::TYPE_PAGE;
         $this->_src = $src;
+        $this->_startLine = $start;
 
 		if ( $buf != '' ) {
 			$this->parseDoc($buf);

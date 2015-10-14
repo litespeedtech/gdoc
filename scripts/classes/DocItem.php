@@ -4,10 +4,11 @@ class DocItem extends Item
 {
 	protected $_width='100%';
 
-    public function __construct($buf='', $src='')
+    public function __construct($buf='', $src='', $start=-1)
     {
         $this->_type = HelpDocDef::TYPE_ITEM;
         $this->_src = $src;
+        $this->_startLine = $start;
 		if ( $buf != '' ) {
 			$this->parseDoc($buf);
         }
@@ -127,7 +128,14 @@ class DocItem extends Item
         if ($this->hasValue('EDITTIP')) {
             $id = $this->getDefaultValue('ID');
             $tips = $this->getValueInLang('EDITTIP');
-            $buf .= '$this->edb[\'' . $id . '\'] = array(';
+            if (DOC_TYPE == 'ows') {
+                $buf .= "\n\$_tipsdb['EDTP:$id']";
+            }
+            else {
+                $buf .= '$this->edb[\'' . $id . "']";
+            }
+            $buf .= ' = array(';
+            
             foreach ($tips as $tip) {
                 $buf .= "'" . str_replace($search, $replace, $tip) . "',";
             }

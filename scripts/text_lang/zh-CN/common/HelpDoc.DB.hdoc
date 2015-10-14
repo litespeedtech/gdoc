@@ -4537,11 +4537,6 @@ Litespeed网页服务器可以通过查看HTTP请求头的转发地址来防止�
 
 END_DESCR
 
-CONT: enableHotlinkCtrl suffixes redirectUri allowDirectAccess 
-onlySelf allowedHosts matchedHosts
-END_CONT
-
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -4554,10 +4549,6 @@ DESCR: {ent_version}多个MaxMind地理定位数据库可以在这里指定。Ma
 
 END_DESCR
 
-CONT: geoipDBFile geoipDBCache 
-END_CONT
-
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -4569,13 +4560,6 @@ SEE_ALSO:
 ID: servLog
 NAME: 服务器日志
 
-DESCR: 
-END_DESCR
-
-CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_enableStderrLog 
-END_CONT
-
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -4583,27 +4567,12 @@ SEE_ALSO:
 ID: servAcLog
 NAME: 访问日志
 
-DESCR: 
-END_DESCR
-
-CONT: accessLog_fileName accessLog_pipedLogger accessLog_logFormat accessLog_logHeader log_rollingSize accessLog_keepDays accessLog_compressArchive
-END_CONT
-
-SEE_ALSO: 
 [END_TBL]
 
 
 [TBL]
 ID: servIndex
 NAME: 索引文件
-
-DESCR: 
-END_DESCR
-
-CONT: indexFiles autoIndex autoIndexURI
-END_CONT
-
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -4611,18 +4580,7 @@ SEE_ALSO:
 [TBL]
 ID: reqTuning
 NAME: 请求/响应调整
-
-DESCR: 
-END_DESCR
-
-CONT: maxReqURLLen maxReqHeaderSize maxReqBodySize
-      maxDynRespHeaderSize maxDynRespSize 
-END_CONT
-
-SEE_ALSO: 
 [END_TBL]
-
-
 
 
 [TBL]
@@ -4647,10 +4605,6 @@ END_DESCR
 TIPS: [安全建议] 用此项设置适用于所有虚拟主机的常规限制。
 END_TIPS
 
-CONT: accessControl_allow accessControl_deny 
-END_CONT
-
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -4660,77 +4614,22 @@ SEE_ALSO:
 [TBL]
 ID: vhLog
 NAME: 虚拟主机日志
-
-DESCR: 
-END_DESCR
-
-CONT: logUseServer log_fileName vhlog_logLevel log_rollingSize 
-END_CONT
-
-SEE_ALSO: 
 [END_TBL]
 
 
 [TBL]
 ID: vhAcLog
 NAME: 访问日志
-
-DESCR: 
-END_DESCR
-
-CONT: aclogUseServer accessLog_fileName accessLog_pipedLogger 
-accessLog_logFormat accessLog_logHeader 
-log_rollingSize accessLog_keepDays 
-accessLog_bytesLog accessLog_compressArchive
-END_CONT
-
-SEE_ALSO: 
 [END_TBL]
-
-
-[TBL]
-ID: vhAccessControl
-NAME: 登入限制
-
-DESCR: 除了服务器级别的设置外，您还可以额外指定哪个子网络/或IP地址可以访问该虚拟主机。这个虚拟主机设定不会覆盖服务器设置。
-是否阻止/允许一个IP是由允许列表与阻止列表共同决定。
-如果你想阻止某个特定的IP或子网，将{val}*{/} 或 {val}ALL{/}写入允许列表并且在拒绝列表中列出需要阻止的IP和子网。
-如果你想允许某个特定的IP或子网，将{val}*{/} 或 {val}ALL{/}写入拒绝列表并且在允许列表中列出需要允许的IP或子网。
-单个IP地址是被允许访问还是禁止访问取决于该IP符合的最小限制范围。
-
-END_DESCR
-
-CONT: accessControl_allow accessControl_deny 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
 
 [TBL]
 ID: coredump
 NAME: 常规选项
-
-DESCR: 
-END_DESCR
-
-CONT: enableCoreDump consoleSessionTimeout
-END_CONT
-
-SEE_ALSO: 
-[END_TBL​​]
+[END_TBL]
 
 [TBL]
-ID: adminUsers
+ID: adminUser
 NAME: 网络管理员用户
-
-DESCR: 
-END_DESCR
-
-CONT: adminUser
-END_CONT
-
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -4743,14 +4642,6 @@ Realm授权可以阻止未授权用户访问受保护的网页。
 Realm是一个用户名录，其中包含了用户名、密码、分组（可选）。授权是在context级别执行的。不同的context可以共享相同的Realm（用户数据库），所以Realm是与调用它的context分开定义的。你可以通过context配置中的名称识别Realm。
 
 END_DESCR
-
-CONT: realmName realmType userDBLocation userDB_attrPasswd
-userDB_attrMemberOf userDBMaxCacheSize userDBCacheTimeout 
-GroupDBLocation groupDB_attrGroupMember groupDBMaxCacheSize 
-groupDBCacheTimeout LDAPBindDN LDAPBindPasswd
-END_CONT
-
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -4766,15 +4657,6 @@ NAME: 管理控制台设置
 
 DESCR: 中控服务器是专门用于WebAdmin控制台的虚拟主机。确保中控服务器只允许管理员终端登入或者采用加密的SSL连接是十分必要的。
  
-
-
-CONT: coredump vhLog vhAcLog vhAccessControl adminUsers
-END_CONT
-
-SEE_ALSO: 
 [END_PAGE]
-
-
-
 
 [END_HELPDOC]
