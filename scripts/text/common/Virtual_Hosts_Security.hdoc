@@ -689,6 +689,7 @@ END_CONT
 [TBL]
 ID: vhHotlink
 NAME: Hotlink Protection
+NS: E
 
 DESCR: Hotlinks are requests made from an external website to
 files on your own website often referred to as "leeching". This practice
@@ -711,6 +712,7 @@ SEE_ALSO:
 [TBL]
 ID: realms
 NAME: Authorization Realms
+NS: E
 
 DESCR: Lists all authorization realms for this virtual host. 
 Authorization realms are used to block unauthorized users from accessing protected web pages.
@@ -727,5 +729,30 @@ GroupDBLocation groupDB_attrGroupMember groupDBMaxCacheSize
 groupDBCacheTimeout LDAPBindDN LDAPBindPasswd UDBgroup users
 END_CONT
 
+SEE_ALSO:
+[END_TBL]
+
+
+[TBL]
+ID: realms
+NAME: Authorization Realms
+NS: O
+
+DESCR: Lists all authorization realms for this virtual host. 
+Authorization realms are used to block unauthorized users from accessing protected web pages.
+A realm is a user directory containing usernames and passwords with optional 
+group classifications. Authorization is performed at context level. 
+Since different contexts can share the same realm (user database), so realms are 
+defined separately from the contexts that use them. 
+You can refer to a realm by these names in context configuration. 
+END_DESCR
+
+CONT: realmName userDBLocation userDBMaxCacheSize userDBCacheTimeout 
+GroupDBLocation groupDBMaxCacheSize 
+groupDBCacheTimeout UDBgroup users
+END_CONT
+
 SEE_ALSO: 
 [END_TBL]
+
+[END_HELPDOC]

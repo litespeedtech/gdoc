@@ -16,7 +16,7 @@ DESCR: Specifies whether to put log messages from this virtual host into the ser
 log file instead of creating its own log file.
 END_DESCR
 
-EDITTIP: If you use server setting, the log will write to the server file which is set up at server level.
+EDITTIP: If you select "Yes" for <b>Use Server's Log</b>, the log will be written to the server file set up at the server level.
 END_EDITTIP
 
 SYNTAX: bool

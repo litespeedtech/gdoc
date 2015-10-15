@@ -368,7 +368,7 @@ DESCR: Specifies the name of the external web server.
 This external web server must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
 END_DESCR
 
-EDITTIP: Proxy context enables this virtual host serving as a transparant reverse proxy server to an external web server or application server.
+EDITTIP: Proxy context enables this virtual host serving as a transparent reverse proxy server to an external web server or application server.
 END_EDITTIP
 
 EDITTIP: External web server must be pre-defined under External App at server or virtual host level.
