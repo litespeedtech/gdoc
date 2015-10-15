@@ -46,7 +46,7 @@ SEE_ALSO:
 DESCR: Specifies email address(es) of the administrator(s) of this virtual host.
 END_DESCR
 
-EDITTIP: You can enter multiple admin emails, separated by comma.
+EDITTIP: You can enter multiple admin emails, separated by commas.
 END_EDITTIP
 
 SYNTAX: Comma separated list of email addresses
@@ -135,16 +135,16 @@ this virtual host, you can set the value to {val}No{/} and leave the index files
 field empty.
 END_DESCR
 
-EDITTIP: You can use default server level settings for index files or use your own ones.
+EDITTIP: You can use default server level settings for index files or use your own.
 END_EDITTIP
 
-EDITTIP: You can use your settings in addition to the server settings.
+EDITTIP: You can use your settings in addition to the server level settings.
 END_EDITTIP
 
-EDITTIP: You can disable index files by not using server settings and blanking vhost settings.
+EDITTIP: You can disable index files by choosing not to use server level settings and leaving vhost level settings blank.
 END_EDITTIP
 
-EDITTIP: You can enable/disable "auto index" at context level.
+EDITTIP: You can enable/disable "auto index" at the context level.
 END_EDITTIP
 
 SYNTAX: select
@@ -266,7 +266,7 @@ When referring to a page on another web site, the client will receive a redirect
 code instead of the original status code.
 END_DESCR
 
-EDITTIP: You can set up your customized error pages for different error codes.
+EDITTIP: You can set up customized error pages for different error codes.
 END_EDITTIP
 
 SYNTAX: URL
