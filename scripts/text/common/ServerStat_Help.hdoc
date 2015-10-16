@@ -129,7 +129,7 @@ the top of the page) is a convenient tool to manage LSWS
 versions. It shows license info and information on all installed versions
 and available new releases. 
 
-<ul><li>If is a new version has been released on the
+<ul><li>If a new version has been released on the
 LiteSpeed website, and {ITEM=ServGeneral_Help#autoUpdateInterval} is 
 enabled, the new version will be listed with a {val}Download{/} link. If
 {ITEM=ServGeneral_Help#autoUpdateDownloadPkg} is

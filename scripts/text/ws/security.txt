@@ -70,14 +70,11 @@ A system process limit can be specified per user in order to control the number
 of processes that can be spawned by a CGI application. Each process is further confined by CPU and memory limits.</p>
 </li>
   <li><h3>Enhanced CGI/FastCGI security with suEXEC:</h3>
-<p>In order to reduce the security risks of a CGI or Fast CGI script, LiteSpeed Web Server can restrict the system resources the CGI script can access by running it in "suEXEC" mode. 
-"suEXEC" starts the CGI or Fast CGI script with a different user ID from that of the web server. This greatly improves security in
+<p>In order to reduce the security risks of a CGI or Fast CGI script, LiteSpeed Web Server can restrict the system resources the CGI script can access by running it in 
+"suEXEC" or "chroot jail" mode. "suEXEC" starts the CGI or Fast CGI script with a different user ID from that of the web server. This greatly improves security in
 shared hosting environment by preventing one user's CGI script from accessing other users' files.</p>
-<p>In order to reduce the security risks of a CGI or Fast CGI script, LiteSpeed Web Server can restrict the system resources the CGI script can access by running it in "suEXEC" 
- or "chroot jail" mode. "suEXEC" starts the CGI or Fast CGI script with a different user ID from that of the web server. This greatly improves security in
-     shared hosting environment by preventing one user's CGI script from accessing other users' files.</p>
 <p>"chroot jail" starts the CGI script under an assigned alternative
-     root directory. The script can not access files beyond the new root directory. 
+     root directory. The script can not access files beyond this new root directory. 
      With this, you no longer need to worry about confidential system files being 
      exposed by vulnerable scripts.</p>
 </li>

@@ -100,7 +100,7 @@ Compare that to Apache's 40% drop in performance when .htaccess files are used.<
 	<p>LiteSpeed Web Server recovers from crashes instantly. LiteSpeed Web Server also runs completely in user space.
 	Thus the server can easily switch between different versions without affecting the reliability of the operating system.
 	</p>
-	<p>CGI, Fast CGI and Servlet engine run in their standalone processes, the
+	<p>CGI, Fast CGI and servlet engines run in their standalone processes, the
 reliability of web server is not affected by the quality of third party software.</p>
 
 <h3>User Friendly</h3>

@@ -709,7 +709,7 @@ of files under that directory.
 	"AuthGroupFile",  "AuthName", "AuthType", 
 	"AuthUserFile", and "Require" are allowed.</li>
 	<li>When {val}FileInfo{/} is checked, directives
-	"Satisfy", AddDefaultCharset", "AddType",
+	"Satisfy", "AddDefaultCharset", "AddType",
 	"DefaultType", "ForceType", "ExpiresActive", "ExpiresDefault",
 	"ExpiresByType", "Redirect", "RedirectTemp", "RedirectPermanent",
 	"RewriteEngine", "RewriteOptions", "RewriteBase", "RewriteCond"
@@ -766,7 +766,7 @@ END_DESCR
 EDITTIP: It is recommended to use a hidden access file, simply put file name starting with ".", like ".htaccess". LiteSpeed web server does not serve hidden files.
 END_EDITTIP
 
-SYNTAX: File name with ".".
+SYNTAX: File name starting with "."
 END_SYNTAX
 
 EXAMPLE: 
