@@ -10,7 +10,7 @@
 <li><a href="admin.html">Administration</a>
 	<ul class="level2"><li><a href="ServerStat_Help.html">Service Manager</a></li></ul></li>
 <li><a href="security.html">Security</a></li>
-<li><a href="config.html">Configurations</a>
+<li><a href="config.html">Configuration</a>
 	<ul class="level2">
 	<li><a href="ServGeneral_Help.html">Server General</a></li>
 	<li><a href="ServTuning_Help.html">Server Tuning</a></li>
@@ -31,7 +31,7 @@
 	<li><a href="Rails_Help.html">Rack/Rails Settings</a></li>
 	<li><a href="Listeners_Help.html">Listeners</a></li>
 	<li><a href="Templates_Help.html">Templates</a></li>
-	<li><a href="VirtualHosts_Help.html">Virtual Hosts Base</a></li>
+	<li><a href="VirtualHosts_Help.html">Virtual Host Base</a></li>
 	<li><a href="VHGeneral_Help.html">Virtual Host General</a></li>
 	<li><a href="VHSecurity_Help.html">Virtual Host Security</a></li>
 	<li><a href="Rewrite_Help.html">Rewrite</a></li>
@@ -41,7 +41,7 @@
                 <li><a href="Java_Web_App_Context.html">Java Web App Context</a></li>
                 <li><a href="Servlet_Context.html">Servlet Context</a></li>
                 <li><a href="FCGI_Context.html">Fast CGI Context</a></li>
-                <li><a href="LSAPI_Context.html">LiteSpeed SAPI Context</a></li>
+                <li><a href="LSAPI_Context.html">LSAPI Context</a></li>
                 <li><a href="Proxy_Context.html">Proxy Context</a></li>
                 <li><a href="CGI_Context.html">CGI Context</a></li>
                 <li><a href="LB_Context.html">Load Balancer Context</a></li>
