@@ -41,6 +41,7 @@ class MapLSWS
                         'LB_Context' => 'config/context/load-balancer',
                         'Redirect_Context' => 'config/context/redirect',
                         'Rails_Context' => 'config/context/rails',
+                        'VHWebSocket_Help' => 'config/web-socket-proxy',
 			'VHAddOns_Help' => 'config/addons',
 			'AdminGeneral_Help' => 'config/adminserver',
 			'AdminListener_Help' => 'config/adminlistener',

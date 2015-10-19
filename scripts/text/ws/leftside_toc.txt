@@ -48,6 +48,7 @@
                 <li><a href="Redirect_Context.html">Redirect Context</a></li>
                 <li><a href="Rails_Context.html">Rack/Rails Context</a></li>
                 </ul>
+        <li><a href="VHWebSocket_Help.html">Web Socket Proxy</a></li>
 	<li><a href="VHAddOns_Help.html">Add-ons</a></li>
 	<li><a href="AdminGeneral_Help.html">Admin Server</a></li>
 	<li><a href="AdminListener_Help.html">Admin Listeners</a></li>
