@@ -80,6 +80,7 @@ class GenWebDoc
 			}
 			$bufnew = str_replace($search, $replace, $buf);
 			GenTool::writePage($tofile, $bufnew);
+            unlink($fromfile);
 		}
 	}
 }
