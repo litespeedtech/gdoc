@@ -98,7 +98,7 @@ EOD;
 
         $buf .= '</div><div class="next">' ;
 
-        if ( isset($next) && count($next) == 2 ) {
+        if ( $nav['next'] ) {
             $buf .= '<a href="' . $nav['next']->getId() . '.html">' . $nav['next']->getName() . '</a> &#187;' ;
         }
         else

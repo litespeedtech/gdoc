@@ -1,0 +1,20 @@
+
+
+[TBL]
+ID: vhAccessControl
+NAME: 登入限制
+
+DESCR: 除了服务器级别的设置外，您还可以额外指定哪个子网络/或IP地址可以访问该虚拟主机。这个虚拟主机设定不会覆盖服务器设置。
+是否阻止/允许一个IP是由允许列表与阻止列表共同决定。
+如果你想阻止某个特定的IP或子网，将{val}*{/} 或 {val}ALL{/}写入允许列表并且在拒绝列表中列出需要阻止的IP和子网。
+如果你想允许某个特定的IP或子网，将{val}*{/} 或 {val}ALL{/}写入拒绝列表并且在允许列表中列出需要允许的IP或子网。
+单个IP地址是被允许访问还是禁止访问取决于该IP符合的最小限制范围。
+
+END_DESCR
+
+CONT: accessControl_allow accessControl_deny 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
