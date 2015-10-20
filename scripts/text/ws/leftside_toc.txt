@@ -31,7 +31,7 @@
 	<li><a href="Rails_Help.html">Rack/Rails Settings</a></li>
 	<li><a href="Listeners_Help.html">Listeners</a></li>
 	<li><a href="Templates_Help.html">Templates</a></li>
-	<li><a href="VirtualHosts_Help.html">Virtual Host Base</a></li>
+	<li><a href="VirtualHosts_Help.html">Virtual Host Basic</a></li>
 	<li><a href="VHGeneral_Help.html">Virtual Host General</a></li>
 	<li><a href="VHSecurity_Help.html">Virtual Host Security</a></li>
 	<li><a href="Rewrite_Help.html">Rewrite</a></li>
