@@ -736,7 +736,7 @@ SEE_ALSO:
 [TBL]
 ID: realms
 NAME: Authorization Realms
-NS: O
+NS: LO
 
 DESCR: Lists all authorization realms for this virtual host. 
 Authorization realms are used to block unauthorized users from accessing protected web pages.
