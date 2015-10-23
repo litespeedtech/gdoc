@@ -7,12 +7,12 @@
 [TBL]
 ID: sslFeature
 NAME: Security & Features
-NS: EO
+NS: LO
 
 DESCR: 
 END_DESCR
 
-CONT: renegProtection enableSpdy
+CONT: renegProtection sslSessionCache sslSessionTickets enableSpdy
 END_CONT
 
 SEE_ALSO: 
@@ -23,15 +23,16 @@ SEE_ALSO:
 [TBL]
 ID: sslFeature
 NAME: Security & Features
-NS: L
+NS: E
 
 DESCR: 
 END_DESCR
 
-CONT: renegProtection sslSessionCache sslSessionTickets enableSpdy
+CONT: renegProtection enableSpdy
 END_CONT
 
 SEE_ALSO: 
 [END_TBL]
+
 
 [END_HELPDOC]
