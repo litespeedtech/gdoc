@@ -1287,6 +1287,7 @@ session tickets, you must be rotate the tickets yourself using a cron job.
 END_DESCR
 
 CONT: sslSessionCache sslSessionCacheSize sslSessionCacheTimeout sslSessionTickets shmDefaultDir sslSessionTicketLifetime sslSessionTicketKeyFile 
+sslEnableMultiCerts
 END_CONT
 
 SEE_ALSO: 
