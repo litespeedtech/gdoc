@@ -1279,7 +1279,23 @@ SEE_ALSO:
 [PAGE]
 ID: ServTuning_Help 
 NAME: Server Tuning
-NS: EO
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: connTuning reqTuning gzipTuning sslSessionTBL
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: ServTuning_Help 
+NAME: Server Tuning
+NS: E
 
 DESCR: 
 END_DESCR
@@ -1295,12 +1311,12 @@ SEE_ALSO:
 [PAGE]
 ID: ServTuning_Help 
 NAME: Server Tuning
-NS: L
+NS: O
 
 DESCR: 
 END_DESCR
 
-CONT: connTuning reqTuning gzipTuning sslSessionTBL
+CONT: osTuning connTuning reqTuning staticTuning gzipTuning sslSessionTBL
 END_CONT
 
 SEE_ALSO: 
