@@ -108,7 +108,7 @@ class HelpDB
 
         if ( $config['FOR_WEB'] ) {
             $webdocs = new GenWebDoc() ;
-            $webdocs->GenerateWebDocs(new MapLSWS()) ;
+            $webdocs->Generate() ;
         }
 
     }

@@ -39,6 +39,7 @@ $config['FOR_WEB'] = false;
 
 
 if ($DOC_TYPE == 'lb') {
+	$config['FOR_WEB'] = true;
     $config['ws_lb_replace'] = array('');
 }
 elseif ($DOC_TYPE == 'ws') {
