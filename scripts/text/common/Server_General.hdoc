@@ -827,4 +827,65 @@ SEE_ALSO:
 [END_TBL]
 
 
+
+################ Pages ################
+
+
+[PAGE]
+ID: ServGeneral_Help 
+NAME: Server General
+NS: L
+
+DESCR: General settings for the load balancer. When a path information is required, 
+it can be either absolute or relative to $SERVER_ROOT. $SERVER_ROOT is the 
+location where LiteSpeed load balancer is installed. For examples, it can be 
+your_home_dir/lslb, /opt/lslb, or etc. The load balancer executable is under $SERVER_ROOT/bin. 
+END_DESCR
+
+CONT: servProcess servGeneral geolocationDB 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: ServGeneral_Help 
+NAME: Server General
+NS: E
+
+DESCR: General settings for the whole server. When path information is required in a setting, 
+it can be either absolute or relative to $SERVER_ROOT. $SERVER_ROOT is the 
+location where LiteSpeed web server has been installed (your_home_dir/lsws or 
+/opt/lsws, for example). The server executable is under $SERVER_ROOT/bin. 
+END_DESCR
+
+CONT: servProcess servGeneral servIndex htaccess 
+expire geolocationDB apacheConfigFile apacheConfig
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: ServGeneral_Help 
+NAME: Server General
+NS: O
+
+DESCR: General settings for the whole server. When path information is required in a setting, 
+it can be either absolute or relative to $SERVER_ROOT. $SERVER_ROOT is the 
+location where LiteSpeed web server has been installed (your_home_dir/lsws or 
+/opt/lsws, for example). The server executable is under $SERVER_ROOT/bin. 
+END_DESCR
+
+CONT: servProcess servGeneral servIndex expire fileUpload geolocationDB 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
 [END_HELPDOC]

@@ -104,6 +104,67 @@ END_TIPS
 
 ############# Connection #############
 
+
+[ITEM]
+ID: maxConnections
+NAME: Max Connections
+NS: LO
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum number of concurrent connections that the server can accept. 
+This includes both plain TCP connections and SSL connections. Once the maximum concurrent connections limit is reached, 
+the server will close Keep-Alive connections when they complete active requests. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: When the server is started by "root" user, the server will try to
+adjust the per-process file descriptor limits automatically, however,
+if this fails, you may need to increase this limit manually.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: maxConnections
+NAME: Max Connections
+NS: E
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum number of concurrent connections that the server can accept. 
+This includes both plain TCP connections and SSL connections. This setting should not be set to exceed 
+the hard limit set by the server software edition or license: {val}150{/} for Standard Edition, {val}500{/} 
+for VPS license, {val}800{/} for Ultra VPS license. Once the maximum concurrent connections limit is reached, 
+the server will close Keep-Alive connections when they complete active requests. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: When the server is started by "root" user, the server will try to
+adjust the per-process file descriptor limits automatically, however,
+if this fails, you may need to increase this limit manually.
+END_TIPS
+
+[END_ITEM]
+
+
+
 [ITEM]
 ID: maxSSLConnections
 NAME: Max SSL Connections

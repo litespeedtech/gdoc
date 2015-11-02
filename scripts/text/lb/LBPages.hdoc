@@ -2,62 +2,6 @@
 
 
 [ITEM]
-ID: maxConnections
-NAME: Max Connections
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies the maximum number of concurrent connections that the server can accept. 
-This includes both plain TCP connections and SSL connections. Once the maximum concurrent connections limit is reached, 
-the server will close Keep-Alive connections when they complete active requests. 
-END_DESCR
-
-SYNTAX: uint
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: When the server is started by "root" user, the server will try to
-adjust the per-process file descriptor limits automatically, however,
-if this fails, you may need to increase this limit manually.
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
-ID: listenerType
-NAME: Type
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies the listener type.  
-
-An “http” listener treats requests as an HTTP Request, so it will parse the request data to use for the load balancing.  
-
-A “tcp” listener will not parse the request data. Rather, it will only parse the client’s IP address and port to do the load balancing.
-END_DESCR
-
-SYNTAX: select
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
 ID: mapped_L4_clusters
 NAME: Mapped Cluster
 REQUIRED: 
@@ -83,42 +27,6 @@ END_TIPS
 
 
 [PAGE]
-ID: ServGeneral_Help 
-NAME: Server General
-
-DESCR: General settings for the load balancer. When a path information is required, 
-it can be either absolute or relative to $SERVER_ROOT. $SERVER_ROOT is the 
-location where LiteSpeed load balancer is installed. For examples, it can be 
-your_home_dir/lslb, /opt/lslb, or etc. The load balancer executable is under $SERVER_ROOT/bin. 
-END_DESCR
-
-CONT: servProcess servGeneral geolocationDB 
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
-
-
-
-[PAGE]
-ID: ServLog_Help 
-NAME: Server Log
-
-DESCR: Server log and access log settings for the load balancer. When a path information is required, 
-it can be either absolute or relative to $SERVER_ROOT. $SERVER_ROOT is the 
-location where LiteSpeed load balancer is installed. For examples, it can be 
-your_home_dir/lslb, /opt/lslb, or etc. The load balancer executable is under $SERVER_ROOT/bin. 
-END_DESCR
-
-CONT: servLog servAcLog 
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
-
-
-
-[PAGE]
 ID: VHGeneral_Help 
 NAME: Virtual Host General
 
@@ -126,21 +34,6 @@ DESCR:
 END_DESCR
 
 CONT: vhGeneral vhAcLog errPage
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
-
-
-
-[PAGE]
-ID: VHSecurity_Help 
-NAME: Virtual Host Security
-
-DESCR: 
-END_DESCR
-
-CONT: tpSecThrottle accessControl realms reqCensorship reqCensorshipRule
 END_CONT
 
 SEE_ALSO: 

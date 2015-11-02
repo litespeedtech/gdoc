@@ -50,8 +50,9 @@ ID: OLSWS_CONF_NAV
 TOP_NAV: config
 
 NAV_SEQ: 
-ServGeneral_Help 
-ServTuning_Help 
+ServGeneral_Help
+ServLog_Help
+ServTuning_Help
 ServSecurity_Help
 ExtApp_Help
 ScriptHandler_Help 

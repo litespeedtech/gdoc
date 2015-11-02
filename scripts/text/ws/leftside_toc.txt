@@ -13,6 +13,7 @@
 <li><a href="config.html">Configuration</a>
 	<ul class="level2">
 	<li><a href="ServGeneral_Help.html">Server General</a></li>
+        <li><a href="ServLog_Help.html">Server Log</a></li>
 	<li><a href="ServTuning_Help.html">Server Tuning</a></li>
 	<li><a href="ServSecurity_Help.html">Server Security</a></li>
 	<li><a href="RequestFilter_Help.html">Request Filter</a></li>

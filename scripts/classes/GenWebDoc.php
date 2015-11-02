@@ -10,6 +10,7 @@ class MapLSWS
 	{
 		$this->dyn_map = array(
 			'ServGeneral_Help' => 'config/general',
+                        'ServLog_Help' => 'config/slog',
 			'ServTuning_Help' => 'config/tuning',
 			'ServSecurity_Help' => 'config/security',
 			'RequestFilter_Help' => 'config/reqfilter',

@@ -32,6 +32,35 @@ END_TIPS
 
 
 [ITEM]
+ID: listenerType
+NAME: Type
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the listener type.  
+
+An “http” listener treats requests as an HTTP Request, so it will parse the request data to use for the load balancing.  
+
+A “tcp” listener will not parse the request data. Rather, it will only parse the client’s IP address and port to do the load balancing.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: listenerIP
 NAME: IP Address
 REQUIRED: 

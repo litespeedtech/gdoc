@@ -755,4 +755,56 @@ END_CONT
 SEE_ALSO: 
 [END_TBL]
 
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: VHSecurity_Help 
+NAME: Virtual Host Security
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: tpSecThrottle accessControl realms reqCensorship reqCensorshipRule
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: VHSecurity_Help 
+NAME: Virtual Host Security
+NS: E
+
+DESCR: 
+END_DESCR
+
+CONT: tpSecFile tpSecThrottle tpSecCGI vhHotlink accessControl realms reqCensorship reqCensorshipRule
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: VHSecurity_Help 
+NAME: Virtual Host Security
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: tpSecFile tpSecThrottle tpSecCGI accessControl realms 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
 [END_HELPDOC]

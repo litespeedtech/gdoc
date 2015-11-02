@@ -117,36 +117,6 @@ END_TIPS
 
 
 
-
-[ITEM]
-ID: maxConnections
-NAME: Max Connections
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies the maximum number of concurrent connections that the server can accept. 
-This includes both plain TCP connections and SSL connections. Once the maximum concurrent connections limit is reached, 
-the server will close Keep-Alive connections when they complete active requests. 
-END_DESCR
-
-SYNTAX: uint
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: When the server is started by "root" user, the server will try to
-adjust the per-process file descriptor limits automatically, however,
-if this fails, you may need to increase this limit manually.
-END_TIPS
-
-[END_ITEM]
-
-
-
-
 [ITEM]
 ID: disableInitLogRotation
 NAME: Disable Initial Log Rotation 
@@ -301,24 +271,6 @@ SEE_ALSO:
 
 
 ################ PAGE #################
-
-[PAGE]
-ID: ServGeneral_Help 
-NAME: Server General
-
-DESCR: General settings for the whole server. When path information is required in a setting, 
-it can be either absolute or relative to $SERVER_ROOT. $SERVER_ROOT is the 
-location where LiteSpeed web server has been installed (your_home_dir/lsws or 
-/opt/lsws, for example). The server executable is under $SERVER_ROOT/bin. 
-END_DESCR
-
-CONT: servProcess servGeneral servIndex expire fileUpload geolocationDB servLog servAcLog 
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
-
-
 
 
 [PAGE]

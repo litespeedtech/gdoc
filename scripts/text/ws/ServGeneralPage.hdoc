@@ -59,36 +59,6 @@ END_TIPS
 
 
 
-[ITEM]
-ID: maxConnections
-NAME: Max Connections
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies the maximum number of concurrent connections that the server can accept. 
-This includes both plain TCP connections and SSL connections. This setting should not be set to exceed 
-the hard limit set by the server software edition or license: {val}150{/} for Standard Edition, {val}500{/} 
-for VPS license, {val}800{/} for Ultra VPS license. Once the maximum concurrent connections limit is reached, 
-the server will close Keep-Alive connections when they complete active requests. 
-END_DESCR
-
-SYNTAX: uint
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: When the server is started by "root" user, the server will try to
-adjust the per-process file descriptor limits automatically, however,
-if this fails, you may need to increase this limit manually.
-END_TIPS
-
-[END_ITEM]
-
-
-
 
 [ITEM]
 ID: loadApacheConf
@@ -153,9 +123,6 @@ END_TIPS
 
 
 
-
-
-
 [ITEM]
 ID: apacheBinPath
 NAME: Apache Binary Path
@@ -180,11 +147,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
-
-
 
 
 
@@ -222,8 +184,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: apacheIpOffset
 NAME: Apache IP Offset
@@ -252,9 +212,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
 
 
 
@@ -346,7 +303,6 @@ END_TIPS
 
 
 
-
 [ITEM]
 ID: jitConfig
 NAME: Just In Time Configuration
@@ -370,9 +326,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
 
 
 
@@ -404,10 +357,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
-
 
 
 
@@ -1078,23 +1027,6 @@ SEE_ALSO:
 
 
 ############### PAGE ####################
-
-[PAGE]
-ID: ServGeneral_Help 
-NAME: Server General
-
-DESCR: General settings for the whole server. When path information is required in a setting, 
-it can be either absolute or relative to $SERVER_ROOT. $SERVER_ROOT is the 
-location where LiteSpeed web server has been installed (your_home_dir/lsws or 
-/opt/lsws, for example). The server executable is under $SERVER_ROOT/bin. 
-END_DESCR
-
-CONT: servProcess  servGeneral servIndex htaccess servLog servAcLog 
- expire geolocationDB apacheConfigFile apacheConfig
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
 
 
 
