@@ -57,7 +57,8 @@ ServTuning_Help
 ServSecurity_Help
 RequestFilter_Help
 Cache_Help
-LB_Listeners_Help
+Listeners_General_Help
+Listeners_SSL_Help
 Clusters_Help
 Templates_Help
 VirtualHosts_Help

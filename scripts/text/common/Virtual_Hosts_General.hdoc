@@ -394,4 +394,57 @@ SEE_ALSO:
 [END_TBL]
 
 
+
+############# Pages ##############
+
+
+[PAGE]
+ID: VHGeneral_Help 
+NAME: Virtual Host General
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: vhGeneral vhAcLog errPage
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: VHGeneral_Help 
+NAME: Virtual Host General
+NS: E
+
+DESCR: 
+END_DESCR
+
+CONT: vhGeneral vhLog vhAcLog vhIndex errPage scriptHandler htaccess
+vhExpire apacheConfig 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: VHGeneral_Help 
+NAME: Virtual Host General
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: vhGeneral vhLog vhAcLog vhIndex errPage expire fileUpload scriptHandler 
+vhExpire  
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
 [END_HELPDOC]

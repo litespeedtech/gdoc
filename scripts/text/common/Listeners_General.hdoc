@@ -40,7 +40,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the listener type.  
+DESCR: Specifies the Layer 7 listener type.  
 
 An “http” listener treats requests as an HTTP Request, so it will parse the request data to use for the load balancing.  
 
@@ -151,6 +151,32 @@ END_TIPS
 
 
 
+[ITEM]
+ID: mapped_L4_clusters
+NAME: Mapped Cluster
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the cluster that the Layer 4 listener will use for load balancing. The mapped cluster must be a Layer 4 cluster, which is predefined in "Clusters" tab. 
+
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
 ########## Virtual host Mappings ##########
 
 
@@ -231,6 +257,22 @@ END_TIPS
 [TBL]
 ID: listenerGeneral
 NAME: Address Settings
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: listenerName listenerType listenerIP listenerPort listenerSecure mapped_L4_clusters
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: listenerGeneral
+NAME: Address Settings
 NS: EO
 
 DESCR: 
@@ -274,8 +316,24 @@ SEE_ALSO:
 
 
 [PAGE]
+ID: Listeners_General_Help 
+NAME: Listeners General
+NS: LEO
+
+DESCR: 
+END_DESCR
+
+CONT: listenerGeneral virtualHostMapping
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
 ID: Listeners_Help 
-NAME: Listener General
+NAME: Listeners General
 NS: EO
 
 DESCR: 

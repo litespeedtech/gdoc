@@ -273,21 +273,6 @@ SEE_ALSO:
 ################ PAGE #################
 
 
-[PAGE]
-ID: VHGeneral_Help 
-NAME: Virtual Host General
-
-DESCR: 
-END_DESCR
-
-CONT: vhGeneral vhLog vhAcLog vhIndex errPage expire fileUpload scriptHandler 
-vhExpire  
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
-
-
 
 
 

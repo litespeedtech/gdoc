@@ -1,61 +1,6 @@
 [HELPDOC]
 
 
-[ITEM]
-ID: mapped_L4_clusters
-NAME: Mapped Cluster
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies the cluster that the Layer 4 listener will use for load balancing.  The mapped cluster must be a Layer 4 cluster, which is predefined in "Clusters" tab. 
-
-END_DESCR
-
-SYNTAX: select
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
-[PAGE]
-ID: VHGeneral_Help 
-NAME: Virtual Host General
-
-DESCR: 
-END_DESCR
-
-CONT: vhGeneral vhAcLog errPage
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
-
-
-
-[PAGE]
-ID: LB_Listeners_Help 
-NAME: Listeners
-
-DESCR: 
-END_DESCR
-
-CONT: LB_listenerGeneral virtualHostMapping sslCert sslProtocolSetting sslFeature sslOCSP sslClientVerify
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
-
-
-
 [PAGE]
 ID: LB_AdminListener_Help 
 NAME: Admin Listeners

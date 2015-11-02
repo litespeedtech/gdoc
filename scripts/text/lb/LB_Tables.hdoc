@@ -52,21 +52,6 @@ SEE_ALSO:
 
 
 [TBL]
-ID: LB_listenerGeneral
-NAME: General
-
-DESCR: 
-END_DESCR
-
-CONT: listenerName listenerType listenerIP listenerPort listenerSecure mapped_L4_clusters
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
 ID: sslSetting
 NAME: SSL Private Key & Certificate
 
