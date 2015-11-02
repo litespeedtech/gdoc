@@ -330,20 +330,4 @@ SEE_ALSO:
 [END_PAGE]
 
 
-
-[PAGE]
-ID: Listeners_Help 
-NAME: Listeners General
-NS: EO
-
-DESCR: 
-END_DESCR
-
-CONT: listenerGeneral virtualHostMapping sslCert sslProtocolSetting sslFeature sslOCSP sslClientVerify
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
-
-
 [END_HELPDOC]
