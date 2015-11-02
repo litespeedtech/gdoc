@@ -32,7 +32,7 @@ class GenWebDoc
 				'Listeners_General_Help' => 'config/listener-general',
                                 'Listeners_SSL_Help' => 'config/listener-ssl',
 				'Templates_Help' => 'config/templates',
-				'VirtualHosts_Help' => 'config/vhostlist',
+				'VirtualHosts_Help' => 'config/vhostbasic',
 				'VHGeneral_Help' => 'config/vhostgeneral',
 				'VHSecurity_Help' => 'config/vhostsecurity',
 				'Rewrite_Help' => 'config/rewrite',
@@ -50,7 +50,8 @@ class GenWebDoc
 				'VHWebSocket_Help' => 'config/web-socket-proxy',
 				'VHAddOns_Help' => 'config/addons',
 				'AdminGeneral_Help' => 'config/adminserver',
-				'AdminListener_Help' => 'config/adminlistener',
+				'AdminListeners_General_Help' => 'config/adminlistenergen',
+                                'AdminListeners_SSL_Help' => 'config/adminlistenerssl',
 				'ServerStat_Help' => 'admin/service',
 					) ;
 
@@ -67,7 +68,41 @@ class GenWebDoc
 			$urlPrefix = '/docs/webserver/' ;
 		}
 		elseif ( DOC_TYPE == 'lb' ) {
+                            $dyn_map = array(
+                                'ServGeneral_Help' => 'config/general',
+                                'ServLog_Help' => 'config/slog',
+                                'ServTuning_Help' => 'config/tuning',
+                                'ServSecurity_Help' => 'config/security',
+                                'RequestFilter_Help' => 'config/reqfilter',
+				'Cache_Help' => 'config/cache',
+				'Listeners_General_Help' => 'config/listener-general',
+                                'Listeners_SSL_Help' => 'config/listener-ssl',
+                                'Clusters_Help' => 'config/clusters',
+				'Templates_Help' => 'config/templates',
+				'VirtualHosts_Help' => 'config/vhostbasic',
+				'VHGeneral_Help' => 'config/vhostgeneral',
+				'VHSecurity_Help' => 'config/vhostsecurity',
+				'Rewrite_Help' => 'config/rewrite',
+				'Context_Help' => 'config/context',
+                                'LB_Context' => 'config/context/load-balancer',
+                                'Redirect_Context' => 'config/context/redirect',
+				'AdminGeneral_Help' => 'config/adminserver',
+                                'AdminListeners_General_Help' => 'config/adminlistenergen',
+                                'AdminListeners_SSL_Help' => 'config/adminlistenerssl',
+                                'HA_Config' => 'config/ha',
+				'ServerStat_Help' => 'admin/service',
+					) ;
 
+			$static_map = array(
+				'index' => '',
+				'license' => 'license',
+				'intro' => 'introduction',
+				'install' => 'install',
+				'admin' => 'admin',
+				'security' => 'security',
+				'config' => 'config'
+					) ;
+			$urlPrefix = '/docs/loadbalancer/' ;
 		}
 		else {
 			error_log("Invalid entrance") ;

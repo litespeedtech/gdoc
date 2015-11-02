@@ -68,7 +68,8 @@ Rewrite_Help
 Context_Help
 VHWebSocket_Help
 AdminGeneral_Help
-AdminListener_Help
+AdminListeners_General_Help
+AdminListeners_SSL_Help
 
 END_NAV_SEQ
 

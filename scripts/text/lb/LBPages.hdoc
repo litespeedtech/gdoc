@@ -2,22 +2,6 @@
 
 
 [PAGE]
-ID: LB_AdminListener_Help 
-NAME: Admin Listeners
-
-DESCR: Admin Listeners are dedicated to the Admin Server. Secure (SSL) listeners 
-are recommended for the Admin Server.
-END_DESCR
-
-CONT: Admin_listenerGeneral sslCert sslProtocolSetting sslFeature sslClientVerify
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
-
-
-
-[PAGE]
 ID: index 
 NAME: Home
 STATIC: index.txt

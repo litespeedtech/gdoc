@@ -40,14 +40,15 @@ SEE_ALSO:
 
 
 [PAGE]
-ID: AdminListener_Help 
-NAME: Admin Listeners
+ID: AdminListeners_General_Help 
+NAME: Admin Listeners General
+NS: LEO
 
 DESCR: Admin Listeners are dedicated to the Admin Server. Secure (SSL) listeners 
 are recommended for the Admin Server.
 END_DESCR
 
-CONT: Admin_listenerGeneral sslCert sslProtocolSetting sslFeature sslClientVerify
+CONT: Admin_listenerGeneral
 END_CONT
 
 SEE_ALSO: 
