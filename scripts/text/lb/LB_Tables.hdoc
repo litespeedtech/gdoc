@@ -1,38 +1,6 @@
 [HELPDOC]
 
 
-[TBL]
-ID: servProcess
-NAME: Server Process
-
-DESCR: 
-END_DESCR
-
-CONT: serverName runningAs serverPriority 
-servChrootPath enableChroot inMemBufSize swappingDir  
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: servGeneral
-NAME: General Settings
-
-DESCR: 
-END_DESCR
-
-CONT: disableInitLogRotation showVersionNumber 
-enableIpGeo useIpInProxyHeader autoUpdateInterval 
-autoUpdateDownloadPkg adminEmails 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
 
 [TBL]
 ID: connTuning
@@ -83,58 +51,6 @@ DESCR:
 END_DESCR
 
 CONT: sname pid servAction restart viewlog realtimerpt toggleDebugLog vermgr
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-
-
-
-
-[TBL]
-ID: ClusterDef
-NAME: Load Balancer
-
-DESCR: 
-END_DESCR
-
-CONT: lb_name lb_type lb_mode strategy
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: ClusterSession
-NAME: Session Management
-
-DESCR: 
-END_DESCR
-
-CONT: sessionExMethod sessionId sessionTimeout 
-	  insertCookie cookieName
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: ClusterErrMsg
-NAME: Custom Error Messages
-
-DESCR: Specify a custom error message in case error occured during
-distributing request to backend servers. Custom error messages
-configured at virtual host level will override this configuration.
-END_DESCR
-
-CONT: errMessage 
 END_CONT
 
 SEE_ALSO: 

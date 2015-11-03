@@ -1,11 +1,9 @@
 [HELPDOC]
 
 
-############# Uncategorized #############
+########## General ##########
 
-
-
-############# General #############
+####### General #######
 
 
 [ITEM]
@@ -63,13 +61,42 @@ END_TIPS
 
 
 
-############# Virtual Host Log #############
+####### Virtual Host Log #######
+
+####### Access Log #######
 
 
-############# Access Log #############
+
+########## Security ##########
+
+####### Web Admin Users #######
+
+#### Web Admin User ####
 
 
-################ Tables ################
+[ITEM]
+ID: adminOldPass
+NAME: Old Password
+REQUIRED: 
+APPLY: Immediately
+SINCE: 
+SEE_ALSO: 
+
+DESCR:
+END_DESCR
+
+EDITTIP: For security reasons, if you forget the admin password, you will be unable to change it from the WebAdmin Console. 
+Please use the following shell command instead: 
+<br><br>
+/usr/local/lsws/admin/misc/admpass.sh. 
+<br><br>
+This script will remove all entered admin user IDs and overwrite them with a single admin user.
+END_EDITTIP
+
+[END_ITEM]
+
+
+############# Tables #############
 
 
 [TBL]
@@ -85,6 +112,21 @@ END_CONT
 SEE_ALSO: 
 [END_TBL]
 
+
+
+[TBL]
+ID: adminUser
+NAME: Web Admin User
+
+DESCR: Change the username and password for WebAdmin Console. 
+The old password has to be entered and verified in order to save changes.  
+END_DESCR
+
+CONT: adminOldPass
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
 
 
 ################ Pages ################

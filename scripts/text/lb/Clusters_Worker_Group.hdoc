@@ -1,0 +1,150 @@
+[HELPDOC]
+
+########## Worker Group ##########
+
+
+[ITEM]
+ID: defaultTargetPort
+NAME: Default Target Port
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies a default target port for connecting to the backend
+worker. It can be overriden in worker configuration.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: pingUrl
+NAME: Ping URL
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies a HTTP URL that is used to verify the availability of
+a web server backend worker. Has no effect to other type of workers.
+END_DESCR
+
+SYNTAX: URL
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: pingInterval
+NAME: Ping Interval (secs)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies how often to ping a backend worker. For web server
+backend, a http request based on "Ping URL" will be sent. For other
+types of backends, an TCP connection attempt will be made to the
+backend server, if it succeed, the backend will be used as a good
+node. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: nodeAddresses
+NAME: Node Address List
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies addresses of nodes in this group. Attributes can be
+specified for a node are "Destination IP", "Destination Port", "Node Tag" and
+"Source IP". Destination IP
+address is manditory, the other attributes are optional. Examples:
+192.168.0.11, (node1)192.168.0.11,
+(node1)192.168.0.10->192.168.0.11:80,
+"node1" is the "Node Tag", "Node Tag" is used to match "JVM Route". 
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Tables #############
+
+
+[TBL]
+ID: ClusterWorkerGroup
+NAME: Layer 7 Worker Group
+
+DESCR: 
+END_DESCR
+
+CONT: workerName extAppType workerGroupEnabled sourceIP defaultTargetPort maxConns env initTimeout retryTimeout 
+persistConn pcKeepAliveTimeout respBuffer pingUrl pingInterval nodeAddresses
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: ClusterWorkerGroupL4
+NAME: Layer 4 Worker Group
+
+DESCR: 
+END_DESCR
+
+CONT: workerName workerGroupEnabled sourceIP defaultTargetPort maxConns initTimeout retryTimeout pingInterval nodeAddresses
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+################ Pages ################
+
+[END_HELPDOC]

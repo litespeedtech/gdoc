@@ -250,6 +250,31 @@ END_TIPS
 
 
 [ITEM]
+ID: errMessage
+NAME: Custom Error Message
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specify a custom error message.
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: errURL
 NAME: URL
 REQUIRED: 

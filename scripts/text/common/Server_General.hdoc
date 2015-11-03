@@ -355,6 +355,60 @@ END_TIPS
 
 
 [ITEM]
+ID: disableInitLogRotation
+NAME: Disable Initial Log Rotation
+NS: LO
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to enable/disable rotation of server error log
+file at startup. Initial log rotation is enabled by default when using value "Not Set". 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: disableInitLogRotation
+NAME: Disable Initial Log Rotation
+NS: E
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to disable rotation of server error log
+file at startup. Initial log rotation is enabled by default for standard installations. 
+Servers using cPanel, however, always write to the Apache error log and thus ignore this setting.
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: showVersionNumber
 NAME: Server Signature
 REQUIRED: 
@@ -773,11 +827,114 @@ END_TIPS
 
 
 ############# Using Apache Configuration File #############
+
 ############# Apache Style Configurations #############
 
-
-
 ################ Tables ################
+
+
+[TBL]
+ID: servProcess
+NAME: Server Process
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: serverName runningAs serverPriority 
+servChrootPath enableChroot inMemBufSize swappingDir  
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: servProcess
+NAME: Server Process
+NS: E
+
+DESCR: 
+END_DESCR
+
+CONT: serverName runningAs serverPriority cpuAffinity servChrootPath enableChroot
+enableLVE inMemBufSize swappingDir autoFix503 enableh2c gracefulRestartTimeout
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: servProcess
+NAME: Server Process
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: serverName httpdWorkers runningAs serverPriority 
+ inMemBufSize swappingDir autoFix503 enableh2c gracefulRestartTimeout
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: servGeneral
+NAME: General Settings
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: disableInitLogRotation showVersionNumber 
+enableIpGeo useIpInProxyHeader autoUpdateInterval 
+autoUpdateDownloadPkg adminEmails 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: servGeneral
+NAME: General Settings
+NS: E
+
+DESCR: 
+END_DESCR
+
+CONT: mime mimesuffix mimetype disableInitLogRotation showVersionNumber 
+hideSigInErrorPage enableIpGeo useIpInProxyHeader extAppAbort  
+autoUpdateInterval autoUpdateDownloadPkg adminEmails 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: servGeneral
+NAME: General Settings
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: mime mimesuffix mimetype disableInitLogRotation showVersionNumber 
+ enableIpGeo useIpInProxyHeader adminEmails 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
 
 
 [TBL]

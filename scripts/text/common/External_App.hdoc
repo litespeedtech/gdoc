@@ -914,38 +914,6 @@ END_TIPS
 
 
 [TBL]
-ID: ClusterWorkerGroup
-NAME: Layer 7 Worker Group
-NS: L
-
-DESCR: 
-END_DESCR
-
-CONT: workerName extAppType workerGroupEnabled sourceIP defaultTargetPort maxConns env initTimeout retryTimeout 
-persistConn pcKeepAliveTimeout respBuffer pingUrl pingInterval nodeAddresses
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-[TBL]
-ID: ClusterWorkerGroupL4
-NAME: Layer 4 Worker Group
-NS: L
-
-DESCR: 
-END_DESCR
-
-CONT: workerName workerGroupEnabled sourceIP defaultTargetPort maxConns initTimeout retryTimeout pingInterval nodeAddresses
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
 ID: extapp
 NAME: External Application Settings
 NS: EO

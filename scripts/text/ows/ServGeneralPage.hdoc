@@ -118,32 +118,6 @@ END_TIPS
 
 
 [ITEM]
-ID: disableInitLogRotation
-NAME: Disable Initial Log Rotation 
-REQUIRED: 
-APPLY: 2
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies whether to disable rotation of server error log
-file at startup. Initial log rotation is enabled by default for standard installations. 
-
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
 ID: uploadPassByPath
 NAME: Pass Upload Data by File Path
 REQUIRED: 
@@ -191,38 +165,6 @@ SEE_ALSO: {ITEM=HTTP_BEGIN}
 
 
 ################### TBL #################
-
-[TBL]
-ID: servProcess
-NAME: Server Process
-
-DESCR: 
-END_DESCR
-
-CONT: serverName httpdWorkers runningAs serverPriority 
- inMemBufSize swappingDir autoFix503 enableh2c gracefulRestartTimeout
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-
-[TBL]
-ID: servGeneral
-NAME: General Settings
-
-DESCR: 
-END_DESCR
-
-CONT: mime mimesuffix mimetype disableInitLogRotation showVersionNumber 
- enableIpGeo useIpInProxyHeader adminEmails 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
 
 
 [TBL]

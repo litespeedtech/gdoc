@@ -36,32 +36,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
-
-
-[PAGE]
-ID: ServerStat_Help 
-NAME: WebAdmin Console - Service Manager
-
-DESCR: The Service Manager acts as a control room for monitoring the server and controlling certain 
-top-level functions. It provides the following features:
-(The Service Manager can be accessed by clicking on the Actions menu or from home page.)
-<ul>
-<li>Monitor the current status of the server, listeners, and virtual hosts.</li>
-<li>Apply configuration changes with a graceful restart.</li>
-<li>Enable or disable a particular virtual host.</li>
-<li>View the server log through the log viewer.</li>
-<li>Monitor real-time server statistics.</li>
-<li>Download new versions or switch between installed versions.</li>
-</ul>
-
- 
-END_DESCR
-
-CONT: serviceMgr serviceMgrListener serviceMgrVh 
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
  
 
 
