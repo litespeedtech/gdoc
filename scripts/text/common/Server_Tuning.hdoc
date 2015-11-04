@@ -1314,7 +1314,7 @@ END_TIPS
 [TBL]
 ID: osTuning
 NAME: OS Optimization
-NS: E
+NS: LE
 
 DESCR: 
 END_DESCR
@@ -1477,6 +1477,24 @@ END_CONT
 
 SEE_ALSO: 
 [END_TBL]
+
+
+
+[TBL]
+ID: sslDynSNI
+NAME: SSL Dynamic SNI
+NS: L
+
+DESCR: Dynamic SNI enables you to avoid using the load balancer's generic certificates by specifying a directory that the load balancer can then use to serve 
+clients site specific certificates when handling requests.
+END_DESCR
+
+CONT: sslDynCertsBaseDir sslDynCertsNumLevels sslDynCertsExpire sslDynCertsRefresh 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
 
 
 ################ Pages ################
