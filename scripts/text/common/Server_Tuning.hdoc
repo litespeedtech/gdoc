@@ -1052,7 +1052,7 @@ END_TIPS
 [ITEM]
 ID: shmDefaultDir
 NAME: Default SHM Directory
-NS: LE
+NS: LEO
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -1522,7 +1522,7 @@ NS: O
 DESCR: 
 END_DESCR
 
-CONT: osTuning connTuning reqTuning staticTuning gzipTuning ssGlobal
+CONT: osTuning connTuning reqTuning staticTuning gzipTuning sslGlobal
 END_CONT
 
 SEE_ALSO: 
