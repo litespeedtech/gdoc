@@ -1517,7 +1517,7 @@ ID: sslDynSNI
 NAME: SSL Dynamic SNI
 NS: L
 
-DESCR: Dynamic SNI enables you to avoid using the load balancer's generic certificates by specifying a directory that the load balancer can then use to serve 
+DESCR: SSL Dynamic SNI enables you to avoid using the load balancer's generic certificates by specifying a directory that the load balancer can then use to serve 
 clients site specific certificates when handling requests.
 END_DESCR
 
