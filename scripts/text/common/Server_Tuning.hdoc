@@ -1508,7 +1508,7 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: connTuning reqTuning gzipTuning sslGlobal
+CONT:osTuning connTuning reqTuning gzipTuning sslGlobal sslDynSNI
 END_CONT
 
 SEE_ALSO: 
@@ -1524,7 +1524,7 @@ NS: E
 DESCR: 
 END_DESCR
 
-CONT: osTuning connTuning reqTuning staticTuning gzipTuning 
+CONT: osTuning connTuning reqTuning staticTuning gzipTuning sslGlobal
 END_CONT
 
 SEE_ALSO: 
