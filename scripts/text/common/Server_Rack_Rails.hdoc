@@ -215,4 +215,39 @@ SEE_ALSO:
 [END_TBL]
 
 
+
+################ Pages ################
+
+
+[PAGE]
+ID: Rails_Help 
+NAME: Rack/Rails Settings
+NS: E
+
+DESCR: 
+END_DESCR
+
+CONT:  railsDefault railsHosting
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: Rails_Help
+NAME: Rack/Rails Settings
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT:  railsDefault 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
 [END_HELPDOC]

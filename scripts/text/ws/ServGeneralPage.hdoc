@@ -2,33 +2,6 @@
 
 
 [ITEM]
-ID: runningAs
-NAME: Running As
-REQUIRED: 
-APPLY: 1
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies the user/group that the server process runs as. 
-This value was set during installation. To change it, 
-you have to download the installation package and perform an upgrade via command line.
-END_DESCR
-
-SYNTAX: 
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: [Security] Server should not run as a privileged user such as "root". 
-It is critical that the server is configured to run with a un-privileged user/group combination 
-that does not have login/shell access. A user/group of {val}nobody{/} is generally a good choice.
-END_TIPS
-
-[END_ITEM]
-
-
-[ITEM]
 ID: cpuAffinity
 NAME: CPU Affinity
 REQUIRED: 
@@ -519,48 +492,6 @@ END_TIPS
 
 
 [ITEM]
-ID: suffix
-NAME: Suffix
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR:  Specifies the script file suffixes that will be handled by this 
-script handler. Suffixes must be unique. 
-END_DESCR
-
-EDITTIP: If the web site supports php or jsp, please set up here.
-END_EDITTIP
-
-SYNTAX: Comma delimited list with period "." character prohibited.
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: The server will automatically add a special MIME type ("application/x-httpd-[suffix]") for the first 
-suffix in the list. For example, MIME type "application/x-httpd-php53" will be added 
-for suffix "php53". Suffixes after the first need to set up in the {ITEM=mime} settings.
-
-Though we list suffixes in this field, the script handlers use MIME types, not suffixes, 
-to decide which scripts to handle. You can thus use the Apache configuration directives 
-"AddType" and "ForceType" (which control file MIME types) in .htaccess files to change 
-which script handler certain files will use. For example, with the directive 
-{cmd} AddType application/x-httpd-php53 .php{/} in a properly placed .htaccess file, 
-you can stipulate that php files in this directory have the MIME type "application/x-httpd-php53" and 
-thus will be handled by the script handler that uses MIME type "application/x-httpd-php53" 
-(suffix "php53"). This then allows you to assign different script handlers, not only for 
-different file suffixes, but also based on the locations of files.
-
-[Performance & Security] Only specify the suffixes you really need.
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
 ID: allowOverride
 NAME: Allow Override
 REQUIRED: 
@@ -716,34 +647,6 @@ EDITTIP: It is recommended to use a hidden access file, simply put file name sta
 END_EDITTIP
 
 SYNTAX: File name starting with "."
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-[ITEM]
-ID: listenerBinding
-NAME: Binding
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: {ent_version} Specifies which lshttpd child
-process the listener is assigned to. Enterprise Edition spawns
-multiple child processes to take advantage of the multiple CPUs in a
-SMP system. Different child processes can be used to handle requests to
-different listeners by manually associating a listener with a
-process. By default, a listener is assigned to all child processes.
-END_DESCR
-
-SYNTAX: checkbox
 END_SYNTAX
 
 EXAMPLE: 
@@ -912,53 +815,6 @@ DESCR:
 END_DESCR
 
 CONT: apacheConf 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: osTuning
-NAME: OS Optimization
-
-DESCR: 
-END_DESCR
-
-CONT: eventDispatcher ramDiskPath SSLCryptoDevice SSLStrongDhKey
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: connTuning
-NAME: Connection Tuning
-
-DESCR: 
-END_DESCR
-
-CONT: maxConnections maxSSLConnections connTimeout maxKeepAliveReq
-smartKeepAlive keepAliveTimeout sndBufSize rcvBufSize
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: staticTuning
-NAME: Static File Delivery Optimization
-
-DESCR: 
-END_DESCR
-
-CONT: maxCachedFileSize totalInMemCacheSize maxMMapFileSize totalMMapCacheSize
-useSendfile useAIO AIOBlockSize fileETag
 END_CONT
 
 SEE_ALSO: 

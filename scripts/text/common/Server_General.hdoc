@@ -32,6 +32,91 @@ END_TIPS
 
 
 [ITEM]
+ID: httpdWorkers
+NAME: Number of Workers
+NS: O
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the number of httpd workers. 
+
+END_DESCR
+
+SYNTAX: Integer value between 1 and 16.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Set an appropriate number to suit your needs. Adding more workers may not necessarily mean better performance.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: runningAs
+NAME: Running As
+NS: LE
+REQUIRED: 
+APPLY: 1
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the user/group that the server process runs as. 
+This value is set during installation. In order to change it, 
+you must download the installation package and perform an upgrade via the command line.
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] Server should not be run as a privileged user, such as "root". 
+It is critical that the server is configured to run as an un-privileged user/group combination 
+that does not have login/shell access. A user and group of {val}nobody{/} is generally a good choice.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: runningAs
+NAME: Running As
+NS: O
+REQUIRED: 
+APPLY: 1
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the user/group that the server process runs as. This is set 
+using the parameters "--with-user" and "--with-group" when running the configure 
+command before installation. To reset these values, you must rerun the configure 
+command and reinstall.
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] Server should not run as a privileged user such as "root". 
+It is critical that the server is configured to run with a un-privileged user/group combination 
+that does not have login/shell access. A user/group of {val}nobody{/} is generally a good choice.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: serverPriority
 NAME: Priority
 NS: EO
@@ -773,7 +858,40 @@ END_TIPS
 
 
 
-############# IP to GeoLocation DB #############
+########## File Upload ##########
+
+
+[ITEM]
+ID: uploadPassByPath
+NAME: Pass Upload Data by File Path
+NS: O
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specify whether or not to pass upload file data by path. If enabled, file path along with 
+some other information is sent to backend handler instead of file itself when uploading. 
+This saves on CPU resources and file transfer time but requires some updates to 
+backend to implement. If disabled, file content will be transferred to backend handler, 
+request body is still parsed to files.
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [performance] Enable this to speed up file upload processing if backward compatibility is not an issue.
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## IP to GeoLocation DB #############
 
 
 [ITEM]
@@ -963,6 +1081,26 @@ CONT: enableExpires expiresDefault expiresByType
 END_CONT
 
 SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: fileUpload
+NAME: File Upload
+NS: O
+
+DESCR: Provides additional security functionality when uploading files by using a Request Body 
+Parser to parse files to a server local directory where they can be easily scanned for malicious 
+intent by third party modules. Request Body Parser is used when {ITEM=uploadPassByPath} is 
+enabled or a module calls LSIAPI’s set_parse_req_body in the LSI_HKPT_HTTP_BEGIN level. 
+API examples provided in source package.
+END_DESCR
+
+CONT: uploadTmpDir uploadTmpFilePermission uploadPassByPath
+END_CONT
+
+SEE_ALSO: {ITEM=HTTP_BEGIN}
 [END_TBL]
 
 

@@ -1,7 +1,7 @@
 [HELPDOC]
 
 
-#### HA Interface Config ####
+########## HA Interface Config ##########
 
 
 [ITEM]
@@ -146,7 +146,7 @@ END_SYNTAX
 
 
 
-#### High Availability Replication ####
+########## High Availability Replication ##########
 
 
 [ITEM]

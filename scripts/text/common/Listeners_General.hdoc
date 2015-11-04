@@ -124,6 +124,64 @@ END_TIPS
 
 
 [ITEM]
+ID: listenerBinding
+NAME: Binding
+NS: E
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: {ent_version} Specifies which lshttpd child
+process the listener is assigned to. Enterprise Edition spawns
+multiple child processes to take advantage of the multiple CPUs in a
+SMP system. Different child processes can be used to handle requests to
+different listeners by manually associating a listener with a
+process. By default, a listener is assigned to all child processes.
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: listenerBinding
+NAME: Binding
+NS: O
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies which lshttpd child process the listener is assigned to. 
+Different child processes can be used to handle requests to
+different listeners by manually associating a listener with a
+process. By default, a listener is assigned to all child processes.
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: listenerSecure
 NAME: Secure
 REQUIRED: 

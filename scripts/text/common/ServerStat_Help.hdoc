@@ -544,4 +544,36 @@ SEE_ALSO:
 [END_TBL]
 
 
+
+[TBL]
+ID: serviceMgr
+NAME: Server
+NS: LE
+
+DESCR: 
+END_DESCR
+
+CONT: sname pid servAction restart viewlog realtimerpt toggleDebugLog vermgr
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: serviceMgr
+NAME: Server
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: sname pid servAction restart viewlog realtimerpt toggleDebugLog 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
 [END_HELPDOC]

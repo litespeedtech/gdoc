@@ -1263,6 +1263,73 @@ END_TIPS
 
 
 [TBL]
+ID: osTuning
+NAME: OS Optimization
+NS: E
+
+DESCR: 
+END_DESCR
+
+CONT: eventDispatcher ramDiskPath SSLCryptoDevice SSLStrongDhKey
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: osTuning
+NAME: OS Optimization
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: eventDispatcher SSLCryptoDevice
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: connTuning
+NAME: Connection Tuning
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: maxConnections maxSSLConnections connTimeout maxKeepAliveReq
+smartKeepAlive keepAliveTimeout sndBufSize rcvBufSize eventDispatcher
+SSLCryptoDevice 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: connTuning
+NAME: Connection Tuning
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: maxConnections maxSSLConnections connTimeout maxKeepAliveReq
+smartKeepAlive keepAliveTimeout sndBufSize rcvBufSize
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
 ID: reqTuning
 NAME: Request/Response Tuning
 
@@ -1271,6 +1338,40 @@ END_DESCR
 
 CONT: maxReqURLLen maxReqHeaderSize maxReqBodySize
       maxDynRespHeaderSize maxDynRespSize 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: staticTuning
+NAME: Static File Delivery Optimization
+NS: E
+
+DESCR: 
+END_DESCR
+
+CONT: maxCachedFileSize totalInMemCacheSize maxMMapFileSize totalMMapCacheSize
+useSendfile useAIO AIOBlockSize fileETag
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: staticTuning
+NAME: Static File Delivery Optimization
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: maxCachedFileSize totalInMemCacheSize maxMMapFileSize totalMMapCacheSize
+useSendfile fileETag
 END_CONT
 
 SEE_ALSO: 
