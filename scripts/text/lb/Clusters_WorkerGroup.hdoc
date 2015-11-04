@@ -147,4 +147,19 @@ SEE_ALSO:
 
 ################ Pages ################
 
+
+[PAGE]
+ID: Clusters_WorkerGroup_Help 
+NAME: Cluster Worker Group
+
+DESCR: 
+END_DESCR
+
+CONT: ClusterWorkerGroup ClusterWorkerGroupL4
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
 [END_HELPDOC]

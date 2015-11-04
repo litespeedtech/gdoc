@@ -59,7 +59,8 @@ RequestFilter_Help
 Cache_Help
 Listeners_General_Help
 Listeners_SSL_Help
-Clusters_Help
+Clusters_General_Help
+Clusters_WorkerGroup_Help
 Templates_Help
 VirtualHosts_Help
 VHGeneral_Help

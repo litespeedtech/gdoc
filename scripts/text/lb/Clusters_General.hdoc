@@ -317,4 +317,18 @@ SEE_ALSO:
 ################ Pages ################
 
 
+[PAGE]
+ID: Clusters_General_Help 
+NAME: Cluster General
+
+DESCR: 
+END_DESCR
+
+CONT: ClusterDef ClusterSession ClusterErrMsg
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
 [END_HELPDOC]
