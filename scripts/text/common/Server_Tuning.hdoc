@@ -693,6 +693,63 @@ END_TIPS
 
 
 [ITEM]
+ID: useAIO
+NAME: Use AIO
+NS: E
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: {ITEM=AIOBlockSize}
+
+DESCR: Specifies whether to use AIO to serve static files. AIO will help if
+your server has a high I/O wait. For 64bit operation system, there is an option to keep 
+files mapped in process address space to improve AIO performance.
+
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: AIOBlockSize
+NAME: AIO Block Size
+NS: E
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: {ITEM=useAIO}
+
+DESCR: Specifies the sent block size for AIO. 
+This block size multiplied by the total files being processed should be less than the physical 
+memory of the server, otherwise, AIO will not help. If your server has enough memory, 
+you can choose a bigger size. Default value is "1M".
+
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: fileETag
 NAME: File ETag
 REQUIRED: 

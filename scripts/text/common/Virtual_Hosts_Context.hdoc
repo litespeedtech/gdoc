@@ -719,6 +719,71 @@ END_TIPS
 
 
 [ITEM]
+ID: allowOverrideContext
+NAME: Allow Override
+NS: E
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies what directives in an access control file are allowed. 
+An access control file can be placed in a directory to control the accessibility 
+of files under that directory. 
+
+<ul>
+	<li>When nothing is checked, inherited default settings will be
+	used. </li>
+	<li>When {val}None{/} is checked, access control files will be
+	ignored.
+	</li>
+	<li>When {val}Limit{/} is checked, directives "Order",
+	"Allow from" and "Deny from" are allowed. </li>
+	<li>When {val}Auth{/} is checked, directives
+	"AuthGroupFile",  "AuthName", "AuthType", 
+	"AuthUserFile", and "Require" are allowed.</li>
+	<li>When {val}FileInfo{/} is checked, directives
+	"Satisfy", "AddDefaultCharset", "AddType",
+	"DefaultType", "ForceType", "ExpiresActive", "ExpiresDefault",
+	"ExpiresByType", "Redirect", "RedirectTemp", "RedirectPermanent",
+	"RewriteEngine", "RewriteOptions", "RewriteBase", "RewriteCond"
+	and "RewriteRule" are allowed</li>
+	<li>When {val}Indexes{/} is checked, directive
+	"DirectoryIndex" is allowed</li>
+	<li>When {val}Options{/} is checked, directive
+	"Options" is allowed</li>
+</ul>
+
+Allow Override configuration is available at three levels: server, 
+virtual host and context. If a configuration is not checked at the server level, 
+the controlled directives will be disabled for the whole server whether or not 
+it is enabled at lower levels. If something is enabled at the server level, virtual hosts will 
+inherit same settings by default. Similarly context level settings will be inherited from virtual host settings. 
+Lower levels can disable a setting that is enabled at an upper level, but cannot 
+enable a setting that is disabled at an upper level.
+END_DESCR
+
+EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
+default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
+directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
+"Require" are allowed.
+END_EDITTIP
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] If there is no need for directory level
+configuration customization, check {val}None{/}.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: addMIMEType
 NAME: MIME Type
 REQUIRED: 
