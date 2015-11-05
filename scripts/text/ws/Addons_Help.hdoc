@@ -35,7 +35,6 @@ END_TIPS
 
 
 
-
 [ITEM]
 ID: disableAdmin
 NAME: Disable Admin 
@@ -65,7 +64,6 @@ need to manage users or change configurations.
 END_TIPS
 
 [END_ITEM]
-
 
 
 
@@ -121,7 +119,9 @@ SEE_ALSO:
 [END_TBL]
 
 
+
 ###################### AWSTATS ###################
+
 
 [ITEM]
 ID: updateMode
@@ -153,9 +153,6 @@ END_TIPS
 
 
 
-
-
-
 [ITEM]
 ID: workingDir
 NAME: Working Directory
@@ -180,9 +177,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
 
 
 
@@ -212,9 +206,6 @@ END_TIPS
 
 
 
-
-
-
 [ITEM]
 ID: siteDomain
 NAME: Site Domain 
@@ -240,9 +231,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
 
 
 
@@ -276,9 +264,6 @@ END_TIPS
 
 
 
-
-
-
 [ITEM]
 ID: updateInterval
 NAME: Update Interval
@@ -302,9 +287,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
 
 
 
@@ -334,8 +316,6 @@ END_TIPS
 
 
 
-
-
 [ITEM]
 ID: securedConn 
 NAME: Secured Connection
@@ -358,9 +338,6 @@ TIPS:
 END_TIPS
 
 [END_ITEM]
-
-
-
 
 
 
@@ -390,9 +367,7 @@ END_TIPS
 
 
 
-
-
-
+############# Tables #############
 
 [TBL]
 ID: awstats
@@ -413,7 +388,7 @@ SEE_ALSO:
 [END_TBL]
 
 
-###################### PAGE ################
+################ Pages ################
 
 
 [PAGE]
@@ -428,9 +403,6 @@ END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
-
-
-
 
 
 [END_HELPDOC]

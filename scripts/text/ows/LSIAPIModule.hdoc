@@ -25,6 +25,8 @@ TIPS:
 END_TIPS
 [END_ITEM]
 
+
+
 [ITEM]
 ID: internalmodule
 NAME: Is Internal
@@ -72,6 +74,7 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
 
 
 [ITEM]
@@ -128,6 +131,8 @@ TIPS:
 END_TIPS
 [END_ITEM]
 
+
+
 [ITEM]
 ID: modParams
 NAME: Module Parameters
@@ -153,6 +158,7 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
 
 
 [ITEM]
@@ -183,6 +189,8 @@ TIPS:
 END_TIPS
 [END_ITEM]
 
+
+
 [ITEM]
 ID: L4_ENDSESSION
 NAME: Hook::L4_ENDSESSION Priority
@@ -210,6 +218,8 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
+
 
 [ITEM]
 ID: L4_RECVING
@@ -239,6 +249,8 @@ TIPS:
 END_TIPS
 [END_ITEM]
 
+
+
 [ITEM]
 ID: L4_SENDING
 NAME: Hook::L4_SENDING Priority
@@ -267,6 +279,8 @@ TIPS:
 END_TIPS
 [END_ITEM]
 
+
+
 [ITEM]
 ID: HTTP_BEGIN
 NAME: Hook::HTTP_BEGIN Priority
@@ -294,6 +308,7 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
 
 
 [ITEM]
@@ -325,6 +340,7 @@ END_TIPS
 [END_ITEM]
 
 
+
 [ITEM]
 ID: URI_MAP
 NAME: Hook::URI_MAP Priority
@@ -352,6 +368,7 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
 
 
 [ITEM]
@@ -384,6 +401,7 @@ END_TIPS
 [END_ITEM]
 
 
+
 [ITEM]
 ID: RECV_REQ_BODY
 NAME: Hook::RECV_REQ_BODY Priority
@@ -411,6 +429,7 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
 
 
 [ITEM]
@@ -442,6 +461,7 @@ END_TIPS
 [END_ITEM]
 
 
+
 [ITEM]
 ID: RECV_RESP_HEADER
 NAME: Hook::RECV_RESP_HEADER Priority
@@ -469,6 +489,7 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
 
 
 [ITEM]
@@ -500,6 +521,7 @@ END_TIPS
 [END_ITEM]
 
 
+
 [ITEM]
 ID: RCVD_RESP_BODY
 NAME: Hook::RCVD_RESP_BODY Priority
@@ -527,6 +549,7 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
 
 
 [ITEM]
@@ -557,6 +580,8 @@ TIPS:
 END_TIPS
 [END_ITEM]
 
+
+
 [ITEM]
 ID: SEND_RESP_HEADER
 NAME: Hook::SEND_RESP_HEADER Priority
@@ -584,6 +609,7 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
 
 
 [ITEM]
@@ -615,6 +641,7 @@ END_TIPS
 [END_ITEM]
 
 
+
 [ITEM]
 ID: HTTP_END
 NAME: Hook::HTTP_END Priority
@@ -641,6 +668,7 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
 
 
 [ITEM]
@@ -672,6 +700,7 @@ END_TIPS
 [END_ITEM]
 
 
+
 [ITEM]
 ID: MAIN_PREFORK
 NAME: Hook::MAIN_PREFORK Priority
@@ -700,6 +729,8 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 [END_ITEM]
+
+
 
 [ITEM]
 ID: MAIN_POSTFORK
@@ -731,6 +762,7 @@ END_TIPS
 [END_ITEM]
 
 
+
 [ITEM]
 ID: WORKER_POSTFORK
 NAME: Hook::WORKER_POSTFORK Priority
@@ -760,6 +792,7 @@ END_TIPS
 [END_ITEM]
 	
 
+
 [ITEM]
 ID: WORKER_ATEXIT
 NAME: Hook::WORKER_ATEXIT Priority
@@ -785,7 +818,8 @@ END_EXAMPLE
 
 TIPS: 
 END_TIPS
-[END_ITEM]	
+[END_ITEM]
+
 
  
 [ITEM]
@@ -813,10 +847,11 @@ END_EXAMPLE
 
 TIPS: 
 END_TIPS
-[END_ITEM]				
-				
-################## TBL #############################
+[END_ITEM]
 
+			
+				
+############# Tables #############
 
 
 [TBL]
@@ -861,6 +896,7 @@ SEE_ALSO:
 [END_TBL]
 
 
+
 [TBL]
 ID: vhModules
 NAME: Virtual Host Modules
@@ -892,7 +928,8 @@ SEE_ALSO:
 [END_TBL]
 
 
-################ PAGE ####################
+
+################ Pages ################
 
 
 [PAGE]
