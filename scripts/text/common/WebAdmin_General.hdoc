@@ -134,14 +134,29 @@ SEE_ALSO:
 
 [PAGE]
 ID: AdminGeneral_Help 
-NAME: Administration Console Settings
+NAME: Admin Console General
 
 DESCR: Admin Server is a special virtual host dedicated to the WebAdmin console.  
 It is very important to make sure Admin Server is securely protected either by only allowing  
 access from the administrator's machines or by using an encrypted SSL connection. 
 END_DESCR
 
-CONT: coredump vhLog vhAcLog accessControl adminUser
+CONT: coredump vhLog vhAcLog
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: AdminSecurity_Help 
+NAME: Admin Console Security
+
+DESCR:
+END_DESCR
+
+CONT: accessControl adminUser
 END_CONT
 
 SEE_ALSO: 

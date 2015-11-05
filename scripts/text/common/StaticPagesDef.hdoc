@@ -81,4 +81,13 @@ STATIC: config.txt
 [END_PAGE]
 
 
+
+[PAGE]
+ID: webconsole 
+NAME: Web Console
+NS: LEO
+STATIC: webconsole.txt
+[END_PAGE]
+
+
 [END_HELPDOC]

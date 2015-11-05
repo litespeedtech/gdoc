@@ -49,7 +49,8 @@ class GenWebDoc
 				'Rails_Context' => 'config/context/rails',
 				'VHWebSocket_Help' => 'config/web-socket-proxy',
 				'VHAddOns_Help' => 'config/addons',
-				'AdminGeneral_Help' => 'config/adminserver',
+				'AdminGeneral_Help' => 'config/admingeneral',
+                                'AdminSecurity_Help' => 'config/adminsecurity',
 				'AdminListeners_General_Help' => 'config/adminlistenergen',
                                 'AdminListeners_SSL_Help' => 'config/adminlistenerssl',
 				'ServerStat_Help' => 'admin/service',
@@ -63,7 +64,8 @@ class GenWebDoc
 				'install' => 'install',
 				'admin' => 'admin',
 				'security' => 'security',
-				'config' => 'config'
+				'config' => 'config',
+                                'webconsole' => 'web-console'
 					) ;
 			$urlPrefix = '/docs/webserver/' ;
 		}
@@ -87,7 +89,8 @@ class GenWebDoc
 				'Context_Help' => 'config/context',
                                 'LB_Context' => 'config/context/load-balancer',
                                 'Redirect_Context' => 'config/context/redirect',
-				'AdminGeneral_Help' => 'config/adminserver',
+				'AdminGeneral_Help' => 'config/admingeneral',
+                                'AdminSecurity_Help' => 'config/adminsecurity',
                                 'AdminListeners_General_Help' => 'config/adminlistenergen',
                                 'AdminListeners_SSL_Help' => 'config/adminlistenerssl',
                                 'HA_Config' => 'config/ha',
@@ -101,7 +104,8 @@ class GenWebDoc
 				'install' => 'install',
 				'admin' => 'admin',
 				'security' => 'security',
-				'config' => 'config'
+				'config' => 'config',
+                                'webconsole' => 'web-console'
 					) ;
 			$urlPrefix = '/docs/loadbalancer/' ;
 		}

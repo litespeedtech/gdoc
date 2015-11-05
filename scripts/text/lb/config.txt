@@ -1,6 +1,6 @@
 <h1>Configuration</h1>
 
-<a name="con"></a><p class="label1">Concepts</p>
+<a name="con"></a><p class="label1"><b>Concepts</b></p>
 <p>
 Here are some basic concepts you should know before going into the detail of the configuration.
 </p>

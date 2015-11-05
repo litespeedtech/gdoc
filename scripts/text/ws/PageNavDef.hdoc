@@ -22,7 +22,7 @@ NAV_SEQ:
 index
 END_NAV_SEQ:
 
-CONT: DOC_NAV LSWS_CONF_NAV LSWS_CONTROL_NAV EXT_APPS_ITEMS_NAV CONTEXT_ITEMS_NAV
+CONT: DOC_NAV LSWS_CONF_NAV LSWS_CONTROL_NAV EXT_APPS_ITEMS_NAV CONTEXT_ITEMS_NAV WEBCONSOLE_ITEMS_NAV
 END_CONT
 [END_PAGENAV]
 
@@ -39,7 +39,7 @@ install
 admin
 security
 config 
-
+webconsole
 END_NAV_SEQ
 
 [END_PAGENAV]
@@ -69,9 +69,6 @@ Rewrite_Help
 Context_Help 
 VHWebSocket_Help
 VHAddOns_Help
-AdminGeneral_Help
-AdminListeners_General_Help
-AdminListeners_SSL_Help
 
 END_NAV_SEQ
 
@@ -115,6 +112,25 @@ Rails_Context
 END_NAV_SEQ
 
 [END_PAGENAV]
+
+
+PAGENAV]
+
+ID: WEBCONSOLE_ITEMS_NAV
+TOP_NAV: webconsole
+
+NAV_SEQ: 
+AdminGeneral_Help
+AdminSecurity_Help
+AdminListeners_General_Help
+AdminListeners_SSL_Help
+
+END_NAV_SEQ
+
+[END_PAGENAV]
+
+[PAGENAV]
+
 
 [PAGENAV]
 
