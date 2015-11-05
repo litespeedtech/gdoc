@@ -65,7 +65,7 @@ class GenWebDoc
 				'admin' => 'admin',
 				'security' => 'security',
 				'config' => 'config',
-                                'webconsole' => 'web-console'
+                                'webconsole' => 'webconsole'
 					) ;
 			$urlPrefix = '/docs/webserver/' ;
 		}
@@ -105,7 +105,7 @@ class GenWebDoc
 				'admin' => 'admin',
 				'security' => 'security',
 				'config' => 'config',
-                                'webconsole' => 'web-console'
+                                'webconsole' => 'webconsole'
 					) ;
 			$urlPrefix = '/docs/loadbalancer/' ;
 		}
