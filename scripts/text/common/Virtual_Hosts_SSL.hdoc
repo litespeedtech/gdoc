@@ -7,7 +7,7 @@
 [TBL]
 ID: vhSSLFeature
 NAME: Security
-NS: LO
+NS: LEO
 
 DESCR: 
 END_DESCR
@@ -26,7 +26,7 @@ SEE_ALSO:
 [PAGE]
 ID: VHSSL_Help
 NAME: Virtual Host SSL
-NS: LO
+NS: LEO
 
 DESCR: 
 END_DESCR

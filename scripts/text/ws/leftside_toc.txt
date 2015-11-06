@@ -36,6 +36,7 @@
 	<li><a href="VirtualHosts_Help.html">Virtual Host Basic</a></li>
 	<li><a href="VHGeneral_Help.html">Virtual Host General</a></li>
 	<li><a href="VHSecurity_Help.html">Virtual Host Security</a></li>
+        <li><a hhhhhref="VHSSL_Help.html">Virtual Host SSL</a></li>
 	<li><a href="Rewrite_Help.html">Rewrite</a></li>
 	<li><a href="Context_Help.html">Context</a></li>
                 <ul class="level3">
