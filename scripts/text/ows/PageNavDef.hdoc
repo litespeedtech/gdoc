@@ -65,6 +65,7 @@ Templates_Help
 VirtualHosts_Help
 VHGeneral_Help
 VHSecurity_Help
+VHSSL_Help
 Rewrite_Help
 Context_Help
 VHWebSocket_Help

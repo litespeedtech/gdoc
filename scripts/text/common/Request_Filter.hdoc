@@ -167,7 +167,7 @@ END_TIPS
 [ITEM]
 ID: uploadTmpDir
 NAME: Temporary File Path
-NS: L 
+NS: LE
 REQUIRED: 
 APPLY: 2
 SINCE: 
@@ -194,6 +194,7 @@ END_TIPS
 [ITEM]
 ID: uploadTmpFilePermission
 NAME: Temporary File Permissions
+NS: LEO
 REQUIRED: 
 APPLY: 2
 SINCE: 
@@ -435,28 +436,12 @@ END_TIPS
 [TBL]
 ID: reqCensorship
 NAME: Request Filter
-NS: L
+NS: LE
 
 DESCR: 
 END_DESCR
 
 CONT: enableCensorship censorLogLevel defaultAction scanPOST uploadTmpDir uploadTmpFilePermission secAuditLogEngine secAuditLog
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: reqCensorship
-NAME: Request Filter
-NS: E
-
-DESCR: 
-END_DESCR
-
-CONT: enableCensorship censorLogLevel defaultAction scanPOST disableSecHtaccess secAuditLogEngine secAuditLog
 END_CONT
 
 SEE_ALSO: 

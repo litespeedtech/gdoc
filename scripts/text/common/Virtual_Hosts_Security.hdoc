@@ -768,7 +768,7 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: tpSecThrottle accessControl realms reqCensorship reqCensorshipRule
+CONT: vhBandwidthThrottlingControl tpSecThrottle accessControl realms
 END_CONT
 
 SEE_ALSO: 
@@ -784,7 +784,7 @@ NS: E
 DESCR: 
 END_DESCR
 
-CONT: tpSecFile tpSecThrottle tpSecCGI vhHotlink accessControl realms reqCensorship reqCensorshipRule
+CONT: vhHotlink accessControl realms
 END_CONT
 
 SEE_ALSO: 
@@ -800,7 +800,7 @@ NS: O
 DESCR: 
 END_DESCR
 
-CONT: tpSecFile tpSecThrottle tpSecCGI accessControl realms 
+CONT: accessControl realms 
 END_CONT
 
 SEE_ALSO: 

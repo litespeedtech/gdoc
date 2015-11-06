@@ -223,6 +223,7 @@ END_TIPS
 [ITEM]
 ID: staticReqPerSec
 NAME: Static Requests/Second
+NS: EO
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -1190,7 +1191,7 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: vhBandwidthThrottlingControl perClientConnLimit accessControl 
+CONT: perClientConnLimit accessControl 
 END_CONT
 
 SEE_ALSO: 

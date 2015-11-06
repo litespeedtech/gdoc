@@ -278,6 +278,7 @@ END_TIPS
 [ITEM]
 ID: renegProtection
 NAME: SSL Renegotiation Protection
+NS: LEO
 REQUIRED: 
 APPLY: 3
 SINCE: 4.1.13
@@ -558,6 +559,7 @@ END_TIPS
 [TBL]
 ID: sslCert
 NAME: SSL Private Key & Certificate
+NS: LEO
 
 DESCR: Every SSL listener requires a paired SSL private key and SSL certificate. 
 Multiple SSL listeners can share the same key and certificate. 
@@ -583,20 +585,7 @@ SEE_ALSO:
 [TBL]
 ID: sslProtocolSetting
 NAME: SSL Protocol
-NS: L
-
-CONT: sslProtocol ciphers enableECDHE enableDHE DHParam
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: sslProtocolSetting
-NAME: SSL Protocol
-NS: EO
+NS: LEO
 
 DESCR: Customizes SSL protocols accepted by the listener.
 END_DESCR
@@ -612,6 +601,7 @@ SEE_ALSO:
 [TBL]
 ID: sslOCSP
 NAME: OCSP Stapling
+NS: LEO
 
 DESCR: Online Certificate Status Protocol (OCSP) is a more efficient method 
 of checking whether a digital certificate is valid. It works by communicating 
@@ -635,6 +625,7 @@ SEE_ALSO:
 [TBL]
 ID: sslClientVerify
 NAME: Client Verification
+NS: LEO
 
 DESCR: 
 END_DESCR

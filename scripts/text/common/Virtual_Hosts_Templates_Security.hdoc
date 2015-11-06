@@ -55,6 +55,7 @@ SEE_ALSO:
 [TBL]
 ID: tpSecCGI
 NAME: External Application Resource Control
+NS: EO
 
 DESCR: 
 END_DESCR

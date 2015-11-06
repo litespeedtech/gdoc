@@ -85,6 +85,7 @@ class GenWebDoc
 				'VirtualHosts_Help' => 'config/vhostbasic',
 				'VHGeneral_Help' => 'config/vhostgeneral',
 				'VHSecurity_Help' => 'config/vhostsecurity',
+                                'VHSSL_Help' => 'config/vhost-ssl',
 				'Rewrite_Help' => 'config/rewrite',
 				'Context_Help' => 'config/context',
                                 'LB_Context' => 'config/context/load-balancer',

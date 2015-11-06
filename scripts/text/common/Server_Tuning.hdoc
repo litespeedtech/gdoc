@@ -1037,6 +1037,7 @@ END_TIPS
 [ITEM]
 ID: sslSessionCache
 NAME: Enable Session Cache
+NS: LEO
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -1116,6 +1117,7 @@ END_TIPS
 [ITEM]
 ID: sslSessionTickets
 NAME: Enable Session Tickets
+NS: LEO
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -1434,15 +1436,14 @@ SEE_ALSO:
 
 [TBL]
 ID: connTuning
-NAME: Connection Tuning
+NAME: Connection
 NS: L
 
 DESCR: 
 END_DESCR
 
 CONT: maxConnections maxSSLConnections connTimeout maxKeepAliveReq
-smartKeepAlive keepAliveTimeout sndBufSize rcvBufSize eventDispatcher
-SSLCryptoDevice 
+smartKeepAlive keepAliveTimeout sndBufSize rcvBufSize
 END_CONT
 
 SEE_ALSO: 
