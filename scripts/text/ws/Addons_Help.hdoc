@@ -1,6 +1,6 @@
 [HELPDOC]
 
-############## Microsoft FrontPage #####################
+############## Front Page Server Extension #####################
 
 
 [ITEM]
@@ -105,22 +105,7 @@ END_TIPS
 
 
 
-[TBL]
-ID: frontpage
-NAME: Front Page Server Extension
-
-DESCR: 
-END_DESCR
-
-CONT: enableFrontPage disableAdmin domainNames 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-###################### AWSTATS ###################
+########## AWSTats Integration ##########
 
 
 [ITEM]
@@ -343,7 +328,7 @@ END_TIPS
 
 [ITEM]
 ID: awstatsRealm 
-NAME: Authorization Realm 
+NAME: Authentication Realm 
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -368,6 +353,22 @@ END_TIPS
 
 
 ############# Tables #############
+
+
+[TBL]
+ID: frontpage
+NAME: Front Page Server Extension
+
+DESCR: 
+END_DESCR
+
+CONT: enableFrontPage disableAdmin domainNames 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
 
 [TBL]
 ID: awstats

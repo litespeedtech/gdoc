@@ -1,5 +1,9 @@
 [HELPDOC]
 
+
+########## Server Module Definition ##########
+
+
 [ITEM]
 ID: modulename
 NAME: Module
@@ -40,6 +44,34 @@ DESCR: Specify whether the module is an internal module, which is staticaly link
 END_DESCR
 
 SYNTAX: bool 
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: modParams
+NAME: Module Parameters
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Set module parameters. The module parameters are defined by the module developer.
+
+
+Set the value in the Server configuration to globally assign the default value. 
+The user can override this setting at the Listener, Virtual Host or Context levels. If the 'Not Set' radio button is selected,
+it will be inherited from the upper level.
+END_DESCR
+
+SYNTAX: Specified by the module interface. 
 END_SYNTAX
 
 EXAMPLE:
@@ -122,34 +154,6 @@ inherited from the Virtual Host level. The user only needs to set it here to ove
 END_DESCR
 
 SYNTAX: bool 
-END_SYNTAX
-
-EXAMPLE:
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-[END_ITEM]
-
-
-
-[ITEM]
-ID: modParams
-NAME: Module Parameters
-REQUIRED: 
-APPLY: 
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Set module parameters. The module parameters are defined by the module developer.
-
-
-Set the value in the Server configuration to globally assign the default value. 
-The user can override this setting at the Listener, Virtual Host or Context levels. If the 'Not Set' radio button is selected,
-it will be inherited from the upper level.
-END_DESCR
-
-SYNTAX: Specified by the module interface. 
 END_SYNTAX
 
 EXAMPLE:
