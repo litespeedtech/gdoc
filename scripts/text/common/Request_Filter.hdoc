@@ -119,7 +119,7 @@ APPLY: 2
 SINCE: 4.0.17
 SEE_ALSO: 
 
-DESCR: Specifies whether to disable .htaccess override. This is a global setting, only available at the server level. 
+DESCR: Disable turning off mod_security engine in .htaccess. This is a global setting only available at the server level. 
 Default is "No".
 
 END_DESCR
