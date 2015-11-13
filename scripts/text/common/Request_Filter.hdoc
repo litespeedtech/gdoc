@@ -114,6 +114,7 @@ END_TIPS
 [ITEM]
 ID: disableSecHtaccess
 NAME: Disable .htaccess Override
+NS: E
 REQUIRED: 
 APPLY: 2
 SINCE: 4.0.17
@@ -178,7 +179,7 @@ while request body parser is working. Default value is {val}/tmp{/}.
 
 END_DESCR
 
-SYNTAX: Absolute path or path starting with $SERVER_ROOT (for Server and VHost levels) or $VH_ROOT (for VHost levels).
+SYNTAX: Absolute path or path starting with $SERVER_ROOT (for Server and VHost levels).
 END_SYNTAX
 
 EXAMPLE: 
@@ -194,7 +195,33 @@ END_TIPS
 [ITEM]
 ID: uploadTmpFilePermission
 NAME: Temporary File Permissions
-NS: LEO
+NS: LE
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Global setting determining file permissions used for files stored in temporary directory.
+
+END_DESCR
+
+SYNTAX: 3 digits octet number. Default value is 666.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: uploadTmpFilePermission
+NAME: Temporary File Permissions
+NS: O
 REQUIRED: 
 APPLY: 2
 SINCE: 
@@ -436,12 +463,44 @@ END_TIPS
 [TBL]
 ID: reqCensorship
 NAME: Request Filter
-NS: LE
+NS: L
 
 DESCR: 
 END_DESCR
 
 CONT: enableCensorship censorLogLevel defaultAction scanPOST uploadTmpDir uploadTmpFilePermission secAuditLogEngine secAuditLog
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: reqCensorship
+NAME: Request Filter
+NS: E
+
+DESCR: 
+END_DESCR
+
+CONT: enableCensorship censorLogLevel defaultAction scanPOST uploadTmpDir uploadTmpFilePermission disableSecHtaccess secAuditLogEngine secAuditLog
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: VHreqCensorship
+NAME: Request Filter
+NS: LE
+
+DESCR: 
+END_DESCR
+
+CONT: enableCensorship censorLogLevel defaultAction scanPOST
 END_CONT
 
 SEE_ALSO: 
