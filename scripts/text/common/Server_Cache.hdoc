@@ -38,22 +38,22 @@ END_TIPS
 
 [ITEM]
 ID: cachePolicy:enableCache
-NAME: Enable Cache
+NAME: Enable Public Cache
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to turn on cache for the current context, either at the server
-level, virtual host level, or directory level. 
+DESCR: Specifies whether to turn on public cache for the current context, either at the server
+level, virtual host level, or context level. 
 
 
 Virtual hosts configured through Apache httpd.conf can use the "CacheEnable" and 
-"CacheDisable" directives at the server, virtual host, directory, files, and location 
+"CacheDisable" directives at the server, virtual host, context, file, and location 
 level or in .htaccess. "CacheEnable" and "CacheDisable" directives are compatible 
-with Apache mod_cache directives. However, when used at the directory, file, or 
+with Apache mod_cache directives. However, when used at the context, file, or 
 location level or in a .htaccess, "CacheEnable" and "CacheDisable" will only be applied 
-to all directories below current level. URL parameters will be ignored.
+to all directories below the current level. URL parameters will be ignored.
 
 
 END_DESCR
@@ -67,6 +67,29 @@ END_EXAMPLE
 TIPS: [Performance] It is not recommended to store large objects with low hit
 rates in the cache. This may result in high I/O wait and reduce overall server performance.
 END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: checkPublicCache
+NAME: Check Public Cache
+NS: LE
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to check against the public cache for URLs requested in the current context. Can be set at the server
+level, virtual host level, or context level. 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
 
 [END_ITEM]
 
@@ -313,6 +336,29 @@ END_TIPS
 
 
 [ITEM]
+ID: checkPrivateCache
+NAME: Check Private Cache
+NS: LE
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to check against the private cache for URLs requested in the current context. Can be set at the server
+level, virtual host level, or context level. 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: cachePolicy:privateExpireInSeconds
 NAME: Private Cache Expire Time (seconds)
 REQUIRED: 
@@ -420,10 +466,10 @@ NAME: Cache Policy
 DESCR: 
 END_DESCR
 
-CONT: cachePolicy:enableCache cachePolicy:maxCacheObjSize cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
+CONT: cachePolicy:enableCache checkPublicCache cachePolicy:maxCacheObjSize cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
  cachePolicy:reqCookieCache cachePolicy:respCookieCache 
 cachePolicy:ignoreReqCacheCtrl cachePolicy:ignoreRespCacheCtrl
-cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
+cachePolicy:enablePrivateCache checkPrivateCache cachePolicy:privateExpireInSeconds
 END_CONT
 
 SEE_ALSO: 
