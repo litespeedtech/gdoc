@@ -387,15 +387,15 @@ END_TIPS
 
 [ITEM]
 ID: noCacheUrl
-NAME: No Cache URL
+NAME: Do-Not-Cache URL
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: A list of URL segments that will not be cached. Any URL that contains those listed segments will not be cached. 
-String matching is used. Regular expressions are not supported. You can add comments 
-by starting a line with "#". This feature is available at server and virtual host levels.
+DESCR: A list of URL segments where any URL containing these listed segments will not be cached. 
+String matching is used. Regular expressions are not supported. Can be set at the server or virtual host level.
+URL segments listed at the server level are inherited by all virtual hosts and added to their <b>Do-Not-Cache URL</b> lists.
 END_DESCR
 
 SYNTAX: text
@@ -404,7 +404,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: 
+TIPS: You can add comments by starting a line with "#".
 END_TIPS
 
 [END_ITEM]
