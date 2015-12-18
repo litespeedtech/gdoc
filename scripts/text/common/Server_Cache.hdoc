@@ -395,7 +395,7 @@ SEE_ALSO:
 
 DESCR: A list of URL segments that will not be cached. Any URL that contains those listed segments will not be cached. 
 String matching is used. Regular expressions are not supported. You can add comments 
-by starting a line with "#". This feature is only available at the server level.
+by starting a line with "#". This feature is available at server and virtual host levels.
 END_DESCR
 
 SYNTAX: text
