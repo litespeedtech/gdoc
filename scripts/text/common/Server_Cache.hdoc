@@ -462,6 +462,7 @@ SEE_ALSO:
 [TBL]
 ID: cachePolicy
 NAME: Cache Policy
+NS: LE
 
 DESCR: 
 END_DESCR
@@ -470,6 +471,26 @@ CONT: cachePolicy:enableCache checkPublicCache cachePolicy:maxCacheObjSize cache
  cachePolicy:reqCookieCache cachePolicy:respCookieCache 
 cachePolicy:ignoreReqCacheCtrl cachePolicy:ignoreRespCacheCtrl
 cachePolicy:enablePrivateCache checkPrivateCache cachePolicy:privateExpireInSeconds
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+
+[TBL]
+ID: cachePolicy
+NAME: Cache Policy
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: cachePolicy:enableCache cachePolicy:maxCacheObjSize cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
+ cachePolicy:reqCookieCache cachePolicy:respCookieCache 
+cachePolicy:ignoreReqCacheCtrl cachePolicy:ignoreRespCacheCtrl
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
 END_CONT
 
 SEE_ALSO: 
