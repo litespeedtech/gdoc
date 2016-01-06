@@ -93,14 +93,13 @@ END_TIPS
 [ITEM]
 ID: configFile
 NAME: Config File
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the configuration file name for this virtual host.
-The configuration file must be under the $SERVER_ROOT/conf/vhosts/ directory. 
-{val}$SERVER_ROOT/conf/vhosts/$VH_NAME/vhconf.conf{/} is recommended.
+DESCR: Specifies the configuration file name and directory for this virtual host.
 END_DESCR
 
 SYNTAX: file3
@@ -109,11 +108,36 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: 
+TIPS: {val}$SERVER_ROOT/conf/vhosts/$VH_NAME.xml is recommended for easy management.{/val}
 END_TIPS
 
 [END_ITEM]
 
+
+
+[ITEM]
+ID: configFile
+NAME: Config File
+NS: O
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the configuration file name for this virtual host.
+The configuration file must be located in the $SERVER_ROOT/conf/vhosts/ or $VH_ROOT/conf/ directories. 
+END_DESCR
+
+SYNTAX: file3
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: {val}$SERVER_ROOT/conf/vhosts/$VH_NAME.xml{/val} is recommended for easy management.
+END_TIPS
+
+[END_ITEM]
 
 
 ############# Connection #############
