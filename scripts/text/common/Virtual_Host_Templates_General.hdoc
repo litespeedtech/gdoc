@@ -32,7 +32,8 @@ END_TIPS
 
 [ITEM]
 ID: templateVHConfigFile
-NAME: Instantiated VHost Config File 
+NAME: Instantiated VHost Config File
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -40,7 +41,35 @@ SEE_ALSO:
 
 DESCR: Specifies the location of the config file generated when you instantiate a member virtual host. 
 Variable {val}$VH_NAME{/} must appear in the path so each virtual host will have its own file.
-Suggested location is {val}$SERVER_ROOT/conf/vhosts/$VH_NAME/vhconf.conf{/}. This config file will 
+Suggested location is {val}$SERVER_ROOT/conf/vhosts/$VH_NAME.xml{/}. This config file will 
+be created only after you move a member vhost out of the template through instantiation.
+END_DESCR
+
+SYNTAX: String with $VH_NAME variable and .xml suffix
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: templateVHConfigFile
+NAME: Instantiated VHost Config File
+NS: O 
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the location of the config file generated when you instantiate a member virtual host. 
+Variable {val}$VH_NAME{/} must appear in the path so each virtual host will have its own file.
+Must be located under $SERVER_ROOT/conf/vhosts/. This config file will 
 be created only after you move a member vhost out of the template through instantiation.
 END_DESCR
 
@@ -50,7 +79,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: 
+TIPS: $VH_NAME.conf is recommended for easy management.
 END_TIPS
 
 [END_ITEM]
@@ -70,7 +99,7 @@ Variable {val}$VH_NAME{/} or {val}$VH_ROOT{/} must appear in the path so
 each member virtual host will have its own document root.
 END_DESCR
 
-SYNTAX: string with $VH_NAME or $VH_ROOT variable
+SYNTAX: path with $VH_NAME or $VH_ROOT variable
 END_SYNTAX
 
 EXAMPLE: $VH_ROOT/public_html/ or $SERVER_ROOT/$VH_NAME/public_html.  
