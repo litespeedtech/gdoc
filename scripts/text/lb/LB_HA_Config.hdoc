@@ -248,7 +248,7 @@ END_TIPS
 
 [ITEM]
 ID: haRep_isGzipStream
-NAME: Is Gzip Stream (Change)
+NAME: Is Gzip Stream
 REQUIRED: 
 APPLY: 3
 SINCE: 2.0
@@ -261,6 +261,78 @@ SYNTAX: bool
 END_SYNTAX
 
 EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haRep_isFileCached
+NAME: Is File Cache Enabled
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: Enable file cache replication.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haRep_fileCacheLstnr
+NAME: File Cache Server Address
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: Select file cache server address.
+END_DESCR
+
+SYNTAX: IP:port
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haRep_fileCachePath
+NAME: File Cache Root Path
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: Set file cache root path.
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE: /var/cache
 END_EXAMPLE
 
 TIPS: 
@@ -295,7 +367,8 @@ NAME: Replication
 DESCR:
 END_DESCR
 
-CONT: haRep_serverAddr haRep_replCluster haRep_heartBeatInterval haRep_heartBeatTimeout haRep_isGzipStream
+CONT: haRep_serverAddr haRep_replCluster haRep_heartBeatInterval haRep_heartBeatTimeout haRep_isGzipStream 
+haRep_isFileCached haRep_fileCacheLstnr haRep_fileCachePath
 END_CONT
 
 SEE_ALSO: 
