@@ -172,13 +172,40 @@ END_TIPS
 [ITEM]
 ID: cachePolicy:qsCache
 NAME: Cache Request with Query String
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
 DESCR: Specifies whether to cache a request with a query string in the URL. 
-The default is "No Cache". When a URL rewrite is involved, the server will check against the 
+The default is "Yes". When a URL rewrite is involved, the server will check against the 
+rewritten URL.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: cachePolicy:qsCache
+NAME: Cache Request with Query String
+NS: O
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to cache a request with a query string in the URL. 
+The default is "No". When a URL rewrite is involved, the server will check against the 
 rewritten URL.
 END_DESCR
 
@@ -198,12 +225,38 @@ END_TIPS
 [ITEM]
 ID: cachePolicy:reqCookieCache
 NAME: Cache Request with Cookie
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to cache a request containing cookies. The default is "No Cache". 
+DESCR: Specifies whether to cache a request containing cookies. The default is "Yes". 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: cachePolicy:reqCookieCache
+NAME: Cache Request with Cookie
+NS: O
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to cache a request containing cookies. The default is "No". 
 END_DESCR
 
 SYNTAX: bool
@@ -222,12 +275,38 @@ END_TIPS
 [ITEM]
 ID: cachePolicy:respCookieCache
 NAME: Cache Response with Cookie
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to cache a response containing cookies. The default is "No Cache". 
+DESCR: Specifies whether to cache a response containing cookies. The default is "Yes". 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: cachePolicy:respCookieCache
+NAME: Cache Response with Cookie
+NS: O
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to cache a response containing cookies. The default is "No". 
 END_DESCR
 
 SYNTAX: bool
