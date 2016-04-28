@@ -7,6 +7,7 @@
 [ITEM]
 ID: cacheStorePath
 NAME: Storage Path
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -33,12 +34,65 @@ END_TIPS
 
 
 
+[ITEM]
+ID: cacheMgrStorePath
+NAME: Cache Manager Path
+NS: LE
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the directory used to store cache manager files. These files are stored in <b>Storage Path</b> by default.
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [performance] A separate location on a fast disk is recommended to prevent the accidental removal of cache manager files.
+Only set to a location on a RAM disk if cache storage is also saved on a RAM disk.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: pubStoreExpireMinutes
+NAME: Public Storage Expire (minutes)
+NS: LE
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The maximum age of a cached file before the server will attempt to physically remove it. This removal operation will 
+occur once per day to prevent cache storage from growing too large. Minimum setting is 60 minutes.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: Set this value to a time greater than your longest TTL to help prevent the removal of still valid cache files.
+END_TIPS
+
+[END_ITEM]
+
+
+
 ########## Cache Policy ##########
 
 
 [ITEM]
 ID: cachePolicy:enableCache
 NAME: Enable Public Cache
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -98,6 +152,7 @@ END_EXAMPLE
 [ITEM]
 ID: cachePolicy:maxCacheObjSize
 NAME: Max Object Size
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -123,6 +178,7 @@ END_TIPS
 [ITEM]
 ID: cachePolicy:expireInSeconds
 NAME: Cache Expire Time (seconds)
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -147,6 +203,7 @@ END_TIPS
 [ITEM]
 ID: cachePolicy:maxStaleAge
 NAME: Cache Stale Age (seconds)
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 4.2.2
@@ -195,32 +252,6 @@ END_TIPS
 [END_ITEM]
 
 
-[ITEM]
-ID: cachePolicy:qsCache
-NAME: Cache Request with Query String
-NS: O
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies whether to cache a request with a query string in the URL. 
-The default is "No". When a URL rewrite is involved, the server will check against the 
-rewritten URL.
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
 
 [ITEM]
 ID: cachePolicy:reqCookieCache
@@ -232,31 +263,6 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies whether to cache a request containing cookies. The default is "Yes". 
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
-ID: cachePolicy:reqCookieCache
-NAME: Cache Request with Cookie
-NS: O
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies whether to cache a request containing cookies. The default is "No". 
 END_DESCR
 
 SYNTAX: bool
@@ -298,33 +304,9 @@ END_TIPS
 
 
 [ITEM]
-ID: cachePolicy:respCookieCache
-NAME: Cache Response with Cookie
-NS: O
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies whether to cache a response containing cookies. The default is "No". 
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
 ID: cachePolicy:ignoreReqCacheCtrl
 NAME: Ignore Request Cache-Control
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -351,6 +333,7 @@ END_TIPS
 [ITEM]
 ID: cachePolicy:ignoreRespCacheCtrl
 NAME: Ignore Response Cache-Control
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -377,6 +360,7 @@ END_TIPS
 [ITEM]
 ID: cachePolicy:enablePrivateCache
 NAME: Enable Private Cache
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -440,6 +424,7 @@ END_EXAMPLE
 [ITEM]
 ID: cachePolicy:privateExpireInSeconds
 NAME: Private Cache Expire Time (seconds)
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -467,6 +452,7 @@ END_TIPS
 [ITEM]
 ID: noCacheUrl
 NAME: Do-Not-Cache URL
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -496,6 +482,7 @@ END_TIPS
 [ITEM]
 ID: noCacheDomain
 NAME: No Cache Domain
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -526,11 +513,12 @@ END_TIPS
 [TBL]
 ID: cacheStorage
 NAME: Cache Storage Settings
+NS: LE
 
 DESCR: 
 END_DESCR
 
-CONT: cacheStorePath 
+CONT: cacheStorePath cacheMgrStorePath pubStoreExpireMinutes
 END_CONT
 
 SEE_ALSO: 
@@ -557,29 +545,10 @@ SEE_ALSO:
 
 
 
-
-[TBL]
-ID: cachePolicy
-NAME: Cache Policy
-NS: O
-
-DESCR: 
-END_DESCR
-
-CONT: cachePolicy:enableCache cachePolicy:maxCacheObjSize cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
- cachePolicy:reqCookieCache cachePolicy:respCookieCache 
-cachePolicy:ignoreReqCacheCtrl cachePolicy:ignoreRespCacheCtrl
-cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
 [TBL]
 ID: noCacheURLList
 NAME: Do-Not-Cache URL
+NS: LE
 
 DESCR: 
 END_DESCR
@@ -595,6 +564,7 @@ SEE_ALSO:
 [TBL]
 ID: noCacheDomainList
 NAME: Do-Not-Cache Domains
+NS: LE
 
 DESCR: 
 END_DESCR
@@ -612,6 +582,7 @@ SEE_ALSO:
 [PAGE]
 ID: Cache_Help
 NAME: Page Cache Settings
+NS: LE
 
 DESCR: 
 END_DESCR
