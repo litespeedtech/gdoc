@@ -16,8 +16,8 @@ SEE_ALSO:
 DESCR: Specifies the directory for holding cached objects. Currently, 
 LiteSpeed Cache stores each object in its own file. The file name is a hash of 
 the object key. Multiple levels of directories will be created in order to 
-avoid holding too many files in one directory. This value must be set in 
-order to enable cache.
+avoid holding too many files in one directory. This value must be set at the Server level
+in order to enable cache. Virtual Host level settings will override Server level settings.
 END_DESCR
 
 SYNTAX: path
@@ -28,6 +28,9 @@ END_EXAMPLE
 
 TIPS: [performance] Assign a dedicated disk or disk array as the cache
 storage. RAID0 is recommended.
+
+It is recommended to set a different cache storage path for each Virtual Host to prevent 
+purge all requests from affecting other Virtual Hosts. 
 END_TIPS
 
 [END_ITEM]
