@@ -1,0 +1,126 @@
+[HELPDOC]
+
+
+########## PageSpeed Module Settings ##########
+
+
+[ITEM]
+ID: pagespeedActivate
+NAME: Load Module
+REQUIRED:
+APPLY: 3
+SINCE: 
+SEE_ALSO:
+
+DESCR: Choose whether or not to load the PageSpeed module. 
+END_DESCR
+
+EDITTIP: 
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: pagespeedEnabled
+NAME: Enable PageSpeed
+REQUIRED:
+APPLY: 3
+SINCE: 
+SEE_ALSO:
+
+DESCR: Choose whether or not to enable the PageSpeed process.
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: This can be set at the server level and then overridden at the virtual host level.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: pagespeedParams
+NAME: Module Parameters
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Set parameters using Google default filter sets.
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE:<br />
+pagespeed FileCachePath /tmp/lshttpd/pagespeed;
+
+pagespeed RewriteLevel CoreFilters;
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+########### Tables ############
+
+
+[TBL]
+ID: Mod_PageSpeed
+NAME: PageSpeed Module Settings
+
+DESCR: 
+END_DESCR
+
+CONT: pagespeedActivate pagespeedEnabled pagespeedParams
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+########### Pages ############
+
+
+[PAGE]
+ID: PageSpeed_Config
+NAME: PageSpeed Module Config
+
+DESCR:
+END_DESCR
+
+CONT: Mod_PageSpeed
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+[END_HELPDOC]

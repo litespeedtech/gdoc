@@ -271,6 +271,30 @@ END_TIPS
 
 
 [ITEM]
+ID: haRep_isIncSync
+NAME: Enable Incremental Sync
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: Enable incremental replication sync check.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: haRep_isFileCached
 NAME: Is File Cache Enabled
 REQUIRED: 
@@ -319,20 +343,20 @@ END_TIPS
 
 
 [ITEM]
-ID: haRep_fileCachePath
-NAME: File Cache Root Path
+ID: haRep_fileCacheExpireSec
+NAME: File Cache Expiration (secs)
 REQUIRED: 
 APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: Set file cache root path.
+DESCR: Configure file cache expiration time.
 END_DESCR
 
-SYNTAX: path
+SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: /var/cache
+EXAMPLE: 
 END_EXAMPLE
 
 TIPS: 
@@ -368,7 +392,7 @@ DESCR:
 END_DESCR
 
 CONT: haRep_serverAddr haRep_replCluster haRep_heartBeatInterval haRep_heartBeatTimeout haRep_isGzipStream 
-haRep_isFileCached haRep_fileCacheLstnr haRep_fileCachePath
+haRep_isIncSync haRep_isFileCached haRep_fileCacheLstnr haRep_fileCacheExpireSec
 END_CONT
 
 SEE_ALSO: 
