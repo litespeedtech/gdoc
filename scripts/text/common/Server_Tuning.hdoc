@@ -82,32 +82,6 @@ END_TIPS
 
 
 [ITEM]
-ID: SSLCryptoDevice
-NAME: SSL Hardware Accelerator
-REQUIRED: 
-APPLY: 2
-SINCE: 
-SEE_ALSO: 
-
-DESCR: {ent_version} Specifies which SSL hardware acceleration device to use. Only
-devices supported by OpenSSL can be used. Select {val}OpenSSL internal
-engine{/} if no device is installed. 
-END_DESCR
-
-SYNTAX: select
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
 ID: SSLStrongDhKey
 NAME: SSL Strong DH Key
 NS: LEO
