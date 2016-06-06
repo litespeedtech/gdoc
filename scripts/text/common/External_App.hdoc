@@ -19,10 +19,12 @@ DESCR: Specifies the type of external application. Choose from
 role.</li>
 <li>{val}Servlet Engine{/}: a Servlet engine with AJPv13 connector,
 such as tomcat.</li>
-<li>{val}Web Server{/}: a web server or application server that
-support HTTP protocol.</li>
-<li>{val}LSAPI App{/}: an application that communicate with web server
-in LSAPI protocol.</li>
+<li>{val}HTTP Proxy{/}: a web server or application server that
+supports the HTTP protocol.</li>
+<li>{val}HTTPS Proxy{/}: a web server or application server that
+supports the HTTPS protocol.</li>
+<li>{val}LSAPI App{/}: an application that communicates with the web server
+using the LSAPI protocol.</li>
 </ul>
 END_DESCR
 

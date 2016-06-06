@@ -14,10 +14,10 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: The type of context created determines it's usage.<br><br><b>Redirect</b> context can set up an internal or external redirect URI.<br>
-<b>Load Balancer</b> context can set up an internal or external redirect URI.
+<b>Load Balancer</b> context can be used to assign a different cluster for that context.
 END_DESCR
 
-EDITTIP: <b>Load Balancer</b> context can set up an internal or external redirect URI.
+EDITTIP: <b>Load Balancer</b> context can be used to assign a different cluster for that context.
 END_EDITTIP
 
 EDITTIP: <b>Redirect</b> context can set up an internal or external redirect URI.
@@ -43,7 +43,7 @@ DESCR: The type of context created determines it's usage.:<br><br><b>Static</b> 
 <b>LiteSpeed SAPI</b> context can be used to associate a URI with an LSAPI application.<br>
 <b>Proxy</b> context enables this virtual host to serve as a transparant reverse proxy server to an external web server or application server.<br>
 <b>CGI</b> context can be used to specify a directory only contains CGI scripts.<br>
-<b>Load Balancer</b> context can set up an internal or external redirect URI.<br>
+<b>Load Balancer</b> context can be used to assign a different cluster for that context.<br>
 <b>Redirect</b> context can set up an internal or external redirect URI.<br>
 <b>Rack/Rails</b> context is specifically used for Rack/Rails applications.<br>
 END_DESCR
@@ -69,7 +69,7 @@ END_EDITTIP
 EDITTIP: <b>CGI</b> context can be used to specify a directory only contains CGI scripts.
 END_EDITTIP
 
-EDITTIP: <b>Load Balancer</b> context can set up an internal or external redirect URI.
+EDITTIP: <b>Load Balancer</b> context can be used to assign a different cluster for that context.
 END_EDITTIP
 
 EDITTIP: <b>Redirect</b> context can set up an internal or external redirect URI.
@@ -98,7 +98,7 @@ DESCR: The type of context created determines it's usage.<br><br><b>Static</b> c
 <b>LiteSpeed SAPI</b> context can be used to associate a URI with an LSAPI application.<br>
 <b>Proxy</b> context enables this virtual host to serve as a transparant reverse proxy server to an external web server or application server.<br>
 <b>CGI</b> context can be used to specify a directory only contains CGI scripts.<br>
-<b>Load Balancer</b> context can set up an internal or external redirect URI.<br>
+<b>Load Balancer</b> context can be used to assign a different cluster for that context.<br>
 <b>Redirect</b> context can set up an internal or external redirect URI.<br>
 <b>Rack/Rails</b> context is specifically used for Rack/Rails applications.<br>
 <b>Module handler</b> context is a mount point of hander type modules.<br>
@@ -125,7 +125,7 @@ END_EDITTIP
 EDITTIP: <b>CGI</b> context can be used to specify a directory only contains CGI scripts.
 END_EDITTIP
 
-EDITTIP: <b>Load Balancer</b> context can set up an internal or external redirect URI.
+EDITTIP: <b>Load Balancer</b> context can be used to assign a different cluster for that context.
 END_EDITTIP
 
 EDITTIP: <b>Redirect</b> context can set up an internal or external redirect URI.

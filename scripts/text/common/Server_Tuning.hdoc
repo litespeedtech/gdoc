@@ -1535,7 +1535,7 @@ NS: LEO
 DESCR: 
 END_DESCR
 
-CONT: SSLStrongDhKey sslEnableMultiCerts SSLCryptoDevice sslSessionCache sslSessionCacheSize sslSessionCacheTimeout 
+CONT: SSLStrongDhKey sslEnableMultiCerts sslSessionCache sslSessionCacheSize sslSessionCacheTimeout 
 sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile 
 END_CONT
 
