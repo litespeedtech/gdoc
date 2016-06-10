@@ -12,7 +12,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the file name of the SSL private key file. The key file should not be encrypted.
+DESCR: The filename of the SSL private key file. The key file should not be encrypted.
 END_DESCR
 
 SYNTAX: file2
@@ -37,7 +37,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the file name of the SSL certificate file.
+DESCR: The filename of the SSL certificate file.
 END_DESCR
 
 SYNTAX: file2
@@ -149,7 +149,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies which version of SSL protocol will be used. You can choose from 
+DESCR: Specifies which version of the SSL protocol will be used. You can choose from 
 {val}SSL v3.0{/} and {val}TLS v1.0{/}. Since OpenSSL 1.0.1, {val}TLS v1.1{/} and {val}TLS v1.2{/} are also supported. 
 END_DESCR
 
@@ -180,7 +180,8 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the cipher suite to be used to negotiate the SSL handshake. LSWS supports cipher suites implemented in SSL v3.0, TLS v1.0, and TLS v1.2.
+DESCR: Specifies the cipher suite to be used when negotiating the SSL handshake. 
+LSWS supports cipher suites implemented in SSL v3.0, TLS v1.0, and TLS v1.2.
 END_DESCR
 
 SYNTAX: Colon-separated string of cipher specifications. LSWS supports all cipher suites implemented in SSL v3.0, TLS v1.0, and TLS v1.2.
@@ -215,6 +216,7 @@ END_EXAMPLE
 
 TIPS: [Security] ECDH key exchange is more secure than using just an RSA key. ECDH and DH key exchange are equally secure.
 
+
 [Performance] Enabling ECDH key exchange will increase CPU load and is slower than using just an RSA key.
 END_TIPS
 
@@ -240,6 +242,7 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: [Security] DH key exchange is more secure than using just an RSA key. ECDH and DH key exchange are equally secure.
+
 
 [Performance] Enabling DH key exchange will increase CPU load and is slower than ECDH key exchange and RSA. ECDH key exchange is preferred when available.
 END_TIPS
@@ -310,7 +313,7 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: HTTP/2 and SPDY are new versions of the HTTP network protocol with the goal of reducing page load times. 
-More information can be found at: http://en.wikipedia.org/wiki/HTTP/2
+More information can be found at <a href="http://en.wikipedia.org/wiki/HTTP/2">http://en.wikipedia.org/wiki/HTTP/2</a>.
 END_DESCR
 
 SYNTAX: Check the protocol(s) you wish to enable. Leaving all boxes unchecked will enable SPDY and HTTP/2 support (the default). 
@@ -426,8 +429,8 @@ but, if this validation fails, you should try adding your root certificate to th
 This setting is optional. If this setting is not set, the server will automatically check {ITEM= CACertFile}. 
 END_DESCR
 
-SYNTAX: File name which can be an absolute path or relative to $SERVER_ROOT.
-END_SYNTAX
+SYNTAX: file2
+END_SYNTAX1
 
 EXAMPLE: 
 END_EXAMPLE
@@ -453,10 +456,10 @@ SEE_ALSO:
 DESCR:{ent_version} Specifies the type of client certifcate authentication.
 Available types are:
 <ul>
-<li>None: No client certificate is required.</li>
-<li>Optional: Client certificate is optional.</li>
-<li>Require: The client must has valid certificate.</li>
-<li>Optional_no_ca: Same as optional.</li>
+<li><b>None:</b> No client certificate is required.</li>
+<li><b>Optional:</b> Client certificate is optional.</li>
+<li><b>Require:</b> The client must has valid certificate.</li>
+<li><b>Optional_no_ca:</b> Same as optional.</li>
 </ul>
 The default is "None". 
 END_DESCR
@@ -510,7 +513,7 @@ SEE_ALSO:
 
 DESCR:{ent_version} Specifies the directory containing PEM-encoded CA CRL files for revoked 
 client certificates. The files in this directory have to be PEM-encoded. 
-These files are accessed through hash file names, hash-value.rN.
+These files are accessed through hash filenames, hash-value.rN.
 Please refer to openSSL or Apache mod_ssl documentation regarding creating the hash filename.
 END_DESCR
 
@@ -568,10 +571,9 @@ Multiple SSL listeners can share the same key and certificate.
 You can generate SSL private keys yourself using an SSL software package, 
 such as OpenSSL. SSL certificates can also be purchased from an authorized certificate 
 issuer like VeriSign or Thawte. You can also sign the certificate yourself. 
-That certificate will not be trusted by web browsers and should not be used on public web 
-sites containing critical data. However, a self-signed certificate is good 
-enough for internal use, e.g. for encrypting traffic 
-to LiteSpeed Web Server's WebAdmin console.
+Self-signed certificates will not be trusted by web browsers and should not be used on public websites 
+containing critical data. However, a self-signed certificate is good 
+enough for internal use, e.g. for encrypting traffic to LiteSpeed Web Server's WebAdmin Console.
 END_DESCR
 
 CONT: keyFile certFile certChain CACertPath CACertFile

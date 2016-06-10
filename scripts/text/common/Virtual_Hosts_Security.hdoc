@@ -276,7 +276,7 @@ SEE_ALSO:  {ITEM=GroupDBLocation}, {ITEM=userDB_attrPasswd}, {ITEM=userDB_attrMe
 DESCR: Specifies the location of the user database. 
 For DB type {val}Password File{/}, it is the path to the flat file
 containing user/password definitions.
-You can edit this file through the WebAdmin console by clicking on the file name.
+You can edit this file through the WebAdmin console by clicking on the filename.
 
 
 Each line of the user file contains a username followed by a colon, 
@@ -298,7 +298,7 @@ must be specified in the filter part of the URL and it will be
 replaced with the username. The user password attribute
 must be returned in the query result. The attribute name of the user password
 is specified by {ITEM=userDB_attrPasswd}. Group information can be
-optionally specified by {ITEM=userDB_attrMemberOf}.
+optionally specified by the {ITEM=userDB_attrMemberOf}.
 
 
 Example: At minimum, a user can be defined in LDAP with object
@@ -311,7 +311,7 @@ following URL could be used:
 END_DESCR
 
 
-SYNTAX: Path to the user DB file or LDAP URL (RFC 2255).
+SYNTAX: Path to user DB file or LDAP URL (RFC 2255).
 END_SYNTAX
 
 EXAMPLE: 
@@ -402,14 +402,13 @@ not be checked.
 
 For the DB type {val}Password File{/}, the group DB location should be the path to 
 the flat file containing group definitions. You can edit this file through the 
-WebAdmin console by clicking on the file name. 
+WebAdmin console by clicking on the filename. 
 
 
 Each line of a group file should contain a groupname followed by a colon,  
 followed by space delimited group of usernames. Example:
 
 <blockquote><code>testgroup: user1 user2 user3</code></blockquote> 
-
 
 For the DB type {val}LDAP{/}, the group DB location should be the LDAP URL to query 
 for group information. For each valid group, one and only
@@ -418,7 +417,7 @@ this URL and the group name specified in {ITEM=Context_Help#required}. "$k"
 must be specified in the filter part of the URL and it will be
 replaced with the group name. The name of the attribute that 
 specifies members in this group
-is specified by {ITEM=groupDB_attrGroupMember}.
+is specified by the {ITEM=groupDB_attrGroupMember}.
 
 
 Example: If objectClass posixGroup is being used to store group
@@ -697,7 +696,7 @@ introduces additional bandwidth usage that you should not be responsible for.
 
 
 LiteSpeed web server can prevent others from hotlinking to content on
-your web site by checking the Referer header within a HTTP request. 
+your web site by checking the Referer header within an HTTP request. 
 If the Referer header does not match your website, the request will be denied.
 END_DESCR
 
@@ -717,10 +716,10 @@ NS: E
 DESCR: Lists all authorization realms for this virtual host. 
 Authorization realms are used to block unauthorized users from accessing protected web pages.
 A realm is a user directory containing usernames and passwords with optional 
-group classifications. Authorization is performed at context level. 
-Since different contexts can share the same realm (user database), so realms are 
+group classifications. Authorization is performed at the context level. 
+Because different contexts can share the same realm (user database), realms are 
 defined separately from the contexts that use them. 
-You can refer to a realm by these names in context configuration. 
+You can refer to a realm by these names in a contexts configuration. 
 END_DESCR
 
 CONT: realmName realmType userDBLocation userDB_attrPasswd

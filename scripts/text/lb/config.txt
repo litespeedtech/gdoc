@@ -59,7 +59,7 @@ Every listener has a virtual host lookup table. The data in the lookup
 <ol><li>end user enter a url in browser</li>
 	<li>browser sends DNS lookup request to get the IP address of the load balancer from the domain name</li>
 	<li>browser sends a request to establish a TCP connection with the load balancer on the specific IP and port (a listener)</li>
-	<li>after the connection is established, browser sends a HTTP request including the domain name information of the web site.</li>
+	<li>after the connection is established, browser sends an HTTP request including the domain name information of the web site.</li>
 	<li>When the load balancer receives the request, the lookup table associated with that listener will be searched against the domain name in the request, if a match is found, the request will be routed to the virtual host for processing.</li>
 	<li> the load balancer will receive the response from the virtual host on a cluster node and send back to client browser.</li>
 </ol>

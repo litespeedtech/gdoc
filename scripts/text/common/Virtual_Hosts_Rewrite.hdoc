@@ -13,7 +13,7 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies whether to enable LiteSpeed's URL rewrite engine.
-This option can be customized at virtual host- and context-level, and
+This option can be customized at the virtual host or context level, and
 is inherited along the directory tree until it is explicitly overridden. 
 END_DESCR
 
@@ -44,7 +44,7 @@ DESCR: Specifies the level of detail of the rewrite engine's debug output.
 This value ranges from {val}0{/} - {val}9{/}. {val}0{/} disables logging. {val}9{/} produces the
 most detailed log. The server and virtual host's error log {ITEM=ServGeneral_Help#log_logLevel} 
 must be set to at least {val}INFO{/} for this option to take effect.
-This is useful when testing your rewrite rules.
+This is useful when testing rewrite rules.
 END_DESCR
 
 SYNTAX: uint 
@@ -73,7 +73,7 @@ DESCR: Specifies the log level of the rewrite engine debug output.
 Value ranges from 0 - 9, 0 will disable logging and 9 will produce the
 most detailed log. The log level of the server error log
 must be set to at least {val}INFO{/} for this option to take effect.
-This is useful when testing your rewrite rules.
+This is useful when testing rewrite rules.
 
 END_DESCR
 
@@ -143,43 +143,45 @@ DESCR: Specifies the location of the rewrite map using the syntax {val}MapType:M
 
 LiteSpeed's rewrite engine supports three types of rewrite maps:
 <ul>
-	<li>Standard Plain Text
+	<li><b>Standard Plain Text</b>
 <blockquote>
-		MapType: {val}txt{/}; 
+		<b>MapType:</b> txt; 
 
-		MapSource: file path to a valid plain ASCII	file. 
+		<b>MapSource:</b> file path to a valid plain ASCII file. 
 </blockquote>
 		Each line of this file should contain two elements separated 
 		by blank spaces. The first element is the key and the second
 		element is the value. Comments can be added with a leading "{val}#{/}"
 		sign. 
 	</li>
-	<li>Randomized Plain Text
+	<li><b>Randomized Plain Text</b>
 <blockquote>
-		MapType: {val}rnd{/};
+		<b>MapType:</b> rnd;
 
-		MapSource: file path of a valid plain ASCII	file.
+		<b>MapSource:</b> file path of a valid plain ASCII file.
 </blockquote>
 		File format is similar to the Standard Plain Text file, except that the
 		second element can contain multiple choices separated by a "{val}|{/}"
 		sign and chosen randomly by the rewrite engine.
 	</li>
-	<li>Internal Function
+	<li><b>Internal Function</b>
 <blockquote>
-	    MapType: {val}int{/};
+	    <b>MapType:</b> int;
 
-		MapSource: Internal string function 
+		<b>MapSource:</b> Internal string function 
 </blockquote>
 		4 functions are available:
 		<ul>
-			<li>toupper: converts lookup key to upper cases.</li>
-			<li>tolower: converts lookup key to lower cases.</li>
-			<li>escape: perform URL encoding on lookup key.</li>
-			<li>unescape: perform URL decoding on lookup key.</li>
+			<li><b>toupper:</b> converts lookup key to upper cases.</li>
+			<li><b>tolower:</b> converts lookup key to lower cases.</li>
+			<li><b>escape:</b> perform URL encoding on lookup key.</li>
+			<li><b>unescape:</b> perform URL decoding on lookup key.</li>
 		</ul>
 	</li>
 	The following map types available in Apache
-	have not been implemented in LiteSpeed: Hash File and External Rewriting Program.
+	have not been implemented in LiteSpeed:
+
+Hash File and External Rewriting Program.
 </ul>
 The implementation of LiteSpeed's rewrite engine follows the
 specifications of Apache's rewrite engine. For more details about rewrite
@@ -191,7 +193,7 @@ END_DESCR
 EDITTIP: Enter URI for location. URI must start with "/".
 END_EDITTIP
 
-SYNTAX: string 
+SYNTAX: String 
 END_SYNTAX
 
 EXAMPLE: 
@@ -215,7 +217,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies a list of rewrite rules at virtual host or context level.
+DESCR: Specifies a list of rewrite rules at the virtual host or context level.
 A rewrite rule is comprised of one {val}RewriteRule{/} directive and
 optionally preceded by multiple {val}RewriteCond{/} directives. 
 <ul>
@@ -228,12 +230,12 @@ implementation:
 by the LiteSpeed rewrite engine </li>
   <li>two new server variables are added in the LiteSpeed rewrite engine: 
   {val}%\{CURRENT_URI\}{/} represents the current
-URI processed by the rewrite engine and {val}%\{SCRIPT_NAME\}{/} has the same 
+URI being processed by the rewrite engine and {val}%\{SCRIPT_NAME\}{/} has the same 
 meaning as the corresponding CGI environment variable. </li>
 </ul></li>
 </ul>
 The implementation of LiteSpeed's rewrite engine follows the 
-specifications of Apache's rewrite engine. For more details about rewrite
+Apache's rewrite engine specifications. For more details about rewrite
 rules, please refer to {ext-href}http://httpd.apache.org/docs/mod/mod_rewrite.html{ext-href-end}Apache's
 mod_rewrite document{ext-href-end-a} and {ext-href}http://httpd.apache.org/docs/misc/rewriteguide.html{ext-href-end}Apache's URL 
 rewriting guide{ext-href-end-a}.

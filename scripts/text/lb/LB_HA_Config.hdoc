@@ -12,7 +12,7 @@ APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: A unique number that identifies one virtual interface.
+DESCR: A unique number that identifies a virtual interface.
 END_DESCR
 
 EDITTIP: Additions/Deletions/Changes made will not take effect until applied through HA -> Status page.
@@ -39,7 +39,8 @@ APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: Specifies the virtual IP address of HA interface. It can be either IPv4 or IPv6 address, and has to be on the same subnet with the real IP address.
+DESCR: The virtual IP address of the HA interface. It can be either an IPv4 or IPv6 address and must be on the same 
+subnet as the real IP address.
 END_DESCR
 
 SYNTAX: text
@@ -63,7 +64,8 @@ APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: Specifies an ID of the virtual IP address. Please use an integer number between 1 and 10. VIP, VIP ID and VIP Token have to be same for the same HA group.
+DESCR: The ID of the virtual IP address. Please use an integer number between 1 and 10. <b>Virtual IP</b>, 
+<b>Virtual IP ID<b>, and <b>Virtual IP Token</b> must be the same for the same HA group.
 END_DESCR
 
 SYNTAX: text
@@ -87,8 +89,8 @@ APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: Specifies a token of the virtual IP address, which is required to authenticate interface(carp/vrrp) advertisements. VIP, VIP ID and VIP Token 
-have to be same for the same HA group.
+DESCR: A virtual IP address token is required to authenticate interface(carp/vrrp) advertisements. <b>Virtual IP</b>, 
+<b>Virtual IP ID</b>, and <b>Virtual IP Token</b> must be same for the same HA group.
 END_DESCR
 
 SYNTAX: text
@@ -112,8 +114,9 @@ APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: Specifies the NIC name (such as eth0, eth1, etc..) that virtual IP will bind to, required for Linux platform.
-<br><br>
+DESCR: The NIC name (such as eth0, eth1, etc..) that the virtual IP will bind to. Required for Linux platforms.
+
+
 <b>Note:</b> Even though it is required, this setting will have no effect on FreeBSD platforms.
 END_DESCR
 
@@ -132,10 +135,11 @@ APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: Sets the priority for this load balancer server, where a higher number equals a higher priority. The highest priority load balancer 
+DESCR: The priority for this load balancer server, where a higher number equals a higher priority. The highest priority load balancer 
 will act as the master, with the others in the cluster acting as slaves.
-<br><br>
-<b>Note:</b> This is reversed for FreeBSD platforms where the lower the number is, the higher that numbers priority.
+
+
+<b>Note:</b> This is reversed for FreeBSD platforms where a lower number equals a higher priority.
 END_DESCR
 
 SYNTAX: uint
@@ -157,7 +161,7 @@ APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: Local IP address and port to be used for replication.
+DESCR: Local IP address and port used for replication.
 END_DESCR
 
 SYNTAX: IP:port
@@ -205,7 +209,7 @@ APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: Sets the time interval that "I am alive" message will be sent.
+DESCR: The time interval that "I am alive" messages will be sent.
 END_DESCR
 
 SYNTAX: uint
@@ -229,7 +233,7 @@ APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: Sets the time interval after which, if "I am alive" message is not sent, replicator will be considered to have failed. Must be set higher than 
+DESCR: The time interval after which, if "I am alive" message is not sent, the replicator will be considered to have failed. Must be set higher than 
 <b>Heart Beat interval (secs)</b>.
 END_DESCR
 
@@ -254,7 +258,7 @@ APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: Set Gzip compression for replicator traffic.
+DESCR: Enable Gzip compression for replicator traffic.
 END_DESCR
 
 SYNTAX: bool
@@ -409,12 +413,12 @@ The current configured settings for each interface are shown as well as the actu
 The "Status" field will contain 1-2 of the following values: 
 
 <ul>
-<li><b>Newly Configured:</b> The interface is configured but is not yet created. Click "Add" to create this interface.</li>
+<li><b>Newly Configured:</b> The interface is configured but has not yet been created. Click "Add" to create this interface.</li>
 <li><b>Not in Config File:</b> There is currently no interface configuration with a matching <b>Interface ID</b> for this interface. 
 You can click "Delete" to delete this interface.</li>
 <li><b>Matched:</b> The current configuration settings for this <b>Interface ID</b> match the configuration settings of the corresponding live interface.</li>
 <li><b>Not match with System:</b> The current configuration settings for this <b>Interface ID</b> do not match the configuration settings of the corresponding live interface. 
-Click "Apply Changes" to overwrite the live interfaces settings with the configured settings.</li>
+Click "Apply Changes" to overwrite the live settings with the configured settings.</li>
 <li><b>master:</b> Indicates that this interface has the role of master.</li>
 <li><b>standby:</b> Indicates that this interface has the role of slave.</li>
 </ul>

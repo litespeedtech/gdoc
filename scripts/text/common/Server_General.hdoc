@@ -451,7 +451,7 @@ SEE_ALSO:
 
 DESCR: Specifies the file that contains the MIME settings for this server. 
 It is always relative to the real root when an absolute path is given in chroot mode.
-Click on the file name to view/edit the detailed MIME entries.
+Click on the filename to view/edit the detailed MIME entries.
 END_DESCR
 
 EDITTIP: MIME settings can be edited from the previous page. You can specify the mime configuration file location which can be either be an absolute path or relative 
@@ -464,7 +464,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: Click the file name to edit the MIME settings.
+TIPS: Click the filename to edit the MIME settings.
 END_TIPS
 
 [END_ITEM]
@@ -591,8 +591,7 @@ SINCE:
 SEE_ALSO: {ITEM=ServGeneral_Help#useIpInProxyHeader}, {ITEM=ServGeneral_Help#geoipDBFile}, {ITEM=ServGeneral_Help#geoipDBCache}
 
 DESCR: {ent_version} Specifies whether to enable/disable IP Geolocation lookup. 
-It can be set at server-, virtual host-, or context-level. IP Geolocation is disabled
-by default when using value "Not Set". 
+Can be set at server, virtual host, or context level. IP Geolocation is disabled by default when using value "Not Set". 
 END_DESCR
 
 SYNTAX: bool
@@ -795,7 +794,7 @@ URL is mapped to a directory.
 You can customize it at the server, virtual host, and context level.
 END_DESCR
 
-SYNTAX: Comma delimited list of index file names.
+SYNTAX: Comma-delimited list of index filenames.
 END_SYNTAX
 
 EXAMPLE: 
@@ -901,10 +900,10 @@ You can configure this at server level and virtual host level. Server level is t
  can override it at virtual host level.
 END_DESCR
 
-EDITTIP: It is recommended to use a hidden access file, simply put file name starting with ".", like ".htaccess". LiteSpeed web server does not serve hidden files.
+EDITTIP: It is recommended to use a hidden access file. To do this simply start the filename with ".", similar to ".htaccess". LiteSpeed Web Server does not serve hidden files.
 END_EDITTIP
 
-SYNTAX: File name starting with "."
+SYNTAX: Filename starting with "."
 END_SYNTAX
 
 EXAMPLE: 

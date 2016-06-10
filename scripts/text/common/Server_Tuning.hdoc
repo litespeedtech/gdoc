@@ -93,7 +93,8 @@ SEE_ALSO:
 DESCR: Specifies whether to use 2048 or 1024 bit DH keys for SSL handshakes. If set to "Yes", 2048 bit DH keys will be used for 2048 bit SSL keys and certificates. 
 1024 bit DH keys will still be used in other situations. Default is "Yes".
 
-Earlier versions of Java do not support DH key size higher than 1024 bits. If Java client compatibility is required, setting should be set to "No".
+
+Earlier versions of Java do not support DH key size higher than 1024 bits. If Java client compatibility is required, this should be set to "No".
 END_DESCR
 
 SYNTAX: radio
@@ -411,7 +412,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum size of a HTTP request header including request URL. 
+DESCR: Specifies the maximum size of an HTTP request header including request URL. 
 Hard limit is {val}16380{/} bytes. 
 END_DESCR
 
@@ -442,7 +443,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum size of a HTTP request body. For a 32Bit OS, {val}2GB{/} is the hard limit.
+DESCR: Specifies the maximum size of an HTTP request body. For a 32Bit OS, {val}2GB{/} is the hard limit.
  For a 64Bit OS, it is virtually unlimited. 
 END_DESCR
 
@@ -886,7 +887,7 @@ GZIP-compressed versions of compressible static files or not. If set to {val}Yes
 when a file with a MIME type listed in {ITEM=compressibleTypes} is requested, 
 the server may create or update the corresponding compressed version of 
 the file depending on the compressed file's timestamp. This compressed file 
-is created under the {ITEM=gzipCacheDir}. The file name is based on a MD5 
+is created under the {ITEM=gzipCacheDir}. The filename is based on a MD5 
 hash of the path of the original file. 
 END_DESCR
 
@@ -1071,7 +1072,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: This value determines how long a session ID will be valid within the cache before a renegotiation is required. Default is 3,600.
+DESCR: This value determines how long a session ID will be valid within the cache before renegotiation is required. Default is 3,600.
 
 END_DESCR
 
@@ -1278,7 +1279,7 @@ SEE_ALSO:
 DESCR: The number of directory levels the certificate files will be in. 
 
 
-This is similar to "Session.save_path" in <a>http://php.net/manual/en/session.configuration.php#ini.session.save-path</a>
+This is similar to PHP's <b><a href="http://php.net/manual/en/session.configuration.php#ini.session.save-path">Session.save_path</a></b>
 
 END_DESCR
 

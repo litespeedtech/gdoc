@@ -14,7 +14,7 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies the directory for holding cached objects. Currently, 
-LiteSpeed Cache stores each object in its own file. The file name is a hash of 
+LiteSpeed Cache stores each object in its own file. The filename is a hash of 
 the object key. Multiple levels of directories will be created in order to 
 avoid holding too many files in one directory. This value must be set at the Server level
 in order to enable cache. Virtual Host level settings will override Server level settings.
@@ -101,16 +101,15 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to turn on public cache for the current context, either at the server
-level, virtual host level, or context level. 
+DESCR: Specifies whether to turn on public cache for the current context, either at the server, virtual host, or context level. 
 
 
-Virtual hosts configured through Apache httpd.conf can use the "CacheEnable" and 
+Virtual hosts configured through Apache's httpd.conf can use the "CacheEnable" and 
 "CacheDisable" directives at the server, virtual host, context, file, and location 
 level or in .htaccess. "CacheEnable" and "CacheDisable" directives are compatible 
 with Apache mod_cache directives. However, when used at the context, file, or 
-location level or in a .htaccess, "CacheEnable" and "CacheDisable" will only be applied 
-to all directories below the current level. URL parameters will be ignored.
+location level, or in .htaccess, "CacheEnable" and "CacheDisable" will only be applied 
+to directories below the current level. URL parameters will be ignored.
 
 
 END_DESCR
@@ -122,7 +121,7 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: [Performance] It is not recommended to store large objects with low hit
-rates in the cache. This may result in high I/O wait and reduce overall server performance.
+rates in cache. Doing so may result in high I/O wait and reduced overall server performance.
 END_TIPS
 
 [END_ITEM]
@@ -212,8 +211,8 @@ APPLY: 3
 SINCE: 4.2.2
 SEE_ALSO: 
 
-DESCR: Specifies how long an object will continue to be served after its cache has expired 
-but bbefore the new cache is available. The default is "10" seconds.
+DESCR: Specifies how long an object will continue to be served from cache after it has expired but before a new cached 
+copy is available. The default is "10" seconds.
 END_DESCR
 
 SYNTAX: uint
@@ -344,7 +343,7 @@ SEE_ALSO:
 
 DESCR: Specifies whether to ignore Cache-Control response headers.  
 The default is "No". If set to "Yes", the response can be cached by the server even when
-"no-store", "private" has been set in a Cache-Control header.
+"no-store" or "private" has been set in a Cache-Control header.
 END_DESCR
 
 SYNTAX: bool
@@ -369,20 +368,19 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to turn on private cache for the current context, either at server 
-level, virtual host level, or directory level. 
+DESCR: Specifies whether to turn on private cache for the current context, either at the server, virtual host, or directory level. 
 
 
 Private cache will cache a copy per user based on IP and cookies.
 
  
-Virtual hosts configured through Apache httpd.conf can use the "CacheEnable private /url" and
-"CacheDisable private /url" directives at server, virtual host, directory, files, and location
+Virtual hosts configured through Apache's httpd.conf can use the "CacheEnable private /url" and
+"CacheDisable private /url" directives at server, virtual host, directory, file, and location
  levels or in a .htaccess file. "CacheEnable private" and
 "CacheDisable private" are compatible with Apache's mod_cache
 directives and will be applied to all directories below the current level.
-However, when used at the directory, file, and location level or in 
-a .htaccess file, "CacheEnable private" and "CacheDisable private" will be applied to all directories below 
+However, when used at the directory, file, or location level, or in 
+a .htaccess file, "CacheEnable private" and "CacheDisable private" will only be applied to directories below 
 the current level. URL parameters will be ignored.
 
 END_DESCR
@@ -394,7 +392,7 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: [Performance] It is not recommended to store large objects with low hit
-rates in the cache. This may result in high I/O wait and reduce overall server performance.
+rates in cache. Doing so may result in high I/O wait and reduced overall server performance.
 END_TIPS
 
 [END_ITEM]
@@ -410,8 +408,8 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to check against the private cache for URLs requested in the current context. Can be set at the server
-level, virtual host level, or context level. 
+DESCR: Specifies whether to check against the private cache for URLs requested in the current context. Can be set at the 
+server, virtual host, or context level. 
 END_DESCR
 
 SYNTAX: bool

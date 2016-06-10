@@ -40,10 +40,10 @@ DESCR:
 Specifies the type of cluster.
 <br><br>
 "Layer7" HTTP load balancing, also known as application-level load balancing, parses HTTP requests 
-and distribute requests to servers based on different types of request contents.
+and distributes requests to servers based on different types of request contents.
 <br><br>
 "Layer4" load balancing is transport layer load balancing, such as TCP and UDP transport protocol. 
-It does not look at the content when select a backend server. In theory, Layer 4 load balancing supports every application type.
+It does not look at the content when selecting a backend server. In theory, Layer 4 load balancing supports every application type.
 END_DESCR
 
 SYNTAX: select
@@ -132,20 +132,28 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specify how to extract session ID from request. 
-<br><br>
-IP Address: Uses Client IP as session ID. 
-<br><br>
-Basic Authentication: Uses username in the basic authentication as session ID. 
-<br><br>
-Query String: Uses a Parameter in request query string as session ID. 
-<br><br>
-Cookies: Uses a Parameter in cookie as session ID. 
-<br><br>
-SSL Session: Uses SSL Session ID as session ID. 
-<br><br>
-JVM Route: JVM Route is an extra section appended to a Servlet session ID, which used to identify servlet backend.
-<br> 
-Example: JSESSIONID=344BA8002DE6FBE2QDF25.tomcat1 URL Path Parameter: Uses a URL Path Parameter as session ID.
+
+
+<b>IP Address:</b> Uses Client IP as session ID. 
+
+
+<b>Basic Authentication:</b> Uses username in the basic authentication as session ID. 
+
+
+<b>Query String:</b> Uses a Parameter in request query string as session ID. 
+
+
+<b>Cookies:</b> Uses a Parameter in cookie as session ID. 
+
+
+<b>SSL Session:</b> Uses SSL Session ID as session ID.
+
+
+<b>JVM Route:</b> JVM Route is an extra section appended to a Servlet session ID, which used to identify servlet backend.
+<b>Example:</b> JSESSIONID=344BA8002DE6FBE2QDF25.tomcat1 
+
+
+<b>URL Path Parameter:</b> Uses a URL Path Parameter as session ID.
 END_DESCR
 
 SYNTAX: checkbox

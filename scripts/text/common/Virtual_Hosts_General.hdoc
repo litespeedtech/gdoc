@@ -71,9 +71,8 @@ SINCE:
 SEE_ALSO: {ITEM=ServTuning_Help#enableGzipCompress}, {ITEM=ServTuning_Help#gzipStaticCompressLevel}, {ITEM=ServTuning_Help#enableDynGzipCompress}, {ITEM=ServTuning_Help#gzipCompressLevel}
 
 DESCR: Specifies whether to enable GZIP compression for this virtual host. 
-This setting is effective only when server-level GZIP compression is enabled.  
-The virtual host can only turn off compression enabled at the server level. 
-Compression settings are configured at the server level (in Tuning-GZIP).
+This setting is only effective when GZIP compression is enabled at the server level. 
+Compression settings are configured at the server level (Tuning > GZIP).
 END_DESCR
 
 SYNTAX: bool
@@ -369,11 +368,11 @@ NAME: Customized Error Pages
 NS: EO
 
 DESCR: Whenever the server has a problem processing a request, 
-the server will return an error code and an html page as the error message 
+the server will return an error code and an html page as an error message 
 to the web client. Error codes are defined in the HTTP protocol (see RFC 2616). 
 LiteSpeed web server has a built-in default error page for each error code, but 
-a customized page can be configured for each error code.  
-error pages can also be further customized to be unique for each virtual host. 
+a customized page can be configured for each error code as well.  
+These error pages can be even further customized to be unique for each virtual host. 
 END_DESCR
 
 CONT: errCode errURL
@@ -389,12 +388,12 @@ ID: errPage
 NAME: Customized Error Pages
 NS: L
 
-DESCR: Whenever the server has a problem in processing a request, 
-the server will return an error code and an html page as the error message 
-to web client. Error codes are defined in the HTTP protocol (see RFC 2616). 
-LiteSpeed server has a built-in default error page for each error code.
-A customized page can be configured for each error code. In LiteSpeed server, 
-error pages can be further customized to be unique for each virtual host. 
+DESCR: Whenever the server has a problem processing a request, 
+the server will return an error code and an html page as an error message 
+to the web client. Error codes are defined in the HTTP protocol (see RFC 2616). 
+LiteSpeed Web Server has a built-in default error page for each error code, but a customized page can be configured 
+for each error code as well. These error pages can be even further customized to be unique 
+for each virtual host. 
 END_DESCR
 
 CONT: errCode errMessage

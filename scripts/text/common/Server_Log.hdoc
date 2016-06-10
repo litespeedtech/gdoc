@@ -13,7 +13,7 @@ SEE_ALSO:
 DESCR: Specifies the path for the log file. 
 END_DESCR
 
-EDITTIP: Log file path can be either an absolute path or relative to $SERVER_ROOT.
+EDITTIP: Log file path can be an absolute path or relative to $SERVER_ROOT.
 END_EDITTIP
 
 SYNTAX: file2
@@ -200,10 +200,10 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the file name of the access log file. 
+DESCR: The access log filename. 
 END_DESCR
 
-EDITTIP: Log file path can be either be an absolute path or relative to $SERVER_ROOT.
+EDITTIP: Log file path can be an absolute path or relative to $SERVER_ROOT.
 END_EDITTIP
 
 SYNTAX: file2
@@ -283,32 +283,40 @@ SEE_ALSO:
 
 DESCR: Specifies an external application that will receive the access log
 data sent by LiteSpeed through a pipe on its STDIN stream (file
-handle 0). When specified, access log will be sent only to the logger application but not the
-access log file specified in previous entry. <br>
-The LiteSpeed load balancer 
+handle 0). When specified, the access log will be sent to the logger application instead of the
+access log file specified in previous entry.
+
+
+LiteSpeed load balancer 
 performs simple load balancing among multiple logger applications if
-more than one instance of logger application is configured. 
-LiteSpeed server always attempts
+more than one instance of a logger application is configured. 
+LiteSpeed Web Server always attempts
 to keep the number of logger processes as low as possible. Only when 
-one logger application failed to process access log entries in time 
-will the server attempt to spawn another instance of logger
-application. <br>
+one logger application fails to process access log entries in time 
+will the server attempt to spawn another logger application instance.
+
+
 If a logger process crashes, the server will start another instance but
 the log data in the stream buffer will be lost. It is possible to lose
 log data if external loggers cannot keep up  
-with the speed and volume of the log stream. <br>
+with the speed and volume of the log stream.
+
 File path to the logger application should be given here, and
-optionally, number of application instaces can be set before the file
-path, followed by '|'. Example, "4|/path/to/logger/app" tell server to
-start up to 4 logger processes, while, only one logger process will be
-started if "/path/to/logger/app" is used.
-<br>
+optionally, the number of application instances can be set before the file
+path, followed by '|'. 
 END_DESCR
 
 SYNTAX: [&lt;intances&gt;|]&lt;path_to_logger_app&gt;
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE: 4|/path/to/logger/app 
+
+tells the server to start up to 4 logger processes.
+
+
+/path/to/logger/app
+
+tells the server to start only one logger process.
 END_EXAMPLE
 
 TIPS: 
@@ -335,23 +343,24 @@ SYNTAX: String. The syntax of log format is compatible with Apache 2.0's custom
 {ext-href}http://httpd.apache.org/docs/2.0/mod/mod_log_config.html#formats{ext-href-end}log format{ext-href-end-a}.
 END_SYNTAX
 
-EXAMPLE: 
-Common Log Format (CLF)
+EXAMPLE:
+<br>
+<b>Common Log Format (CLF)</b>
 
     "%h %l %u %t \"%r\" %>s %b"
 
 
-Common Log Format with Virtual Host
+<b>Common Log Format with Virtual Host</b>
 
     "%v %h %l %u %t \"%r\" %>s %b"
 
 
-NCSA extended/combined log format
+<b>NCSA extended/combined log format</b>
 
     "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\" 
 
 
-Log cookie value of Foobar
+<b>Log cookie value of Foobar</b>
 
     "%{Foobar}C"
 END_EXAMPLE
@@ -397,10 +406,10 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies how many days the access log file will be kept on disk. 
-Only rotated log files older than specified number of days will be deleted. The current 
-log file will not be touched regardless how many days' data it contains. 
+Only rotated log files older than the specified number of days will be deleted. The current 
+log file will not be touched regardless how many days worth of data it contains. 
 If you do not want to auto-delete stale and very old log files,
-set this value to {val}0{/}.
+set this to {val}0{/}.
 END_DESCR
 
 SYNTAX: uint

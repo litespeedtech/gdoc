@@ -13,14 +13,17 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The type of context created determines it's usage.<br><br><b>Redirect</b> context can set up an internal or external redirect URI.<br>
-<b>Load Balancer</b> context can be used to assign a different cluster for that context.
+DESCR: The type of context created determines it's usage.
+
+
+The <b>Redirect</b> context is used to set up an internal or external redirect URI.<br>
+The <b>Load Balancer</b> context is used to assign a different cluster for that context.
 END_DESCR
 
-EDITTIP: <b>Load Balancer</b> context can be used to assign a different cluster for that context.
+EDITTIP: The <b>Load Balancer</b> context is used to assign a different cluster for that context.
 END_EDITTIP
 
-EDITTIP: <b>Redirect</b> context can set up an internal or external redirect URI.
+EDITTIP: The <b>Redirect</b> context is used to set up an internal or external redirect URI.
 END_EDITTIP
 
 [END_ITEM]
@@ -340,7 +343,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the cluster that handle requests to this context. 
+DESCR: Specifies the cluster that handles requests to this context. 
 END_DESCR
 
 SYNTAX: select
@@ -670,13 +673,13 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the target location of the redirection. 
+DESCR: Specifies the target location of the redirect. 
 If this redirected URI maps to a URI in another redirect context, it will be redirected again. 
 END_DESCR
 
 SYNTAX: This URI can either be a relative URI on the same web site starting with "/", 
 or an absolute URI pointing to different web site starting with "http(s)://".  
-If the {ITEM=expuri} contains regular expression, the destination can reference 
+If the {ITEM=expuri} contains regular expressions, the destination can reference 
 the matched variables, such as $1 or $2.
 END_SYNTAX
 
@@ -932,8 +935,8 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies an alternative name for the authorization realm for current context. 
-If it is not specified, the original realm name will be used. The authentication name is 
+DESCR: Specifies an alternative name for the authorization realm for the current context. 
+If not specified, the original realm name will be used. The authentication name is 
 displayed on the browser's login pop-up.
 END_DESCR
 
@@ -967,12 +970,12 @@ SYNTAX: Syntax is compatible with Apache's Require directive. For example:
 <ul>
 <li>{val}user username [username ...]{/} 
 
-Only listed users can access this context;</li>
+Only listed users can access this context.</li>
 <li> {val}group groupid [groupid ...]{/}
 
 Only users belonging to the listed groups can access this context.</li>
 </ul>
-If this setting is not specified, all valid users will be able to access this resource.
+If this setting is not specified, all valid users will be allowed to access this resource.
 END_SYNTAX
 
 EXAMPLE: 
@@ -994,14 +997,14 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies which IPs or sub-networks are allowed to access resources under this context. Together with 
-{ITEM=accessDenied} and server/virtual host-level access control, accessibility is determined by 
+{ITEM=accessDenied} and server/virtual host level access control, accessibility is determined by 
 the smallest scope that a client's IP address falls into. 
 END_DESCR
 
 SYNTAX: Comma-delimited list of IPs/sub-networks. 
 END_SYNTAX
 
-EXAMPLE: Sub-networks can be written as {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/} or {val}192.168.1.*{/}.
+EXAMPLE: Sub-networks can be written as {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/}, or {val}192.168.1.*{/}.
 END_EXAMPLE
 
 TIPS: 
@@ -1027,7 +1030,7 @@ END_DESCR
 SYNTAX: Comma-delimited list of IPs/sub-networks. 
 END_SYNTAX
 
-EXAMPLE: Sub-networks can be written as {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/} or {val}192.168.1.*{/}.
+EXAMPLE: Sub-networks can be written as {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/}, or {val}192.168.1.*{/}.
 END_EXAMPLE
 
 TIPS: 
@@ -1157,7 +1160,7 @@ DESCR: Specifies a character set to be used when {ITEM=addDefaultCharset}
 	   {val}Off{/}.
 END_DESCR
 
-SYNTAX: Name of a character set, like {val}utf-8{/}
+SYNTAX: Name of a character set.
 END_SYNTAX
 
 EXAMPLE: utf-8
@@ -1815,11 +1818,11 @@ ID: Context_Help
 NAME: Context
 NS: L
 
-DESCR: Context is a set of resources that can be located by 
+DESCR: A Context is a set of resources that can be located using 
 URLs with a common parent URL. The common parent URL is the ID of the context. 
 A web site is comprised of contexts, for example, "/" is the root Context mapped to the 
-document root of a web site; "/cgi-bin/" is Context dedicated to CGI applications. 
-If you think your web site as a URL tree, then every branch is a context which can be 
+document root of a web site; "/cgi-bin/" is the context dedicated to CGI applications. 
+If you think of your website as a URL tree, then every branch is a context which can be 
 identified by the URL of the branching node. A context should be explicitly defined for the 
 following purposes:
 <ul>

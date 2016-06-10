@@ -12,9 +12,9 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Name of the module.  The module name will be the same as the module file name. 
+DESCR: Name of the module. The module name will be the same as the module filename. 
 The module file must be located under $SERVER_ROOT/modules/modulename.so in order to be
-loaded by the server application.  The server will load the registered modules at start up.
+loaded by the server application. The server will load the registered modules at start up.
 This requires that the server is restarted after new modules are registered.
 
 END_DESCR

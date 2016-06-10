@@ -44,8 +44,8 @@ APPLY: Immediately
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Customize the session timeout length of WebAdmin console. 
-The default is 60 seconds if no value is set.
+DESCR: Customize the session timeout length of the WebAdmin Console. 
+The default is 60 seconds.
 END_DESCR
 
 SYNTAX: uint
@@ -116,10 +116,10 @@ SEE_ALSO:
 
 [TBL]
 ID: adminUser
-NAME: Web Admin User
+NAME: WebAdmin User
 
-DESCR: Change the username and password for WebAdmin Console. 
-The old password has to be entered and verified in order to save changes.  
+DESCR: Change the username and password for the WebAdmin Console. 
+The old password must be entered and verified in order to save changes.  
 END_DESCR
 
 CONT: adminOldPass

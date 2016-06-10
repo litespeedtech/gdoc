@@ -25,7 +25,7 @@ class GenWebDoc
 				'External_LSAPI' => 'config/extapps/laspi',
 				'External_Servlet' => 'config/extapps/servlet',
 				'External_WS' => 'config/extapps/webserver',
-				'External_PL' => 'config/extapps/pipped-logger',
+				'External_PL' => 'config/extapps/piped-logger',
 				'External_LB' => 'config/extapps/load-balancer',
 				'ScriptHandler_Help' => 'config/scripthandler',
 				'Rails_Help' => 'config/rails',

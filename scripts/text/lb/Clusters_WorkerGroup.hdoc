@@ -36,7 +36,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies a HTTP URL that is used to verify the availability of
+DESCR: Specifies an HTTP URL that is used to verify the availability of
 a web server backend worker. Has no effect to other type of workers.
 END_DESCR
 
@@ -62,9 +62,9 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies how often to ping a backend worker. For web server
-backend, a http request based on "Ping URL" will be sent. For other
+backend, an http request based on "Ping URL" will be sent. For other
 types of backends, an TCP connection attempt will be made to the
-backend server, if it succeed, the backend will be used as a good
+backend server, if successful, the backend will be used as a good
 node. 
 END_DESCR
 
@@ -89,19 +89,21 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies addresses of nodes in this group. Attributes can be
+DESCR: Specifies the addresses of the nodes belonging to this group. Attributes that can be
 specified for a node are "Destination IP", "Destination Port", "Node Tag" and
 "Source IP". Destination IP
-address is manditory, the other attributes are optional. Examples:
-192.168.0.11, (node1)192.168.0.11,
-(node1)192.168.0.10->192.168.0.11:80,
-"node1" is the "Node Tag", "Node Tag" is used to match "JVM Route". 
+address is mandatory, the other attributes are optional. 
 END_DESCR
 
 SYNTAX: text
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE: 192.168.0.11, (node1)192.168.0.11,
+
+(node1)192.168.0.10->192.168.0.11:80,
+
+
+"node1" is the "Node Tag", "Node Tag" is used to match "JVM Route".
 END_EXAMPLE
 
 TIPS: 

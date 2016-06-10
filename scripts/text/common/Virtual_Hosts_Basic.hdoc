@@ -136,7 +136,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the configuration file name and directory for this virtual host.
+DESCR: The configuration filename and directory for this virtual host.
 END_DESCR
 
 SYNTAX: file3
@@ -161,7 +161,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the configuration file name and directory for this virtual host.
+DESCR: The configuration filename and directory for this virtual host.
 The configuration file must be under the $SERVER_ROOT/conf/vhosts/ directory.
 END_DESCR
 
@@ -190,7 +190,7 @@ SEE_ALSO: {ITEM=ServTuning_Help#maxKeepAliveReq}
 
 DESCR: Specifies the maximum requests that can be served through a keep-alive (persistent) 
 connection. Connections will be closed once this limit is reached. You
-can specify a different limit for different virtual hosts. This number
+can specify a different limit for each virtual hosts. This number
 cannot exceed the server-level {ITEM=ServTuning_Help#maxKeepAliveReq} limit.
 END_DESCR
 
@@ -217,8 +217,8 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies whether to turn on Smart Keep-Alive for this virtual
-host. This option is effective only if the server-level
-{ITEM=ServTuning_Help#smartKeepAlive} is enabled and
+host. This option is only effective if 
+{ITEM=ServTuning_Help#smartKeepAlive} is enabled at the server level and
 {ITEM=vhMaxKeepAliveReq} is greater than 1.
 END_DESCR
 

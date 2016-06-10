@@ -42,7 +42,7 @@ DESCR: Specifies the level of detail of the request filtering engine's debug out
 This value ranges from {val}0{/} - {val}9{/}. {val}0{/} disables logging. {val}9{/} produces the
 most detailed log. The the server and virtual host's error log
 {ITEM=ServGeneral_Help#log_logLevel} must be set to at least {val}INFO{/} for this option to take effect.
-This is useful when testing your request filtering rules.
+This is useful when testing request filtering rules.
 END_DESCR
 
 SYNTAX: uint 
@@ -93,7 +93,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to check the body of a HTTP POST request. 
+DESCR: Specifies whether to check the body of an HTTP POST request. 
 Default is "No".
 
 END_DESCR
@@ -338,8 +338,8 @@ in current ruleset is met. If not set, {ITEM=defaultAction} will be
 used. 
 END_DESCR
 
-SYNTAX: String.  This action string uses the same syntax as directive SecDefaultAction in
- Apache mod_security, please refer to the mod_security manual for more details.
+SYNTAX: String.  This action string uses the same syntax as Apache's 
+<a href="https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual#SecDefaultAction">mod_security SecDefaultAction directive</a>.
 END_SYNTAX
 
 EXAMPLE: 
@@ -401,8 +401,7 @@ used here.  You can copy and paste security rules from an Apache configuration f
 
 
 For more details about rule syntax, please refer to the 
-{ext-href}http://www.modsecurity.org/documentation/index.html{ext-href-end}Mod Security
-documentation{ext-href-end-a}.
+{ext-href}http://www.modsecurity.org/documentation/index.html{ext-href-end}Mod Security documentation{ext-href-end-a}.
 END_SYNTAX
 
 EXAMPLE: 

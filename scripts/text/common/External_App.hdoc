@@ -499,7 +499,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to buffer response received from external
+DESCR: Specifies whether to buffer responses received from external
 applications. If a "nph-" (Non-Parsed-Header) script is detected, 
 buffering is turned off for responses with full HTTP headers.
 END_DESCR

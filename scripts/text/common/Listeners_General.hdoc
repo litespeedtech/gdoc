@@ -40,11 +40,13 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the Layer 7 listener type.  
+DESCR: The Layer 7 listener type.
 
-An “http” listener treats requests as an HTTP Request, so it will parse the request data to use for the load balancing.  
 
-A “tcp” listener will not parse the request data. Rather, it will only parse the client’s IP address and port to do the load balancing.
+An “http” listener treats requests as an HTTP Request, so it will parse the request data to use for load balancing.  
+
+
+A “tcp” listener will not parse request data. Only the client’s IP address and port are parsed for load balancing.
 END_DESCR
 
 SYNTAX: select
@@ -69,7 +71,7 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies the IP of this listener. All available IP addresses are listed. 
-IPv6 addresses are enclosed in "[]". To listen on all IPv4 IP addresses, select 
+IPv6 addresses are enclosed in "[ ]". To listen on all IPv4 IP addresses, select 
 {val}ANY{/}. To listen on all IPv4 and IPv6 IP addresses,
 select {val}[ANY]{/}. In order to serve both IPv4 and IPv6
 clients, an IPv4-mapped IPv6 address should be used instead of a

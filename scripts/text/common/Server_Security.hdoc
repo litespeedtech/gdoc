@@ -298,13 +298,13 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum number of requests to dynamically generated content 
-coming from a single IP address can be processed in each second
-regardless of number of connections established. 
-When the limit is reached, all future requests to dynamic content 
-are tar-pitted until next second. 
-Per client request limit can be set at server or virtual host level where
-virtual host level setting overrides server level setting.
+DESCR: Specifies the maximum number of requests for dynamically generated content 
+coming from a single IP address that can be processed in each second, 
+regardless of the number of connections established. 
+When this limit is reached, all future requests for dynamic content 
+are tar-pitted until the next second. 
+The per client request limit can be set at the server or virtual host level where 
+virtual host level settings override server level settings.
 END_DESCR
 
 SYNTAX: uint
@@ -314,7 +314,7 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: 
-[Security] Trusted IP or sub-network is not effected
+[Security] Trusted IPs or sub-networks are not effected
 END_TIPS
 
 [END_ITEM]
@@ -329,12 +329,12 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=inBandwidth}
 
-DESCR: Specifies the maximum allowed outgoing throughput to a single
-IP address regardless of number of connections established.
+DESCR: The maximum allowed outgoing throughput to a single
+IP address, regardless of the number of connections established.
 The real bandwidth may end up being slightly higher than this setting for efficiency reasons. 
 Bandwidth is allocated in 4KB units. Set to {val}0{/} to disable throttling.
-Per-client bandwidth limits (bytes/sec) can be set at server- or virtual-host levels.
-Virtual host-level settings override server-level settings.
+Per-client bandwidth limits (bytes/sec) can be set at the server or virtual host level where
+virtual host level settings override server level settings.
 END_DESCR
 
 SYNTAX: uint
@@ -344,6 +344,7 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: [Performance] Set the bandwidth in 8KB units for better performance.
+
 
 [Security] Trusted IPs or sub-networks are not affected.
 END_TIPS
@@ -360,12 +361,12 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=outBandwidth}
 
-DESCR: Specifies the maximum allowed incoming throughput from a single
-IP address regardless of number of connections established.
+DESCR: The maximum allowed incoming throughput from a single
+IP address, regardless of the number of connections established.
 The real bandwidth may end up being slightly higher than this setting for efficiency reasons. 
 Bandwidth is allocated in 1KB units. Set to {val}0{/} to disable throttling.
-Per-client bandwidth limits (bytes/sec) can be set at server- or virtual-host levels.
-Virtual host-level settings override server-level settings.
+Per-client bandwidth limits (bytes/sec) can be set at the server or virtual host level where
+virtual host level settings override server level settings.
 END_DESCR
 
 SYNTAX: uint
@@ -989,16 +990,17 @@ SYNTAX: Comma delimited list of IP addresses or sub-networks.
 A trailing "T" can be used to indicate a trusted IP or sub-network, such as {val}192.168.1.*T{/}.
 END_SYNTAX
 
-EXAMPLE: Sub-networks: {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1.0/24{/}, {val}192.168.1{/} or
-{val}192.168.1.*{/}. 
+EXAMPLE: <br />
+<b>Sub-networks:</b> 192.168.1.0/255.255.255.0, 192.168.1.0/24, 192.168.1, or
+192.168.1.*
 
-IPv6 addresses: {val}::1{/} or {val}[::1]{/} 
+<b>IPv6 addresses:</b> ::1 or [::1] 
 
-IPv6 subnets: {val}3ffe:302:11:2:20f:1fff:fe29:717c/64{/} or 
-{val}[3ffe:302:11:2:20f:1fff:fe29:717c]/64{/}. 
+<b>IPv6 subnets:</b> 3ffe:302:11:2:20f:1fff:fe29:717c/64 or 
+[3ffe:302:11:2:20f:1fff:fe29:717c]/64 
 END_EXAMPLE
 
-TIPS: [Security] Trusted IPs or sub-networks set at the server-level access 
+TIPS: [Security] Trusted IPs or sub-networks set at the server level access 
 control will be excluded from connection/throttling limits.
 END_TIPS
 
@@ -1025,14 +1027,14 @@ SYNTAX: Comma delimited list of IP addresses or sub-networks.
 {val}*{/} or {val}ALL{/} are accepted. 
 END_SYNTAX
 
-EXAMPLE: Sub-networks: 
-{val}192.168.1.0/255.255.255.0{/}, {val}192.168.1.0/24{/}, {val}192.168.1{/} or
-{val}192.168.1.*{/}. 
+EXAMPLE: <br />
+<b>Sub-networks:</b> 192.168.1.0/255.255.255.0, 192.168.1.0/24, 192.168.1, or
+192.168.1.*
 
-IPv6 addresses: {val}::1{/} or {val}[::1]{/} 
+<b>IPv6 addresses:</b> ::1 or [::1] 
 
-IPv6 subnets: {val}3ffe:302:11:2:20f:1fff:fe29:717c/64{/} or 
-{val}[3ffe:302:11:2:20f:1fff:fe29:717c]/64{/}. 
+<b>IPv6 subnets:</b> 3ffe:302:11:2:20f:1fff:fe29:717c/64 or 
+[3ffe:302:11:2:20f:1fff:fe29:717c]/64 
 END_EXAMPLE
 
 TIPS: 
@@ -1133,26 +1135,25 @@ ID: accessControl
 NAME: Access Control
 
 DESCR: Specifies what sub networks and/or IP addresses can access the server. 
-At the server-level, this setting will affect all virtual hosts. You can also set up 
-access control unique to each virtual host at the virtual host-level. Virtual host settings will NOT 
-override server settings. 
+At the server level, this setting will affect all virtual hosts. You can also set up 
+access control unique to each virtual host at the virtual host level. Virtual host level settings will NOT 
+override server level settings. 
 
 
-Whether to block/allow an IP is determined by the combination of the allowed list and the denied list. 
+Blocking/Allowing an IP is determined by the combination of the allowed list and the denied list. 
 If you want to block only certain IPs or sub-networks, put {val}*{/} or {val}ALL{/} in 
 the {ITEM=accessControl_allow} and list the blocked IPs or sub-networks in the {ITEM=accessControl_deny}. 
-If you want to only allow certain IPs or sub-networks, put {val}*{/} or {val}ALL{/} 
+If you want to allow only certain IPs or sub-networks, put {val}*{/} or {val}ALL{/} 
 in the {ITEM=accessControl_deny} and list the allowed IPs or sub-networks in the {ITEM=accessControl_allow}. 
-The setting of the smallest scope that fits for an IP will be used to determine whether 
-to block or allow that IP. 
+The setting of the smallest scope that fits for an IP will be used to determine access.
 
 
-<b>Server-level:</b> Trusted IPs or sub-networks must be specified in the {ITEM=accessControl_allow} by adding a 
+<b>Server Level:</b> Trusted IPs or sub-networks must be specified in the {ITEM=accessControl_allow} by adding a 
 trailing "T". Trusted IPs or sub-networks are not affected by connection/throttling limits. 
-Only server-level access control can set up trusted IPs/sub-networks.
+Only server level access control can set up trusted IPs/sub-networks.
 END_DESCR
 
-TIPS: [Security] Use this at the server-level for general restrictions that apply to all virtual hosts.
+TIPS: [Security] Use this at the server level for general restrictions that apply to all virtual hosts.
 END_TIPS
 
 CONT: accessControl_allow accessControl_deny 

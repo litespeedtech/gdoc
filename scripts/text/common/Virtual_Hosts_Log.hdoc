@@ -43,11 +43,11 @@ SEE_ALSO:
 DESCR: Specifies the path for the log file. 
 END_DESCR
 
-EDITTIP: Log file path can be either absolute path or relative to $SERVER_ROOT, $VH_ROOT.
+EDITTIP: Log file path can be an absolute path or relative to $SERVER_ROOT, $VH_ROOT.
 END_EDITTIP
 
-EDITTIP: If you want to set Log Level to DEBUG, you must set server log level to DEBUG as well. The level of 
-debugging is solely controlled by Server DEBUG Level. Use DEBUG only if you have to since it has great impact on server performance and may fill up disk space quickly.
+EDITTIP: If you want to set Log Level to DEBUG, you must set the server log level to DEBUG as well. The level of 
+debugging is controlled by Server DEBUG Level. Use DEBUG only if you have to as it has a large impact on server performance and can fill up disk space quickly.
 END_EDITTIP
 
 SYNTAX: file3
@@ -104,16 +104,15 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies where to write the access log. There are three options: 
-<br><br>
-1. Write to the server's access log
-<br><br>
-2. Create an access log for this virtual host
-<br><br>
-3. Disable access logging.
+DESCR: Where the access log should be written. There are three options: 
+<ol>
+<li>Write to the server's access log</li>
+<li>Create an access log for this virtual host</li>
+<li>Disable access logging</li>
+</ol>
 END_DESCR
 
-EDITTIP: When required, you can disable access logging for this virtual host save disk i/o.
+EDITTIP: When required, you can disable access logging for this virtual host to save on disk i/o.
 END_EDITTIP
 
 SYNTAX: select
@@ -138,7 +137,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the file name of the access log file. 
+DESCR: The access log filename. 
 END_DESCR
 
 SYNTAX: file3
@@ -147,7 +146,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Put access log file on a separate disk.
+TIPS: [Performance] Put the access log file on a separate disk.
 END_TIPS
 
 [END_ITEM]
@@ -163,10 +162,10 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the file name of the access log file. 
+DESCR: The access log filename. 
 END_DESCR
 
-EDITTIP: Log file path can be either an absolute path or a relative path to $SERVER_ROOT, $VH_ROOT.
+EDITTIP: Log file path can be an absolute path or a relative path to $SERVER_ROOT, $VH_ROOT.
 END_EDITTIP
 
 SYNTAX: file3
@@ -192,7 +191,7 @@ SEE_ALSO:
 
 DESCR: Specifies the path to the bandwidth bytes log file. When
 specified, a cPanel compatible bandwidth log will be created. This will log 
-the total bytes transferred for a request including both the request and reply body.
+the total bytes transferred for a request including both the request and reply bodies.
 END_DESCR
 
 SYNTAX: file2
