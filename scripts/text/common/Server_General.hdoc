@@ -78,7 +78,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Set an appropriate number to suit your needs. Adding more workers may not necessarily mean better performance.
+TIPS: [Performance] Set an appropriate number to suit your needs. Adding more processes may not necessarily mean better performance.
 END_TIPS
 
 [END_ITEM]
