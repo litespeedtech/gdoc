@@ -65,7 +65,7 @@ SINCE: 2.0
 SEE_ALSO: 
 
 DESCR: The ID of the virtual IP address. Please use an integer number between 1 and 10. <b>Virtual IP</b>, 
-<b>Virtual IP ID<b>, and <b>Virtual IP Token</b> must be the same for the same HA group.
+<b>Virtual IP ID</b>, and <b>Virtual IP Token</b> must be the same for the same HA group.
 END_DESCR
 
 SYNTAX: text

@@ -58,6 +58,32 @@ END_TIPS
 
 
 [ITEM]
+ID: lslbdProcesses
+NAME: Number of Processes
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the number of lslbd workers. Enter 0 to have this number be decided automatically. 
+
+END_DESCR
+
+SYNTAX: Integer value between 0 and 128.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Set an appropriate number to suit your needs. Adding more workers may not necessarily mean better performance.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: runningAs
 NAME: Running As
 NS: LE
@@ -1551,7 +1577,7 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: serverName runningAs serverPriority 
+CONT: serverName lslbdProcesses runningAs serverPriority 
 servChrootPath enableChroot inMemBufSize swappingDir  
 END_CONT
 

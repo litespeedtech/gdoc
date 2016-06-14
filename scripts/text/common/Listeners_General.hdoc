@@ -128,6 +128,33 @@ END_TIPS
 [ITEM]
 ID: listenerBinding
 NAME: Binding
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies which lslbd child process the listener is assigned to. Multiple child processes are spawned
+to take advantage of the multiple CPUs in an SMP system. Different child processes can be used to handle requests to
+different listeners by manually associating a listener with a process. By default, a listener is assigned to all child processes.
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: listenerBinding
+NAME: Binding
 NS: E
 REQUIRED: 
 APPLY: 3
@@ -322,7 +349,7 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: listenerName listenerType listenerIP listenerPort listenerSecure mapped_L4_clusters
+CONT: listenerName listenerType listenerIP listenerPort listenerBinding listenerSecure mapped_L4_clusters
 END_CONT
 
 SEE_ALSO: 
