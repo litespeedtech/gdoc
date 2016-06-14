@@ -66,7 +66,9 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the number of lslbd workers. Enter 0 to have this number be decided automatically. 
+DESCR: <b>[Only Available For Unlimited-CPU Licenses]</b>
+<br />
+Specifies the number of lslbd workers. Enter 0 to have this number be decided automatically. 
 
 END_DESCR
 
