@@ -1616,6 +1616,7 @@ SEE_ALSO:
 [TBL]
 ID: loadBalancerContext
 NAME: Load Balancer Context
+NS: L
 
 DESCR: A Load Balancer Context can be used to forward one URI or a group of URIs to another location. 
 The destination URI can be either on the same web site or an absolute URI pointing to another web site.
