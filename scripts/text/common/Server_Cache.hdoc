@@ -38,6 +38,29 @@ END_TIPS
 
 
 [ITEM]
+ID: litemage
+NAME: Enable LiteMage
+NS: LE
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Enables LiteMage Cache for Magento Stores. 
+This setting will not work if your LiteSpeed license does not have the LiteMage module enabled. 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: cacheMgrStorePath
 NAME: Cache Manager Path
 NS: LE
@@ -519,7 +542,7 @@ NS: LE
 DESCR: 
 END_DESCR
 
-CONT: cacheStorePath cacheMgrStorePath pubStoreExpireMinutes
+CONT: cacheStorePath litemage cacheMgrStorePath pubStoreExpireMinutes
 END_CONT
 
 SEE_ALSO: 
