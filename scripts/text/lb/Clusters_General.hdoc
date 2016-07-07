@@ -42,7 +42,7 @@ Specifies the type of cluster.
 "Layer7" HTTP load balancing, also known as application-level load balancing, parses HTTP requests 
 and distributes requests to servers based on different types of request contents.
 <br><br>
-"Layer4" load balancing is transport layer load balancing, such as TCP and UDP transport protocol. 
+"Layer4" load balancing is transport layer load balancing, such as TCP and UDP transport protocols. 
 It does not look at the content when selecting a backend server. In theory, Layer 4 load balancing supports every application type.
 END_DESCR
 

@@ -201,7 +201,7 @@ APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Global setting determining file permissions used for files stored in temporary directory.
+DESCR: Global setting determining file permissions used for files stored in the <b>Temporary File Path</b> directory.
 
 END_DESCR
 

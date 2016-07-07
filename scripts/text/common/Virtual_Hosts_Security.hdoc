@@ -413,7 +413,7 @@ followed by space delimited group of usernames. Example:
 For the DB type {val}LDAP{/}, the group DB location should be the LDAP URL to query 
 for group information. For each valid group, one and only
 one record should be returned in the LDAP search request based on 
-this URL and the group name specified in {ITEM=Context_Help#required}. "$k"
+this URL and the group name specified in {ITEM=Redirect_Context#required}. "$k"
 must be specified in the filter part of the URL and it will be
 replaced with the group name. The name of the attribute that 
 specifies members in this group
@@ -708,10 +708,11 @@ SEE_ALSO:
 [END_TBL]
 
 
+
 [TBL]
 ID: realms
 NAME: Authorization Realms
-NS: E
+NS: LE
 
 DESCR: Lists all authorization realms for this virtual host. 
 Authorization realms are used to block unauthorized users from accessing protected web pages.
@@ -735,7 +736,7 @@ SEE_ALSO:
 [TBL]
 ID: realms
 NAME: Authorization Realms
-NS: LO
+NS: O
 
 DESCR: Lists all authorization realms for this virtual host. 
 Authorization realms are used to block unauthorized users from accessing protected web pages.
