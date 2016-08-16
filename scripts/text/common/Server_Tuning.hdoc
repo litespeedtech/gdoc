@@ -294,8 +294,9 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum idle time between requests from a keep-alive connection. 
+DESCR: Specifies the maximum idle time between requests from a keep-alive connection.
 If no new request is received during this period of time, the connection will be closed.
+This setting only applies to HTTP/1.1 connections. HTTP/2 connections have long keep-alive timeouts by design and are not affected by this setting.
 END_DESCR
 
 SYNTAX: uint
@@ -304,11 +305,11 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security & Performance] We recommend you to set the value just long enough to handle 
-all requests for a single page view. It is unnecessary to keep connections alive
-for an extended period of time. A smaller value can reduce idle
-connections, increase capacity to service more users, and guard against DoS attacks. {val}2-5{/} seconds is a 
-reasonable range for most applications. LiteSpeed is highly efficient in a non-keep-alive environment.
+TIPS: [Security & Performance] We recommend that you set this value just long enough to wait for subsequent requests from
+ a client when there are more assets referenced by a single page that need to be loaded. Do not set this too long hoping that
+ the next page will be served over the keep-alive connection. Keeping many idle keep-alive connections is a waste of server 
+resources and could be taken advantage of by (D)DoS attacks. {val}2-5{/} seconds is a  reasonable range for most 
+applications. LiteSpeed is highly efficient in a non-keep-alive environment.
 END_TIPS
 
 [END_ITEM]
