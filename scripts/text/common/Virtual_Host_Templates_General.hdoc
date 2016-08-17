@@ -68,9 +68,9 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies the location of the config file generated when you instantiate a member virtual host. 
-Variable {val}$VH_NAME{/} must appear in the path so each virtual host will have its own file.
-Must be located under $SERVER_ROOT/conf/vhosts/. This config file will 
-be created only after you move a member vhost out of the template through instantiation.
+Variable {val}$VH_NAME{/} must appear in the path so each virtual host will have its own file. Must be located under 
+$SERVER_ROOT/conf/vhosts/. This config file will be created only after you move a member vhost out of the template 
+through instantiation.
 END_DESCR
 
 SYNTAX: String with $VH_NAME variable and .conf suffix
@@ -79,7 +79,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: $VH_NAME.conf is recommended for easy management.
+TIPS: $VH_NAME/vhconf.conf is recommended for easy management.
 END_TIPS
 
 [END_ITEM]
