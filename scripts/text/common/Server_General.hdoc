@@ -485,8 +485,10 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS:  The .rtreport file will be written to often during server operation. 
+TIPS:  During server operation, the .rtreport file will be written to every second. 
 To avoid unnecessary disk writes, set this to a RAM Disk.
+
+The .rtreport file can be used with 3rd party monitoring software to track server health.
 END_TIPS
 
 [END_ITEM]
