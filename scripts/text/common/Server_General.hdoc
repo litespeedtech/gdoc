@@ -466,6 +466,33 @@ END_TIPS
 
 
 
+[ITEM]
+ID: statDir
+NAME: Statistics Output Directory
+NS: O
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The directory where the Real-Time Stats report file will be written. The default directory is <b>/tmp/lshttpd/</b> .
+
+END_DESCR
+
+SYNTAX: path1
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:  The .rtreport file will be written to often during server operation. 
+To avoid unnecessary disk writes, set this to a RAM Disk.
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# General Settings #############
 
 
@@ -1614,7 +1641,7 @@ DESCR:
 END_DESCR
 
 CONT: serverName httpdWorkers runningAs serverPriority 
- inMemBufSize swappingDir autoFix503 enableh2c gracefulRestartTimeout
+ inMemBufSize swappingDir autoFix503 enableh2c gracefulRestartTimeout statDir
 END_CONT
 
 SEE_ALSO: 
@@ -1895,7 +1922,7 @@ location where LiteSpeed web server has been installed (your_home_dir/lsws or
 /opt/lsws, for example). The server executable is under $SERVER_ROOT/bin. 
 END_DESCR
 
-CONT: servProcess servGeneral servIndex expire fileUpload geolocationDB 
+CONT: servProcess servGeneral servIndex expire fileUpload geolocationDB
 END_CONT
 
 SEE_ALSO: 
