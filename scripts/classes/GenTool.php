@@ -71,7 +71,7 @@ EOD;
 
     public static function getFooter()
     {
-        $copyyear = array('ows' => '2013-2015', 'ws' => '2003-2015', 'lb' => '2007-2015');
+        $copyyear = array('ows' => '2013-2016', 'ws' => '2003-2016', 'lb' => '2007-2016');
         $footer =  '<footer class="copyright">Copyright &copy; ' . $copyyear[DOC_TYPE]
                 . '. <a href="https://www.litespeedtech.com">LiteSpeed Technologies Inc.</a> All rights reserved.</footer>'
                 . "\n</div>\n</body>\n</html>" ;
