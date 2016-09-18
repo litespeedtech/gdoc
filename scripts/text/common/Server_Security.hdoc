@@ -1090,7 +1090,7 @@ DESCR: These are connection control setting on a per client/IP basis.
 These settings help to mitigate DoS (Denied of Service) and DDoS (Distributed Denied of Service) attacks.
 END_DESCR
 
-CONT: dynReqPerSec outBandwidth inBandwidth softLimit hardLimit gracePeriod banPeriod 
+CONT: dynReqPerSec outBandwidth inBandwidth softLimit hardLimit blockBadReq gracePeriod banPeriod 
 END_CONT
 
 SEE_ALSO: 
