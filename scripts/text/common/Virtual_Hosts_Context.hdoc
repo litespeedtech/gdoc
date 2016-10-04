@@ -103,7 +103,7 @@ DESCR: The type of context created determines it's usage.<br><br><b>Static</b> c
 <b>CGI</b> context can be used to specify a directory only contains CGI scripts.<br>
 <b>Load Balancer</b> context can be used to assign a different cluster for that context.<br>
 <b>Redirect</b> context can set up an internal or external redirect URI.<br>
-<b>Rack/Rails</b> context is specifically used for Rack/Rails applications.<br>
+<b>App Server</b> context is specifically used for Rack/Rails, WSGI, and Node.js applications.<br>
 <b>Module handler</b> context is a mount point of hander type modules.<br>
 END_DESCR
 
@@ -134,7 +134,7 @@ END_EDITTIP
 EDITTIP: <b>Redirect</b> context can set up an internal or external redirect URI.
 END_EDITTIP
 
-EDITTIP: <b>Rack/Rails</b> context is specifically used for Rack/Rails applications.
+EDITTIP: <b>App Server</b> context is specifically used for Rack/Rails, WSGI, and Node.js applications.<br>
 END_EDITTIP
 
 EDITTIP: <b>Module handler</b> context is a mount point of hander type modules.
@@ -475,6 +475,51 @@ END_TIPS
 
 
 [ITEM]
+ID: as_location
+NAME: Location
+NS: O
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=expuri}
+
+DESCR: Specifies the corresponding location of this context in the file system. 
+END_DESCR
+
+EDITTIP: The App Server context is for easy configuration of running Rack/Rails, WSGI, or Node.js applications. You 
+only need to specify the root location of your application in the "Location" field.
+END_EDITTIP
+
+SYNTAX: It can be an absolute path or path relative to $SERVER_ROOT, $VH_ROOT, or $DOC_ROOT. 
+$DOC_ROOT is the default relative path, and can be omitted.
+
+
+If the {ITEM=expuri} is a regular expression, then the matched sub-string 
+can be used to form the "Root" string. The matched sub-string can be 
+referenced with the values "$1" - "$9". "$0" and "&" can be used to reference the 
+whole matched string. Additionally, a query string can be set by 
+appending a "?" followed by the query string. Be careful. "&" should
+be escaped as "\&" in the query string.
+END_SYNTAX
+
+EXAMPLE:  A plain URI like {val}/examples/{/} with {ITEM=location} 
+set to {val}/home/john/web_examples{/} will map the request "/examples/foo/bar.html" 
+to file "/home/john/web_examples/foo/bar.html". 
+
+To simulate Apache's mod_userdir, 
+set URI to {val}exp: ^/~([A-Za-z0-9]+)(.*){/}, 
+set {ITEM=location} to {val}/home/$1/public_html$2{/}. With these settings, a request of URI /~john/foo/bar.html will 
+map to file /home/john/public_html/foo/bar.html.
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: javaWebApp_location
 NAME: Location
 REQUIRED: 
@@ -533,6 +578,99 @@ like {val}$VH_ROOT/myapp/cgi-bin/{/}.
 In this case, the context {ITEM=expuri} must end with "/", like {val}/app1/cgi/{/}.  
 The Path can also specify only one CGI script, like {val}$VH_ROOT/myapp/myscript.pl{/}. 
 This script should have the corresponding {ITEM=expuri} {val}/myapp/myscript.pl{/}.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: binPath
+NAME: Binary Path
+NS: O
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The location of the App Server application binary. 
+END_DESCR
+
+EDITTIP: 
+END_EDITTIP
+
+EDITTIP: 
+END_EDITTIP
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: appType
+NAME: Application Type
+NS: O
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The type of application used for this context. Rack/Rails, WSGI, or Node.js are supported. 
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX:
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: as_startupfile
+NAME: Startup File
+NS: O
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The location of file used to start the application. 
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX:
 END_SYNTAX
 
 EXAMPLE: 
@@ -1778,7 +1916,7 @@ no need to go through all the troubles to define an external application, add a 
 and rewrite rules, etc.
 END_DESCR
 
-CONT: expuri rails_location railsEnv maxConns env enableExpires 
+CONT: expuri as_location binPath appType as_startupfile railsEnv maxConns env enableExpires 
 expiresDefault expiresByType extraHeaders
 indexFiles autoIndex  
 realm authName required accessAllowed accessDenied extAuthorizer
