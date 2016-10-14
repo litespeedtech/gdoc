@@ -319,19 +319,19 @@ END_TIPS
 [ITEM]
 ID: sndBufSize
 NAME: Send Buffer Size (bytes)
+NS: LEO
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The sending buffer size of each TCP socket. Set to {val}0{/} to use the default 
-buffer size of the operating system. {val}65535{/} is the maximum allowed buffer size.
+DESCR: The sending buffer size of each TCP socket. {val}512K{/} is the maximum allowed buffer size.
 END_DESCR
 
 EDITTIP: Numbers can be represented as 10240, 10K or 1M.
 END_EDITTIP
 
-EDITTIP: If send/receive buffer size is 0, default TCP buffer size will be used.
+EDITTIP: If send/receive buffer size is 0, OS default TCP buffer size will be used.
 END_EDITTIP
 
 SYNTAX: uint
@@ -340,8 +340,14 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] If your web site serves large static files, increase the send buffer
+TIPS: [Performance] It is recommended to leave this value as "Not Set" or set to 0 to use the operating system's default 
+buffer size.
+
+[Performance] If your web site serves large static files, increase the send buffer
  size to improve performance.
+
+[Performance] Setting this to a lower value will reduce throughput and memory usage per socket allowing the server to have 
+more concurrent sockets when memory is a bottleneck.
 END_TIPS
 
 [END_ITEM]
@@ -356,8 +362,7 @@ APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The receiving buffer size of each TCP socket. Set to {val}0{/} to use the default 
-buffer size of the operating system. {val}65535{/} is the maximum allowed buffer size.
+DESCR: The receiving buffer size of each TCP socket. {val}512K{/} is the maximum allowed buffer size.
 END_DESCR
 
 SYNTAX: uint
@@ -366,8 +371,14 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] A large receive buffer will increase performance when processing
+TIPS: [Performance] It is recommended to leave this value as "Not Set" or set to 0 to use the operating system's default 
+buffer size.
+
+[Performance] A large receive buffer will increase performance when processing
  incoming requests with large payloads, i.e. file uploads.
+
+[Performance] Setting this to a lower value will reduce throughput and memory usage per socket allowing the server to have 
+more concurrent sockets when memory is a bottleneck.
 END_TIPS
 
 [END_ITEM]
