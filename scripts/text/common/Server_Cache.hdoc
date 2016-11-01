@@ -48,14 +48,20 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Enables LiteMage Cache for Magento Stores. 
-This setting will not work if your LiteSpeed license does not have the LiteMage module enabled. 
+
+
+When set to 'On' the server will also try to use shared private cache information to speed up page load time for first time 
+visitors. Select 'Safe' to disable this feature.
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: select
 END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
+
+TIPS: This setting will not work if your LiteSpeed license does not have the LiteMage module enabled.
+END_TIPS
 
 [END_ITEM]
 

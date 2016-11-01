@@ -1,7 +1,7 @@
 <header>
 <h1>LiteSpeed Web Server 5.1 <br/>
 Users' Manual<br/>
-Rev. 2</h1>
+Rev. 3</h1>
 </header>
 
 <h3>Table of Contents</h3>
