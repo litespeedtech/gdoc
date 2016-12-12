@@ -78,7 +78,7 @@ class DocItem extends Item
     public function toToolTip()
     {
 		$search = array("\n\n\n", "\n\n", "\r\n", "\n", '"', "'", '{ext-href}', '{ext-href-end}', '{ext-href-end-a}');
-		$replace = array('<br/><br/>', '<br/>',  ' ', ' ', '&quot;', '&#039;', '<a href="', '" target="_blank">', '</a>');
+		$replace = array('<br/><br/>', '<br/>',  ' ', ' ', '&quot;', '&#039;', '<a href="', '" target="_blank" rel="noopener noreferrer">', '</a>');
 
         $id = $this->getDefaultValue('ID');
         $name = $this->getValueInLang('NAME');
@@ -122,7 +122,7 @@ class DocItem extends Item
     public function toEditTip()
     {
 		$search = array("\n", '"', "'", '{ext-href}', '{ext-href-end}', '{ext-href-end-a}');
-		$replace = array(' ', '&quot;', '&#039;', '<a href="', '" target="_blank">', '</a>');
+		$replace = array(' ', '&quot;', '&#039;', '<a href="', '" target="_blank" rel="noopener noreferrer">', '</a>');
 
         $buf = '';
         if ($this->hasValue('EDITTIP')) {
@@ -135,7 +135,7 @@ class DocItem extends Item
                 $buf .= '$this->edb[\'' . $id . "']";
             }
             $buf .= ' = array(';
-            
+
             foreach ($tips as $tip) {
                 $buf .= "'" . str_replace($search, $replace, $tip) . "',";
             }

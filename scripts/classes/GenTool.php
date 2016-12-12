@@ -131,7 +131,7 @@ EOD;
         }
 
         $from = array( "\n\n\n", "\n\n", "\r\n", "\n", '{ext-href}', '{ext-href-end}', '{ext-href-end-a}' ) ;
-        $to = array( "<br/><br/>\n", "<br/>\n", ' ', ' ', '<a href="', '" target="_blank">', '</a>' ) ;
+        $to = array( "<br/><br/>\n", "<br/>\n", ' ', ' ', '<a href="', '" target="_blank" rel="noopener noreferrer">', '</a>' ) ;
 
         $buf1 = str_replace($from, $to, $buf1) ;
 
@@ -194,7 +194,7 @@ EOD;
         }
 
 		$search = array("\n\n\n", "\n\n", "\r\n", "\n", '"', "'", '{ext-href}', '{ext-href-end}', '{ext-href-end-a}');
-		$replace = array('<br/><br/>', '<br/>',  ' ', ' ', '&quot;', '&#039;', '<a href="', '" target="_blank">', '</a>');
+		$replace = array('<br/><br/>', '<br/>',  ' ', ' ', '&quot;', '&#039;', '<a href="', '" target="_blank" rel="noopener noreferrer">', '</a>');
 
         foreach( $db->_tips as $item )
 		{
