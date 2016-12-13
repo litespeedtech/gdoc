@@ -2035,7 +2035,7 @@ NAME: 连接超时时长
 REQUIRED: 
 APPLY: 3
 SINCE: 
-SEE_ALSO: <ITEM=keepAliveTimeout>
+SEE_ALSO: {ITEM=keepAliveTimeout}
 
 DESCR: 指定在处理一个请求时所允许的最长连接闲置时间。
 如果它在此期间一直闲置，例如没有I/O活动，连接将被关闭。

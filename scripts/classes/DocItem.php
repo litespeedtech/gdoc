@@ -32,44 +32,44 @@ class DocItem extends Item
 
 	public function toDoc()
 	{
-		$end = '</td></tr>'."\n";
+		$end = '</p></td></tr>'."\n";
 		$buf = '<a name="'. $this->getId() . '"></a>';
 		$buf .= '<table width="'.$this->_width.'" class="ht" border="0" cellpadding="5" cellspacing="0">' . "\n";
 		$buf .= '<tr class="ht-title"><td><div>'.$this->getDefaultValue('NAME');
 		$buf .= '<span class="top"><a href="#top"><img border=0 height=13 width=13 alt="Go to top" src="img/top.gif"></a></span></div>'.$end;
 		//$buf .= '<tr class="ht-title"><td><table width="100%" border="0" cellpadding="0" cellspacing="0">';
 		//$buf .= '<tr><td class="ht-title">'.$this->_name.'</td><td class="top"><a href="#top"><img border=0 height=13 width=13 alt="Go to top" src="img/top.gif"></a></td></tr></table>'.$end;
-		$buf .= '<tr><td><span class="ht-label">Description: </span>' . $this->getValueInLang('DESCR') . $end;
+		$buf .= '<tr><td><span class="ht-label">Description</span><p>' . $this->getValueInLang('DESCR') . $end;
 
         if ( $this->hasValue('SYNTAX') )	{
             $gentool = new GenTool;
 			$syntax = $gentool->translateSyntax($this->getValueInLang('SYNTAX'));
 			if ( $syntax )
-				$buf .= '<tr><td><span class="ht-label">Syntax: </span>'. $syntax . $end;
+				$buf .= '<tr><td><span class="ht-label">Syntax</span><p>'. $syntax . $end;
 		}
 
         if ( ($apply = $this->hasValue('APPLY')) == 1 ) {
-			$buf .= '<tr><td><span class="ht-label">Apply: </span>';
+			$buf .= '<tr><td><span class="ht-label">Apply</span><p>';
 			/* if ( $this->_apply ==  3 )
 				$buf .= 'On the fly with reload.';
 			elseif ( $this->_apply == 2 )
 				$buf .= 'Restart required.'; */
 			$buf .= 'Reinstall required.';
 			/* else
-				$buf .= $this->_apply;
-			$buf .= $end; */
+				$buf .= $this->_apply; */
+			$buf .= $end;
 		}
 
 		if ( $this->hasValue('EXAMPLE')) {
-			$buf .= '<tr><td><span class="ht-label">Example: </span>' . $this->getValueInLang('EXAMPLE') . $end;
+			$buf .= '<tr><td><span class="ht-label">Example</span><p>' . $this->getValueInLang('EXAMPLE') . $end;
         }
 
 		if ( $this->hasValue('TIPS')) {
-			$buf .= '<tr><td><span class="ht-label">Tips: </span>' . $this->getValueInLang('TIPS') . $end;
+			$buf .= '<tr><td><span class="ht-label">Tips</span><p>' . $this->getValueInLang('TIPS') . $end;
         }
 
 		if ( $seeAlso = $this->hasValue('SEE_ALSO') )
-			$buf .= '<tr><td><span class="ht-label">See Also: </span>'. $seeAlso . $end;
+			$buf .= '<tr><td><span class="ht-label">See Also</span><p>'. $seeAlso . $end;
 
 		$buf .= "</table>\n";
 		return $buf;

@@ -206,7 +206,7 @@ NAME: Connection Timeout (secs)
 REQUIRED: 
 APPLY: 3
 SINCE: 
-SEE_ALSO: <ITEM=keepAliveTimeout>
+SEE_ALSO: {ITEM=keepAliveTimeout}
 
 DESCR: Specifies the maximum connection idle time allowed during processing one request. 
 The connection will be closed if it has been idle, i.e. no I/O activity, for this period 
