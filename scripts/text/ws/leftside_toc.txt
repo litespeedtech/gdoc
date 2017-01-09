@@ -1,6 +1,6 @@
 <div class="sidetree">
 <h3>LiteSpeed Web Server <a href="index.html"> Users' Manual</a></h3>
-<h5>Version 5.1 Rev. 3 </h5>
+<h5>Version 5.1 Rev. 4</h5>
 <hr/>
 <div>
 <ul class="toctop">

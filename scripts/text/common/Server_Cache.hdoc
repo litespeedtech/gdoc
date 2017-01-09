@@ -190,7 +190,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum size of an object that can be stored in the cache directory. The default value is "128KB".
+DESCR: Specifies the maximum size of an object that can be stored in the cache directory. The default value is "10MB".
 END_DESCR
 
 SYNTAX: uint
@@ -199,8 +199,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] It is not recommended to store large objects with low hit
-rates in the cache. This may result in high I/O wait and reduce overall server performance.
+TIPS:
 END_TIPS
 
 [END_ITEM]
