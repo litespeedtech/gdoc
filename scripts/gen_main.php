@@ -50,6 +50,7 @@ elseif ($DOC_TYPE == 'ws') {
 elseif ($DOC_TYPE == 'ows') {
     $config['ws_lb_replace'] = array('');
     $config['lang'][] = 'zh-CN';
+    $config['lang'][] = 'ja-JP';
 
 }
 
