@@ -1,0 +1,474 @@
+[HELPDOC]
+
+
+############# General #############
+
+
+[ITEM]
+ID: docRoot
+NAME: Document Root
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the document root for this virtual host. {val}$VH_ROOT/html{/} 
+is recommended. This directory is referred to as $DOC_ROOT in contexts. 
+END_DESCR
+
+EDITTIP: Set up your document root here, which can be absolute path or relative to $SERV_ROOT or $VH_ROOT
+END_EDITTIP
+
+EDITTIP: Document root is referred as $DOC_ROOT in this virtual host, which can be used in other path configuration.
+END_EDITTIP
+
+SYNTAX: path3
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhadminEmails
+NAME: Administrator Email
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies email address(es) of the administrator(s) of this virtual host.
+END_DESCR
+
+EDITTIP: You can enter multiple admin emails, separated by commas.
+END_EDITTIP
+
+SYNTAX: Comma separated list of email addresses
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableGzip
+NAME: Enable GZIP
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=ServTuning_Help#enableGzipCompress}, {ITEM=ServTuning_Help#gzipStaticCompressLevel}, {ITEM=ServTuning_Help#enableDynGzipCompress}, {ITEM=ServTuning_Help#gzipCompressLevel}
+
+DESCR: Specifies whether to enable GZIP compression for this virtual host. 
+This setting is only effective when GZIP compression is enabled at the server level. 
+Compression settings are configured at the server level (Tuning > GZIP).
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: spdyAdHeader
+NAME: SPDY Advertisement
+REQUIRED: 
+APPLY: 3
+SINCE: 1.2.5
+SEE_ALSO: 
+
+DESCR: Specifies whether to advertise to clients that SPDY protocol is available. If set, LSWS will send an Alternate-Protocol 
+response header when a client accesses SPDY-enabled websites through an HTTP connection. 
+This requires the website to have both HTTP and HTTPS connections set up, and SPDY support enabled. 
+END_DESCR
+
+SYNTAX: port:protocol string 
+END_SYNTAX
+
+EXAMPLE: If SPDY/3 is enabled on port 443, you can set the string to "443:npn-spdy/3"  
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Index Files #############
+
+
+[ITEM]
+ID: indexUseServer
+NAME: Use Server Index Files
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to use the server's index file settings. 
+If set to {val}Yes{/}, only the server's settings will be used. 
+If set to {val}No{/}, the server's settings will not be used. 
+If set to {val}Addition{/}, additional index files can be added to server's 
+index file list for this virtual host. If you want to disable index files for 
+this virtual host, you can set the value to {val}No{/} and leave the index files
+field empty.
+END_DESCR
+
+EDITTIP: You can use default server level settings for index files or use your own.
+END_EDITTIP
+
+EDITTIP: You can use your settings in addition to the server level settings.
+END_EDITTIP
+
+EDITTIP: You can disable index files by choosing not to use server level settings and leaving vhost level settings blank.
+END_EDITTIP
+
+EDITTIP: You can enable/disable "auto index" at the context level.
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: autoIndex
+NAME: Auto Index
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=indexFiles}, {ITEM=autoIndexURI}
+
+DESCR: Specifies whether to generate a directory index on the fly when
+index files listed in {ITEM=indexFiles} are not available in a directory.
+This option is customizable at the virtual host and context level, and
+is inherited along the directory tree until it is explicitly
+overridden. You can customize the generated index page. Please check online wiki How-tos.
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] It is recommended to turn off Auto Index wherever
+possible to prevent revealing confidential data.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: autoIndexURI
+NAME: Auto Index URI
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=indexFiles}, {ITEM=autoIndex}
+
+DESCR: Specifies the URI that will be used to generate the index page when
+index files listed in {ITEM=indexFiles} are not available in a directory.
+LiteSpeed web server uses an external script to generate the index page
+providing the maximum customization flexibility. The default script produces an index page with same look
+as Apache's. To customize the generated index page, please read
+online wiki How-tos.
+The directory to be indexed is passed to the script via an
+environment variable "LS_AI_PATH".
+END_DESCR
+
+SYNTAX: URI
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Customized Error Pages #############
+
+
+[ITEM]
+ID: errCode
+NAME: Error Code
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the HTTP status code for the error page. 
+Only the selected HTTP status code will have this customized error page. 
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: errMessage
+NAME: Custom Error Message
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specify a custom error message.
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: errURL
+NAME: URL
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the URL of the customized error page.  
+The server will forward the request to this URL when the corresponding HTTP status code has returned. 
+If this URL refers to a non-existing resource, the built-in error page will be used. 
+The URL can be a static file, a dynamically generated page, or a page on another web site 
+(a URL starting with "http(s)://"). 
+When referring to a page on another web site, the client will receive a redirect status 
+code instead of the original status code.
+END_DESCR
+
+EDITTIP: You can set up customized error pages for different error codes.
+END_EDITTIP
+
+SYNTAX: URL
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# HT Access #############
+############# Expires Settings #############
+############# Apache Style Configurations #############
+
+
+
+############# Tables ##############
+
+
+[TBL]
+ID: vhGeneral
+NAME: General
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: docRoot vhadminEmails enableGzip enableIpGeo spdyAdHeader 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: vhIndex
+NAME: Index Files
+
+DESCR: 
+END_DESCR
+
+CONT: indexUseServer indexFiles autoIndex autoIndexURI
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: vhGeneral
+NAME: General
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: vhMaxKeepAliveReq vhSmartKeepAlive enableGzip enableIpGeo
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: errPage
+NAME: Customized Error Pages
+NS: EO
+
+DESCR: Whenever the server has a problem processing a request, 
+the server will return an error code and an html page as an error message 
+to the web client. Error codes are defined in the HTTP protocol (see RFC 2616). 
+LiteSpeed web server has a built-in default error page for each error code, but 
+a customized page can be configured for each error code as well.  
+These error pages can be even further customized to be unique for each virtual host. 
+END_DESCR
+
+CONT: errCode errURL
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: errPage
+NAME: Customized Error Pages
+NS: L
+
+DESCR: Whenever the server has a problem processing a request, 
+the server will return an error code and an html page as an error message 
+to the web client. Error codes are defined in the HTTP protocol (see RFC 2616). 
+LiteSpeed Web Server has a built-in default error page for each error code, but a customized page can be configured 
+for each error code as well. These error pages can be even further customized to be unique 
+for each virtual host. 
+END_DESCR
+
+CONT: errCode errMessage
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: vhExpire
+NAME: Expire Settings
+
+DESCR: 
+END_DESCR
+
+CONT: enableExpires expiresDefault expiresByType
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+############# Pages ##############
+
+
+[PAGE]
+ID: VHGeneral_Help 
+NAME: Virtual Host General
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: vhGeneral vhAcLog errPage
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: VHGeneral_Help 
+NAME: Virtual Host General
+NS: E
+
+DESCR: 
+END_DESCR
+
+CONT: vhGeneral vhLog vhAcLog vhIndex errPage scriptHandler htaccess
+vhExpire apacheConfig 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: VHGeneral_Help 
+NAME: Virtual Host General
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: vhGeneral vhLog vhAcLog vhIndex errPage expire fileUpload scriptHandler 
+vhExpire  
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]

@@ -1,0 +1,1627 @@
+[HELPDOC]
+
+
+############# OS Optimization #############
+
+
+[ITEM]
+ID: eventDispatcher
+NAME: I/O Event Dispatcher 
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies which I/O event dispatcher to use. Different
+operating systems support different types of event dispatcher:
+<ul>
+  <li>Linux kernel 2.4.x supports:
+     <ul><li>poll</li></ul>
+  </li>
+  <li>Linux kernel 2.6.x supports:
+     <ul><li>poll</li><li>epoll</li></ul>
+  </li>
+  <li>FreeBSD supports:
+     <ul><li>poll</li><li>kqueue</li></ul>
+  </li>
+  <li>Solaris supports:
+     <ul><li>poll</li><li>devpoll</li></ul>
+  </li>
+  <li>Mac OS X 10.3 and above supports:
+     <ul><li>poll</li><li>kqueue</li></ul>
+  </li>
+</ul>
+  {val}poll{/} is supported by all platforms, and is the default selection. 
+  For high traffic web sites, an altenative event dispatcher can be used to improve the 
+  scalability of the server. 
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: ramDiskPath
+NAME: RAM Disk Path
+NS: LE
+REQUIRED: 
+APPLY: 
+SINCE: 4.2.4
+SEE_ALSO: 
+
+DESCR: Setting the RAM Disk Path allows you to designate the location of a RAM disk. A RAM disk 
+is a world-writable directory stored in memory. A server with excess RAM can reduce disk I/O by serving 
+content from this RAM disk. Accessing content from RAM is much faster than reading data from the disk. 
+LSWS will use this RAM disk to optimize performance when there is enough memory available.
+
+
+(The RAM disk must be designated in your OS setup before it can be used by the web server. 
+Many Linux distributions assign /dev/shm as a RAM disk by default, but these settings depend on your OS.) 
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: SSLStrongDhKey
+NAME: SSL Strong DH Key
+NS: LEO
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to use 2048 or 1024 bit DH keys for SSL handshakes. If set to "Yes", 2048 bit DH keys will be used for 2048 bit SSL keys and certificates. 
+1024 bit DH keys will still be used in other situations. Default is "Yes".
+
+
+Earlier versions of Java do not support DH key size higher than 1024 bits. If Java client compatibility is required, this should be set to "No".
+END_DESCR
+
+SYNTAX: radio
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Connection #############
+
+
+[ITEM]
+ID: maxConnections
+NAME: Max Connections
+NS: LO
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum number of concurrent connections that the server can accept. 
+This includes both plain TCP connections and SSL connections. Once the maximum concurrent connections limit is reached, 
+the server will close Keep-Alive connections when they complete active requests. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: When the server is started by "root" user, the server will try to
+adjust the per-process file descriptor limits automatically, however,
+if this fails, you may need to increase this limit manually.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: maxConnections
+NAME: Max Connections
+NS: E
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum number of concurrent connections that the server can accept. 
+This includes both plain TCP connections and SSL connections. This setting should not be set to exceed 
+the hard limit set by the server software edition or license: {val}150{/} for Standard Edition, {val}500{/} 
+for VPS license, {val}800{/} for Ultra VPS license. Once the maximum concurrent connections limit is reached, 
+the server will close Keep-Alive connections when they complete active requests. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: When the server is started by "root" user, the server will try to
+adjust the per-process file descriptor limits automatically, however,
+if this fails, you may need to increase this limit manually.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: maxSSLConnections
+NAME: Max SSL Connections
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum number of concurrent SSL connections the server will accept. 
+Since total concurrent SSL and non-SSL connections cannot exceed the limit specified by 
+{ITEM=maxConnections}, the actual number of concurrent SSL connections allowed 
+must be lower than this limit.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: connTimeout
+NAME: Connection Timeout (secs)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=keepAliveTimeout}
+
+DESCR: Specifies the maximum connection idle time allowed during processing one request. 
+The connection will be closed if it has been idle, i.e. no I/O activity, for this period 
+of time. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] Set this as low as you can to help recover dead 
+connections during a potential DoS attack.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: maxKeepAliveReq
+NAME: Max Keep-Alive Requests
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: Virtual Host {ITEM=VirtualHosts_Help#vhMaxKeepAliveReq}
+
+DESCR: Specifies the maximum number of requests that can be served through a keep-alive (persistent) 
+session. The connection will be closed once this limit is reached. You
+can set this limit for each virtual host as well. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Set this to a reasonably high value. A value of "1" or "0" will disable keep-alive.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: smartKeepAlive
+NAME: Smart Keep-Alive
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: Virtual Host {ITEM=VirtualHosts_Help#vhSmartKeepAlive}
+DESCR: Specifies whether to turn on Smart Keep-Alive. This option is
+effective only if {ITEM=maxKeepAliveReq} is greater than 1. If enabled,
+you can also enable/disable it at the virtual host level. Smart keep-alive
+will only establish keep-alive connections for requests of JavaScript,
+CSS Style Sheet, and image files. For html pages, the connection will not be kept alive. This
+will help serve more users more efficiently. Normally a web page
+contains multiple images and scripts that will be cached by the browser after the initial request. 
+It is more efficient to send those non-html static files through a single keep-alive
+connection and have the text/html file sent through another non-keep-alive connection. This
+method will reduce idle connections and in turn increase the capacity to handle more concurrent requests
+and users.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Enable this for high-load web sites.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: keepAliveTimeout
+NAME: Keep-Alive Timeout (secs)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum idle time between requests from a keep-alive connection.
+If no new request is received during this period of time, the connection will be closed.
+This setting only applies to HTTP/1.1 connections. HTTP/2 connections have long keep-alive timeouts by design and are not affected by this setting.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security & Performance] We recommend that you set this value just long enough to wait for subsequent requests from
+ a client when there are more assets referenced by a single page that need to be loaded. Do not set this too long hoping that
+ the next page will be served over the keep-alive connection. Keeping many idle keep-alive connections is a waste of server 
+resources and could be taken advantage of by (D)DoS attacks. {val}2-5{/} seconds is a  reasonable range for most 
+applications. LiteSpeed is highly efficient in a non-keep-alive environment.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sndBufSize
+NAME: Send Buffer Size (bytes)
+NS: LEO
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The sending buffer size of each TCP socket. {val}512K{/} is the maximum allowed buffer size.
+END_DESCR
+
+EDITTIP: Numbers can be represented as 10240, 10K or 1M.
+END_EDITTIP
+
+EDITTIP: If send/receive buffer size is 0, OS default TCP buffer size will be used.
+END_EDITTIP
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] It is recommended to leave this value as "Not Set" or set to 0 to use the operating system's default 
+buffer size.
+
+[Performance] If your web site serves large static files, increase the send buffer
+ size to improve performance.
+
+[Performance] Setting this to a lower value will reduce throughput and memory usage per socket allowing the server to have 
+more concurrent sockets when memory is a bottleneck.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: rcvBufSize
+NAME: Receive Buffer Size (bytes)
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The receiving buffer size of each TCP socket. {val}512K{/} is the maximum allowed buffer size.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] It is recommended to leave this value as "Not Set" or set to 0 to use the operating system's default 
+buffer size.
+
+[Performance] A large receive buffer will increase performance when processing
+ incoming requests with large payloads, i.e. file uploads.
+
+[Performance] Setting this to a lower value will reduce throughput and memory usage per socket allowing the server to have 
+more concurrent sockets when memory is a bottleneck.
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Request/Response #############
+
+
+[ITEM]
+ID: maxReqURLLen
+NAME: Max Request URL Length (bytes)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum size of a request URL. URL is the full text address used to access
+a server resource including the query string. {val}8192{/} bytes is the hard limit.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security & Performance] Set it reasonably low to reduce memory usage 
+and help identify bogus requests and DoS attacks. 
+
+2-3K is big enough for most web sites unless the HTTP GET method is used with large query strings instead of POST.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: maxReqHeaderSize
+NAME: Max Request Header Size (bytes)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum size of an HTTP request header including request URL. 
+Hard limit is {val}16380{/} bytes. 
+END_DESCR
+
+EDITTIP: Numbers can be represented as 10240, 10K or 1M.
+END_EDITTIP
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security & Performance] Set it reasonably low to reduce memory usage and 
+help identify bogus requests and DoS attacks.
+
+4-8K is big enough for most web sites.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: maxReqBodySize
+NAME: Max Request Body Size (bytes)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum size of an HTTP request body. For a 32Bit OS, {val}2GB{/} is the hard limit.
+ For a 64Bit OS, it is virtually unlimited. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] To help prevent DoS attacks, try to constrain this limit to only what is really needed. 
+Your swapping space must have enough free space to accommodate this limit.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: maxDynRespHeaderSize
+NAME: Max Dynamic Response Header Size (bytes)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum header size of a dynamically generated response. Hard limit is {val}8KB{/}.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Reliability & Performance] Set it reasonably low to help recognize bad 
+responses dynamically generated by external applications. 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: maxDynRespSize
+NAME: Max Dynamic Response Body Size (bytes)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum body size of a dynamically generated response. Hard limit is {val}2047MB{/}.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Reliability & Performance] Set the limit reasonably low to help 
+identify bad responses. It is not uncommon to malformed scripts to contain an 
+infinite loop which leads to infinity-sized responses.
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Static File Delivery Optimization #############
+
+
+[ITEM]
+ID: maxCachedFileSize
+NAME: Max Cached Small File Size (bytes)
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the largest static file that will be cached in a
+pre-allocated memory buffer. Static files can be served in four different
+ways: memory buffer cache, memory-mapped cache, plain read/write, and sendfile().
+Files whose size is smaller than this setting are served
+from memory buffer cache. Files whose size is larger than this setting, but smaller than the
+{ITEM=maxMMapFileSize} will be served from memory-mapped cache.
+Files whose size is larger than the {ITEM=maxMMapFileSize} will be served via
+plain read/write or sendfile(). It is optimal to serve static files smaller than 4K from the memory
+buffer cache. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: totalInMemCacheSize
+NAME: Total Small File Cache Size (bytes)
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the total memory that can be allocated to the 
+buffer cache in order to cache/serve small static files.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: maxMMapFileSize
+NAME: Max MMAP File Size (bytes)
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR:  Specifies the largest static file that will be memory mapped
+(MMAP). 
+ Static files can be served in four different
+ways: memory buffer cache, memory-mapped cache, plain read/write, and sendfile(). 
+Files whose size is smaller than the {ITEM=maxCachedFileSize} are served
+from memory buffer cache. Files whose size is larger than the 
+ {ITEM=maxCachedFileSize}, but smaller than the Max MMAP File Size 
+ will be served from memory-mapped cache.
+Files whose size is larger than the Max MMAP File Size will be served via
+plain read/write or sendfile(). 
+Since the server has a 32bit address space (2GB), it is not recommended to memory map
+very large files. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: totalMMapCacheSize
+NAME: Total MMAP Cache Size (bytes)
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the total memory that can be allocated for memory-
+mapped cache in order to cache/serve medium sized static files. 
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: useSendfile
+NAME: Use sendfile()
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to use the sendfile()
+system call to serve static files. Static files can be served in four different
+ways: memory buffer cache, memory-mapped cache, plain read/write, and sendfile().
+Files smaller than the {ITEM=maxCachedFileSize} are served from memory buffer cache. 
+Files larger than the {ITEM=maxCachedFileSize} but smaller than the  
+{ITEM=maxMMapFileSize} will be served from memory-mapped cache. 
+Files larger than the {ITEM=maxMMapFileSize} will be served via
+plain read/write or sendfile(). Sendfile() is a "zero copy" system
+call that can greatly reduce CPU utilization when serving very large
+static files. Sendfile() requires an optimized network card kernel driver
+and thus may not be suitable for some small-vendor network adapters.
+ 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: useAIO
+NAME: Use AIO
+NS: E
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: {ITEM=AIOBlockSize}
+
+DESCR: Specifies whether to use AIO to serve static files. AIO will help if
+your server has a high I/O wait. For 64bit operation system, there is an option to keep 
+files mapped in process address space to improve AIO performance.
+
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: AIOBlockSize
+NAME: AIO Block Size
+NS: E
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: {ITEM=useAIO}
+
+DESCR: Specifies the sent block size for AIO. 
+This block size multiplied by the total files being processed should be less than the physical 
+memory of the server, otherwise, AIO will not help. If your server has enough memory, 
+you can choose a bigger size. Default value is "1M".
+
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: fileETag
+NAME: File ETag
+REQUIRED: 
+APPLY: 2
+SINCE: 4.2.2
+SEE_ALSO: 
+
+DESCR: Specifies whether to use a file's inode, last-modified time, and size attributes 
+to generate the ETag HTTP response header for static files.  
+All three attributes are enabled by default. 
+If you plan to serve the same file out of mirrored servers, you should not include 
+inode; otherwise, the ETag generated for one file will be different on different servers.
+
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# GZIP Compression #############
+
+
+[ITEM]
+ID: enableGzipCompress
+NAME: Enable Compression
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Controls GZIP compression for both static and dynamic HTTP responses. 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Enable it to save network bandwidth. Text-based responses such as 
+html, css, and javascript files benefit the most and on average can be compressed to half 
+of their original size.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableDynGzipCompress
+NAME: Enable Dynamic Compression
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Controls GZIP compression for dynamically generated HTTP response. 
+{ITEM=enableGzipCompress} must be set to {val}Yes{/} in order to enable dynamic GZIP compression.
+END_DESCR
+
+EDITTIP: Dynamic GZIP compression control will be effective only if GZIP Compression is enabled.
+END_EDITTIP
+
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Compressing dynamic responses increases CPU and memory 
+utilization but saves network bandwidth. 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gzipCompressLevel
+NAME: Compression Level (Dynamic Content)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the level of compression for dynamic content. Ranges 
+from {val}1{/} (lowest) to {val}9{/} (highest). The default is {val}2{/}.
+END_DESCR
+
+EDITTIP: GZIP Compression level ranges from 1 (Minimum) to 9 (Maximum).
+END_EDITTIP
+
+SYNTAX: Number between 1 and 9.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Higher compression level will use more memory and CPU cycles. 
+You can set it to a higher level if your machine has additional power. There is not much difference
+between 6 and 9, except 9 uses many more CPU cycles.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: compressibleTypes
+NAME: Compressible Types
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies what MIME types are allowed to be compressed. 
+END_DESCR
+
+EDITTIP: Compressible Types is a list of MIME types that are compressible, separated by commas. You can use wildcard "*" for MIME types, like */*, text/*. You 
+can put "!" in front to exclude certain types. The order of the list is important if you use "!". For e.g., a list like "text/*, !text/css, !text/js" will 
+compress all text file except for css and js.
+END_EDITTIP
+
+SYNTAX: MIME type list separated by commas. Wild card "*" and 
+negate sign "!" are allowed, such as text/*, !text/js.
+END_SYNTAX
+
+EXAMPLE: If you want to compress text/* but not text/css, you can have a rule like 
+{val}text/*, !text/css{/}. "!" will exclude that MIME type.
+END_EXAMPLE
+
+TIPS: [Performance] Only allow types that will benefit from GZIP compression. Binary 
+files such as gif/png/jpeg images and flash files do not benefit from compression.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gzipAutoUpdateStatic
+NAME: Auto Update Static File
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to let the server automatically create/update 
+GZIP-compressed versions of compressible static files or not. If set to {val}Yes{/}, 
+when a file with a MIME type listed in {ITEM=compressibleTypes} is requested, 
+the server may create or update the corresponding compressed version of 
+the file depending on the compressed file's timestamp. This compressed file 
+is created under the {ITEM=gzipCacheDir}. The filename is based on a MD5 
+hash of the path of the original file. 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gzipCacheDir
+NAME: Static GZIP Cache Directory
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the path of the directory used to store compressed
+files for static content. The default is {ITEM=swappingDir}.
+END_DESCR
+
+SYNTAX: Directory Path
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gzipStaticCompressLevel
+NAME: Compression Level (Static Content)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the level of compression for static content. Ranges 
+from {val}1{/} (lowest) to {val}9{/} (highest). The default is {val}6{/}.
+END_DESCR
+
+SYNTAX: Number between 1 and 9.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gzipMaxFileSize
+NAME: Max Static File Size (bytes)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum size of a static file for which the
+server will create a compressed file automatically. 
+END_DESCR
+
+SYNTAX: Number in bytes not less than 1K.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] It is not recommended to have the server create/update
+compressed files for large files. Compressing blocks an entire server process and 
+no further requests can be processed until the compression is completed.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gzipMinFileSize
+NAME: Min Static File Size (bytes)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the minimum size of a static file for which the
+server will create a corresponding compressed file. 
+END_DESCR
+
+SYNTAX: Number in bytes not less than 200.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: It is not necessary to compress very small files as the bandwidth saving is negligible.
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## SSL Session ##########
+
+
+[ITEM]
+ID: sslSessionCache
+NAME: Enable Session Cache
+NS: LEO
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+EDITTIP: Session caching allows a client to resume a session within a set amount of time without having to re-perform an SSL handshake. You can do this by assigning clients a 
+session ID using  <b>Enable Session Cache</b>, or by creating and using session tickets.
+END_EDITTIP
+
+DESCR: Enables session id caching. If "Not Set", defaults to  "No". (Openssl Default)
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslSessionCacheSize
+NAME: Session Cache Size (bytes)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Sets the maximum number of SSL session IDs to store in the cache. Default is 1,000,000.
+
+END_DESCR
+
+SYNTAX: Integer number
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslSessionCacheTimeout
+NAME: Session Cache Timeout (secs)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: This value determines how long a session ID will be valid within the cache before renegotiation is required. Default is 3,600.
+
+END_DESCR
+
+SYNTAX: Integer number
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslSessionTickets
+NAME: Enable Session Tickets
+NS: LEO
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Enables session tickets. If "Not Set", the server will use openSSL's default ticket.
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: shmDefaultDir
+NAME: Default SHM Directory
+NS: LEO
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Changes shared memory's default directory to the specified path. If the directory does not exist, it will be created. 
+All SHM data will be stored in this directory unless otherwise specified.
+
+END_DESCR
+
+SYNTAX: Path
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslSessionTicketLifetime
+NAME: SSL Session Ticket Lifetime (secs)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: This value determines how long a session ticket will be valid before a renegotiation is required. Default is 3,600.
+
+
+END_DESCR
+
+SYNTAX: Integer number
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslSessionTicketKeyFile
+NAME: SSL Session Ticket Key File
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO:
+
+EDITTIP: Session tickets will be rotated automatically if the tickets are being generated by the server. If using the <b>SSL Session Ticket Key File</b> option 
+to create and manage your own session tickets, you must be rotate the tickets yourself using a cron job.
+END_EDITTIP
+
+EDITTIP: <b>SSL Session Ticket Key file</b> should be used for high availability setups to avoid re-issuing tickets when a client is handled by different load balancers.
+END_EDITTIP
+
+DESCR: Allows the SSL Ticket Key to be created/maintained by an administrator. The file must be 48 bytes long. If this option is left empty, the load balancer 
+will generate and rotate its own set of keys. 
+
+
+IMPORTANT: To maintain forward secrecy, it is strongly recommended to change the key every <b>SSL Session Ticket Lifetime</b>
+ seconds. If this cannot be done, it is recommended to leave this field empty.
+
+END_DESCR
+
+SYNTAX: Path
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslSessionTicketKeyFile
+NAME: SSL Session Ticket Key File
+NS: EO
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO:
+
+EDITTIP: Session tickets will be rotated automatically if the tickets are being generated by the server. If using the <b>SSL Session Ticket Key File</b> option to create and manage your own
+session tickets, you must be rotate the tickets yourself using a cron job.
+END_EDITTIP
+
+DESCR: Allows the SSL Ticket Key to be created/maintained by an administrator. The file must be 48 bytes long. If this option is left empty, the load balancer 
+will generate and rotate its own set of keys. 
+
+
+IMPORTANT: To maintain forward secrecy, it is strongly recommended to change the key every <b>SSL Session Ticket Lifetime</b>
+ seconds. If this cannot be done, it is recommended to leave this field empty.
+
+END_DESCR
+
+SYNTAX: Path
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslDynCertsBaseDir
+NAME: SSL Dynamic Certificates Base Dir
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Sets the base directory that dynamic ssl certificates will be stored in. 
+Certificates, keys, and CA Bundles are expected to be named "cert", "key", and "ca", respectively.
+
+
+END_DESCR
+
+SYNTAX: Path
+END_SYNTAX
+
+EXAMPLE: $SERVER_ROOT/certStore/
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslDynCertsNumLevels
+NAME: SSL Dynamic Certificates Levels
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The number of directory levels the certificate files will be in. 
+
+
+This is similar to PHP's <b><a href="http://php.net/manual/en/session.configuration.php#ini.session.save-path">Session.save_path</a></b>
+
+END_DESCR
+
+SYNTAX: Integer number
+END_SYNTAX
+
+EXAMPLE: If set to 2, "example.com" would be in BaseDir/e/x/example.com/
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslDynCertsExpire
+NAME: SSL Dynamic Certificates Expire Time (secs)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Sets the expire time of a dynamically loaded certificate before it is invalidated.
+
+END_DESCR
+
+SYNTAX: Integer number
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslDynCertsRefresh
+NAME: SSL Dynamic Certificates Refresh Time (secs)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Sets the refresh time of a dynamically loaded certificate before it will check for file validity. If 
+the file is removed before refresh time, the cert will be invalidated. If the file is updated before refresh time, the cert will be updated.
+
+END_DESCR
+
+SYNTAX: Integer number
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslEnableMultiCerts
+NAME: Enable Multiple SSL Certificates
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR:  Allows listeners/vhosts to set multiple SSL certificates.  If multiple certificates are enabled, the certificates/keys 
+are expected to follow a naming scheme.  If the cert is named server.crt, other possible cert names are server.crt.rsa, server.crt.dsa, server.crt.ecc. If 
+"Not Set", defaults to "No".
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Tables #############
+
+
+[TBL]
+ID: osTuning
+NAME: OS Optimization
+NS: LE
+
+DESCR: 
+END_DESCR
+
+CONT: eventDispatcher ramDiskPath shmDefaultDir
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: osTuning
+NAME: OS Optimization
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: eventDispatcher shmDefaultDir
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: connTuning
+NAME: Connection
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: maxConnections maxSSLConnections connTimeout maxKeepAliveReq
+smartKeepAlive keepAliveTimeout sndBufSize rcvBufSize
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: connTuning
+NAME: Connection Tuning
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: maxConnections maxSSLConnections connTimeout maxKeepAliveReq
+smartKeepAlive keepAliveTimeout sndBufSize rcvBufSize
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: reqTuning
+NAME: Request/Response Tuning
+NS: LEO
+
+DESCR: 
+END_DESCR
+
+CONT: maxReqURLLen maxReqHeaderSize maxReqBodySize
+      maxDynRespHeaderSize maxDynRespSize 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: staticTuning
+NAME: Static File Delivery Optimization
+NS: E
+
+DESCR: 
+END_DESCR
+
+CONT: maxCachedFileSize totalInMemCacheSize maxMMapFileSize totalMMapCacheSize
+useSendfile useAIO AIOBlockSize fileETag
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: staticTuning
+NAME: Static File Delivery Optimization
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: maxCachedFileSize totalInMemCacheSize maxMMapFileSize totalMMapCacheSize
+useSendfile fileETag
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: gzipTuning
+NAME: GZIP Compression Tuning
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: enableGzipCompress enableDynGzipCompress gzipCompressLevel 
+compressibleTypes gzipAutoUpdateStatic gzipCacheDir gzipStaticCompressLevel 
+gzipMaxFileSize gzipMinFileSize
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: gzipTuning
+NAME: GZIP Compression Tuning
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: enableGzipCompress gzipCompressLevel compressibleTypes
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: sslGlobal
+NAME: SSL Global Setting
+NS: LEO
+
+DESCR: 
+END_DESCR
+
+CONT: SSLStrongDhKey sslEnableMultiCerts sslSessionCache sslSessionCacheSize sslSessionCacheTimeout 
+sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: sslDynSNI
+NAME: SSL Dynamic SNI
+NS: L
+
+DESCR: SSL Dynamic SNI enables you to avoid using the load balancer's generic certificates by specifying a directory that the load balancer can then use to serve 
+clients site specific certificates when handling requests.
+END_DESCR
+
+CONT: sslDynCertsBaseDir sslDynCertsNumLevels sslDynCertsExpire sslDynCertsRefresh 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: ServTuning_Help 
+NAME: Server Tuning
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT:osTuning connTuning reqTuning gzipTuning sslGlobal sslDynSNI
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: ServTuning_Help 
+NAME: Server Tuning
+NS: E
+
+DESCR: 
+END_DESCR
+
+CONT: osTuning connTuning reqTuning staticTuning gzipTuning sslGlobal
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: ServTuning_Help 
+NAME: Server Tuning
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: osTuning connTuning reqTuning staticTuning gzipTuning sslGlobal
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]

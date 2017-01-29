@@ -1,0 +1,600 @@
+[HELPDOC]
+
+############# Base #############
+
+
+[ITEM]
+ID: vhName
+NAME: バーチャルホスト名
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: バーチャルホストの一意の名前。 バーチャルホストのドメイン名をバーチャルホスト名として使用することをお勧めします。
+バーチャルホスト名は、変数$VH_NAMEを使用して参照できます。
+END_DESCR
+
+SYNTAX: テキスト
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhRoot
+NAME: バーチャルホスト Root
+NS: E
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 仮想ホストのルートディレクトリを指定します。
+注：これはドキュメントのルートではありません<b> NOT </b>です。 このディレクトリの下に、バーチャルホストに関連するすべてのファイル（ログファイル、htmlファイル、CGIスクリプトなど）を置くことをお勧めします。
+バーチャルホストルートは、変数$VH_ROOTを使用して参照できます。
+END_DESCR
+
+EDITTIP: 全てのディレクトリがあらかじめ存在する必要があります。
+このWebインターフェイスでは、ディレクトリは作成されません。 新しいバーチャルホストを作成する場合は、空のルートディレクトリを作成して最初から設定することができます。 パッケージに同梱されているデフォルトバーチャルルートをこのバーチャルホストルートにコピーして変更することもできます。
+END_EDITTIP
+
+EDITTIP: バーチャルホストルート（$VH_ROOT）は、絶対パスでも、$SERVER_ROOTに関連してもかまいません。
+Configファイルは、$VH_ROOTに相対的である可能性があります。
+END_EDITTIP
+
+SYNTAX: path2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [パフォーマンス]さまざまなハードドライブに異なるバーチャルホストを配置します。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhRoot
+NAME: バーチャルホスト Root
+NS: O
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: バーチャルホストのルートディレクトリを指定します。
+注：これはドキュメントのルートではありません<b> NOT </b>です。 このディレクトリの下に、バーチャルホストに関連するすべてのファイル（ログファイル、htmlファイル、CGIスクリプトなど）を置くことをお勧めします。
+バーチャルホストルートは、変数$VH_ROOTを使用して参照できます。
+END_DESCR
+
+EDITTIP: 全てのディレクトリがあらかじめ存在する必要があります。
+このWebインターフェイスでは、ディレクトリは作成されません。
+新しいバーチャルホストを作成する場合は、空のルートディレクトリを作成して最初から設定することができます。 パッケージに同梱されている "例"バーチャルルートをこのバーチャルホストルートにコピーして変更することができます。
+END_EDITTIP
+
+EDITTIP: バーチャルホストルート（$VH_ROOT）は、絶対パスでも、$SERVER_ROOTに関連してもかまいません。
+END_EDITTIP
+
+SYNTAX: path2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [パフォーマンス]さまざまなハードドライブに異なるバーチャルホストを配置します。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: defaultCluster
+NAME: デフォルトクラスタ
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: このバーチャルホストへの要求を処理するために使用されるデフォルトのクラスタを指定します。 
+END_DESCR
+
+EDITTIP: ここでデフォルトのクラスタを設定すると、コンテキストが定義されていない限り、すべてのトラフィックがこのクラスタによってサービスされます。
+END_EDITTIP
+
+SYNTAX: 選択
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: configFile
+NAME: 設定ファイル
+NS: LE
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: このバーチャルホストの設定ファイル名とディレクトリ。
+END_DESCR
+
+SYNTAX: file3
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 簡単な管理のため、{val}$SERVER_ROOT/conf/vhosts/$VH_NAME.xml{/}をお勧めします。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: configFile
+NAME: 設定ファイル
+NS: O
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: このバーチャルホストの設定ファイル名とディレクトリ。
+設定ファイルは、$SERVER_ROOT/conf/vhosts/ディレクトリの下になければなりません。
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:$SERVER_ROOT/conf/vhosts/$VH_NAME/vhconf.confをお勧めします。
+END_TIPS
+
+[END_ITEM]
+
+
+############# Connection #############
+
+
+[ITEM]
+ID: vhMaxKeepAliveReq
+NAME: Max Keep-Alive Requests
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=ServTuning_Help#maxKeepAliveReq}
+
+DESCR: Specifies the maximum requests that can be served through a keep-alive (persistent) 
+connection. Connections will be closed once this limit is reached. You
+can specify a different limit for each virtual hosts. This number
+cannot exceed the server-level {ITEM=ServTuning_Help#maxKeepAliveReq} limit.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Set to a reasonably high value. A value of "1" or less will 
+disable keep-alive connections. 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhSmartKeepAlive
+NAME: Smart Keep-Alive
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to turn on Smart Keep-Alive for this virtual
+host. This option is only effective if 
+{ITEM=ServTuning_Help#smartKeepAlive} is enabled at the server level and
+{ITEM=vhMaxKeepAliveReq} is greater than 1.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Enable this for busy web sites.
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Security #############
+
+
+[ITEM]
+ID: allowSymbolLink
+NAME: Follow Symbolic Link
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to follow symbolic links in this virtual host. 
+{val}IF OWNER MATCH{/} option will follow a symbolic link only if it has the same ownership. 
+This setting overrides the default server-level setting.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance & security] For better security, disable this feature. For better performance, enable it.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableScript
+NAME: Enable Script
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether scripting (non-static pages) is allowed in this virtual host. 
+If disabled, CGI, FastCGI, LSAPI, Servlet engines and other scripting languages will not be allowed in this virtual host. 
+Therefore, if you want to use a script handler, you need to enable it here as well.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: restrained
+NAME: Restrained
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether files beyond this virtual host root($VH_ROOT) can be accessed 
+though this web site. If set to {val}Yes{/}, only files under $VH_ROOT can be accessed  
+and access to symbolic links or context pointing to files or directories beyond $VH_ROOT 
+will be denied. This, however, does not limit the accessibility of CGI scripts. This is useful 
+in the shared hosting environment. {ITEM=allowSymbolLink} can be set to {val}Yes{/} to allow 
+users to use symbolic links under $VH_ROOT, but not anything beyond $VH_ROOT.
+END_DESCR
+
+EDITTIP: Turn on Restrained in a shared hosting enviroment.
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] Turn it on in the shared hosting environment.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: setUidMode
+NAME: ExtApp Set UID Mode
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies how user ID is set for an external application process. Three choices
+are available: 
+<ul><li>{val}Server UID{/}: Set the user/group ID of external application processes  to the same as
+the server's user/group ID.</li>
+    <li>{val}CGI File UID{/}: Set the user/group ID of external CGI processes based 
+	on the user/group ID of the executable. This option only applies to CGI, not FastCGI or LSPHP.</li>
+    <li>{val}Doc Root UID{/}: Set the user/group ID of external application processes based 
+	on the user/group ID of the document root of the current virtual host.</li>
+</ul>
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] In the shared hosting environment, it is recommended to
+use the {val}CGI File UID{/} or {val}Doc Root UID{/} modes to prevent files
+owned by one virtual host from being accessed by the external application scripts of another
+virtual host.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: chrootMode
+NAME: ExtApp Chroot Mode
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: {ent_version} Specifies how the root directory is set for an external application
+process. In order to protect confidential system data files from being
+accessed by a vulnerable external application script, an alternative root path can be
+set for the external application process so that files beyond the new root directory become
+inaccessible. This is referred to as a "chroot jail".
+
+
+Three choices are available: 
+<ul><li>{val}Same as Server{/}: External application processes will be run in the same jail as the server.</li>
+    <li>{val}Virtual Host Root{/}: Set chroot jail to the
+root directory of the virtual host. The external application script will only be able to access files
+inside the virtual host root. </li>
+	<li>{val}Customized Chroot Path{/}: Specify the chroot path {ITEM=chrootPath} below. </li>
+</ul>
+
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: If used properly, chroot will greatly enhance the security
+of external application scripts, but you must make sure the external application script is functional
+in the limited chroot jail environment.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: chrootPath
+NAME: ExtApp Chroot Path
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: {ent_version} Specifies a new root directory for the current host's external application scripts  
+when {ITEM=chrootMode} is set to {val}Customized Chroot Path{/}.
+
+END_DESCR
+
+SYNTAX: path1
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: totalBandwidth
+NAME: Total Output Bandwidth (KB/sec)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Sets a limit for the total output bandwidth in KB/s for this virtual host. Once this limit is reached throttling will occur.
+END_DESCR
+
+[END_ITEM]
+
+
+
+############# Per Client Throttling #############
+
+
+
+############# Tables #############
+
+
+
+[TBL]
+ID: vhBase
+NAME: 基本
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: vhName vhRoot configFile
+END_CONT
+
+[END_TBL]
+
+
+
+[TBL]
+ID: vhConnection
+NAME: コネクション
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: vhMaxKeepAliveReq vhSmartKeepAlive
+END_CONT
+
+[END_TBL]
+
+
+
+[TBL]
+ID: vhSecurity
+NAME: セキュリティ
+NS: E
+
+DESCR: 
+END_DESCR
+
+CONT: allowSymbolLink enableScript
+restrained setUidMode
+chrootMode chrootPath totalBandwidth
+END_CONT
+
+[END_TBL]
+
+
+
+[TBL]
+ID: vhSecurity
+NAME: セキュリティ
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: allowSymbolLink enableScript
+restrained setUidMode
+chrootMode chrootPath
+END_CONT
+
+[END_TBL]
+
+
+
+[TBL]
+ID: vhPClientThrottling
+NAME: バーチャルホスト
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: staticReqPerSec dynReqPerSec
+outBandwidth inBandwidth 
+END_CONT
+
+[END_TBL]
+
+
+
+[TBL]
+ID: vhTop
+NAME: バーチャルホスト
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: vhName defaultCluster configFile 
+dynReqPerSec outBandwidth inBandwidth 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: vhTop
+NAME: バーチャルホスト
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: vhName vhRoot configFile allowSymbolLink enableScript
+restrained vhMaxKeepAliveReq vhSmartKeepAlive setUidMode
+chrootMode chrootPath staticReqPerSec dynReqPerSec
+outBandwidth inBandwidth 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: VirtualHosts_Help 
+NAME: バーチャルホストの基本
+NS: EO
+
+DESCR: このページには、定義されたすべてのバーチャルホストが一覧表示されます。
+ここからバーチャルホストを追加/削除したり、既存のバーチャルホストを変更したりすることができます。
+バーチャルホストを追加する前に、バーチャルホストのルートディレクトリが存在することを確認してください。
+END_DESCR
+
+CONT: vhBase vhConnection vhSecurity vhPClientThrottling
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: VirtualHosts_Help 
+NAME: バーチャルホストリスト
+NS: L
+
+DESCR: このページには、定義されたすべてのバーチャルホストが一覧表示されます。
+ここからバーチャルホストを追加/削除したり、既存のバーチャルホストを変更したりすることができます。
+END_DESCR
+
+CONT: vhTop 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]

@@ -1,0 +1,164 @@
+[HELPDOC]
+
+
+########## General ##########
+
+####### General #######
+
+
+[ITEM]
+ID: enableCoreDump
+NAME: コアダンプを有効にする
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: サーバーが「root」ユーザーによって開始されたときにコア・ダンプを使用可能にするかどうかを指定します。
+最新のUnixシステムでは、セキュリティ上の理由から、ユーザーIDまたはグループIDを変更するプロセスはコアファイルをダンプできません。
+ただし、コアダンプを持つ問題の根本原因を特定する方がはるかに簡単です。
+このオプションは、Linuxカーネル2.4以上でのみ動作します。
+Solarisユーザーは{cmd} coreadm {/}コマンドを使用してこの機能を制御する必要があります。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [セキュリティ]サーバログファイルに{val}コアファイルが作成されていない{/}と表示されている場合にのみ有効にします。
+コアファイルを生成した直後に無効にしてください。
+コアダンプが作成されたときにバグレポートを提出してください。
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: consoleSessionTimeout
+NAME: セッションタイムアウト（秒）
+REQUIRED: 
+APPLY: Immediately
+SINCE: 
+SEE_ALSO: 
+
+DESCR: WebAdmin Consoleのセッションタイムアウトの長さをカスタマイズします。
+デフォルトは60秒です。
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [セキュリティ]プロダクション使用に適切な値を設定します。通常は300秒未満です。
+END_TIPS
+
+[END_ITEM]
+
+
+
+####### Virtual Host Log #######
+
+####### Access Log #######
+
+
+
+########## Security ##########
+
+####### Web Admin Users #######
+
+#### Web Admin User ####
+
+
+[ITEM]
+ID: adminOldPass
+NAME: 古いパスワード
+REQUIRED: 
+APPLY: Immediately
+SINCE: 
+SEE_ALSO: 
+
+DESCR:
+END_DESCR
+
+EDITTIP: セキュリティ上の理由から、管理者パスワードを忘れた場合は、WebAdminコンソールから変更することはできません。 
+代わりに以下のシェルコマンドを使用してください： 
+<br><br>
+/usr/local/lsws/admin/misc/admpass.sh. 
+<br><br>
+このスクリプトは、入力されたすべての管理ユーザーIDを削除し、1人の管理ユーザーで上書きします。
+END_EDITTIP
+
+[END_ITEM]
+
+
+############# Tables #############
+
+
+[TBL]
+ID: coredump
+NAME: 一般
+
+DESCR: 
+END_DESCR
+
+CONT: enableCoreDump consoleSessionTimeout
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: adminUser
+NAME: WebAdminユーザー
+
+DESCR: WebAdmin Consoleのユーザー名とパスワードを変更します。
+変更を保存するには、古いパスワードを入力して確認する必要があります。  
+END_DESCR
+
+CONT: adminOldPass
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: AdminGeneral_Help 
+NAME: 管理コンソールの一般
+
+DESCR: 管理サーバーは、WebAdminコンソール専用の特別な仮想ホストです。
+管理者のマシンからのアクセスのみを許可するか、暗号化されたSSL接続を使用して、管理サーバーを安全に保護することが重要です。 
+END_DESCR
+
+CONT: coredump vhLog vhAcLog
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: AdminSecurity_Help 
+NAME: 管理コンソールのセキュリティ
+
+DESCR:
+END_DESCR
+
+CONT: accessControl adminUser
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]

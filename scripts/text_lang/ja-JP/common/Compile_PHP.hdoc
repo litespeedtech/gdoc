@@ -1,0 +1,162 @@
+[HELPDOC]
+
+
+[ITEM]
+ID: extrapathenv
+NAME: 特別なPATH環境変数
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: ビルドスクリプトの現在のPATH環境変数に追加される追加のPATH値。  
+END_DESCR
+
+SYNTAX: "："で区切られたパス値
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: installpathprefix
+NAME: インストールパスのプレフィックス
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: "--prefix"設定オプションの値を設定します。 デフォルトのインストール場所はLiteSpeed Web Serverのインストールディレクトリの下にあります。  
+END_DESCR
+
+SYNTAX: パス
+END_SYNTAX
+
+EXAMPLE: /usr/local/lsws/lsphp5
+END_EXAMPLE
+
+TIPS: LiteSpeed Web Serverは、複数のPHPバージョンを同時に使用できます。 複数のバージョンをインストールする場合は、異なるプレフィックスを付ける必要があります。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: compilerflags
+NAME: コンパイラフラグ
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 最適化されたコンパイラオプションのような追加のコンパイラフラグを追加します。
+END_DESCR
+
+SYNTAX: サポートされているフラグは、CFLAGS、CXXFLAGS、CPPFLAGS、LDFLAGSです。 スペースを使用して、異なるフラグを区切ります。 フラグ値には一重引用符（二重引用符ではない）を使用します。  
+END_SYNTAX
+
+EXAMPLE: CFLAGS='-O3 -msse2 -msse3 -msse4.1 -msse4.2 -msse4 -mavx'
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: configureparams
+NAME: パラメータの設定
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: PHPビルド用のパラメータを設定します。 Apache固有のパラメータと " - prefix"の値は自動的に削除され、次のステップをクリックすると "--with-litespeed"が自動的に追加されます。
+（前のフィールドにプレフィックスを設定することができます）このようにして、既存の動作中のPHPビルドのphpinfo（）出力からconfigureパラメータをコピーして貼り付けることができます。 
+END_DESCR
+
+SYNTAX: スペース区切りの一連のオプション（二重引用符を使用する場合と使用しない場合）
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: addonmodules
+NAME: アドオンモジュール
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR:  使用するアドオンモジュールを選択します。
+ここに記載されていないバージョンを使用する場合は、手動でソースコードを更新することができます。
+（PHPビルドのこのステップでは、ソースコードの場所がプロンプトに表示されます）。
+END_DESCR
+
+SYNTAX: チェックボックス
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Tables #############
+
+
+[TBL]
+ID: compilephp
+NAME: PHPのコンパイル
+
+DESCR: 
+END_DESCR
+
+CONT: extrapathenv installpathprefix compilerflags configureparams addonmodules
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: CompilePHP_Help 
+NAME: PHPのコンパイル
+
+DESCR: 
+END_DESCR
+
+CONT: compilephp
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]

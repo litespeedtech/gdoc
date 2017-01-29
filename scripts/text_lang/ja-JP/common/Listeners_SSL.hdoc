@@ -1,0 +1,652 @@
+[HELPDOC]
+
+
+########## SSL Private Key & Certificate ##########
+
+
+[ITEM]
+ID: keyFile
+NAME: Private Key File
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The filename of the SSL private key file. The key file should not be encrypted.
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] The private key file should be placed in a secured directory that 
+allows read-only access to the user the server runs as.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: certFile
+NAME: Certificate File
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The filename of the SSL certificate file.
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] The certificate file should be placed in a secured directory, 
+which allows read-only access to the user that the server runs as.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: certChain
+NAME: Chained Certificate
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether the certificate is a chained certificate or
+not. The file that stores a certificate chain must be in PEM format,
+and the certificates must be in the chained order, from the lowest level
+(the actual client or server certificate) to the highest level (root) CA.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: CACertPath
+NAME: CA証明書パス
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 証明機関（CA）の証明書が保存されるディレクトリを指定します。 これらの証明書は、クライアント証明書の認証およびサーバー証明書チェーンの構築に使用されます。サーバー証明書チェーンは、サーバー証明書に加えてブラウザーにも送信されます。
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: CACertFile
+NAME: CA証明書ファイル
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: チェーン証明書の証明機関（CA）のすべての証明書を含むファイルを指定します。 このファイルは、PEMでエンコードされた証明書ファイルを単に優先順に連結したものです。 これは、「CA証明書パス」の代替として、またはこれに加えて使用することができる。 これらの証明書は、クライアント証明書の認証およびサーバー証明書チェーンの構築に使用されます。サーバー証明書チェーンは、サーバー証明書に加えてブラウザーにも送信されます。
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## SSL Protocol ##########
+
+
+[ITEM]
+ID: sslProtocol
+NAME: Protocol Version
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies which version of the SSL protocol will be used. You can choose from 
+{val}SSL v3.0{/} and {val}TLS v1.0{/}. Since OpenSSL 1.0.1, {val}TLS v1.1{/} and {val}TLS v1.2{/} are also supported. 
+END_DESCR
+
+EDITTIP: "Yes" must be selected for <b>Secure</b> in General > Address Settings.
+END_EDITTIP
+
+EDITTIP: For SSL versions and encryption levels, please select all you want to accept.
+END_EDITTIP
+
+SYNTAX:
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: Leaving this field blank will enable TLS v1.0, TLS v1.1, and TLS v1.2 by default.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: ciphers
+NAME: Ciphers
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the cipher suite to be used when negotiating the SSL handshake. 
+LSWS supports cipher suites implemented in SSL v3.0, TLS v1.0, and TLS v1.2.
+END_DESCR
+
+SYNTAX: Colon-separated string of cipher specifications.
+END_SYNTAX
+
+EXAMPLE: ECDHE-RSA-AES128-SHA256:RC4:HIGH:!MD5:!aNULL:!EDH
+END_EXAMPLE
+
+TIPS: [Security] We recommend leaving this field blank to use our default cipher which follows SSL cipher best practices. 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableECDHE
+NAME: Enable ECDH Key Exchange
+REQUIRED: 
+APPLY: 3
+SINCE: 4.2.5
+SEE_ALSO: 
+
+DESCR: Allows use of Elliptic Curve Diffie-Hellman key exchange for further SSL encryption.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] ECDH key exchange is more secure than using just an RSA key. ECDH and DH key exchange are equally secure.
+
+
+[Performance] Enabling ECDH key exchange will increase CPU load and is slower than using just an RSA key.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableDHE
+NAME: Enable DH Key Exchange
+REQUIRED: 
+APPLY: 3
+SINCE: 4.2.5
+SEE_ALSO: 
+
+DESCR: Allows use of Diffie-Hellman key exchange for further SSL encryption. 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Security] DH key exchange is more secure than using just an RSA key. ECDH and DH key exchange are equally secure.
+
+
+[Performance] Enabling DH key exchange will increase CPU load and is slower than ECDH key exchange and RSA. ECDH key exchange is preferred when available.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: DHParam
+NAME: DHパラメータ
+REQUIRED: 
+APPLY: 3
+SINCE: 4.2.5
+SEE_ALSO: 
+
+DESCR: DHキー交換に必要なDiffie-Hellmanパラメータファイルの場所を指定します。
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## Security & features ##########
+
+
+[ITEM]
+ID: renegProtection
+NAME: SSL Renegotiation Protection
+NS: LEO
+REQUIRED: 
+APPLY: 3
+SINCE: 4.1.13
+SEE_ALSO: 
+
+DESCR: Specifies whether to enable SSL Renegotiation Protection to 
+defend against SSL handshake-based attacks. The default value is "Yes".
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableSpdy
+NAME: Enable SPDY/HTTP2
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: HTTP/2 and SPDY are new versions of the HTTP network protocol with the goal of reducing page load times. 
+More information can be found at <a href="http://en.wikipedia.org/wiki/HTTP/2">http://en.wikipedia.org/wiki/HTTP/2</a>.
+END_DESCR
+
+SYNTAX: Check the protocol(s) you wish to enable. Leaving all boxes unchecked will enable SPDY and HTTP/2 support (the default). 
+If you wish to disable SPDY and HTTP/2, check "None" only and leave all other boxes unchecked.
+END_SYNTAX
+
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## OCSP Stapling ##########
+
+
+[ITEM]
+ID: enableStapling
+NAME: Enable OCSP Stapling
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Determines whether to enable OCSP stapling, a more efficient way of verifying public key certificates.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: ocspRespMaxAge
+NAME: OCSP Response Max Age (secs)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: This option sets the maximum allowable age for an OCSP response. If an OCSP response is older than this maximum age, the server will contact the OCSP responder for a new response. The default value is {val}86400{/}. Maximum age can be turned off by setting this value to {val}-1{/}.
+END_DESCR
+
+SYNTAX: Integer of seconds
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: ocspResponder
+NAME: OCSP Responder
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the URL of the OCSP responder to be used. 
+If not set, the server will attempt to contact the OCSP responder 
+detailed in the certificate authority's issuer certificate. 
+Some issuer certificates may not have an OCSP responder URL specified.
+END_DESCR
+
+SYNTAX: URL starting with {val}http://{/}
+END_SYNTAX
+
+EXAMPLE: {val}http://rapidssl-ocsp.geotrust.com {/}
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: ocspCACerts
+NAME: OCSP CA Certificates
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the location of the file where OCSP certificate authority (CA) 
+certificates are stored. These certificates are used to check responses 
+from the OCSP responder (and make sure those responses are not spoofed or 
+otherwise compromised). This file should contain the whole certificate chain. 
+If this file does not contain the root certificate, LSWS should be able to find 
+the root certificate in your system directory without you adding it to the file, 
+but, if this validation fails, you should try adding your root certificate to this file. 
+
+
+This setting is optional. If this setting is not set, the server will automatically check {ITEM= CACertFile}. 
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX1
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## Client Verification ##########
+
+
+[ITEM]
+ID: clientVerify
+NAME: Client Verification
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR:{ent_version} Specifies the type of client certifcate authentication.
+Available types are:
+<ul>
+<li><b>None:</b> No client certificate is required.</li>
+<li><b>Optional:</b> Client certificate is optional.</li>
+<li><b>Require:</b> The client must has valid certificate.</li>
+<li><b>Optional_no_ca:</b> Same as optional.</li>
+</ul>
+The default is "None". 
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:  "None" or "Require" are recommended.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: verifyDepth
+NAME: Verify Depth
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR:{ent_version} Specifies how deeply a certificate should be verified before 
+determining that the client does not have a valid certificate.
+The default is "1".
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: crlPath
+NAME: Client Revocation Path
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR:{ent_version} Specifies the directory containing PEM-encoded CA CRL files for revoked 
+client certificates. The files in this directory have to be PEM-encoded. 
+These files are accessed through hash filenames, hash-value.rN.
+Please refer to openSSL or Apache mod_ssl documentation regarding creating the hash filename.
+END_DESCR
+
+SYNTAX: path 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: crlFile
+NAME: Client Revocation File
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR:{ent_version} Specifies the file containing PEM-encoded CA CRL files enumerating revoked 
+client certificates. This can be used as an alternative or in addition to 
+{ITEM=crlPath}. 
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Tables #############
+
+
+[TBL]
+ID: sslCert
+NAME: SSL Private Key & Certificate
+NS: LEO
+
+DESCR: Every SSL listener requires a paired SSL private key and SSL certificate. 
+Multiple SSL listeners can share the same key and certificate. 
+
+
+You can generate SSL private keys yourself using an SSL software package, 
+such as OpenSSL. SSL certificates can also be purchased from an authorized certificate 
+issuer like VeriSign or Thawte. You can also sign the certificate yourself. 
+Self-signed certificates will not be trusted by web browsers and should not be used on public websites 
+containing critical data. However, a self-signed certificate is good 
+enough for internal use, e.g. for encrypting traffic to LiteSpeed Web Server's WebAdmin Console.
+END_DESCR
+
+CONT: keyFile certFile certChain CACertPath CACertFile
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: sslProtocolSetting
+NAME: SSL Protocol
+NS: LEO
+
+DESCR: Customizes SSL protocols accepted by the listener.
+END_DESCR
+
+CONT: sslProtocol ciphers enableECDHE enableDHE DHParam
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: sslOCSP
+NAME: OCSP Stapling
+NS: LEO
+
+DESCR: Online Certificate Status Protocol (OCSP) is a more efficient method 
+of checking whether a digital certificate is valid. It works by communicating 
+with another server — the OCSP responder — to get verification that the certificate 
+is valid instead of checking through certificate revocation lists (CRL).
+
+
+OCSP stapling is a further improvement on this protocol, allowing the server to 
+check with the OCSP responder at regular intervals instead of every time a certificate 
+is requested. See the <a href="http://en.wikipedia.org/wiki/OCSP_Stapling">OCSP Wikipedia page</a> for more details.
+END_DESCR
+
+CONT: enableStapling ocspRespMaxAge ocspResponder ocspCACerts
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: sslClientVerify
+NAME: Client Verification
+NS: LEO
+
+DESCR: 
+END_DESCR
+
+CONT: clientVerify verifyDepth crlPath crlFile 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+############# Pages #############
+
+
+[PAGE]
+ID: Listeners_SSL_Help
+NAME: Listeners SSL
+NS: LEO
+
+DESCR: 
+END_DESCR
+
+CONT: sslCert sslProtocolSetting sslFeature sslOCSP sslClientVerify
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]

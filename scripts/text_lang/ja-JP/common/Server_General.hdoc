@@ -1,0 +1,1909 @@
+[HELPDOC]
+
+
+############# Server Process #############
+
+
+[ITEM]
+ID: serverName
+NAME: サーバー名
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: このサーバーの一意の名前。 値として$HOSTNAMEを使用できます。 
+END_DESCR
+
+EDITTIP: サーバープロセスのユーザーおよびグループの設定は変更できません。 これはインストール時に設定されました。 このオプションを変更するには、再インストールする必要があります。
+END_EDITTIP
+
+SYNTAX: テキスト
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: httpdWorkers
+NAME: ワーカーの数
+NS: O
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: httpdワーカーの数を指定します。 
+
+END_DESCR
+
+SYNTAX: 整数値は1〜16です。
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [パフォーマンス]ニーズに合わせて適切な番号を設定します。 より多くのワーカーを追加することは、必ずしもより良いパフォーマンスを意味するとは限りません。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: lslbdProcesses
+NAME: プロセス数
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: <b> [無制限CPUライセンスでのみ利用可能] </b>
+<br />
+lslbdワーカーの数を指定します。 この番号を自動的に決定するには、0を入力します。
+
+END_DESCR
+
+SYNTAX: 0〜128の整数値です。
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [パフォーマンス]ニーズに合わせて適切な番号を設定します。 より多くのプロセスを追加しても、必ずしもパフォーマンスが向上するとは限りません
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: runningAs
+NAME: Running As
+NS: LE
+REQUIRED: 
+APPLY: 1
+SINCE: 
+SEE_ALSO: 
+
+DESCR: サーバープロセスが実行されるユーザー/グループを指定します。
+この値はインストール時に設定されます。 それを変更するには、
+インストールパッケージをダウンロードし、コマンドラインからアップグレードを実行する必要があります。
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+[セキュリティ]サーバーは、 "root"などの特権ユーザーとして実行しないでください。
+サーバーが、ログイン/シェルアクセスを持たない特権のないユーザー/グループの組み合わせとして実行するように構成されていることが重要です。 一般的に{val} nobody {/}のユーザーとグループが良い選択です。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: runningAs
+NAME: Running As
+NS: O
+REQUIRED: 
+APPLY: 1
+SINCE: 
+SEE_ALSO: 
+
+DESCR: サーバープロセスが実行されるユーザー/グループを指定します。
+これは、インストールの前にconfigureコマンドを実行するときに、 "--with-user"と "--with-group"というパラメータを使用して設定されます。 これらの値をリセットするには、configureコマンドを再実行して再インストールする必要があります。
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [セキュリティ]サーバは、 "root"のような特権ユーザーとして実行しないでください。
+サーバーが、ログイン/シェルアクセスを持たない特権のないユーザー/グループの組み合わせで実行するように構成されていることが重要です。 一般的に{val} nobody {/}のユーザー/グループが良い選択です。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: serverPriority
+NAME: Priority
+NS: EO
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: External App {ITEM=ExtApp_Help#extAppPriority}, {ITEM=ServSecurity_Help#CGIPriority}
+
+DESCR: サーバープロセスの優先度を指定します。値の範囲は{val}〜{20}〜{val} 20 {/}です。 数値が小さいほど優先度が高くなります。
+END_DESCR
+
+SYNTAX: 整数
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [パフォーマンス]通常、ビジー状態のサーバーで優先度を高くすると、Webパフォーマンスが若干高くなります。
+データベースプロセスの優先度よりも高い優先度を設定しないでください。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: serverPriority
+NAME: Priority
+NS: L
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: External App {ITEM=ExtApp_Help#extAppPriority}, {ITEM=ServSecurity_Help#CGIPriority}
+
+DESCR: サーバープロセスの優先度を指定します。
+値の範囲は{val}〜{20}〜{val} 20 {/}です。 数値が小さいほど優先度が高くなります。
+END_DESCR
+
+SYNTAX: 整数
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [パフォーマンス]通常、ビジー状態のサーバーで優先度を高くすると、Webパフォーマンスが若干高くなります。
+データベースプロセスの優先度よりも高い優先度を設定しないでください。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: cpuAffinity
+NAME: CPU Affinity
+NS: E
+REQUIRED: 
+APPLY: 1
+SINCE: 
+SEE_ALSO: 
+
+DESCR: CCPUアフィニティは、プロセスを1つ以上のCPU（コア）にバインドします。
+プロセスがCPUキャッシュに残っているデータを利用できるので、プロセスが常に同じCPUを使用することは有益です。
+プロセスが別のCPUに移動すると、CPUキャッシュが使用されず、不要なオーバーヘッドが必要になります。
+
+
+CPUアフィニティ設定は、LiteSpeed Web Serverプロセスが関連するCPU（コア）の数を制御します。
+最小値は{val} 0 {/}です。これはデフォルト値であり、この機能を無効にします。 最大値は、サーバーのコア数です。 一般に、{val} 1 {/}は、CPU親和性を最も厳密に使用するためCPUキャッシュを最大限に活用するため、最適な設定です。
+END_DESCR
+
+SYNTAX: サーバーが持つ1からコア数までの整数値。 0は無効にします。
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: servChrootPath
+NAME: Chrootパス
+REQUIRED: 
+APPLY: 1
+SINCE: 
+SEE_ALSO: 
+
+DESCR: {ent_version} chroot環境がルートされるディレクトリを指定します。
+"root"ユーザだけがchrootモードでサーバを実行できます。 chrootモードで実行するかどうかは、{ITEM = enableChroot}オプションによって制御されます。
+インストーラプログラムは、初期chroot環境を自動的に設定します。
+このエントリは読み取り専用です。変更する場合は、コマンドラインから再度インストーラを実行してください。 
+
+
+chroot環境では、サーバーとその子プロセスはchroot jailの外部のファイルシステムにアクセスできません。
+Chrootは高度なセキュリティ機能であり、適切に動作させるためには追加の管理が必要になることがあります。
+必要な実行ファイル、ライブラリ、構成ファイル、およびデバイスファイルは、すべて
+chroot jail内で再作成されます。
+
+
+ルートディレクトリが変更されると、絶対パスが使用されている場合には、パス設定に特に注意する必要があります。
+Unixドメインソケットまたはスワッピングディレクトリは、常に新しいルートディレクトリからの相対パスです。
+他のすべてのパス設定は、常に実ルートとの相対的なものです。 
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [セキュリティ]セキュリティを強化するためにchrootを使用してください。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableChroot
+NAME: chrootを有効にする
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: {ent_version} chrootモードでサーバーを起動するかどうかを指定します。
+新しいルートディレクトリは、インストール中に{ITEM = servChrootPath}によって設定されます。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableLVE
+NAME: Cloud-Linux 
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: CloudLinuxの軽量仮想環境（LVE）が存在する場合に有効にするかどうかを指定します。
+LiteSpeedをLVEと共に使用すると、より良いリソース管理を実現できます。
+詳細については、http://www.cloudlinux.comを参照してください。
+END_DESCR
+
+SYNTAX: 選択
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: inMemBufSize
+NAME: 最大I/Oバッファサイズ
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: {ITEM=swappingDir}
+
+DESCR: 要求本体およびその動的生成応答を格納するために使用される最大バッファー・サイズを指定します。
+この制限に達すると、サーバーは{ITEM = swappingDir}の下に一時的なスワップファイルを作成し始めます。
+END_DESCR
+
+SYNTAX: 符号なし整数
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [パフォーマンス]メモリとディスクのスワップを避けるために、すべての同時要求/応答を収容できる大きさのバッファサイズを設定します。
+スワップ・ダイレクトイに頻繁にI/Oアクティビティがある場合（デフォルトでは/tmp/lshttpd/swap/）、このバッファ・サイズは低すぎるため、LiteSpeedはディスクにスワップします。 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: swappingDir
+NAME: スワップディレクトリ
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: {ITEM=inMemBufSize} 
+
+DESCR: スワップファイルを配置するディレクトリを指定します。
+サーバがchrootモードで起動されると、このディレクトリは新しいルートディレクトリに相対的です。それ以外の場合は、実際のルートディレクトリに相対的です。
+
+サーバーは、独自の仮想メモリーを使用してシステムのメモリー使用量を削減します。 仮想メモリとディスクスワッピングは、大きな要求本体と動的に生成された応答を格納するために使用されます。
+スワッピングディレクトリは、十分なスペースを持つディスク上に配置する必要があります。
+END_DESCR
+
+EDITTIP: ディレクトリをスワップすることは、/tmpなどのローカルディスクに配置することをお勧めします。
+ネットワークドライブは絶対に避けてください。 スワップは、設定されたメモリのI/Oバッファが使い果たされたときに行われます。
+END_EDITTIP
+
+SYNTAX: path1
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [パフォーマンス]スワッピングディレクトリを別のディスクに配置するか、最大I/Oバッファサイズを増やしてスワッピングを排除します。 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: autoFix503
+NAME: Auto Fix 503 Error 
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 「503 Service Unavailable」エラーを修正するかどうかを指定します。
+サーバーを正常に再起動します。
+通常、「503」エラーは外部アプリケーションが誤動作したために発生し、Webサーバーを再起動するとエラーが一時的に修正されることがあります。
+有効にすると、30秒間に50件以上の「503」エラーが発生すると、サーバーは自動的に再起動します。
+この機能はデフォルトで有効になっています。
+END_DESCR
+
+EDITTIP: <b>自動修正503エラー</b>を有効にすると、監視プロセスによって自動的に新しいサーバープロセスが起動し、クラッシュが検出された場合にサービスが即座に再開します。
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableh2c
+NAME: HTTP/2 over Cleartext TCPを有効にする
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 暗号化されていないTCP接続に対してHTTP/2を有効にするかどうかを指定します。 デフォルトは無効です。 
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gracefulRestartTimeout
+NAME: 緩やかな再起動タイムアウト（秒）
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: グレースフルリスタート時には、新しいサーバーインスタンスが起動した後でも、古いインスタンスは既存の要求を引き続き処理します。
+このタイムアウトは、前のインスタンスが終了するまでの待機時間を定義します。
+デフォルト値は300秒です。 -1は永遠に待つことを意味します。
+0は待機しないことを意味し、直ちに中止します。
+
+END_DESCR
+
+SYNTAX: 符号なし整数
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: statDir
+NAME: 統計出力ディレクトリ
+NS: O
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Real-Time Statsレポートファイルが書き込まれるディレクトリが作成されます。
+デフォルトのディレクトリは<b>/tmp/lshttpd/</b>です。
+
+END_DESCR
+
+SYNTAX: path1
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:  サーバーの操作中に.rtreportファイルが1秒ごとに書き込まれます。
+不必要なディスク書き込みを避けるには、これをRAMディスクに設定します。
+
+.rtreportファイルはサードパーティ製の監視ソフトウェアと一緒に使用してサーバーの状態を追跡できます。
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# General Settings #############
+
+
+[ITEM]
+ID: mime
+NAME: MIME設定
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: このサーバーのMIME設定を含むファイルを指定します。
+chrootモードで絶対パスが指定されている場合、実際のルートと常に相対的です。
+詳細なMIMEエントリを表示/編集するには、ファイル名をクリックします。
+END_DESCR
+
+EDITTIP: MIME設定は前のページから編集できます。
+mime構成ファイルの場所は、絶対パスでも、$SERVER_ROOTからの相対パスでも指定できます。
+END_EDITTIP
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: ファイル名をクリックしてMIME設定を編集します。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: disableInitLogRotation
+NAME: 初期ログローテーションを無効にする
+NS: LO
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 起動時にサーバーエラーログファイルのローテーションを有効/無効にするかどうかを指定します。
+値が「未設定」の場合、初期ログローテーションはデフォルトで有効になっています。 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: disableInitLogRotation
+NAME: 初期ログローテーションを無効にする
+NS: E
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 起動時にサーバーエラーログファイルのローテーションを無効にするかどうかを指定します。
+初期ログローテーションは、標準インストールではデフォルトで有効になっています。
+しかし、cPanelを使用しているサーバは、常にApacheエラーログに書き込むため、この設定は無視されます。
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: showVersionNumber
+NAME: サーバー署名
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: サーバーの署名とバージョン番号を次の場所に表示するかどうかを指定します。
+レスポンスヘッダの「Server」値。
+3つのオプションがあります：{val}バージョン{/}を非表示に設定すると、{val} LiteSpeed {/}のみが表示されます。
+{val}バージョン表示{/}に設定すると、LiteSpeedとバージョン番号が表示されます。
+{ent_version} {val}フルヘッダーを非表示{/}に設定すると、サーバーヘッダー全体がレスポンスヘッダーに表示されなくなります。
+END_DESCR
+
+SYNTAX: 選択 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [セキュリティ]サーバのバージョン番号を公開したくない場合は、{val} Hide Version {/}に設定します。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: hideSigInErrorPage
+NAME: エラーページの署名を隠す
+REQUIRED: 
+APPLY: 3
+SINCE: 4.2.3
+SEE_ALSO: 
+
+DESCR: 行を表示するかどうかを指定します。
+<blockquote> LiteSpeed Web Serverによって強化されました。
+
+LiteSpeed Technologiesは、このWebサイトの管理および内容に責任を負いません！"</blockquote>デフォルトのエラーページ。
+END_DESCR
+
+SYNTAX: bool 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableIpGeo
+NAME: IPジオロケーションを有効にする
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=ServGeneral_Help#useIpInProxyHeader}, {ITEM=ServGeneral_Help#geoipDBFile}, {ITEM=ServGeneral_Help#geoipDBCache}
+
+DESCR: {ent_version} IPジオロケーション検索を有効/無効にするかどうかを指定します。
+サーバ、仮想ホスト、コンテキストレベルで設定できます。
+値 「設定しない」を使用すると、IPジオロケーションはデフォルトで無効になります。 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+[ITEM]
+ID: useIpInProxyHeader
+NAME: ヘッダーにクライアントIPを使用する
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+
+DESCR: 「X-Forwarded-For」HTTPリクエストヘッダーに記載されているIPアドレスを使用するかどうかを指定します。
+接続/帯域幅スロットリング、アクセス制御、IPジオロケーションなどがあります。
+
+
+この機能は、Webサーバーがロードバランサまたはプロキシサーバーの背後にある場合に便利です。
+「信頼できるIPのみ」を選択した場合、X-Forwarded-For IPは、サーバーレベル{ITEM=ServSecurity_Help＃accessControl_allow}で定義された信頼できるIPからの要求が送信された場合にのみ使用されます。 
+END_DESCR
+
+SYNTAX: 選択 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: extAppAbort
+NAME: 外部アプリケーションの中止
+NS: E
+REQUIRED: 
+APPLY: 
+SINCE: 4.2.3
+SEE_ALSO: 
+
+DESCR: クライアントがサーバーとの接続を切断すると、LiteSpeed Web Serverは自動的に外部アプリケーションプロセスを中止し、そのクライアントの応答を生成します。
+ただし、一部のユーザーは、クライアントがまだ接続されているかどうかにかかわらず、実行を継続したい（長時間実行している）プロセスがある可能性があります。
+
+
+これには3つのオプションがあります：
+<ul>
+<li>中断しない：接続が切断されたため、外部アプリケーションを強制終了しないでください。</li>
+<li>外部IPからの要求の中断を有効にする：外部IPからの要求によって開始されたプロセスだけが、接続が切断されたために自動的に中止されます。これがデフォルト設定です。 いくつかのcronジョブのような内部的に長時間実行されるプロセスがある場合は、良い設定です。</li>
+<li>全ての要求に対して中止を有効にする：要求の送信元に関係なく、接続が切断された場合、外部アプリケーションプロセスは自動的に中止されます。</li>
+</ul>
+END_DESCR
+
+SYNTAX: 選択
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: autoUpdateInterval
+NAME: 更新を確認
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 更新エージェントが新しい製品リリースを確認する頻度を指定します。 オプションは、 "Daily"、 "Weekly"、 "Monthly"です。
+END_DESCR
+
+SYNTAX: 選択 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: autoUpdateDownloadPkg
+NAME: アップデートのダウンロード
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 新しい製品リリースパッケージファイルがある場合に自動ダウンロードするかどうかを指定します。
+新しいパッケージが正常にダウンロードされた場合は、Service Manager - {ITEM=ServerStat_Help＃vermgr}のWebAdminコンソールからワンクリックでオンラインでアップグレードできます。 
+END_DESCR
+
+SYNTAX: 選択 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: adminEmails
+NAME: 管理者用Eメール
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: サーバー管理者の電子メールアドレスを指定します。
+このオプションを指定すると、重大イベントの電子メールで管理者に通知されます（たとえば、クラッシュの検出またはライセンスの有効期限が切れたためにLiteSpeedサービスが自動的に再開された場合など）。 
+END_DESCR
+
+EDITTIP: 複数の管理用メールを入力することができます：コンマで区切ります。
+END_EDITTIP
+
+SYNTAX: Eメールアドレスのカンマ区切りリスト。
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: メールアラート機能は、サーバにpostfix、exim、sendmailなどのアクティブなMXサーバがある場合にのみ機能します。
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## MIME Type Entry ##########
+
+
+[ITEM]
+ID: mimesuffix
+NAME: サフィックス
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 同じMIMEタイプの複数のサフィックスをカンマで区切って指定することができます。
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Index Files #############
+
+
+[ITEM]
+ID: indexFiles
+NAME: インデックスファイル
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: URLがディレクトリにマップされたときに順番に検索されるインデックスファイルの名前を指定します。
+サーバー、バーチャルホスト、コンテキストレベルでカスタマイズできます。
+END_DESCR
+
+SYNTAX: インデックスファイル名のカンマ区切りリスト。
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [パフォーマンス]必要なインデックスファイルのみを設定します。
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# HT Access #############
+
+
+[ITEM]
+ID: allowOverride
+NAME: Allow Override
+NS: E
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies what directives in an access control file are allowed. 
+An access control file can be placed in a directory to control the accessibility 
+of files under that directory. 
+
+<ul>
+	<li>When nothing is checked, inherited default settings will be
+	used. </li>
+	<li>When {val}None{/} is checked, access control files will be
+	ignored.
+	</li>
+	<li>When {val}Limit{/} is checked, directives "Order",
+	"Allow from" and "Deny from" are allowed. </li>
+	<li>When {val}Auth{/} is checked, directives
+	"AuthGroupFile",  "AuthName", "AuthType", 
+	"AuthUserFile", and "Require" are allowed.</li>
+	<li>When {val}FileInfo{/} is checked, directives
+	"Satisfy", AddDefaultCharset", "AddType",
+	"DefaultType", "ForceType", "ExpiresActive", "ExpiresDefault",
+	"ExpiresByType", "Redirect", "RedirectTemp", "RedirectPermanent",
+	"RewriteEngine", "RewriteOptions", "RewriteBase", "RewriteCond"
+	and "RewriteRule" are allowed</li>
+	<li>When {val}Indexes{/} is checked, directive
+	"DirectoryIndex" is allowed</li>
+	<li>When {val}Options{/} is checked, directive
+	"Options" is allowed</li>
+</ul>
+
+Allow Override configuration is available at three levels: server, 
+virtual host and context. If a configuration is not checked at the server level, 
+the controlled directives will be disabled for the whole server whether or not 
+it is enabled at lower levels. If something is enabled at the server level, virtual hosts will 
+inherit same settings by default. Similarly context level settings will be inherited from virtual host settings. 
+Lower levels can disable a setting that is enabled at an upper level, but cannot 
+enable a setting that is disabled at an upper level.
+END_DESCR
+
+EDITTIP: Allow Override configuration is available in three levels: server level, virtual host level and context level. Server level is 
+the overall control, i.e. lower level can disable a setting which is enabled by upper level, but cannot enable a setting which is disabled by upper level.
+END_EDITTIP
+
+EDITTIP: When all checkboxes are unchecked, default setting will be used.
+END_EDITTIP
+
+EDITTIP: When nothing but "None" is checked, access control file will be ignored.
+END_EDITTIP
+
+EDITTIP: When "Limit" is checked, directives "Order", "Allow" and "Deny" are allowed.
+END_EDITTIP
+
+EDITTIP: When "Auth" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", "Require" are allowed. 
+END_EDITTIP
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] If there is no need for directory level
+configuration customization, check {val}None{/}.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessFileName
+NAME: Access File Name
+NS: E
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=allowOverride}
+
+DESCR: Specifies the name of access control files. These files will be used only if 
+{ITEM=allowOverride} is enabled. Default name is {val}.htaccess{/}. 
+You can configure this at server level and virtual host level. Server level is the default setting, and you 
+ can override it at virtual host level.
+END_DESCR
+
+EDITTIP: It is recommended to use a hidden access file. To do this simply start the filename with ".", similar to ".htaccess". LiteSpeed Web Server does not serve hidden files.
+END_EDITTIP
+
+SYNTAX: Filename starting with "."
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Expires Settings #############
+
+
+[ITEM]
+ID: enableExpires
+NAME: Enable Expires
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to generate an Expires header for static files. If enabled, an Expires 
+header will be generated based on {ITEM=expiresDefault} and {ITEM=expiresByType}. 
+
+
+This can be set at server, virtual host and context level. Lower level settings will 
+override higher level ones, i.e. context settings will override virtual host settings 
+and virtual host settings will override server settings.
+END_DESCR
+
+EDITTIP: Expires can be set at the Server/Virtual Host/Context level. Lower level settings will override higher 
+level settings. In terms of overwrite priority:
+<br><br>
+Context Level > Virtual Host Level > Server Level
+<br><br>
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: expiresDefault
+NAME: Expires Default
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies default settings for Expires header generation. This setting takes effect 
+when {ITEM=enableExpires} is set to "Yes". It can be overridden by {ITEM=expiresByType}. 
+Do not set this default at the server or virtual host level unless you have to, 
+since it will generate Expires headers for all pages. Most of time this should be 
+set at the context level for certain directories that do not change
+often. If there is no default setting, no Expires header will be
+generated for types not specified in {ITEM=expiresByType}.
+END_DESCR
+
+EDITTIP: Expires syntax, "A|Mseconds" means after base time (A or M) plus the specified time in seconds, the file will expire. "A" means client access time, "M" means file 
+modified time. You can override this default setting by different MIME types: A86400 means the file will expire after 1 day based on client access time.
+END_EDITTIP
+
+EDITTIP: Here are some common numbers: 1 hour = 3600 sec, 1 day = 86400 sec, 1 week = 604800 sec, 1 month = 2592000 sec, 1 year = 31536000 sec.
+END_EDITTIP
+
+SYNTAX: A|Mseconds
+
+The file will expire after base time(A|M) plus specified seconds. 
+Base time "A" sets the value to the client's access time and "M" to the file's last modified time.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: expiresByType
+NAME: Expires By Type
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies Expires header settings for individual MIME types.
+END_DESCR
+
+EDITTIP: Expires By Type will override default settings. Each entry is in the format of "MIME-type=A|Mseconds" with no space in between. You can input multiple entries 
+separated by comma.
+END_EDITTIP
+
+SYNTAX: Comma delimited list of "MIME-type=A|Mseconds". 
+The file will expire after base time (A|M) plus specified seconds. 
+
+
+Base time "A" sets the value to the client's access time and "M" to the file's last modified time. 
+MIME-type accepts wildcard "*", like image/*.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## File Upload ##########
+
+
+[ITEM]
+ID: uploadPassByPath
+NAME: Pass Upload Data by File Path
+NS: O
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specify whether or not to pass upload file data by path. If enabled, file path along with 
+some other information is sent to backend handler instead of file itself when uploading. 
+This saves on CPU resources and file transfer time but requires some updates to 
+backend to implement. If disabled, file content will be transferred to backend handler, 
+request body is still parsed to files.
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [performance] Enable this to speed up file upload processing if backward compatibility is not an issue.
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## IP to GeoLocation DB #############
+
+
+[ITEM]
+ID: geoipDBFile
+NAME: DB File Path
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: {ent_version} Specifies the path to MaxMind GeoIP database.
+END_DESCR
+
+SYNTAX: file path
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: geoipDBCache
+NAME: DB Cache Type
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: {ent_version} Specifies what kind of cache mode should be used. Cache modes are:
+Standard, MemoryCache, CheckCache and IndexCache. MemoryCache is recommended and is the default. 
+
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Using Apache Configuration File #############
+
+
+[ITEM]
+ID: loadApacheConf
+NAME: Load Apache Configuration
+NS: E
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether LiteSpeed will read and use a Apache configuration file to configure
+the web server. Native configurations will have higher priority when 
+there is conflict between LiteSpeed internal and Apache-based configurations. 
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: autoReloadApacheConf
+NAME: Auto Reload On Changes
+NS: E
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: {ITEM=apacheBinPath}
+
+DESCR: Specifies how to apply Apache configuration changes. When set to "Yes",
+LSWS will perform a graceful restart whenever the Apache configuration file
+has been modified. This may cause LSWS to restart multiple times when
+updating Apache configurations. A better solution (introduced in version 3.3.8)
+ is "Use Apache binary wrapper". This will replace Apache httpd binary
+with a wrapper script. Whenever Apache is requested to start/stop/restart, the
+script will tell LSWS to take corresponding action. 
+{ITEM=apacheBinPath} must be set to use this setting. Default is "No" for 
+standard installations. For cPanel servers, the default is "Use Apache binary wrapper". 
+("Override cPanel restart HTTPD script" is an optional workaround that should only 
+be used if the option "Use Apache binary wrapper" is having problems.) 
+For other control panels default is "Yes". 
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: apacheBinPath
+NAME: Apache Binary Path
+NS: E
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: {ITEM=autoReloadApacheConf}
+
+DESCR: Specifies the location of the Apache binary. Usually, it is located at
+/usr/local/apache/bin/httpd or /usr/local/apache2/bin/httpd, etc. This option
+must be set when "Use Apache binary wrapper" is used for {ITEM=autoReloadApacheConf}.
+
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: apacheConfFile
+NAME: Apache Configuration File
+NS: E
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the location of Apache configuration 
+file. Usually, it is located at
+/usr/local/apache/conf/httpd.conf or /etc/httpd/conf/httpd.conf.
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: apachePortOffset
+NAME: Apache Port Offset
+NS: E
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies an offset to be added to listening TCP ports specified
+in the Apache configuration file. In the testing phase, this allows LiteSpeed to run alongside 
+Apache on a different port instead of switching back and forth between LiteSpeed and Apache 
+on a production server. 
+
+If set to {val}0{/} or not set, LiteSpeed will use the ports specified in the Apache configuration file. 
+When testing, make this setting a non-zero value. LiteSpeed will then add this offset value to 
+the port specified in the Apache configuration and use this port.
+After confirming that everything works properly, you can stop
+Apache, set this option back to {val}0{/}, and restart LiteSpeed.
+
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: apacheIpOffset
+NAME: Apache IP Offset
+NS: E
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies an offset to be added to listening IP address specified
+in the Apache configuration file. This allows LiteSpeed to run alongside
+Apache in the testing phase instead of switching back and forth between LiteSpeed and Apache
+on a production server. The calculated IP address has to be available on this server. 
+
+END_DESCR
+
+SYNTAX: The offset should be set as an integer (allow negative number), not an IP address. 
+Adding "256" will add 1 to the value of the C class subnet. This option
+only works with IPv4 address. 
+
+END_SYNTAX
+
+EXAMPLE:  
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: apacheHandledContent
+NAME: Apache Handled Content
+NS: E
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies resources to be passed to and processed by 
+Apache on the backend. 
+This feature requires running Apache parallel to LiteSpeed on either another
+IP or a different port, so either "Apache Port Offset" or "Apache IP Offset" 
+should be set to a non-zero value. 
+
+END_DESCR
+
+SYNTAX: Resources are specified by a comma delimited list of URI, file suffixes, or regular
+expressions. A URI starts with "/"; a suffix starts with ".", a regular expression starts with "exp:". 
+For example: "/svn/, .shtml" lets Apache handle requests with a URI
+starting with "/svn/" or ending with ".shtml". The same effect can be achieved
+with the regular expression "exp:^/svn/, exp:\.shtml$".
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: apacheIgnoredModules
+NAME: Ignore Apache Modules
+NS: E
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies a list of names of Apache modules that should be ignored by LiteSpeed 
+while parsing the Apache configuration file. LiteSpeed will treat the listed modules as 
+unsupported. This will cause configuration directives related to these modules enclosed 
+in matching &lt;IfModule&gt; or &lt;IfDefined&gt; tags to be ignored.
+END_DESCR
+
+SYNTAX: comma delimited list of module names
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: jitConfig
+NAME: Just In Time Configuration
+NS: E
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: With just in time configuration, the web server only finalizes vhost configurations when that virtual host 
+is accessed for the first time, instead of loading all configurations at start up. This allows the web server to save 
+memory and speed up server start up.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: phpSuExec
+NAME: PHP suEXEC
+NS: E
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: {ITEM=ServSecurity_Help#forceGID}
+
+DESCR: Specifies whether to run PHP script in suEXEC mode when "user"
+and "group" are specified for a virtual host. When set to {val}Yes{/}, PHP
+scripts will be executed under the user (and group unless {ITEM=ServSecurity_Help#forceGID} is set) specified.
+When set to {val}User's Home Directory Only{/}, scripts outside a user's 
+home directory will run as the global user/group that the web server
+run as. When using DirectAdmin, {val}User's Home Directory Only{/} is recommended.
+Default is {val}No{/}.
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: phpSuExecMaxConn
+NAME: PHP suEXEC Max Conn
+NS: E
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the maximum number of concurrent PHP processes that can be created by LSWS for each user when running PHP scripts in suEXEC mode. Default value is {val}5{/}.
+
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: This limit is per user per lshttpd process. Thus, if you have a 2-CPU license, this limit will be doubled. The limit will be 4x for a 4-CPU license, and so on.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: apacheEnableFP
+NAME: Enable FrontPage Extension
+NS: E
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to explicitly enable Microsoft Front Page Server
+Extension or not. Usually, LSWS will enable it when module "frontpage" has
+been loaded in Apache httpd.conf. However, when mod_frontpage is statically
+linked into the Apache binary, configuration for the FrontPage module is not in
+httpd.conf, and you need to enable it explicitly here. Default is "disabled".
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: apacheEnvVars
+NAME: Apache Environment Variables
+NS: E
+REQUIRED: 
+APPLY: 2
+SINCE: 4.1.8
+SEE_ALSO: Apache Env Syntax <a href="http://httpd.apache.org/docs/2.2/configuring.html#syntax">reference</a> 
+
+DESCR: For shell environment variables used inside the Apache configuration file, LSWS will replace "${ENVVAR}" 
+with the values set here. If the ENVVAR variable is not set here, "${ENVVAR}" occurrences are left unchanged.
+END_DESCR
+
+SYNTAX: Name and value pairs, one pair per line in the form of ENV=VALUE
+END_SYNTAX
+
+EXAMPLE:  
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Apache Style Configurations #############
+
+
+[ITEM]
+ID: apacheConf
+NAME: Apacheスタイルの設定
+NS: E
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: LiteSpeed固有の設定ファイルで使用するApache設定ディレクティブ（LiteSpeedでサポート）を指定します。
+たとえば、デフォルトのPHP設定（php.iniエントリ）をオーバーライドするには、 "php_value"、 "php_flag"、 "php_admin_value"、 "php_admin_flag"の4つのディレクティブが必要です。
+END_DESCR
+
+SYNTAX: Apache設定ファイルと同じです。
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+################ Tables ################
+
+
+[TBL]
+ID: servProcess
+NAME: サーバープロセス
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: serverName lslbdProcesses runningAs serverPriority 
+servChrootPath enableChroot inMemBufSize swappingDir  
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: servProcess
+NAME: サーバープロセス
+NS: E
+
+DESCR: 
+END_DESCR
+
+CONT: serverName runningAs serverPriority cpuAffinity servChrootPath enableChroot
+enableLVE inMemBufSize swappingDir autoFix503 enableh2c gracefulRestartTimeout
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: servProcess
+NAME: サーバープロセス
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: serverName httpdWorkers runningAs serverPriority 
+ inMemBufSize swappingDir autoFix503 enableh2c gracefulRestartTimeout statDir
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: servGeneral
+NAME: 一般設定
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: disableInitLogRotation showVersionNumber 
+enableIpGeo useIpInProxyHeader autoUpdateInterval 
+autoUpdateDownloadPkg adminEmails 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: servGeneral
+NAME: 一般設定
+NS: E
+
+DESCR: 
+END_DESCR
+
+CONT: mime mimesuffix mimetype disableInitLogRotation showVersionNumber 
+hideSigInErrorPage enableIpGeo useIpInProxyHeader extAppAbort  
+autoUpdateInterval autoUpdateDownloadPkg adminEmails 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: servGeneral
+NAME: 一般設定
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: mime mimesuffix mimetype disableInitLogRotation showVersionNumber 
+ enableIpGeo useIpInProxyHeader adminEmails 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: servIndex
+NAME: インデックスファイル
+
+DESCR: 
+END_DESCR
+
+CONT: indexFiles autoIndex autoIndexURI
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: htaccess
+NAME: HT Access
+NS: E
+
+DESCR: 
+次のディレクティブは、ディレクトリレベルのアクセス制御ファイル（.htaccessファイル）でサポートされています。
+<ul>
+  <li>Authentication
+    <ul>
+    <li>AuthType</li>
+    <li>AuthName</li>
+    <li>AuthUserFile</li>
+    <li>AuthGroupFile</li>
+    <li>Require</li>
+    </ul>
+  </li>
+  <li>Access Control
+    <ul>
+    <li>Allow from</li>
+    <li>Deny from</li>
+    <li>Order</li>
+    </ul>
+  </li>
+  <li>File Info
+    <ul>
+    <li>AddDefaultCharset</li>
+    <li>AddType</li>
+    <li>DefaultType</li>
+    <li>ExpiresActive</li>
+    <li>ExpiresDefault</li>
+    <li>ExpiresByType</li>
+    <li>ForceType</li>
+    <li>Redirect</li>
+    <li>RedirectTemp</li>
+    <li>RedirectPermanent</li>
+    <li>RewriteEngine</li>
+    <li>RewriteOptions</li>
+    <li>RewriteBase</li>
+    <li>RewriteCond</li>
+    <li>RewriteRule</li>
+    <li>Satisfy</li>
+    </ul>
+  </li>
+  <li>Other
+    <ul>
+	<li>&lt;Limit&gt;</li>
+	<li>&lt;LimitExcept&gt;</li>
+    <li>DirectoryIndex</li>
+    <li>Options</li>
+    </ul>
+  </li>
+</ul>
+
+END_DESCR
+
+CONT: allowOverride accessFileName 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: expire
+NAME: 期限切れの設定
+
+DESCR: 
+END_DESCR
+
+CONT: enableExpires expiresDefault expiresByType 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: fileUpload
+NAME: ファイルアップロード
+NS: O
+
+DESCR: Request Body Parserを使用してファイルをアップロードしてサーバーのローカルディレクトリにファイルを解析し、第三者のモジュールによる悪意のある行為を簡単にスキャンできるようにする、追加のセキュリティ機能を提供します。
+Request Body Parserは、{ITEM = uploadPassByPath}が有効になっているか、モジュールがLSI_HKPT_HTTP_BEGINレベルでLSIAPIのset_parse_req_bodyを呼び出すときに使用されます。
+ソースパッケージで提供されるAPIの例
+END_DESCR
+
+CONT: uploadTmpDir uploadTmpFilePermission uploadPassByPath
+END_CONT
+
+SEE_ALSO: {ITEM=HTTP_BEGIN}
+[END_TBL]
+
+
+
+[TBL]
+ID: geolocationDB
+NAME: IPからジオロケーションDB
+
+DESCR: {ent_version} 複数のMaxMindジオロケーションデータベースをここで指定できます。
+MaxMindには、国、地域、市区町村、組織、ISP、Netspeedの各タイプのDBがあります。
+「国」、「地域」、および「都市」タイプの複数のデータベースが構成されている場合は、最後のデータベースが有効になります。
+END_DESCR
+
+CONT: geoipDBFile geoipDBCache 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: apacheConfigFile
+NAME: Apache構成ファイルの使用
+NS: E
+
+DESCR: 
+END_DESCR
+
+CONT: loadApacheConf autoReloadApacheConf apacheBinPath apacheConfFile
+apachePortOffset apacheIpOffset apacheHandledContent apacheIgnoredModules jitConfig phpSuExec
+phpSuExecMaxConn apacheEnableFP apacheEnvVars
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: apacheConfig
+NAME: Apacheスタイルの設定
+NS: E
+
+DESCR: 
+END_DESCR
+
+CONT: apacheConf 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: ServGeneral_Help 
+NAME: サーバー全般
+NS: L
+
+DESCR: ロードバランサの一般設定。
+パス情報が必要な場合は、$SERVER_ROOTの絶対パスまたは相対パスのいずれかになります。
+$SERVER_ROOTは、LiteSpeedロードバランサがインストールされている場所です。
+たとえば、your_home_dir/lslb、/opt/lslbなどです。
+ロードバランサの実行ファイルは$SERVER_ROOT/binにあります。 
+END_DESCR
+
+CONT: servProcess servGeneral geolocationDB 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: ServGeneral_Help 
+NAME: サーバー全般
+NS: E
+
+DESCR: サーバー全体の一般設定。
+設定にパス情報が必要な場合は、絶対パスか$SERVER_ROOTのどちらかになります。 $SERVER_ROOTは、LiteSpeed Webサーバーがインストールされている場所です（your_home_dir/lswsまたは/opt/lswsなど）。
+サーバー実行ファイルは$SERVER_ROOT/binにあります。 
+END_DESCR
+
+CONT: servProcess servGeneral servIndex htaccess 
+expire geolocationDB apacheConfigFile apacheConfig
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: ServGeneral_Help 
+NAME: サーバー全般
+NS: O
+
+DESCR: サーバー全体の一般設定。
+設定にパス情報が必要な場合は、絶対パスか$SERVER_ROOTのどちらかになります。
+$SERVER_ROOTは、LiteSpeed Webサーバーがインストールされている場所です（your_home_dir/lswsまたは/opt/lswsなど）。
+サーバー実行ファイルは$SERVER_ROOT/binにあります。 
+END_DESCR
+
+CONT: servProcess servGeneral servIndex expire fileUpload geolocationDB
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]

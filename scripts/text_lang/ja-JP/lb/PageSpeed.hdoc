@@ -1,0 +1,126 @@
+[HELPDOC]
+
+
+########## PageSpeed Module Settings ##########
+
+
+[ITEM]
+ID: pagespeedActivate
+NAME: ロードモジュール
+REQUIRED:
+APPLY: 3
+SINCE: 
+SEE_ALSO:
+
+DESCR: PageSpeedモジュールを読み込むかどうかを選択します。 
+END_DESCR
+
+EDITTIP: 
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: pagespeedEnabled
+NAME: PageSpeedを有効にする
+REQUIRED:
+APPLY: 3
+SINCE: 
+SEE_ALSO:
+
+DESCR: PageSpeedプロセスを有効にするかどうかを選択します。
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: これはサーバーレベルで設定し、バーチャルホストレベルで上書きすることができます。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: pagespeedParams
+NAME: モジュールのパラメータ
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Googleのデフォルトフィルタセットを使用してパラメータを設定します。
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: テキスト
+END_SYNTAX
+
+例：<br />
+pagespeedのファイルキャッシュパス /tmp/lshttpd/pagespeed;
+
+pagespeed RewriteLevel CoreFilters;
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+########### Tables ############
+
+
+[TBL]
+ID: Mod_PageSpeed
+NAME: PageSpeedモジュールの設定
+
+DESCR: 
+END_DESCR
+
+CONT: pagespeedActivate pagespeedEnabled pagespeedParams
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+########### Pages ############
+
+
+[PAGE]
+ID: PageSpeed_Config
+NAME: PageSpeedモジュールの設定
+
+DESCR:
+END_DESCR
+
+CONT: Mod_PageSpeed
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+[END_HELPDOC]

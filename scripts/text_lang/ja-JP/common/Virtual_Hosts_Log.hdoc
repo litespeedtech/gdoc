@@ -1,0 +1,264 @@
+[HELPDOC]
+
+
+############# Virtual Host Log #############
+
+
+[ITEM]
+ID: logUseServer
+NAME: Use Server's Log
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to put log messages from this virtual host into the server 
+log file instead of creating its own log file.
+END_DESCR
+
+EDITTIP: If you select "Yes" for <b>Use Server's Log</b>, the log will be written to the server file set up at the server level.
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhlog_fileName
+NAME: File Name
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the path for the log file. 
+END_DESCR
+
+EDITTIP: Log file path can be an absolute path or relative to $SERVER_ROOT, $VH_ROOT.
+END_EDITTIP
+
+EDITTIP: If you want to set Log Level to DEBUG, you must set the server log level to DEBUG as well. The level of 
+debugging is controlled by Server DEBUG Level. Use DEBUG only if you have to as it has a large impact on server performance and can fill up disk space quickly.
+END_EDITTIP
+
+SYNTAX: file3
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Place the log file on a separate disk. 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhlog_logLevel
+NAME: Log Level
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=ServGeneral_Help#log_debugLevel}
+
+DESCR: Specifies the level of logging. Available levels (from high to low) are {val}ERROR{/}, 
+{val}WARNING{/}, {val}NOTICE{/}, {val}INFO{/}, and {val}DEBUG{/}. 
+Only messages with a level higher than or equal to the current setting will be logged. 
+If you want to set it to DEBUG{/}, you must set the server log level to {val}DEBUG{/} as well. 
+The level of debugging is controlled solely at the server level by {ITEM=ServGeneral_Help#log_debugLevel}.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Unless {ITEM=ServGeneral_Help#log_debugLevel} is set to a level
+other than {val}NONE{/}, {val}DEBUG{/} log level does not have any
+performance impact and is recommended.
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Access Log #############
+
+
+[ITEM]
+ID: aclogUseServer
+NAME: Log Control
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Where the access log should be written. There are three options: 
+<ol>
+<li>Write to the server's access log</li>
+<li>Create an access log for this virtual host</li>
+<li>Disable access logging</li>
+</ol>
+END_DESCR
+
+EDITTIP: When required, you can disable access logging for this virtual host to save on disk i/o.
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhaccessLog_fileName
+NAME: File Name
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The access log filename. 
+END_DESCR
+
+SYNTAX: file3
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Put the access log file on a separate disk.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhaccessLog_fileName
+NAME: File Name
+NS: EO
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The access log filename. 
+END_DESCR
+
+EDITTIP: Log file path can be an absolute path or a relative path to $SERVER_ROOT, $VH_ROOT.
+END_EDITTIP
+
+SYNTAX: file3
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Put access log file on a separate disk.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessLog_bytesLog
+NAME: Bytes Log
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the path to the bandwidth bytes log file. When
+specified, a cPanel compatible bandwidth log will be created. This will log 
+the total bytes transferred for a request including both the request and reply bodies.
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [Performance] Put the log file on a separate disk.
+END_TIPS
+
+[END_ITEM]
+
+
+
+################ Tables ################
+
+
+[TBL]
+ID: vhLog
+NAME: Virtual Host Log
+
+DESCR: 
+END_DESCR
+
+CONT: logUseServer vhlog_fileName vhlog_logLevel log_rollingSize 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[TBL]
+ID: vhAcLog
+NAME: Access Log
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: aclogUseServer vhaccessLog_fileName accessLog_pipedLogger 
+accessLog_logFormat accessLog_logHeader 
+log_rollingSize accessLog_keepDays 
+accessLog_bytesLog accessLog_compressArchive
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: vhAcLog
+NAME: Access Log
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: aclogUseServer vhaccessLog_fileName accessLog_pipedLogger 
+accessLog_logFormat accessLog_logHeader 
+log_rollingSize accessLog_keepDays 
+accessLog_bytesLog accessLog_compressArchive
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[END_HELPDOC]

@@ -1,0 +1,340 @@
+[HELPDOC]
+
+
+########## Load Balancer Definition ##########
+
+
+[ITEM]
+ID: lb_name
+NAME: 名前
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: クラスタの一意の名前。
+END_DESCR
+
+SYNTAX: テキスト
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: lb_type
+NAME: タイプ
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR:
+クラスタのタイプを指定します。
+<br><br>
+アプリケーションレベルのロードバランシングとも呼ばれる「レイヤ7」HTTPロードバランシングは、HTTP要求を解析し、さまざまな種類の要求コンテンツに基づいて要求をサーバーに配信します。
+<br><br>
+「レイヤ4」ロードバランシングは、TCPおよびUDPトランスポートプロトコルなどのトランスポート層ロードバランシングです。
+バックエンドサーバーを選択するときは、コンテンツを参照しません。
+理論的には、レイヤ4ロードバランシングはすべてのアプリケーションタイプをサポートします。
+END_DESCR
+
+SYNTAX: 選択
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: lb_mode
+NAME: モード
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: ロードバランサが "ステートレス"または "ステートフル"モードで動作するモードを指定します。 
+<br><br>
+「ステートフル」モードのセッションは、各バックエンドサーバーに関連付けられています。 それは「セッションアフィニティ」とも呼ばれます。
+<br><br>
+「ステートレス」モードはセッションを気にしません。 
+<br><br>
+レイヤ4ロードバランサの場合、モードが「ステートフル」の場合、クライアントのIPアドレスを追跡して以前のセッションを抽出します。
+END_DESCR
+
+SYNTAX: 選択
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: strategy
+NAME: Strategy
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: リストから負荷分散戦略を選択します。 
+
+<ul>
+<li>ラウンドロビンアルゴリズムは、バックエンドServerインスタンスのリストを順番に循環します。 
+<li>最小負荷アルゴリズムは、各サーバーの現在の負荷を考慮に入れてラウンドロビンアルゴリズムを改善します。
+<li>最小セッションアルゴリズムは、関連するセッションが最も少ないサーバーを選択します。
+</ul>
+END_DESCR
+
+SYNTAX: 選択
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## Session Management ##########
+
+
+[ITEM]
+ID: sessionExMethod
+NAME: セッション抽出
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 要求からセッションIDを抽出する方法を指定します。 
+
+
+<b>IPアドレス：</b> クライアントIPをセッションIDとして使用します。 
+
+
+<b>基本認証：</b> セッションIDとして基本認証のユーザー名を使用します。 
+
+
+<b>クエリ文字列：</b> 要求クエリ文字列のパラメータをセッションIDとして使用します。 
+
+
+<b>Cookies:</b> Cookie内のパラメータをセッションIDとして使用します。 
+
+
+<b>SSLセッション：</b> SSLセッションIDをセッションIDとして使用します。
+
+
+<b>JVMルート:</b> JVMルートは、サーブレットのバックエンドを識別するために使用されるサーブレットセッションIDに追加される追加のセクションです。
+<b>例：</b> JSESSIONID=344BA8002DE6FBE2QDF25.tomcat1 
+
+
+<b>URLパスパラメータ：</b>URLパスパラメータをセッションIDとして使用します。
+END_DESCR
+
+SYNTAX: チェックボックス
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: レイヤ4ロードバランサの場合、IPアドレス抽出方法のみが動作します。
+レイヤ7ロードバランサの場合、上記の方法のいずれかが機能します。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sessionId
+NAME: セッションID文字列
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: セッションID文字列を指定します。
+文字列は、Cookie、クエリ文字列、およびURLパスパラメータからセッションID値を抽出するために使用されます。
+
+END_DESCR
+
+SYNTAX: テキスト 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sessionTimeout
+NAME: セッションタイムアウト
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: セッションが有効になる期間を秒単位で指定します。
+END_DESCR
+
+SYNTAX: 符号なし整数
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: insertCookie
+NAME: トラッキングCookieを挿入する
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 追跡Cookieを挿入するかどうかを指定します。
+ロードバランサがセッションキャッシュを失った場合に備えて、追跡キャッシュを使用してセッションキャッシュを再構築することができます。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: cookieName
+NAME: クッキー名の追跡
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 追跡Cookie名を指定します。
+END_DESCR
+
+SYNTAX: 文字列
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## Custom Error Messages ##########
+
+############# Tables #############
+
+
+[TBL]
+ID: ClusterDef
+NAME: ロードバランサ
+
+DESCR: 
+END_DESCR
+
+CONT: lb_name lb_type lb_mode strategy
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: ClusterSession
+NAME: セッション管理
+
+DESCR: 
+END_DESCR
+
+CONT: sessionExMethod sessionId sessionTimeout 
+	  insertCookie cookieName
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: ClusterErrMsg
+NAME: カスタムエラーメッセージ
+
+DESCR: バックエンドサーバーへの要求の配布中にエラーが発生した場合のカスタムエラーメッセージを指定します。
+バーチャルホストレベルで設定されたカスタムエラーメッセージは、この設定を上書きします。
+END_DESCR
+
+CONT:
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: Clusters_General_Help 
+NAME: クラスタ全般
+
+DESCR: 
+END_DESCR
+
+CONT: ClusterDef ClusterSession ClusterErrMsg
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]
