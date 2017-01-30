@@ -953,7 +953,7 @@ SEE_ALSO:
 
 [TBL]
 ID: extFCGIAuth
-NAME: Fast CGI Authorizer
+NAME: Fast CGI 認可者
 NS: EO
 
 DESCR: 
@@ -1010,7 +1010,7 @@ SEE_ALSO:
 
 [TBL]
 ID: extWS
-NAME: Web Server
+NAME: Webサーバー
 NS: EO
 
 DESCR: 
@@ -1045,7 +1045,7 @@ SEE_ALSO:
 
 [TBL]
 ID: extLB
-NAME: Load Balancer
+NAME: ロードバランサ
 NS: EO
 
 DESCR: 
@@ -1162,7 +1162,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: External_FCGI
-NAME: Fast CGI App
+NAME: Fast CGI アプリ
 NS: EO
 
 DESCR:
@@ -1178,7 +1178,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: External_FCGI_Auth
-NAME: Fast CGI Authorizer
+NAME: Fast CGI 認証
 NS: EO
 
 DESCR:
@@ -1194,7 +1194,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: External_LSAPI
-NAME: LiteSpeed SAPI App
+NAME: LiteSpeed SAPI アプリ
 NS: EO
 DESCR:
 END_DESCR
@@ -1209,7 +1209,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: External_Servlet
-NAME: Servlet Engine
+NAME: サーブレットエンジン
 NS: EO
 
 DESCR:
@@ -1225,7 +1225,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: External_WS
-NAME: Web Server
+NAME: Webサーバ
 NS: EO
 
 DESCR:
@@ -1257,7 +1257,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: External_LB
-NAME: Load Balancer
+NAME: ロードバランサー
 NS: EO
 
 DESCR:

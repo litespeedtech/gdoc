@@ -6,15 +6,14 @@
 
 [ITEM]
 ID: enableRewrite
-NAME: Enable Rewrite
+NAME: Rewriteを有効にする
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to enable LiteSpeed's URL rewrite engine.
-This option can be customized at the virtual host or context level, and
-is inherited along the directory tree until it is explicitly overridden. 
+DESCR: LiteSpeedのURL書き換えエンジンを有効にするかどうかを指定します。
+このオプションは、仮想ホストまたはコンテキストレベルでカスタマイズでき、明示的に上書きされるまでディレクトリツリーに沿って継承されます。 
 END_DESCR
 
 SYNTAX: bool
@@ -32,7 +31,7 @@ END_TIPS
 
 [ITEM]
 ID: rewriteLogLevel
-NAME: Log Level
+NAME: ログレベル
 NS: EO
 REQUIRED: 
 APPLY: 3
@@ -40,14 +39,12 @@ SINCE:
 SEE_ALSO: Server {ITEM=ServGeneral_Help#log_logLevel}, Virtual Host {ITEM=VHGeneral_Help#vhlog_logLevel}
 
 
-DESCR: Specifies the level of detail of the rewrite engine's debug output.
-This value ranges from {val}0{/} - {val}9{/}. {val}0{/} disables logging. {val}9{/} produces the
-most detailed log. The server and virtual host's error log {ITEM=ServGeneral_Help#log_logLevel} 
-must be set to at least {val}INFO{/} for this option to take effect.
-This is useful when testing rewrite rules.
+DESCR: 書き換えエンジンのデバッグ出力の詳細レベルを指定します。
+この値の範囲は{val}0{/}-{val}9{/}です。{val}0{/}はロギングを無効にします。{val}9{/}は最も詳細なログを生成します。 このオプションを有効にするには、サーバーと仮想ホストのエラーログ{ITEM=ServGeneral_Help＃log_logLevel}を少なくとも{val}INFO{/}以上に設定する必要があります。
+これは、書き換えルールをテストする場合に便利です。
 END_DESCR
 
-SYNTAX: uint 
+SYNTAX: 符号なし整数 
 END_SYNTAX
 
 EXAMPLE: 
@@ -62,22 +59,21 @@ END_TIPS
 
 [ITEM]
 ID: rewriteLogLevel
-NAME: Log Level
+NAME: ログレベル
 NS: L
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO:
 
-DESCR: Specifies the log level of the rewrite engine debug output.
-Value ranges from 0 - 9, 0 will disable logging and 9 will produce the
-most detailed log. The log level of the server error log
-must be set to at least {val}INFO{/} for this option to take effect.
-This is useful when testing rewrite rules.
+DESCR: 書き換えエンジンのデバッグ出力のログレベルを指定します。
+値の範囲は0-9,0はロギングを無効にし、9は最も詳細なログを生成します。
+このオプションを有効にするには、サーバーエラーログのログレベルを少なくとも{val}INFO{/}以上に設定する必要があります。
+これは、書き換えルールをテストする場合に便利です。
 
 END_DESCR
 
-SYNTAX: uint 
+SYNTAX: 符号なし整数 
 END_SYNTAX
 
 EXAMPLE: 
@@ -95,30 +91,28 @@ END_TIPS
 
 [ITEM]
 ID: rewriteMapName
-NAME: Name
+NAME: 名前
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies a unique name for the rewrite map at the virtual host 
-level. This name will be used by a mapping-reference in rewrite rules.
-When referencing this name, one of the following syntaxes should be used:
+DESCR: 仮想ホスト・レベルでの再書き込みマップの一意の名前を指定します。
+この名前は、書き換えルールのマッピング参照によって使用されます。
+この名前を参照するときは、次の構文のいずれかを使用する必要があります:
 <blockquote><code>
 $\{MapName:LookupKey\}
 
 $\{MapName:LookupKey|DefaultValue\}
 </code></blockquote>
 
-The implementation of LiteSpeed's rewrite engine follows the
-specifications of Apache's rewrite engine. For more details about rewrite
-maps, please refer to {ext-href}http://httpd.apache.org/docs/mod/mod_rewrite.html{ext-href-end}Apache's
-mod_rewrite document{ext-href-end-a}.
+LiteSpeedのリライトエンジンの実装は、Apacheのリライトエンジンの仕様に準拠しています。
+書き直しマップの詳細については、{ext-href}http://httpd.apache.org/docs/mod/mod_rewrite.html{ext-href-end}を参照してください。Apacheのmod_rewrite文書{ext-href-end-a}。
 
 
 END_DESCR
 
-SYNTAX: string 
+SYNTAX: 文字列 
 END_SYNTAX
 
 EXAMPLE: 
@@ -133,67 +127,61 @@ END_TIPS
 
 [ITEM]
 ID: rewriteMapLocation
-NAME: Location
+NAME: ロケーション
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the location of the rewrite map using the syntax {val}MapType:MapSource{/}.
+DESCR: {val}MapType：MapSource{/}構文を使用して、書き換えマップの場所を指定します。
 
-LiteSpeed's rewrite engine supports three types of rewrite maps:
+LiteSpeedの書き換えエンジンは、次の3種類の書き換えマップをサポートしています:
 <ul>
-	<li><b>Standard Plain Text</b>
+	<li><b>標準プレーンテキスト</b>
 <blockquote>
 		<b>MapType:</b> txt; 
 
-		<b>MapSource:</b> file path to a valid plain ASCII file. 
+		<b>MapSource:</b> ファイルパスを有効なプレーンASCIIファイルに変換します。
 </blockquote>
-		Each line of this file should contain two elements separated 
-		by blank spaces. The first element is the key and the second
-		element is the value. Comments can be added with a leading "{val}#{/}"
-		sign. 
+		このファイルの各行には空白で区切られた2つの要素が含まれていなければなりません。
+        最初の要素はキーで、2番目の要素は値です。 コメントには先頭に「{val}＃{/}」という記号を付けることができます。 
 	</li>
-	<li><b>Randomized Plain Text</b>
+	<li><b>ランダム化されたプレーンテキスト</b>
 <blockquote>
 		<b>MapType:</b> rnd;
 
-		<b>MapSource:</b> file path of a valid plain ASCII file.
+		<b>MapSource:</b> 有効なプレーンASCIIファイルのファイルパス。
 </blockquote>
-		File format is similar to the Standard Plain Text file, except that the
-		second element can contain multiple choices separated by a "{val}|{/}"
-		sign and chosen randomly by the rewrite engine.
+		ファイル形式は、標準のプレーンテキストファイルと似ていますが、2番目の要素には "{val} | {/}"記号で区切られた
+        複数の選択肢があり、書き換えエンジンによってランダムに選択できます。
 	</li>
-	<li><b>Internal Function</b>
+	<li><b>内部機能</b>
 <blockquote>
 	    <b>MapType:</b> int;
 
-		<b>MapSource:</b> Internal string function 
+		<b>MapSource:</b> 内部文字列関数
 </blockquote>
-		4 functions are available:
+		4つの機能を利用できます：
 		<ul>
-			<li><b>toupper:</b> converts lookup key to upper cases.</li>
-			<li><b>tolower:</b> converts lookup key to lower cases.</li>
-			<li><b>escape:</b> perform URL encoding on lookup key.</li>
-			<li><b>unescape:</b> perform URL decoding on lookup key.</li>
+			<li><b>toupper:</b> 検索キーを大文字に変換します。</li>
+			<li><b>tolower:</b> 検索キーを小文字に変換します。</li>
+			<li><b>escape:</b> 検索キーでURLエンコーディングを実行します。</li>
+			<li><b>unescape:</b> 検索キーでURLデコードを実行します。</li>
 		</ul>
 	</li>
-	The following map types available in Apache
-	have not been implemented in LiteSpeed:
+	Apacheで利用可能な次のマップタイプはLiteSpeedでは実装されていません：
 
-Hash File and External Rewriting Program.
+ハッシュファイルと外部書き換えプログラム。
 </ul>
-The implementation of LiteSpeed's rewrite engine follows the
-specifications of Apache's rewrite engine. For more details about rewrite
-map, please refer to {ext-href}http://httpd.apache.org/docs/mod/mod_rewrite.html{ext-href-end}Apache's
-mod_rewrite document{ext-href-end-a}.
+LiteSpeedのリライトエンジンの実装は、Apacheのリライトエンジンの仕様に準拠しています。
+書き直しマップの詳細については、{ext-href} http://httpd.apache.org/docs/mod/mod_rewrite.html{ext-href-end}を参照してください。Apacheのmod_rewrite文書{ext-href-end-a }。
 
 END_DESCR
 
-EDITTIP: Enter URI for location. URI must start with "/".
+EDITTIP: 場所のURIを入力します。 URIは「/」で始まる必要があります。
 END_EDITTIP
 
-SYNTAX: String 
+SYNTAX: 文字列 
 END_SYNTAX
 
 EXAMPLE: 
@@ -211,39 +199,34 @@ END_TIPS
 
 [ITEM]
 ID: rewriteRules
-NAME: Rewrite Rules
+NAME: Rewriteルール
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies a list of rewrite rules at the virtual host or context level.
-A rewrite rule is comprised of one {val}RewriteRule{/} directive and
-optionally preceded by multiple {val}RewriteCond{/} directives. 
+DESCR: 仮想ホストまたはコンテキスト・レベルでの書き換えルールのリストを指定します。
+書き換えルールは、{val}RewriteRule{/}ディレクティブから構成され、オプションとして複数の{val}RewriteCond{/}ディレクティブが前に付いています。 
 <ul>
-<li>Each directive should take only one line. </li>
-<li>{val}RewriteCond{/} and {val}RewriteRule{/} follow Apache's rewrite directive
-syntax. Just copy and paste rewrite directives from your Apache configuration files.</li>
-<li>There are minor differences between LiteSpeed and Apache mod_rewrite
-implementation: 
-<ul><li>{val}%\{LA-U:variable\}{/} and {val}%\{LA-F:variable\}{/} are ignored
-by the LiteSpeed rewrite engine </li>
-  <li>two new server variables are added in the LiteSpeed rewrite engine: 
-  {val}%\{CURRENT_URI\}{/} represents the current
-URI being processed by the rewrite engine and {val}%\{SCRIPT_NAME\}{/} has the same 
-meaning as the corresponding CGI environment variable. </li>
+<li>各ディレクティブは1行だけを取る必要があります。</li>
+<li>{val}RewriteCond{/}と{val}RewriteRule{/}は、Apacheのリライト命令構文に従います。
+あなたのApache設定ファイルから書き換え命令文をコピー＆ペーストするだけです。</li>
+<li>LiteSpeedとApache mod_rewriteには小さな違いがあります
+実装: 
+<ul>
+　<li>LiteSpeed書き換えエンジンでは、{val}％\ {LA-U：変数\} {/}と{val}％\ {LA-F：変数\} {/}は無視されます</li>
+  <li>LiteSpeed書き換えエンジンに2つの新しいサーバー変数が追加されました。: 
+  LiteSpeed書き換えエンジンに2つの新しいサーバー変数が追加されました。
+{val}％\{CURRENT_URI\}{/}は、書き換えエンジンによって処理されている現在のURIを表し、{val}％\{SCRIPT_NAME\}{/}は対応するCGI環境変数と同じ意味を持ちます。</li>
 </ul></li>
 </ul>
-The implementation of LiteSpeed's rewrite engine follows the 
-Apache's rewrite engine specifications. For more details about rewrite
-rules, please refer to {ext-href}http://httpd.apache.org/docs/mod/mod_rewrite.html{ext-href-end}Apache's
-mod_rewrite document{ext-href-end-a} and {ext-href}http://httpd.apache.org/docs/misc/rewriteguide.html{ext-href-end}Apache's URL 
-rewriting guide{ext-href-end-a}.
+LiteSpeedのリライトエンジンの実装は、Apacheのリライトエンジンの仕様に従います。
+書き換えルールの詳細については、{ext-href} http://httpd.apache.org/docs/mod/mod_rewrite.html {ext-href-end}を参照してください。Apacheのmod_rewriteドキュメント{ext-href-end-a}と{ext-href} http://httpd.apache.org/docs/misc/rewriteguide.html {ext-href-end} ApacheのURL書き換えガイド{ext-href-end-a}。
 
 
 END_DESCR
 
-SYNTAX: string 
+SYNTAX: 文字列
 END_SYNTAX
 
 EXAMPLE: 
@@ -261,7 +244,7 @@ END_TIPS
 
 [TBL]
 ID: rewriteControl
-NAME: Rewrite Control
+NAME: Rewrite制御
 
 DESCR: 
 END_DESCR
@@ -276,7 +259,7 @@ SEE_ALSO:
 
 [TBL]
 ID: rewriteMap
-NAME: Rewrite Map
+NAME: Rewriteマップ
 
 DESCR: 
 END_DESCR
@@ -291,7 +274,7 @@ SEE_ALSO:
 
 [TBL]
 ID: RewriteRules
-NAME: Rewrite Rules
+NAME: Rewriteルール
 
 DESCR: 
 END_DESCR

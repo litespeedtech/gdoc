@@ -411,24 +411,23 @@ END_TIPS
 
 [ITEM]
 ID: groupDBMaxCacheSize
-NAME: Group DB Max Cache Size
+NAME: グループDB最大キャッシュサイズ
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=userDBMaxCacheSize}
 
-DESCR: Specifies the maximum cache size of the group database. 
+DESCR: グループデータベースの最大キャッシュサイズを指定します。
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 符号なし整数
 END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS:  [Performance] As a larger cache will consume more memory, 
-a higher value may or may not provide better performance. Set it to an appropriate size according 
-to your user database size and site usage.
+TIPS:  [パフォーマンス]キャッシュが大きくなるとメモリが消費されるため、値が高くなるほどパフォーマンスが向上する場合があります。
+ユーザーのデータベースサイズとサイトの使用状況に応じて適切なサイズに設定します。
 END_TIPS
 
 [END_ITEM]
@@ -437,17 +436,17 @@ END_TIPS
 
 [ITEM]
 ID: groupDBCacheTimeout
-NAME: Group DB Cache Timeout (secs)
+NAME: グループDBキャッシュタイムアウト（秒）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=userDBCacheTimeout}
 
-DESCR: Specifies how often the backend group database will be checked for changes. 
-For more detail please refer to {ITEM=userDBCacheTimeout}.
+DESCR: バックエンドグループデータベースの変更の確認頻度を指定します。
+詳細については、{ITEM=userDBCacheTimeout}を参照してください。
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 符号なし整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -465,17 +464,17 @@ END_TIPS
 
 [ITEM]
 ID: userDB_attrPasswd
-NAME: Password Attribute
+NAME: パスワード属性
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the name of the password attribute for a user record
-stored in an LDAP server. The default value is {val}userPassword{/}.
+DESCR: LDAPサーバーに格納されているユーザーレコードのパスワード属性の名前を指定します。
+デフォルト値は{val}userPassword{/}です。
 END_DESCR
 
-SYNTAX: string
+SYNTAX: 文字列
 END_SYNTAX
 
 EXAMPLE: 
@@ -490,18 +489,18 @@ END_TIPS
 
 [ITEM]
 ID: userDB_attrMemberOf
-NAME: Member-of Attribute
+NAME: Member-of属性
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the name of the "Member-of" attribute for a user record 
-stored in an LDAP server. The default value is {val}memberOf{/}. The "Member-of" 
-attribute can be used to specify the group name that the user belongs to.
+DESCR: LDAPサーバーに格納されているユーザーレコードの「Member-of」属性の名前を指定します。
+デフォルト値は{val}memberOf{/}です。
+「Member-of」属性を使用して、ユーザーが属するグループ名を指定することができます。
 END_DESCR
 
-SYNTAX: string
+SYNTAX: 文字列
 END_SYNTAX
 
 EXAMPLE: 
@@ -516,17 +515,17 @@ END_TIPS
 
 [ITEM]
 ID: groupDB_attrGroupMember
-NAME: Group Member Attribute
+NAME: グループメンバ属性
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the name of the "Member" attribute for a group record
-stored in an LDAP server. The default value is {val}memberUid{/}. 
+DESCR: LDAPサーバーに格納されているグループレコードの「Member」属性の名前を指定します。
+デフォルト値は{val}memberUid{/}です。 
 END_DESCR
 
-SYNTAX: string
+SYNTAX: 文字列
 END_SYNTAX
 
 EXAMPLE: 
@@ -541,18 +540,18 @@ END_TIPS
 
 [ITEM]
 ID: LDAPBindDN
-NAME: LDAP Bind DN
+NAME: LDAPバインドDN
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: {ITEM=LDAPBindPasswd}
 
-DESCR: Specifies a DN used to bind to the server. If the LDAP server 
-requires authentication, a bind DN and password must be specified. If
-not specified, anonymous bind will be used. 
+DESCR: サーバーにバインドするために使用されるDNを指定します。
+LDAPサーバーで認証が必要な場合は、バインドDNとパスワードを指定する必要があります。
+指定しない場合は、匿名バインドが使用されます。 
 END_DESCR
 
-SYNTAX: string
+SYNTAX: 文字列
 END_SYNTAX
 
 EXAMPLE: 
@@ -567,17 +566,17 @@ END_TIPS
 
 [ITEM]
 ID: LDAPBindPasswd
-NAME: LDAP Bind Password
+NAME: LDAPバインドパスワード
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: {ITEM=LDAPBindDN}
 
-DESCR: Specifies a password used to bind to the server. If the LDAP Server 
-requires authentication, a bind DN and password must be specified.  
+DESCR: サーバーにバインドするためのパスワードを指定します。
+LDAPサーバーで認証が必要な場合は、バインドDNとパスワードを指定する必要があります。  
 END_DESCR
 
-SYNTAX: string
+SYNTAX: 文字列
 END_SYNTAX
 
 EXAMPLE: 
@@ -595,7 +594,7 @@ END_TIPS
 
 [ITEM]
 ID: UDBgroup
-NAME: Groups
+NAME: グループ
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -603,10 +602,11 @@ SINCE:
 DESCR: 
 END_DESCR
 
-EDITTIP: If you enter group information here, the group DB will not be checked.
+EDITTIP: ここでグループ情報を入力すると、グループDBはチェックされません。
 END_EDITTIP
 
-EDITTIP: You can enter multiple groups, use comma to separate. Space will be treated as part of a group name.
+EDITTIP: 複数のグループを入力したり、カンマで区切ったりすることができます。
+スペースはグループ名の一部として扱われます。
 END_EDITTIP
 
 [END_ITEM]
@@ -615,7 +615,7 @@ END_EDITTIP
 
 [ITEM]
 ID: users
-NAME: Users
+NAME: ユーザー
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -623,10 +623,10 @@ SINCE:
 DESCR: 
 END_DESCR
 
-EDITTIP: Group DB will be checked only if the user in the user DB does not contain group information..
+EDITTIP: グループDBは、ユーザDB内のユーザにグループ情報が含まれていない場合にのみチェックされます。。
 END_EDITTIP
 
-EDITTIP: Use comma to separate multiple users.
+EDITTIP: カンマを使用して複数のユーザーを区切ります。
 END_EDITTIP
 
 [END_ITEM]
@@ -638,7 +638,7 @@ END_EDITTIP
 
 [TBL]
 ID: vhBandwidthThrottlingControl
-NAME: VHost Bandwidth Throttling Control
+NAME: VHost帯域幅スロットル制御
 NS: L
 
 DESCR:
@@ -653,17 +653,15 @@ END_CONT
 
 [TBL]
 ID: vhHotlink
-NAME: Hotlink Protection
+NAME: ホットリンクの保護
 NS: E
 
-DESCR: Hotlinks are requests made from an external website to
-files on your own website often referred to as "leeching". This practice
-introduces additional bandwidth usage that you should not be responsible for.
+DESCR: ホットリンクとは、外部ウェブサイトから自分のウェブサイト上のファイルにリクエストしたもので、しばしば「リーチング」と呼ばれます。
+このプラクティスでは、追加の帯域幅の使用が導入されます。
 
 
-LiteSpeed web server can prevent others from hotlinking to content on
-your web site by checking the Referer header within an HTTP request. 
-If the Referer header does not match your website, the request will be denied.
+LiteSpeed Webサーバーは、HTTPリクエスト内のRefererヘッダーをチェックすることにより、他人があなたのWebサイト上のコンテンツにホットリンクするのを防ぐことができます。
+Refererヘッダーがあなたのウェブサイトと一致しない場合、リクエストは拒否されます。
 END_DESCR
 
 CONT: enableHotlinkCtrl suffixes redirectUri allowDirectAccess 
@@ -677,16 +675,15 @@ SEE_ALSO:
 
 [TBL]
 ID: realms
-NAME: Authorization Realms
+NAME: 認可レルム
 NS: LE
 
-DESCR: Lists all authorization realms for this virtual host. 
-Authorization realms are used to block unauthorized users from accessing protected web pages.
-A realm is a user directory containing usernames and passwords with optional 
-group classifications. Authorization is performed at the context level. 
-Because different contexts can share the same realm (user database), realms are 
-defined separately from the contexts that use them. 
-You can refer to a realm by these names in a contexts configuration. 
+DESCR: この仮想ホストのすべての許可レルムをリストします。
+権限領域は、権限のないユーザーが保護されたWebページにアクセスするのをブロックするために使用されます。
+レルムは、オプションのグループ分類を持つユーザー名とパスワードを含むユーザーディレクトリです。 
+認可はコンテキストレベルで実行されます。
+異なるコンテキストは同じレルム（ユーザデータベース）を共有できるため、レルムはそれらを使用するコンテキストとは別に定義されます。
+コンテキスト設定では、これらの名前でレルムを参照できます。 
 END_DESCR
 
 CONT: realmName realmType userDBLocation userDB_attrPasswd
@@ -701,16 +698,15 @@ SEE_ALSO:
 
 [TBL]
 ID: realms
-NAME: Authorization Realms
+NAME: 認可レルム
 NS: O
 
-DESCR: Lists all authorization realms for this virtual host. 
-Authorization realms are used to block unauthorized users from accessing protected web pages.
-A realm is a user directory containing usernames and passwords with optional 
-group classifications. Authorization is performed at context level. 
-Since different contexts can share the same realm (user database), so realms are 
-defined separately from the contexts that use them. 
-You can refer to a realm by these names in context configuration. 
+DESCR: この仮想ホストのすべての許可レルムをリストします。
+権限領域は、権限のないユーザーが保護されたWebページにアクセスするのをブロックするために使用されます。
+レルムは、ユーザー名とパスワードを含むユーザーディレクトリです。
+グループ分類。 認可はコンテキストレベルで実行されます。
+異なるコンテキストは同じレルム（ユーザデータベース）を共有できるため、レルムはそれらを使用するコンテキストとは別に定義されます。
+コンテキスト設定では、これらの名前でレルムを参照できます。 
 END_DESCR
 
 CONT: realmName userDBLocation userDBMaxCacheSize userDBCacheTimeout 
@@ -728,7 +724,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: VHSecurity_Help 
-NAME: Virtual Host Security
+NAME: 仮想ホストのセキュリティ
 NS: L
 
 DESCR: 
@@ -744,7 +740,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: VHSecurity_Help 
-NAME: Virtual Host Security
+NAME: 仮想ホストのセキュリティ
 NS: E
 
 DESCR: 
@@ -760,7 +756,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: VHSecurity_Help 
-NAME: Virtual Host Security
+NAME: 仮想ホストのセキュリティ
 NS: O
 
 DESCR: 

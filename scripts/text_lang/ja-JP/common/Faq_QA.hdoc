@@ -5,9 +5,10 @@
 
 [QA]
 ID: isfree
-Q: Is LiteSpeed web server free?
+Q: LiteSpeed Webサーバーは無料ですか？
 
-A: There are 2 editions: Standard and Enterprise. The Standard Edition is free for both personal and commercial use.
+A: StandardとEnterpriseの2つのエディションがあります。
+Standard Editionは、個人用と商業用の両方で無料です。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -16,11 +17,11 @@ SEE_ALSO:
 
 [QA]
 ID: diff
-Q: What are the differences between Standard and Enterprise editions?
+Q: Standard EditionとEnterprise Editionの違いは何ですか？
 
-A: They are based on the same LiteSpeed Network Core. Standard Edition is a
-limited feature version and does not scale with MP servers. Enterprise Edition is fine-tuned for optimal 
-performance and is linearly scalable to N-Multi-CPU/Core servers.
+A: Tそれらは同じLiteSpeed Network Coreに基づいています。
+Standard Editionは機能制限付きのバージョンであり、MPサーバーには対応していません。
+Enterprise Editionは最適なパフォーマンスが得られるように微調整されており、N-Multi-CPU/Coreサーバーに対して線形スケーラビリティを備えています。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -29,10 +30,10 @@ SEE_ALSO:
 
 [QA]
 ID: support
-Q: What kinds of support are available?
+Q: どのようなサポートが利用できますか？
 
-A: Various levels  Enterprise Support Contracts are available at our online site: <a href="http://www.litespeedtech.com/support/services/">LiteSpeed Support Services</a>.
-Stand Edition users can get free community based support at the <a href="http://www.litspeedtech.com/forum/">Support Forum</a>.
+A: さまざまなレベルのエンタープライズサポート契約は、オンラインサイト：<a href="http://www.litespeedtech.com/support/services/"> LiteSpeedサポートサービス</a>で利用できます。
+Stand Editionユーザーは、<a href="http://www.litspeedtech.com/forum/">サポートフォーラム</a>で無料のコミュニティベースのサポートを受けることができます。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -41,14 +42,12 @@ SEE_ALSO:
 
 [QA]
 ID: comp
-Q: How is the performance comparing to other web servers?
+Q: パフォーマンスは他のWebサーバーとどのように比較されますか？
 
-A: For static content, LiteSpeed Standard Edition is up to 2 times faster than Apache, 
-Enterprise Edition is up to 6 times faster than Apache and matching the performance of 
-RedHat's Content Accelerator TUX, a web server built into the Linux kernel. For dynamic content,
-PHP scripting is up to 50% faster than Apache's mod_php. For more information, please 
-take a look at our <a href="http://litespeedtech.com/benchmark.html">Benchmark</a> page. 
-If you are interested in comparing them yourself, please read "{QA=HowTo_QA#qa_perf}". 
+A: スタティックコンテンツの場合、LiteSpeed Standard EditionはApacheより2倍高速で、Enterprise EditionはApacheより最大6倍高速で、Linuxカーネルに組み込まれたWebサーバーであるRedHatのContent Accelerator TUXのパフォーマンスと一致します。
+動的コンテンツの場合、PHPスクリプトはApacheのmod_phpより最大50％高速です。
+詳細については、<a href="http://litespeedtech.com/benchmark.html">ベンチマーク</a>ページをご覧ください。
+自分で比較したいのであれば、 "{QA=HowTo_QA＃qa_perf}"を読んでください。 
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -57,9 +56,9 @@ SEE_ALSO:
 
 [QA]
 ID: fast
-Q: Why is LiteSpeed server so fast?
+Q: LiteSpeedサーバーがとても速いのはなぜですか？
 
-A: Clean and optimal network processing architecture designed from the ground up for low-latency and scalability.
+A: 低レイテンシとスケーラビリティのために設計された、クリーンで最適なネットワーク処理アーキテクチャ。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -68,11 +67,10 @@ SEE_ALSO:
 
 [QA]
 ID: rewrite
-Q: Does LiteSpeed server support URL rewrite?
+Q: LiteSpeedサーバーはURLの書き換えをサポートしていますか？
 
-A: Yes. Since release 2.0, a high performance Apache mod_rewirte
-compatible rewrite engine is implemented in within LiteSpeed server. 
-Your existing rewrite rules should work properly without any modification.
+A: はい。 リリース2.0以降、高性能Apache mod_rewirte互換リライトエンジンがLiteSpeedサーバー内で実装されています。
+既存の書き換えルールは、変更することなく適切に動作するはずです。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -81,14 +79,10 @@ SEE_ALSO:
 
 [QA]
 ID: faq_frontpage
-Q: Does LiteSpeed server support Microsoft FrontPage Server
-Extension?
+Q: LiteSpeedサーバーは、Microsoft FrontPage Server Extensionをサポートしていますか？
 
-A: Yes.  Since release 2.0, Microsoft FrontPage Server Extension 2002
-is supported, installation and configuration is much easier when
-comparing to Apache's mod_frontpage. For more detail about how to
-setup FrontPage Server Extension, please read
-"{QA=HowTo_QA#qa_frontpage}"
+A: はい。 リリース2.0以降、Microsoft FrontPage Server Extension 2002がサポートされています。Apacheのmod_frontpageと比較すると、インストールと構成がはるかに簡単です。
+FrontPage Server Extensionの設定方法の詳細については、「{QA=HowTo_QA＃qa_frontpage}」を参照してください。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -97,8 +91,8 @@ SEE_ALSO:
 
 [QA]
 ID: faq_ipv6
-Q: Does LiteSpeed server supports IPv6?
-A: Yes. IPv6 is supported since release 2.0.
+Q: LiteSpeedサーバーはIPv6をサポートしていますか？
+A: はい。 IPv6はリリース2.0以降でサポートされています。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -107,9 +101,9 @@ SEE_ALSO:
 
 [QA]
 ID: api
-Q: What server APIs are available for third party products?
+Q: サードパーティ製品で使用できるサーバーAPIは何ですか？
 
-A: CGI, FastCGI, HTTP Proxy, AJP 1.3 (Apache JServ Protocol), and the most optimized of them all, LiteSpeed Server API (LSAPI).
+A: CGI、FastCGI、HTTPプロキシ、AJP 1.3（Apache JServ Protocol）、それらの中で最も最適化されたもの、LiteSpeed Server API（LSAPI）。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -118,10 +112,10 @@ SEE_ALSO:
 
 [QA]
 ID: versionString
-Q: Can I change the server string in the response header?
+Q: レスポンスヘッダーのサーバー文字列を変更できますか？
 
-A: Yes. You can hide the detail version number through the web
-administration console. For enterprise version, you can hide the server string completely. 
+A: はい。 Web管理コンソールから詳細バージョン番号を非表示にすることができます。
+エンタープライズ版では、サーバー文字列を完全に隠すことができます。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -130,10 +124,10 @@ SEE_ALSO:
 
 [QA]
 ID: php
-Q: Does LiteSpeed server support PHP?
+Q: LiteSpeedサーバーはPHPをサポートしていますか？
 
-A: Yes. PHP is supported via PHP CGI/FCGI SAPI or LiteSpeed
-SAPI (LSAPI). PHP support is automatically configured during the installation of LiteSpeed server.
+A: はい。 PHPはPHP CGI / FCGI SAPIまたはLiteSpeed SAPI（LSAPI）でサポートされています。
+PHPのサポートは、LiteSpeedサーバのインストール時に自動的に設定されます。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -142,9 +136,9 @@ SEE_ALSO:
 
 [QA]
 ID: miscScripts
-Q: Does LiteSpeed server support Ruby, Perl, Python, Java Server Pages, etc?
+Q: LiteSpeedサーバーはRuby、Perl、Python、Java Server Pagesなどをサポートしていますか？
 
-A: Yes. Any external script or application that support the CGI, FastCGI, or LSAPI, LiteSpeed SAPI, is supported by LiteSpeed server.
+A: はい。 CGI、FastCGI、またはLSAPIをサポートする外部スクリプトまたはアプリケーションであるLiteSpeed SAPIは、LiteSpeedサーバーでサポートされています。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -153,12 +147,10 @@ SEE_ALSO:
 
 [QA]
 ID: phpacc
-Q: Does PHP Accelerators works with Litespeed web server?
+Q: PHPアクセラレータは、Litespeed Webサーバで動作しますか？
 
-A: Yes. All third party PHP Accelerators should work very well with
-Litespeed web server. You can turn on pre-built "Turck MMCache" or 
-"Alterntive PHP Cache (APC)" with our installer during installation, or just run 
-[lsws_home]/admin/misc/enable_phpa.sh to modify it post installation.
+A: はい。 サードパーティのPHPアクセラレータはすべて、Litespeed Webサーバーでうまく動作するはずです。
+インストール中にインストーラを使用して、あらかじめ構築された "Turck MMCache"または "Alterntive PHP Cache（APC）"をオンにするか、[lsws_home]/admin/misc/enable_phpa.shを実行してインストール後に変更することができます。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -167,10 +159,9 @@ SEE_ALSO:
 
 [QA]
 ID: phpsuexec
-Q: Can LiteSpeed server run PHP FastCGI process in suEXEC mode?
+Q: LiteSpeedサーバーはsuEXECモードでPHP FastCGIプロセスを実行できますか？
 
-A: Yes. LiteSpeed server supports FastCGI suEXEC for improved security in a shared hosting environment 
-when used properly.
+A: はい。 LiteSpeedサーバーは、共有ホスティング環境でセキュリティを強化するために、FastCGI suEXECをサポートしています。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -179,14 +170,11 @@ SEE_ALSO:
 
 [QA]
 ID: phpperf
-Q: How is LiteSpeed's PHP performance comparing to that of Apache's mod_php?
+Q: LiteSpeedのPHPのパフォーマンスはApacheのmod_phpのそれと比べてどうですか？
 
-A: With PHP CGI/FCGI SAPI, LiteSpeed's PHP performance is upto 50%
-better than Apache's mod_php. <br>
-With PHP LiteSpeed SAPI, LiteSpeed's PHP performance is upto 100%
-better than Apache's mod_php. <br>
-For more detail, please visit our <a
-href="http://www.litespeedtech.com/benchmark.html">benchmark page</a>.
+A: PHP CGI / FCGI SAPIを使用すると、LiteSpeedのPHPパフォーマンスはApacheのmod_phpよりも50％向上します。 <br>
+PHP LiteSpeed SAPIでは、LiteSpeedのPHPパフォーマンスはApacheのmod_phpよりも100％向上しています。 <br>
+詳細については、<a href="http://www.litespeedtech.com/benchmark.html">ベンチマークページ</a>をご覧ください。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -195,13 +183,11 @@ SEE_ALSO:
 
 [QA]
 ID: phpconf
-Q: Can PHP configuration settings be changed in LiteSpeed
-configuration and .htaccess files, like Apache's mod_php?
+Q: PHPの設定をLiteSpeed設定や.htaccessファイル（Apacheのmod_phpなど）で変更できますか？
 
-A: Yes. With PHP LiteSpeed SAPI, PHP configuration settings can be
-changed from the web admin console as
-well as .htaccess files. LiteSpeed uses the same exact directives as those
-in Apache mod_php. 
+A: はい。 PHP LiteSpeed SAPIを使用すると、PHPの設定をWeb管理コンソールや.htaccessファイルから変更することができます。
+LiteSpeedは、それらと同じ厳密なディレクティブを使用します。
+Apache mod_phpにあります。 
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -210,10 +196,10 @@ SEE_ALSO:
 
 [QA]
 ID: jsp
-Q: Does LiteSpeed web server support JSP/Servlet?
+Q: LiteSpeed WebサーバーはJSP / Servletをサポートしていますか？
 
-A: Yes. JSP and Servlet functionality is supported through the AJP 1.3 interface. 
-You need to run a compatible servlet engine like Apache Tomcat or Jetty to take advantage of these features.
+A: はい。 JSPおよびサーブレット機能は、AJP 1.3インターフェースを介してサポートされています。
+これらの機能を利用するには、Apache TomcatやJettyのような互換性のあるサーブレットエンジンを実行する必要があります。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -222,9 +208,9 @@ SEE_ALSO:
 
 [QA]
 ID: asp
-Q: Does LiteSpeed web server support ASP?
+Q: LiteSpeed WebサーバーはASPをサポートしていますか？
 
-A: Yes through third party software. Like Instant ASP.
+A: はい、サードパーティのソフトウェアを使用します。 インスタントASPと同様。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -233,9 +219,9 @@ SEE_ALSO:
 
 [QA]
 ID: dnet
-Q: Does LiteSpeed web server support ASP.NET?
+Q: LiteSpeed WebサーバーはASP.NETをサポートしていますか？
 
-A: Yes with FastCGI binding to <a href="http://www.go-mono.org">Mono</a>. 
+A: はい、FastCGIで<a href="http://www.go-mono.org"> Mono </a>にバインドしています。 
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -244,9 +230,9 @@ SEE_ALSO:
 
 [QA]
 ID: isapi
-Q: Does LiteSpeed server support ISAPI and NSAPI?
+Q: LiteSpeedサーバはISAPIとNSAPIをサポートしていますか？
 
-A: No. We recommend FastCGI or LiteSpeed SAPI (LSAPI).
+A: いいえ、FastCGIまたはLiteSpeed SAPI（LSAPI）をお勧めします。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -255,10 +241,9 @@ SEE_ALSO:
 
 [QA]
 ID: proxy
-Q: Can I use LiteSpeed server as a proxy server?
+Q: LiteSpeedサーバーをプロキシサーバーとして使用できますか？
 
-A: Yes. You can use LiteSpeed as a transparent reverse proxy server running in front
-of clusters of application servers such as Apache or WebLogic.
+A: はい。 LiteSpeedは、ApacheやWebLogicなどのアプリケーションサーバーのクラスタの前で実行されるトランスペアレントリバースプロキシサーバーとして使用できます。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -267,9 +252,9 @@ SEE_ALSO:
 
 [QA]
 ID: cache
-Q: Can LiteSpeed server act as a cache proxy?
+Q: LiteSpeedサーバーをキャッシュプロキシとして機能させることはできますか？
 
-A: No but it is on our to-do list.
+A: いいえ、それは私たちの予定リストにあります。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -278,13 +263,10 @@ SEE_ALSO:
 
 [QA]
 ID: sca
-Q: Can I use LiteSpeed server as a static content accelerator?
+Q: 静的コンテンツアクセラレータとしてLiteSpeedサーバを使用できますか？
 
-A: Yes. LiteSpeed server is faster than static content
-accelerators like thttpd, boa and TUX when serving static contents. 
-However, it is highly recommended
-to have LiteSpeed server serve both static and dynamic content 
-when possible as it is much more efficient and easier to manage than the competition.<br>
+A: はい。 LiteSpeedサーバーは、静的コンテンツを提供する場合、thttpd、boa、TUXなどの静的コンテンツアクセラレータよりも高速です。
+ただし、静的コンテンツと動的コンテンツの両方をLiteSpeedサーバーに提供することをお勧めします。これは、競争よりも効率的で管理が容易です。<br>
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -293,17 +275,14 @@ SEE_ALSO:
 
 [QA]
 ID: modpl
-Q: Is there a mod_perl equivalent for LiteSpeed server?
+Q: LiteSpeedサーバに相当するmod_perlはありますか？
 
-A: LiteSpeed server does not and will never embed Perl into its
-server process. If you are looking to access server internal
-through Perl script, the answer is No. However, if you are looking
-for a high performance Perl CGI environment, the answer is Yes. A
-persistent Perl daemon using FastCGI interface is available
-at lsws/fcgi-bin/lsperld. The Perl FastCGI daemon is equivalent to
-Apache::Registry module within Apache's mod_perl. Alternatively, you can utilize the
-reverse proxy interface of LiteSpeed to forward perl requests to a 
-back-end Apache server with mod_perl.
+A: LiteSpeedサーバーはPerlをサーバープロセスに埋め込むことはありません。
+Perlスクリプトを通してサーバー内部にアクセスしようとするなら、答えはいいえです。
+しかし、高性能なPerl CGI環境をお探しの場合、答えはYesです。
+FastCGIインタフェースを使用する永続的なPerlデーモンは、lsws/fcgi-bin/lsperldにあります。
+PerlのFastCGIデーモンは、Apacheのmod_perl内のApache :: Registryモジュールに相当します。
+あるいは、LiteSpeedのリバースプロキシインタフェースを利用して、mod_perlを使用してバックエンドのApacheサーバにperl要求を転送することもできます。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -312,12 +291,10 @@ SEE_ALSO:
 
 [QA]
 ID: apm
-Q: Are Apache modules supported?
+Q: Apacheモジュールはサポートされていますか？
 
-A: No. LiteSpeed uses completely different architecture and does not
-support modules written for Apache. However, you may find that
-features of most commonly used Apache modules have already been 
-implemented by LiteSpeed. 
+A: いいえ、LiteSpeedは完全に異なるアーキテクチャーを使用し、Apache用のモジュールはサポートしていません。
+しかし、最も一般的に使用されるApacheモジュールの機能は既にLiteSpeedによって実装されていることがあります。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -326,9 +303,9 @@ SEE_ALSO:
 
 [QA]
 ID: ssi
-Q: Are Server Side Includes (SSI) supported?
+Q: サーバーサイドインクルード（SSI）はサポートされていますか？
 
-A: Yes. Since release 4.0, SSI is supported.
+A: はい。 リリース4.0以降、SSIがサポートされています。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -337,9 +314,9 @@ SEE_ALSO:
 
 [QA]
 ID: vh
-Q: Does LiteSpeed server support virtual hosting?
+Q: LiteSpeedサーバーは仮想ホスティングをサポートしていますか？
 
-A: Yes. LiteSpeed server support an unlimited number of virtual hosts.
+A: はい。 LiteSpeedサーバは、無限の数の仮想ホストをサポートします。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -348,9 +325,9 @@ SEE_ALSO:
 
 [QA]
 ID: cp
-Q: Can I run multiple copies of LiteSpeed server on one machine?
+Q: 1台のマシンで複数のLiteSpeedサーバーを実行できますか？
 
-A: No. Only one instance of LiteSpeed server can exist at the same time.
+A: いいえ、LiteSpeedサーバーのインスタンスは同時に1つしか存在できません。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -359,10 +336,9 @@ SEE_ALSO:
 
 [QA]
 ID: smp
-Q: Will the processing power of my SMP (Symmetric MultiProcessor)
-server be fully utilized?
+Q: 私のSMP（Symmetric MultiProcessor）サーバの処理能力は十分に活用されますか？
 
-A: Yes. Our Enterprise Edition server is fully optimized to linearly scale to any N number of Processors/Cores. 
+A: はい。 当社のエンタープライズエディションサーバーは、N個のプロセッサ/コアにリニアにスケーリングするように完全に最適化されています。 
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -371,9 +347,9 @@ SEE_ALSO:
 
 [QA]
 ID: opensrc
-Q: Is LiteSpeed server open-source?
+Q: LiteSpeedサーバーはオープンソースですか？
 
-A: No. LiteSpeed Technologies embraces the open-source community but our product is not open-source.
+A: いいえ、LiteSpeed Technologiesはオープンソースコミュニティを取り入れていますが、私たちの製品はオープンソースではありません。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -382,12 +358,11 @@ SEE_ALSO:
 
 [QA]
 ID: base
-Q: Is LiteSpeed server based on any existing web server?
+Q: LiteSpeedサーバーは既存のWebサーバーに基づいていますか？
 
-A: No. LiteSpeed server was built from scratch in C++. Some open
-source or free libraries were used such as OpenSSL, OpenLDAP, expat,
-PCRE and zlib. All trademarks and copyrights of third party libraries 
-belong to their respective owners. 
+A: いいえ、LiteSpeedサーバーはC ++でゼロから構築されました。
+OpenSSL、OpenLDAP、expat、PCRE、zlibなど、いくつかのオープンソースまたはフリーライブラリが使用されていました。
+第三者図書館のすべての商標および著作権は、それぞれの所有者に帰属します。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -396,12 +371,10 @@ SEE_ALSO:
 
 [QA]
 ID: help
-Q: I would like to help, is there anything I can do?
+Q: 私は何かできるのですか？
 
-A: Even though LiteSpeed server is not open-source, LiteSpeed embraces the community spirit and 
-all our users can contribute in many ways: feature testing, bug reporting, new feature suggestions, 
-helping others to move to LiteSpeed, and much more. We have a public forum and wiki setup on our online site at 
-<a href="http://www.litespeedtech.com">LiteSpeed Technologies</a>.
+A: LiteSpeedサーバーはオープンソースではありませんが、LiteSpeedはコミュニティ精神を取り入れており、ユーザーは機能テスト、バグレポート、新しい機能の提案、他のユーザーのLiteSpeedへの移行など、さまざまな方法で貢献できます。
+当社のオンラインサイト（<a href="http://www.litespeedtech.com"> LiteSpeed Technologies </a>）に公開フォーラムとwikiセットアップがあります。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -416,7 +389,7 @@ ID: Faq_QA
 NAME: FAQ
 
 PREV_NAV: HowTo_QA.html = HOW-TOs
-NEXT_NAV: Trouble_QA.html = Trouble Shooting
+NEXT_NAV: Trouble_QA.html = トラブルシューティング
 TOP_NAV: index.html = INDEX
 
 DESCR: 

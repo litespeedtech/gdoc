@@ -6,7 +6,7 @@
 
 [TBL]
 ID: vhSSLFeature
-NAME: Security
+NAME: セキュリティ
 NS: LEO
 
 DESCR: 
@@ -25,7 +25,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: VHSSL_Help
-NAME: Virtual Host SSL
+NAME: 仮想ホストSSL
 NS: LEO
 
 DESCR: 
