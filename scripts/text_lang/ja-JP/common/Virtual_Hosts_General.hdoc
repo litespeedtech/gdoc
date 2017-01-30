@@ -12,14 +12,15 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the document root for this virtual host. {val}$VH_ROOT/html{/} 
-is recommended. This directory is referred to as $DOC_ROOT in contexts. 
+DESCR: この仮想ホストのドキュメントルートを指定します。
+{val}$VH_ROOT/html{/}をお勧めします。
+このディレクトリは、コンテキストでは$DOC_ROOTと呼ばれます。 
 END_DESCR
 
-EDITTIP: Set up your document root here, which can be absolute path or relative to $SERV_ROOT or $VH_ROOT
+EDITTIP: ここにドキュメントルートを設定します。これは絶対パスでも$SERV_ROOTまたは$VH_ROOTとの相対パスでもかまいません。
 END_EDITTIP
 
-EDITTIP: Document root is referred as $DOC_ROOT in this virtual host, which can be used in other path configuration.
+EDITTIP: この仮想ホストでは、ドキュメントルートは$DOC_ROOTと呼ばれ、他のパス設定で使用できます。
 END_EDITTIP
 
 SYNTAX: path3
@@ -37,19 +38,19 @@ END_TIPS
 
 [ITEM]
 ID: vhadminEmails
-NAME: Administrator Email
+NAME: 管理者用電子メール
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies email address(es) of the administrator(s) of this virtual host.
+DESCR: この仮想ホストの管理者の電子メールアドレスを指定します。
 END_DESCR
 
-EDITTIP: You can enter multiple admin emails, separated by commas.
+EDITTIP: カンマで区切って複数の管理用メールを入力できます。
 END_EDITTIP
 
-SYNTAX: Comma separated list of email addresses
+SYNTAX: 電子メールアドレスのコンマ区切りリスト
 END_SYNTAX
 
 EXAMPLE: 
@@ -64,15 +65,15 @@ END_TIPS
 
 [ITEM]
 ID: enableGzip
-NAME: Enable GZIP
+NAME: GZIPを有効にする
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=ServTuning_Help#enableGzipCompress}, {ITEM=ServTuning_Help#gzipStaticCompressLevel}, {ITEM=ServTuning_Help#enableDynGzipCompress}, {ITEM=ServTuning_Help#gzipCompressLevel}
 
-DESCR: Specifies whether to enable GZIP compression for this virtual host. 
-This setting is only effective when GZIP compression is enabled at the server level. 
-Compression settings are configured at the server level (Tuning > GZIP).
+DESCR: この仮想ホストに対してGZIP圧縮を有効にするかどうかを指定します。
+この設定は、サーバーレベルでGZIP圧縮が有効になっている場合にのみ有効です。
+圧縮設定はサーバーレベルで設定されます（チューニング> GZIP）。
 END_DESCR
 
 SYNTAX: bool
@@ -90,21 +91,21 @@ END_TIPS
 
 [ITEM]
 ID: spdyAdHeader
-NAME: SPDY Advertisement
+NAME: SPDY 広告
 REQUIRED: 
 APPLY: 3
 SINCE: 1.2.5
 SEE_ALSO: 
 
-DESCR: Specifies whether to advertise to clients that SPDY protocol is available. If set, LSWS will send an Alternate-Protocol 
-response header when a client accesses SPDY-enabled websites through an HTTP connection. 
-This requires the website to have both HTTP and HTTPS connections set up, and SPDY support enabled. 
+DESCR: SPDYプロトコルが使用可能であることをクライアントに通知するかどうかを指定します。
+設定されている場合、クライアントがHTTP接続を介してSPDY対応のWebサイトにアクセスすると、LSWSは代替プロトコルの応答ヘッダーを送信します。
+これを行うには、WebサイトにHTTPとHTTPSの両方の接続を設定し、SPDYサポートを有効にする必要があります。
 END_DESCR
 
-SYNTAX: port:protocol string 
+SYNTAX: ポート:プロトコル 文字列 
 END_SYNTAX
 
-EXAMPLE: If SPDY/3 is enabled on port 443, you can set the string to "443:npn-spdy/3"  
+EXAMPLE: ポート443でSPDY/3が有効になっている場合、文字列を "443：npn-spdy/3"に設定できます。
 END_EXAMPLE
 
 TIPS:
@@ -119,34 +120,32 @@ END_TIPS
 
 [ITEM]
 ID: indexUseServer
-NAME: Use Server Index Files
+NAME: サーバーインデックスファイルを使用する
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to use the server's index file settings. 
-If set to {val}Yes{/}, only the server's settings will be used. 
-If set to {val}No{/}, the server's settings will not be used. 
-If set to {val}Addition{/}, additional index files can be added to server's 
-index file list for this virtual host. If you want to disable index files for 
-this virtual host, you can set the value to {val}No{/} and leave the index files
-field empty.
+DESCR: サーバーのインデックスファイル設定を使用するかどうかを指定します。
+{val}はい{/}に設定すると、サーバーの設定だけが使用されます。
+{val}いいえ{/}に設定すると、サーバーの設定は使用されません。
+{val}追加{/}に設定すると、この仮想ホストのインデックスファイルリストに追加のインデックスファイルを追加できます。
+この仮想ホストのインデックスファイルを無効にする場合は、値を{val}いいえ{/}に設定して、インデックスファイルのフィールドを空のままにします。
 END_DESCR
 
-EDITTIP: You can use default server level settings for index files or use your own.
+EDITTIP: インデックスファイルのデフォルトのサーバーレベル設定を使用するか、独自のサーバーレベル設定を使用できます。
 END_EDITTIP
 
-EDITTIP: You can use your settings in addition to the server level settings.
+EDITTIP: サーバーレベルの設定に加えて、設定を使用することができます。
 END_EDITTIP
 
-EDITTIP: You can disable index files by choosing not to use server level settings and leaving vhost level settings blank.
+EDITTIP: インデックスファイルを無効にするには、サーバーレベルの設定を使用しないで、仮想レベルの設定を空白のままにします。
 END_EDITTIP
 
-EDITTIP: You can enable/disable "auto index" at the context level.
+EDITTIP: コンテキスト・レベルで「自動インデックス」を有効/無効にすることができます。
 END_EDITTIP
 
-SYNTAX: select
+SYNTAX: 選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -161,17 +160,16 @@ END_TIPS
 
 [ITEM]
 ID: autoIndex
-NAME: Auto Index
+NAME: 自動インデックス
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=indexFiles}, {ITEM=autoIndexURI}
 
-DESCR: Specifies whether to generate a directory index on the fly when
-index files listed in {ITEM=indexFiles} are not available in a directory.
-This option is customizable at the virtual host and context level, and
-is inherited along the directory tree until it is explicitly
-overridden. You can customize the generated index page. Please check online wiki How-tos.
+DESCR: {ITEM=indexFiles}にリストされている索引ファイルがディレクトリで使用できないときに、その場でディレクトリー索引を生成するかどうかを指定します。
+このオプションは、仮想ホストおよびコンテキストレベルでカスタマイズ可能で、明示的に上書きされるまでディレクトリツリーに沿って継承されます。
+生成された索引ページをカスタマイズできます。
+オンラインウィキHow-tosを確認してください。
 
 END_DESCR
 
@@ -181,8 +179,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] It is recommended to turn off Auto Index wherever
-possible to prevent revealing confidential data.
+TIPS: [セキュリティ]可能であれば、自動インデックスをオフにして、機密データを漏らさないようにすることをお勧めします。
 END_TIPS
 
 [END_ITEM]
@@ -191,20 +188,17 @@ END_TIPS
 
 [ITEM]
 ID: autoIndexURI
-NAME: Auto Index URI
+NAME: 自動インデックス URI
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=indexFiles}, {ITEM=autoIndex}
 
-DESCR: Specifies the URI that will be used to generate the index page when
-index files listed in {ITEM=indexFiles} are not available in a directory.
-LiteSpeed web server uses an external script to generate the index page
-providing the maximum customization flexibility. The default script produces an index page with same look
-as Apache's. To customize the generated index page, please read
-online wiki How-tos.
-The directory to be indexed is passed to the script via an
-environment variable "LS_AI_PATH".
+DESCR: {ITEM=indexFiles}にリストされているインデックスファイルがディレクトリで使用できない場合に、インデックスページを生成するために使用されるURIを指定します。
+LiteSpeed Webサーバーは外部スクリプトを使用してインデックスページを生成し、最大限のカスタマイズの柔軟性を提供します。
+デフォルトスクリプトは、Apacheと同じ外観のインデックスページを生成します。
+生成されたインデックスページをカスタマイズするには、オンラインウィキHow-tosを読んでください。
+索引付けされるディレクトリーは、環境変数 "LS_AI_PATH"を介してスクリプトに渡されます。
 END_DESCR
 
 SYNTAX: URI
@@ -225,17 +219,17 @@ END_TIPS
 
 [ITEM]
 ID: errCode
-NAME: Error Code
+NAME: エラーコード
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the HTTP status code for the error page. 
-Only the selected HTTP status code will have this customized error page. 
+DESCR: SエラーページのHTTPステータスコードを指定します。
+選択したHTTPステータスコードだけがこのカスタマイズされたエラーページを持ちます。
 END_DESCR
 
-SYNTAX: select
+SYNTAX: 選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -250,17 +244,17 @@ END_TIPS
 
 [ITEM]
 ID: errMessage
-NAME: Custom Error Message
+NAME: カスタムエラーメッセージ
 NS: L
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specify a custom error message.
+DESCR: カスタムエラーメッセージを指定します。
 END_DESCR
 
-SYNTAX: text
+SYNTAX: テキスト
 END_SYNTAX
 
 EXAMPLE: 
@@ -281,16 +275,14 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the URL of the customized error page.  
-The server will forward the request to this URL when the corresponding HTTP status code has returned. 
-If this URL refers to a non-existing resource, the built-in error page will be used. 
-The URL can be a static file, a dynamically generated page, or a page on another web site 
-(a URL starting with "http(s)://"). 
-When referring to a page on another web site, the client will receive a redirect status 
-code instead of the original status code.
+DESCR: カスタマイズされたエラーページのURLを指定します。
+サーバーは、対応するHTTPステータスコードが返されたときに、このURLにリクエストを転送します。
+このURLが存在しないリソースを参照する場合は、組み込みのエラーページが使用されます。
+URLは、静的ファイル、動的に生成されたページ、または別のWebサイトのページ（「http(s)：//」で始まるURL文字列）にすることができます。
+別のWebサイトのページを参照する場合、クライアントは元のステータスコードの代わりにリダイレクトステータスコードを受け取ります。
 END_DESCR
 
-EDITTIP: You can set up customized error pages for different error codes.
+EDITTIP: さまざまなエラーコードに対してカスタムエラーページを設定できます。
 END_EDITTIP
 
 SYNTAX: URL
@@ -317,7 +309,7 @@ END_TIPS
 
 [TBL]
 ID: vhGeneral
-NAME: General
+NAME: 一般
 NS: EO
 
 DESCR: 
@@ -333,7 +325,7 @@ SEE_ALSO:
 
 [TBL]
 ID: vhIndex
-NAME: Index Files
+NAME: インデックスファイル
 
 DESCR: 
 END_DESCR
@@ -348,7 +340,7 @@ SEE_ALSO:
 
 [TBL]
 ID: vhGeneral
-NAME: General
+NAME: 一般
 NS: L
 
 DESCR: 
@@ -364,15 +356,13 @@ SEE_ALSO:
 
 [TBL]
 ID: errPage
-NAME: Customized Error Pages
+NAME: カスタマイズされたエラーページ
 NS: EO
 
-DESCR: Whenever the server has a problem processing a request, 
-the server will return an error code and an html page as an error message 
-to the web client. Error codes are defined in the HTTP protocol (see RFC 2616). 
-LiteSpeed web server has a built-in default error page for each error code, but 
-a customized page can be configured for each error code as well.  
-These error pages can be even further customized to be unique for each virtual host. 
+DESCR: サーバーが要求を処理する際に問題が発生すると、サーバーはエラーコードとhtmlページをエラーメッセージとしてWebクライアントに返します。
+エラーコードはHTTPプロトコルで定義されています（RFC 2616参照）。
+LiteSpeed Webサーバーには、エラーコードごとにデフォルトのエラーページが組み込まれていますが、各エラーコードに対してカスタマイズされたページを設定することもできます。
+これらのエラーページは、各仮想ホストごとに一意になるようにさらにカスタマイズすることができます。
 END_DESCR
 
 CONT: errCode errURL
@@ -385,15 +375,13 @@ SEE_ALSO:
 
 [TBL]
 ID: errPage
-NAME: Customized Error Pages
+NAME: カスタマイズされたエラーページ
 NS: L
 
-DESCR: Whenever the server has a problem processing a request, 
-the server will return an error code and an html page as an error message 
-to the web client. Error codes are defined in the HTTP protocol (see RFC 2616). 
-LiteSpeed Web Server has a built-in default error page for each error code, but a customized page can be configured 
-for each error code as well. These error pages can be even further customized to be unique 
-for each virtual host. 
+DESCR: サーバーが要求を処理する際に問題が発生すると、サーバーはエラーコードとhtmlページをエラーメッセージとしてWebクライアントに返します。
+エラーコードはHTTPプロトコルで定義されています（RFC 2616参照）。
+LiteSpeed Web Serverには、エラーコードごとにデフォルトのエラーページが組み込まれていますが、各エラーコードに対してカスタマイズされたページを設定することもできます。
+これらのエラーページは、各仮想ホストごとに一意になるようにさらにカスタマイズすることができます。
 END_DESCR
 
 CONT: errCode errMessage
@@ -406,7 +394,7 @@ SEE_ALSO:
 
 [TBL]
 ID: vhExpire
-NAME: Expire Settings
+NAME: 期限切れの設定
 
 DESCR: 
 END_DESCR
@@ -424,7 +412,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: VHGeneral_Help 
-NAME: Virtual Host General
+NAME: 仮想ホストの一般
 NS: L
 
 DESCR: 
@@ -440,7 +428,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: VHGeneral_Help 
-NAME: Virtual Host General
+NAME: 仮想ホストの一般
 NS: E
 
 DESCR: 
@@ -457,7 +445,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: VHGeneral_Help 
-NAME: Virtual Host General
+NAME: 仮想ホストの一般
 NS: O
 
 DESCR: 
