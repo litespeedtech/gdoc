@@ -1,0 +1,579 @@
+[HELPDOC]
+
+
+[ITEM]
+ID: sname
+NAME: Name - Server
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The unique name that identifies this server. This is the 
+{ITEM=ServGeneral_Help#serverName} specified in the general configuration.
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: pid
+NAME: PID
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: PID (Process ID) of the current server process.
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: The PID will change each time the server is restarted.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: servAction
+NAME: Actions
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Six actions are available from this menu: {val}Graceful Restart{/},
+{val}Toggle Debug Logging{/}, {val}Server Log Viewer{/}, {val}Real-Time Statistics{/}, 
+{val}Version Manager{/}, and {val}Compile PHP{/}. 
+<ul><li>{ITEM=restart} restarts server process gracefully without
+interrupting requests in process.</li>
+	<li>{ITEM=toggleDebugLog} turns debug logging on or off.</li>
+	<li>{ITEM=viewlog} allows you to view the server log through the log viewer.</li>
+	<li>{ITEM=realtimerpt} allows you to view real-time server status.</li>
+	<li>{ITEM=vermgr} allows you to download new versions of LSWS and switch between different versions.
+	<li>Compile PHP allows you to compile PHP for LiteSpeed Web Server.
+</ul>
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: The shell utility {cmd}$SERVER_ROOT/bin/lswsctrl{/} can be used to control the server processes as well, 
+but requires a login shell.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: restart
+NAME: Apply Changes/Graceful Restart
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: By clicking {val}Graceful Restart{/}, a new server process will be started. 
+For {val}Graceful Restart{/}, the old server process will only exit after all requests 
+to it have been finished (or the {ITEM=gracefulRestartTimeout} limit has been reached).
+
+
+Configuration changes are applied at the next restart. 
+{val}Graceful Restart{/} will apply these changes without any server downtime.
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: Graceful restart takes less than 2 seconds to generate a new server process.   
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vermgr
+NAME: Version Management
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: {ITEM=ServGeneral_Help#autoUpdateDownloadPkg}, {ITEM=ServGeneral_Help#autoUpdateInterval} 
+
+
+DESCR: Version Management (found by clicking on the the version number at 
+the top of the page) is a convenient tool to manage LSWS
+versions. It shows license info and information on all installed versions
+and available new releases. 
+
+<ul><li>If a new version has been released on the
+LiteSpeed website, and {ITEM=ServGeneral_Help#autoUpdateInterval} is 
+enabled, the new version will be listed with a {val}Download{/} link. If
+{ITEM=ServGeneral_Help#autoUpdateDownloadPkg} is
+enabled, new versions will be automatically downloaded and the new version 
+will be listed with an {val}Upgrade{/} link. Upgrade 
+installs the new package and restarts the web server. </li>
+<li>You return
+to a previous version by clicking the {val}Switch To{/} link. This will
+restart the web server with that version.</li>
+<li>If you are sure that you no longer need an old installation, you can remove
+it by clicking the {val}Delete{/} link. This will permanently remove that copy.</li></ul>
+
+Please note, service will not be interrupted during an upgrade or restart.
+END_DESCR
+
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: viewlog
+NAME: Server Log Viewer 
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The Server Log Viewer is a convenient tool for browsing the 
+current server log to check for errors or problems.  The log viewer 
+searches the server log file in blocks for the specified log level. 
+
+
+The default block size is 20KB. You can use the {val}Begin{/},
+  {val}End{/}, {val}Next{/}, and {val}Prev{/} buttons to navigate a large log file. 
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: The size of a dynamically generated page is limited by {ITEM=ServTuning_Help#maxDynRespSize}.
+  So if the block is too big, the page might be truncated.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: realtimerpt
+NAME: Real-Time Statistics
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The Real-Time Statistics link leads to a page with a real-time server status
+report. This is a convenient tool to monitor the system. 
+
+
+The report shows a snapshot of your server statistics. The refresh rate for this snapshot 
+is controlled by the Refresh Interval drop-down list in the upper righthand corner.
+
+
+The report contains the following sections:
+<ul><li>Server Health shows the basic server statistics, uptime, load, and anti-DDoS blocked IPs.</li>
+  <li>Server lists current traffic throughput, connections, and requests statistics.</li>
+ <li>Virtual Host shows request processing statuses and external application statuses for each virtual host.</li>
+ <li>External Application lists the external applications currently running and their usage statistics. 
+ The CGI daemon process lscgid is always running as an external application.</li>
+</ul>
+
+
+Many of the rows in the Real-Time Statistics feature a graph icon. 
+Clicking on this icon will open a graph of that row's statistics updated in real-time.
+
+
+In the Server section, next to Requests, there is a link labeled (Details). 
+This link takes you to the Requests Snapshot, where you can view detailed information 
+on which clients are making certain kinds of requests or which aspects of your site 
+are bottlenecking. The fields in the blue area allow you to filter the snapshot to isolate 
+certain parts of your server or look for clients that are performing certain actions. 
+END_DESCR
+
+
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: toggleDebugLog
+NAME: Toggle Debug Logging
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: {ITEM=ServGeneral_Help#log_debugLevel}, {ITEM=ServGeneral_Help#log_logLevel}
+
+DESCR: Toggle Debug Logging toggles the value of
+{ITEM=ServGeneral_Help#log_debugLevel} between {val}NONE{/} and {val}HIGH{/}. 
+As debug logging has an impact on performance and can fill up
+the hard drive quickly, so {ITEM=ServGeneral_Help#log_debugLevel} should
+usually be set to {val}NONE{/} on a production server. 
+This feature can be used instead to turn debug logging on and off quickly 
+in order to debug a problem on a production server. Debug logging turned on or 
+off in this way will not change anything shown in your server configurations.
+END_DESCR
+
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: {ITEM=toggleDebugLog} will only work if {ITEM=ServGeneral_Help#log_logLevel} 
+is set to {val}DEBUG{/}.
+
+[Performance] Important! Debug logging includes detailed information for each 
+request and response. Active debug logging will severely degrade service performance
+and potentially saturate disk space in a very short time. This feature should only be 
+used for a short period of time when trying to diagnose server issues. 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: lname
+NAME: Name - Listener
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The unique name that identifies this listener. This is the 
+{ITEM=Listeners_Help#listenerName} you specified when setting up the listener.
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: lstatus
+NAME: Status - Listener
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The current status of this listener. The status is either {val}Running{/} or {val}Error{/}.
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: If the listener is in the {val}Error{/} state, you can view the server log to find out why.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: lmap
+NAME: Virtual Hosts Mappings
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Shows currently established mappings to virtual hosts from a particular listener. 
+The virtual host name appears in brackets and is followed by the matching domain name(s) for this listener.
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: If a virtual host has not been loaded successfully (fatal errors in the 
+virtual host configuration), the mapping to that virtual host will not be displayed.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vname
+NAME: Name - Virtual Host
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The unique name that identifies this virtual host. This is the {ITEM=VirtualHosts_Help#vhName} 
+you specified when setting up this virtual host.
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vstatus
+NAME: Status - Virtual Host
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The current status of a virtual host. 
+ The status can be: {val}Running{/}, {val}Stopped{/}, {val}Restart Required{/}, 
+ or {val}Running - Removed from Configuration{/}.
+ <ul>
+    <li>{val}Running{/} means the virtual host is loaded and in service.</li>
+    <li>{val}Stopped{/} means the virtual host is loaded but not in service (disabled). </li>
+    <li>{val} Restart Required{/} means this is a newly added virtual host and 
+        the server has not yet loaded its configuration. </li>
+    <li>{val}Running - Removed from Configuration{/} means the virtual host has been deleted 
+    from the server's configuration but it is still in service. </li>
+</ul>
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vaction
+NAME: Actions - Virtual Host
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: This field shows buttons to disable, enable, or restart the virtual host.  
+Actions taken on one virtual host do not affect the rest of the web server.
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: It is good idea to disable a virtual host temporarily when updating its content.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: venable
+NAME: Enable
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The {val}Enable{/} action starts up a stopped virtual host.  
+This allows new requests to be accepted.
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vdisable
+NAME: Disable
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The {val}Disable{/} action stops a running virtual host.
+New requests will not be accepted, but requests being processed will finish as usual. 
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vreload
+NAME: Restart - Virtual Host
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The Restart action causes the web server to load the newest configuration 
+for this virtual host. Requests being processed will finish with the old configuration. 
+The new configuration will only apply for new requests. All changes to a virtual host 
+can be applied on the fly this way. 
+END_DESCR
+
+SYNTAX: 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[TBL]
+ID: serviceMgrListener
+NAME: Listeners
+
+DESCR: 
+END_DESCR
+
+CONT: lname lstatus lmap 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: serviceMgrVh
+NAME: Virtual Hosts
+
+DESCR: 
+END_DESCR
+
+CONT: vname vstatus vaction venable vdisable vreload 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: serviceMgr
+NAME: Server
+NS: LE
+
+DESCR: 
+END_DESCR
+
+CONT: sname pid servAction restart viewlog realtimerpt toggleDebugLog vermgr
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: serviceMgr
+NAME: Server
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: sname pid servAction restart viewlog realtimerpt toggleDebugLog 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[END_HELPDOC]

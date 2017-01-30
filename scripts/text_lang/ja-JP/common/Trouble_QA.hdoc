@@ -1,0 +1,174 @@
+[QADOC]
+
+
+########## ITEM SECION #############
+
+
+[QA]
+ID: start
+Q: サーバーは起動しませんでしたが、どうすればいいですか？
+
+A: <ul>
+<li>サーバーがすでに実行されているかどうかを確認します。 最初に実行中のサーバーを停止します。</li>
+<li>コマンドラインからサーバーを起動したときに苦情が出たら、苦情を修正してください。</li>
+<li>$SERVER_ROOT/logs/error.logまたは指定した場所にあるサーバーログを確認してください。</li>
+<li>Webサーバーを開始しようとするユーザーに/tmp/lshttpd/に対する書き込み権限があることを確認し、/tmp/lshttpdディレクトリーがすでに存在する場合は削除します。</li>
+<li>インストールされているファイルがすべて存在することを確認してください。 必要に応じてサーバーソフトウェアを再インストールします。</li>
+<li>LiteSpeed Tech Webサイトの<a href="http://litespeedtech.com/forum/">フォーラム</a>にメッセージを投稿するか、<a href = "http://litespeedtech.com/support.html">サポート</a>部門に連絡してください。</li>
+</ul>
+
+END_A
+
+SEE_ALSO: 
+[END_QA]
+
+
+
+[QA]
+ID: crash
+Q: サーバーがクラッシュしましたが、どうすればいいですか？
+
+A: <a href="http://litespeedtech.com/bugs.html">バグレポート</a>を提出してください。
+END_A
+
+SEE_ALSO: 
+[END_QA]
+
+
+
+[QA]
+ID: pass
+Q: 私はWeb管理インターフェースのパスワードを忘れましたが、どうすればいいですか？
+
+A: <span class="cmd">$SERVER_ROOT/admin/misc/admpass.sh</span>を実行してユーザー名とパスワードをリセットしてください。
+END_A
+
+SEE_ALSO: 
+[END_QA]
+
+
+
+[QA]
+ID: e503
+Q: デフォルトのインストールを使用すると、PHPページにアクセスすると「エラー503サービスを利用できません」というエラーが表示されます。
+
+A: <ol>
+	<li>ファイアウォールソフトウェアがサーバー上で実行されている場合、まずファイアウォール設定を確認し、ローカルホストを信頼する必要があります。
+	<br>
+	たとえば、LinuxファイアウォールのIPTablesには<span class="eg">LOからのALLOW INPUTLO</span>のようなルールを含める必要があります。
+	</li><br><br>
+	
+	<li>PHPバイナリを再ビルドすると、事前ビルドされたバイナリがシステムで動作しない可能性があります。<br>
+    PHP 4.3.2は現在、FastCGIインターフェイスを使用してバグがありますので、PHP 4.3.1をお勧めします。<br>
+    バイナリを再構築するには、次のコマンドを使用します:<br>
+	<blockquote><code>
+	cd php-4.3.1<br>
+	./configure --enable-fastcgi --with-config-file-path=../conf <br>
+	make <br>
+	cp -f sapi/cgi/php [lsws_home]/admin/fcgi-bin/admin_php <br>
+	cp -f sapi/cgi/php [lsws_home]/fcgi-bin/php
+	</code></blockquote>
+	</li><br>
+	
+	<li>Iそれでも問題が解決しない場合は、デバッグログを有効にしてバグレポートを送信してください。<br>
+    設定ファイル[lsws_home] /conf/httpd_config.xmlを編集し、debugLevelを10に設定します。<br>
+    エラーを再現してログファイルを圧縮し、圧縮ファイルを<a href="mailto:bug@litespeedtech.com">bug@litespeedtech.com</a>に送信してください<br>
+	</li>
+</ol><br>
+
+END_A
+
+SEE_ALSO: 
+[END_QA]
+
+
+
+[QA]
+ID: chroot
+Q: chrootが有効になっていると、MySQLに接続できない、またはCGIスクリプトがうまく動作しません。どうすればいいですか？
+
+A: chroot環境では、すべてのパス設定は新しいルートディレクトリに関連する必要があり、必要なすべての動的ライブラリがchrootファイルシステムで利用できるようにする必要があります。<br>
+<ul>
+	<li>PHPは通常、ファイルシステムのどこかにマウントされたUnixドメインソケットを介してMySQLに接続します。
+	 マウントポイントはMySQLの設定ファイルで設定できますが、通常は{cmd}/etc/my.cnf{/}にあり、設定エントリがあります
+     {cmd}[mysqld]{/}セクションの{cmd}socket=...{/}セクションにあります。
+	 <br>
+	 PHPの設定は、php.iniにある{cmd}mysql.default_socket{/}です。デフォルトは{cmd}/tmp/mysql.sock{/}です。
+	 <br>
+	Webサーバーがchroot環境で実行されると、PHPエンジンはWebサーバーによって起動され、新しいルートに関連する
+    MySQLのソケットを探しますが、MySQLはchrootされず、元のrootとの相対的なソケットも使用します。
+    したがって、PHPはもうMySQLに接続できません。 
+	<br>
+	解決方法はMySQLの設定を変更してソケットを新しいchrootに相対的にマウントすることです。
+	</li><br><br>
+
+	<li>chroot環境で動的にリンクされた実行可能ファイルを実行するには、すべての動的ライブラリが
+    chrootファイルシステムで利用可能でなければなりません。
+    次のコマンドを使用して、必要なすべてのライブラリが新しいルートに関連して/libディレクトリに
+    コピーされていることを確認し、
+    <br>
+      {cmd}lsws/admin/misc/chroot.sh [chroot_path] [path_to_executable]{/}
+    <br>
+    このコマンドは、「root」ユーザーとして実行する必要があります。
+	</li><br><br>
+
+	<li>システムコールの中には、/etc/passwdなどの特定のシステムファイルに依存するものがあります。
+    必要に応じて、chrootファイルシステムの下に必要なディレクトリとファイルを作成します。
+    しかし、実際のファイルをコピーすることはお勧めできません。なぜなら、chrootはこれらのファイルを保護するという
+    考え方なのです。 
+	</li><br>
+</ul><br>
+<br>
+
+END_A
+
+SEE_ALSO: 
+[END_QA]
+
+
+
+[QA]
+ID: redx
+Q: LiteSpeed Web Serverに切り替えた後、NortonパーソナルファイアウォールまたはInternet Securityを使用しているユーザーのためにすべてのイメージが壊れています。どうすればよいですか？
+
+A: ホットリンクの保護設定で「ダイレクトアクセス」を許可してください。Nortonはリクエストから「Referer」ヘッダーを削除します。
+END_A
+
+SEE_ALSO: 
+[END_QA]
+
+
+
+[QA]
+ID: ipbind
+Q: 私はIPでWebサイトにアクセスすることはできません、ドメイン名を使用する必要があります、私は何をすべきですか？
+
+A: Webサイトがバインドするリスナーの「仮想ホストマッピング」設定のドメインリストにIPアドレスを追加してください。
+END_A
+
+SEE_ALSO: 
+[END_QA]
+
+
+
+########## PAGE SECION #############
+
+
+[PAGE]
+ID: Trouble_QA 
+NAME: トラブルシューティング
+
+PREV_NAV: Faq_QA.html = FAQ
+TOP_NAV: index.html = INDEX
+
+DESCR: 
+END_DESCR
+
+CONT: start crash pass e503 chroot
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_QADOC]

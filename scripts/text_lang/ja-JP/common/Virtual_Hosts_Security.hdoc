@@ -1,0 +1,772 @@
+[HELPDOC]
+
+
+############# Hotlink Protection #############
+
+
+[ITEM]
+ID: enableHotlinkCtrl
+NAME: ホットリンク保護を有効にする
+REQUIRED: 1
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: ホットリンクの保護を有効にするかどうかを指定します。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: suffixes
+NAME: サフィックス
+REQUIRED: 1
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: ファイルの接尾辞をリストすることによって、ホットリンクから保護されるファイルの種類を指定します。
+END_DESCR
+
+SYNTAX: カンマ区切りリスト「.」は禁止されています
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: redirectUri
+NAME: リダイレクトURL
+REQUIRED: 0
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: ホットリンクアクションが検出されたときにユーザーがリダイレクトされるURLを指定します。
+ホットリンクが許可されていないことを示すイメージやページにリダイレクトすることができます。
+指定されていない場合、{val}403 Forbidden{/}が返されます。
+END_DESCR
+
+EDITTIP: 「リダイレクトURL」が設定されている場合、ホットリンクの試行は指定されたURLにリダイレクトされます。 それ以外の場合は、アクセス拒否ステータスコードが返されます。
+END_EDITTIP
+
+SYNTAX: 絶対URL
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: allowDirectAccess
+NAME: ダイレクトアクセスを許可する
+REQUIRED: 0
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: リファラーなしで直接アクセスを許可するかどうかを指定します。
+リファラーヘッダーは、現在のページにリンクされているWebページを識別します。
+ユーザーがアドレスボックスに直接アドレスを入力するか、「ターゲットリンクを別名で保存」などの機能を使用すると、HTTPリクエストに「referer」ヘッダーはありません。 
+END_DESCR
+
+EDITTIP: 参照者なしで直接アクセスできるようにする場合は、「ダイレクトアクセスを許可する」を「はい」に設定します。
+たとえば、ブラウザのURLのユーザーキーと一部のプロキシが「Referrer」ヘッダーを表示しない場合、参照元はありません。
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: onlySelf
+NAME: 自己参照のみ
+REQUIRED: 0
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 現在のWebサイトからの参照のみを許可するかどうかを指定します。
+{val}Yes{/}に設定すると、{ITEM=allowedHosts}は効果がなく、保護されたファイルに他のWebサイトをリンクすることはできません。
+これは、現在のWebサイトに複数のドメイン名を格納する場合に便利です。
+END_DESCR
+
+EDITTIP: 「自己参照のみ」を「はい」に設定すると、同じWebサイトからのリンクのみが許可され、「許可されたドメイン」を指定する必要はありません。
+複数のドメインがパークされている場合は、より説得力があります
+END_EDITTIP
+
+EDITTIP: 「自己参照のみ」を「いいえ」に設定した場合は、「許可ドメイン」を指定する必要があります。
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: allowedHosts
+NAME: 許可されたドメイン
+REQUIRED: 1
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 保護されたコンテンツにリンクできるWebサイトを指定します。
+END_DESCR
+
+SYNTAX: ドメイン名のカンマ区切りリスト。
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: matchedHosts
+NAME: REGEXと一致するドメイン
+REQUIRED: 0
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 正規表現で保護されたコンテンツにリンクできるWebサイトを指定します。
+正規表現は完全なURLではなくドメイン名と一致します。
+END_DESCR
+
+SYNTAX: 正規表現
+END_SYNTAX
+
+EXAMPLE: ^.*\.mydomain\.com$
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Access Control #############
+
+############# Realms List #############
+
+########## New Realm ##########
+
+
+[ITEM]
+ID: realmType
+NAME: DB Type
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 権限レルムのユーザー/グループ・データの格納方法を指定します。
+現在、ユーザー/グループのデータはフラットファイルまたはLDAPサーバーに格納できます。 
+END_DESCR
+
+EDITTIP: 現在、ユーザーDBとグループDBではパスワードファイルとLDAPがサポートされています。
+END_EDITTIP
+
+SYNTAX: 選択
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## Password File Realm Definition ##########
+
+
+[ITEM]
+ID: realmName
+NAME: レルム名
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 認可レルムの一意の名前を指定します。
+END_DESCR
+
+EDITTIP: ここであなたのHT Accessレルムを定義します。これはコンテキストに使用できます。
+END_EDITTIP
+
+SYNTAX: テキスト
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: userDBLocation
+NAME: ユーザーDBの場所
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO:  {ITEM=GroupDBLocation}, {ITEM=userDB_attrPasswd}, {ITEM=userDB_attrMemberOf}
+
+DESCR: ユーザーデータベースの場所を指定します。
+DBタイプ{val}パスワードファイル{/}の場合、ユーザ/パスワード定義を含むフラットファイルへのパスです。
+ファイル名をクリックするとWebAdminコンソールからこのファイルを編集できます。
+
+
+ユーザーファイルの各行には、ユーザー名の後にコロン、crypt()で暗号化されたパスワードが続き、オプションでコロンとユーザーが所属するグループ名が続きます。
+グループ名はコンマで区切られます。
+グループ情報がユーザーデータベースに指定されている場合、グループデータベースはチェックされません。
+
+例：<blockquote><code>john:HZ.U8kgjnMOHo:admin,user</code></blockquote>
+
+
+DBタイプ{val} LDAP {/}の場合、ユーザー情報を照会するのはLDAP URLです。
+有効なユーザーごとに、LDAPサーバーに格納されている認証データには、少なくともユーザーIDとユーザーパスワードが含まれている必要があります。
+HTTP認証ヘッダーで受け取ったこのURLとユーザー名に基づいて、LDAP検索要求で1つだけのレコードを返す必要があります。
+"$ k"はURLのフィルタ部分で指定する必要があり、ユーザー名で置き換えられます。
+ユーザーのパスワード属性は、照会結果に戻されなければなりません。
+ユーザーのパスワードの属性名は、{ITEM = userDB_attrPasswd}で指定します。
+グループ情報は、{ITEM = userDB_attrMemberOf}で任意に指定できます。
+
+
+例: 少なくとも、オブジェクトクラス（uidObject、simpleSecurityObject、およびorganizationalRole）を使用してLDAPでユーザーを定義できます。
+次のURLを使用できます: 
+
+
+<blockquote><code>ldap://localhost/ou=UserDB,dc=example,dc=com???(&(objectClass=*)(uid=$k))</code></blockquote>
+
+END_DESCR
+
+
+SYNTAX: ユーザーDBファイルまたはLDAP URL（RFC 2255）へのパス。
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [セキュリティ]ユーザーのパスワードファイルをドキュメントツリーの外部に保存することをお勧めします。
+ユーザーのパスワードファイルをドキュメントツリー内に配置する必要がある場合は、{val}.htuser{/}のような先頭の ".ht"という名前を付けて、静的ファイルとして扱わないようにします。
+LiteSpeed Web Serverでは、接頭辞が ".ht"のファイルは提供されません。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: userDBMaxCacheSize
+NAME: ユーザーDB最大キャッシュサイズ
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: ユーザーデータベースの最大キャッシュサイズを指定します。
+最近アクセスされたユーザー認証データは、最大のパフォーマンスを提供するためにメモリにキャッシュされます。
+END_DESCR
+
+SYNTAX: 符号なし整数
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [パフォーマンス]キャッシュが大きくなるとメモリが消費されるため、値が高くなるほどパフォーマンスが向上する場合があります。
+ユーザーのデータベースサイズとサイトの使用状況に応じて適切なサイズに設定します。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: userDBCacheTimeout
+NAME: ユーザーDBキャッシュタイムアウト（秒）
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: バックエンドユーザーデータベースの変更の確認頻度を指定します。
+キャッシュ内のすべてのエントリにタイムスタンプがあります。
+キャッシュされたデータが指定されたタイムアウトよりも古い場合、バックエンドデータベースの変更がチェックされます。
+変更がなければ、タイムスタンプは現在の時刻にリセットされ、そうでない場合は新しいデータがロードされます。
+Sevrerのリロードと穏やかな再起動により、キャッシュは直ちにクリアされます。
+END_DESCR
+
+SYNTAX: 符号なし整数
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [パフォーマンス]バックエンドデータベースが頻繁に変更されない場合は、パフォーマンスを向上させるために、より長いタイムアウトを設定します。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: GroupDBLocation
+NAME: グループDBの場所
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=userDBLocation}, Context {ITEM=Context_Help#required}, {ITEM=groupDB_attrGroupMember}
+
+DESCR: グループデータベースの場所を指定します。
+
+グループ情報は、ユーザデータベースまたはこのスタンドアロングループDBに設定することができます。ユーザ認証の場合、ユーザDBが最初にチェックされます。ユーザDBにグループ情報も含まれている場合、グループDBはチェックされません。 
+
+
+DBタイプの{val}パスワードファイル{/}の場合、グループDBロケーションは、グループ定義を含むフラットファイルへのパスでなければなりません。ファイル名をクリックするとWebAdminコンソールからこのファイルを編集できます。 
+
+グループファイルの各行には、コロンとそのあとにスペース区切りのユーザー名のグループが続くグループ名が含まれている必要があります。例：
+
+<blockquote><code>testgroup: user1 user2 user3</code></blockquote> 
+
+DBタイプ{val}LDAP{/}の場合、グループDBロケーションは、グループ情報を照会するLDAP URLでなければなりません。
+有効なグループごとに、このURLと{ITEM=Redirect_Context＃required}で指定されたグループ名に基づいて、LDAP検索リクエストで1つのレコードしか返されません。
+"$k"はURLのフィルタ部分に指定する必要があり、グループ名に置き換えられます。
+このグループのメンバーを指定する属性の名前は、{ITEM=groupDB_attrGroupMember}によって指定されます。
+
+
+例: objectClass posixGroupがグループ情報の格納に使用されている場合 次のURLを使用できます: 
+
+<blockquote><code>ldap://localhost/ou=GroupDB,dc=example,dc=com???(&(objectClass=*)(cn=$k))</code></blockquote>
+
+END_DESCR
+
+SYNTAX: file3
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [セキュリティ]文書ツリーの外にグループファイルを保存することをお勧めします。 ドキュメントツリー内に配置する必要がある場合は、{val}.htgroup{/}のような先頭の 「.ht」という名前を付けるだけでファイルが静的ファイルとして提供されないようにします。 LiteSpeed Web Serverでは、接頭辞が 「.ht」のファイルは提供されません。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: groupDBMaxCacheSize
+NAME: グループDB最大キャッシュサイズ
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=userDBMaxCacheSize}
+
+DESCR: グループデータベースの最大キャッシュサイズを指定します。
+END_DESCR
+
+SYNTAX: 符号なし整数
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:  [パフォーマンス]キャッシュが大きくなるとメモリが消費されるため、値が高くなるほどパフォーマンスが向上する場合があります。
+ユーザーのデータベースサイズとサイトの使用状況に応じて適切なサイズに設定します。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: groupDBCacheTimeout
+NAME: グループDBキャッシュタイムアウト（秒）
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=userDBCacheTimeout}
+
+DESCR: バックエンドグループデータベースの変更の確認頻度を指定します。
+詳細については、{ITEM=userDBCacheTimeout}を参照してください。
+END_DESCR
+
+SYNTAX: 符号なし整数
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## LDAP Realm Definition ##########
+
+
+[ITEM]
+ID: userDB_attrPasswd
+NAME: パスワード属性
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: LDAPサーバーに格納されているユーザーレコードのパスワード属性の名前を指定します。
+デフォルト値は{val}userPassword{/}です。
+END_DESCR
+
+SYNTAX: 文字列
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: userDB_attrMemberOf
+NAME: Member-of属性
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: LDAPサーバーに格納されているユーザーレコードの「Member-of」属性の名前を指定します。
+デフォルト値は{val}memberOf{/}です。
+「Member-of」属性を使用して、ユーザーが属するグループ名を指定することができます。
+END_DESCR
+
+SYNTAX: 文字列
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: groupDB_attrGroupMember
+NAME: グループメンバ属性
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: LDAPサーバーに格納されているグループレコードの「Member」属性の名前を指定します。
+デフォルト値は{val}memberUid{/}です。 
+END_DESCR
+
+SYNTAX: 文字列
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: LDAPBindDN
+NAME: LDAPバインドDN
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: {ITEM=LDAPBindPasswd}
+
+DESCR: サーバーにバインドするために使用されるDNを指定します。
+LDAPサーバーで認証が必要な場合は、バインドDNとパスワードを指定する必要があります。
+指定しない場合は、匿名バインドが使用されます。 
+END_DESCR
+
+SYNTAX: 文字列
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: LDAPBindPasswd
+NAME: LDAPバインドパスワード
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: {ITEM=LDAPBindDN}
+
+DESCR: サーバーにバインドするためのパスワードを指定します。
+LDAPサーバーで認証が必要な場合は、バインドDNとパスワードを指定する必要があります。  
+END_DESCR
+
+SYNTAX: 文字列
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+####### User DB Entry #######
+
+
+[ITEM]
+ID: UDBgroup
+NAME: グループ
+REQUIRED: 
+APPLY: 3
+SINCE: 
+
+DESCR: 
+END_DESCR
+
+EDITTIP: ここでグループ情報を入力すると、グループDBはチェックされません。
+END_EDITTIP
+
+EDITTIP: 複数のグループを入力したり、カンマで区切ったりすることができます。
+スペースはグループ名の一部として扱われます。
+END_EDITTIP
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: users
+NAME: ユーザー
+REQUIRED: 
+APPLY: 3
+SINCE: 
+
+DESCR: 
+END_DESCR
+
+EDITTIP: グループDBは、ユーザDB内のユーザにグループ情報が含まれていない場合にのみチェックされます。。
+END_EDITTIP
+
+EDITTIP: カンマを使用して複数のユーザーを区切ります。
+END_EDITTIP
+
+[END_ITEM]
+
+
+
+################ Tables ################
+
+
+[TBL]
+ID: vhBandwidthThrottlingControl
+NAME: VHost帯域幅スロットル制御
+NS: L
+
+DESCR:
+END_DESCR
+
+CONT: totalBandwidth
+END_CONT
+
+[END_TBL]
+
+
+
+[TBL]
+ID: vhHotlink
+NAME: ホットリンクの保護
+NS: E
+
+DESCR: ホットリンクとは、外部ウェブサイトから自分のウェブサイト上のファイルにリクエストしたもので、しばしば「リーチング」と呼ばれます。
+このプラクティスでは、追加の帯域幅の使用が導入されます。
+
+
+LiteSpeed Webサーバーは、HTTPリクエスト内のRefererヘッダーをチェックすることにより、他人があなたのWebサイト上のコンテンツにホットリンクするのを防ぐことができます。
+Refererヘッダーがあなたのウェブサイトと一致しない場合、リクエストは拒否されます。
+END_DESCR
+
+CONT: enableHotlinkCtrl suffixes redirectUri allowDirectAccess 
+onlySelf allowedHosts matchedHosts
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: realms
+NAME: 認可レルム
+NS: LE
+
+DESCR: この仮想ホストのすべての許可レルムをリストします。
+権限領域は、権限のないユーザーが保護されたWebページにアクセスするのをブロックするために使用されます。
+レルムは、オプションのグループ分類を持つユーザー名とパスワードを含むユーザーディレクトリです。 
+認可はコンテキストレベルで実行されます。
+異なるコンテキストは同じレルム（ユーザデータベース）を共有できるため、レルムはそれらを使用するコンテキストとは別に定義されます。
+コンテキスト設定では、これらの名前でレルムを参照できます。 
+END_DESCR
+
+CONT: realmName realmType userDBLocation userDB_attrPasswd
+userDB_attrMemberOf userDBMaxCacheSize userDBCacheTimeout 
+GroupDBLocation groupDB_attrGroupMember groupDBMaxCacheSize 
+groupDBCacheTimeout LDAPBindDN LDAPBindPasswd UDBgroup users
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+[TBL]
+ID: realms
+NAME: 認可レルム
+NS: O
+
+DESCR: この仮想ホストのすべての許可レルムをリストします。
+権限領域は、権限のないユーザーが保護されたWebページにアクセスするのをブロックするために使用されます。
+レルムは、ユーザー名とパスワードを含むユーザーディレクトリです。
+グループ分類。 認可はコンテキストレベルで実行されます。
+異なるコンテキストは同じレルム（ユーザデータベース）を共有できるため、レルムはそれらを使用するコンテキストとは別に定義されます。
+コンテキスト設定では、これらの名前でレルムを参照できます。 
+END_DESCR
+
+CONT: realmName userDBLocation userDBMaxCacheSize userDBCacheTimeout 
+GroupDBLocation groupDBMaxCacheSize 
+groupDBCacheTimeout UDBgroup users
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: VHSecurity_Help 
+NAME: 仮想ホストのセキュリティ
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: vhBandwidthThrottlingControl tpSecThrottle accessControl realms
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: VHSecurity_Help 
+NAME: 仮想ホストのセキュリティ
+NS: E
+
+DESCR: 
+END_DESCR
+
+CONT: vhHotlink accessControl realms
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: VHSecurity_Help 
+NAME: 仮想ホストのセキュリティ
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: accessControl realms 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]

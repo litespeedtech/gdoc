@@ -1,0 +1,503 @@
+[HELPDOC]
+
+############# Server Log #############
+
+[ITEM]
+ID: log_fileName
+NAME: ファイル名
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: ログファイルのパスを指定します。 
+END_DESCR
+
+EDITTIP: ログファイルのパスは絶対パスでも、$SERVER_ROOTからの相対パスでもかまいません。
+END_EDITTIP
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [パフォーマンス]ログファイルを別のディスクに配置します。 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: log_logLevel
+NAME: ログレベル
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=log_debugLevel}
+
+DESCR: ログファイルに含めるログのレベルを指定します。
+使用可能なレベルは、{val}エラー{/}、{val}警告{/}、{val}通知{/}、{val}情報{/}および{val} DEBUG {/}です。
+現在の設定以上のレベルのメッセージのみが記録されます。 
+END_DESCR
+
+SYNTAX: 選択
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [パフォーマンス] {ITEM = log_debugLevel}が{val} NONE {/}以外のレベルに設定されていない限り、{val} DEBUG {/}ログレベルを使用してもパフォーマンスに影響はありません。
+ログレベルを{val} DEBUG {/}に設定し、デバッグレベルを{val} NONE {/}に設定することをお勧めします。
+これらの設定は、ハードディスクにデバッグログを書き込まないことを意味しますが、{ITEM = ServerStat_Help＃toggleDebugLog}アクションを使用してデバッグ出力を制御することができます。
+これにより、デバッグログのオン/オフを切り替えることができ、多忙な運用サーバーのデバッグに役立ちます。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: log_debugLevel
+NAME: デバッグレベル
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=log_logLevel}, {ITEM=ServerStat_Help#toggleDebugLog}
+
+DESCR: デバッグログのレベルを指定します。
+この機能を使用するには、{ITEM = log_logLevel}を{val} DEBUG {/}に設定する必要があります。
+{ITEM = log_logLevel}が{val} DEBUG {/}に設定されていても、「デバッグレベル」が{val} NONE {/}に設定されていると、デバッグロギングは無効になります。
+{ITEM = ServerStat_Help＃toggleDebugLog}は、再起動せずにライブサーバー上のデバッグレベルを制御するために使用できます。.
+
+END_DESCR
+
+SYNTAX: 選択
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [パフォーマンス]重要！ 詳細なデバッグログが必要ない場合は、常にこれを{val} NONE {/}に設定してください。
+アクティブデバッグロギングは、サービスのパフォーマンスを著しく低下させ、非常に短時間でディスクスペースを飽和させる可能性があります。
+デバッグログには、各要求と応答の詳細情報が含まれています。
+
+ログレベルを{val} DEBUG {/}に設定し、デバッグレベルを{val} NONE {/}に設定することをお勧めします。
+これらの設定は、ハードディスクにデバッグログを書き込まないことを意味しますが、{ITEM = ServerStat_Help＃toggleDebugLog}アクションを使用してデバッグ出力を制御することができます。
+これにより、デバッグログのオン/オフを切り替えることができ、多忙な運用サーバーのデバッグに役立ちます。
+
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: log_rollingSize
+NAME: ローテーションサイズ（バイト）
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 現在のログファイルをロールオーバーする必要があるとき、つまりログローテーションを指定します。
+ファイルサイズがロールオーバー制限を超えると、アクティブなログファイルは同じディレクトリにlog_name.mm_dd_yyyy（.sequence）という名前に変更され、新しいアクティブなログファイルが作成されます。
+回転ログファイルが実際に作成されると、そのサイズはこのサイズ制限より少し大きくなることがあります。 ログのローテーションを無効にするには、{val} 0 {/}に設定します。
+
+EDITTIP: 現在のログファイルがローリングサイズを超えると、新しいログファイルが作成されます。 ファイルサイズはバイト単位で、10240,10K、または1Mの複数の入力フォーマットにすることができます。
+END_EDITTIP
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: キロ、メガ、ギガバイトの数字に「K」、「M」、「G」を追加します。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: log_enableStderrLog
+NAME: stderrログを有効にする
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: サーバーが開始したプロセスからstderr出力を受け取ったときにログに書き込むかどうかを指定します。
+有効にすると、stderrメッセージは固定名 "stderr.log"を持つサーバーログと同じディレクトリに記録されます。 無効にすると、すべてのstderr出力は破棄されます。
+END_DESCR
+
+EDITTIP: Stderrログは、サーバーログと同じディレクトリにあります。 有効にすると、stderrへのすべての外部アプリケーション出力がこのファイルに記録されます。
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 設定された外部アプリケーション（PHP、Ruby、Java、Python、Perl）をデバッグする必要がある場合にオンにします。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: log_enableAioLog
+NAME: AIOロギングを有効にする
+REQUIRED: 
+APPLY: 3
+SINCE: 4.2.19
+SEE_ALSO: 
+
+DESCR: サーバーログとアクセスログのAIOログを有効にするかどうかを指定します。
+有効にすると、ログメッセージの書き込みに非同期I / Oが使用されます。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: AIOロギングを有効にすると、サーバーのI / O待機時間が長い場合にサーバー全体のパフォーマンスが向上します。
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Access Log #############
+
+
+[ITEM]
+ID: accessLog_fileName
+NAME: ファイル名
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: アクセスログファイル名。
+END_DESCR
+
+EDITTIP: ログファイルのパスは絶対パスでも、$SERVER_ROOTからの相対パスでもかまいません。
+END_EDITTIP
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [パフォーマンス]アクセスログファイルを別のディスクに入れます。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessLog_pipedLogger
+NAME: Piped Logger
+NS: EO
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: LiteSpeedがSTDINストリーム上のパイプを通じて送信するアクセスログデータを受け取る外部アプリケーションを指定します（ファイルハンドルは0）。
+このフィールドが指定されると、アクセスログはロガーアプリケーションにのみ送信され、前のエントリで指定されたアクセスログファイルには送信されません。
+
+
+ロガーアプリケーションは、最初に{PAGE = ExtApp_Help}セクションで定義する必要があります。
+サーバー・レベルのアクセス・ロギングは、サーバー・レベルで定義された外部ロガー・アプリケーションのみを使用できます。
+仮想ホストレベルのアクセスロギングでは、仮想ホストレベルで定義されたロガーアプリケーションのみを使用できます。
+
+
+ロガープロセスは、他の外部（CGI/FastCGI/LSAPI）プロセスと同じ方法で生成されます。
+つまり、バーチャルホストの{ITEM = VirtualHosts_Help＃setUidMode}設定で指定されたユーザーIDとして実行され、特権ユーザーのために実行されることはありません。. 
+
+
+LiteSpeed Webサーバーは、複数のロガーアプリケーションのインスタンスが設定されている場合、複数のロガーアプリケーション間で簡単なロードバランシングを実行します。
+LiteSpeedサーバーは、常にロガーアプリケーションの数を可能な限り低く抑えようとします。
+1つのロガーアプリケーションがアクセスログエントリを時間内に処理できない場合にのみ、サーバーはロガーアプリケーションの別のインスタンスを生成しようとします。 
+
+
+ロガーがクラッシュした場合、Webサーバーは別のインスタンスを開始しますが、ストリームバッファーのログデータは失われます。
+外部ロガーがログ・ストリームの速度と量に追いつけない場合、ログ・データを失う可能性があります。
+END_DESCR
+
+SYNTAX: 選択 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessLog_pipedLogger
+NAME: Piped Logger
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: LiteSpeedがSTDINストリーム（ファイルハンドル0）上のパイプを通じて送信したアクセスログデータを受け取る外部アプリケーションを指定します。
+指定すると、アクセスログは、前のエントリで指定されたアクセスログファイルの代わりにロガーアプリケーションに送信されます。
+
+
+LiteSpeedロードバランサ
+複数のロガーアプリケーションのインスタンスが複数構成されている場合、複数のロガーアプリケーション間で簡単なロードバランシングを実行します。
+LiteSpeed Web Serverは、常にロガープロセスの数を可能な限り少なく保つよう試みます。
+1つのロガーアプリケーションがアクセスログエントリを時間内に処理できない場合にのみ、サーバーは別のロガーアプリケーションインスタンスを生成しようとします。
+
+
+ロガープロセスがクラッシュした場合、サーバーは別のインスタンスを開始しますが、ストリームバッファーのログデータは失われます。
+外部ロガーがログ・ストリームの速度と量に追いつけない場合は、ログ・データを失う可能性があります。
+
+
+ロガーアプリケーションへのファイルパスはここで指定する必要があります。オプションで、ファイルパスの前にアプリケーションインスタンスの数を設定し、その後に '|'を付けることもできます。
+END_DESCR
+
+SYNTAX: [&lt;intances&gt;|]&lt;path_to_logger_app&gt;
+END_SYNTAX
+
+EXAMPLE: 4|/path/to/logger/app 
+
+サーバーに最大4つのロガープロセスを開始するように指示します。
+
+
+/path/to/logger/app
+
+サーバーは1つのロガープロセスのみを開始するように指示します。
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessLog_logFormat
+NAME: Log Format
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=accessLog_logHeader}
+
+DESCR: {ent_version} アクセスログのログ形式を指定します。
+ログフォーマットが設定されると、{ITEM = accessLog_logHeader}の設定より優先されます。
+END_DESCR
+
+SYNTAX: 文字列。ログフォーマットの構文はApache 2.0のカスタムと互換性があります 
+{ext-href}http://httpd.apache.org/docs/2.0/mod/mod_log_config.html#formats{ext-href-end}log format{ext-href-end-a}。
+END_SYNTAX
+
+EXAMPLE:
+<br>
+<b>共通ログフォーマット（CLF）</b>
+
+    "%h %l %u %t \"%r\" %>s %b"
+
+
+<b>バーチャルホストによる共通ログフォーマット</b>
+
+    "%v %h %l %u %t \"%r\" %>s %b"
+
+
+<b>NCSA拡張/結合ログフォーマット</b>
+
+    "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\" 
+
+
+<b>FoobarのログCookie値</b>
+
+    "%{Foobar}C"
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessLog_logHeader
+NAME: ログヘッダー
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=accessLog_logFormat}
+
+DESCR: {val} Referer {/}、{val} UserAgent {/}、{val} Host {/}のいずれかをHTTPリクエストヘッダとして記録するかどうかを指定します。
+END_DESCR
+
+SYNTAX: チェックボックス
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [パフォーマンス]これらのヘッダーがアクセスログに必要ない場合は、これをオフにします。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessLog_keepDays
+NAME: Keep Days
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: アクセスログファイルをディスクに保管する日数を指定します。
+指定した日数より古いローテーションしたログファイルのみが削除されます。
+現在のログファイルには、それに含まれるデータの日数にかかわらず、表示されません。
+古いログファイルを自動削除しない場合は、{val} 0 {/}に設定します。
+END_DESCR
+
+SYNTAX: 符号なし整数
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessLog_compressArchive
+NAME: アーカイブを圧縮する
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: ディスク領域を節約するためにローテーションしたログファイルを圧縮するかどうかを指定します。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:ログファイルは圧縮率が高く、古いログのディスク使用量を減らすために推奨されます。
+END_TIPS
+
+[END_ITEM]
+
+
+
+################ Tables ################
+
+
+[TBL]
+ID: servLog
+NAME: サーバーログ
+NS: LE
+
+DESCR: 
+END_DESCR
+
+CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_enableStderrLog log_enableAioLog
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: servLog
+NAME: サーバーログ
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_enableStderrLog 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: servAcLog
+NAME: アクセスログ
+
+DESCR: 
+END_DESCR
+
+CONT: accessLog_fileName accessLog_pipedLogger accessLog_logFormat accessLog_logHeader log_rollingSize accessLog_keepDays accessLog_compressArchive
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: ServLog_Help
+NAME: サーバーログ
+NS: L
+
+DESCR: ロードバランサのサーバーログとアクセスログの設定。
+パス情報が必要な場合は、$ SERVER_ROOTの絶対パスまたは相対パスのいずれかになります。 $SERVER_ROOTは、LiteSpeedロードバランサがインストールされている場所です。
+たとえば、your_home_dir/lslb、/opt/lslbなどです。ロードバランサの実行ファイルは$SERVER_ROOT/binにあります。
+END_DESCR
+
+CONT: servLog servAcLog 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: ServLog_Help
+NAME: サーバーログ
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: servLog servAcLog 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]

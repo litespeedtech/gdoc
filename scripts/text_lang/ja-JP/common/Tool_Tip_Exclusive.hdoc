@@ -1,0 +1,58 @@
+[HELPDOC]
+
+
+[ITEM]
+ID: note
+NAME: ノート
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO:
+
+DESCR: あなた自身のためにメモを追加してください。
+END_DESCR
+
+SYNTAX:
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[TBL]
+ID: notesTBL
+NAME: ツールチップの限定
+
+DESCR: 
+END_DESCR
+
+CONT: note
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[PAGE]
+ID: Tool_Tips
+Name:
+
+DESCR:
+END_DESCR
+
+CONT: notesTBL
+END_CONT
+
+SEE_ALSO:
+
+[END_PAGE]
+
+
+[END_HELPDOC]

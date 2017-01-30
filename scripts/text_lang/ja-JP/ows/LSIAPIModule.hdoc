@@ -1,0 +1,984 @@
+[HELPDOC]
+
+
+########## Server Module Definition ##########
+
+
+[ITEM]
+ID: modulename
+NAME: モジュール
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: モジュールの名前。
+モジュール名はモジュールファイル名と同じになります。
+モジュール・ファイルは、サーバー・アプリケーションによってロードされるために$SERVER_ROOT/modules/modulename.soの下になければなりません。
+サーバーは起動時に登録されたモジュールをロードします。
+このためには、新しいモジュールが登録された後でサーバーを再起動する必要があります。
+
+END_DESCR
+
+SYNTAX: .soのライブラリ名。 
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: internalmodule
+NAME: 内部
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: モジュールが外部の.soライブラリではなく、静的にリンクされている内部モジュールであるかどうかを指定します。
+
+END_DESCR
+
+SYNTAX: bool 
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: modParams
+NAME: モジュールのパラメータ
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: モジュールのパラメータを設定します。 モジュールパラメータは、モジュール開発者によって定義されます。
+
+
+デフォルト値をグローバルに割り当てるようにサーバー構成内の値を設定します。
+ユーザーは、この設定をリスナー、仮想ホストまたはコンテキスト・レベルでオーバーライドできます。
+「設定しない」ラジオボタンが選択されている場合、それは上位レベルから継承されます。
+END_DESCR
+
+SYNTAX: モジュールインタフェースで指定されます。 
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: moduleEnabled
+NAME: フックを有効にする
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: モジュールフックをグローバルに有効または無効にします。 
+
+「設定しない」ラジオボタンが選択され、モジュールにフック機能が含まれている場合、デフォルトが有効になります。
+ユーザーは、各レベルでこのグローバル設定を上書きできます。  
+END_DESCR
+
+SYNTAX: bool 
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: moduleEnabled_lst
+NAME: フックを有効にする
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Listenerレベルでモジュールフックを有効または無効にします。
+モジュールにTCP/IPレベルのフック（L4_BEGSESSION、L4_ENDSESSION、L4_RECVING、L4_SENDING）がある場合のみ、この設定が有効になります。
+
+
+「設定しない」ラジオボタンが選択されている場合、デフォルトはServer設定から継承されます。
+ユーザーはデフォルト設定を上書きするためにここで設定するだけです。 
+END_DESCR
+
+SYNTAX: bool 
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: moduleEnabled_vh
+NAME: フックを有効にする
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 仮想ホストまたはコンテキスト・レベルでモジュール・フックを使用可能または使用不可にします。
+モジュールにHTTPレベルのフックがある場合のみ、この設定が有効になります。
+
+
+「設定しない」ラジオボタンを選択すると、仮想ホストレベルのデフォルト設定がサーバー設定から継承されます。
+コンテキストレベルの設定は、仮想ホストレベルから継承されます。
+ユーザーはデフォルト設定を上書きするためにここで設定するだけです。 
+END_DESCR
+
+SYNTAX: bool 
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: L4_BEGINSESSION
+NAME: フック::L4_BEGINSESSION プライオリティ
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: このモジュールコールバックの優先度をL4 Begin Session フック内で設定します。
+
+ 
+TCP/IP接続が開始されると、L4 Begin Session フックがトリガーされます。  
+
+
+モジュールにフックポイントがある場合にのみ有効です。
+設定されていない場合、優先度はモジュールで定義されたデフォルト値になります。
+END_DESCR
+
+SYNTAX: 整数値は-6000から6000です。値が小さいほど優先度が高くなります。
+
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: L4_ENDSESSION
+NAME: フック::L4_ENDSESSION プライオリティ
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: このモジュールコールバックの優先度をL4 End Session フック内で設定します。
+
+  
+TCP/IP接続が終了すると、L4 End Session フックがトリガーされます。 
+
+
+モジュールにフックポイントがある場合にのみ有効です。
+設定されていない場合、優先度はモジュールで定義されたデフォルト値になります。
+END_DESCR
+
+SYNTAX: 整数値は-6000から6000です。値が小さいほど優先度が高くなります。
+
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: L4_RECVING
+NAME: フック::L4_RECVING プライオリティ
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: L4 Receiving フック内のこのモジュールコールバックの優先度を設定します。
+
+  
+TCP/IP接続がデータを受信すると、L4 Receiving フックがトリガーされます。  
+
+
+モジュールにフックポイントがある場合にのみ有効です。
+設定されていない場合、優先度はモジュールで定義されたデフォルト値になります。
+END_DESCR
+
+SYNTAX: 整数値は-6000から6000です。値が小さいほど優先度が高くなります。
+
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: L4_SENDING
+NAME: フック::L4_SENDING プライオリティ
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: このモジュールコールバックの優先度をL4 Sendingフック内で設定します。
+
+ 
+L4_SENDINGフックは、TCP/IP接続がデータを送信するときにトリガーされます。  
+
+
+モジュールにフックポイントがある場合にのみ有効です。 設定されていない場合、優先度はモジュールで定義されたデフォルト値になります。
+END_DESCR
+
+SYNTAX: 整数値は-6000から6000です。値が小さいほど優先度が高くなります。
+
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: HTTP_BEGIN
+NAME: フック::HTTP_BEGIN プライオリティ
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: HTTP Begin フック内のこのモジュールコールバックの優先度を設定します。
+
+  
+TCP/IP接続がHTTPセッションを開始すると、HTTP Begin フックがトリガーされます。  
+
+
+モジュールにフックポイントがある場合にのみ有効です。
+設定されていない場合、優先度はモジュールで定義されたデフォルト値になります。
+END_DESCR
+
+SYNTAX: 整数値は-6000から6000です。値が小さいほど優先度が高くなります。
+
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: RECV_REQ_HEADER
+NAME: フック::RECV_REQ_HEADER プライオリティ
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: HTTP受信要求ヘッダーフック内のこのモジュールコールバックの優先度を設定します。
+
+  
+HTTP受信要求ヘッダーフックは、Webサーバーが要求ヘッダーを受信するとトリガーされます。  
+
+
+モジュールにフックポイントがある場合にのみ有効です。
+設定されていない場合、優先度はモジュールで定義されたデフォルト値になります。
+END_DESCR
+
+SYNTAX: 整数値は-6000から6000です。値が小さいほど優先度が高くなります。
+
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: URI_MAP
+NAME: フック::URI_MAP プライオリティ
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: このモジュールコールバックの優先度をHTTP URIマップフック内で設定します。
+
+ 
+HTTP URI マップフックは、WebサーバーがURI要求をコンテキストにマップするときにトリガーされます。 
+
+
+モジュールにフックポイントがある場合にのみ有効です。
+設定されていない場合、優先度はモジュールで定義されたデフォルト値になります。
+END_DESCR
+
+SYNTAX: 整数値は-6000から6000です。値が小さいほど優先度が高くなります。
+
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: HTTP_AUTH
+NAME: フック::HTTP_AUTH プライオリティ
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: HTTP認証フック内のこのモジュールコールバックの優先度を設定します。
+
+ 
+HTTP認証フックは、リソースマッピング後およびハンドラ処理の前にトリガされます。
+HTTP組み込み認証の後に発生し、追加の認証チェックを実行するために使用できます。  
+
+
+モジュールにフックポイントがある場合にのみ有効です。
+設定されていない場合、優先度はモジュールで定義されたデフォルト値になります。
+END_DESCR
+
+SYNTAX: 整数値は-6000から6000です。値が小さいほど優先度が高くなります。
+
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: RECV_REQ_BODY
+NAME: フック::RECV_REQ_BODY プライオリティ
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: HTTP受信要求ボディフック内のこのモジュールコールバックの優先度を設定します。  
+
+
+Webサーバーが要求本体データを受信すると、HTTP受信要求ボディフックがトリガーされます。  
+
+
+モジュールにフックポイントがある場合にのみ有効です。
+設定されていない場合、優先度はモジュールで定義されたデフォルト値になります。
+END_DESCR
+
+SYNTAX: 整数値は-6000から6000です。値が小さいほど優先度が高くなります。
+
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: RCVD_REQ_BODY
+NAME: フック::RCVD_REQ_BODY プライオリティ
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: HTTP Received Request Body Hook内のこのモジュールコールバックの優先度を設定します。  
+
+
+Webサーバーが要求本体データの受信を終了すると、HTTP受信要求本体フックがトリガーされます。  
+
+
+モジュールにフックポイントがある場合にのみ有効です。
+設定されていない場合、優先度はモジュールで定義されたデフォルト値になります。
+END_DESCR
+
+SYNTAX: 整数値は-6000から6000です。値が小さいほど優先度が高くなります。
+
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: RECV_RESP_HEADER
+NAME: Hook::RECV_RESP_HEADER Priority
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: HTTP受信応答ヘッダーフック内のこのモジュールコールバックの優先度を設定します。  
+
+
+HTTP受信応答ヘッダーフックは、Webサーバーが応答ヘッダーを作成するときにトリガーされます。  
+
+
+モジュールにフックポイントがある場合にのみ有効です。
+設定されていない場合、優先度はモジュールで定義されたデフォルト値になります。
+END_DESCR
+
+SYNTAX: 整数値は-6000から6000です。値が小さいほど優先度が高くなります。
+
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: RECV_RESP_BODY
+NAME: フック::RECV_RESP_BODY プライオリティ
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: HTTP受信応答ボティフック内のこのモジュールコールバックの優先度を設定します。  
+
+
+HTTP受信応答ボティフックは、Webサーバーのバックエンドが応答本体を受信するとトリガーされます。  
+
+
+モジュールにフックポイントがある場合にのみ有効です。
+設定されていない場合、優先度はモジュールで定義されたデフォルト値になります。
+END_DESCR
+
+SYNTAX: 整数値は-6000から6000です。値が小さいほど優先度が高くなります。
+
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: RCVD_RESP_BODY
+NAME: フック::RCVD_RESP_BODY プライオリティ
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: HTTP受信応答ボディフック内のこのモジュールコールバックの優先度を設定します。  
+
+
+HTTP受信応答ボディフックは、Webサーバーのバックエンドが応答本体の受信を終了するとトリガーされます。  
+
+
+モジュールにフックポイントがある場合にのみ有効です。
+設定されていない場合、優先度はモジュールで定義されたデフォルト値になります。
+END_DESCR
+
+SYNTAX: 整数値は-6000から6000です。値が小さいほど優先度が高くなります。
+
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: HANDLER_RESTART
+NAME: フック::HANDLER_RESTART プライオリティ
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: このモジュールコールバックの優先度をHTTPハンドラの再起動フック内で設定します。
+
+  
+Webサーバが現在の応答を破棄し、内部リダイレクトが要求されたときなど、最初から処理を開始する必要があるときに、HTTPハンドラの再起動フックがトリガされます。
+
+
+モジュールにフックポイントがある場合にのみ有効です。
+設定されていない場合、優先度はモジュールで定義されたデフォルト値になります。
+END_DESCR
+
+SYNTAX: 整数値は-6000から6000です。値が小さいほど優先度が高くなります。
+
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: SEND_RESP_HEADER
+NAME: フック::SEND_RESP_HEADER プライオリティ
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: このモジュールコールバックの優先度を、HTTP送信応答ヘッダーフック内で設定します。 
+
+
+Webサーバーが応答ヘッダーを送信する準備ができたら、HTTP送信応答ヘッダーフックがトリガーされます。  
+
+
+モジュールにフックポイントがある場合にのみ有効です。
+設定されていない場合、優先度はモジュールで定義されたデフォルト値になります。
+END_DESCR
+
+SYNTAX: 整数値は-6000から6000です。値が小さいほど優先度が高くなります。
+
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: SEND_RESP_BODY
+NAME: フック::SEND_RESP_BODY プライオリティ
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: HTTP送信レスポンスボディフック内のこのモジュールコールバックの優先度を設定します。 
+
+
+HTTP送信レスポンスボディフックは、Webサーバがレスポンスボディを送信するときにトリガされます。  
+
+
+モジュールにフックポイントがある場合にのみ有効です。
+設定されていない場合、優先度はモジュールで定義されたデフォルト値になります。
+END_DESCR
+
+SYNTAX: 整数値は-6000から6000です。値が小さいほど優先度が高くなります。
+
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: HTTP_END
+NAME: フック::HTTP_END プライオリティ
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: HTTPセッション終了フック内のこのモジュールコールバックの優先度を設定します。 
+
+
+HTTPセッション終了フックは、HTTP接続が終了したときにトリガーされます。  
+  
+
+モジュールにフックポイントがある場合にのみ有効です。
+設定されていない場合、優先度はモジュールで定義されたデフォルト値になります。
+END_DESCR
+
+SYNTAX: 整数値は-6000から6000です。値が小さいほど優先度が高くなります。
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: MAIN_INITED
+NAME: フック::MAIN_INITED プライオリティ
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: メイン初期化フック内のこのモジュールコールバックの優先度を設定します。 
+
+
+メイン初期化フックは、起動時、メイン（コントローラ）プロセスによってサーバー構成と初期化が完了した後、および要求が処理される前に一度起動されます。
+  
+
+モジュールにフックポイントがある場合にのみ有効です。
+設定されていない場合、優先順位はモジュールで定義されたデフォルト値になります。 
+END_DESCR
+
+SYNTAX: 整数値は-6000から6000です。値が小さいほど優先度が高くなります。
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: MAIN_PREFORK
+NAME: フック::MAIN_PREFORK プライオリティ
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Main Prefork フック内のこのモジュールコールバックの優先度を設定します。 
+
+
+Main Prefork フックは、新しいワーカープロセスが開始（分岐）される直前にメイン（コントローラ）プロセスによってトリガされます。
+これは各ワーカーに呼び出され、システムの起動時やワーカが再起動されたときに発生する可能性があります。
+  
+
+モジュールにフックポイントがある場合にのみ有効です。
+設定されていない場合、優先度はモジュールで定義されたデフォルト値になります。
+END_DESCR
+
+SYNTAX: 整数値は-6000から6000です。値が小さいほど優先度が高くなります。
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: MAIN_POSTFORK
+NAME: フック::MAIN_POSTFORK プライオリティ
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Main Postfork フック内のこのモジュールコールバックの優先度を設定します。
+
+
+Main Postfork Hookは、新しいワーカープロセスが開始（フォーク）された直後にメイン（コントローラ）プロセスによってトリガされます。
+これは各ワーカーに呼び出され、システムの起動時やワーカが再起動されたときに発生する可能性があります。
+  
+
+モジュールにフックポイントがある場合にのみ有効です。
+設定されていない場合、優先度はモジュールで定義されたデフォルト値になります。 
+END_DESCR
+
+SYNTAX: 整数値は-6000から6000です。値が小さいほど優先度が高くなります。
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: WORKER_POSTFORK
+NAME: フック::WORKER_POSTFORK プライオリティ
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Worker Postfork Hook内のこのモジュールコールバックの優先度を設定します。 
+
+
+Worker Postfork Hookは、メイン（コントローラ）プロセスによって作成された後、ワーカープロセスによってトリガされます。
+対応するMain Postfork Hookは、このコールバックの前または後のメインプロセスによって呼び出されることに注意してください。ck.
+  
+
+モジュールにフックポイントがある場合にのみ有効です。
+設定されていない場合、優先度はモジュールで定義されたデフォルト値になります。 
+END_DESCR
+
+SYNTAX: 整数値は-6000から6000です。値が小さいほど優先度が高くなります。
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+	
+
+
+[ITEM]
+ID: WORKER_ATEXIT
+NAME: フック::WORKER_ATEXIT プライオリティ
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: このモジュールコールバックの優先度を、終了時のワーカーのフック内で設定します。 
+
+
+退出時のワーカーは、退出する直前のワーカープロセスによってトリガされます。
+これは、ワーカーによって呼び出される最後のフックポイントです。
+  
+
+モジュールにフックポイントがある場合にのみ有効です。
+設定されていない場合、優先度はモジュールで定義されたデフォルト値になります。
+END_DESCR
+
+SYNTAX: 整数値は-6000から6000です。値が小さいほど優先度が高くなります。
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+
+ 
+[ITEM]
+ID: MAIN_ATEXIT
+NAME: フック::MAIN_ATEXIT プライオリティ
+REQUIRED: 
+APPLY: 
+SINCE: 
+SEE_ALSO: 
+
+DESCR: メインの出口フック内のこのモジュールコールバックの優先度を設定します 
+
+
+メインの出口フックは、終了する直前のメイン（コントローラ）プロセスによって起動されます。
+これは、メインプロセスによって呼び出される最後のフックポイントです。.
+  
+
+モジュールにフックポイントがある場合にのみ有効です。
+設定されていない場合、優先度はモジュールで定義されたデフォルト値になります。
+END_DESCR
+
+SYNTAX: 整数値は-6000から6000です。値が小さいほど優先度が高くなります。
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+[END_ITEM]
+
+			
+				
+############# Tables #############
+
+
+[TBL]
+ID: servModules
+NAME: サーバーモジュール
+
+DESCR: サーバーモジュール構成は、モジュール構成データをグローバルに定義します。
+一度定義されると、リスナーと仮想ホストはモジュールとモジュール構成にアクセスできます。 
+
+
+処理されるすべてのモジュールは、サーバー構成に登録する必要があります。
+サーバー構成では、モジュール・パラメーター・データのデフォルト値も定義されています。
+これらの値は、リスナーおよび仮想ホスト構成データによって継承または上書きできます。
+
+
+モジュールの優先順位は、サーバーレベルでのみ定義され、リスナーと仮想ホストの設定によって継承されます。
+END_DESCR
+
+CONT: modulename internalmodule modParams moduleEnabled	L4_BEGINSESSION L4_ENDSESSION L4_RECVING L4_SENDING 
+ HTTP_BEGIN RECV_REQ_HEADER URI_MAP HTTP_AUTH RECV_REQ_BODY RCVD_REQ_BODY RECV_RESP_HEADER RECV_RESP_BODY RCVD_RESP_BODY
+ HANDLER_RESTART SEND_RESP_HEADER SEND_RESP_BODY HTTP_END 
+ MAIN_INITED MAIN_PREFORK MAIN_POSTFORK WORKER_POSTFORK WORKER_ATEXIT MAIN_ATEXIT
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: listenerModules
+NAME: リスナーモジュール
+
+DESCR: リスナーモジュール設定データは、デフォルトでサーバーモジュール設定から継承されます。
+リスナモジュールは、TCP / IPレイヤ4フックに限定されています。
+END_DESCR
+
+CONT: modulename modParams moduleEnabled_lst 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: vhModules
+NAME: 仮想ホストモジュール
+
+DESCR: 仮想ホストモジュール構成データは、デフォルトでサーバーモジュール設定から継承されます。
+仮想ホストモジュールはHTTPレベルのフックに制限されています。
+END_DESCR
+
+CONT: modulename modParams moduleEnabled_vh 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: vhModuleUrlFilters
+NAME: 仮想ホストモジュールのコンテキスト
+
+DESCR: 仮想ホストコンテキストのモジュール設定をカスタマイズするための集中管理された場所です。
+コンテキストURIの設定は、仮想ホストまたはサーバーレベルの設定を上書きします。
+END_DESCR
+
+CONT: expuri modParams moduleEnabled_vh 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: Module_Help 
+NAME: モジュール設定
+
+DESCR: モジュールのサポートは、Openlitespeed 1.3およびLSWS Enterprise 5.0以降で利用できます。
+必要なモジュールはすべて、サーバーモジュール設定タブに登録する必要があります。
+モジュールファイルは、登録可能なサーバーのroot / modulesフォルダーに置く必要があります。
+起動時に、サーバーは登録されているすべてのモジュールをロードします。
+新しいモジュールが登録された後、サーバーを再起動する必要があります。
+
+
+モジュールは、サーバーモジュール設定タブでグローバルに設定できます。
+構成データは、リスナーおよび仮想ホスト・モジュール構成が継承または変更するために使用できます。
+END_DESCR
+
+CONT: servModules listenerModules vhModules vhModuleUrlFilters moduleContext
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]

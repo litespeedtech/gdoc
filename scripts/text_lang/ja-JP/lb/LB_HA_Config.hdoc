@@ -1,0 +1,477 @@
+[HELPDOC]
+
+
+########## HA Interface Config ##########
+
+
+[ITEM]
+ID: haInterfaceId
+NAME: 名前
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: 仮想インターフェイスを識別する固有の番号。
+END_DESCR
+
+EDITTIP: 追加/削除/変更は、HA->ステータスページで適用されるまで有効になりません。
+END_EDITTIP
+
+SYNTAX: 符号なし整数
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haVip
+NAME: バーチャルIP
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: HAインターフェイスの仮想IPアドレス。
+これはIPv4またはIPv6のいずれかのアドレスで、実際のIPアドレスと同じサブネット上になければなりません。
+END_DESCR
+
+SYNTAX: テキスト
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haVipId
+NAME: 仮想IP ID
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: 仮想IPアドレスのID。 1〜10の整数を使用してください。
+同じHAグループに対して<b>仮想IP</b>、<b>仮想IP ID</b>、および<b>仮想IPトークン</b>が同じである必要があります。
+END_DESCR
+
+SYNTAX: テキスト
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haVipToken
+NAME: 仮想IPトークン
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: インターフェイス（carp/vrrp）の広告を認証するには、仮想IPアドレストークンが必要です。
+同じHAグループに対して<b>仮想IP</b>、<b>仮想IP ID</b>、および<b>仮想IPトークン</b>が同じである必要があります。
+END_DESCR
+
+SYNTAX: テキスト
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haNic
+NAME: NIC名
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: 仮想IPがバインドするNIC名（eth0、eth1など）。Linuxプラットフォームでは必須です。
+
+
+<b>注意：</b>この設定は必須ですが、FreeBSDプラットフォームには影響しません。
+END_DESCR
+
+SYNTAX: テキスト
+END_SYNTAX
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haPriority
+NAME: プライオリティ
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: このロードバランササーバーの優先度。この値が大きいほど優先度が高くなります。
+最優先のロードバランサはマスターとして動作し、クラスタ内の他のロードバランサはスレーブとして動作します。
+
+
+<b>注：</b>これは、FreeBSDプラットフォームでは、逆に番号の低い方が優先度が高くなります。
+END_DESCR
+
+SYNTAX: 符号なし整数
+END_SYNTAX
+
+
+[END_ITEM]
+
+
+
+########## High Availability Replication ##########
+
+
+[ITEM]
+ID: haRep_serverAddr
+NAME: サーバーアドレス
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: 複製に使用されるローカルIPアドレスとポート。
+END_DESCR
+
+SYNTAX: IP:ポート
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haRep_replCluster
+NAME: レプリケーションクラスタ
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: このレプリケーションクラスタの一部であるレプリケータのIPアドレスとポート番号別リスト。
+END_DESCR
+
+SYNTAX: IP：portの形式でカンマ区切りのリスト
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haRep_heartBeatInterval
+NAME: ハートビート間隔（秒）
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: 「I am alive」というメッセージが送信されます。
+END_DESCR
+
+SYNTAX: 符号なし整数
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haRep_heartBeatTimeout
+NAME: ハートビートタイムアウト（秒）
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: その後、「I am alive」メッセージが送信されない場合、レプリケータは失敗したとみなされます。 
+<b>ハートビート間隔（秒）</b>をより高く設定する必要があります。
+END_DESCR
+
+SYNTAX: 符号なし整数
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haRep_isGzipStream
+NAME: Gzipストリーム
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: リプリケータトラフィックのGzip圧縮を有効にします。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haRep_isIncSync
+NAME: インクリメンタル同期を有効にする
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: インクリメンタルレプリケーションの同期チェックを有効にします。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haRep_isFileCached
+NAME: ファイルキャッシュを有効にする
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: ファイルキャッシュのレプリケーションを有効にします。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haRep_fileCacheLstnr
+NAME: ファイルキャッシュサーバーアドレス
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: ファイルキャッシュサーバーのアドレスを選択します。
+END_DESCR
+
+SYNTAX: IP:port
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haRep_fileCacheExpireSec
+NAME: ファイルキャッシュの有効期限（秒）
+REQUIRED: 
+APPLY: 3
+SINCE: 2.0
+SEE_ALSO: 
+
+DESCR: ファイルキャッシュの有効期限を設定します。
+END_DESCR
+
+SYNTAX: 符号なし整数
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+########### Tables ############
+
+
+[TBL]
+ID: HAInterface
+NAME: HA仮想インターフェイスの設定
+
+DESCR: 追加/削除/変更は、HA->ステータスページで適用されるまで有効になりません。
+END_DESCR
+
+CONT: haInterfaceId haVip haVipId haVipToken haNic haPriority
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: HAReplication
+NAME: レプリケーション
+
+DESCR:
+END_DESCR
+
+CONT: haRep_serverAddr haRep_replCluster haRep_heartBeatInterval haRep_heartBeatTimeout haRep_isGzipStream 
+haRep_isIncSync haRep_isFileCached haRep_fileCacheLstnr haRep_fileCacheExpireSec
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: HAStatus
+NAME: HAステータス
+
+DESCR: 固有の<b>インタフェースID </b>を使用して、現在設定されている高可用性インターフェイスの設定とステータスを表示します。
+各インターフェイスの現在設定されている設定と、実際の「ライブ」設定が緑色で表示されます。
+[ステータス]フィールドには、次の値のうちの1〜2つが含まれます。 
+
+<ul>
+<li><b>新しく設定された：</b>インターフェースは設定されていますが、まだ作成されていません。 このインターフェイスを作成するには、[追加]をクリックします。.</li>
+<li><b>設定ファイルに含まれていません：</b>現在のところ、このインターフェースの<b>インターフェースID </b>と一致するインターフェース設定はありません。 
+このインターフェイスを削除するには、[削除]をクリックします。</li>
+<li><b>一致：</b>この<b>インターフェイスID</b> の現在の設定は、対応するライブインターフェイスの設定と一致します。</li>
+<li><b>システムと一致しません</b>。この<b>インターフェースID </b>の現在の設定は、対応するライブインターフェースの設定と一致しません。
+[変更を適用]をクリックして、ライブ設定を設定済みの設定に上書きします。</li>
+<li><b>マスター：</ b>このインタフェースがマスターmasterの役割を持つことを示します。</li>
+<li><b>スタンバイ：</ b>このインターフェイスにスレーブの役割があることを示します。</li>
+</ul>
+
+END_DESCR
+
+CONT: 
+END_CONT
+
+TIPS: configセクションの高可用性インターフェイスに対する設定変更は、影響を受けるインターフェイスの横にある[Apply Changes]をクリックするまで適用されません。
+新しいインターフェースの追加や既存のインターフェースの削除にも同じことが言えます。変更はそれぞれ「追加/削除」をクリックするまで適用されません。
+END_TIPS
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: replicationStatus
+NAME: レプリケーションステータス
+
+DESCR: 各レプリケータのレコード上にアクティブなセッションの数だけでなく、サーバーアドレスによってレプリケーションクラスタ内の現在の「ライブ」レプリケータのステータスを表示します。 
+ソースレプリケータ（通常はオンラインになる最初のもの）は、サーバーアドレスの前にハイライト表示された<b> SRC </b>タグを持ちます。
+レプリケートクラスタ内の他のレプリケータにデータを積極的に同期させるのは、このレプリケータジョブです。
+これらの他のレプリケーターは、ソースレプリケーターと比較されて、それらが「同期中」か「同期外れ」かを判別します。
+<br><br>
+<b> SSLセッション</b>には、現在のロードバランサの現在キャッシュされているSSLセッションの数が表示されます。
+<br><br>
+<b> IDセッション</b>では、ロードバランサで定義された各クラスタのセッションキャッシュにセッション数が表示されます。
+<br><br>
+変更は共有メモリに書き込まれるので、リアルタイムでレプリケーションが行われます。
+END_DESCR
+
+[END_TBL]
+
+
+
+########### Pages ############
+
+
+[PAGE]
+ID: HA_Config 
+NAME: 高可用性設定
+
+DESCR: 
+END_DESCR
+
+CONT: HAReplication HAInterface HAStatus replicationStatus
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]

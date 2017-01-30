@@ -1,0 +1,462 @@
+[HELPDOC]
+
+
+############# General #############
+
+
+[ITEM]
+ID: docRoot
+NAME: Document Root
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: この仮想ホストのドキュメントルートを指定します。
+{val}$VH_ROOT/html{/}をお勧めします。
+このディレクトリは、コンテキストでは$DOC_ROOTと呼ばれます。 
+END_DESCR
+
+EDITTIP: ここにドキュメントルートを設定します。これは絶対パスでも$SERV_ROOTまたは$VH_ROOTとの相対パスでもかまいません。
+END_EDITTIP
+
+EDITTIP: この仮想ホストでは、ドキュメントルートは$DOC_ROOTと呼ばれ、他のパス設定で使用できます。
+END_EDITTIP
+
+SYNTAX: path3
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhadminEmails
+NAME: 管理者用電子メール
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: この仮想ホストの管理者の電子メールアドレスを指定します。
+END_DESCR
+
+EDITTIP: カンマで区切って複数の管理用メールを入力できます。
+END_EDITTIP
+
+SYNTAX: 電子メールアドレスのコンマ区切りリスト
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableGzip
+NAME: GZIPを有効にする
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=ServTuning_Help#enableGzipCompress}, {ITEM=ServTuning_Help#gzipStaticCompressLevel}, {ITEM=ServTuning_Help#enableDynGzipCompress}, {ITEM=ServTuning_Help#gzipCompressLevel}
+
+DESCR: この仮想ホストに対してGZIP圧縮を有効にするかどうかを指定します。
+この設定は、サーバーレベルでGZIP圧縮が有効になっている場合にのみ有効です。
+圧縮設定はサーバーレベルで設定されます（チューニング> GZIP）。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: spdyAdHeader
+NAME: SPDY 広告
+REQUIRED: 
+APPLY: 3
+SINCE: 1.2.5
+SEE_ALSO: 
+
+DESCR: SPDYプロトコルが使用可能であることをクライアントに通知するかどうかを指定します。
+設定されている場合、クライアントがHTTP接続を介してSPDY対応のWebサイトにアクセスすると、LSWSは代替プロトコルの応答ヘッダーを送信します。
+これを行うには、WebサイトにHTTPとHTTPSの両方の接続を設定し、SPDYサポートを有効にする必要があります。
+END_DESCR
+
+SYNTAX: ポート:プロトコル 文字列 
+END_SYNTAX
+
+EXAMPLE: ポート443でSPDY/3が有効になっている場合、文字列を "443：npn-spdy/3"に設定できます。
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Index Files #############
+
+
+[ITEM]
+ID: indexUseServer
+NAME: サーバーインデックスファイルを使用する
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: サーバーのインデックスファイル設定を使用するかどうかを指定します。
+{val}はい{/}に設定すると、サーバーの設定だけが使用されます。
+{val}いいえ{/}に設定すると、サーバーの設定は使用されません。
+{val}追加{/}に設定すると、この仮想ホストのインデックスファイルリストに追加のインデックスファイルを追加できます。
+この仮想ホストのインデックスファイルを無効にする場合は、値を{val}いいえ{/}に設定して、インデックスファイルのフィールドを空のままにします。
+END_DESCR
+
+EDITTIP: インデックスファイルのデフォルトのサーバーレベル設定を使用するか、独自のサーバーレベル設定を使用できます。
+END_EDITTIP
+
+EDITTIP: サーバーレベルの設定に加えて、設定を使用することができます。
+END_EDITTIP
+
+EDITTIP: インデックスファイルを無効にするには、サーバーレベルの設定を使用しないで、仮想レベルの設定を空白のままにします。
+END_EDITTIP
+
+EDITTIP: コンテキスト・レベルで「自動インデックス」を有効/無効にすることができます。
+END_EDITTIP
+
+SYNTAX: 選択
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: autoIndex
+NAME: 自動インデックス
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=indexFiles}, {ITEM=autoIndexURI}
+
+DESCR: {ITEM=indexFiles}にリストされている索引ファイルがディレクトリで使用できないときに、その場でディレクトリー索引を生成するかどうかを指定します。
+このオプションは、仮想ホストおよびコンテキストレベルでカスタマイズ可能で、明示的に上書きされるまでディレクトリツリーに沿って継承されます。
+生成された索引ページをカスタマイズできます。
+オンラインウィキHow-tosを確認してください。
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [セキュリティ]可能であれば、自動インデックスをオフにして、機密データを漏らさないようにすることをお勧めします。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: autoIndexURI
+NAME: 自動インデックス URI
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=indexFiles}, {ITEM=autoIndex}
+
+DESCR: {ITEM=indexFiles}にリストされているインデックスファイルがディレクトリで使用できない場合に、インデックスページを生成するために使用されるURIを指定します。
+LiteSpeed Webサーバーは外部スクリプトを使用してインデックスページを生成し、最大限のカスタマイズの柔軟性を提供します。
+デフォルトスクリプトは、Apacheと同じ外観のインデックスページを生成します。
+生成されたインデックスページをカスタマイズするには、オンラインウィキHow-tosを読んでください。
+索引付けされるディレクトリーは、環境変数 "LS_AI_PATH"を介してスクリプトに渡されます。
+END_DESCR
+
+SYNTAX: URI
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Customized Error Pages #############
+
+
+[ITEM]
+ID: errCode
+NAME: エラーコード
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: SエラーページのHTTPステータスコードを指定します。
+選択したHTTPステータスコードだけがこのカスタマイズされたエラーページを持ちます。
+END_DESCR
+
+SYNTAX: 選択
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: errMessage
+NAME: カスタムエラーメッセージ
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: カスタムエラーメッセージを指定します。
+END_DESCR
+
+SYNTAX: テキスト
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: errURL
+NAME: URL
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: カスタマイズされたエラーページのURLを指定します。
+サーバーは、対応するHTTPステータスコードが返されたときに、このURLにリクエストを転送します。
+このURLが存在しないリソースを参照する場合は、組み込みのエラーページが使用されます。
+URLは、静的ファイル、動的に生成されたページ、または別のWebサイトのページ（「http(s)：//」で始まるURL文字列）にすることができます。
+別のWebサイトのページを参照する場合、クライアントは元のステータスコードの代わりにリダイレクトステータスコードを受け取ります。
+END_DESCR
+
+EDITTIP: さまざまなエラーコードに対してカスタムエラーページを設定できます。
+END_EDITTIP
+
+SYNTAX: URL
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# HT Access #############
+############# Expires Settings #############
+############# Apache Style Configurations #############
+
+
+
+############# Tables ##############
+
+
+[TBL]
+ID: vhGeneral
+NAME: 一般
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: docRoot vhadminEmails enableGzip enableIpGeo spdyAdHeader 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: vhIndex
+NAME: インデックスファイル
+
+DESCR: 
+END_DESCR
+
+CONT: indexUseServer indexFiles autoIndex autoIndexURI
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: vhGeneral
+NAME: 一般
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: vhMaxKeepAliveReq vhSmartKeepAlive enableGzip enableIpGeo
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: errPage
+NAME: カスタマイズされたエラーページ
+NS: EO
+
+DESCR: サーバーが要求を処理する際に問題が発生すると、サーバーはエラーコードとhtmlページをエラーメッセージとしてWebクライアントに返します。
+エラーコードはHTTPプロトコルで定義されています（RFC 2616参照）。
+LiteSpeed Webサーバーには、エラーコードごとにデフォルトのエラーページが組み込まれていますが、各エラーコードに対してカスタマイズされたページを設定することもできます。
+これらのエラーページは、各仮想ホストごとに一意になるようにさらにカスタマイズすることができます。
+END_DESCR
+
+CONT: errCode errURL
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: errPage
+NAME: カスタマイズされたエラーページ
+NS: L
+
+DESCR: サーバーが要求を処理する際に問題が発生すると、サーバーはエラーコードとhtmlページをエラーメッセージとしてWebクライアントに返します。
+エラーコードはHTTPプロトコルで定義されています（RFC 2616参照）。
+LiteSpeed Web Serverには、エラーコードごとにデフォルトのエラーページが組み込まれていますが、各エラーコードに対してカスタマイズされたページを設定することもできます。
+これらのエラーページは、各仮想ホストごとに一意になるようにさらにカスタマイズすることができます。
+END_DESCR
+
+CONT: errCode errMessage
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: vhExpire
+NAME: 期限切れの設定
+
+DESCR: 
+END_DESCR
+
+CONT: enableExpires expiresDefault expiresByType
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+############# Pages ##############
+
+
+[PAGE]
+ID: VHGeneral_Help 
+NAME: 仮想ホストの一般
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: vhGeneral vhAcLog errPage
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: VHGeneral_Help 
+NAME: 仮想ホストの一般
+NS: E
+
+DESCR: 
+END_DESCR
+
+CONT: vhGeneral vhLog vhAcLog vhIndex errPage scriptHandler htaccess
+vhExpire apacheConfig 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: VHGeneral_Help 
+NAME: 仮想ホストの一般
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: vhGeneral vhLog vhAcLog vhIndex errPage expire fileUpload scriptHandler 
+vhExpire  
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]

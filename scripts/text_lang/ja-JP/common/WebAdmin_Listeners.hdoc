@@ -1,0 +1,92 @@
+[HELPDOC]
+
+########## General ##########
+
+########## SSL ##########
+
+############# Tables #############
+
+
+[TBL]
+ID: Admin_listenerGeneral
+NAME: 一般
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: listenerName listenerIP listenerPort listenerSecure
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: Admin_listenerGeneral
+NAME: 一般
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: listenerName listenerType listenerIP listenerPort listenerSecure
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: sslFeature
+NAME: セキュリティ & 機能
+NS: LEO
+
+DESCR: 
+END_DESCR
+
+CONT: renegProtection sslSessionCache sslSessionTickets enableSpdy
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: AdminListeners_General_Help 
+NAME: リスナー管理者全般
+NS: LEO
+
+DESCR: リスナー管理は管理サーバー専用です。 管理サーバーには、セキュア（SSL）リスナーを推奨します。
+END_DESCR
+
+CONT: Admin_listenerGeneral
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: AdminListeners_SSL_Help 
+NAME: リスナー管理者SSL
+NS: LEO
+
+DESCR: リスナー管理は管理サーバー専用です。 管理サーバーには、セキュア（SSL）リスナーを推奨します。
+END_DESCR
+
+CONT: sslCert sslProtocolSetting sslFeature sslClientVerify
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]

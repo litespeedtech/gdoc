@@ -1,0 +1,93 @@
+[HELPDOC]
+
+
+[PAGE]
+ID: index 
+NAME: ホーム
+NS: LEO
+STATIC: index.txt
+[END_PAGE]
+
+
+
+[PAGE]
+ID: license_std 
+NAME: EULA - スタンダードエディション
+NS: E
+STATIC: license_std.txt
+[END_PAGE]
+
+
+
+[PAGE]
+ID: license 
+NAME: ライセンス
+NS: LO
+STATIC: license.txt
+[END_PAGE]
+
+
+
+[PAGE]
+ID: license 
+NAME: EULA - エンタープライズエディション
+NS: E
+STATIC: license.txt
+[END_PAGE]
+
+
+
+[PAGE]
+ID: intro 
+NAME: 導入
+NS: LEO
+STATIC: intro.txt
+[END_PAGE]
+
+
+
+[PAGE]
+ID: security
+NAME: セキュリティ
+NS: LEO
+STATIC: security.txt
+[END_PAGE]
+
+
+
+[PAGE]
+ID: install 
+NAME: インストール
+NS: LEO
+STATIC: install.txt
+[END_PAGE]
+
+
+
+[PAGE]
+ID: admin 
+NAME: 管理
+NS: LEO
+STATIC: admin.txt
+[END_PAGE]
+
+
+
+[PAGE]
+ID: config 
+NAME: 設定
+NS: LEO
+STATIC: config.txt
+[END_PAGE]
+
+
+
+[PAGE]
+ID: webconsole 
+NAME: Webコンソール
+NS: LEO
+STATIC: webconsole.txt
+[END_PAGE]
+
+
+[END_HELPDOC]
