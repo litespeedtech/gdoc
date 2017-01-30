@@ -75,7 +75,7 @@ END_EDITTIP
 SYNTAX: テキスト
 END_SYNTAX
 
-例：<br />
+EXAMPLE:<br />
 pagespeedのファイルキャッシュパス /tmp/lshttpd/pagespeed;
 
 pagespeed RewriteLevel CoreFilters;

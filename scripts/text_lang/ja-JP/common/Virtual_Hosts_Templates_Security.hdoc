@@ -7,7 +7,7 @@
 
 [TBL]
 ID: tpSecFile
-NAME: File Access Control
+NAME: ファイルアクセス制御
 
 DESCR: 
 END_DESCR
@@ -22,7 +22,7 @@ SEE_ALSO:
 
 [TBL]
 ID: tpSecThrottle
-NAME: Per Client Throttling Control
+NAME: クライアント単位のスロッリング制御
 NS: EO
 
 DESCR: 
@@ -38,7 +38,7 @@ SEE_ALSO:
 
 [TBL]
 ID: tpSecThrottle
-NAME: Per Client Throttling Control
+NAME: クライアント単位のスロッリング制御
 NS: L
 
 DESCR: 
@@ -54,7 +54,7 @@ SEE_ALSO:
 
 [TBL]
 ID: tpSecCGI
-NAME: External Application Resource Control
+NAME: 外部アプリケーションのリソース制御
 NS: EO
 
 DESCR: 

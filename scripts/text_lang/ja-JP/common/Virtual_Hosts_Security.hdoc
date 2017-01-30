@@ -6,13 +6,13 @@
 
 [ITEM]
 ID: enableHotlinkCtrl
-NAME: Enable Hotlink Protection
+NAME: ホットリンク保護を有効にする
 REQUIRED: 1
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to activate hotlink protection.
+DESCR: ホットリンクの保護を有効にするかどうかを指定します。
 END_DESCR
 
 SYNTAX: bool
@@ -30,17 +30,16 @@ END_TIPS
 
 [ITEM]
 ID: suffixes
-NAME: Suffix
+NAME: サフィックス
 REQUIRED: 1
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies what kinds of files will be protected from hotlinking
-by listing file suffixes.
+DESCR: ファイルの接尾辞をリストすることによって、ホットリンクから保護されるファイルの種類を指定します。
 END_DESCR
 
-SYNTAX: Comma delimited list. "." is prohibited
+SYNTAX: カンマ区切りリスト「.」は禁止されています
 END_SYNTAX
 
 EXAMPLE: 
@@ -55,22 +54,21 @@ END_TIPS
 
 [ITEM]
 ID: redirectUri
-NAME: Redirect URL
+NAME: リダイレクトURL
 REQUIRED: 0
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies a URL that a user will be redirected to when a
-hotlinking action is detected. You can redirect users to an image or
-page saying hotlinking is not allowed. If it is not specified, 
-{val}403 Forbidden{/} will be returned. 
+DESCR: ホットリンクアクションが検出されたときにユーザーがリダイレクトされるURLを指定します。
+ホットリンクが許可されていないことを示すイメージやページにリダイレクトすることができます。
+指定されていない場合、{val}403 Forbidden{/}が返されます。
 END_DESCR
 
-EDITTIP: If "Redirect URL" is set, a hotlink attempt will be redirected to the url specified; otherwise, access denied status code will be returned.
+EDITTIP: 「リダイレクトURL」が設定されている場合、ホットリンクの試行は指定されたURLにリダイレクトされます。 それ以外の場合は、アクセス拒否ステータスコードが返されます。
 END_EDITTIP
 
-SYNTAX: Absolute URL
+SYNTAX: 絶対URL
 END_SYNTAX
 
 EXAMPLE: 
@@ -85,21 +83,19 @@ END_TIPS
 
 [ITEM]
 ID: allowDirectAccess
-NAME: Allow Direct Access
+NAME: ダイレクトアクセスを許可する
 REQUIRED: 0
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to allow direct access without a referer. 
-A referer header identifies the webpage that linked to the current page. 
-There is no "referer" header in HTTP requests when a user types
-in an address directly in the address box or uses a feature like "save
-target link as". 
+DESCR: リファラーなしで直接アクセスを許可するかどうかを指定します。
+リファラーヘッダーは、現在のページにリンクされているWebページを識別します。
+ユーザーがアドレスボックスに直接アドレスを入力するか、「ターゲットリンクを別名で保存」などの機能を使用すると、HTTPリクエストに「referer」ヘッダーはありません。 
 END_DESCR
 
-EDITTIP: Set "Allow Direct Access" to "Yes" if it is preferred to allow direct 
-access without a referrer. For e.g., there is no referrer when a user key in a url in a browser and some proxy will suppress "Referrer" header.
+EDITTIP: 参照者なしで直接アクセスできるようにする場合は、「ダイレクトアクセスを許可する」を「はい」に設定します。
+たとえば、ブラウザのURLのユーザーキーと一部のプロキシが「Referrer」ヘッダーを表示しない場合、参照元はありません。
 END_EDITTIP
 
 SYNTAX: bool
@@ -117,23 +113,22 @@ END_TIPS
 
 [ITEM]
 ID: onlySelf
-NAME: Only Self Reference
+NAME: 自己参照のみ
 REQUIRED: 0
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to only allow references from the current web site
-itself. When set to {val}Yes{/}, {ITEM=allowedHosts} has no effect and no
-other web site can link to protected files. This can be convenient if you wish to 
-park multiple domain names on the current web site. 
+DESCR: 現在のWebサイトからの参照のみを許可するかどうかを指定します。
+{val}Yes{/}に設定すると、{ITEM=allowedHosts}は効果がなく、保護されたファイルに他のWebサイトをリンクすることはできません。
+これは、現在のWebサイトに複数のドメイン名を格納する場合に便利です。
 END_DESCR
 
-EDITTIP: Set "Only Self Reference" to "Yes" will only allow links from same web site and there is no need to specify "Allowed Domains". It is more 
-convinent when multiple domains are parked.
+EDITTIP: 「自己参照のみ」を「はい」に設定すると、同じWebサイトからのリンクのみが許可され、「許可されたドメイン」を指定する必要はありません。
+複数のドメインがパークされている場合は、より説得力があります
 END_EDITTIP
 
-EDITTIP: If "Only Self Reference" set to "No", "Allowed Domains" must be specified.
+EDITTIP: 「自己参照のみ」を「いいえ」に設定した場合は、「許可ドメイン」を指定する必要があります。
 END_EDITTIP
 
 SYNTAX: bool
@@ -151,16 +146,16 @@ END_TIPS
 
 [ITEM]
 ID: allowedHosts
-NAME: Allowed Domains
+NAME: 許可されたドメイン
 REQUIRED: 1
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies which web sites can link to protected content.
+DESCR: 保護されたコンテンツにリンクできるWebサイトを指定します。
 END_DESCR
 
-SYNTAX: Comma delimited list of domain names.
+SYNTAX: ドメイン名のカンマ区切りリスト。
 END_SYNTAX
 
 EXAMPLE: 
@@ -175,19 +170,17 @@ END_TIPS
 
 [ITEM]
 ID: matchedHosts
-NAME: REGEX Matched Domains
+NAME: REGEXと一致するドメイン
 REQUIRED: 0
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies web sites that can link to protected content in
-regular expressions. The regular expression will match the domain
-name only and not the full URL.
-
+DESCR: 正規表現で保護されたコンテンツにリンクできるWebサイトを指定します。
+正規表現は完全なURLではなくドメイン名と一致します。
 END_DESCR
 
-SYNTAX: Regular expressions
+SYNTAX: 正規表現
 END_SYNTAX
 
 EXAMPLE: ^.*\.mydomain\.com$
@@ -215,14 +208,14 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies how user/group data is stored for an authorization realm. Currently,
-user/group data can be stored in flat files or on a LDAP server. 
+DESCR: 権限レルムのユーザー/グループ・データの格納方法を指定します。
+現在、ユーザー/グループのデータはフラットファイルまたはLDAPサーバーに格納できます。 
 END_DESCR
 
-EDITTIP: Currently password file and LDAP are supported for user DB and group DB.
+EDITTIP: 現在、ユーザーDBとグループDBではパスワードファイルとLDAPがサポートされています。
 END_EDITTIP
 
-SYNTAX: select
+SYNTAX: 選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -240,19 +233,19 @@ END_TIPS
 
 [ITEM]
 ID: realmName
-NAME: Realm Name
+NAME: レルム名
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies a unique name for the authorization realm.
+DESCR: 認可レルムの一意の名前を指定します。
 END_DESCR
 
-EDITTIP: Define your HT Access realm here, this can be used for contexts.
+EDITTIP: ここであなたのHT Accessレルムを定義します。これはコンテキストに使用できます。
 END_EDITTIP
 
-SYNTAX: text
+SYNTAX: テキスト
 END_SYNTAX
 
 EXAMPLE: 
@@ -267,43 +260,35 @@ END_TIPS
 
 [ITEM]
 ID: userDBLocation
-NAME: User DB Location
+NAME: ユーザーDBの場所
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO:  {ITEM=GroupDBLocation}, {ITEM=userDB_attrPasswd}, {ITEM=userDB_attrMemberOf}
 
-DESCR: Specifies the location of the user database. 
-For DB type {val}Password File{/}, it is the path to the flat file
-containing user/password definitions.
-You can edit this file through the WebAdmin console by clicking on the filename.
+DESCR: ユーザーデータベースの場所を指定します。
+DBタイプ{val}パスワードファイル{/}の場合、ユーザ/パスワード定義を含むフラットファイルへのパスです。
+ファイル名をクリックするとWebAdminコンソールからこのファイルを編集できます。
 
 
-Each line of the user file contains a username followed by a colon, 
-followed by a crypt() encrypted password, optionally followed by a colon 
-and group names that user belongs to. Group names are delimitated by commas. 
-If group information is specified in the user database, then the group
-database will not be checked.
+ユーザーファイルの各行には、ユーザー名の後にコロン、crypt()で暗号化されたパスワードが続き、オプションでコロンとユーザーが所属するグループ名が続きます。
+グループ名はコンマで区切られます。
+グループ情報がユーザーデータベースに指定されている場合、グループデータベースはチェックされません。
+
+例：<blockquote><code>john:HZ.U8kgjnMOHo:admin,user</code></blockquote>
 
 
-Example:<blockquote><code>john:HZ.U8kgjnMOHo:admin,user</code></blockquote>
+DBタイプ{val} LDAP {/}の場合、ユーザー情報を照会するのはLDAP URLです。
+有効なユーザーごとに、LDAPサーバーに格納されている認証データには、少なくともユーザーIDとユーザーパスワードが含まれている必要があります。
+HTTP認証ヘッダーで受け取ったこのURLとユーザー名に基づいて、LDAP検索要求で1つだけのレコードを返す必要があります。
+"$ k"はURLのフィルタ部分で指定する必要があり、ユーザー名で置き換えられます。
+ユーザーのパスワード属性は、照会結果に戻されなければなりません。
+ユーザーのパスワードの属性名は、{ITEM = userDB_attrPasswd}で指定します。
+グループ情報は、{ITEM = userDB_attrMemberOf}で任意に指定できます。
 
 
-For DB type {val}LDAP{/}, it is the LDAP URL to query for the user
-information. For each valid user, the authentication data stored in the LDAP
-server should contain at least the user id and user password. One and only
-one record should be returned in the LDAP search request based on the
-this URL and username received in the HTTP Authentication header. "$k"
-must be specified in the filter part of the URL and it will be
-replaced with the username. The user password attribute
-must be returned in the query result. The attribute name of the user password
-is specified by {ITEM=userDB_attrPasswd}. Group information can be
-optionally specified by the {ITEM=userDB_attrMemberOf}.
-
-
-Example: At minimum, a user can be defined in LDAP with object
-classes: uidObject, simpleSecurityObject and organizationalRole. The
-following URL could be used: 
+例: 少なくとも、オブジェクトクラス（uidObject、simpleSecurityObject、およびorganizationalRole）を使用してLDAPでユーザーを定義できます。
+次のURLを使用できます: 
 
 
 <blockquote><code>ldap://localhost/ou=UserDB,dc=example,dc=com???(&(objectClass=*)(uid=$k))</code></blockquote>
@@ -311,16 +296,15 @@ following URL could be used:
 END_DESCR
 
 
-SYNTAX: Path to user DB file or LDAP URL (RFC 2255).
+SYNTAX: ユーザーDBファイルまたはLDAP URL（RFC 2255）へのパス。
 END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] It is recommended to store user password files outside of the document tree. 
-If a user password file has to be placed inside document tree, simply name it with a leading ".ht" 
-like {val}.htuser{/} to prevent it being served as a static file.  LiteSpeed Web Server 
-does not serve files prefixed with ".ht".
+TIPS: [セキュリティ]ユーザーのパスワードファイルをドキュメントツリーの外部に保存することをお勧めします。
+ユーザーのパスワードファイルをドキュメントツリー内に配置する必要がある場合は、{val}.htuser{/}のような先頭の ".ht"という名前を付けて、静的ファイルとして扱わないようにします。
+LiteSpeed Web Serverでは、接頭辞が ".ht"のファイルは提供されません。
 END_TIPS
 
 [END_ITEM]
@@ -329,26 +313,24 @@ END_TIPS
 
 [ITEM]
 ID: userDBMaxCacheSize
-NAME: User DB Max Cache Size
+NAME: ユーザーDB最大キャッシュサイズ
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum cache size of the user database. 
-Recently accessed user authentication data will be cached in memory 
-to provide maximum performance.
+DESCR: ユーザーデータベースの最大キャッシュサイズを指定します。
+最近アクセスされたユーザー認証データは、最大のパフォーマンスを提供するためにメモリにキャッシュされます。
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 符号なし整数
 END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] As a larger cache will consume more memory, 
-a higher value may or may not provide better performance. Set it to an appropriate size according 
-to your user database size and site usage.
+TIPS: [パフォーマンス]キャッシュが大きくなるとメモリが消費されるため、値が高くなるほどパフォーマンスが向上する場合があります。
+ユーザーのデータベースサイズとサイトの使用状況に応じて適切なサイズに設定します。
 END_TIPS
 
 [END_ITEM]
@@ -357,27 +339,26 @@ END_TIPS
 
 [ITEM]
 ID: userDBCacheTimeout
-NAME: User DB Cache Timeout (secs)
+NAME: ユーザーDBキャッシュタイムアウト（秒）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies how often the backend user database will be checked for changes.  
-Every entry in the cache has a timestamp. 
-When cached data is older than the specified timeout, the backend database will be checked 
-for changes. If there is no change, the timestamp will be reset to the current time, otherwise 
-the new data will be loaded. Sevrer reload and graceful restart will clear the cache immediately.
+DESCR: バックエンドユーザーデータベースの変更の確認頻度を指定します。
+キャッシュ内のすべてのエントリにタイムスタンプがあります。
+キャッシュされたデータが指定されたタイムアウトよりも古い場合、バックエンドデータベースの変更がチェックされます。
+変更がなければ、タイムスタンプは現在の時刻にリセットされ、そうでない場合は新しいデータがロードされます。
+Sevrerのリロードと穏やかな再起動により、キャッシュは直ちにクリアされます。
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 符号なし整数
 END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] If the backend database does not change very often, 
-set a longer timeout for better performance. 
+TIPS: [パフォーマンス]バックエンドデータベースが頻繁に変更されない場合は、パフォーマンスを向上させるために、より長いタイムアウトを設定します。
 END_TIPS
 
 [END_ITEM]
@@ -403,18 +384,13 @@ DBタイプの{val}パスワードファイル{/}の場合、グループDBロ�
 
 <blockquote><code>testgroup: user1 user2 user3</code></blockquote> 
 
-For the DB type {val}LDAP{/}, the group DB location should be the LDAP URL to query 
-for group information. For each valid group, one and only
-one record should be returned in the LDAP search request based on 
-this URL and the group name specified in {ITEM=Redirect_Context#required}. "$k"
-must be specified in the filter part of the URL and it will be
-replaced with the group name. The name of the attribute that 
-specifies members in this group
-is specified by the {ITEM=groupDB_attrGroupMember}.
+DBタイプ{val}LDAP{/}の場合、グループDBロケーションは、グループ情報を照会するLDAP URLでなければなりません。
+有効なグループごとに、このURLと{ITEM=Redirect_Context＃required}で指定されたグループ名に基づいて、LDAP検索リクエストで1つのレコードしか返されません。
+"$k"はURLのフィルタ部分に指定する必要があり、グループ名に置き換えられます。
+このグループのメンバーを指定する属性の名前は、{ITEM=groupDB_attrGroupMember}によって指定されます。
 
 
-Example: If objectClass posixGroup is being used to store group
-information. The following URL could be used: 
+例: objectClass posixGroupがグループ情報の格納に使用されている場合 次のURLを使用できます: 
 
 <blockquote><code>ldap://localhost/ou=GroupDB,dc=example,dc=com???(&(objectClass=*)(cn=$k))</code></blockquote>
 
