@@ -6,48 +6,43 @@
 
 [QA]
 ID: qa_incfd
-Q: How to increase the operating system limit of file descriptors?
+Q: どのようにファイル記述子のオペレーティングシステムの制限を増やすのですか？
 
-A: <p>There are system level and process level file descriptor limits in UNIX 
-like operating systems. LiteSpeed server only uses a small number of server 
-processes to serve all clients and each request may need up to 4 file descriptors. 
-Therefore, the maximum number of concurrent requests that the server can handle 
-could be constrained by the process level file descriptor limit. It is important 
-to set this limit to a high value.</p>
-<p>If the server is started by root user, it will try to adjust this
-limit automatically based on server configuration when this limit is too low. 
-Otherwise, this limit has to be manually adjusted with
-root privilege.</p>
+A: <p>TUNIXのようなオペレーティングシステムでは、システムレベルとプロセスレベルのファイル記述子の制限があります。
+LiteSpeedサーバーは少数のサーバープロセスを使用してすべてのクライアントにサービスを提供し、各要求では最大4つのファイル記述子が必要になる場合があります。
+したがって、サーバーが処理できる同時要求の最大数は、プロセスレベルのファイル記述子の制限によって制限される可能性があります。
+この制限を高い値に設定することが重要です。</p>
+<p>サーバーがrootユーザーによって起動された場合、サーバーの構成に基づいてこの制限を自動的に調整しようとします。
+それ以外の場合は、この制限をroot特権で手動で調整する必要があります。</p>
 
-<p>Use {cmd}ulimit -a{/} to check current setting of per process file descriptor limit.
-You need root privilege to change this limit. You may want to put this setting in 
-your startup scripts in order to automatically set the limit after
-rebooting the machine.</p> 
+<p>{cmd}ulimit -a{/}を使用して、プロセスファイル記述子あたりの現在の設定を確認してください。
+この制限を変更するには、root特権が必要です。
+マシンをリブートした後に自動的に制限を設定するために、スタートアップスクリプトにこの設定を入れることができます。</p> 
 
 <ul>
-	<li><p><strong>Linux kernels:</strong></p></li>
-	Check the system level limit for open files:<br>
+	<li><p><strong>Linuxカーネル：</strong></p></li>
+	開いているファイルのシステムレベルの制限を確認してください：<br>
 	&nbsp;&nbsp;&nbsp;{cmd}more /proc/sys/fs/file-max{/}<br>
-	If it looks low, increase the limit by:<br>
+	それが低く見えたら、限界を以下のように増やしてください：<br>
 	&nbsp;&nbsp;&nbsp;{cmd}echo 40000 > /proc/sys/fs/file-max{/}<br>
-	For kernel 2.2.x, you also need:<br>
+	カーネル2.2.xの場合は、次のものも必要です:<br>
 	&nbsp;&nbsp;&nbsp;{cmd}echo 65535 > /proc/sys/fs/inode-max{/}<br>
-	Then increases the current process limit by:<br>
+	次に、現在のプロセス制限を次のように増加させます:<br>
 	&nbsp;&nbsp;&nbsp;{cmd}ulimit -n 10000{/}<br>
-	Note: Normal user can use {cmd}ulimit -n xxxx{/} to change the limit 
-	of current process, at least in Kernel 2.4.x. But you need to add following 
-	lines in /etc/security/limits.conf:<br>
+	注：普通のユーザは、少なくともKernel 2.4.xでは{cmd} ulimit -n xxxx {/}を使って
+    現在のプロセスの制限を変更することができます。
+    しかし、以下の行を/etc/security/limits.confに追加する必要があります：<br>
 	
 	&nbsp;&nbsp;&nbsp;{cmd}soft nofile 2048{/}<br>
 	&nbsp;&nbsp;&nbsp;{cmd}hard nofile 8192{/}<br><br>
 
 	<li><p><strong>Solaris 2.4+:</strong></p></li>
-	The following lines need to be added in /etc/system:<br>
-	* set hard limit on file descriptors: {cmd}set rlim_fd_max = XXXX{/}<br>
-	* set soft limit on file descriptors: {cmd}set rlim_fd_cur = XXXX{/}<br><br>
+	/etc/systemに次の行を追加する必要があります。:<br>
+	* ファイル記述子にハードリミットを設定する： {cmd}set rlim_fd_max = XXXX{/}<br>
+	* ファイル記述子にソフトリミットを設定する： {cmd}set rlim_fd_cur = XXXX{/}<br><br>
 	
 	<li><p><strong>FreeBSD:</strong></p></li>
-	Add the following line in /boot/loader.conf,<br>
+	/boot/loader.confに次の行を追加します。<br>
 	{cmd}set kern.maxfiles=XXXX{/}
 </ul>
 
@@ -61,32 +56,29 @@ SEE_ALSO:
 
 [QA]
 ID: qa_namevh
-Q: How to setup name based virtual hosting?
+Q: 名前ベースのバーチャルホスティングを設定するには？
 
-A: With name based virtual hosting, you can host more web sites than the number of 
-IP addresses you have. In this case, multiple domain names are pointed to same IP address.
+A: 名前ベースの仮想ホスティングでは、あなたが持っているIPアドレスの数より多くのWebサイトをホストすることができます。
+この場合、複数のドメイン名が同じIPアドレスを指しています。
 
-Use the following guidelines to setup name based virtual hosting.
+名前ベースのバーチャルホスティングを設定するには、次のガイドラインを使用します。
 
 <ol>
-<li>Setup DNS properly.
-	<br>Forward the domain names of your web sites to the IP address used by your web server. This is commonly done by adding an "A" name entry to the DNS zone for the website.
+<li>DNSを正しく設定してください。
+	<br>Webサイトのドメイン名をWebサーバーが使用するIPアドレスに転送します。
+これは、通常、WebサイトのDNSゾーンに「A」という名前のエントリを追加することによって行われます。
 </li>
-<li>Set up in the web administration console:
-	<ol><li>Create a virtual host for each web site.</li>
-	    <li>Create listeners.<br>
-	        You can create one listener to listen on all local IP addresses. 
-	        Or you can create multiple listeners with one listener only listening 
-	        to one specific IP address.
+<li>Web管理コンソールで設定します：
+	<ol><li>Webサイトごとにバーチャルホストを作成します。</li>
+	    <li>リスナーを作成します。<br>
+	        1つのリスナーを作成して、すべてのローカルIPアドレスでリッスンすることができます。
+            または、1つの特定のIPアドレスだけをリッスンする1つのリスナーで複数のリスナーを作成できます。
 	    </li>
-	    <li>Assign virtual host mappings.<br>
-	        Go to listener settings, 
-	        click "Edit" on {TBL=Listeners_Help#virtualHostMapping} table. 
-	        Check all virtual hosts that should be mapped, and specify 
-	        the corresponding {ITEM=Listeners_Help#domainName}.<br>
-	        
-		Note: {val}your.domain{/} will match both {val}www.your.domain{/} 
-		     and {val}your.domain{/}. The leading "www." in the domain name will be ignored.
+	    <li>バーチャルホストマッピングを割り当てます。<br>
+            リスナー設定に移動し、{TBL=Listeners_Help＃virtualHostMapping}テーブルの[編集]をクリックします。
+            マッピングする仮想ホストをすべて確認し、対応する{ITEM=Listeners_Help＃domainName}を指定します。<br>
+		注：{val}your.domain{/}は{val}www.your.domain{/}と{val}your.domain{/}の両方に一致します。
+        主要な "www" ドメイン名には無視されます。
 	    </li>
 	  </ol>
 </li>
@@ -101,17 +93,16 @@ SEE_ALSO:
 
 [QA]
 ID: qa_ipvh
-Q: How to setup IP based virtual hosting?
+Q: IPベースのバーチャルホスティングを設定するには？
 
-A: IP based virtual hosting requires at least one unique IP address for each web site. 
-One IP address is dedicated to one virtual host. This allows you to visit a virtual 
-host with URL like "http://192.168.0.1/index.html", and the web server will process 
-this request using the corresponding virtual host context. If using SSL, a unique SSL 
-certificate needs to be assigned for each IP based virtual host as well.
+A: IPベースのバーチャルホスティングには、各Webサイトに固有のIPアドレスが少なくとも1つ必要です。
+1つのIPアドレスは1つのバーチャルホスト専用です。
+これにより、 "http://192.168.0.1/index.html"のようなURLを持つ仮想ホストにアクセスすることができ、Webサーバーは対応するバーチャルホストコンテキストを使用してこの要求を処理します。
+SSLを使用する場合は、IPベースのバーチャルホストごとに一意のSSL証明書を割り当てる必要があります。
 
 <ol>
-  <li>Allocate at least one IP address for each web site you plan to host.<br>
-     TIP: You can create an IP alias to assign multiple IPs to one network adapter.</li>
+  <li>ホストするWebサイトごとに少なくとも1つのIPアドレスを割り当てます。<br>
+     ヒント：1つのネットワークアダプタに複数のIPを割り当てるIPエイリアスを作成できます。</li>
   <li>Configure DNS properly.<br> Assign the domain name to its corresponding IP address.</li>
   <li>Create listeners. You have two choices:</li>
      <ul>
