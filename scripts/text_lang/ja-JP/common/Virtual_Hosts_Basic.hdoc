@@ -295,15 +295,15 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether files beyond this virtual host root($VH_ROOT) can be accessed 
-though this web site. If set to {val}Yes{/}, only files under $VH_ROOT can be accessed  
-and access to symbolic links or context pointing to files or directories beyond $VH_ROOT 
-will be denied. This, however, does not limit the accessibility of CGI scripts. This is useful 
-in the shared hosting environment. {ITEM=allowSymbolLink} can be set to {val}Yes{/} to allow 
-users to use symbolic links under $VH_ROOT, but not anything beyond $VH_ROOT.
+DESCR: この仮想ホストのルート（$VH_ROOT）を超えるファイルにこのWebサイトからアクセスできるかどうかを指定します。
+{val}はい{/}に設定すると、$VH_ROOT以下のファイルにしかアクセスできず、シンボリックリンクや$VH_ROOTを超えるファイルやディレクトリを指すコンテキストへのアクセスが拒否されます。
+しかし、これはCGIスクリプトのアクセシビリティを制限しません。
+これは共有ホスティング環境で便利です。
+{ITEM=allowSymbolLink}は、ユーザーが$VH_ROOTでシンボリックリンクを使用できるように{val}はい{/}に設定できます。
+$VH_ROOTを超えるものはありません。
 END_DESCR
 
-EDITTIP: Turn on Restrained in a shared hosting enviroment.
+EDITTIP: 共有ホスティング環境での拘束をオンにします。
 END_EDITTIP
 
 SYNTAX: bool
@@ -312,7 +312,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] Turn it on in the shared hosting environment.
+TIPS: [セキュリティ]共有ホスティング環境で有効にします。
 END_TIPS
 
 [END_ITEM]
@@ -321,33 +321,28 @@ END_TIPS
 
 [ITEM]
 ID: setUidMode
-NAME: ExtApp Set UID Mode
+NAME: 外部アプリ Set UID モード
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies how user ID is set for an external application process. Three choices
-are available: 
-<ul><li>{val}Server UID{/}: Set the user/group ID of external application processes  to the same as
-the server's user/group ID.</li>
-    <li>{val}CGI File UID{/}: Set the user/group ID of external CGI processes based 
-	on the user/group ID of the executable. This option only applies to CGI, not FastCGI or LSPHP.</li>
-    <li>{val}Doc Root UID{/}: Set the user/group ID of external application processes based 
-	on the user/group ID of the document root of the current virtual host.</li>
+DESCR: 外部アプリケーション・プロセスにユーザーIDを設定する方法を指定します。
+3つの選択肢があります： 
+<ul><li>{val}サーバー UID{/}: 外部アプリケーション・プロセスのユーザー/グループIDをサーバーのユーザー/グループIDと同じに設定します。</li>
+    <li>{val}CGIファイル UID{/}: 実行可能ファイルのユーザー/グループIDに基づいて、外部CGIプロセスのユーザー/グループIDを設定します。
+このオプションは、FastCGIまたはLSPHPではなく、CGIにのみ適用されます。</li>
+    <li>{val}Doc Root UID{/}: 現在の仮想ホストのドキュメントルートのユーザー/グループIDに基づいて、外部アプリケーションプロセスのユーザー/グループIDを設定します。</li>
 </ul>
 END_DESCR
 
-SYNTAX: select
+SYNTAX: 選択
 END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] In the shared hosting environment, it is recommended to
-use the {val}CGI File UID{/} or {val}Doc Root UID{/} modes to prevent files
-owned by one virtual host from being accessed by the external application scripts of another
-virtual host.
+TIPS: [セキュリティ]共有ホスティング環境では、{val}CGIファイルUID{/}または{val}DocルートUID{/}モードを使用して、1つの仮想ホストが所有するファイルに別の仮想ホストの外部アプリケーションスクリプト。
 END_TIPS
 
 [END_ITEM]
@@ -356,38 +351,33 @@ END_TIPS
 
 [ITEM]
 ID: chrootMode
-NAME: ExtApp Chroot Mode
+NAME: 外部アプリ Chroot モード
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: {ent_version} Specifies how the root directory is set for an external application
-process. In order to protect confidential system data files from being
-accessed by a vulnerable external application script, an alternative root path can be
-set for the external application process so that files beyond the new root directory become
-inaccessible. This is referred to as a "chroot jail".
+DESCR: {ent_version}ルートディレクトリが外部アプリケーションプロセスに対してどのように設定されるかを指定します。
+機密システム・データ・ファイルが脆弱な外部アプリケーション・スクリプトによってアクセスされるのを防ぐために、新しいルート・ディレクトリ以外のファイルがアクセス不能になるように、外部アプリケーション・プロセス用の代替ルート・パスを設定できます。
+これは "chroot jail"と呼ばれます。
 
 
-Three choices are available: 
-<ul><li>{val}Same as Server{/}: External application processes will be run in the same jail as the server.</li>
-    <li>{val}Virtual Host Root{/}: Set chroot jail to the
-root directory of the virtual host. The external application script will only be able to access files
-inside the virtual host root. </li>
-	<li>{val}Customized Chroot Path{/}: Specify the chroot path {ITEM=chrootPath} below. </li>
+3つの選択肢があります： 
+<ul><li>{val}サーバーと同じ{/}：外部アプリケーションプロセスは、サーバーと同じ刑務所で実行されます。</li>
+    <li>{val}仮想ホストルート{/}：chroot jailを仮想ホストのルートディレクトリに設定します。
+外部アプリケーションスクリプトは、仮想ホストルート内のファイルにのみアクセスできます。 </li>
+	<li>{val}カスタマイズされたChrootパス{/}：以下のchrootパス{ITEM=chrootPath}を指定します。 </li>
 </ul>
 
 END_DESCR
 
-SYNTAX: select
+SYNTAX: 選択
 END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: If used properly, chroot will greatly enhance the security
-of external application scripts, but you must make sure the external application script is functional
-in the limited chroot jail environment.
+TIPS: chrootを適切に使用すると、外部アプリケーションスクリプトのセキュリティが大幅に強化されますが、chroot jail環境では、外部アプリケーションスクリプトが機能していることを確認する必要があります。
 END_TIPS
 
 [END_ITEM]
@@ -396,14 +386,13 @@ END_TIPS
 
 [ITEM]
 ID: chrootPath
-NAME: ExtApp Chroot Path
+NAME: 外部アプリ Chroot パス
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: {ent_version} Specifies a new root directory for the current host's external application scripts  
-when {ITEM=chrootMode} is set to {val}Customized Chroot Path{/}.
+DESCR: {ent_version}{ITEM=chrootMode}が{val}Customized Chroot Path{/}に設定されている場合、現在のホストの外部アプリケーションスクリプトの新しいルートディレクトリを指定します。
 
 END_DESCR
 
@@ -422,13 +411,14 @@ END_TIPS
 
 [ITEM]
 ID: totalBandwidth
-NAME: Total Output Bandwidth (KB/sec)
+NAME: 総出力帯域幅（KB /秒）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets a limit for the total output bandwidth in KB/s for this virtual host. Once this limit is reached throttling will occur.
+DESCR: この仮想ホストの総出力帯域幅（KB / s）の制限を設定します。
+この制限に達すると、スロットリングが発生します。
 END_DESCR
 
 [END_ITEM]

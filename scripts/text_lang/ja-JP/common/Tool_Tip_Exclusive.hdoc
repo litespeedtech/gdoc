@@ -3,13 +3,13 @@
 
 [ITEM]
 ID: note
-NAME: Notes
+NAME: ノート
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO:
 
-DESCR: Add notes for yourself.
+DESCR: あなた自身のためにメモを追加してください。
 END_DESCR
 
 SYNTAX:
@@ -27,7 +27,7 @@ END_TIPS
 
 [TBL]
 ID: notesTBL
-NAME: Tool Tip Exclusives
+NAME: ツールチップの限定
 
 DESCR: 
 END_DESCR

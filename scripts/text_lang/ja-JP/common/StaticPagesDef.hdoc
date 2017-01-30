@@ -3,7 +3,7 @@
 
 [PAGE]
 ID: index 
-NAME: Home
+NAME: ホーム
 NS: LEO
 STATIC: index.txt
 [END_PAGE]
@@ -12,7 +12,7 @@ STATIC: index.txt
 
 [PAGE]
 ID: license_std 
-NAME: EULA - Standard Edition
+NAME: EULA - スタンダードエディション
 NS: E
 STATIC: license_std.txt
 [END_PAGE]
@@ -21,7 +21,7 @@ STATIC: license_std.txt
 
 [PAGE]
 ID: license 
-NAME: License
+NAME: ライセンス
 NS: LO
 STATIC: license.txt
 [END_PAGE]
@@ -30,7 +30,7 @@ STATIC: license.txt
 
 [PAGE]
 ID: license 
-NAME: EULA - Enterprise Edition
+NAME: EULA - エンタープライズエディション
 NS: E
 STATIC: license.txt
 [END_PAGE]
@@ -39,7 +39,7 @@ STATIC: license.txt
 
 [PAGE]
 ID: intro 
-NAME: Introduction
+NAME: 導入
 NS: LEO
 STATIC: intro.txt
 [END_PAGE]
@@ -48,7 +48,7 @@ STATIC: intro.txt
 
 [PAGE]
 ID: security
-NAME: Security
+NAME: セキュリティ
 NS: LEO
 STATIC: security.txt
 [END_PAGE]
@@ -57,7 +57,7 @@ STATIC: security.txt
 
 [PAGE]
 ID: install 
-NAME: Installation
+NAME: インストール
 NS: LEO
 STATIC: install.txt
 [END_PAGE]
@@ -66,7 +66,7 @@ STATIC: install.txt
 
 [PAGE]
 ID: admin 
-NAME: Administration
+NAME: 管理
 NS: LEO
 STATIC: admin.txt
 [END_PAGE]
@@ -75,7 +75,7 @@ STATIC: admin.txt
 
 [PAGE]
 ID: config 
-NAME: Configuration
+NAME: 設定
 NS: LEO
 STATIC: config.txt
 [END_PAGE]
@@ -84,7 +84,7 @@ STATIC: config.txt
 
 [PAGE]
 ID: webconsole 
-NAME: Web Console
+NAME: Webコンソール
 NS: LEO
 STATIC: webconsole.txt
 [END_PAGE]
