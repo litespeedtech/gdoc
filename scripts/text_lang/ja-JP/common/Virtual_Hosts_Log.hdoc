@@ -6,17 +6,16 @@
 
 [ITEM]
 ID: logUseServer
-NAME: Use Server's Log
+NAME: サーバーのログを使用する
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to put log messages from this virtual host into the server 
-log file instead of creating its own log file.
+DESCR: 独自のログファイルを作成するのではなく、このバーチャルホストからのログメッセージをサーバーログファイルに入れるかどうかを指定します。
 END_DESCR
 
-EDITTIP: If you select "Yes" for <b>Use Server's Log</b>, the log will be written to the server file set up at the server level.
+EDITTIP: <b>サーバーのログを使用する</b>に「はい」を選択すると、ログはサーバーレベルで設定されたサーバーファイルに書き込まれます。
 END_EDITTIP
 
 SYNTAX: bool
@@ -40,14 +39,15 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the path for the log file. 
+DESCR: ログファイルのパスを指定します。
 END_DESCR
 
-EDITTIP: Log file path can be an absolute path or relative to $SERVER_ROOT, $VH_ROOT.
+EDITTIP: ログファイルのパスは絶対パスでも、$SERVER_ROOT、$VH_ROOTからの相対パスでもかまいません。
 END_EDITTIP
 
-EDITTIP: If you want to set Log Level to DEBUG, you must set the server log level to DEBUG as well. The level of 
-debugging is controlled by Server DEBUG Level. Use DEBUG only if you have to as it has a large impact on server performance and can fill up disk space quickly.
+EDITTIP: ログ・レベルをDEBUGに設定する場合は、サーバー・ログ・レベルもDEBUGに設定する必要があります。
+デバッグのレベルは、サーバーDEBUGレベルによって制御されます。 
+DEBUGを使用するのは、サーバーのパフォーマンスに大きな影響を与え、ディスクスペースをすばやく埋める必要がある場合のみです。
 END_EDITTIP
 
 SYNTAX: file3
@@ -56,7 +56,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Place the log file on a separate disk. 
+TIPS: [パフォーマンス]ログファイルを別のディスクに配置します。 
 END_TIPS
 
 [END_ITEM]
@@ -65,28 +65,26 @@ END_TIPS
 
 [ITEM]
 ID: vhlog_logLevel
-NAME: Log Level
+NAME: ログレベル
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=ServGeneral_Help#log_debugLevel}
 
-DESCR: Specifies the level of logging. Available levels (from high to low) are {val}ERROR{/}, 
-{val}WARNING{/}, {val}NOTICE{/}, {val}INFO{/}, and {val}DEBUG{/}. 
-Only messages with a level higher than or equal to the current setting will be logged. 
-If you want to set it to DEBUG{/}, you must set the server log level to {val}DEBUG{/} as well. 
-The level of debugging is controlled solely at the server level by {ITEM=ServGeneral_Help#log_debugLevel}.
+DESCR: ロギングのレベルを指定します。
+使用可能なレベルは、{val}ERROR{/}、{val}WARNING{/}、{val}NOTICE{/}、{val}INFO{/}、{val}DEBUG{/}です。
+現在の設定以上のレベルのメッセージのみが記録されます。
+{val}DEBUG{/}に設定する場合は、サーバログレベルを{val}DEBUG{/}に設定する必要があります。
+デバッグのレベルは、{ITEM=ServGeneral_Help＃log_debugLevel}によってサーバーレベルでのみ制御されます。
 END_DESCR
 
-SYNTAX: select
+SYNTAX: 選択
 END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Unless {ITEM=ServGeneral_Help#log_debugLevel} is set to a level
-other than {val}NONE{/}, {val}DEBUG{/} log level does not have any
-performance impact and is recommended.
+TIPS: [パフォーマンス] {ITEM=ServGeneral_Help＃log_debugLevel}が{val}NONE{/}以外のレベルに設定されていない限り、{val}DEBUG{/}ログレベルはパフォーマンスに影響を及ぼさず、推奨されます。
 END_TIPS
 
 [END_ITEM]
@@ -98,24 +96,24 @@ END_TIPS
 
 [ITEM]
 ID: aclogUseServer
-NAME: Log Control
+NAME: ログ制御
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Where the access log should be written. There are three options: 
+DESCR: アクセスログを書き込むべき場所。 3つのオプションがあります: 
 <ol>
-<li>Write to the server's access log</li>
-<li>Create an access log for this virtual host</li>
-<li>Disable access logging</li>
+<li>サーバのアクセスログに書き込む</li>
+<li>この仮想ホストのアクセスログを作成する</li>
+<li>アクセスログを無効にする</li>
 </ol>
 END_DESCR
 
-EDITTIP: When required, you can disable access logging for this virtual host to save on disk i/o.
+EDITTIP: 必要に応じて、このバーチャルホストのアクセスログを無効にして、ディスクI/Oに節約することができます。
 END_EDITTIP
 
-SYNTAX: select
+SYNTAX: 選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -130,14 +128,14 @@ END_TIPS
 
 [ITEM]
 ID: vhaccessLog_fileName
-NAME: File Name
+NAME: ファイル名
 NS: L
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The access log filename. 
+DESCR: アクセスログファイル名。 
 END_DESCR
 
 SYNTAX: file3
@@ -146,7 +144,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Put the access log file on a separate disk.
+TIPS: [パフォーマンス]アクセスログファイルを別のディスクに配置します。
 END_TIPS
 
 [END_ITEM]
@@ -155,17 +153,17 @@ END_TIPS
 
 [ITEM]
 ID: vhaccessLog_fileName
-NAME: File Name
+NAME: ファイル名
 NS: EO
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The access log filename. 
+DESCR: アクセスログファイル名。 
 END_DESCR
 
-EDITTIP: Log file path can be an absolute path or a relative path to $SERVER_ROOT, $VH_ROOT.
+EDITTIP: ログファイルのパスは絶対パスまたは$SERVER_ROOT、$VH_ROOTの相対パスにすることができます。
 END_EDITTIP
 
 SYNTAX: file3
@@ -174,7 +172,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Put access log file on a separate disk.
+TIPS: [パフォーマンス]アクセスログファイルを別のディスクに配置します。
 END_TIPS
 
 [END_ITEM]
@@ -183,15 +181,15 @@ END_TIPS
 
 [ITEM]
 ID: accessLog_bytesLog
-NAME: Bytes Log
+NAME: バイトログ
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the path to the bandwidth bytes log file. When
-specified, a cPanel compatible bandwidth log will be created. This will log 
-the total bytes transferred for a request including both the request and reply bodies.
+DESCR: 帯域幅バイトのログファイルへのパスを指定します。
+指定すると、cPanel互換の帯域幅ログが作成されます。
+これにより、要求と応答本体の両方を含む要求に対して転送された合計バイトが記録されます。
 END_DESCR
 
 SYNTAX: file2
@@ -200,7 +198,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Put the log file on a separate disk.
+TIPS: [パフォーマンス]ログファイルを別のディスクに配置します。
 END_TIPS
 
 [END_ITEM]
@@ -212,7 +210,7 @@ END_TIPS
 
 [TBL]
 ID: vhLog
-NAME: Virtual Host Log
+NAME: バーチャルホストログ
 
 DESCR: 
 END_DESCR
@@ -226,7 +224,7 @@ SEE_ALSO:
 
 [TBL]
 ID: vhAcLog
-NAME: Access Log
+NAME: アクセスログ
 NS: L
 
 DESCR: 
@@ -245,7 +243,7 @@ SEE_ALSO:
 
 [TBL]
 ID: vhAcLog
-NAME: Access Log
+NAME: アクセスログ
 NS: EO
 
 DESCR: 
