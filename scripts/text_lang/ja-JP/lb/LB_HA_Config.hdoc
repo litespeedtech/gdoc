@@ -18,7 +18,7 @@ END_DESCR
 EDITTIP: 追加/削除/変更は、HA->ステータスページで適用されるまで有効になりません。
 END_EDITTIP
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -43,7 +43,7 @@ DESCR: HAインターフェイスの仮想IPアドレス。
 これはIPv4またはIPv6のいずれかのアドレスで、実際のIPアドレスと同じサブネット上になければなりません。
 END_DESCR
 
-SYNTAX: テキスト
+SYNTAX: text
 END_SYNTAX
 
 EXAMPLE: 
@@ -68,7 +68,7 @@ DESCR: 仮想IPアドレスのID。 1〜10の整数を使用してください�
 同じHAグループに対して<b>仮想IP</b>、<b>仮想IP ID</b>、および<b>仮想IPトークン</b>が同じである必要があります。
 END_DESCR
 
-SYNTAX: テキスト
+SYNTAX: text
 END_SYNTAX
 
 EXAMPLE: 
@@ -93,7 +93,7 @@ DESCR: インターフェイス（carp/vrrp）の広告を認証するには、�
 同じHAグループに対して<b>仮想IP</b>、<b>仮想IP ID</b>、および<b>仮想IPトークン</b>が同じである必要があります。
 END_DESCR
 
-SYNTAX: テキスト
+SYNTAX: text
 END_SYNTAX
 
 EXAMPLE: 
@@ -120,7 +120,7 @@ DESCR: 仮想IPがバインドするNIC名（eth0、eth1など）。Linuxプラ�
 <b>注意：</b>この設定は必須ですが、FreeBSDプラットフォームには影響しません。
 END_DESCR
 
-SYNTAX: テキスト
+SYNTAX: text
 END_SYNTAX
 
 [END_ITEM]
@@ -142,7 +142,7 @@ DESCR: このロードバランササーバーの優先度。この値が大き�
 <b>注：</b>これは、FreeBSDプラットフォームでは、逆に番号の低い方が優先度が高くなります。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 
@@ -212,7 +212,7 @@ SEE_ALSO:
 DESCR: 「I am alive」というメッセージが送信されます。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -237,7 +237,7 @@ DESCR: その後、「I am alive」メッセージが送信されない場合、
 <b>ハートビート間隔（秒）</b>をより高く設定する必要があります。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -261,7 +261,7 @@ SEE_ALSO:
 DESCR: リプリケータトラフィックのGzip圧縮を有効にします。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -285,7 +285,7 @@ SEE_ALSO:
 DESCR: インクリメンタルレプリケーションの同期チェックを有効にします。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -309,7 +309,7 @@ SEE_ALSO:
 DESCR: ファイルキャッシュのレプリケーションを有効にします。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -357,7 +357,7 @@ SEE_ALSO:
 DESCR: ファイルキャッシュの有効期限を設定します。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 

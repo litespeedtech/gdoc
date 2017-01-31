@@ -15,7 +15,7 @@ SEE_ALSO:
 DESCR: クラスタの一意の名前。
 END_DESCR
 
-SYNTAX: テキスト
+SYNTAX: text
 END_SYNTAX
 
 EXAMPLE: 
@@ -46,7 +46,7 @@ DESCR:
 理論的には、レイヤ4ロードバランシングはすべてのアプリケーションタイプをサポートします。
 END_DESCR
 
-SYNTAX: 選択
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -76,7 +76,7 @@ DESCR: ロードバランサが "ステートレス"または "ステートフ�
 レイヤ4ロードバランサの場合、モードが「ステートフル」の場合、クライアントのIPアドレスを追跡して以前のセッションを抽出します。
 END_DESCR
 
-SYNTAX: 選択
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -106,7 +106,7 @@ DESCR: リストから負荷分散戦略を選択します。
 </ul>
 END_DESCR
 
-SYNTAX: 選択
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -155,7 +155,7 @@ DESCR: 要求からセッションIDを抽出する方法を指定します。
 <b>URLパスパラメータ：</b>URLパスパラメータをセッションIDとして使用します。
 END_DESCR
 
-SYNTAX: チェックボックス
+SYNTAX: チェックボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -182,7 +182,7 @@ DESCR: セッションID文字列を指定します。
 
 END_DESCR
 
-SYNTAX: テキスト 
+SYNTAX: text 
 END_SYNTAX
 
 EXAMPLE: 
@@ -206,7 +206,7 @@ SEE_ALSO:
 DESCR: セッションが有効になる期間を秒単位で指定します。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -231,7 +231,7 @@ DESCR: 追跡Cookieを挿入するかどうかを指定します。
 ロードバランサがセッションキャッシュを失った場合に備えて、追跡キャッシュを使用してセッションキャッシュを再構築することができます。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 

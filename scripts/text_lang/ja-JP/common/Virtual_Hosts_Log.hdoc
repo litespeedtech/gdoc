@@ -18,7 +18,7 @@ END_DESCR
 EDITTIP: <b>サーバーのログを使用する</b>に「はい」を選択すると、ログはサーバーレベルで設定されたサーバーファイルに書き込まれます。
 END_EDITTIP
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -50,7 +50,7 @@ EDITTIP: ログ・レベルをDEBUGに設定する場合は、サーバー・ロ
 DEBUGを使用するのは、サーバーのパフォーマンスに大きな影響を与え、ディスクスペースをすばやく埋める必要がある場合のみです。
 END_EDITTIP
 
-SYNTAX: file3
+SYNTAX: ファイル名への絶対パス又は$SERVER_ROOT、$VH_ROOTからの相対パス。
 END_SYNTAX
 
 EXAMPLE: 
@@ -138,7 +138,7 @@ SEE_ALSO:
 DESCR: アクセスログファイル名。 
 END_DESCR
 
-SYNTAX: file3
+SYNTAX: ファイル名への絶対パス又は$SERVER_ROOT、$VH_ROOTからの相対パス。
 END_SYNTAX
 
 EXAMPLE: 
@@ -166,7 +166,7 @@ END_DESCR
 EDITTIP: ログファイルのパスは絶対パスまたは$SERVER_ROOT、$VH_ROOTの相対パスにすることができます。
 END_EDITTIP
 
-SYNTAX: file3
+SYNTAX: ファイル名への絶対パス又は$SERVER_ROOT、$VH_ROOTからの相対パス。
 END_SYNTAX
 
 EXAMPLE: 
@@ -192,7 +192,7 @@ DESCR: 帯域幅バイトのログファイルへのパスを指定します。
 これにより、要求と応答本体の両方を含む要求に対して転送された合計バイトが記録されます。
 END_DESCR
 
-SYNTAX: file2
+SYNTAX: ファイル名への絶対パス又は$SERVER_ROOTからの相対パス
 END_SYNTAX
 
 EXAMPLE: 

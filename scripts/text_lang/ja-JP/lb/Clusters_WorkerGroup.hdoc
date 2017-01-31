@@ -15,7 +15,7 @@ DESCR: バックエンドワーカーに接続するためのデフォルトの�
 ワーカーの設定で上書きすることができます。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -67,7 +67,7 @@ Webサーバーバックエンドの場合、「Ping URL」に基づくhttp要�
 成功すると、バックエンドは適切なノードとして使用されます。 
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -93,7 +93,7 @@ DESCR: このグループに属するノードのアドレスを指定します�
 宛先IPアドレスは必須で、その他の属性はオプションです。 
 END_DESCR
 
-SYNTAX: テキスト
+SYNTAX: text
 END_SYNTAX
 
 EXAMPLE: 192.168.0.11, (node1)192.168.0.11,

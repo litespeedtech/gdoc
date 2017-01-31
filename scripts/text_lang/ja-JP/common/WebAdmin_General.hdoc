@@ -21,7 +21,7 @@ DESCR: サーバーが「root」ユーザーによって開始されたときに
 Solarisユーザーは{cmd} coreadm {/}コマンドを使用してこの機能を制御する必要があります。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -47,7 +47,7 @@ DESCR: WebAdmin Consoleのセッションタイムアウトの長さをカスタ
 デフォルトは60秒です。
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 

@@ -548,26 +548,28 @@ END_TIPS
 
 [ITEM]
 ID: allowBrowse
-NAME: Accessible
+NAME: アクセス可能
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether this context can be accessed. Set to {val}No{/} to deny access. 
-You can use this feature to protect the specified directory from being visited. 
-You may use it when you are updating contents for this context or you have special data in this directory.
+DESCR: このコンテキストにアクセスできるかどうかを指定します。
+アクセスを拒否するには{val}いいえ{/}に設定してください。
+この機能を使用して、指定したディレクトリが訪問されないように保護できます。
+このコンテキストのコンテンツを更新している場合、またはこのディレクトリに特別なデータがある場合に使用することができます。
 END_DESCR
 
-EDITTIP: Static context can be used to map a URI to a directory either outside document root or within it. The directory 
-can be absolute path or relative to document root(default), $VH_ROOT or $SERVER_ROOT.
+EDITTIP: 静的コンテキストを使用して、URIをドキュメントルートの外部またはその内部のディレクトリにマップできます。
+ディレクトリは、ドキュメントルート（デフォルト）、$VH_ROOTまたは$SERVER_ROOTの絶対パスまたは相対パスにすることができます。
 END_EDITTIP
 
-EDITTIP: Check "Accessible" will allow browsing static files in this context. You may want to disable it to prevent viewing static 
-files, for e.g. when you update the content.
+EDITTIP: 「アクセス可能」をチェックすると、このコンテキストで静的ファイルをブラウズできます。
+静的ファイルを表示しないように無効にすることができます。
+例えば コンテンツを更新するとき。
 END_EDITTIP
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -596,7 +598,7 @@ switch to the user ID of the owner of the CGI script.
 The default is "Off".
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1055,7 +1057,7 @@ Authorizer is available. For more details about the FastCGI Authorizer role,
 please visit {ext-href}http://www.fastcgi.com{ext-href-end}http://www.fastcgi.com{ext-href-end-a}.
 END_DESCR
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1081,7 +1083,7 @@ contexts. If rewrite is enabled and not inherited, rewrite base and
 rewrite rules defined in this context will be used.
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1134,7 +1136,7 @@ DESCR: Specifies whether to add a character set tag to the
 	   {ITEM=defaultCharsetCustomized} or the default "iso-8859-1" will be added.
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1186,7 +1188,7 @@ DESCR: Name of the module. The module must be registered under the Server Module
 Once it is registered, the module name will be available in the drop down box for the Listener and Virtual Host configurations.
 END_DESCR
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE:

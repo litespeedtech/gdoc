@@ -19,7 +19,7 @@ END_DESCR
 EDITTIP: <b>Ruby Path</b> is the absolute path of a ruby executable. For e.g., /usr/local/bin/ruby.
 END_EDITTIP
 
-SYNTAX: path1
+SYNTAX: 絶対パス。
 END_SYNTAX
 
 EXAMPLE: 
@@ -44,7 +44,7 @@ DESCR: Specifies which mode Rack/Rails will be running as: "Development",
 "Production", or "Staging". The default is "Production".
 END_DESCR
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -72,7 +72,7 @@ DESCR: Specifies whether to enable Rack/Rails shared hosting. The default is "Di
 
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: ラジオボックスから選択 
 END_SYNTAX
 
 EXAMPLE: 
@@ -98,7 +98,7 @@ created per account. The default is "1".
 
 END_DESCR
 
-SYNTAX: uint 
+SYNTAX: 整数 
 END_SYNTAX
 
 EXAMPLE: 
@@ -131,7 +131,7 @@ one user abuse it.
 
 END_DESCR
 
-SYNTAX: uint 
+SYNTAX: 整数 
 END_SYNTAX
 
 EXAMPLE: 

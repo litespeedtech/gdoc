@@ -15,7 +15,7 @@ SEE_ALSO:
 DESCR: ホットリンクの保護を有効にするかどうかを指定します。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -98,7 +98,7 @@ EDITTIP: 参照者なしで直接アクセスできるようにする場合は�
 たとえば、ブラウザのURLのユーザーキーと一部のプロキシが「Referrer」ヘッダーを表示しない場合、参照元はありません。
 END_EDITTIP
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -131,7 +131,7 @@ END_EDITTIP
 EDITTIP: 「自己参照のみ」を「いいえ」に設定した場合は、「許可ドメイン」を指定する必要があります。
 END_EDITTIP
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -245,7 +245,7 @@ END_DESCR
 EDITTIP: ここであなたのHT Accessレルムを定義します。これはコンテキストに使用できます。
 END_EDITTIP
 
-SYNTAX: テキスト
+SYNTAX: text
 END_SYNTAX
 
 EXAMPLE: 
@@ -323,7 +323,7 @@ DESCR: ユーザーデータベースの最大キャッシュサイズを指定�
 最近アクセスされたユーザー認証データは、最大のパフォーマンスを提供するためにメモリにキャッシュされます。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -352,7 +352,7 @@ DESCR: バックエンドユーザーデータベースの変更の確認頻度�
 Sevrerのリロードと穏やかな再起動により、キャッシュは直ちにクリアされます。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -396,7 +396,7 @@ DBタイプ{val}LDAP{/}の場合、グループDBロケーションは、グル�
 
 END_DESCR
 
-SYNTAX: file3
+SYNTAX: ファイル名への絶対パス又は$SERVER_ROOT、$VH_ROOTからの相対パス。
 END_SYNTAX
 
 EXAMPLE: 
@@ -420,7 +420,7 @@ SEE_ALSO: {ITEM=userDBMaxCacheSize}
 DESCR: グループデータベースの最大キャッシュサイズを指定します。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -446,7 +446,7 @@ DESCR: バックエンドグループデータベースの変更の確認頻度�
 詳細については、{ITEM=userDBCacheTimeout}を参照してください。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 

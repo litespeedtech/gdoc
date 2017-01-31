@@ -16,7 +16,7 @@ END_DESCR
 EDITTIP: ログファイルのパスは絶対パスでも、$SERVER_ROOTからの相対パスでもかまいません。
 END_EDITTIP
 
-SYNTAX: file2
+SYNTAX: ファイル名への絶対パス又は$SERVER_ROOTからの相対パス
 END_SYNTAX
 
 EXAMPLE: 
@@ -108,7 +108,7 @@ DESCR: 現在のログファイルをロールオーバーする必要がある�
 EDITTIP: 現在のログファイルがローリングサイズを超えると、新しいログファイルが作成されます。 ファイルサイズはバイト単位で、10240,10K、または1Mの複数の入力フォーマットにすることができます。
 END_EDITTIP
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -136,7 +136,7 @@ END_DESCR
 EDITTIP: Stderrログは、サーバーログと同じディレクトリにあります。 有効にすると、stderrへのすべての外部アプリケーション出力がこのファイルに記録されます。
 END_EDITTIP
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -161,7 +161,7 @@ DESCR: サーバーログとアクセスログのAIOログを有効にするか�
 有効にすると、ログメッセージの書き込みに非同期I / Oが使用されます。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -191,7 +191,7 @@ END_DESCR
 EDITTIP: ログファイルのパスは絶対パスでも、$SERVER_ROOTからの相対パスでもかまいません。
 END_EDITTIP
 
-SYNTAX: file2
+SYNTAX: ファイル名への絶対パス又は$SERVER_ROOTからの相対パス
 END_SYNTAX
 
 EXAMPLE: 
@@ -401,7 +401,7 @@ SEE_ALSO:
 DESCR: ディスク領域を節約するためにローテーションしたログファイルを圧縮するかどうかを指定します。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 

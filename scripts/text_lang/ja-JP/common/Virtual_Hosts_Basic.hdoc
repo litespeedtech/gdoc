@@ -50,7 +50,7 @@ EDITTIP: バーチャルホストルート（$VH_ROOT）は、絶対パスでも
 Configファイルは、$VH_ROOTに相対的である可能性があります。
 END_EDITTIP
 
-SYNTAX: path2
+SYNTAX: 絶対パス又は$SERVER_ROOTからの相対パス。
 END_SYNTAX
 
 EXAMPLE: 
@@ -85,7 +85,7 @@ END_EDITTIP
 EDITTIP: バーチャルホストルート（$VH_ROOT）は、絶対パスでも、$SERVER_ROOTに関連してもかまいません。
 END_EDITTIP
 
-SYNTAX: path2
+SYNTAX: 絶対パス又は$SERVER_ROOTからの相対パス。
 END_SYNTAX
 
 EXAMPLE: 
@@ -137,7 +137,7 @@ SEE_ALSO:
 DESCR: このバーチャルホストの設定ファイル名とディレクトリ。
 END_DESCR
 
-SYNTAX: file3
+SYNTAX: ファイル名への絶対パス又は$SERVER_ROOT、$VH_ROOTからの相対パス。
 END_SYNTAX
 
 EXAMPLE: 
@@ -163,7 +163,7 @@ DESCR: このバーチャルホストの設定ファイル名とディレクト�
 設定ファイルは、$SERVER_ROOT/conf/vhosts/ディレクトリの下になければなりません。
 END_DESCR
 
-SYNTAX: file2
+SYNTAX: ファイル名への絶対パス又は$SERVER_ROOTからの相対パス
 END_SYNTAX
 
 EXAMPLE: 
@@ -218,7 +218,7 @@ DESCR: この仮想ホストに対してSmart Keep-Aliveを有効にするかど
 このオプションは、{ITEM = ServTuning_Help＃smartKeepAlive}がサーバーレベルで有効で、{ITEM = vhMaxKeepAliveReq}が1より大きい場合にのみ有効です。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -247,7 +247,7 @@ DESCR: この仮想ホスト内のシンボリックリンクをたどるかど�
 この設定は、デフォルトのサーバーレベルの設定よりも優先されます。
 END_DESCR
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -274,7 +274,7 @@ DESCR: この仮想ホストでスクリプティング（非静的ページ）�
 このため、スクリプトハンドラを使用する場合は、スクリプトハンドラもここで有効にする必要があります。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -306,7 +306,7 @@ END_DESCR
 EDITTIP: 共有ホスティング環境での拘束をオンにします。
 END_EDITTIP
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -396,7 +396,7 @@ DESCR: {ent_version}{ITEM=chrootMode}が{val}Customized Chroot Path{/}に設定�
 
 END_DESCR
 
-SYNTAX: path1
+SYNTAX: 絶対パス。
 END_SYNTAX
 
 EXAMPLE: 

@@ -28,7 +28,7 @@ using the LSAPI protocol.</li>
 </ul>
 END_DESCR
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -74,7 +74,7 @@ END_DESCR
 EDITTIP: You can set up external Fast CGI application and AJPv13 (Apache JServ Protocol v1.3) compatible servlet engine.
 END_EDITTIP
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -189,7 +189,7 @@ SEE_ALSO:
 DESCR: Specifies whether to enable this worker group.
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -214,7 +214,7 @@ DESCR: Specifies a Source IP for connecting to the backend
 worker. It can be overriden in worker configuration.
 END_DESCR
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -315,7 +315,7 @@ SEE_ALSO:
 DESCR: Select from available IPs.
 END_DESCR
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -344,7 +344,7 @@ Setting this value higher will not help if the external application is not fast 
 or cannot scale to a large number of concurrent requests.
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -400,7 +400,7 @@ quickly as possible. If some requests take longer to
 process, increase this limit to avoid 503 error messages.
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -425,7 +425,7 @@ DESCR: Specifies the period of time that the server waits before
 retrying an external application that had a prior communication problem.
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -452,7 +452,7 @@ but some FastCGI external applications do not support persistent connections
 fully. The default is "On". 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -504,7 +504,7 @@ applications. If a "nph-" (Non-Parsed-Header) script is detected,
 buffering is turned off for responses with full HTTP headers.
 END_DESCR
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -534,7 +534,7 @@ CGI Daemon instead of a main server process will help reduce system overhead.
 CGI Daemon Async mode (non-blocking event-driven method) is recommended for servers with high I/O wait.
 END_DESCR
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -563,7 +563,7 @@ running on the same machine can be started automatically. The IP in the
 CGI Daemon instead of a main server process will help reduce system overhead.  
 END_DESCR
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -617,7 +617,7 @@ END_DESCR
 EDITTIP: Local applications can be started by the web server. In this case, you need to specify the path, backlog and number of instances.
 END_EDITTIP
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -648,7 +648,7 @@ For these types of applications, instances should be set to "1" and
 environment variables used to control how many child processes the application can spawn.
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -672,7 +672,7 @@ SEE_ALSO: extGroup
 DESCR: Specifies username that the external application will run as. If not set, the external application will run as the user of the web server.   
 END_DESCR
 
-SYNTAX: Valid username.
+SYNTAX: 有効なユーザー名。
 END_SYNTAX
 
 EXAMPLE: 
@@ -695,7 +695,7 @@ SEE_ALSO: extUser
 DESCR: Specifies group name that the external application will run as.    
 END_DESCR
 
-SYNTAX: Valid group name.
+SYNTAX: 有効なグループ名。
 END_SYNTAX
 
 EXAMPLE: 
@@ -720,7 +720,7 @@ See {cmd} man 2 umask {/} for details. The default value taken from the server-l
 {ITEM=ServSecurity_Help#umask} setting. 
 END_DESCR
 
-SYNTAX: value valid range [000]-[777].
+SYNTAX: 有効範囲[000]〜[777]の値。
 END_SYNTAX
 
 EXAMPLE: 
@@ -746,7 +746,7 @@ up. Only applicable to external applications that can manage their own child pro
 If enabled, external processes will be created at server startup instead of run-time.   
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -776,7 +776,7 @@ many applications running in "setuid" mode for the sake of maximum
 security. 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -847,7 +847,7 @@ END_EDITTIP
 EDITTIP: The soft limit is the value that the kernel enforces for the corresponding resource. The hard limit acts as a ceiling for the soft limit
 END_EDITTIP 
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -893,7 +893,7 @@ END_EDITTIP
 EDITTIP: The soft limit is the value that the kernel enforces for the corresponding resource. The hard limit acts as a ceiling for the soft limit
 END_EDITTIP 
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 

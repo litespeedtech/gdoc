@@ -99,7 +99,7 @@ END_DESCR
 EDITTIP: Script handler can be a CGI, an FCGI app, a module handler, a Servlet engine, or a proxy to Web server.
 END_EDITTIP
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -127,7 +127,7 @@ END_DESCR
 EDITTIP: Except CGI, other handlers need to be predefined in the "External App" section.
 END_EDITTIP
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -174,7 +174,7 @@ LiteSpeed Web Server uses script handlers to decide which external application a
 script should go to. These script handlers map files to external applications by 
 using the file suffix. (Actually, the suffix is used to determine a MIME 
 type which is then mapped to the external application.) External applications 
-must be set up in the {PAGE= ExtApp_Help} tab before they can be selected for 
+must be set up in the {PAGE= ExtApp_Help} tab before they can be ドロップダウンリストから選択ed for 
 use in a script handler.
 
 

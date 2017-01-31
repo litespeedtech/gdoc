@@ -44,7 +44,7 @@ DESCR: モジュールが外部の.soライブラリではなく、静的にリ�
 
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: ラジオボックスから選択 
 END_SYNTAX
 
 EXAMPLE:
@@ -98,7 +98,7 @@ DESCR: モジュールフックをグローバルに有効または無効にし�
 ユーザーは、各レベルでこのグローバル設定を上書きできます。  
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: ラジオボックスから選択 
 END_SYNTAX
 
 EXAMPLE:
@@ -126,7 +126,7 @@ DESCR: Listenerレベルでモジュールフックを有効または無効に�
 ユーザーはデフォルト設定を上書きするためにここで設定するだけです。 
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: ラジオボックスから選択 
 END_SYNTAX
 
 EXAMPLE:
@@ -155,7 +155,7 @@ DESCR: 仮想ホストまたはコンテキスト・レベルでモジュール�
 ユーザーはデフォルト設定を上書きするためにここで設定するだけです。 
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: ラジオボックスから選択 
 END_SYNTAX
 
 EXAMPLE:

@@ -272,7 +272,7 @@ DESCR: {ent_version} chrootモードでサーバーを起動するかどうか�
 新しいルートディレクトリは、インストール中に{ITEM = servChrootPath}によって設定されます。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -356,7 +356,7 @@ EDITTIP: ディレクトリをスワップすることは、/tmpなどのロー�
 ネットワークドライブは絶対に避けてください。 スワップは、設定されたメモリのI/Oバッファが使い果たされたときに行われます。
 END_EDITTIP
 
-SYNTAX: path1
+SYNTAX: 絶対パス。
 END_SYNTAX
 
 EXAMPLE: 
@@ -387,7 +387,7 @@ END_DESCR
 EDITTIP: <b>自動修正503エラー</b>を有効にすると、監視プロセスによって自動的に新しいサーバープロセスが起動し、クラッシュが検出された場合にサービスが即座に再開します。
 END_EDITTIP
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -412,7 +412,7 @@ DESCR: 暗号化されていないTCP接続に対してHTTP/2を有効にする�
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -467,7 +467,7 @@ DESCR: Real-Time Statsレポートファイルが書き込まれるディレク�
 
 END_DESCR
 
-SYNTAX: path1
+SYNTAX: 絶対パス。
 END_SYNTAX
 
 EXAMPLE: 
@@ -503,7 +503,7 @@ EDITTIP: MIME設定は前のページから編集できます。
 mime構成ファイルの場所は、絶対パスでも、$SERVER_ROOTからの相対パスでも指定できます。
 END_EDITTIP
 
-SYNTAX: file2
+SYNTAX: ファイル名への絶対パス又は$SERVER_ROOTからの相対パス
 END_SYNTAX
 
 EXAMPLE: 
@@ -529,7 +529,7 @@ DESCR: 起動時にサーバーエラーログファイルのローテーショ�
 値が「未設定」の場合、初期ログローテーションはデフォルトで有効になっています。 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -557,7 +557,7 @@ DESCR: 起動時にサーバーエラーログファイルのローテーショ�
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -612,7 +612,7 @@ DESCR: 行を表示するかどうかを指定します。
 LiteSpeed Technologiesは、このWebサイトの管理および内容に責任を負いません！"</blockquote>デフォルトのエラーページ。
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: ラジオボックスから選択 
 END_SYNTAX
 
 EXAMPLE: 
@@ -638,7 +638,7 @@ DESCR: {ent_version} IPジオロケーション検索を有効/無効にする�
 値 「設定しない」を使用すると、IPジオロケーションはデフォルトで無効になります。 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -898,7 +898,7 @@ EDITTIP: Allow Override configuration is available in three levels: server level
 the overall control, i.e. lower level can disable a setting which is enabled by upper level, but cannot enable a setting which is disabled by upper level.
 END_EDITTIP
 
-EDITTIP: When all checkboxes are unchecked, default setting will be used.
+EDITTIP: When all チェックボックスから選択es are unchecked, default setting will be used.
 END_EDITTIP
 
 EDITTIP: When nothing but "None" is checked, access control file will be ignored.
@@ -910,7 +910,7 @@ END_EDITTIP
 EDITTIP: When "Auth" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", "Require" are allowed. 
 END_EDITTIP
 
-SYNTAX: checkbox
+SYNTAX: チェックボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -982,7 +982,7 @@ Context Level > Virtual Host Level > Server Level
 <br><br>
 END_EDITTIP
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1088,7 +1088,7 @@ request body is still parsed to files.
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1141,7 +1141,7 @@ Standard, MemoryCache, CheckCache and IndexCache. MemoryCache is recommended and
 
 END_DESCR
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1172,7 +1172,7 @@ there is conflict between LiteSpeed internal and Apache-based configurations.
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1209,7 +1209,7 @@ For other control panels default is "Yes".
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1420,7 +1420,7 @@ is accessed for the first time, instead of loading all configurations at start u
 memory and speed up server start up.
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1452,7 +1452,7 @@ Default is {val}No{/}.
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1478,7 +1478,7 @@ DESCR: Specifies the maximum number of concurrent PHP processes that can be crea
 
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -1508,7 +1508,7 @@ httpd.conf, and you need to enable it explicitly here. Default is "disabled".
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 

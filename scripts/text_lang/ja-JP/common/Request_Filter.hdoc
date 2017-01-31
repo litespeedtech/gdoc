@@ -17,7 +17,7 @@ feature is equivalent to Apache's mod_security, which can be used to detect
 and block requests with ill intention by matching them to known signatures. 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -45,7 +45,7 @@ most detailed log. The the server and virtual host's error log
 This is useful when testing request filtering rules.
 END_DESCR
 
-SYNTAX: uint 
+SYNTAX: 整数 
 END_SYNTAX
 
 EXAMPLE: 
@@ -98,7 +98,7 @@ Default is "No".
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -125,7 +125,7 @@ Default is "No".
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -258,7 +258,7 @@ feature is equivalent to Apache's mod_security audit engine.
 If it is enabled and {ITEM=secAuditLog} is set, detailed request information will be saved. 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -284,7 +284,7 @@ DESCR: Specifies the path of the security audit log, which gives more detailed i
  a particular user. Use {ITEM=secAuditLogEngine} to turn on the logging.   
 END_DESCR
 
-SYNTAX: file2
+SYNTAX: ファイル名への絶対パス又は$SERVER_ROOTからの相対パス
 END_SYNTAX
 
 EXAMPLE: 
@@ -365,7 +365,7 @@ quickly turned on and off without adding or removing the rule set. Default is "Y
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 

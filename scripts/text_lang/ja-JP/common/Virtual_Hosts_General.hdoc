@@ -23,7 +23,7 @@ END_EDITTIP
 EDITTIP: この仮想ホストでは、ドキュメントルートは$DOC_ROOTと呼ばれ、他のパス設定で使用できます。
 END_EDITTIP
 
-SYNTAX: path3
+SYNTAX: 絶対パスか$SERVER_ROOTからの相対パス又は$VH_ROOTからの相対パス。
 END_SYNTAX
 
 EXAMPLE: 
@@ -76,7 +76,7 @@ DESCR: この仮想ホストに対してGZIP圧縮を有効にするかどうか
 圧縮設定はサーバーレベルで設定されます（チューニング> GZIP）。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -173,7 +173,7 @@ DESCR: {ITEM=indexFiles}にリストされている索引ファイルがディ�
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 

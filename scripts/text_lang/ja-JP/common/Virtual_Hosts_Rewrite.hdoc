@@ -16,7 +16,7 @@ DESCR: LiteSpeedのURL書き換えエンジンを有効にするかどうかを�
 このオプションは、仮想ホストまたはコンテキストレベルでカスタマイズでき、明示的に上書きされるまでディレクトリツリーに沿って継承されます。 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
