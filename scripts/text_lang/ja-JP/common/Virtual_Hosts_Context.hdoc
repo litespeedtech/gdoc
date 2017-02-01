@@ -943,7 +943,7 @@ If not specified, the original realm name will be used. The authentication name 
 displayed on the browser's login pop-up.
 END_DESCR
 
-SYNTAX: テキスト
+SYNTAX: text
 END_SYNTAX
 
 EXAMPLE: 

@@ -105,7 +105,7 @@ DESCR: サーバーが物理的にファイルを削除しようとする前の�
 キャッシュストレージが過度に大きくならないように1日に1回発生します。 最小設定は60分です。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -212,7 +212,7 @@ SEE_ALSO:
 DESCR: オブジェクトがキャッシュされる期間を指定します。 デフォルトは "86400"秒（1日）です。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -238,7 +238,7 @@ DESCR: オブジェクトが期限切れになった後、新しいキャッシ�
 コピーが利用可能です。 デフォルトは "10"秒です。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -449,7 +449,7 @@ SEE_ALSO:
 DESCR: オブジェクトがプライベートキャッシュにキャッシュされる期間を指定します。 デフォルトは「60」秒です。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 

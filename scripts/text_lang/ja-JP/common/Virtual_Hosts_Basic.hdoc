@@ -15,7 +15,7 @@ DESCR: バーチャルホストの一意の名前。 バーチャルホストの
 バーチャルホスト名は、変数$VH_NAMEを使用して参照できます。
 END_DESCR
 
-SYNTAX: テキスト
+SYNTAX: text
 END_SYNTAX
 
 EXAMPLE: 
@@ -192,7 +192,7 @@ DESCR: キープアライブ（永続的）接続を介して提供できる最�
 この数値は、サーバーレベルの{ITEM=ServTuning_Help＃maxKeepAliveReq}の制限を超えることはできません。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 

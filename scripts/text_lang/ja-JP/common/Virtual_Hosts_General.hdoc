@@ -254,7 +254,7 @@ SEE_ALSO:
 DESCR: カスタムエラーメッセージを指定します。
 END_DESCR
 
-SYNTAX: テキスト
+SYNTAX: text
 END_SYNTAX
 
 EXAMPLE: 

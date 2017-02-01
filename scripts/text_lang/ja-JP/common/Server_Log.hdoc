@@ -377,7 +377,7 @@ DESCR: アクセスログファイルをディスクに保管する日数を指�
 古いログファイルを自動削除しない場合は、{val} 0 {/}に設定します。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 

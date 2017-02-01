@@ -18,7 +18,7 @@ END_DESCR
 EDITTIP: サーバープロセスのユーザーおよびグループの設定は変更できません。 これはインストール時に設定されました。 このオプションを変更するには、再インストールする必要があります。
 END_EDITTIP
 
-SYNTAX: テキスト
+SYNTAX: text
 END_SYNTAX
 
 EXAMPLE: 
@@ -323,7 +323,7 @@ DESCR: 要求本体およびその動的生成応答を格納するために使�
 この制限に達すると、サーバーは{ITEM = swappingDir}の下に一時的なスワップファイルを作成し始めます。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -440,7 +440,7 @@ DESCR: グレースフルリスタート時には、新しいサーバーイン�
 
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
