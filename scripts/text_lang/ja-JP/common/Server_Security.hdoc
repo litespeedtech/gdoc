@@ -1049,11 +1049,6 @@ NAME: File Access
 DESCR: 
 END_DESCR
 
-CONT: followSymbolLink checkSymbolLink forceStrictOwnership requiredPermissionMask
-restrictedPermissionMask restrictedScriptPermissionMask
-restrictedDirPermissionMask 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1067,9 +1062,6 @@ NS: EO
 DESCR: These are connection control settings are based on client IP. 
 These settings help to mitigate DoS (Denial of Service) and DDoS (Distributed Denial of Service) attacks.
 END_DESCR
-
-CONT: staticReqPerSec dynReqPerSec outBandwidth inBandwidth softLimit hardLimit blockBadReq gracePeriod banPeriod 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1085,9 +1077,6 @@ DESCR: These are connection control setting on a per client/IP basis.
 These settings help to mitigate DoS (Denied of Service) and DDoS (Distributed Denied of Service) attacks.
 END_DESCR
 
-CONT: dynReqPerSec outBandwidth inBandwidth softLimit hardLimit blockBadReq gracePeriod banPeriod 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1102,9 +1091,6 @@ DESCR: The following settings control CGI processes. Memory and process limits a
 other external applications if limits have not been set explicitly for those applications. 
 END_DESCR
 
-CONT: cgidSock maxCGIInstances minUID minGID forceGID umask CGIPriority CPUSoftLimit CPUHardLimit memSoftLimit memHardLimit procSoftLimit procHardLimit 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1116,9 +1102,6 @@ NAME: Access Denied Directories
 
 DESCR: 
 END_DESCR
-
-CONT: accessDenyDir 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1151,9 +1134,6 @@ END_DESCR
 TIPS: [Security] Use this at the server level for general restrictions that apply to all virtual hosts.
 END_TIPS
 
-CONT: accessControl_allow accessControl_deny 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1170,10 +1150,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-CONT: fileAccessControl perClientConnLimit cgiResource
-accessDeny accessControl  
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -1186,9 +1162,6 @@ NS: L
 
 DESCR: 
 END_DESCR
-
-CONT: perClientConnLimit accessControl 
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

@@ -644,9 +644,6 @@ NS: L
 DESCR:
 END_DESCR
 
-CONT: totalBandwidth
-END_CONT
-
 [END_TBL]
 
 
@@ -663,10 +660,6 @@ DESCR: ホットリンクとは、外部ウェブサイトから自分のウェ�
 LiteSpeed Webサーバーは、HTTPリクエスト内のRefererヘッダーをチェックすることにより、他人があなたのWebサイト上のコンテンツにホットリンクするのを防ぐことができます。
 Refererヘッダーがあなたのウェブサイトと一致しない場合、リクエストは拒否されます。
 END_DESCR
-
-CONT: enableHotlinkCtrl suffixes redirectUri allowDirectAccess 
-onlySelf allowedHosts matchedHosts
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -686,34 +679,6 @@ DESCR: この仮想ホストのすべての許可レルムをリストします�
 コンテキスト設定では、これらの名前でレルムを参照できます。 
 END_DESCR
 
-CONT: realmName realmType userDBLocation userDB_attrPasswd
-userDB_attrMemberOf userDBMaxCacheSize userDBCacheTimeout 
-GroupDBLocation groupDB_attrGroupMember groupDBMaxCacheSize 
-groupDBCacheTimeout LDAPBindDN LDAPBindPasswd UDBgroup users
-END_CONT
-
-SEE_ALSO:
-[END_TBL]
-
-
-[TBL]
-ID: realms
-NAME: 認可レルム
-NS: O
-
-DESCR: この仮想ホストのすべての許可レルムをリストします。
-権限領域は、権限のないユーザーが保護されたWebページにアクセスするのをブロックするために使用されます。
-レルムは、ユーザー名とパスワードを含むユーザーディレクトリです。
-グループ分類。 認可はコンテキストレベルで実行されます。
-異なるコンテキストは同じレルム（ユーザデータベース）を共有できるため、レルムはそれらを使用するコンテキストとは別に定義されます。
-コンテキスト設定では、これらの名前でレルムを参照できます。 
-END_DESCR
-
-CONT: realmName userDBLocation userDBMaxCacheSize userDBCacheTimeout 
-GroupDBLocation groupDBMaxCacheSize 
-groupDBCacheTimeout UDBgroup users
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -730,9 +695,6 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: vhBandwidthThrottlingControl tpSecThrottle accessControl realms
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -746,9 +708,6 @@ NS: E
 DESCR: 
 END_DESCR
 
-CONT: vhHotlink accessControl realms
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -761,9 +720,6 @@ NS: O
 
 DESCR: 
 END_DESCR
-
-CONT: accessControl realms 
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

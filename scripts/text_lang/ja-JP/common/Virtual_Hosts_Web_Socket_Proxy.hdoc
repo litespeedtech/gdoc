@@ -78,9 +78,6 @@ NAME: Webソケットプロキシ
 DESCR: 
 END_DESCR
 
-CONT: wsuri wsaddr
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -98,9 +95,6 @@ DESCR: <a href="http://en.wikipedia.org/wiki/WebSocket"> WebSocket </a>は、HTT
 これらのプロキシは、WebSocket通信を{ITEM=wsaddr}フィールドで指定された適切なバックエンドに送信します。
 
 END_DESCR
-
-CONT: websocketproxy
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

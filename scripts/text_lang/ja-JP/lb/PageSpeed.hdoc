@@ -98,9 +98,6 @@ NAME: PageSpeedモジュールの設定
 DESCR: 
 END_DESCR
 
-CONT: pagespeedActivate pagespeedEnabled pagespeedParams
-END_CONT
-
 SEE_ALSO:
 [END_TBL]
 
@@ -115,9 +112,6 @@ NAME: PageSpeedモジュールの設定
 
 DESCR:
 END_DESCR
-
-CONT: Mod_PageSpeed
-END_CONT
 
 SEE_ALSO:
 [END_PAGE]

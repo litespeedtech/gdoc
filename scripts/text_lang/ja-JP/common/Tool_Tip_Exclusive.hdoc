@@ -32,9 +32,6 @@ NAME: ツールチップの限定
 DESCR: 
 END_DESCR
 
-CONT: note
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -46,9 +43,6 @@ Name:
 
 DESCR:
 END_DESCR
-
-CONT: notesTBL
-END_CONT
 
 SEE_ALSO:
 

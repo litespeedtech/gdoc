@@ -134,9 +134,6 @@ NAME: PHPのコンパイル
 DESCR: 
 END_DESCR
 
-CONT: extrapathenv installpathprefix compilerflags configureparams addonmodules
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -151,9 +148,6 @@ NAME: PHPのコンパイル
 
 DESCR: 
 END_DESCR
-
-CONT: compilephp
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

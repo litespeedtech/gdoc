@@ -238,9 +238,6 @@ NAME: Template Location
 DESCR: 
 END_DESCR
 
-CONT: templateName templateFile mappedListeners  
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -252,9 +249,6 @@ NAME: Member Virtual Hosts
 
 DESCR: 
 END_DESCR
-
-CONT: templateVHName templateVHDomain templateVHAliases memberVHRoot  
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -298,9 +292,6 @@ Even when setting up a virtual host with different configuration,
 it is still convenient to use a template as a starting point, and then customize it after instantiation.
 END_DESCR
 
-CONT: templateGeneral templateMembers templateSettings
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -332,9 +323,6 @@ standalone virtual host configuration will be created automatically.
 Even when setting up a customized virtual host,
 a template can still be a convenient starting point.
 END_DESCR
-
-CONT: templateGeneral templateMembers templateSettings
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

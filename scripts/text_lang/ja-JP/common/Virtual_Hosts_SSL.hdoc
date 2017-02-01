@@ -12,9 +12,6 @@ NS: LEO
 DESCR: 
 END_DESCR
 
-CONT: renegProtection sslSessionCache sslSessionTickets
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -30,9 +27,6 @@ NS: LEO
 
 DESCR: 
 END_DESCR
-
-CONT: sslCert sslProtocolSetting vhSSLFeature sslOCSP sslClientVerify
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

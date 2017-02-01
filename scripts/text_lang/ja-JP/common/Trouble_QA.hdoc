@@ -164,9 +164,6 @@ TOP_NAV: index.html = INDEX
 DESCR: 
 END_DESCR
 
-CONT: start crash pass e503 chroot
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 

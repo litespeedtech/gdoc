@@ -348,9 +348,6 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: listenerName listenerType listenerIP listenerPort listenerBinding listenerSecure mapped_L4_clusters
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -363,9 +360,6 @@ NS: EO
 
 DESCR: 
 END_DESCR
-
-CONT: listenerName listenerIP listenerPort listenerBinding listenerSecure 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -390,9 +384,6 @@ TIPS:[パフォーマンス]必要なマッピングのみを追加します。
 リスナーが1つの仮想ホストにのみマッピングされている場合は、キャッチオールマッピング "*"のみを設定します。
 END_TIPS
 
-CONT: virtualHostName domainName 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -408,9 +399,6 @@ NS: LEO
 
 DESCR: 
 END_DESCR
-
-CONT: listenerGeneral virtualHostMapping
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

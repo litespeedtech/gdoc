@@ -1587,10 +1587,6 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: serverName lslbdProcesses runningAs serverPriority 
-servChrootPath enableChroot inMemBufSize swappingDir  
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1604,10 +1600,6 @@ NS: E
 DESCR: 
 END_DESCR
 
-CONT: serverName runningAs serverPriority cpuAffinity servChrootPath enableChroot
-enableLVE inMemBufSize swappingDir autoFix503 enableh2c gracefulRestartTimeout
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1620,10 +1612,6 @@ NS: O
 
 DESCR: 
 END_DESCR
-
-CONT: serverName httpdWorkers runningAs serverPriority 
- inMemBufSize swappingDir autoFix503 enableh2c gracefulRestartTimeout statDir
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1638,11 +1626,6 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: disableInitLogRotation showVersionNumber 
-enableIpGeo useIpInProxyHeader autoUpdateInterval 
-autoUpdateDownloadPkg adminEmails 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1655,11 +1638,6 @@ NS: E
 
 DESCR: 
 END_DESCR
-
-CONT: mime mimesuffix mimetype disableInitLogRotation showVersionNumber 
-hideSigInErrorPage enableIpGeo useIpInProxyHeader extAppAbort  
-autoUpdateInterval autoUpdateDownloadPkg adminEmails 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1674,10 +1652,6 @@ NS: O
 DESCR: 
 END_DESCR
 
-CONT: mime mimesuffix mimetype disableInitLogRotation showVersionNumber 
- enableIpGeo useIpInProxyHeader adminEmails 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1689,9 +1663,6 @@ NAME: インデックスファイル
 
 DESCR: 
 END_DESCR
-
-CONT: indexFiles autoIndex autoIndexURI
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1754,9 +1725,6 @@ DESCR:
 
 END_DESCR
 
-CONT: allowOverride accessFileName 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1768,9 +1736,6 @@ NAME: 期限切れの設定
 
 DESCR: 
 END_DESCR
-
-CONT: enableExpires expiresDefault expiresByType 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1787,9 +1752,6 @@ Request Body Parserは、{ITEM = uploadPassByPath}が有効になっているか
 ソースパッケージで提供されるAPIの例
 END_DESCR
 
-CONT: uploadTmpDir uploadTmpFilePermission uploadPassByPath
-END_CONT
-
 SEE_ALSO: {ITEM=HTTP_BEGIN}
 [END_TBL]
 
@@ -1804,9 +1766,6 @@ MaxMindには、国、地域、市区町村、組織、ISP、Netspeedの各タ�
 「国」、「地域」、および「都市」タイプの複数のデータベースが構成されている場合は、最後のデータベースが有効になります。
 END_DESCR
 
-CONT: geoipDBFile geoipDBCache 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1820,11 +1779,6 @@ NS: E
 DESCR: 
 END_DESCR
 
-CONT: loadApacheConf autoReloadApacheConf apacheBinPath apacheConfFile
-apachePortOffset apacheIpOffset apacheHandledContent apacheIgnoredModules jitConfig phpSuExec
-phpSuExecMaxConn apacheEnableFP apacheEnvVars
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1837,9 +1791,6 @@ NS: E
 
 DESCR: 
 END_DESCR
-
-CONT: apacheConf 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1861,9 +1812,6 @@ $SERVER_ROOTは、LiteSpeedロードバランサがインストールされて�
 ロードバランサの実行ファイルは$SERVER_ROOT/binにあります。 
 END_DESCR
 
-CONT: servProcess servGeneral geolocationDB 
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -1878,10 +1826,6 @@ DESCR: サーバー全体の一般設定。
 設定にパス情報が必要な場合は、絶対パスか$SERVER_ROOTのどちらかになります。 $SERVER_ROOTは、LiteSpeed Webサーバーがインストールされている場所です（your_home_dir/lswsまたは/opt/lswsなど）。
 サーバー実行ファイルは$SERVER_ROOT/binにあります。 
 END_DESCR
-
-CONT: servProcess servGeneral servIndex htaccess 
-expire geolocationDB apacheConfigFile apacheConfig
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
@@ -1898,9 +1842,6 @@ DESCR: サーバー全体の一般設定。
 $SERVER_ROOTは、LiteSpeed Webサーバーがインストールされている場所です（your_home_dir/lswsまたは/opt/lswsなど）。
 サーバー実行ファイルは$SERVER_ROOT/binにあります。 
 END_DESCR
-
-CONT: servProcess servGeneral servIndex expire fileUpload geolocationDB
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

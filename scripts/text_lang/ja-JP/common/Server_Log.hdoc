@@ -425,9 +425,6 @@ NS: LE
 DESCR: 
 END_DESCR
 
-CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_enableStderrLog log_enableAioLog
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -441,9 +438,6 @@ NS: O
 DESCR: 
 END_DESCR
 
-CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_enableStderrLog 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -455,9 +449,6 @@ NAME: アクセスログ
 
 DESCR: 
 END_DESCR
-
-CONT: accessLog_fileName accessLog_pipedLogger accessLog_logFormat accessLog_logHeader log_rollingSize accessLog_keepDays accessLog_compressArchive
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -477,9 +468,6 @@ DESCR: ロードバランサのサーバーログとアクセスログの設定�
 たとえば、your_home_dir/lslb、/opt/lslbなどです。ロードバランサの実行ファイルは$SERVER_ROOT/binにあります。
 END_DESCR
 
-CONT: servLog servAcLog 
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -492,9 +480,6 @@ NS: EO
 
 DESCR: 
 END_DESCR
-
-CONT: servLog servAcLog 
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

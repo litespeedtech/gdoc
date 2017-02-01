@@ -395,11 +395,6 @@ TOP_NAV: index.html = INDEX
 DESCR: 
 END_DESCR
 
-CONT: isfree diff support comp fast rewrite faq_frontpage api versionString php
-phpacc phpsuexec phpperf phpconf jsp asp dnet
-isapi proxy cache sca modpl apm ssi vh cp smp opensrc base help
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 

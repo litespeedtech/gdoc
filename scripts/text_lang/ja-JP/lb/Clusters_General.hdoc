@@ -280,9 +280,6 @@ NAME: ロードバランサ
 DESCR: 
 END_DESCR
 
-CONT: lb_name lb_type lb_mode strategy
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -294,10 +291,6 @@ NAME: セッション管理
 
 DESCR: 
 END_DESCR
-
-CONT: sessionExMethod sessionId sessionTimeout 
-	  insertCookie cookieName
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -311,9 +304,6 @@ NAME: カスタムエラーメッセージ
 DESCR: バックエンドサーバーへの要求の配布中にエラーが発生した場合のカスタムエラーメッセージを指定します。
 バーチャルホストレベルで設定されたカスタムエラーメッセージは、この設定を上書きします。
 END_DESCR
-
-CONT:
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -329,9 +319,6 @@ NAME: クラスタ全般
 
 DESCR: 
 END_DESCR
-
-CONT: ClusterDef ClusterSession ClusterErrMsg
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

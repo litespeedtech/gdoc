@@ -121,10 +121,6 @@ NAME: レイヤ7ワーカーグループ
 DESCR: 
 END_DESCR
 
-CONT: workerName extAppType workerGroupEnabled sourceIP defaultTargetPort maxConns env initTimeout retryTimeout 
-persistConn pcKeepAliveTimeout respBuffer pingUrl pingInterval nodeAddresses
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -136,9 +132,6 @@ NAME: レイヤ4ワーカーグループ
 
 DESCR: 
 END_DESCR
-
-CONT: workerName workerGroupEnabled sourceIP defaultTargetPort maxConns initTimeout retryTimeout pingInterval nodeAddresses
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -154,9 +147,6 @@ NAME: クラスタワーカーグループ
 
 DESCR: 
 END_DESCR
-
-CONT: ClusterWorkerGroup ClusterWorkerGroupL4
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

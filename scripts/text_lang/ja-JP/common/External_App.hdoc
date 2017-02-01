@@ -923,9 +923,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-CONT: extAppType
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -938,13 +935,6 @@ NS: EO
 
 DESCR: 
 END_DESCR
-
-CONT: extAppName extAppAddress maxConns env initTimeout 
-retryTimeout persistConn pcKeepAliveTimeout respBuffer autoStart
-extAppPath backlog instances extUser extGroup extUmask
-runOnStartUp extMaxIdleTime extAppPriority 
-memSoftLimit memHardLimit procSoftLimit procHardLimit
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -959,33 +949,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-CONT: extAppName extAppAddress maxConns env initTimeout 
-retryTimeout persistConn pcKeepAliveTimeout respBuffer autoStart
-extAppPath backlog instances extUser extGroup extUmask
-runOnStartUp extMaxIdleTime extAppPriority 
-memSoftLimit memHardLimit procSoftLimit procHardLimit
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: extLSAPI
-NAME: LiteSpeed SAPI
-NS: EO
-
-DESCR: 
-END_DESCR
-
-CONT: extAppName extAppAddress maxConns env initTimeout 
-retryTimeout persistConn pcKeepAliveTimeout respBuffer autoStart
-extAppPath backlog instances extUser extGroup extUmask
-runOnStartUp extMaxIdleTime extAppPriority 
-memSoftLimit memHardLimit procSoftLimit procHardLimit
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -998,10 +961,6 @@ NS: EO
 
 DESCR: 
 END_DESCR
-
-CONT: extAppName extAppAddress maxConns pcKeepAliveTimeout 
-env initTimeout retryTimeout respBuffer 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1016,10 +975,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-CONT: extAppName expWSAddress maxConns 
-pcKeepAliveTimeout env initTimeout retryTimeout respBuffer
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1033,11 +988,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-CONT: extAppName extAppAddress maxConns env 
-extAppPath instances extUser extGroup extUmask 
-extAppPriority
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1050,9 +1000,6 @@ NS: EO
 
 DESCR: 
 END_DESCR
-
-CONT: extAppName extWorkers
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1152,9 +1099,6 @@ virtual host level, it can only be used by that virtual host.
 
 END_DESCR
 
-CONT: extapp
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -1167,9 +1111,6 @@ NS: EO
 
 DESCR:
 END_DESCR
-
-CONT: extFCGI
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
@@ -1184,9 +1125,6 @@ NS: EO
 DESCR:
 END_DESCR
 
-CONT: extFCGIAuth
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -1198,9 +1136,6 @@ NAME: LiteSpeed SAPI アプリ
 NS: EO
 DESCR:
 END_DESCR
-
-CONT: extLSAPI
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
@@ -1215,9 +1150,6 @@ NS: EO
 DESCR:
 END_DESCR
 
-CONT: extServlet
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -1230,9 +1162,6 @@ NS: EO
 
 DESCR:
 END_DESCR
-
-CONT: extWS
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
@@ -1247,9 +1176,6 @@ NS: EO
 DESCR:
 END_DESCR
 
-CONT: extPL
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -1262,9 +1188,6 @@ NS: EO
 
 DESCR:
 END_DESCR
-
-CONT: extLB
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

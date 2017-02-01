@@ -215,9 +215,6 @@ NAME: バーチャルホストログ
 DESCR: 
 END_DESCR
 
-CONT: logUseServer vhlog_fileName vhlog_logLevel log_rollingSize 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -229,12 +226,6 @@ NS: L
 
 DESCR: 
 END_DESCR
-
-CONT: aclogUseServer vhaccessLog_fileName accessLog_pipedLogger 
-accessLog_logFormat accessLog_logHeader 
-log_rollingSize accessLog_keepDays 
-accessLog_bytesLog accessLog_compressArchive
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -248,12 +239,6 @@ NS: EO
 
 DESCR: 
 END_DESCR
-
-CONT: aclogUseServer vhaccessLog_fileName accessLog_pipedLogger 
-accessLog_logFormat accessLog_logHeader 
-log_rollingSize accessLog_keepDays 
-accessLog_bytesLog accessLog_compressArchive
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]

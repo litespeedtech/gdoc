@@ -380,9 +380,6 @@ NAME: HA仮想インターフェイスの設定
 DESCR: 追加/削除/変更は、HA->ステータスページで適用されるまで有効になりません。
 END_DESCR
 
-CONT: haInterfaceId haVip haVipId haVipToken haNic haPriority
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -394,10 +391,6 @@ NAME: レプリケーション
 
 DESCR:
 END_DESCR
-
-CONT: haRep_serverAddr haRep_replCluster haRep_heartBeatInterval haRep_heartBeatTimeout haRep_isGzipStream 
-haRep_isIncSync haRep_isFileCached haRep_fileCacheLstnr haRep_fileCacheExpireSec
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -424,9 +417,6 @@ DESCR: 固有の<b>インタフェースID </b>を使用して、現在設定さ
 </ul>
 
 END_DESCR
-
-CONT: 
-END_CONT
 
 TIPS: configセクションの高可用性インターフェイスに対する設定変更は、影響を受けるインターフェイスの横にある[Apply Changes]をクリックするまで適用されません。
 新しいインターフェースの追加や既存のインターフェースの削除にも同じことが言えます。変更はそれぞれ「追加/削除」をクリックするまで適用されません。
@@ -466,9 +456,6 @@ NAME: 高可用性設定
 
 DESCR: 
 END_DESCR
-
-CONT: HAReplication HAInterface HAStatus replicationStatus
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

@@ -99,7 +99,7 @@ END_DESCR
 EDITTIP: Script handler can be a CGI, an FCGI app, a module handler, a Servlet engine, or a proxy to Web server.
 END_EDITTIP
 
-SYNTAX: ƒhƒƒbƒvƒ_ƒEƒ“ƒŠƒXƒg‚©‚ç‘I‘ğ
+SYNTAX: ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ãƒªã‚¹ãƒˆã‹ã‚‰é¸æŠ
 END_SYNTAX
 
 EXAMPLE: 
@@ -127,7 +127,7 @@ END_DESCR
 EDITTIP: Except CGI, other handlers need to be predefined in the "External App" section.
 END_EDITTIP
 
-SYNTAX: ƒhƒƒbƒvƒ_ƒEƒ“ƒŠƒXƒg‚©‚ç‘I‘ğ
+SYNTAX: ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ãƒªã‚¹ãƒˆã‹ã‚‰é¸æŠ
 END_SYNTAX
 
 EXAMPLE: 
@@ -151,9 +151,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-CONT: suffix shType shHandlerName 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -174,7 +171,7 @@ LiteSpeed Web Server uses script handlers to decide which external application a
 script should go to. These script handlers map files to external applications by 
 using the file suffix. (Actually, the suffix is used to determine a MIME 
 type which is then mapped to the external application.) External applications 
-must be set up in the {PAGE= ExtApp_Help} tab before they can be ƒhƒƒbƒvƒ_ƒEƒ“ƒŠƒXƒg‚©‚ç‘I‘ğed for 
+must be set up in the {PAGE= ExtApp_Help} tab before they can be ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ãƒªã‚¹ãƒˆã‹ã‚‰é¸æŠed for 
 use in a script handler.
 
 
@@ -183,9 +180,6 @@ script handlers apply to all virtual hosts unless overridden in virtual host lev
 Virtual host-level script handlers only apply within that virtual host.
 END_DESCR
 
-
-CONT:  scriptHandler
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

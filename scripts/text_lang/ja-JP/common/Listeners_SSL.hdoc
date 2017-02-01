@@ -567,9 +567,6 @@ containing critical data. However, a self-signed certificate is good
 enough for internal use, e.g. for encrypting traffic to LiteSpeed Web Server's WebAdmin Console.
 END_DESCR
 
-CONT: keyFile certFile certChain CACertPath CACertFile
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -582,9 +579,6 @@ NS: LEO
 
 DESCR: Customizes SSL protocols accepted by the listener.
 END_DESCR
-
-CONT: sslProtocol ciphers enableECDHE enableDHE DHParam
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -607,9 +601,6 @@ check with the OCSP responder at regular intervals instead of every time a certi
 is requested. See the <a href="http://en.wikipedia.org/wiki/OCSP_Stapling">OCSP Wikipedia page</a> for more details.
 END_DESCR
 
-CONT: enableStapling ocspRespMaxAge ocspResponder ocspCACerts
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -622,9 +613,6 @@ NS: LEO
 
 DESCR: 
 END_DESCR
-
-CONT: clientVerify verifyDepth crlPath crlFile 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -641,9 +629,6 @@ NS: LEO
 
 DESCR: 
 END_DESCR
-
-CONT: sslCert sslProtocolSetting sslFeature sslOCSP sslClientVerify
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

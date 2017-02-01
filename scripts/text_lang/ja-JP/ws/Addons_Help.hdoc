@@ -347,9 +347,6 @@ NAME: フロントページサーバーエクステンション
 DESCR: 
 END_DESCR
 
-CONT: enableFrontPage disableAdmin domainNames 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -364,11 +361,6 @@ LiteSpeed Webサーバーは、AWStatsをWebAdminコンソールにシームレ�
 
 END_DESCR
 
-CONT: updateMode workingDir awstatsURI siteDomain
-siteAliases updateInterval updateOffset
-securedConn awstatsRealm 
-END_CONT
-
 SEE_ALSO:
 [END_TBL]
 
@@ -382,9 +374,6 @@ NAME: アドオン
 
 DESCR: 
 END_DESCR
-
-CONT: frontpage awstats 
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

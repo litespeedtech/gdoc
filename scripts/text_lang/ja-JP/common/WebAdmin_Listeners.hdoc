@@ -15,9 +15,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-CONT: listenerName listenerIP listenerPort listenerSecure
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -31,9 +28,6 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: listenerName listenerType listenerIP listenerPort listenerSecure
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -46,9 +40,6 @@ NS: LEO
 
 DESCR: 
 END_DESCR
-
-CONT: renegProtection sslSessionCache sslSessionTickets enableSpdy
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -66,9 +57,6 @@ NS: LEO
 DESCR: リスナー管理は管理サーバー専用です。 管理サーバーには、セキュア（SSL）リスナーを推奨します。
 END_DESCR
 
-CONT: Admin_listenerGeneral
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -81,9 +69,6 @@ NS: LEO
 
 DESCR: リスナー管理は管理サーバー専用です。 管理サーバーには、セキュア（SSL）リスナーを推奨します。
 END_DESCR
-
-CONT: sslCert sslProtocolSetting sslFeature sslClientVerify
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

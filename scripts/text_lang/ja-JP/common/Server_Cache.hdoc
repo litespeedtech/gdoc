@@ -534,9 +534,6 @@ NS: LE
 DESCR: 
 END_DESCR
 
-CONT: cacheStorePath litemage cacheMgrStorePath pubStoreExpireMinutes
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -549,12 +546,6 @@ NS: LE
 
 DESCR: 
 END_DESCR
-
-CONT: cachePolicy:enableCache checkPublicCache cachePolicy:maxCacheObjSize cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
- cachePolicy:reqCookieCache cachePolicy:respCookieCache 
-cachePolicy:ignoreReqCacheCtrl cachePolicy:ignoreRespCacheCtrl
-cachePolicy:enablePrivateCache checkPrivateCache cachePolicy:privateExpireInSeconds
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -569,9 +560,6 @@ NS: LE
 DESCR: 
 END_DESCR
 
-CONT:noCacheUrl
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -584,9 +572,6 @@ NS: LE
 
 DESCR: 
 END_DESCR
-
-CONT:noCacheDomain
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -602,9 +587,6 @@ NS: LE
 
 DESCR: 
 END_DESCR
-
-CONT: cacheStorage cachePolicy noCacheURLList noCacheDomainList
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

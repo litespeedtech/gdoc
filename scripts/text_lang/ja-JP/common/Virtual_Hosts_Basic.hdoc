@@ -441,9 +441,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-CONT: vhName vhRoot configFile
-END_CONT
-
 [END_TBL]
 
 
@@ -455,9 +452,6 @@ NS: EO
 
 DESCR: 
 END_DESCR
-
-CONT: vhMaxKeepAliveReq vhSmartKeepAlive
-END_CONT
 
 [END_TBL]
 
@@ -471,11 +465,6 @@ NS: E
 DESCR: 
 END_DESCR
 
-CONT: allowSymbolLink enableScript
-restrained setUidMode
-chrootMode chrootPath totalBandwidth
-END_CONT
-
 [END_TBL]
 
 
@@ -487,11 +476,6 @@ NS: O
 
 DESCR: 
 END_DESCR
-
-CONT: allowSymbolLink enableScript
-restrained setUidMode
-chrootMode chrootPath
-END_CONT
 
 [END_TBL]
 
@@ -505,10 +489,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-CONT: staticReqPerSec dynReqPerSec
-outBandwidth inBandwidth 
-END_CONT
-
 [END_TBL]
 
 
@@ -520,10 +500,6 @@ NS: L
 
 DESCR: 
 END_DESCR
-
-CONT: vhName defaultCluster configFile 
-dynReqPerSec outBandwidth inBandwidth 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -537,12 +513,6 @@ NS: EO
 
 DESCR: 
 END_DESCR
-
-CONT: vhName vhRoot configFile allowSymbolLink enableScript
-restrained vhMaxKeepAliveReq vhSmartKeepAlive setUidMode
-chrootMode chrootPath staticReqPerSec dynReqPerSec
-outBandwidth inBandwidth 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -562,9 +532,6 @@ DESCR: このページには、定義されたすべてのバーチャルホス�
 バーチャルホストを追加する前に、バーチャルホストのルートディレクトリが存在することを確認してください。
 END_DESCR
 
-CONT: vhBase vhConnection vhSecurity vhPClientThrottling
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -578,9 +545,6 @@ NS: L
 DESCR: このページには、定義されたすべてのバーチャルホストが一覧表示されます。
 ここからバーチャルホストを追加/削除したり、既存のバーチャルホストを変更したりすることができます。
 END_DESCR
-
-CONT: vhTop 
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

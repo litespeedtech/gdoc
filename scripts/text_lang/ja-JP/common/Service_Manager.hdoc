@@ -22,9 +22,6 @@ top-level functions. It provides the following features:
 
 END_DESCR
 
-CONT: serviceMgr serviceMgrListener serviceMgrVh 
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -48,9 +45,6 @@ top-level functions. It provides the following features:
 
  
 END_DESCR
-
-CONT: serviceMgr serviceMgrListener serviceMgrVh 
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

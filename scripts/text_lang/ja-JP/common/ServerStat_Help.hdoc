@@ -522,9 +522,6 @@ NAME: Listeners
 DESCR: 
 END_DESCR
 
-CONT: lname lstatus lmap 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -536,9 +533,6 @@ NAME: Virtual Hosts
 
 DESCR: 
 END_DESCR
-
-CONT: vname vstatus vaction venable vdisable vreload 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -553,9 +547,6 @@ NS: LE
 DESCR: 
 END_DESCR
 
-CONT: sname pid servAction restart viewlog realtimerpt toggleDebugLog vermgr
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -568,9 +559,6 @@ NS: O
 
 DESCR: 
 END_DESCR
-
-CONT: sname pid servAction restart viewlog realtimerpt toggleDebugLog 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]

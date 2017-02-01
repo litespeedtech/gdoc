@@ -1286,13 +1286,6 @@ TOP_NAV: index.html = INDEX
 DESCR: 
 END_DESCR
 
-CONT: qa_incfd qa_namevh qa_ipvh qa_dos qa_gzip qa_perf qa_extapp
-qa_php qa_phplsapi qa_phpfcgi qa_phpacc qa_suexec qa_sproxy qa_jsp 
-qa_mapache qa_prvtkey qa_selfcert
-qa_cert qa_confssl qa_frontpage qa_autoindex qa_awstats qa_perld
-qa_apimport qa_pipedlogger qa_template
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
