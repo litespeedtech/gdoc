@@ -19,7 +19,7 @@ END_DESCR
 EDITTIP: <b>Ruby Path</b> is the absolute path of a ruby executable. For e.g., /usr/local/bin/ruby.
 END_EDITTIP
 
-SYNTAX: path1
+SYNTAX: 絶対パス。
 END_SYNTAX
 
 EXAMPLE: 
@@ -44,7 +44,7 @@ DESCR: Specifies which mode Rack/Rails will be running as: "Development",
 "Production", or "Staging". The default is "Production".
 END_DESCR
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -72,7 +72,7 @@ DESCR: Specifies whether to enable Rack/Rails shared hosting. The default is "Di
 
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: ラジオボックスから選択 
 END_SYNTAX
 
 EXAMPLE: 
@@ -98,7 +98,7 @@ created per account. The default is "1".
 
 END_DESCR
 
-SYNTAX: uint 
+SYNTAX: 整数 
 END_SYNTAX
 
 EXAMPLE: 
@@ -131,7 +131,7 @@ one user abuse it.
 
 END_DESCR
 
-SYNTAX: uint 
+SYNTAX: 整数 
 END_SYNTAX
 
 EXAMPLE: 
@@ -156,13 +156,6 @@ NS: EO
 
 DESCR: Default configurations for Ruby Rack/Rails applications.
 END_DESCR
-
-CONT: rubyBin railsEnv maxConns env initTimeout 
-retryTimeout pcKeepAliveTimeout respBuffer 
-extMaxIdleTime backlog runOnStartUp extAppPriority 
-memSoftLimit memHardLimit procSoftLimit procHardLimit
- 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -208,28 +201,6 @@ host root directory.
 Whenever this file is touched, Rack/Rails applications will be restarted.
 END_DESCR
 
-CONT: enableRailsHosting railsAppLimit rubyProcLimit 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-################ Pages ################
-
-
-[PAGE]
-ID: Rails_Help 
-NAME: Rack/Rails Settings
-NS: E
-
-DESCR: 
-END_DESCR
-
-CONT:  railsDefault railsHosting
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -242,9 +213,6 @@ NS: O
 
 DESCR: 
 END_DESCR
-
-CONT:  railsDefault 
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

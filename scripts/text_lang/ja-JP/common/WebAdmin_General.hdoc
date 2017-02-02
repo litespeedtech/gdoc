@@ -21,7 +21,7 @@ DESCR: サーバーが「root」ユーザーによって開始されたときに
 Solarisユーザーは{cmd} coreadm {/}コマンドを使用してこの機能を制御する必要があります。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -47,7 +47,7 @@ DESCR: WebAdmin Consoleのセッションタイムアウトの長さをカスタ
 デフォルトは60秒です。
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -105,9 +105,6 @@ NAME: 一般
 DESCR: 
 END_DESCR
 
-CONT: enableCoreDump consoleSessionTimeout
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -120,9 +117,6 @@ NAME: WebAdminユーザー
 DESCR: WebAdmin Consoleのユーザー名とパスワードを変更します。
 変更を保存するには、古いパスワードを入力して確認する必要があります。  
 END_DESCR
-
-CONT: adminOldPass
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -139,9 +133,6 @@ DESCR: 管理サーバーは、WebAdminコンソール専用の特別な仮想�
 管理者のマシンからのアクセスのみを許可するか、暗号化されたSSL接続を使用して、管理サーバーを安全に保護することが重要です。 
 END_DESCR
 
-CONT: coredump vhLog vhAcLog
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -153,9 +144,6 @@ NAME: 管理コンソールのセキュリティ
 
 DESCR:
 END_DESCR
-
-CONT: accessControl adminUser
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

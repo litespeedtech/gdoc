@@ -15,7 +15,7 @@ SEE_ALSO:
 DESCR: The filename of the SSL private key file. The key file should not be encrypted.
 END_DESCR
 
-SYNTAX: file2
+SYNTAX: ファイル名への絶対パス又は$SERVER_ROOTからの相対パス
 END_SYNTAX
 
 EXAMPLE: 
@@ -40,7 +40,7 @@ SEE_ALSO:
 DESCR: The filename of the SSL certificate file.
 END_DESCR
 
-SYNTAX: file2
+SYNTAX: ファイル名への絶対パス又は$SERVER_ROOTからの相対パス
 END_SYNTAX
 
 EXAMPLE: 
@@ -68,7 +68,7 @@ and the certificates must be in the chained order, from the lowest level
 (the actual client or server certificate) to the highest level (root) CA.
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -116,7 +116,7 @@ SEE_ALSO:
 DESCR: チェーン証明書の証明機関（CA）のすべての証明書を含むファイルを指定します。 このファイルは、PEMでエンコードされた証明書ファイルを単に優先順に連結したものです。 これは、「CA証明書パス」の代替として、またはこれに加えて使用することができる。 これらの証明書は、クライアント証明書の認証およびサーバー証明書チェーンの構築に使用されます。サーバー証明書チェーンは、サーバー証明書に加えてブラウザーにも送信されます。
 END_DESCR
 
-SYNTAX: file2
+SYNTAX: ファイル名への絶対パス又は$SERVER_ROOTからの相対パス
 END_SYNTAX
 
 EXAMPLE: 
@@ -199,7 +199,7 @@ SEE_ALSO:
 DESCR: Allows use of Elliptic Curve Diffie-Hellman key exchange for further SSL encryption.
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -226,7 +226,7 @@ SEE_ALSO:
 DESCR: Allows use of Diffie-Hellman key exchange for further SSL encryption. 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -253,7 +253,7 @@ SEE_ALSO:
 DESCR: DHキー交換に必要なDiffie-Hellmanパラメータファイルの場所を指定します。
 END_DESCR
 
-SYNTAX: file2
+SYNTAX: ファイル名への絶対パス又は$SERVER_ROOTからの相対パス
 END_SYNTAX
 
 EXAMPLE: 
@@ -282,7 +282,7 @@ DESCR: Specifies whether to enable SSL Renegotiation Protection to
 defend against SSL handshake-based attacks. The default value is "Yes".
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -336,7 +336,7 @@ SEE_ALSO:
 DESCR: Determines whether to enable OCSP stapling, a more efficient way of verifying public key certificates.
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -420,7 +420,7 @@ but, if this validation fails, you should try adding your root certificate to th
 This setting is optional. If this setting is not set, the server will automatically check {ITEM= CACertFile}. 
 END_DESCR
 
-SYNTAX: file2
+SYNTAX: ファイル名への絶対パス又は$SERVER_ROOTからの相対パス
 END_SYNTAX1
 
 EXAMPLE: 
@@ -455,7 +455,7 @@ Available types are:
 The default is "None". 
 END_DESCR
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -481,7 +481,7 @@ determining that the client does not have a valid certificate.
 The default is "1".
 END_DESCR
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -534,7 +534,7 @@ client certificates. This can be used as an alternative or in addition to
 {ITEM=crlPath}. 
 END_DESCR
 
-SYNTAX: file2
+SYNTAX: ファイル名への絶対パス又は$SERVER_ROOTからの相対パス
 END_SYNTAX
 
 EXAMPLE: 
@@ -567,9 +567,6 @@ containing critical data. However, a self-signed certificate is good
 enough for internal use, e.g. for encrypting traffic to LiteSpeed Web Server's WebAdmin Console.
 END_DESCR
 
-CONT: keyFile certFile certChain CACertPath CACertFile
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -582,9 +579,6 @@ NS: LEO
 
 DESCR: Customizes SSL protocols accepted by the listener.
 END_DESCR
-
-CONT: sslProtocol ciphers enableECDHE enableDHE DHParam
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -607,9 +601,6 @@ check with the OCSP responder at regular intervals instead of every time a certi
 is requested. See the <a href="http://en.wikipedia.org/wiki/OCSP_Stapling">OCSP Wikipedia page</a> for more details.
 END_DESCR
 
-CONT: enableStapling ocspRespMaxAge ocspResponder ocspCACerts
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -622,9 +613,6 @@ NS: LEO
 
 DESCR: 
 END_DESCR
-
-CONT: clientVerify verifyDepth crlPath crlFile 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -641,9 +629,6 @@ NS: LEO
 
 DESCR: 
 END_DESCR
-
-CONT: sslCert sslProtocolSetting sslFeature sslOCSP sslClientVerify
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

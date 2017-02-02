@@ -18,7 +18,7 @@ END_DESCR
 EDITTIP: サーバープロセスのユーザーおよびグループの設定は変更できません。 これはインストール時に設定されました。 このオプションを変更するには、再インストールする必要があります。
 END_EDITTIP
 
-SYNTAX: テキスト
+SYNTAX: text
 END_SYNTAX
 
 EXAMPLE: 
@@ -231,7 +231,7 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: {ent_version} chroot環境がルートされるディレクトリを指定します。
-"root"ユーザだけがchrootモードでサーバを実行できます。 chrootモードで実行するかどうかは、{ITEM = enableChroot}オプションによって制御されます。
+"root"ユーザだけがchrootモードでサーバを実行できます。 chrootモードで実行するかどうかは、{ITEM=enableChroot}オプションによって制御されます。
 インストーラプログラムは、初期chroot環境を自動的に設定します。
 このエントリは読み取り専用です。変更する場合は、コマンドラインから再度インストーラを実行してください。 
 
@@ -269,10 +269,10 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: {ent_version} chrootモードでサーバーを起動するかどうかを指定します。
-新しいルートディレクトリは、インストール中に{ITEM = servChrootPath}によって設定されます。
+新しいルートディレクトリは、インストール中に{ITEM=servChrootPath}によって設定されます。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -320,10 +320,10 @@ SINCE:
 SEE_ALSO: {ITEM=swappingDir}
 
 DESCR: 要求本体およびその動的生成応答を格納するために使用される最大バッファー・サイズを指定します。
-この制限に達すると、サーバーは{ITEM = swappingDir}の下に一時的なスワップファイルを作成し始めます。
+この制限に達すると、サーバーは{ITEM=swappingDir}の下に一時的なスワップファイルを作成し始めます。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -356,7 +356,7 @@ EDITTIP: ディレクトリをスワップすることは、/tmpなどのロー�
 ネットワークドライブは絶対に避けてください。 スワップは、設定されたメモリのI/Oバッファが使い果たされたときに行われます。
 END_EDITTIP
 
-SYNTAX: path1
+SYNTAX: 絶対パス。
 END_SYNTAX
 
 EXAMPLE: 
@@ -387,7 +387,7 @@ END_DESCR
 EDITTIP: <b>自動修正503エラー</b>を有効にすると、監視プロセスによって自動的に新しいサーバープロセスが起動し、クラッシュが検出された場合にサービスが即座に再開します。
 END_EDITTIP
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -412,7 +412,7 @@ DESCR: 暗号化されていないTCP接続に対してHTTP/2を有効にする�
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -440,7 +440,7 @@ DESCR: グレースフルリスタート時には、新しいサーバーイン�
 
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -467,7 +467,7 @@ DESCR: Real-Time Statsレポートファイルが書き込まれるディレク�
 
 END_DESCR
 
-SYNTAX: path1
+SYNTAX: 絶対パス。
 END_SYNTAX
 
 EXAMPLE: 
@@ -503,7 +503,7 @@ EDITTIP: MIME設定は前のページから編集できます。
 mime構成ファイルの場所は、絶対パスでも、$SERVER_ROOTからの相対パスでも指定できます。
 END_EDITTIP
 
-SYNTAX: file2
+SYNTAX: ファイル名への絶対パス又は$SERVER_ROOTからの相対パス
 END_SYNTAX
 
 EXAMPLE: 
@@ -529,7 +529,7 @@ DESCR: 起動時にサーバーエラーログファイルのローテーショ�
 値が「未設定」の場合、初期ログローテーションはデフォルトで有効になっています。 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -557,7 +557,7 @@ DESCR: 起動時にサーバーエラーログファイルのローテーショ�
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -612,7 +612,7 @@ DESCR: 行を表示するかどうかを指定します。
 LiteSpeed Technologiesは、このWebサイトの管理および内容に責任を負いません！"</blockquote>デフォルトのエラーページ。
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: ラジオボックスから選択 
 END_SYNTAX
 
 EXAMPLE: 
@@ -638,7 +638,7 @@ DESCR: {ent_version} IPジオロケーション検索を有効/無効にする�
 値 「設定しない」を使用すると、IPジオロケーションはデフォルトで無効になります。 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -664,7 +664,7 @@ DESCR: 「X-Forwarded-For」HTTPリクエストヘッダーに記載されてい
 
 
 この機能は、Webサーバーがロードバランサまたはプロキシサーバーの背後にある場合に便利です。
-「信頼できるIPのみ」を選択した場合、X-Forwarded-For IPは、サーバーレベル{ITEM=ServSecurity_Help＃accessControl_allow}で定義された信頼できるIPからの要求が送信された場合にのみ使用されます。 
+「信頼できるIPのみ」を選択した場合、X-Forwarded-For IPは、サーバーレベル{ITEM=ServSecurity_Help#accessControl_allow}で定義された信頼できるIPからの要求が送信された場合にのみ使用されます。 
 END_DESCR
 
 SYNTAX: 選択 
@@ -747,7 +747,7 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: 新しい製品リリースパッケージファイルがある場合に自動ダウンロードするかどうかを指定します。
-新しいパッケージが正常にダウンロードされた場合は、Service Manager - {ITEM=ServerStat_Help＃vermgr}のWebAdminコンソールからワンクリックでオンラインでアップグレードできます。 
+新しいパッケージが正常にダウンロードされた場合は、Service Manager - {ITEM=ServerStat_Help#vermgr}のWebAdminコンソールからワンクリックでオンラインでアップグレードできます。 
 END_DESCR
 
 SYNTAX: 選択 
@@ -898,7 +898,7 @@ EDITTIP: Allow Override configuration is available in three levels: server level
 the overall control, i.e. lower level can disable a setting which is enabled by upper level, but cannot enable a setting which is disabled by upper level.
 END_EDITTIP
 
-EDITTIP: When all checkboxes are unchecked, default setting will be used.
+EDITTIP: When all チェックボックスから選択es are unchecked, default setting will be used.
 END_EDITTIP
 
 EDITTIP: When nothing but "None" is checked, access control file will be ignored.
@@ -910,7 +910,7 @@ END_EDITTIP
 EDITTIP: When "Auth" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", "Require" are allowed. 
 END_EDITTIP
 
-SYNTAX: checkbox
+SYNTAX: チェックボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -982,7 +982,7 @@ Context Level > Virtual Host Level > Server Level
 <br><br>
 END_EDITTIP
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1088,7 +1088,7 @@ request body is still parsed to files.
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1141,7 +1141,7 @@ Standard, MemoryCache, CheckCache and IndexCache. MemoryCache is recommended and
 
 END_DESCR
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1172,7 +1172,7 @@ there is conflict between LiteSpeed internal and Apache-based configurations.
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1209,7 +1209,7 @@ For other control panels default is "Yes".
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1420,7 +1420,7 @@ is accessed for the first time, instead of loading all configurations at start u
 memory and speed up server start up.
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1452,7 +1452,7 @@ Default is {val}No{/}.
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1478,7 +1478,7 @@ DESCR: Specifies the maximum number of concurrent PHP processes that can be crea
 
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -1508,7 +1508,7 @@ httpd.conf, and you need to enable it explicitly here. Default is "disabled".
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1587,10 +1587,6 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: serverName lslbdProcesses runningAs serverPriority 
-servChrootPath enableChroot inMemBufSize swappingDir  
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1604,10 +1600,6 @@ NS: E
 DESCR: 
 END_DESCR
 
-CONT: serverName runningAs serverPriority cpuAffinity servChrootPath enableChroot
-enableLVE inMemBufSize swappingDir autoFix503 enableh2c gracefulRestartTimeout
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1620,10 +1612,6 @@ NS: O
 
 DESCR: 
 END_DESCR
-
-CONT: serverName httpdWorkers runningAs serverPriority 
- inMemBufSize swappingDir autoFix503 enableh2c gracefulRestartTimeout statDir
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1638,11 +1626,6 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: disableInitLogRotation showVersionNumber 
-enableIpGeo useIpInProxyHeader autoUpdateInterval 
-autoUpdateDownloadPkg adminEmails 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1655,11 +1638,6 @@ NS: E
 
 DESCR: 
 END_DESCR
-
-CONT: mime mimesuffix mimetype disableInitLogRotation showVersionNumber 
-hideSigInErrorPage enableIpGeo useIpInProxyHeader extAppAbort  
-autoUpdateInterval autoUpdateDownloadPkg adminEmails 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1674,10 +1652,6 @@ NS: O
 DESCR: 
 END_DESCR
 
-CONT: mime mimesuffix mimetype disableInitLogRotation showVersionNumber 
- enableIpGeo useIpInProxyHeader adminEmails 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1689,9 +1663,6 @@ NAME: インデックスファイル
 
 DESCR: 
 END_DESCR
-
-CONT: indexFiles autoIndex autoIndexURI
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1754,9 +1725,6 @@ DESCR:
 
 END_DESCR
 
-CONT: allowOverride accessFileName 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1769,9 +1737,6 @@ NAME: 期限切れの設定
 DESCR: 
 END_DESCR
 
-CONT: enableExpires expiresDefault expiresByType 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1783,12 +1748,9 @@ NAME: ファイルアップロード
 NS: O
 
 DESCR: Request Body Parserを使用してファイルをアップロードしてサーバーのローカルディレクトリにファイルを解析し、第三者のモジュールによる悪意のある行為を簡単にスキャンできるようにする、追加のセキュリティ機能を提供します。
-Request Body Parserは、{ITEM = uploadPassByPath}が有効になっているか、モジュールがLSI_HKPT_HTTP_BEGINレベルでLSIAPIのset_parse_req_bodyを呼び出すときに使用されます。
+Request Body Parserは、{ITEM=uploadPassByPath}が有効になっているか、モジュールがLSI_HKPT_HTTP_BEGINレベルでLSIAPIのset_parse_req_bodyを呼び出すときに使用されます。
 ソースパッケージで提供されるAPIの例
 END_DESCR
-
-CONT: uploadTmpDir uploadTmpFilePermission uploadPassByPath
-END_CONT
 
 SEE_ALSO: {ITEM=HTTP_BEGIN}
 [END_TBL]
@@ -1804,9 +1766,6 @@ MaxMindには、国、地域、市区町村、組織、ISP、Netspeedの各タ�
 「国」、「地域」、および「都市」タイプの複数のデータベースが構成されている場合は、最後のデータベースが有効になります。
 END_DESCR
 
-CONT: geoipDBFile geoipDBCache 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1820,11 +1779,6 @@ NS: E
 DESCR: 
 END_DESCR
 
-CONT: loadApacheConf autoReloadApacheConf apacheBinPath apacheConfFile
-apachePortOffset apacheIpOffset apacheHandledContent apacheIgnoredModules jitConfig phpSuExec
-phpSuExecMaxConn apacheEnableFP apacheEnvVars
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1837,9 +1791,6 @@ NS: E
 
 DESCR: 
 END_DESCR
-
-CONT: apacheConf 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1861,9 +1812,6 @@ $SERVER_ROOTは、LiteSpeedロードバランサがインストールされて�
 ロードバランサの実行ファイルは$SERVER_ROOT/binにあります。 
 END_DESCR
 
-CONT: servProcess servGeneral geolocationDB 
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -1878,10 +1826,6 @@ DESCR: サーバー全体の一般設定。
 設定にパス情報が必要な場合は、絶対パスか$SERVER_ROOTのどちらかになります。 $SERVER_ROOTは、LiteSpeed Webサーバーがインストールされている場所です（your_home_dir/lswsまたは/opt/lswsなど）。
 サーバー実行ファイルは$SERVER_ROOT/binにあります。 
 END_DESCR
-
-CONT: servProcess servGeneral servIndex htaccess 
-expire geolocationDB apacheConfigFile apacheConfig
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
@@ -1898,9 +1842,6 @@ DESCR: サーバー全体の一般設定。
 $SERVER_ROOTは、LiteSpeed Webサーバーがインストールされている場所です（your_home_dir/lswsまたは/opt/lswsなど）。
 サーバー実行ファイルは$SERVER_ROOT/binにあります。 
 END_DESCR
-
-CONT: servProcess servGeneral servIndex expire fileUpload geolocationDB
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

@@ -23,7 +23,7 @@ END_EDITTIP
 EDITTIP: この仮想ホストでは、ドキュメントルートは$DOC_ROOTと呼ばれ、他のパス設定で使用できます。
 END_EDITTIP
 
-SYNTAX: path3
+SYNTAX: 絶対パスか$SERVER_ROOTからの相対パス又は$VH_ROOTからの相対パス。
 END_SYNTAX
 
 EXAMPLE: 
@@ -76,7 +76,7 @@ DESCR: この仮想ホストに対してGZIP圧縮を有効にするかどうか
 圧縮設定はサーバーレベルで設定されます（チューニング> GZIP）。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -173,7 +173,7 @@ DESCR: {ITEM=indexFiles}にリストされている索引ファイルがディ�
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -254,7 +254,7 @@ SEE_ALSO:
 DESCR: カスタムエラーメッセージを指定します。
 END_DESCR
 
-SYNTAX: テキスト
+SYNTAX: text
 END_SYNTAX
 
 EXAMPLE: 
@@ -315,9 +315,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-CONT: docRoot vhadminEmails enableGzip enableIpGeo spdyAdHeader 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -329,9 +326,6 @@ NAME: インデックスファイル
 
 DESCR: 
 END_DESCR
-
-CONT: indexUseServer indexFiles autoIndex autoIndexURI
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -345,9 +339,6 @@ NS: L
 
 DESCR: 
 END_DESCR
-
-CONT: vhMaxKeepAliveReq vhSmartKeepAlive enableGzip enableIpGeo
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -365,9 +356,6 @@ LiteSpeed Webサーバーには、エラーコードごとにデフォルトの�
 これらのエラーページは、各仮想ホストごとに一意になるようにさらにカスタマイズすることができます。
 END_DESCR
 
-CONT: errCode errURL
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -384,9 +372,6 @@ LiteSpeed Web Serverには、エラーコードごとにデフォルトのエラ
 これらのエラーページは、各仮想ホストごとに一意になるようにさらにカスタマイズすることができます。
 END_DESCR
 
-CONT: errCode errMessage
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -398,9 +383,6 @@ NAME: 期限切れの設定
 
 DESCR: 
 END_DESCR
-
-CONT: enableExpires expiresDefault expiresByType
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -418,9 +400,6 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: vhGeneral vhAcLog errPage
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -434,10 +413,6 @@ NS: E
 DESCR: 
 END_DESCR
 
-CONT: vhGeneral vhLog vhAcLog vhIndex errPage scriptHandler htaccess
-vhExpire apacheConfig 
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -450,10 +425,6 @@ NS: O
 
 DESCR: 
 END_DESCR
-
-CONT: vhGeneral vhLog vhAcLog vhIndex errPage expire fileUpload scriptHandler 
-vhExpire  
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

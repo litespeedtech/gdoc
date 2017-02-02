@@ -31,12 +31,12 @@ operating systems support different types of event dispatcher:
      <ul><li>poll</li><li>kqueue</li></ul>
   </li>
 </ul>
-  {val}poll{/} is supported by all platforms, and is the default selection. 
+  {val}poll{/} is supported by all platforms, and is the default ドロップダウンリストから選択ion. 
   For high traffic web sites, an altenative event dispatcher can be used to improve the 
   scalability of the server. 
 END_DESCR
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -127,7 +127,7 @@ This includes both plain TCP connections and SSL connections. Once the maximum c
 the server will close Keep-Alive connections when they complete active requests. 
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -158,7 +158,7 @@ for VPS license, {val}800{/} for Ultra VPS license. Once the maximum concurrent 
 the server will close Keep-Alive connections when they complete active requests. 
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -187,7 +187,7 @@ Since total concurrent SSL and non-SSL connections cannot exceed the limit speci
 must be lower than this limit.
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -213,7 +213,7 @@ The connection will be closed if it has been idle, i.e. no I/O activity, for thi
 of time. 
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -240,7 +240,7 @@ session. The connection will be closed once this limit is reached. You
 can set this limit for each virtual host as well. 
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -273,7 +273,7 @@ method will reduce idle connections and in turn increase the capacity to handle 
 and users.
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -299,7 +299,7 @@ If no new request is received during this period of time, the connection will be
 This setting only applies to HTTP/1.1 connections. HTTP/2 connections have long keep-alive timeouts by design and are not affected by this setting.
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -334,7 +334,7 @@ END_EDITTIP
 EDITTIP: If send/receive buffer size is 0, OS default TCP buffer size will be used.
 END_EDITTIP
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -365,7 +365,7 @@ SEE_ALSO:
 DESCR: The receiving buffer size of each TCP socket. {val}512K{/} is the maximum allowed buffer size.
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -400,7 +400,7 @@ DESCR: Specifies the maximum size of a request URL. URL is the full text address
 a server resource including the query string. {val}8192{/} bytes is the hard limit.
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -431,7 +431,7 @@ END_DESCR
 EDITTIP: Numbers can be represented as 10240, 10K or 1M.
 END_EDITTIP
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -459,7 +459,7 @@ DESCR: Specifies the maximum size of an HTTP request body. For a 32Bit OS, {val}
  For a 64Bit OS, it is virtually unlimited. 
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -484,7 +484,7 @@ SEE_ALSO:
 DESCR: Specifies the maximum header size of a dynamically generated response. Hard limit is {val}8KB{/}.
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -509,7 +509,7 @@ SEE_ALSO:
 DESCR: Specifies the maximum body size of a dynamically generated response. Hard limit is {val}2047MB{/}.
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -546,7 +546,7 @@ plain read/write or sendfile(). It is optimal to serve static files smaller than
 buffer cache. 
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -571,7 +571,7 @@ DESCR: Specifies the total memory that can be allocated to the
 buffer cache in order to cache/serve small static files.
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -606,7 +606,7 @@ Since the server has a 32bit address space (2GB), it is not recommended to memor
 very large files. 
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -631,7 +631,7 @@ DESCR: Specifies the total memory that can be allocated for memory-
 mapped cache in order to cache/serve medium sized static files. 
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -666,7 +666,7 @@ and thus may not be suitable for some small-vendor network adapters.
  
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -694,7 +694,7 @@ files mapped in process address space to improve AIO performance.
 
 END_DESCR
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -723,7 +723,7 @@ you can choose a bigger size. Default value is "1M".
 
 END_DESCR
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -752,7 +752,7 @@ inode; otherwise, the ETag generated for one file will be different on different
 
 END_DESCR
 
-SYNTAX: checkbox
+SYNTAX: チェックボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -779,7 +779,7 @@ SEE_ALSO:
 DESCR: Controls GZIP compression for both static and dynamic HTTP responses. 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -810,7 +810,7 @@ EDITTIP: Dynamic GZIP compression control will be effective only if GZIP Compres
 END_EDITTIP
 
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -903,7 +903,7 @@ is created under the {ITEM=gzipCacheDir}. The filename is based on a MD5
 hash of the path of the original file. 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1038,7 +1038,7 @@ DESCR: Enables session id caching. If "Not Set", defaults to  "No". (Openssl Def
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1114,7 +1114,7 @@ DESCR: Enables session tickets. If "Not Set", the server will use openSSL's defa
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1373,7 +1373,7 @@ are expected to follow a naming scheme.  If the cert is named server.crt, other 
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1397,9 +1397,6 @@ NS: LE
 DESCR: 
 END_DESCR
 
-CONT: eventDispatcher ramDiskPath shmDefaultDir
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1412,9 +1409,6 @@ NS: O
 
 DESCR: 
 END_DESCR
-
-CONT: eventDispatcher shmDefaultDir
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1429,10 +1423,6 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: maxConnections maxSSLConnections connTimeout maxKeepAliveReq
-smartKeepAlive keepAliveTimeout sndBufSize rcvBufSize
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1445,10 +1435,6 @@ NS: EO
 
 DESCR: 
 END_DESCR
-
-CONT: maxConnections maxSSLConnections connTimeout maxKeepAliveReq
-smartKeepAlive keepAliveTimeout sndBufSize rcvBufSize
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1463,10 +1449,6 @@ NS: LEO
 DESCR: 
 END_DESCR
 
-CONT: maxReqURLLen maxReqHeaderSize maxReqBodySize
-      maxDynRespHeaderSize maxDynRespSize 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1479,10 +1461,6 @@ NS: E
 
 DESCR: 
 END_DESCR
-
-CONT: maxCachedFileSize totalInMemCacheSize maxMMapFileSize totalMMapCacheSize
-useSendfile useAIO AIOBlockSize fileETag
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1497,10 +1475,6 @@ NS: O
 DESCR: 
 END_DESCR
 
-CONT: maxCachedFileSize totalInMemCacheSize maxMMapFileSize totalMMapCacheSize
-useSendfile fileETag
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1514,11 +1488,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-CONT: enableGzipCompress enableDynGzipCompress gzipCompressLevel 
-compressibleTypes gzipAutoUpdateStatic gzipCacheDir gzipStaticCompressLevel 
-gzipMaxFileSize gzipMinFileSize
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1531,9 +1500,6 @@ NS: L
 
 DESCR: 
 END_DESCR
-
-CONT: enableGzipCompress gzipCompressLevel compressibleTypes
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1548,10 +1514,6 @@ NS: LEO
 DESCR: 
 END_DESCR
 
-CONT: SSLStrongDhKey sslEnableMultiCerts sslSessionCache sslSessionCacheSize sslSessionCacheTimeout 
-sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1565,9 +1527,6 @@ NS: L
 DESCR: SSL Dynamic SNI enables you to avoid using the load balancer's generic certificates by specifying a directory that the load balancer can then use to serve 
 clients site specific certificates when handling requests.
 END_DESCR
-
-CONT: sslDynCertsBaseDir sslDynCertsNumLevels sslDynCertsExpire sslDynCertsRefresh 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1585,9 +1544,6 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT:osTuning connTuning reqTuning gzipTuning sslGlobal sslDynSNI
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -1601,9 +1557,6 @@ NS: E
 DESCR: 
 END_DESCR
 
-CONT: osTuning connTuning reqTuning staticTuning gzipTuning sslGlobal
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -1616,9 +1569,6 @@ NS: O
 
 DESCR: 
 END_DESCR
-
-CONT: osTuning connTuning reqTuning staticTuning gzipTuning sslGlobal
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

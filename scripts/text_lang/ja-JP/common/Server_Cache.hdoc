@@ -53,7 +53,7 @@ DESCR: MagentoのストアのLiteMageキャッシュを有効にします。
 訪問者。 この機能を無効にするには、[Safe]を選択します。
 END_DESCR
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -105,7 +105,7 @@ DESCR: サーバーが物理的にファイルを削除しようとする前の�
 キャッシュストレージが過度に大きくならないように1日に1回発生します。 最小設定は60分です。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -139,7 +139,7 @@ Apacheのhttpd.confで設定された仮想ホストは、サーバ、仮想ホ�
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -165,7 +165,7 @@ SEE_ALSO:
 DESCR: 現在のコンテキストで要求されたURLのパブリックキャッシュをチェックするかどうかを指定します。 サーバーレベル、仮想ホストレベル、またはコンテキストレベルで設定できます。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -187,7 +187,7 @@ SEE_ALSO:
 DESCR: キャッシュディレクトリに格納できるオブジェクトの最大サイズを指定します。 デフォルト値は "10 MB"です。
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -212,7 +212,7 @@ SEE_ALSO:
 DESCR: オブジェクトがキャッシュされる期間を指定します。 デフォルトは "86400"秒（1日）です。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -238,7 +238,7 @@ DESCR: オブジェクトが期限切れになった後、新しいキャッシ�
 コピーが利用可能です。 デフォルトは "10"秒です。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -264,7 +264,7 @@ DESCR: URLにクエリ文字列を含む要求をキャッシュするかどう�
 デフォルトは「はい」です。 URLの書き換えが関係する場合、サーバーは書き換えられたURLをチェックします
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -289,7 +289,7 @@ SEE_ALSO:
 DESCR: Cookieを含む要求をキャッシュするかどうかを指定します。 デフォルトは「はい」です。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -314,7 +314,7 @@ SEE_ALSO:
 DESCR: Cookieを含むレスポンスをキャッシュするかどうかを指定します。 デフォルトは「はい」です。 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -340,7 +340,7 @@ DESCR: Cache-Control要求ヘッダーを無視するかどうかを指定しま
 デフォルトは「いいえ」です。 "はい"に設定されている場合、サーバーはキャッシュコントロールに "no-cache"が設定されていると、キャッシュされたオブジェクトを提供できます。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -367,7 +367,7 @@ DESCR: Cache-Controlレスポンスヘッダーを無視するかどうかを指
 Cache-Controlヘッダーに「no-store」または「private」が設定されています。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -400,7 +400,7 @@ Apacheのhttpd.confで設定された仮想ホストは、サーバ、仮想ホ�
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -427,7 +427,7 @@ DESCR: 現在のコンテキストで要求されたURLに対してプライベ�
 サーバー、バーチャルホスト、またはコンテキストレベル。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -449,7 +449,7 @@ SEE_ALSO:
 DESCR: オブジェクトがプライベートキャッシュにキャッシュされる期間を指定します。 デフォルトは「60」秒です。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -534,9 +534,6 @@ NS: LE
 DESCR: 
 END_DESCR
 
-CONT: cacheStorePath litemage cacheMgrStorePath pubStoreExpireMinutes
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -549,12 +546,6 @@ NS: LE
 
 DESCR: 
 END_DESCR
-
-CONT: cachePolicy:enableCache checkPublicCache cachePolicy:maxCacheObjSize cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
- cachePolicy:reqCookieCache cachePolicy:respCookieCache 
-cachePolicy:ignoreReqCacheCtrl cachePolicy:ignoreRespCacheCtrl
-cachePolicy:enablePrivateCache checkPrivateCache cachePolicy:privateExpireInSeconds
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -569,9 +560,6 @@ NS: LE
 DESCR: 
 END_DESCR
 
-CONT:noCacheUrl
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -584,9 +572,6 @@ NS: LE
 
 DESCR: 
 END_DESCR
-
-CONT:noCacheDomain
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -602,9 +587,6 @@ NS: LE
 
 DESCR: 
 END_DESCR
-
-CONT: cacheStorage cachePolicy noCacheURLList noCacheDomainList
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

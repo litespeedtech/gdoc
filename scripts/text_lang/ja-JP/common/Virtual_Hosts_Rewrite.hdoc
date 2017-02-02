@@ -16,7 +16,7 @@ DESCR: LiteSpeedのURL書き換えエンジンを有効にするかどうかを�
 このオプションは、仮想ホストまたはコンテキストレベルでカスタマイズでき、明示的に上書きされるまでディレクトリツリーに沿って継承されます。 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -40,11 +40,11 @@ SEE_ALSO: Server {ITEM=ServGeneral_Help#log_logLevel}, Virtual Host {ITEM=VHGene
 
 
 DESCR: 書き換えエンジンのデバッグ出力の詳細レベルを指定します。
-この値の範囲は{val}0{/}-{val}9{/}です。{val}0{/}はロギングを無効にします。{val}9{/}は最も詳細なログを生成します。 このオプションを有効にするには、サーバーと仮想ホストのエラーログ{ITEM=ServGeneral_Help＃log_logLevel}を少なくとも{val}INFO{/}以上に設定する必要があります。
+この値の範囲は{val}0{/}-{val}9{/}です。{val}0{/}はロギングを無効にします。{val}9{/}は最も詳細なログを生成します。 このオプションを有効にするには、サーバーと仮想ホストのエラーログ{ITEM=ServGeneral_Help#log_logLevel}を少なくとも{val}INFO{/}以上に設定する必要があります。
 これは、書き換えルールをテストする場合に便利です。
 END_DESCR
 
-SYNTAX: 符号なし整数 
+SYNTAX: 整数 
 END_SYNTAX
 
 EXAMPLE: 
@@ -73,7 +73,7 @@ DESCR: 書き換えエンジンのデバッグ出力のログレベルを指定�
 
 END_DESCR
 
-SYNTAX: 符号なし整数 
+SYNTAX: 整数 
 END_SYNTAX
 
 EXAMPLE: 
@@ -144,7 +144,7 @@ LiteSpeedの書き換えエンジンは、次の3種類の書き換えマップ�
 		<b>MapSource:</b> ファイルパスを有効なプレーンASCIIファイルに変換します。
 </blockquote>
 		このファイルの各行には空白で区切られた2つの要素が含まれていなければなりません。
-        最初の要素はキーで、2番目の要素は値です。 コメントには先頭に「{val}＃{/}」という記号を付けることができます。 
+        最初の要素はキーで、2番目の要素は値です。 コメントには先頭に「{val}#{/}」という記号を付けることができます。 
 	</li>
 	<li><b>ランダム化されたプレーンテキスト</b>
 <blockquote>
@@ -249,9 +249,6 @@ NAME: Rewrite制御
 DESCR: 
 END_DESCR
 
-CONT: enableRewrite rewriteLogLevel
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -264,9 +261,6 @@ NAME: Rewriteマップ
 DESCR: 
 END_DESCR
 
-CONT: rewriteMapName rewriteMapLocation
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -278,9 +272,6 @@ NAME: Rewriteルール
 
 DESCR: 
 END_DESCR
-
-CONT: rewriteRules
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -296,9 +287,6 @@ NAME: Rewrite
 
 DESCR: 
 END_DESCR
-
-CONT: rewriteControl rewriteMap RewriteRules
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

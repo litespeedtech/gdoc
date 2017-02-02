@@ -6,24 +6,24 @@
 
 [ITEM]
 ID: ctxType
-NAME: Context Type
+NAME: コンテキストタイプ
 NS: L
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The type of context created determines it's usage.
+DESCR: 作成されるコンテキストのタイプによって、その用途が決まります。
 
 
-The <b>Redirect</b> context is used to set up an internal or external redirect URI.<br>
-The <b>Load Balancer</b> context is used to assign a different cluster for that context.
+<b>リダイレクト</b>コンテキストは、内部リダイレクトURIまたは外部リダイレクトURIを設定するために使用されます。<br>
+<b>ロードバランサ</b>コンテキストは、そのコンテキストに異なるクラスタを割り当てるために使用されます。
 END_DESCR
 
-EDITTIP: The <b>Load Balancer</b> context is used to assign a different cluster for that context.
+EDITTIP: <b>ロードバランサ</b>コンテキストは、そのコンテキストに異なるクラスタを割り当てるために使用されます。
 END_EDITTIP
 
-EDITTIP: The <b>Redirect</b> context is used to set up an internal or external redirect URI.
+EDITTIP: <b>リダイレクト</b>コンテキストは、内部リダイレクトURIまたは外部リダイレクトURIを設定するために使用されます。
 END_EDITTIP
 
 [END_ITEM]
@@ -32,53 +32,54 @@ END_EDITTIP
 
 [ITEM]
 ID: ctxType
-NAME: Context Type
+NAME: コンテキストタイプ
 NS: E
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The type of context created determines it's usage.:<br><br><b>Static</b> context can be used to map a URI to a directory either outside document root or within it.<br>
-<b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine.<br>
-<b>Servlet</b> context is used to import a specific servlet under a web application.<br>
-<b>Fast CGI</b> context is a mount point of Fast CGI application.<br>
-<b>LiteSpeed SAPI</b> context can be used to associate a URI with an LSAPI application.<br>
-<b>Proxy</b> context enables this virtual host to serve as a transparant reverse proxy server to an external web server or application server.<br>
-<b>CGI</b> context can be used to specify a directory only contains CGI scripts.<br>
-<b>Load Balancer</b> context can be used to assign a different cluster for that context.<br>
-<b>Redirect</b> context can set up an internal or external redirect URI.<br>
-<b>Rack/Rails</b> context is specifically used for Rack/Rails applications.<br>
+DESCR: 作成されるコンテキストのタイプにより、その用途が決まります。:<br><br>
+<b>静的</b>コンテキストを使用して、URIをドキュメントルートの外部またはその内部にあるディレクトリにマップできます。<br>
+<b> Java Webアプリ</b>コンテキストは、AJPv13コンパイラJavaサーブレットエンジンで定義済みのJavaアプリケーションを自動的にインポートするために使用されます。<br>
+<b>サーブレット</b>コンテキストは、Webアプリケーションの下にある特定のサーブレットをインポートするために使用されます。<br>
+<b>Fast CGI</b>コンテキストは、Fast CGIアプリケーションのマウントポイントです。<br>
+<b>LiteSpeed SAPI</b>コンテキストを使用して、URIをLSAPIアプリケーションに関連付けることができます。<br>
+<b>プロキシ</b>コンテキストにより、このバーチャルホストは、外部のWebサーバーまたはアプリケーションサーバーへのトランスペアレントリバースプロキシサーバーとして機能します。<br>
+<b>CGI</b>コンテキストを使用して、ディレクトリにCGIスクリプトのみを指定することができます。<br>
+<b>ロードバランサー</b>コンテキストを使用して、そのコンテキストに異なるクラスタを割り当てることができます。<br>
+<b>リダイレクト</b>コンテキストで内部リダイレクトURIまたは外部リダイレクトURIを設定できます。<br>
+<b>Rack/Rails</b>コンテキストは、特にRack / Railsアプリケーションに使用されます。<br>
 END_DESCR
 
-EDITTIP: <b>Static</b> context can be used to map a URI to a directory either outside document root or within it.
+EDITTIP: <b>静的</b>コンテキストを使用して、URIを文書のルートの外またはその内部のディレクトリにマップできます。
 END_EDITTIP
 
-EDITTIP: <b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine.
+EDITTIP: <b>Java Webアプリ</b>コンテキストは、AJPv13コンパイラJavaサーブレットエンジンで定義済みのJavaアプリケーションを自動的にインポートするために使用されます。
 END_EDITTIP
 
-EDITTIP: <b>Servlet</b> context is used to import a specific servlet under a web application.
+EDITTIP: <b>サーブレット</b>コンテキストは、Webアプリケーションの下で特定のサーブレットをインポートするために使用されます。
 END_EDITTIP
 
-EDITTIP: <b>Fast CGI</b> context is a mount point of Fast CGI application.
+EDITTIP: <b>Fast CGI</b>コンテキストは、Fast CGIアプリケーションのマウントポイントです。
 END_EDITTIP
 
-EDITTIP: <b>LiteSpeed SAPI</b> context can be used to associate a URI with an LSAPI application.
+EDITTIP: <b>LiteSpeed SAPI</b>コンテキストを使用して、URIをLSAPIアプリケーションに関連付けることができます。
 END_EDITTIP
 
-EDITTIP: <b>Proxy</b> context enables this virtual host to serve as a transparant reverse proxy server to an external web server or application server.
+EDITTIP: <b>プロキシー</b>コンテキストでは、このバーチャルホストを透過的なリバースプロキシーサーバーとして外部Webサーバーまたはアプリケーションサーバーに提供できます。
 END_EDITTIP
 
-EDITTIP: <b>CGI</b> context can be used to specify a directory only contains CGI scripts.
+EDITTIP: <b>CGI</b>コンテキストを使用して、ディレクトリにCGIスクリプトのみを指定することができます。
 END_EDITTIP
 
-EDITTIP: <b>Load Balancer</b> context can be used to assign a different cluster for that context.
+EDITTIP: <b>ロードバランサー</ b>コンテキストを使用して、そのコンテキストに異なるクラスタを割り当てることができます。
 END_EDITTIP
 
-EDITTIP: <b>Redirect</b> context can set up an internal or external redirect URI.
+EDITTIP: <b>リダイレクト</b>コンテキストでは、内部リダイレクトURIまたは外部リダイレクトURIを設定できます。
 END_EDITTIP
 
-EDITTIP: <b>Rack/Rails</b> context is specifically used for Rack/Rails applications.
+EDITTIP: <b>Rack/Rails</b>コンテキストは、特にRack/Railsアプリケーションに使用されます。
 END_EDITTIP
 
 [END_ITEM]
@@ -87,57 +88,57 @@ END_EDITTIP
 
 [ITEM]
 ID: ctxType
-NAME: Context Type
+NAME: コンテキストタイプ
 NS: O
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The type of context created determines it's usage.<br><br><b>Static</b> context can be used to map a URI to a directory either outside document root or within it.<br>
-<b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine.<br>
-<b>Servlet</b> context is used to import a specific servlet under a web application.<br>
-<b>Fast CGI</b> context is a mount point of Fast CGI application.<br>
-<b>LiteSpeed SAPI</b> context can be used to associate a URI with an LSAPI application.<br>
-<b>Proxy</b> context enables this virtual host to serve as a transparant reverse proxy server to an external web server or application server.<br>
-<b>CGI</b> context can be used to specify a directory only contains CGI scripts.<br>
-<b>Load Balancer</b> context can be used to assign a different cluster for that context.<br>
-<b>Redirect</b> context can set up an internal or external redirect URI.<br>
-<b>Rack/Rails</b> context is specifically used for Rack/Rails applications.<br>
-<b>Module handler</b> context is a mount point of hander type modules.<br>
+DESCR: <b>静的</b>コンテキストを使用して、URIをドキュメントルートの外部またはその内部のディレクトリにマップできます。<br>
+<b>Java Webアプリ</b>コンテキストは、AJPv13コンパイラJavaサーブレットエンジンで定義済みのJavaアプリケーションを自動的にインポートするために使用されます。<br>
+<b>サーブレット</b>コンテキストは、Webアプリケーションの下にある特定のサーブレットをインポートするために使用されます。<br>
+<b>Fast CGI</b>コンテキストは、Fast CGIアプリケーションのマウントポイントです。<br>
+<b>LiteSpeed SAPI</b>コンテキストを使用して、URIをLSAPIアプリケーションに関連付けることができます。<br>
+<b>プロキシー</b>コンテキストにより、このバーチャルホストは、外部のWebサーバーまたはアプリケーションサーバーへのトランスペアレントリバースプロキシサーバーとして機能します。<br>
+<b>CGI</b>コンテキストを使用して、ディレクトリにCGIスクリプトのみを指定することができます。<br>
+<b>ロードバランサー</b>コンテキストを使用して、そのコンテキストに異なるクラスタを割り当てることができます。<br>
+<b>リダイレクト</b>コンテキストで内部リダイレクトURIまたは外部リダイレクトURIを設定できます。<br>
+<b>Rack/Rails</b>コンテキストは、特にRack/Railsアプリケーションに使用されます。<br>
+<b>モジュールハンドラー</b>コンテキストは、ハンドラー型モジュールのマウントポイントです。<br>
 END_DESCR
 
-EDITTIP: <b>Static</b> context can be used to map a URI to a directory either outside document root or within it.
+EDITTIP: <b>静的</b>コンテキストを使用して、URIを文書のルートの外またはその内部のディレクトリにマップできます。
 END_EDITTIP
 
-EDITTIP: <b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine.
+EDITTIP: <b>Java Web アプリ</b>コンテキストは、AJPv13コンパイラJavaサーブレットエンジンで定義済みのJavaアプリケーションを自動的にインポートするために使用されます。
 END_EDITTIP
 
-EDITTIP: <b>Servlet</b> context is used to import a specific servlet under a web application.
+EDITTIP: <b>サーブレット</b>コンテキストは、Webアプリケーションの下で特定のサーブレットをインポートするために使用されます。
 END_EDITTIP
 
-EDITTIP: <b>Fast CGI</b> context is a mount point of Fast CGI application.
+EDITTIP: <b>Fast CGI</b>コンテキストは、Fast CGIアプリケーションのマウントポイントです。
 END_EDITTIP
 
-EDITTIP: <b>LiteSpeed SAPI</b> context can be used to associate a URI with an LSAPI application.
+EDITTIP: <b>LiteSpeed SAPI</b>コンテキストを使用して、URIをLSAPIアプリケーションに関連付けることができます。
 END_EDITTIP
 
-EDITTIP: <b>Proxy</b> context enables this virtual host to serve as a transparant reverse proxy server to an external web server or application server.
+EDITTIP: <b>プロキシー</b>コンテキストでは、このバーチャルホストを透過的な逆プロキシー・サーバーとして外部Webサーバーまたはアプリケーション・サーバーに使用できます。
 END_EDITTIP
 
-EDITTIP: <b>CGI</b> context can be used to specify a directory only contains CGI scripts.
+EDITTIP: <b>CGI</b>コンテキストを使用して、ディレクトリにCGIスクリプトのみを指定することができます。
 END_EDITTIP
 
-EDITTIP: <b>Load Balancer</b> context can be used to assign a different cluster for that context.
+EDITTIP: <b>ロードバランサー</b>コンテキストを使用して、そのコンテキストに異なるクラスタを割り当てることができます。
 END_EDITTIP
 
-EDITTIP: <b>Redirect</b> context can set up an internal or external redirect URI.
+EDITTIP: <b>リダイレクト</b>コンテキストでは、内部リダイレクトURIまたは外部リダイレクトURIを設定できます。
 END_EDITTIP
 
-EDITTIP: <b>Rack/Rails</b> context is specifically used for Rack/Rails applications.
+EDITTIP: <b>Rack/Rails</b>コンテキストは、特にRack/Railsアプリケーションに使用されます。
 END_EDITTIP
 
-EDITTIP: <b>Module handler</b> context is a mount point of hander type modules.
+EDITTIP: <b>モジュールハンドラ</b>コンテキストは、ハンドラタイプモジュールのマウントポイントです。
 END_EDITTIP
 
 [END_ITEM]
@@ -155,8 +156,8 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the URI for this context. The URI should start with a "/". 
-If a URI ends with a "/", then this context will include all sub-URIs under this URI.
+DESCR: このコンテキストのURIを指定します。 URIは "/"で始まる必要があります。
+URIが「/」で終わる場合、このコンテキストはこのURIの下にすべてのサブURIを含みます。
 END_DESCR
 
 SYNTAX: URI
@@ -180,13 +181,12 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=location}
 
-DESCR: Specifies the URI for this context. 
+DESCR: このコンテキストのURIを指定します。 
 END_DESCR
 
-SYNTAX:  The URI can be a plain URI (starting with "/") or 
-a Perl compatible regular expression URI (starting with "exp:"). If a plain URI ends 
-with a "/", then this context will include all sub-URIs under this
-URI. If the context maps to a directory on the file system, a trailing "/" must be added.
+SYNTAX: URIは、プレーンURI（ "/"で始まる）またはPerl互換の正規表現URI（ "exp："で始まる）にすることができます。
+プレーンURIが "/"で終わる場合、このコンテキストはこのURIの下にすべてのサブURIを含みます。
+コンテキストがファイルシステム上のディレクトリにマップされている場合は、末尾に「/」を追加する必要があります。
 END_SYNTAX
 
 EXAMPLE:
@@ -201,21 +201,21 @@ END_TIPS
 
 [ITEM]
 ID: servletEngine
-NAME: Servlet Engine
+NAME: サーブレットエンジン
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the name of the servlet engine that serves this web application.
-Servlet engines must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
+DESCR: このWebアプリケーションを提供するサーブレットエンジンの名前を指定します。
+サーブレットエンジンは、サーバーまたは仮想ホストレベルの{PAGE=ExtApp_Help}セクションで定義する必要があります。
 END_DESCR
 
-EDITTIP: If the servlet engine runs on a different machine, it is recommended to make a copy of webapps directory locally. Otherwise you must put the 
-files in a common accessible network drive, which may affect performance.
+EDITTIP:サーブレットエンジンが別のマシン上で動作する場合は、webappsディレクトリのコピーをローカルに作成することをお勧めします。
+それ以外の場合は、アクセス可能な一般的なネットワークドライブにファイルを配置する必要があり、パフォーマンスに影響する可能性があります。
 END_EDITTIP
 
-SYNTAX: select
+SYNTAX: 選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -230,21 +230,21 @@ END_TIPS
 
 [ITEM]
 ID: javaServletEngine
-NAME: Servlet Engine
+NAME: サーブレットエンジン
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the name of the servlet engine that serves this web application.
-Servlet engines must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
+DESCR: このWebアプリケーションを提供するサーブレットエンジンの名前を指定します。
+サーブレットエンジンは、サーバーまたは仮想ホストレベルの{PAGE=ExtApp_Help}セクションで定義する必要があります。
 END_DESCR
 
-EDITTIP: If the servlet engine runs on a different machine, it is recommended to make a copy of webapps directory locally. Otherwise you must put the 
-files in a common accessible network drive, which may affect performance.
+EDITTIP: サーブレットエンジンが別のマシン上で動作する場合は、webappsディレクトリのコピーをローカルに作成することをお勧めします。
+それ以外の場合は、アクセス可能な一般的なネットワークドライブにファイルを配置する必要があり、パフォーマンスに影響する可能性があります。
 END_EDITTIP
 
-SYNTAX: select
+SYNTAX: 選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -259,20 +259,21 @@ END_TIPS
 
 [ITEM]
 ID: fcgiapp
-NAME: FastCGI App
+NAME: FastCGI アプリ
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the name of the FastCGI application. 
-This application must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
+DESCR: FastCGIアプリケーションの名前を指定します。
+このアプリケーションは、サーバーまたは仮想ホストレベルの{PAGE=ExtApp_Help}セクションで定義する必要があります。
 END_DESCR
 
-EDITTIP: Fast CGI context is a mount point of Fast CGI application. The Fast CGI Application must be pre-defined at server level or virtual host level.
+EDITTIP: Fast CGIコンテキストは、Fast CGIアプリケーションのマウントポイントです。
+Fast CGIアプリケーションは、サーバーレベルまたはバーチャルホストレベルであらかじめ定義されている必要があります。
 END_EDITTIP
 
-SYNTAX: select
+SYNTAX: 選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -287,17 +288,17 @@ END_TIPS
 
 [ITEM]
 ID: lsapiapp
-NAME: LiteSpeed SAPI App
+NAME: LiteSpeed SAPIアプリ
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the name of the LiteSpeed SAPI application to be connected to this context.
-This application must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
+DESCR: このコンテキストに接続するLiteSpeed SAPIアプリケーションの名前を指定します。
+このアプリケーションは、サーバーまたはバーチャルホストレベルの{PAGE=ExtApp_Help}セクションで定義する必要があります。
 END_DESCR
 
-SYNTAX: select
+SYNTAX: 選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -312,17 +313,17 @@ END_TIPS
 
 [ITEM]
 ID: lbapp
-NAME: Load Balancer
+NAME: ロードバランサー
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the name of the load balancer to be associated to this context.
-This load balancer is a virtual application, and must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
+DESCR: このコンテキストに関連付けるロードバランサの名前を指定します。
+このロードバランサは仮想アプリケーションであり、サーバーまたは仮想ホストレベルの{PAGE=ExtApp_Help}セクションで定義する必要があります
 END_DESCR
 
-SYNTAX: select
+SYNTAX: 選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -337,16 +338,16 @@ END_TIPS
 
 [ITEM]
 ID: extCluster
-NAME: Cluster
+NAME: クラスタ
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the cluster that handles requests to this context. 
+DESCR: このコンテキストへの要求を処理するクラスタを指定します。 
 END_DESCR
 
-SYNTAX: select
+SYNTAX: 選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -361,23 +362,23 @@ END_TIPS
 
 [ITEM]
 ID: proxyWebServer
-NAME: Web Server
+NAME: Webサーバー
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the name of the external web server.
-This external web server must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
+DESCR: 外部Webサーバーの名前を指定します。
+この外部Webサーバーは、サーバーまたは仮想ホストレベルの{PAGE=ExtApp_Help}セクションで定義する必要があります。
 END_DESCR
 
-EDITTIP: Proxy context enables this virtual host serving as a transparent reverse proxy server to an external web server or application server.
+EDITTIP: プロキシコンテキストは、この仮想ホストを透過的なリバースプロキシサーバとして機能させ、外部のWebサーバまたはアプリケーションサーバに提供します。
 END_EDITTIP
 
-EDITTIP: External web server must be pre-defined under External App at server or virtual host level.
+EDITTIP: 外部Webサーバーは、サーバーまたは仮想ホストレベルで外部アプリケーションの下にあらかじめ定義されている必要があります。
 END_EDITTIP
 
-SYNTAX: select
+SYNTAX: 選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -392,25 +393,24 @@ END_TIPS
 
 [ITEM]
 ID: location
-NAME: Location
+NAME: ロケーション
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=expuri}
 
-DESCR: Specifies the corresponding location of this context in the file system. 
+DESCR: ファイルシステム内のこのコンテキストの対応する場所を指定します。 
 END_DESCR
 
-SYNTAX: It can be an absolute path or path relative to $SERVER_ROOT, $VH_ROOT, or $DOC_ROOT. 
-$DOC_ROOT is the default relative path, and can be omitted.
+SYNTAX: $SERVER_ROOT、$VH_ROOT、または$DOC_ROOTに関連する絶対パスまたは絶対パスにすることができます。
+$DOC_ROOTはデフォルトの相対パスであり省略することができます。
 
 
-If the {ITEM=expuri} is a regular expression, then the matched sub-string 
-can be used to form the "Root" string. The matched sub-string can be 
-referenced with the values "$1" - "$9". "$0" and "&" can be used to reference the 
-whole matched string. Additionally, a query string can be set by 
-appending a "?" followed by the query string. Be careful. "&" should
-be escaped as "\&" in the query string.
+{ITEM=expuri}が正規表現であれば、一致した部分文字列を使用して "Root"文字列を形成することができます。
+一致した部分文字列は、値 "$1" - "$9"で参照できます。
+一致した文字列全体を参照するには、 "$0"と "＆"を使用できます。
+さらに、クエリ文字列は、 "？" その後にクエリ文字列が続きます。
+注意してください。 "＆"はクエリ文字列で "\＆"としてエスケープする必要があります。
 END_SYNTAX
 
 EXAMPLE:  A plain URI like {val}/examples/{/} with {ITEM=location} 
@@ -432,7 +432,7 @@ END_TIPS
 
 [ITEM]
 ID: rails_location
-NAME: Location
+NAME: ロケーション
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -496,7 +496,7 @@ END_EDITTIP
 EDITTIP: The web server will automatically import configuration file of web application, which usually is WEB-INF/web.xml under the driectory specified by "location".
 END_EDITTIP
 
-SYNTAX: path
+SYNTAX: パス
 END_SYNTAX
 
 EXAMPLE: 
@@ -547,26 +547,28 @@ END_TIPS
 
 [ITEM]
 ID: allowBrowse
-NAME: Accessible
+NAME: アクセス可能
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether this context can be accessed. Set to {val}No{/} to deny access. 
-You can use this feature to protect the specified directory from being visited. 
-You may use it when you are updating contents for this context or you have special data in this directory.
+DESCR: このコンテキストにアクセスできるかどうかを指定します。
+アクセスを拒否するには{val}いいえ{/}に設定してください。
+この機能を使用して、指定したディレクトリが訪問されないように保護できます。
+このコンテキストのコンテンツを更新している場合、またはこのディレクトリに特別なデータがある場合に使用することができます。
 END_DESCR
 
-EDITTIP: Static context can be used to map a URI to a directory either outside document root or within it. The directory 
-can be absolute path or relative to document root(default), $VH_ROOT or $SERVER_ROOT.
+EDITTIP: 静的コンテキストを使用して、URIをドキュメントルートの外部またはその内部のディレクトリにマップできます。
+ディレクトリは、ドキュメントルート（デフォルト）、$VH_ROOTまたは$SERVER_ROOTの絶対パスまたは相対パスにすることができます。
 END_EDITTIP
 
-EDITTIP: Check "Accessible" will allow browsing static files in this context. You may want to disable it to prevent viewing static 
-files, for e.g. when you update the content.
+EDITTIP: 「アクセス可能」をチェックすると、このコンテキストで静的ファイルをブラウズできます。
+静的ファイルを表示しないように無効にすることができます。
+例えば コンテンツを更新するとき。
 END_EDITTIP
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -595,7 +597,7 @@ switch to the user ID of the owner of the CGI script.
 The default is "Off".
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -652,7 +654,7 @@ DESCR: Specifies the response status code of the external redirection.
 If the status code is between 300 and 399, {ITEM=destinationuri} can be specified.
 END_DESCR
 
-SYNTAX: select
+SYNTAX: 選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -772,7 +774,7 @@ directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is che
 "Require" are allowed.
 END_EDITTIP
 
-SYNTAX: checkbox
+SYNTAX: チェックボックス
 END_SYNTAX
 
 EXAMPLE: 
@@ -914,7 +916,7 @@ EDITTIP: A Context can be protected with a predefined realm, which is set up in 
 additional requirements can be specified.
 END_EDITTIP
 
-SYNTAX: select
+SYNTAX: 選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1054,7 +1056,7 @@ Authorizer is available. For more details about the FastCGI Authorizer role,
 please visit {ext-href}http://www.fastcgi.com{ext-href-end}http://www.fastcgi.com{ext-href-end-a}.
 END_DESCR
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1080,7 +1082,7 @@ contexts. If rewrite is enabled and not inherited, rewrite base and
 rewrite rules defined in this context will be used.
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1133,7 +1135,7 @@ DESCR: Specifies whether to add a character set tag to the
 	   {ITEM=defaultCharsetCustomized} or the default "iso-8859-1" will be added.
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -1185,7 +1187,7 @@ DESCR: Name of the module. The module must be registered under the Server Module
 Once it is registered, the module name will be available in the drop down box for the Listener and Virtual Host configurations.
 END_DESCR
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE:
@@ -1204,9 +1206,6 @@ END_TIPS
 ID: newContext
 NAME: Context Attributes
 
-CONT: ctxType
-END_CONT
-
 [END_TBL]
 
 
@@ -1222,17 +1221,6 @@ the document root (like Apache's Alias or AliasMatch directives),
 to protect a particular directory using authorization realms, or to 
 block or restrict access to a particular directory within the document root.
 END_DESCR
-
-CONT: expuri location allowBrowse enableExpires expiresDefault expiresByType
-extraHeaders addMIMEType forceType defaultType indexFiles autoIndex allowOverrideContext 
-realm authName required accessAllowed accessDenied extAuthorizer
-addDefaultCharset defaultCharsetCustomized 
-enableRewrite rewriteInherit rewriteBase rewriteRules
-cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
-cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl 
-cachePolicy:ignoreRespCacheCtrl cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
-enableIpGeo apacheConf
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1250,14 +1238,6 @@ the document root (like Apache's Alias or AliasMatch directives),
 to protect a particular directory using authorization realms, or to 
 block or restrict access to a particular directory within the document root.
 END_DESCR
-
-CONT: expuri location allowBrowse enableExpires expiresDefault expiresByType
-extraHeaders addMIMEType forceType defaultType indexFiles autoIndex 
-realm authName required accessAllowed accessDenied extAuthorizer
-addDefaultCharset defaultCharsetCustomized 
-enableRewrite rewriteInherit rewriteBase rewriteRules
-enableIpGeo 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1301,17 +1281,6 @@ For example,
   </ul>
 END_DESCR
 
-CONT: uri javaWebApp_location javaServletEngine enableExpires
-expiresDefault expiresByType extraHeaders autoIndex indexFiles 
-allowOverrideContext realm
-authName required accessAllowed accessDenied extAuthorizer
-addDefaultCharset defaultCharsetCustomized 
-cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
-cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl 
-cachePolicy:ignoreRespCacheCtrl cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
-enableIpGeo 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1354,13 +1323,6 @@ For example,
   </ul>
 END_DESCR
 
-CONT: uri javaWebApp_location javaServletEngine enableExpires
-expiresDefault expiresByType extraHeaders autoIndex indexFiles 
-realm authName required accessAllowed accessDenied extAuthorizer
-addDefaultCharset defaultCharsetCustomized 
-enableIpGeo 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1377,15 +1339,6 @@ You only need to use this when you do not want to import the whole web applicati
 or you want to protect different servlets with different authorization realms. 
 This URI has the same requirements as for a {TBL=javaWebAppContext}. 
 END_DESCR
-
-CONT: expuri servletEngine extraHeaders allowOverrideContext realm authName required
-accessAllowed accessDenied extAuthorizer 
-addDefaultCharset defaultCharsetCustomized 
-cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
-cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl 
-cachePolicy:ignoreRespCacheCtrl cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
-enableIpGeo 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1404,12 +1357,6 @@ or you want to protect different servlets with different authorization realms.
 This URI has the same requirements as for a {TBL=javaWebAppContext}. 
 END_DESCR
 
-CONT: expuri servletEngine extraHeaders realm authName required
-accessAllowed accessDenied extAuthorizer 
-addDefaultCharset defaultCharsetCustomized 
-enableIpGeo 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1425,15 +1372,6 @@ a script handler or mapped to a URL through FastCGI context. A FastCGI context w
 associate a URI with a FastCGI application. 
 END_DESCR
 
-CONT: expuri fcgiapp extraHeaders allowOverrideContext 
-realm authName required accessAllowed accessDenied extAuthorizer 
-addDefaultCharset defaultCharsetCustomized 
-cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
-cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl 
-cachePolicy:ignoreRespCacheCtrl cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
-enableIpGeo 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1448,12 +1386,6 @@ DESCR: FastCGI applications cannot be used directly. A FastCGI application must 
 a script handler or mapped to a URL through FastCGI context. A FastCGI context will 
 associate a URI with a FastCGI application. 
 END_DESCR
-
-CONT: expuri fcgiapp extraHeaders  
-realm authName required accessAllowed accessDenied extAuthorizer 
-addDefaultCharset defaultCharsetCustomized 
-enableIpGeo 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1472,15 +1404,6 @@ Currently PHP, Ruby and Python have LSAPI modules. LSAPI, as it is developed spe
 LiteSpeed web server, is the most efficient way to communicate with LiteSpeed web server.  
 END_DESCR
 
-CONT: expuri lsapiapp extraHeaders allowOverrideContext 
-realm authName required accessAllowed accessDenied extAuthorizer 
-addDefaultCharset defaultCharsetCustomized 
-cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
-cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl 
-cachePolicy:ignoreRespCacheCtrl cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
-enableIpGeo 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1488,7 +1411,7 @@ SEE_ALSO:
 
 [TBL]
 ID: lsapiContext
-NAME: LiteSpeed SAPI Context
+NAME: LiteSpeed SAPIコンテキスト
 NS: O
 
 DESCR: External applications cannot be used directly. They must be either configured as 
@@ -1497,12 +1420,6 @@ associate a URI with an LSAPI (LiteSpeed Server Application Programming Interfac
 Currently PHP, Ruby and Python have LSAPI modules. LSAPI, as it is developed specifically for
 LiteSpeed web server, is the most efficient way to communicate with LiteSpeed web server.  
 END_DESCR
-
-CONT: expuri lsapiapp extraHeaders  
-realm authName required accessAllowed accessDenied extAuthorizer 
-addDefaultCharset defaultCharsetCustomized 
-enableIpGeo 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1521,15 +1438,6 @@ web server that this virtual host proxies for  has to be defined in {PAGE=ExtApp
 before you can set up a Proxy Context.
 END_DESCR
 
-CONT: expuri proxyWebServer extraHeaders 
-realm authName required accessAllowed accessDenied extAuthorizer 
-addDefaultCharset defaultCharsetCustomized 
-cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
-cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl 
-cachePolicy:ignoreRespCacheCtrl cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
-enableIpGeo
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1546,12 +1454,6 @@ servers or application servers that support HTTP protocol. The External
 web server that this virtual host proxies for  has to be defined in {PAGE=ExtApp_Help} 
 before you can set up a Proxy Context.
 END_DESCR
-
-CONT: expuri proxyWebServer extraHeaders 
-realm authName required accessAllowed accessDenied extAuthorizer 
-addDefaultCharset defaultCharsetCustomized 
-enableIpGeo
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1572,16 +1474,6 @@ be read as static content. It is recommended that you put all your CGI
 scripts in a directory and set up a CGI Context to access them. 
 END_DESCR
 
-CONT: expuri cgi_path extraHeaders allowSetUID allowOverrideContext 
-realm authName required accessAllowed accessDenied extAuthorizer 
-addDefaultCharset defaultCharsetCustomized 
-enableRewrite rewriteInherit rewriteBase rewriteRules 
-cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
-cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl 
-cachePolicy:ignoreRespCacheCtrl cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
-enableIpGeo apacheConf
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1600,13 +1492,6 @@ In this way, file content under a CGI Context is always protected and cannot
 be read as static content. It is recommended that you put all your CGI 
 scripts in a directory and set up a CGI Context to access them. 
 END_DESCR
-
-CONT: expuri cgi_path extraHeaders allowSetUID  
-realm authName required accessAllowed accessDenied extAuthorizer 
-addDefaultCharset defaultCharsetCustomized 
-enableRewrite rewriteInherit rewriteBase rewriteRules 
-enableIpGeo 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1622,12 +1507,6 @@ DESCR: A Load Balancer Context can be used to forward one URI or a group of URIs
 The destination URI can be either on the same web site or an absolute URI pointing to another web site.
 END_DESCR
 
-CONT: expuri extCluster realm authName required accessAllowed accessDenied cachePolicy:enableCache cachePolicy:maxCacheObjSize cachePolicy:expireInSeconds 
-cachePolicy:maxStaleAge cachePolicy:qsCache cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl cachePolicy:ignoreRespCacheCtrl 
-cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds enableRewrite rewriteInherit rewriteBase rewriteRules addDefaultCharset defaultCharsetCustomized 
-enableIpGeo 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1644,15 +1523,6 @@ A Load Balancer Context will associate a URI to be load balanced by the load bal
 END_DESCR
 
 
-CONT: expuri lbapp allowOverrideContext realm authName required
-accessAllowed accessDenied extAuthorizer 
-addDefaultCharset defaultCharsetCustomized 
-cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
-cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl 
-cachePolicy:ignoreRespCacheCtrl cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
-enableIpGeo 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1668,12 +1538,6 @@ cannot be used directly. They must be mapped to a URL through a context.
 A Load Balancer Context will associate a URI to be load balanced by the load balancer workers. 
 END_DESCR
 
-
-CONT: expuri lbapp realm authName required
-accessAllowed accessDenied extAuthorizer 
-addDefaultCharset defaultCharsetCustomized 
-enableIpGeo 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1690,10 +1554,6 @@ The destination URI can be either on the same web site (internal
 redirect) or an absolute URI pointing to another web site (external redirect).
 END_DESCR
 
-CONT: expuri externalredirect statuscode destinationuri realm authName 
-required accessAllowed accessDenied 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1708,10 +1568,6 @@ DESCR: A Redirect Context can be used to forward one URI or a group of URIs to a
 The destination URI can be either on the same web site (an internal
 redirect) or an absolute URI pointing to another web site (an external redirect).
 END_DESCR
-
-CONT: expuri externalredirect statuscode destinationuri allowOverrideContext realm 
-authName required accessAllowed accessDenied extAuthorizer
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1728,10 +1584,6 @@ The destination URI can be either on the same web site (an internal
 redirect) or an absolute URI pointing to another web site (an external redirect).
 END_DESCR
 
-CONT: expuri externalredirect statuscode destinationuri realm 
-authName required accessAllowed accessDenied extAuthorizer
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1739,27 +1591,13 @@ SEE_ALSO:
 
 [TBL]
 ID: railsContext
-NAME: Rack/Rails Context
+NAME: Rack/Railsコンテキスト
 NS: E
 
-DESCR: A Rack/Rails Context provides an easy way to configure a Ruby Rack/Rails
-application. To add a Rack/Rails application through a Rack/Rails Context, 
-only mounting the URL and the application's root directory is required. There is 
-no need to go through all the troubles to define an external application, add a 404 handler, 
-and rewrite rules, etc.
+DESCR: Rack/Railsコンテキストは、Ruby Rack/Railsアプリケーションを簡単に設定する方法を提供します。
+Rack/RailsアプリケーションをRack/Railsコンテキストに追加するには、URLとアプリケーションのルートディレクトリのみをマウントする必要があります。
+外部アプリケーションを定義したり、404ハンドラを追加したり、ルールを書き直すなど、すべての問題を解決する必要はありません。
 END_DESCR
-
-CONT: expuri rails_location railsEnv maxConns env enableExpires 
-expiresDefault expiresByType extraHeaders
-indexFiles autoIndex allowOverrideContext 
-realm authName required accessAllowed accessDenied extAuthorizer
-addDefaultCharset defaultCharsetCustomized 
-enableRewrite rewriteInherit rewriteBase rewriteRules 
-cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
-cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl 
-cachePolicy:ignoreRespCacheCtrl cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
-enableIpGeo
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1768,24 +1606,13 @@ SEE_ALSO:
 
 [TBL]
 ID: railsContext
-NAME: Rack/Rails Context
+NAME: Rack/Railsコンテキスト
 NS: O
 
-DESCR: A Rack/Rails Context provides an easy way to configure a Ruby Rack/Rails
-application. To add a Rack/Rails application through a Rack/Rails Context, 
-only mounting the URL and the application's root directory is required. There is 
-no need to go through all the troubles to define an external application, add a 404 handler, 
-and rewrite rules, etc.
+DESCR: Rack/Railsコンテキストは、Ruby Rack/Railsアプリケーションを簡単に設定する方法を提供します。
+Rack/RailsアプリケーションをRack/Railsコンテキストに追加するには、URLとアプリケーションのルートディレクトリのみをマウントする必要があります。
+外部アプリケーションを定義したり、404ハンドラを追加したり、ルールを書き直すなど、すべての問題を解決する必要はありませ
 END_DESCR
-
-CONT: expuri rails_location railsEnv maxConns env enableExpires 
-expiresDefault expiresByType extraHeaders
-indexFiles autoIndex  
-realm authName required accessAllowed accessDenied extAuthorizer
-addDefaultCharset defaultCharsetCustomized 
-enableRewrite rewriteInherit rewriteBase rewriteRules 
-enableIpGeo
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1794,17 +1621,11 @@ SEE_ALSO:
 
 [TBL]
 ID: moduleContext
-NAME: Module Handler Context
+NAME: モジュールハンドラコンテキスト
 
-DESCR: A module handler context will associate a URI with a registered module. 
-Modules need to be registered at Server Module Configuration tab.
+DESCR: モジュールハンドラコンテキストは、登録されたモジュールにURIを関連付けます。
+モジュールは[サーバーモジュールの構成]タブに登録する必要があります。
 END_DESCR
-
-CONT: expuri moduleNameSel extraHeaders
-realm authName required accessAllowed accessDenied extAuthorizer
-addDefaultCharset defaultCharsetCustomized 
-enableIpGeo 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1816,24 +1637,19 @@ SEE_ALSO:
 
 [PAGE]
 ID: Context_Help 
-NAME: Context
+NAME: コンテキスト
 NS: L
 
-DESCR: A Context is a set of resources that can be located using 
-URLs with a common parent URL. The common parent URL is the ID of the context. 
-A web site is comprised of contexts, for example, "/" is the root Context mapped to the 
-document root of a web site; "/cgi-bin/" is the context dedicated to CGI applications. 
-If you think of your website as a URL tree, then every branch is a context which can be 
-identified by the URL of the branching node. A context should be explicitly defined for the 
-following purposes:
+DESCR: コンテキストとは、共通の親URLを持つURLを使用して検索できるリソースのセットです。
+共通の親URLは、コンテキストのIDです。
+Webサイトはコンテキストで構成されています。たとえば、「/」はWebサイトのドキュメントルートにマップされたルートコンテキストです。 "/cgi-bin/"はCGIアプリケーション専用のコンテキストです。
+ウェブサイトをURLツリーと考えると、すべてのブランチは、分岐ノードのURLで識別できるコンテキストです。
+コンテキストは、次の目的のために明示的に定義する必要があります。:
 <ul>
-  <li>To use another cluster other than the default one.</li>
-  <li>To redirect requests to another location.</li>
+  <li>デフォルト以外のクラスタを使用する場合</li>
+  <li>要求を別の場所にリダイレクトする。</li>
 </ul>
 END_DESCR
-
-CONT: newContext
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
@@ -1841,27 +1657,23 @@ SEE_ALSO:
 
 [PAGE]
 ID: Context_Help 
-NAME: Context
+NAME: コンテキスト
 NS: E
 
-DESCR: In LiteSpeed Web Server terminology, a "context" is a virtual location, a common parent URL, 
- that identifies a group of resources. Contexts can be thought of as different directories 
- in your website's directory tree. For example, "/" is the root context mapped to the 
-document root of a website. "/cgi-bin/" is a context farther up on the tree, dedicated 
-to the CGI applications for this site. A context can be explicitly defined in 
-LiteSpeed's WebAdmin console for the following purposes:
+DESCR: LiteSpeed Web Serverの用語では、「コンテキスト」とは仮想リソースであり、共通の親URLであり、リソースのグループを識別します。
+コンテキストは、Webサイトのディレクトリツリー内の異なるディレクトリと考えることができます。
+たとえば、「/」はWebサイトのドキュメントルートにマップされたルートコンテキストです。
+"/cgi-bin/"は、このサイトのCGIアプリケーション専用のツリー上の文脈です。
+コンテキストは、次の目的でLiteSpeedのWebAdminコンソールで明示的に定義することができます。:
 
 <ul>
-  <li>To make a file system outside of the document root accessible.</li>
-  <li>To block access to certain resources.</li>
-  <li>To setup user-level authentication for certain resources.</li>
-  <li>To create mount points for external applications.</li>
-  <li>To redirect requests to another location.</li>
+  <li>ドキュメントルートの外部にあるファイルシステムにアクセス可能にする。</li>
+  <li>特定のリソースへのアクセスをブロックする。</li>
+  <li>特定のリソースに対してユーザーレベルの認証を設定する。</li>
+  <li>外部アプリケーションのマウントポイントを作成する。</li>
+  <li>要求を別の場所にリダイレクトする。</li>
 </ul>
 END_DESCR
-
-CONT: newContext
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
@@ -1870,27 +1682,23 @@ SEE_ALSO:
 
 [PAGE]
 ID: Context_Help 
-NAME: Context
+NAME: コンテキスト
 NS: O
 
-DESCR: In LiteSpeed Web Server terminology, a "context" is a virtual location, a common parent URL, 
- that identifies a group of resources. Contexts can be thought of as different directories 
- in your website's directory tree. For example, "/" is the root context mapped to the 
-document root of a website. "/cgi-bin/" is a context farther up on the tree, dedicated 
-to the CGI applications for this site. A context can be explicitly defined in 
-LiteSpeed's WebAdmin console for the following purposes:
+DESCR: LiteSpeed Web Serverの用語では、「コンテキスト」とは仮想リソースであり、共通の親URLであり、リソースのグループを識別します。
+コンテキストは、Webサイトのディレクトリツリー内の異なるディレクトリと考えることができます。
+たとえば、「/」はWebサイトのドキュメントルートにマップされたルートコンテキストです。
+"/cgi-bin/"は、このサイトのCGIアプリケーション専用のツリー上の文脈です。
+コンテキストは、次の目的でLiteSpeedのWebAdminコンソールで明示的に定義することができます。:
 
 <ul>
-  <li>To make a file system outside of the document root accessible.</li>
-  <li>To block access to certain resources.</li>
-  <li>To setup user-level authentication for certain resources.</li>
-  <li>To create mount points for external applications.</li>
-  <li>To redirect requests to another location.</li>
+  <li>ドキュメントルートの外部にあるファイルシステムにアクセス可能にする。</li>
+  <li>特定のリソースへのアクセスをブロックする。</li>
+  <li>特定のリソースに対してユーザーレベルの認証を設定する。</li>
+  <li>外部アプリケーションのマウントポイントを作成する。</li>
+  <li>要求を別の場所にリダイレクトする。</li>
 </ul>
 END_DESCR
-
-CONT: newContext
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
@@ -1898,14 +1706,11 @@ SEE_ALSO:
 
 [PAGE]
 ID: Static_Context
-NAME: Static Context
+NAME: 静的コンテキスト
 NS: EO
 
 DESCR:
 END_DESCR
-
-CONT: generalContext
-END_CONT
 
 [END_PAGE]
 
@@ -1913,14 +1718,11 @@ END_CONT
 
 [PAGE]
 ID: Java_Web_App_Context 
-NAME: Java Web App Context
+NAME: Java Web アプリコンテキスト
 NS: EO
 
 DESCR:
 END_DESCR
-
-CONT: javaWebAppContext
-END_CONT
 
 [END_PAGE]
 
@@ -1928,14 +1730,11 @@ END_CONT
 
 [PAGE]
 ID: Servlet_Context 
-NAME: Servlet Context
+NAME: サーブレットコンテキスト
 NS: EO
 
 DESCR:
 END_DESCR
-
-CONT: servletContext
-END_CONT
 
 [END_PAGE]
 
@@ -1943,14 +1742,11 @@ END_CONT
 
 [PAGE]
 ID: FCGI_Context
-NAME: Fast CGI Context
+NAME: Fast CGIコンテキスト
 NS: EO
 
 DESCR:
 END_DESCR
-
-CONT: fcgiContext
-END_CONT
 
 [END_PAGE]
 
@@ -1958,14 +1754,11 @@ END_CONT
 
 [PAGE]
 ID: LSAPI_Context 
-NAME: LiteSpeed SAPI Context
+NAME: LiteSpeed SAPIコンテキスト
 NS: EO
 
 DESCR:
 END_DESCR
-
-CONT: lsapiContext
-END_CONT
 
 [END_PAGE]
 
@@ -1973,14 +1766,11 @@ END_CONT
 
 [PAGE]
 ID: Proxy_Context 
-NAME: Proxy Context
+NAME: プロキシコンテキスト
 NS: EO
 
 DESCR:
 END_DESCR
-
-CONT: proxyContext
-END_CONT
 
 [END_PAGE]
 
@@ -1988,14 +1778,11 @@ END_CONT
 
 [PAGE]
 ID: CGI_Context 
-NAME: CGI Context
+NAME: CGIコンテキスト
 NS: EO
 
 DESCR:
 END_DESCR
-
-CONT: cgiContext
-END_CONT
 
 [END_PAGE]
 
@@ -2003,14 +1790,11 @@ END_CONT
 
 [PAGE]
 ID: LB_Context 
-NAME: Load Balancer Context
+NAME: ロードバランサコンテキスト
 NS: L
 
 DESCR:
 END_DESCR
-
-CONT: loadBalancerContext
-END_CONT
 
 [END_PAGE]loadBalancerContext
 
@@ -2018,14 +1802,11 @@ END_CONT
 
 [PAGE]
 ID: LB_Context 
-NAME: Load Balancer Context
+NAME: ロードバランサコンテキスト
 NS: EO
 
 DESCR:
 END_DESCR
-
-CONT: lbContext
-END_CONT
 
 [END_PAGE]
 
@@ -2033,14 +1814,11 @@ END_CONT
 
 [PAGE]
 ID: Redirect_Context 
-NAME: Redirect Context
+NAME: リダイレクトコンテキスト
 NS: LEO
 
 DESCR:
 END_DESCR
-
-CONT: redirectContext
-END_CONT
 
 [END_PAGE]
 
@@ -2048,28 +1826,22 @@ END_CONT
 
 [PAGE]
 ID: Rails_Context 
-NAME: Rack/Rails Context
+NAME: Rack/Railsコンテキスト
 NS:EO
 
 DESCR:
 END_DESCR
-
-CONT: railsContext
-END_CONT
 
 [END_PAGE]
 
 
 [PAGE]
 ID: Module_Context 
-NAME: Module Handler Context
+NAME: モジュールハンドラコンテキスト
 NS: O
 
 DESCR:
 END_DESCR
-
-CONT: moduleContext
-END_CONT
 
 [END_PAGE]
 

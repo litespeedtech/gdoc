@@ -15,7 +15,7 @@ SEE_ALSO:
 DESCR: ホットリンクの保護を有効にするかどうかを指定します。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -98,7 +98,7 @@ EDITTIP: 参照者なしで直接アクセスできるようにする場合は�
 たとえば、ブラウザのURLのユーザーキーと一部のプロキシが「Referrer」ヘッダーを表示しない場合、参照元はありません。
 END_EDITTIP
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -131,7 +131,7 @@ END_EDITTIP
 EDITTIP: 「自己参照のみ」を「いいえ」に設定した場合は、「許可ドメイン」を指定する必要があります。
 END_EDITTIP
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -245,7 +245,7 @@ END_DESCR
 EDITTIP: ここであなたのHT Accessレルムを定義します。これはコンテキストに使用できます。
 END_EDITTIP
 
-SYNTAX: テキスト
+SYNTAX: text
 END_SYNTAX
 
 EXAMPLE: 
@@ -283,8 +283,8 @@ DBタイプ{val} LDAP {/}の場合、ユーザー情報を照会するのはLDAP
 HTTP認証ヘッダーで受け取ったこのURLとユーザー名に基づいて、LDAP検索要求で1つだけのレコードを返す必要があります。
 "$ k"はURLのフィルタ部分で指定する必要があり、ユーザー名で置き換えられます。
 ユーザーのパスワード属性は、照会結果に戻されなければなりません。
-ユーザーのパスワードの属性名は、{ITEM = userDB_attrPasswd}で指定します。
-グループ情報は、{ITEM = userDB_attrMemberOf}で任意に指定できます。
+ユーザーのパスワードの属性名は、{ITEM=userDB_attrPasswd}で指定します。
+グループ情報は、{ITEM=userDB_attrMemberOf}で任意に指定できます。
 
 
 例: 少なくとも、オブジェクトクラス（uidObject、simpleSecurityObject、およびorganizationalRole）を使用してLDAPでユーザーを定義できます。
@@ -323,7 +323,7 @@ DESCR: ユーザーデータベースの最大キャッシュサイズを指定�
 最近アクセスされたユーザー認証データは、最大のパフォーマンスを提供するためにメモリにキャッシュされます。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -352,7 +352,7 @@ DESCR: バックエンドユーザーデータベースの変更の確認頻度�
 Sevrerのリロードと穏やかな再起動により、キャッシュは直ちにクリアされます。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -385,7 +385,7 @@ DBタイプの{val}パスワードファイル{/}の場合、グループDBロ�
 <blockquote><code>testgroup: user1 user2 user3</code></blockquote> 
 
 DBタイプ{val}LDAP{/}の場合、グループDBロケーションは、グループ情報を照会するLDAP URLでなければなりません。
-有効なグループごとに、このURLと{ITEM=Redirect_Context＃required}で指定されたグループ名に基づいて、LDAP検索リクエストで1つのレコードしか返されません。
+有効なグループごとに、このURLと{ITEM=Redirect_Context#required}で指定されたグループ名に基づいて、LDAP検索リクエストで1つのレコードしか返されません。
 "$k"はURLのフィルタ部分に指定する必要があり、グループ名に置き換えられます。
 このグループのメンバーを指定する属性の名前は、{ITEM=groupDB_attrGroupMember}によって指定されます。
 
@@ -396,7 +396,7 @@ DBタイプ{val}LDAP{/}の場合、グループDBロケーションは、グル�
 
 END_DESCR
 
-SYNTAX: file3
+SYNTAX: ファイル名への絶対パス又は$SERVER_ROOT、$VH_ROOTからの相対パス。
 END_SYNTAX
 
 EXAMPLE: 
@@ -420,7 +420,7 @@ SEE_ALSO: {ITEM=userDBMaxCacheSize}
 DESCR: グループデータベースの最大キャッシュサイズを指定します。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -446,7 +446,7 @@ DESCR: バックエンドグループデータベースの変更の確認頻度�
 詳細については、{ITEM=userDBCacheTimeout}を参照してください。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -644,9 +644,6 @@ NS: L
 DESCR:
 END_DESCR
 
-CONT: totalBandwidth
-END_CONT
-
 [END_TBL]
 
 
@@ -663,10 +660,6 @@ DESCR: ホットリンクとは、外部ウェブサイトから自分のウェ�
 LiteSpeed Webサーバーは、HTTPリクエスト内のRefererヘッダーをチェックすることにより、他人があなたのWebサイト上のコンテンツにホットリンクするのを防ぐことができます。
 Refererヘッダーがあなたのウェブサイトと一致しない場合、リクエストは拒否されます。
 END_DESCR
-
-CONT: enableHotlinkCtrl suffixes redirectUri allowDirectAccess 
-onlySelf allowedHosts matchedHosts
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -686,34 +679,6 @@ DESCR: この仮想ホストのすべての許可レルムをリストします�
 コンテキスト設定では、これらの名前でレルムを参照できます。 
 END_DESCR
 
-CONT: realmName realmType userDBLocation userDB_attrPasswd
-userDB_attrMemberOf userDBMaxCacheSize userDBCacheTimeout 
-GroupDBLocation groupDB_attrGroupMember groupDBMaxCacheSize 
-groupDBCacheTimeout LDAPBindDN LDAPBindPasswd UDBgroup users
-END_CONT
-
-SEE_ALSO:
-[END_TBL]
-
-
-[TBL]
-ID: realms
-NAME: 認可レルム
-NS: O
-
-DESCR: この仮想ホストのすべての許可レルムをリストします。
-権限領域は、権限のないユーザーが保護されたWebページにアクセスするのをブロックするために使用されます。
-レルムは、ユーザー名とパスワードを含むユーザーディレクトリです。
-グループ分類。 認可はコンテキストレベルで実行されます。
-異なるコンテキストは同じレルム（ユーザデータベース）を共有できるため、レルムはそれらを使用するコンテキストとは別に定義されます。
-コンテキスト設定では、これらの名前でレルムを参照できます。 
-END_DESCR
-
-CONT: realmName userDBLocation userDBMaxCacheSize userDBCacheTimeout 
-GroupDBLocation groupDBMaxCacheSize 
-groupDBCacheTimeout UDBgroup users
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -730,9 +695,6 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: vhBandwidthThrottlingControl tpSecThrottle accessControl realms
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -746,9 +708,6 @@ NS: E
 DESCR: 
 END_DESCR
 
-CONT: vhHotlink accessControl realms
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -761,9 +720,6 @@ NS: O
 
 DESCR: 
 END_DESCR
-
-CONT: accessControl realms 
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

@@ -20,7 +20,7 @@ Web管理コンソールはURL {val}http：//your.domain/_vti_bin/_vti_adm/fpadm
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -48,7 +48,7 @@ Web管理コンソールは、URL {val} http：//your.domain/_vti_bin/_vti_adm/f
 追加のFrontPage Server Extensionsパッケージは、正常に動作するようにインストールする必要があります。 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -115,7 +115,7 @@ HTMLページは、CGIスクリプトawstats.plによって動的に生成され
 </ul>
 END_DESCR
 
-SYNTAX: 選択
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -142,7 +142,7 @@ DESCR: AWStats設定ファイルの 「DataDir」パラメータを指定しま�
 通常、作業ディレクトリは{val}$VH_ROOT/awstats/{/}のように仮想ホストのルートに設定する必要があります。
 END_DESCR
 
-SYNTAX: path3
+SYNTAX: 絶対パスか$SERVER_ROOTからの相対パス又は$VH_ROOTからの相対パス。
 END_SYNTAX
 
 EXAMPLE: 
@@ -248,7 +248,7 @@ DESCR: AWstats統計の更新頻度を指定します。
 
 END_DESCR
 
-SYNTAX: 選択
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -269,7 +269,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: {ITEM = updateInterval}中に更新を実行する時期を指定します。
+DESCR: {ITEM=updateInterval}中に更新を実行する時期を指定します。
 END_DESCR
 
 SYNTAX: 秒数。
@@ -298,7 +298,7 @@ DESCR: AWstats統計にアクセスするためにHTTPSを使用するかどう�
 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -324,7 +324,7 @@ DESCR: 統計結果の認可レルムを指定します。
 
 END_DESCR
 
-SYNTAX: 選択
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -347,9 +347,6 @@ NAME: フロントページサーバーエクステンション
 DESCR: 
 END_DESCR
 
-CONT: enableFrontPage disableAdmin domainNames 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -364,11 +361,6 @@ LiteSpeed Webサーバーは、AWStatsをWebAdminコンソールにシームレ�
 
 END_DESCR
 
-CONT: updateMode workingDir awstatsURI siteDomain
-siteAliases updateInterval updateOffset
-securedConn awstatsRealm 
-END_CONT
-
 SEE_ALSO:
 [END_TBL]
 
@@ -382,9 +374,6 @@ NAME: アドオン
 
 DESCR: 
 END_DESCR
-
-CONT: frontpage awstats 
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

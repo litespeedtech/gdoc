@@ -16,7 +16,7 @@ END_DESCR
 EDITTIP: ログファイルのパスは絶対パスでも、$SERVER_ROOTからの相対パスでもかまいません。
 END_EDITTIP
 
-SYNTAX: file2
+SYNTAX: ファイル名への絶対パス又は$SERVER_ROOTからの相対パス
 END_SYNTAX
 
 EXAMPLE: 
@@ -48,9 +48,9 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [パフォーマンス] {ITEM = log_debugLevel}が{val} NONE {/}以外のレベルに設定されていない限り、{val} DEBUG {/}ログレベルを使用してもパフォーマンスに影響はありません。
+TIPS: [パフォーマンス] {ITEM=log_debugLevel}が{val} NONE {/}以外のレベルに設定されていない限り、{val} DEBUG {/}ログレベルを使用してもパフォーマンスに影響はありません。
 ログレベルを{val} DEBUG {/}に設定し、デバッグレベルを{val} NONE {/}に設定することをお勧めします。
-これらの設定は、ハードディスクにデバッグログを書き込まないことを意味しますが、{ITEM = ServerStat_Help＃toggleDebugLog}アクションを使用してデバッグ出力を制御することができます。
+これらの設定は、ハードディスクにデバッグログを書き込まないことを意味しますが、{ITEM=ServerStat_Help#toggleDebugLog}アクションを使用してデバッグ出力を制御することができます。
 これにより、デバッグログのオン/オフを切り替えることができ、多忙な運用サーバーのデバッグに役立ちます。
 END_TIPS
 
@@ -67,9 +67,9 @@ SINCE:
 SEE_ALSO: {ITEM=log_logLevel}, {ITEM=ServerStat_Help#toggleDebugLog}
 
 DESCR: デバッグログのレベルを指定します。
-この機能を使用するには、{ITEM = log_logLevel}を{val} DEBUG {/}に設定する必要があります。
-{ITEM = log_logLevel}が{val} DEBUG {/}に設定されていても、「デバッグレベル」が{val} NONE {/}に設定されていると、デバッグロギングは無効になります。
-{ITEM = ServerStat_Help＃toggleDebugLog}は、再起動せずにライブサーバー上のデバッグレベルを制御するために使用できます。.
+この機能を使用するには、{ITEM=log_logLevel}を{val} DEBUG {/}に設定する必要があります。
+{ITEM=log_logLevel}が{val} DEBUG {/}に設定されていても、「デバッグレベル」が{val} NONE {/}に設定されていると、デバッグロギングは無効になります。
+{ITEM=ServerStat_Help#toggleDebugLog}は、再起動せずにライブサーバー上のデバッグレベルを制御するために使用できます。.
 
 END_DESCR
 
@@ -84,7 +84,7 @@ TIPS: [パフォーマンス]重要！ 詳細なデバッグログが必要な�
 デバッグログには、各要求と応答の詳細情報が含まれています。
 
 ログレベルを{val} DEBUG {/}に設定し、デバッグレベルを{val} NONE {/}に設定することをお勧めします。
-これらの設定は、ハードディスクにデバッグログを書き込まないことを意味しますが、{ITEM = ServerStat_Help＃toggleDebugLog}アクションを使用してデバッグ出力を制御することができます。
+これらの設定は、ハードディスクにデバッグログを書き込まないことを意味しますが、{ITEM=ServerStat_Help#toggleDebugLog}アクションを使用してデバッグ出力を制御することができます。
 これにより、デバッグログのオン/オフを切り替えることができ、多忙な運用サーバーのデバッグに役立ちます。
 
 END_TIPS
@@ -108,7 +108,7 @@ DESCR: 現在のログファイルをロールオーバーする必要がある�
 EDITTIP: 現在のログファイルがローリングサイズを超えると、新しいログファイルが作成されます。 ファイルサイズはバイト単位で、10240,10K、または1Mの複数の入力フォーマットにすることができます。
 END_EDITTIP
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -136,7 +136,7 @@ END_DESCR
 EDITTIP: Stderrログは、サーバーログと同じディレクトリにあります。 有効にすると、stderrへのすべての外部アプリケーション出力がこのファイルに記録されます。
 END_EDITTIP
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -161,7 +161,7 @@ DESCR: サーバーログとアクセスログのAIOログを有効にするか�
 有効にすると、ログメッセージの書き込みに非同期I / Oが使用されます。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -191,7 +191,7 @@ END_DESCR
 EDITTIP: ログファイルのパスは絶対パスでも、$SERVER_ROOTからの相対パスでもかまいません。
 END_EDITTIP
 
-SYNTAX: file2
+SYNTAX: ファイル名への絶対パス又は$SERVER_ROOTからの相対パス
 END_SYNTAX
 
 EXAMPLE: 
@@ -223,7 +223,7 @@ DESCR: LiteSpeedがSTDINストリーム上のパイプを通じて送信する�
 
 
 ロガープロセスは、他の外部（CGI/FastCGI/LSAPI）プロセスと同じ方法で生成されます。
-つまり、バーチャルホストの{ITEM = VirtualHosts_Help＃setUidMode}設定で指定されたユーザーIDとして実行され、特権ユーザーのために実行されることはありません。. 
+つまり、バーチャルホストの{ITEM=VirtualHosts_Help#setUidMode}設定で指定されたユーザーIDとして実行され、特権ユーザーのために実行されることはありません。. 
 
 
 LiteSpeed Webサーバーは、複数のロガーアプリケーションのインスタンスが設定されている場合、複数のロガーアプリケーション間で簡単なロードバランシングを実行します。
@@ -303,7 +303,7 @@ SINCE:
 SEE_ALSO: {ITEM=accessLog_logHeader}
 
 DESCR: {ent_version} アクセスログのログ形式を指定します。
-ログフォーマットが設定されると、{ITEM = accessLog_logHeader}の設定より優先されます。
+ログフォーマットが設定されると、{ITEM=accessLog_logHeader}の設定より優先されます。
 END_DESCR
 
 SYNTAX: 文字列。ログフォーマットの構文はApache 2.0のカスタムと互換性があります 
@@ -377,7 +377,7 @@ DESCR: アクセスログファイルをディスクに保管する日数を指�
 古いログファイルを自動削除しない場合は、{val} 0 {/}に設定します。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -401,7 +401,7 @@ SEE_ALSO:
 DESCR: ディスク領域を節約するためにローテーションしたログファイルを圧縮するかどうかを指定します。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -425,9 +425,6 @@ NS: LE
 DESCR: 
 END_DESCR
 
-CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_enableStderrLog log_enableAioLog
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -441,9 +438,6 @@ NS: O
 DESCR: 
 END_DESCR
 
-CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_enableStderrLog 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -455,9 +449,6 @@ NAME: アクセスログ
 
 DESCR: 
 END_DESCR
-
-CONT: accessLog_fileName accessLog_pipedLogger accessLog_logFormat accessLog_logHeader log_rollingSize accessLog_keepDays accessLog_compressArchive
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -477,9 +468,6 @@ DESCR: ロードバランサのサーバーログとアクセスログの設定�
 たとえば、your_home_dir/lslb、/opt/lslbなどです。ロードバランサの実行ファイルは$SERVER_ROOT/binにあります。
 END_DESCR
 
-CONT: servLog servAcLog 
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -492,9 +480,6 @@ NS: EO
 
 DESCR: 
 END_DESCR
-
-CONT: servLog servAcLog 
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

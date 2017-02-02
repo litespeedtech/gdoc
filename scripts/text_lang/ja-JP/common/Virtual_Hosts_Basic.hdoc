@@ -15,7 +15,7 @@ DESCR: バーチャルホストの一意の名前。 バーチャルホストの
 バーチャルホスト名は、変数$VH_NAMEを使用して参照できます。
 END_DESCR
 
-SYNTAX: テキスト
+SYNTAX: text
 END_SYNTAX
 
 EXAMPLE: 
@@ -50,7 +50,7 @@ EDITTIP: バーチャルホストルート（$VH_ROOT）は、絶対パスでも
 Configファイルは、$VH_ROOTに相対的である可能性があります。
 END_EDITTIP
 
-SYNTAX: path2
+SYNTAX: 絶対パス又は$SERVER_ROOTからの相対パス。
 END_SYNTAX
 
 EXAMPLE: 
@@ -85,7 +85,7 @@ END_EDITTIP
 EDITTIP: バーチャルホストルート（$VH_ROOT）は、絶対パスでも、$SERVER_ROOTに関連してもかまいません。
 END_EDITTIP
 
-SYNTAX: path2
+SYNTAX: 絶対パス又は$SERVER_ROOTからの相対パス。
 END_SYNTAX
 
 EXAMPLE: 
@@ -137,7 +137,7 @@ SEE_ALSO:
 DESCR: このバーチャルホストの設定ファイル名とディレクトリ。
 END_DESCR
 
-SYNTAX: file3
+SYNTAX: ファイル名への絶対パス又は$SERVER_ROOT、$VH_ROOTからの相対パス。
 END_SYNTAX
 
 EXAMPLE: 
@@ -163,7 +163,7 @@ DESCR: このバーチャルホストの設定ファイル名とディレクト�
 設定ファイルは、$SERVER_ROOT/conf/vhosts/ディレクトリの下になければなりません。
 END_DESCR
 
-SYNTAX: file2
+SYNTAX: ファイル名への絶対パス又は$SERVER_ROOTからの相対パス
 END_SYNTAX
 
 EXAMPLE: 
@@ -189,10 +189,10 @@ SEE_ALSO: {ITEM=ServTuning_Help#maxKeepAliveReq}
 DESCR: キープアライブ（永続的）接続を介して提供できる最大要求を特定します。
 この制限に達すると接続が閉じられます。
 仮想ホストごとに異なる制限を指定できます。
-この数値は、サーバーレベルの{ITEM=ServTuning_Help＃maxKeepAliveReq}の制限を超えることはできません。
+この数値は、サーバーレベルの{ITEM=ServTuning_Help#maxKeepAliveReq}の制限を超えることはできません。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -215,10 +215,10 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: この仮想ホストに対してSmart Keep-Aliveを有効にするかどうかを指定します。
-このオプションは、{ITEM = ServTuning_Help＃smartKeepAlive}がサーバーレベルで有効で、{ITEM = vhMaxKeepAliveReq}が1より大きい場合にのみ有効です。
+このオプションは、{ITEM=ServTuning_Help#smartKeepAlive}がサーバーレベルで有効で、{ITEM=vhMaxKeepAliveReq}が1より大きい場合にのみ有効です。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -247,7 +247,7 @@ DESCR: この仮想ホスト内のシンボリックリンクをたどるかど�
 この設定は、デフォルトのサーバーレベルの設定よりも優先されます。
 END_DESCR
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -274,7 +274,7 @@ DESCR: この仮想ホストでスクリプティング（非静的ページ）�
 このため、スクリプトハンドラを使用する場合は、スクリプトハンドラもここで有効にする必要があります。
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -306,7 +306,7 @@ END_DESCR
 EDITTIP: 共有ホスティング環境での拘束をオンにします。
 END_EDITTIP
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -396,7 +396,7 @@ DESCR: {ent_version}{ITEM=chrootMode}が{val}Customized Chroot Path{/}に設定�
 
 END_DESCR
 
-SYNTAX: path1
+SYNTAX: 絶対パス。
 END_SYNTAX
 
 EXAMPLE: 
@@ -441,9 +441,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-CONT: vhName vhRoot configFile
-END_CONT
-
 [END_TBL]
 
 
@@ -455,9 +452,6 @@ NS: EO
 
 DESCR: 
 END_DESCR
-
-CONT: vhMaxKeepAliveReq vhSmartKeepAlive
-END_CONT
 
 [END_TBL]
 
@@ -471,11 +465,6 @@ NS: E
 DESCR: 
 END_DESCR
 
-CONT: allowSymbolLink enableScript
-restrained setUidMode
-chrootMode chrootPath totalBandwidth
-END_CONT
-
 [END_TBL]
 
 
@@ -487,11 +476,6 @@ NS: O
 
 DESCR: 
 END_DESCR
-
-CONT: allowSymbolLink enableScript
-restrained setUidMode
-chrootMode chrootPath
-END_CONT
 
 [END_TBL]
 
@@ -505,10 +489,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-CONT: staticReqPerSec dynReqPerSec
-outBandwidth inBandwidth 
-END_CONT
-
 [END_TBL]
 
 
@@ -520,10 +500,6 @@ NS: L
 
 DESCR: 
 END_DESCR
-
-CONT: vhName defaultCluster configFile 
-dynReqPerSec outBandwidth inBandwidth 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -537,12 +513,6 @@ NS: EO
 
 DESCR: 
 END_DESCR
-
-CONT: vhName vhRoot configFile allowSymbolLink enableScript
-restrained vhMaxKeepAliveReq vhSmartKeepAlive setUidMode
-chrootMode chrootPath staticReqPerSec dynReqPerSec
-outBandwidth inBandwidth 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -562,9 +532,6 @@ DESCR: このページには、定義されたすべてのバーチャルホス�
 バーチャルホストを追加する前に、バーチャルホストのルートディレクトリが存在することを確認してください。
 END_DESCR
 
-CONT: vhBase vhConnection vhSecurity vhPClientThrottling
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -578,9 +545,6 @@ NS: L
 DESCR: このページには、定義されたすべてのバーチャルホストが一覧表示されます。
 ここからバーチャルホストを追加/削除したり、既存のバーチャルホストを変更したりすることができます。
 END_DESCR
-
-CONT: vhTop 
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

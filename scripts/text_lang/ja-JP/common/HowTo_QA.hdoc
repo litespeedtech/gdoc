@@ -6,48 +6,43 @@
 
 [QA]
 ID: qa_incfd
-Q: How to increase the operating system limit of file descriptors?
+Q: どのようにファイル記述子のオペレーティングシステムの制限を増やすのですか？
 
-A: <p>There are system level and process level file descriptor limits in UNIX 
-like operating systems. LiteSpeed server only uses a small number of server 
-processes to serve all clients and each request may need up to 4 file descriptors. 
-Therefore, the maximum number of concurrent requests that the server can handle 
-could be constrained by the process level file descriptor limit. It is important 
-to set this limit to a high value.</p>
-<p>If the server is started by root user, it will try to adjust this
-limit automatically based on server configuration when this limit is too low. 
-Otherwise, this limit has to be manually adjusted with
-root privilege.</p>
+A: <p>TUNIXのようなオペレーティングシステムでは、システムレベルとプロセスレベルのファイル記述子の制限があります。
+LiteSpeedサーバーは少数のサーバープロセスを使用してすべてのクライアントにサービスを提供し、各要求では最大4つのファイル記述子が必要になる場合があります。
+したがって、サーバーが処理できる同時要求の最大数は、プロセスレベルのファイル記述子の制限によって制限される可能性があります。
+この制限を高い値に設定することが重要です。</p>
+<p>サーバーがrootユーザーによって起動された場合、サーバーの構成に基づいてこの制限を自動的に調整しようとします。
+それ以外の場合は、この制限をroot特権で手動で調整する必要があります。</p>
 
-<p>Use {cmd}ulimit -a{/} to check current setting of per process file descriptor limit.
-You need root privilege to change this limit. You may want to put this setting in 
-your startup scripts in order to automatically set the limit after
-rebooting the machine.</p> 
+<p>{cmd}ulimit -a{/}を使用して、プロセスファイル記述子あたりの現在の設定を確認してください。
+この制限を変更するには、root特権が必要です。
+マシンをリブートした後に自動的に制限を設定するために、スタートアップスクリプトにこの設定を入れることができます。</p> 
 
 <ul>
-	<li><p><strong>Linux kernels:</strong></p></li>
-	Check the system level limit for open files:<br>
+	<li><p><strong>Linuxカーネル：</strong></p></li>
+	開いているファイルのシステムレベルの制限を確認してください：<br>
 	&nbsp;&nbsp;&nbsp;{cmd}more /proc/sys/fs/file-max{/}<br>
-	If it looks low, increase the limit by:<br>
+	それが低く見えたら、限界を以下のように増やしてください：<br>
 	&nbsp;&nbsp;&nbsp;{cmd}echo 40000 > /proc/sys/fs/file-max{/}<br>
-	For kernel 2.2.x, you also need:<br>
+	カーネル2.2.xの場合は、次のものも必要です:<br>
 	&nbsp;&nbsp;&nbsp;{cmd}echo 65535 > /proc/sys/fs/inode-max{/}<br>
-	Then increases the current process limit by:<br>
+	次に、現在のプロセス制限を次のように増加させます:<br>
 	&nbsp;&nbsp;&nbsp;{cmd}ulimit -n 10000{/}<br>
-	Note: Normal user can use {cmd}ulimit -n xxxx{/} to change the limit 
-	of current process, at least in Kernel 2.4.x. But you need to add following 
-	lines in /etc/security/limits.conf:<br>
+	注：普通のユーザは、少なくともKernel 2.4.xでは{cmd} ulimit -n xxxx {/}を使って
+    現在のプロセスの制限を変更することができます。
+    しかし、以下の行を/etc/security/limits.confに追加する必要があります：<br>
 	
 	&nbsp;&nbsp;&nbsp;{cmd}soft nofile 2048{/}<br>
 	&nbsp;&nbsp;&nbsp;{cmd}hard nofile 8192{/}<br><br>
 
 	<li><p><strong>Solaris 2.4+:</strong></p></li>
-	The following lines need to be added in /etc/system:<br>
-	* set hard limit on file descriptors: {cmd}set rlim_fd_max = XXXX{/}<br>
-	* set soft limit on file descriptors: {cmd}set rlim_fd_cur = XXXX{/}<br><br>
+	/etc/systemに次の行を追加する必要があります。:<br>
+	* ファイル記述子にハードリミットを設定する： {cmd}set rlim_fd_max = XXXX{/}<br>
+	* ファイル記述子にソフトリミットを設定する： {cmd}set rlim_fd_cur = XXXX{/}<br><br>
 	
 	<li><p><strong>FreeBSD:</strong></p></li>
-	Add the following line in /boot/loader.conf,<br>
+	/boot/loader.confに次の行を追加します。<br>
 	{cmd}set kern.maxfiles=XXXX{/}
 </ul>
 
@@ -61,32 +56,29 @@ SEE_ALSO:
 
 [QA]
 ID: qa_namevh
-Q: How to setup name based virtual hosting?
+Q: 名前ベースのバーチャルホスティングを設定するには？
 
-A: With name based virtual hosting, you can host more web sites than the number of 
-IP addresses you have. In this case, multiple domain names are pointed to same IP address.
+A: 名前ベースの仮想ホスティングでは、あなたが持っているIPアドレスの数より多くのWebサイトをホストすることができます。
+この場合、複数のドメイン名が同じIPアドレスを指しています。
 
-Use the following guidelines to setup name based virtual hosting.
+名前ベースのバーチャルホスティングを設定するには、次のガイドラインを使用します。
 
 <ol>
-<li>Setup DNS properly.
-	<br>Forward the domain names of your web sites to the IP address used by your web server. This is commonly done by adding an "A" name entry to the DNS zone for the website.
+<li>DNSを正しく設定してください。
+	<br>Webサイトのドメイン名をWebサーバーが使用するIPアドレスに転送します。
+これは、通常、WebサイトのDNSゾーンに「A」という名前のエントリを追加することによって行われます。
 </li>
-<li>Set up in the web administration console:
-	<ol><li>Create a virtual host for each web site.</li>
-	    <li>Create listeners.<br>
-	        You can create one listener to listen on all local IP addresses. 
-	        Or you can create multiple listeners with one listener only listening 
-	        to one specific IP address.
+<li>Web管理コンソールで設定します：
+	<ol><li>Webサイトごとにバーチャルホストを作成します。</li>
+	    <li>リスナーを作成します。<br>
+	        1つのリスナーを作成して、すべてのローカルIPアドレスでリッスンすることができます。
+            または、1つの特定のIPアドレスだけをリッスンする1つのリスナーで複数のリスナーを作成できます。
 	    </li>
-	    <li>Assign virtual host mappings.<br>
-	        Go to listener settings, 
-	        click "Edit" on {TBL=Listeners_Help#virtualHostMapping} table. 
-	        Check all virtual hosts that should be mapped, and specify 
-	        the corresponding {ITEM=Listeners_Help#domainName}.<br>
-	        
-		Note: {val}your.domain{/} will match both {val}www.your.domain{/} 
-		     and {val}your.domain{/}. The leading "www." in the domain name will be ignored.
+	    <li>バーチャルホストマッピングを割り当てます。<br>
+            リスナー設定に移動し、{TBL=Listeners_Help#virtualHostMapping}テーブルの[編集]をクリックします。
+            マッピングする仮想ホストをすべて確認し、対応する{ITEM=Listeners_Help#domainName}を指定します。<br>
+		注：{val}your.domain{/}は{val}www.your.domain{/}と{val}your.domain{/}の両方に一致します。
+        主要な "www" ドメイン名には無視されます。
 	    </li>
 	  </ol>
 </li>
@@ -101,26 +93,23 @@ SEE_ALSO:
 
 [QA]
 ID: qa_ipvh
-Q: How to setup IP based virtual hosting?
+Q: IPベースのバーチャルホスティングを設定するには？
 
-A: IP based virtual hosting requires at least one unique IP address for each web site. 
-One IP address is dedicated to one virtual host. This allows you to visit a virtual 
-host with URL like "http://192.168.0.1/index.html", and the web server will process 
-this request using the corresponding virtual host context. If using SSL, a unique SSL 
-certificate needs to be assigned for each IP based virtual host as well.
+A: IPベースのバーチャルホスティングには、各Webサイトに固有のIPアドレスが少なくとも1つ必要です。
+1つのIPアドレスは1つのバーチャルホスト専用です。
+これにより、 "http://192.168.0.1/index.html"のようなURLを持つ仮想ホストにアクセスすることができ、Webサーバーは対応するバーチャルホストコンテキストを使用してこの要求を処理します。
+SSLを使用する場合は、IPベースのバーチャルホストごとに一意のSSL証明書を割り当てる必要があります。
 
 <ol>
-  <li>Allocate at least one IP address for each web site you plan to host.<br>
-     TIP: You can create an IP alias to assign multiple IPs to one network adapter.</li>
-  <li>Configure DNS properly.<br> Assign the domain name to its corresponding IP address.</li>
-  <li>Create listeners. You have two choices:</li>
+  <li>ホストするWebサイトごとに少なくとも1つのIPアドレスを割り当てます。<br>
+     ヒント：1つのネットワークアダプタに複数のIPを割り当てるIPエイリアスを作成できます。</li>
+  <li>DNSを正しく設定します。<br>ドメイン名を対応するIPアドレスに割り当てます。</li>
+  <li>リスナーを作成します。 あなたには2つの選択肢があります：</li>
      <ul>
-        <li>Create one listener that listens on all IPs and configure virtual host 
-            mappings to share one listener as above.</li>
-	<li>Another choice is to create one listener for each IP. Assign listener 
-	    only to the corresponding virtual host with the wild card  domain name {val}*{/}.<br>
-	    Unique SSL private key and certificate can be assigned to each listener, 
-	    thus each web site can use its own certificate.
+        <li>すべてのIPをリスンする1つのリスナーを作成し、上記のように1つのリスナーを共有するように仮想ホストのマッピングを構成します。</li>
+	<li>別の選択肢は、各IPに対して1つのリスナーを作成することです。
+        リスナーは、ワイルドカードドメイン名{val}*{/}を持つ対応する仮想ホストにのみ割り当てます。<br>
+        独自のSSL秘密鍵と証明書を各リスナーに割り当てることができるため、各Webサイトで独自の証明書を使用できます。
 	</li>
     </ul>
 </ol>
@@ -135,71 +124,54 @@ SEE_ALSO:
 
 [QA]
 ID: qa_dos
-Q: How to be mitigate Denial of Service (DoS) and Distributed Denial of Service (DDoS) attacks?
+Q: サービス拒否（DoS）攻撃と分散サービス拒否（DDoS）攻撃を軽減する方法は？
 
-A: LiteSpeed server is capable of reducing and even eliminating the impact of DoS and DDoS 
-attacks at the HTTP protocol level. The following configuration will help against attacks.
+A: LiteSpeedサーバーは、HTTPプロトコルレベルでDoS攻撃とDDoS攻撃の影響を軽減し、さらにはそれを排除することができます。 以下の設定は、攻撃に役立ちます。
 
 <ul>
-  <li>Under {PAGE=ServTuning_Help} configuration:</li>
+  <li>{PAGE=ServTuning_Help}設定の下で：</li>
      <ol>
-        <li>Set {ITEM=ServTuning_Help#maxReqURLLen}, 
-				{ITEM=ServTuning_Help#maxReqHeaderSize},
-				{ITEM=ServTuning_Help#maxReqBodySize},  
-				{ITEM=ServTuning_Help#maxDynRespHeaderSize}
-				 and {ITEM=ServTuning_Help#maxDynRespSize}
-           to a value that just above what you really need. This will help to reduce 
-           memory usage and identify bad requests quickly.
+        <li>{ITEM=ServTuning_Help#maxReqURLLen}, 
+			{ITEM=ServTuning_Help#maxReqHeaderSize},
+			{ITEM=ServTuning_Help#maxReqBodySize},  
+			{ITEM=ServTuning_Help#maxDynRespHeaderSize}
+			 そして {ITEM=ServTuning_Help#maxDynRespSize}
+           　を実際に必要な値を上回る値に設定します。 
+           　これはメモリ使用量を減らし、悪い要求を迅速に識別するのに役立ちます。
         </li>
-	<li>Set {ITEM=ServTuning_Help#connTimeout} around {val}30{/};<br>
-	   set {ITEM=ServTuning_Help#keepAliveTimeout} around {val}15{/} or less;<br>
-	   set {ITEM=ServTuning_Help#maxKeepAliveReq} to at least {val}100{/}.<br>
-	   This will help to close dead connections as soon as possible and make 
-	   connections available to other clients.
+	<li>{val}30{/}の周りに{ITEM=ServTuning_Help#connTimeout}を設定します;<br>
+	   {val}15{/}以下にで{ITEM=ServTuning_Help#keepAliveTimeout}を設定します;<br>
+	   {ITEM=ServTuning_Help#maxKeepAliveReq}を少なくとも{val}100{/}以上に設定してください。<br>
+	   これにより、できるだけ早く停止した接続を閉じ、他のクライアントが接続を利用できるようになります。
 	</li>
      </ol>
      <br>
      
-  <li>Under {PAGE=ServSecurity_Help} configuration:</li>
+  <li>{PAGE=ServSecurity_Help}設定の下で：</li>
      <ol>
-        <li>Block the IPs that abuse your web server by listing them in the 
-            {TBL=ServSecurity_Help#accessControl} - {ITEM=ServSecurity_Help#accessControl_deny}.</li>
-	<li>Use {TBL=ServSecurity_Help#perClientConnLimit} to control how many concurrent 
-	    connections are allowed from one IP address. Once the limit is reached, 
-	    the web server will close newly accepted connections from that IP address 
-	    immediately and move on to next pending connection.<br>
+        <li>{TBL=ServSecurity_Help#accessControl} - {ITEM=ServSecurity_Help#accessControl_deny}があなたのWebサーバーを悪用するIPをブロックします。</li>
+	<li>1つのIPアドレスからの同時接続数を制御するには、{TBL = ServSecurity_Help#perClientConnLimit}を使用します。
+制限に達すると、WebサーバーはそのIPアドレスからの新規に受け入れられた接続を直ちに閉じ、次の保留中の接続に移動します。<br>
 
-	    Nowadays, almost all web browsers support persistent connections (multiple 
-	    requests pipelined through one connection), so the number of connections 
-	    required is very small. Essentially, one connection is enough. However, 
-	    some web browsers try to establish additional connections to speed up downloading.<br>
+	    今日、ほとんどのWebブラウザは永続的な接続をサポートしています（1つの接続で複数のリクエストをパイプライン化しているため）、必要な接続数は非常に少ないです。
+本質的に、1つの接続で十分です。 ただし、一部のWebブラウザは、ダウンロードを高速化するために追加の接続を確立しようとします。<br>
 
-	    Therefore, allowing 4 to 10 connections from one IP is recommended. 
-	    Less than that will probably affect normal web services.<br>
+	    したがって、1つのIPから4〜10の接続を許可することをお勧めします。
+それ以下の場合は、通常のWebサービスに影響する可能性があります。<br>
 
-	    With this per IP limit, the web server can serve more unique clients. 
-	    The minimum number of unique clients can be derived from 
-		{ITEM=ServTuning_Help#maxConnections}
-	     divided by max connections per client.
+	    IPごとの制限により、Webサーバーはより一意のクライアントに対応できます。
+一意のクライアントの最小数は、{ITEM=ServTuning_Help#maxConnections}をクライアントごとの最大接続数で除算して得られます。
 	</li>
-	<li>Enable IP level throttling:<br>
-	    Set {ITEM=ServSecurity_Help#outBandwidth} greater than {val}0{/} 
-	    (0 will disable throttling). The limit is rounded up to the closest 
-	    boundary of 4KB/sec units.<br>
+	<li>IPレベルの抑制を有効にする：<br>
+	    {ITEM=ServSecurity_Help#outBandwidth}を{val}0{/}より大きく設定してください（0はスロットリングを無効にします）。
+制限は、4KB/sec単位の最も近い境界まで切り上げられます。<br>
 	
-	    In this way, your limited network bandwidth will not be used up by a 
-	    couple of clients with fast network connections; more clients will be served.
+	    このようにして、制限されたネットワーク帯域幅は、高速ネットワーク接続を備えた数人のクライアントによって消費されることはありません。 より多くのクライアントにサービスされます。
 	</li>
-	<li>If you server is flooded by hundreds of requests from different IPs but 
-	    with same URL, you can create a
-	    {TBL=Context_Help#generalContext} to 
-		block access to that URL. 
-	    The Context {ITEM=Context_Help#expuri} should match or include that URL and 
-	    {ITEM=Context_Help#allowBrowse} is set to {val}No{/}.<br>
+	<li>サーバーが異なるIPからの何百もの要求によって同じURLで浸水した場合、{TBL=Context_Help#generalContext}を作成してそのURLへのアクセスをブロックすることができます。
+コンテキスト{ITEM=Context_Help#expuri}は、そのURLに一致するか、または{ITEM=Context_Help#allowBrowse}が{val}No{/}に設定されている必要があります。<br>
 	    
-	   For example, if the server is pounded with "/foo/bar.html", then you can add 
-	   context with exact URI={val}/foo/bar.html{/}, or set URI={val}/foo/{/} to block 
-	   all URLs that start with "/foo/".
+	   たとえば、サーバーが "/foo/bar.html"で叩かれた場合、正確なURI={val}/foo/bar.html{/}のコンテキストを追加するか、URI={val}/foo/{/}は"/foo/"で始まるすべてのURLをブロックします。
 	</li>
    </ol>
 </ul>
@@ -214,47 +186,32 @@ SEE_ALSO:
 
 [QA]
 ID: qa_gzip
-Q: How to use GZIP compression to save network bandwidth?
+Q: ネットワーク帯域幅を節約するためにGZIP圧縮を使用するには？
 
-A: LiteSpeed web server can send compressed responses for both static and dynamically 
-generated content. 
-You can configure it on the server {TBL=ServTuning_Help#gzipTuning} page
-through WebAdmin console.
+A: LiteSpeed Webサーバーは、静的および動的に生成されたコンテンツの圧縮応答を送信できます。
+WebAdminコンソールから、サーバー（TBL=ServTuning_Help#gzipTuning）ページで設定できます。
 
 <ul>
-<li>{ITEM=ServTuning_Help#enableGzipCompress} setting is the overall
-controller for both static and dynamic content.
+<li>{ITEM=ServTuning_Help#enableGzipCompress}設定は、静的コンテンツと動的コンテンツの両方に対する全体的なコントローラです。
 </li>
 
-<li>When a request for a static file comes in, the web server first 
-looks for the corresponding gzip compressed version in the same directory
-where the uncompressed file is located. The compressed file will be 
-used only if it is newer and smaller than the original one. If the 
-compressed file does not exist or out of date, the web server
-can create/update the gzip compressed file automatically if
-{ITEM=ServTuning_Help#gzipAutoUpdateStatic} is turned on. <br>
+<li>静的ファイルの要求が来ると、Webサーバーはまず、圧縮されていないファイルがあるディレクトリと同じディレクトリで、対応するgzip圧縮バージョンを探します。
+圧縮されたファイルは、元のファイルよりも新しいファイルと小さい場合にのみ使用されます。
+圧縮ファイルが存在しないか古い場合は、{ITEM=ServTuning_Help#gzipAutoUpdateStatic}が有効になっている場合、Webサーバは自動的にgzip圧縮ファイルを作成/更新できます。 <br>
 
-Because compression is a pretty server intensive, the web server
-will only compress files with a potentially high compression rate based on following
-rules:<br>
- the MIME type of the response body is text; 
-the file size is between {ITEM=ServTuning_Help#gzipMinFileSize} and
-{ITEM=ServTuning_Help#gzipMaxFileSize}.
+圧縮はかなりサーバー集中型なので、Webサーバーは、次のルールに基づいて、圧縮率が高い可能性のあるファイルのみを圧縮します：<br>
+ 応答本文のMIMEタイプはテキストです；
+ファイルサイズは{ITEM=ServTuning_Help#gzipMinFileSize}から{ITEM=ServTuning_Help#gzipMaxFileSize}の間です。
 </li>
 
-<li>The web server can perform run-time compression for dynamically
-generated content as well. <br>
+<li>Webサーバーは、動的に生成されたコンテンツに対しても実行時圧縮を実行できます。<br>
 
-To turn on compression for dynamic content, 
-both {ITEM=ServTuning_Help#enableDynGzipCompress} and 
-{ITEM=ServTuning_Help#enableGzipCompress} must be set to {val}Yes{/}.
+動的コンテンツの圧縮を有効にするには、{ITEM=ServTuning_Help#enableDynGzipCompress}と{ITEM=ServTuning_Help#enableGzipCompress}を{val}はい{/}に設定する必要があります。
 </li>
 
-<li>{ITEM=ServTuning_Help#gzipStaticCompressLevel} and 
-{ITEM=ServTuning_Help#gzipCompressLevel} range from 
-{val}1{/} (faster compression) to {val}9{/} (better compression). 
-You should tune it based on available hardware resources such as
-memory and CPU cycles.
+<li>{ITEM=ServTuning_Help#gzipStaticCompressLevel}と{ITEM=ServTuning_Help#gzipCompressLevel}の範囲は次のとおりです。
+{val}1{/}（より速い圧縮）から{val}9{/}（より良い圧縮）。
+メモリやCPUサイクルなどの利用可能なハードウェアリソースに基づいてチューニングする必要があります。
 </li>
 </ul>
 END_A
@@ -267,70 +224,58 @@ SEE_ALSO:
 
 [QA]
 ID: qa_perf
-Q: How to measure web server performance?
+Q: どのようにWebサーバーのパフォーマンスを測定するには？
 
-A: First, Make sure your web server is tuned up for the maximum performance.
+A: まず、Webサーバーが最大のパフォーマンスを発揮できるようにチューニングされていることを確認します。
 <ul>
-   <li>Turn off throttling by setting {ITEM=ServSecurity_Help#outBandwidth} to {val}0{/}.</li>
-   <li>Set the value of {ITEM=ServTuning_Help#maxKeepAliveReq} to a big number like {val}100000{/}.</li>
-   <li>Set {ITEM=ServTuning_Help#maxConnections} as high as possible.</li>
-   <li>Set {ITEM=ServSecurity_Help#softLimit} and 
-		   {ITEM=ServSecurity_Help#hardLimit} to {val}1000{/} or
-		   higher in {TBL=ServSecurity_Help#perClientConnLimit}, depending on 
-       how many concurrent connections you need from one IP address.</li>
-   <li>Set {ITEM=VirtualHosts_Help#allowSymbolLink} to {val}Yes{/} and 
-		   {ITEM=VirtualHosts_Help#restrained} to {val}No{/} 
-		   for the testing virtual host</li>
+   <li>{ITEM=ServSecurity_Help#outBandwidth}を{val}0{/}に設定してスロットルをオフにします。</li>
+   <li>{ITEM=ServTuning_Help#maxKeepAliveReq}の値を{val}100000{/}のような大きな数値に設定します。</li>
+   <li>{ITEM=ServTuning_Help#maxConnections}を可能な限り高く設定してください。</li>
+   <li>1つのIPアドレスから必要な並行接続の数に応じて、{TBL=ServSecurity_Help#perClientConnLimit}の{ITEM=ServSecurity_Help#softLimit}と{ITEM=ServSecurity_Help#hardLimit}を{val}1000{/}以上に設定します。</li>
+   <li>テストバーチャルホストの{ITEM=VirtualHosts_Help#allowSymbolLink}を{val}はい{/}に、{ITEM=VirtualHosts_Help#restricted}を{val}いいえ{/}に設定します</li>
 </ul>
 
-There are three commonly used tools for benchmark: ApacheBench, Httperf and AutoBench.
+ベンチマークにはApacheBench、Httperf、AutoBenchの3つのツールがあります。
 <ul>
-  <li><strong>Using ApacheBench:</strong></li>
-  	ApacheBench is a command line performance-testing tool bundled with Apache httpd. 
-  	It can simulate hundreds of HTTP/1.0 clients simultaneously accessing same resource on the server.<br>
+  <li><strong>ApacheBenchを使う：</strong></li>
+  	ApacheBenchは、Apache httpdにバンドルされているコマンドラインのパフォーマンステストツールです。
+    これは、数百のHTTP / 1.0クライアントを同時にシミュレートして、サーバー上の同じリソースにアクセスすることができます。<br>
   	
-	You can simply run it with command:<br>
+	次のコマンドで簡単に実行できます：<br>
 	
 	{cmd}ab -n 10000 -c 100 http://localhost:8088/index.html{/}<br>
 
-	or you can use keep-alive requests by<br>
+	キープアライブ要求を使用することができます<br>
 
 	{cmd}ab -n 10000 -c 100 -k http://localhost:8088/index.html{/}<br>
 
-	For detailed information, please check Apache document.<br><br>
+	詳細については、Apacheのドキュメントを参照してください。<br><br>
 	
-   <li><strong>Using Httperf:</strong></li>
-   	You can get httperf from <a href="http://www.hpl.hp.com/personal/David_Mosberger/httperf.html">
-   	http://www.hpl.hp.com/personal/David_Mosberger/httperf.html</a>.<br>
+   <li><strong>Httperfを使う：</strong></li>
+   	httperfは、<a href="http://www.hpl.hp.com/personal/David_Mosberger/httperf.html"> http://www.hpl.hp.com/personal/David_Mosberger/httperf.html</a>から入手できます。<br>
    	
-	Httperf uses HTTP/1.1 protocol by default and always use keep-alive requests. 
-	It has more command options, for detailed information please refer to its document.<br>
+	HttperfはデフォルトでHTTP / 1.1プロトコルを使用し、常にキープアライブ要求を使用します。
+    より多くのコマンドオプションがあります。詳しくは、そのドキュメントを参照してください。<br>
 	
-	Here is an example:<br>
+	次に例を示します:<br>
 	
 	{cmd}./httperf --server localhost --port 8088 --uri /index.html --rate 1000 --num-conn 100 --num-call 100 --timeout 50{/}<br><br>
 
-   <li><strong>Using Autobench:</strong></li>
-   	Autobench is a simple Perl script calling httperf that automates the benchmark process of a web server.<br>
+   <li><strong>Autobenchを使う:</strong></li>
+   	Autobenchは、Webサーバーのベンチマークプロセスを自動化する、httperfを呼び出す単純なPerlスクリプトです。<br>
 
-	You can get autobench from <a href="http://www.xenoclast.org/autobench/">
-	http://www.xenoclast.org/autobench/</a>For detailed information, please refer to its document.<br>
-	
+	オートベンチは<a href="http://www.xenoclast.org/autobench/"> http://www.xenoclast.org/autobench/</a>から入手できます。詳細は、そのドキュメントを参照してください。 <br>
 </ul>
 
-It is not recommended to run the server and testing tool on the same machine, as it does not 
-reflect the usage in real world. And the testing tool share the same CPU with web server, 
-you should take that into account if you do so.
+サーバーとテストツールを同じマシン上で実行することはお勧めしません。実際の使用状況を反映していないからです。
+また、テストツールはWebサーバーと同じCPUを共有しますので、そうした場合は考慮する必要があります。
 
-It is better to perform the test over a LAN using two or more computers. In order to reveal 
-the actual performance of the web server, you need to make sure that the network and the client 
-machines should not become a bottleneck. It is recommended to perform
-the test on a Gigabits LAN, or multiple switched 100Mb connections. If
-you only use one machine to simulate clients, make sure that it has equal 
-or higher power than the server machine.
+2台以上のコンピュータを使用してLAN経由でテストを実行する方が良いです。
+Webサーバーの実際のパフォーマンスを明らかにするには、ネットワークとクライアントマシンがボトルネックにならないようにする必要があります。
+Gigabits LANまたは複数のスイッチ100Mb接続でテストを実行することを推奨します。
+1台のマシンのみを使用してクライアントをシミュレートする場合は、サーバーマシンと同等かそれ以上のパワーを持つことを確認してください。
 
-Start the test with small files and increase the file size gradually
-until the network bandwidth is saturated.
+小さなファイルでテストを開始し、ネットワーク帯域幅が飽和するまで徐々にファイルサイズを増やします。
 END_A
 
 SEE_ALSO: 
@@ -340,7 +285,7 @@ SEE_ALSO:
 
 [QA]
 ID: qa_extapp
-Q: How to set up an external application (Fast CGI, LSAPI App, Web Server or Servlet Engine)? 
+Q: 外部アプリケーション（Fast CGI、LSAPI アプリ、Webサーバー、またはサーブレットエンジン）を設定する方法は？
 
 A: All types of external applications can be set up at either server level or
 virtual host level.  
@@ -1316,12 +1261,8 @@ each web site. Properties for a member virtual host are:
 	<li>Virtual Host Root: The root directory for a web site, only
 	need to be set when it cannot be determined by "Virtual Host Name".</li>
 </ul>
-For "www.example.com", because "Virtual Host Name" is equal to "Domain" and the
-virtual host root directory is named after "Virtual Host Name", and
-there is no alias, so all you need to do is to set "Virtual Host Name" to
-"www.example.com". If you organize all your new virtual hosts in this way, then
-all you need to do is to add a member virtual host with a proper
-"Virtual host name". 
+「バーチャルホスト名」が「ドメイン」に等しく、バーチャルホストのルートディレクトリが「バーチャルホスト名」にちなんで名付けられ、エイリアスがないため、「www.example.com」では、 「バーチャルホスト名」を「www.example.com」に設定します。
+このように新しいバーチャルホストをすべて整理する場合は、メンバーバーチャルホストに適切な「バーチャルホスト名」を追加するだけです。 
 
 
 END_A
@@ -1344,13 +1285,6 @@ TOP_NAV: index.html = INDEX
 
 DESCR: 
 END_DESCR
-
-CONT: qa_incfd qa_namevh qa_ipvh qa_dos qa_gzip qa_perf qa_extapp
-qa_php qa_phplsapi qa_phpfcgi qa_phpacc qa_suexec qa_sproxy qa_jsp 
-qa_mapache qa_prvtkey qa_selfcert
-qa_cert qa_confssl qa_frontpage qa_autoindex qa_awstats qa_perld
-qa_apimport qa_pipedlogger qa_template
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

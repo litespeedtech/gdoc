@@ -44,7 +44,7 @@ DESCR: モジュールが外部の.soライブラリではなく、静的にリ�
 
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: ラジオボックスから選択 
 END_SYNTAX
 
 EXAMPLE:
@@ -98,7 +98,7 @@ DESCR: モジュールフックをグローバルに有効または無効にし�
 ユーザーは、各レベルでこのグローバル設定を上書きできます。  
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: ラジオボックスから選択 
 END_SYNTAX
 
 EXAMPLE:
@@ -126,7 +126,7 @@ DESCR: Listenerレベルでモジュールフックを有効または無効に�
 ユーザーはデフォルト設定を上書きするためにここで設定するだけです。 
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: ラジオボックスから選択 
 END_SYNTAX
 
 EXAMPLE:
@@ -155,7 +155,7 @@ DESCR: 仮想ホストまたはコンテキスト・レベルでモジュール�
 ユーザーはデフォルト設定を上書きするためにここで設定するだけです。 
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: ラジオボックスから選択 
 END_SYNTAX
 
 EXAMPLE:
@@ -897,12 +897,6 @@ DESCR: サーバーモジュール構成は、モジュール構成データを�
 モジュールの優先順位は、サーバーレベルでのみ定義され、リスナーと仮想ホストの設定によって継承されます。
 END_DESCR
 
-CONT: modulename internalmodule modParams moduleEnabled	L4_BEGINSESSION L4_ENDSESSION L4_RECVING L4_SENDING 
- HTTP_BEGIN RECV_REQ_HEADER URI_MAP HTTP_AUTH RECV_REQ_BODY RCVD_REQ_BODY RECV_RESP_HEADER RECV_RESP_BODY RCVD_RESP_BODY
- HANDLER_RESTART SEND_RESP_HEADER SEND_RESP_BODY HTTP_END 
- MAIN_INITED MAIN_PREFORK MAIN_POSTFORK WORKER_POSTFORK WORKER_ATEXIT MAIN_ATEXIT
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -915,9 +909,6 @@ NAME: リスナーモジュール
 DESCR: リスナーモジュール設定データは、デフォルトでサーバーモジュール設定から継承されます。
 リスナモジュールは、TCP / IPレイヤ4フックに限定されています。
 END_DESCR
-
-CONT: modulename modParams moduleEnabled_lst 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -932,9 +923,6 @@ DESCR: 仮想ホストモジュール構成データは、デフォルトでサ�
 仮想ホストモジュールはHTTPレベルのフックに制限されています。
 END_DESCR
 
-CONT: modulename modParams moduleEnabled_vh 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -947,9 +935,6 @@ NAME: 仮想ホストモジュールのコンテキスト
 DESCR: 仮想ホストコンテキストのモジュール設定をカスタマイズするための集中管理された場所です。
 コンテキストURIの設定は、仮想ホストまたはサーバーレベルの設定を上書きします。
 END_DESCR
-
-CONT: expuri modParams moduleEnabled_vh 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -973,9 +958,6 @@ DESCR: モジュールのサポートは、Openlitespeed 1.3およびLSWS Enterp
 モジュールは、サーバーモジュール設定タブでグローバルに設定できます。
 構成データは、リスナーおよび仮想ホスト・モジュール構成が継承または変更するために使用できます。
 END_DESCR
-
-CONT: servModules listenerModules vhModules vhModuleUrlFilters moduleContext
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

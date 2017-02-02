@@ -27,14 +27,14 @@ END_DESCR
 EDITTIP: If Follow-Symbolic-Link is enabled, you can still disable it at virtual host level.
 END_EDITTIP
 
-SYNTAX: select
+SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance & security] For best security select {val}No{/} or {val}If Owner Match{/}. 
-For best performance, select {val}Yes{/}. 
+TIPS: [パフォーマンスとセキュリティ]最高のセキュリティを実現するには、{val}いいえ{/}または{val}{Owner}が一致する場合{/}を選択します。
+最高のパフォーマンスを得るには、{val}はい{/}を選択します。
 END_TIPS
 
 [END_ITEM]
@@ -59,7 +59,7 @@ EDITTIP: Check-Symbolic-Link control will take effect only if Follow-Symbolic-Li
 This controls whether symbolic links are checked against Access Denied Directories.
 END_EDITTIP
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -86,7 +86,7 @@ the owner of the virtual host. If it is different, a 403 Access Denied Error wil
 This is turned off by default.
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -240,7 +240,7 @@ Per-client request limits can be set at server- or virtual host-level.
 Virtual host-level settings override server-level settings.
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -275,7 +275,7 @@ This per client request limit can be set at server or virtual host level.
 Virtual host-level settings override server-level settings.
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -307,7 +307,7 @@ The per client request limit can be set at the server or virtual host level wher
 virtual host level settings override server level settings.
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -337,7 +337,7 @@ Per-client bandwidth limits (bytes/sec) can be set at the server or virtual host
 virtual host level settings override server level settings.
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -369,7 +369,7 @@ Per-client bandwidth limits (bytes/sec) can be set at the server or virtual host
 virtual host level settings override server level settings.
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -416,7 +416,7 @@ EDITTIP: Number of connections can temporarily exceed Soft Limit during Grace Pe
 still above Soft Limit, then no more connections will be allowed from that IP for time of Banned Period.
 END_EDITTIP
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -456,7 +456,7 @@ END_DESCR
 EDITTIP: Set concurrent connection Limits coming from one client (per IP address). This helps against DoS attack.
 END_EDITTIP
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -485,7 +485,7 @@ DESCR: Block IPs that keep sending badly-formated HTTP requests for the {ITEM=ba
 is {val}Yes{/}. This helps to block botnet attacks that repeatedly sending junk requests. 
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: ラジオボックスから選択
 END_SYNTAX
 
 EXAMPLE: 
@@ -513,7 +513,7 @@ period has elapsed, if the number of connections still higher than the {ITEM=sof
 then the offending IP will be blocked for the {ITEM=banPeriod}.
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -541,7 +541,7 @@ the {ITEM=softLimit}. If IPs are getting banned repeatedly, we suggest that you
 increase your banned period to stiffen the penalty for abuse.
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -608,7 +608,7 @@ END_EDITTIP
 EDITTIP: Max CGI Instances controls how many CGI processes the web server can launch.
 END_EDITTIP
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -637,7 +637,7 @@ If LiteSpeed web server is started by "root" user, it can run external applicati
 mode like Apache (to change to a user/group ID other than the web server's).
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -664,7 +664,7 @@ If LiteSpeed web server is started by the "root" user, it can run external appli
 mode found in Apache (to change to a user/group ID other than the web server's). 
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -701,7 +701,7 @@ but will not have group permission to access anyone else's files. The server, on
 can serve files under any user's docroot directory (because of its group ID).
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -777,7 +777,7 @@ SEE_ALSO:
 DESCR: CGIプロセスのCPU消費制限時間を秒単位で指定します。 プロセスがソフトリミットに達すると、シグナルによって通知されます。 値が存在しない場合、または{val}0{/}に設定されている場合は、オペレーティングシステムのデフォルト設定が使用されます。.
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -802,7 +802,7 @@ DESCR: CGIプロセスの最大CPU使用時間制限を秒単位で指定しま�
 値が存在しないか、{val}0{/}に設定されている場合は、オペレーティングシステムのデフォルト設定が使用されます。
 END_DESCR
 
-SYNTAX: 符号なし整数
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -839,7 +839,7 @@ The operating system's default setting will be used if the value is absent at bo
 {val}0{/}. 
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -871,7 +871,7 @@ The operating system's default will be used if the value is absent at both level
 {val}0{/}. 
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: [Attention] Do not over adjust this limit. This may result in 503 errors
@@ -901,7 +901,7 @@ The operating system's default value will be used if the value is absent at both
 {val}0{/}. 
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -1049,11 +1049,6 @@ NAME: File Access
 DESCR: 
 END_DESCR
 
-CONT: followSymbolLink checkSymbolLink forceStrictOwnership requiredPermissionMask
-restrictedPermissionMask restrictedScriptPermissionMask
-restrictedDirPermissionMask 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1067,9 +1062,6 @@ NS: EO
 DESCR: These are connection control settings are based on client IP. 
 These settings help to mitigate DoS (Denial of Service) and DDoS (Distributed Denial of Service) attacks.
 END_DESCR
-
-CONT: staticReqPerSec dynReqPerSec outBandwidth inBandwidth softLimit hardLimit blockBadReq gracePeriod banPeriod 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1085,9 +1077,6 @@ DESCR: These are connection control setting on a per client/IP basis.
 These settings help to mitigate DoS (Denied of Service) and DDoS (Distributed Denied of Service) attacks.
 END_DESCR
 
-CONT: dynReqPerSec outBandwidth inBandwidth softLimit hardLimit blockBadReq gracePeriod banPeriod 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1102,9 +1091,6 @@ DESCR: The following settings control CGI processes. Memory and process limits a
 other external applications if limits have not been set explicitly for those applications. 
 END_DESCR
 
-CONT: cgidSock maxCGIInstances minUID minGID forceGID umask CGIPriority CPUSoftLimit CPUHardLimit memSoftLimit memHardLimit procSoftLimit procHardLimit 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1116,9 +1102,6 @@ NAME: Access Denied Directories
 
 DESCR: 
 END_DESCR
-
-CONT: accessDenyDir 
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -1151,9 +1134,6 @@ END_DESCR
 TIPS: [Security] Use this at the server level for general restrictions that apply to all virtual hosts.
 END_TIPS
 
-CONT: accessControl_allow accessControl_deny 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -1170,10 +1150,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-CONT: fileAccessControl perClientConnLimit cgiResource
-accessDeny accessControl  
-END_CONT
-
 SEE_ALSO: 
 [END_PAGE]
 
@@ -1186,9 +1162,6 @@ NS: L
 
 DESCR: 
 END_DESCR
-
-CONT: perClientConnLimit accessControl 
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]

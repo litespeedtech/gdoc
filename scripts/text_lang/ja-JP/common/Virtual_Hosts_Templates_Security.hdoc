@@ -12,9 +12,6 @@ NAME: ファイルアクセス制御
 DESCR: 
 END_DESCR
 
-CONT: allowSymbolLink enableScript restrained
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -27,9 +24,6 @@ NS: EO
 
 DESCR: 
 END_DESCR
-
-CONT: staticReqPerSec dynReqPerSec outBandwidth inBandwidth
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]
@@ -44,9 +38,6 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: dynReqPerSec outBandwidth inBandwidth 
-END_CONT
-
 SEE_ALSO: 
 [END_TBL]
 
@@ -59,9 +50,6 @@ NS: EO
 
 DESCR: 
 END_DESCR
-
-CONT: setUidMode chrootMode chrootPath
-END_CONT
 
 SEE_ALSO: 
 [END_TBL]

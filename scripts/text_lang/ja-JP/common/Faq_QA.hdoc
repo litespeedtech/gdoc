@@ -47,7 +47,7 @@ Q: パフォーマンスは他のWebサーバーとどのように比較され�
 A: スタティックコンテンツの場合、LiteSpeed Standard EditionはApacheより2倍高速で、Enterprise EditionはApacheより最大6倍高速で、Linuxカーネルに組み込まれたWebサーバーであるRedHatのContent Accelerator TUXのパフォーマンスと一致します。
 動的コンテンツの場合、PHPスクリプトはApacheのmod_phpより最大50％高速です。
 詳細については、<a href="http://litespeedtech.com/benchmark.html">ベンチマーク</a>ページをご覧ください。
-自分で比較したいのであれば、 "{QA=HowTo_QA＃qa_perf}"を読んでください。 
+自分で比較したいのであれば、 "{QA=HowTo_QA#qa_perf}"を読んでください。 
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -82,7 +82,7 @@ ID: faq_frontpage
 Q: LiteSpeedサーバーは、Microsoft FrontPage Server Extensionをサポートしていますか？
 
 A: はい。 リリース2.0以降、Microsoft FrontPage Server Extension 2002がサポートされています。Apacheのmod_frontpageと比較すると、インストールと構成がはるかに簡単です。
-FrontPage Server Extensionの設定方法の詳細については、「{QA=HowTo_QA＃qa_frontpage}」を参照してください。
+FrontPage Server Extensionの設定方法の詳細については、「{QA=HowTo_QA#qa_frontpage}」を参照してください。
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -394,11 +394,6 @@ TOP_NAV: index.html = INDEX
 
 DESCR: 
 END_DESCR
-
-CONT: isfree diff support comp fast rewrite faq_frontpage api versionString php
-phpacc phpsuexec phpperf phpconf jsp asp dnet
-isapi proxy cache sca modpl apm ssi vh cp smp opensrc base help
-END_CONT
 
 SEE_ALSO: 
 [END_PAGE]
