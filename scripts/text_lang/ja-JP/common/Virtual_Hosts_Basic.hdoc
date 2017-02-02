@@ -189,7 +189,7 @@ SEE_ALSO: {ITEM=ServTuning_Help#maxKeepAliveReq}
 DESCR: キープアライブ（永続的）接続を介して提供できる最大要求を特定します。
 この制限に達すると接続が閉じられます。
 仮想ホストごとに異なる制限を指定できます。
-この数値は、サーバーレベルの{ITEM=ServTuning_Help＃maxKeepAliveReq}の制限を超えることはできません。
+この数値は、サーバーレベルの{ITEM=ServTuning_Help#maxKeepAliveReq}の制限を超えることはできません。
 END_DESCR
 
 SYNTAX: 整数
@@ -215,7 +215,7 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: この仮想ホストに対してSmart Keep-Aliveを有効にするかどうかを指定します。
-このオプションは、{ITEM = ServTuning_Help＃smartKeepAlive}がサーバーレベルで有効で、{ITEM = vhMaxKeepAliveReq}が1より大きい場合にのみ有効です。
+このオプションは、{ITEM=ServTuning_Help#smartKeepAlive}がサーバーレベルで有効で、{ITEM=vhMaxKeepAliveReq}が1より大きい場合にのみ有効です。
 END_DESCR
 
 SYNTAX: ラジオボックスから選択

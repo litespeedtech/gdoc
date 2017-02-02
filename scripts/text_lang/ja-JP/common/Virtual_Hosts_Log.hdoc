@@ -75,7 +75,7 @@ DESCR: ロギングのレベルを指定します。
 使用可能なレベルは、{val}ERROR{/}、{val}WARNING{/}、{val}NOTICE{/}、{val}INFO{/}、{val}DEBUG{/}です。
 現在の設定以上のレベルのメッセージのみが記録されます。
 {val}DEBUG{/}に設定する場合は、サーバログレベルを{val}DEBUG{/}に設定する必要があります。
-デバッグのレベルは、{ITEM=ServGeneral_Help＃log_debugLevel}によってサーバーレベルでのみ制御されます。
+デバッグのレベルは、{ITEM=ServGeneral_Help#log_debugLevel}によってサーバーレベルでのみ制御されます。
 END_DESCR
 
 SYNTAX: 選択
@@ -84,7 +84,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [パフォーマンス] {ITEM=ServGeneral_Help＃log_debugLevel}が{val}NONE{/}以外のレベルに設定されていない限り、{val}DEBUG{/}ログレベルはパフォーマンスに影響を及ぼさず、推奨されます。
+TIPS: [パフォーマンス] {ITEM=ServGeneral_Help#log_debugLevel}が{val}NONE{/}以外のレベルに設定されていない限り、{val}DEBUG{/}ログレベルはパフォーマンスに影響を及ぼさず、推奨されます。
 END_TIPS
 
 [END_ITEM]

@@ -269,7 +269,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: {ITEM = updateInterval}中に更新を実行する時期を指定します。
+DESCR: {ITEM=updateInterval}中に更新を実行する時期を指定します。
 END_DESCR
 
 SYNTAX: 秒数。

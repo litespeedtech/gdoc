@@ -231,7 +231,7 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: {ent_version} chroot環境がルートされるディレクトリを指定します。
-"root"ユーザだけがchrootモードでサーバを実行できます。 chrootモードで実行するかどうかは、{ITEM = enableChroot}オプションによって制御されます。
+"root"ユーザだけがchrootモードでサーバを実行できます。 chrootモードで実行するかどうかは、{ITEM=enableChroot}オプションによって制御されます。
 インストーラプログラムは、初期chroot環境を自動的に設定します。
 このエントリは読み取り専用です。変更する場合は、コマンドラインから再度インストーラを実行してください。 
 
@@ -269,7 +269,7 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: {ent_version} chrootモードでサーバーを起動するかどうかを指定します。
-新しいルートディレクトリは、インストール中に{ITEM = servChrootPath}によって設定されます。
+新しいルートディレクトリは、インストール中に{ITEM=servChrootPath}によって設定されます。
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -320,7 +320,7 @@ SINCE:
 SEE_ALSO: {ITEM=swappingDir}
 
 DESCR: 要求本体およびその動的生成応答を格納するために使用される最大バッファー・サイズを指定します。
-この制限に達すると、サーバーは{ITEM = swappingDir}の下に一時的なスワップファイルを作成し始めます。
+この制限に達すると、サーバーは{ITEM=swappingDir}の下に一時的なスワップファイルを作成し始めます。
 END_DESCR
 
 SYNTAX: 整数
@@ -664,7 +664,7 @@ DESCR: 「X-Forwarded-For」HTTPリクエストヘッダーに記載されてい
 
 
 この機能は、Webサーバーがロードバランサまたはプロキシサーバーの背後にある場合に便利です。
-「信頼できるIPのみ」を選択した場合、X-Forwarded-For IPは、サーバーレベル{ITEM=ServSecurity_Help＃accessControl_allow}で定義された信頼できるIPからの要求が送信された場合にのみ使用されます。 
+「信頼できるIPのみ」を選択した場合、X-Forwarded-For IPは、サーバーレベル{ITEM=ServSecurity_Help#accessControl_allow}で定義された信頼できるIPからの要求が送信された場合にのみ使用されます。 
 END_DESCR
 
 SYNTAX: 選択 
@@ -747,7 +747,7 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: 新しい製品リリースパッケージファイルがある場合に自動ダウンロードするかどうかを指定します。
-新しいパッケージが正常にダウンロードされた場合は、Service Manager - {ITEM=ServerStat_Help＃vermgr}のWebAdminコンソールからワンクリックでオンラインでアップグレードできます。 
+新しいパッケージが正常にダウンロードされた場合は、Service Manager - {ITEM=ServerStat_Help#vermgr}のWebAdminコンソールからワンクリックでオンラインでアップグレードできます。 
 END_DESCR
 
 SYNTAX: 選択 
@@ -1748,7 +1748,7 @@ NAME: ファイルアップロード
 NS: O
 
 DESCR: Request Body Parserを使用してファイルをアップロードしてサーバーのローカルディレクトリにファイルを解析し、第三者のモジュールによる悪意のある行為を簡単にスキャンできるようにする、追加のセキュリティ機能を提供します。
-Request Body Parserは、{ITEM = uploadPassByPath}が有効になっているか、モジュールがLSI_HKPT_HTTP_BEGINレベルでLSIAPIのset_parse_req_bodyを呼び出すときに使用されます。
+Request Body Parserは、{ITEM=uploadPassByPath}が有効になっているか、モジュールがLSI_HKPT_HTTP_BEGINレベルでLSIAPIのset_parse_req_bodyを呼び出すときに使用されます。
 ソースパッケージで提供されるAPIの例
 END_DESCR
 
