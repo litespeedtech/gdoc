@@ -6,17 +6,18 @@
 
 [ITEM]
 ID: rubyBin
-NAME: Ruby Path
+NAME: Rubyパス
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies path to Ruby executable. Generally, it is /usr/bin/ruby
-or /usr/local/bin/ruby depending on where Ruby has been installed to.
+DESCR: Ruby実行可能ファイルへの指定されたパス。
+Rubyがどこにインストールされているかによって、/usr/bin/ruby又は/usr/local/bin/rubyになります。
 END_DESCR
 
-EDITTIP: <b>Ruby Path</b> is the absolute path of a ruby executable. For e.g., /usr/local/bin/ruby.
+EDITTIP: <b>Rubyパス</b>は、Ruby実行ファイルの絶対パスです。
+たとえば、/usr/local/bin/ruby
 END_EDITTIP
 
 SYNTAX: 絶対パス。
@@ -34,14 +35,14 @@ END_TIPS
 
 [ITEM]
 ID: railsEnv
-NAME: Run-Time Mode
+NAME: 実行時モード
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies which mode Rack/Rails will be running as: "Development", 
-"Production", or "Staging". The default is "Production".
+DESCR: Rack/Railsが "Development"、"Production"、又は"Staging"のいずれのモードで実行されるかを指定します。
+デフォルトは "Production"です。
 END_DESCR
 
 SYNTAX: ドロップダウンリストから選択
@@ -62,13 +63,14 @@ END_TIPS
 
 [ITEM]
 ID: enableRailsHosting
-NAME: Enable Shared Hosting
+NAME: 共有ホスティングを有効にする
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to enable Rack/Rails shared hosting. The default is "Disabled".
+DESCR: Rack/Rails共有ホスティングを有効にするかどうかを指定します。
+デフォルトは "無効"です。
 
 END_DESCR
 
@@ -87,14 +89,13 @@ END_TIPS
 
 [ITEM]
 ID: railsAppLimit
-NAME: Max Apps Per Account
+NAME: アカウントごとの最大アプリ数
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum number of Rack/Rails applications that can be
-created per account. The default is "1". 
+DESCR: アカウントごとに作成できるRack/Railsアプリケーションの最大数を指定します。 デフォルトは "1"です。
 
 END_DESCR
 
@@ -104,9 +105,9 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Rack/Rails applications can take a 
-large amount of system resources. Thus it is not recommended to set this limit too high, 
-otherwise it may affect the performance of whole server if one user abuses it.
+TIPS:[パフォーマンス] Rack/Railsアプリケーションは、大量のシステムリソースを消費する可能性があります。
+したがって、この制限をあまり高く設定しないことをお勧めします。
+そうしないと、1人のユーザーが悪用した場合にサーバー全体のパフォーマンスに影響を与える可能性があります。
 END_TIPS
 
 [END_ITEM]
@@ -115,19 +116,17 @@ END_TIPS
 
 [ITEM]
 ID: rubyProcLimit
-NAME: Max Ruby Processes Per Account
+NAME: アカウントごとの最大Rubyプロセス
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum number of Ruby processes that can be
-created per account. The default is "10". If one account runs multiple Rack/Rails
-applications, the total number of Ruby processes of all applications
-cannot exceed this limit. Each ruby process will take
-large amount of system resource, it is not recommended to set a high
-limit, otherwise, it will affect the performance of whole server if
-one user abuse it.
+DESCR: アカウントごとに作成できるRubyプロセスの最大数を指定します。
+デフォルトは "10"です。
+1つのアカウントで複数のRack/Railsアプリケーションを実行すると、すべてのアプリケーションのRubyプロセスの合計数がこの制限を超えることはできません。
+各Rubyプロセスは大量のシステムリソースを消費しますが、上限を設定することはお勧めしません。
+そうでないと、1人のユーザーがそれを悪用した場合にサーバー全体のパフォーマンスに影響します。
 
 END_DESCR
 
@@ -137,9 +136,9 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS:  [Performance] Ruby processes can take a
-large amount of system resources. Thus it is not recommended to set this limit too high,
-otherwise it may affect the performance of the whole server if one user abuses it.
+TIPS:  [パフォーマンス] Rubyプロセスは大量のシステムリソースを消費する可能性があります。
+したがって、この制限をあまり高く設定しないことをお勧めします。
+そうしないと、1人のユーザーがサーバーを乱用した場合にサーバー全体のパフォーマンスに影響を与える可能性があります。
 END_TIPS
 
 [END_ITEM]
@@ -151,10 +150,10 @@ END_TIPS
 
 [TBL]
 ID: railsDefault
-NAME: Ruby Rack/Rails Settings
+NAME: Ruby Rack/Railsの設定
 NS: EO
 
-DESCR: Default configurations for Ruby Rack/Rails applications.
+DESCR: Ruby Rack/Railsアプリケーションのデフォルト設定。
 END_DESCR
 
 SEE_ALSO: 
@@ -164,22 +163,19 @@ SEE_ALSO:
 
 [TBL]
 ID: railsHosting
-NAME: Rack/Rails Shared Hosting
+NAME: Rack/Rails共有ホスティング
 NS: EO
 
-DESCR: LiteSpeed's Rack/Rails Shared Hosting settings allow users 
-using our high performance, highly scalable Ruby LSAPI module to 
-easily control their customers' Ruby usage.
+DESCR: LiteSpeedのRack/Rails共有ホスティング設定では、高性能でスケーラビリティの高いRuby LSAPIモジュールを使用して、お客様のRuby使用を簡単に制御できます。
 
 
-LiteSpeed Rack/Rails hosting solution can deliver the best
-performance with minimum server resource requirement. In addition,
-it is compatible with all existing web hosting control panels. 
+LiteSpeedのRack/Railsホスティングソリューションは、
+最小のサーバーリソース要件でパフォーマンスを向上させます。
+さらに、既存のすべてのWebホスティングコントロールパネルと互換性があります。 
 
 
-The user-manageable Rack/Rails configuration file (".ls_rails_config") 
-is located in the user's home directory or virtual host root directory.  
-Syntax is as follows: 
+ユーザが管理できるRack/Rails設定ファイル（".ls_rails_config"）は、ユーザのホームディレクトリまたは仮想ホストのルートディレクトリにあります。
+構文は次の通りです：
 
 <blockquote>
 #RailsApp <name> <App Path> <Rails Evn> <Children Processes> <RunOnStart>
@@ -194,11 +190,11 @@ RailsAppMap testApp "testrails.com" "/"
 RailsAppMap testApp "test.testrails.com" "/" 
 </blockquote>
 
-The "App Path" is relative to the user's home directory or the virtual
-host root directory.
+「App Path」は、ユーザーのホームディレクトリまたは仮想ディレクトリ
+ホストルートディレクトリ。
 
 
-Whenever this file is touched, Rack/Rails applications will be restarted.
+このファイルに触れるたびに、Rack/Railsアプリケーションが再起動されます。
 END_DESCR
 
 SEE_ALSO: 
@@ -208,7 +204,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: Rails_Help
-NAME: Rack/Rails Settings
+NAME: Rack/Railsの設定
 NS: O
 
 DESCR: 
