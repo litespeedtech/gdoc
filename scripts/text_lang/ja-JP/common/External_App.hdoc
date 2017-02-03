@@ -6,25 +6,20 @@
 
 [ITEM]
 ID: extAppType
-NAME: Type
+NAME: タイプ
 NS: L
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the type of external application. Choose from
+DESCR: 外部アプリケーションのタイプを指定します。 以下から選んでください
 <ul>
-<li>{val}FastCGI{/}: a FastCGI application with {val}Responder{/}
-role.</li>
-<li>{val}Servlet Engine{/}: a Servlet engine with AJPv13 connector,
-such as tomcat.</li>
-<li>{val}HTTP Proxy{/}: a web server or application server that
-supports the HTTP protocol.</li>
-<li>{val}HTTPS Proxy{/}: a web server or application server that
-supports the HTTPS protocol.</li>
-<li>{val}LSAPI App{/}: an application that communicates with the web server
-using the LSAPI protocol.</li>
+<li>{val}FastCGI{/}: {val}Responder{/}ロールを持つFastCGIアプリケーションです。</li>
+<li>{val}Servlet Engine{/}: tomcatなどのAJPv13コネクタを持つサーブレットエンジンです。</li>
+<li>{val}HTTP Proxy{/}: HTTPプロトコルをサポートするWebサーバーまたはアプリケーションサーバーです。</li>
+<li>{val}HTTPS Proxy{/}:HTTPSプロトコルをサポートするWebサーバーまたはアプリケーションサーバーです</li>
+<li>{val}LSAPI App{/}: LSAPIプロトコルを使用してWebサーバーと通信するアプリケーションです。</li>
 </ul>
 END_DESCR
 
@@ -43,35 +38,28 @@ END_TIPS
 
 [ITEM]
 ID: extAppType
-NAME: Type
+NAME: タイプ
 NS: EO
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the type of external application. Application types 
-are differentiated by the service they provide or the protocol they 
-use to communicate with the server. Choose from
+DESCR: 外部アプリケーションのタイプを指定します。
+アプリケーションタイプは、提供するサービスまたはサーバーとの通信に使用するプロトコルによって区別されます。
+以下から選んでください。
 <ul>
-<li>{val}FastCGI{/}: a FastCGI application with a {val}Responder{/}
-role.</li>
-<li>{val}FastCGI Authorizer{/}: a FastCGI application with an
-{val}Authorizer{/} role</li>
-<li>{val}Servlet Engine{/}: a servlet engine with an AJPv13 connector,
-such as Tomcat.</li>
-<li>{val}Web Server{/}: a web server or application server that
-supports HTTP protocol.</li>
-<li>{val}LiteSpeed SAPI App{/}: an application that communicates with the web server
-using LSAPI protocol.</li>
-<li>{val}Load Balancer{/}: a virtual application that can balance load
-among worker applications.</li>
-<li>{val}Piped Logger{/}: an application that can process access log
-entries received on its STDIN stream.</li>
+<li>{val}FastCGI{/}: {val}Responder{/}ロールを持つFastCGIアプリケーションです。</li>
+<li>{val}FastCGI Authorizer{/}: {val}Authorizer{/}ロールを持つFastCGIアプリケーション</li>
+<li>{val}Servlet Engine{/}: tomcatなどのAJPv13コネクタを持つサーブレットエンジンです。</li>
+<li>{val}Web Server{/}: HTTPプロトコルをサポートするWebサーバーまたはアプリケーションサーバー。</li>
+<li>{val}LiteSpeed SAPI App{/}: LSAPIプロトコルを使用してWebサーバーと通信するアプリケーションです。</li>
+<li>{val}Load Balancer{/}:ワーカーアプリケーション間の負荷を分散できる仮想アプリケーションです。</li>
+<li>{val}Piped Logger{/}: STDINストリームで受け取ったアクセスログエントリを処理できるアプリケーションです。</li>
 </ul>
 END_DESCR
 
-EDITTIP: You can set up external Fast CGI application and AJPv13 (Apache JServ Protocol v1.3) compatible servlet engine.
+EDITTIP: 外部Fast CGIアプリケーションとAJPv13（Apache JServ Protocol v1.3）互換サーブレットエンジンを設定できます。
 END_EDITTIP
 
 SYNTAX: ドロップダウンリストから選択
@@ -80,10 +68,10 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: Most applications will use either LSAPI or FastCGI protocol. 
-LSAPI supports PHP, Ruby, and Python. Perl can be used with FastCGI. 
-(PHP, Ruby, and Python can also be set up to run using FastCGI, but 
-they run faster using LSAPI.) Java uses servlet engines.
+TIPS: ほとんどのアプリケーションは、LSAPIまたはFastCGIプロトコルを使用します。
+LSAPIはPHP、Ruby、Pythonをサポートしています。
+PerlはFastCGIで使用できます。
+（PHP、Ruby、およびPythonはFastCGIを使用して実行するように設定することもできますが、LSAPIを使用する方が高速です）。Javaはサーブレットエンジンを使用します。
 END_TIPS
 
 [END_ITEM]
@@ -95,17 +83,17 @@ END_TIPS
 
 [ITEM]
 ID: extAppName
-NAME: Name
+NAME: 名前
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: A unique name for this external application. 
-You will refer to it by this name when you use it in other parts of the configuration.
+DESCR:この外部アプリケーションの一意の名前。
+設定の他の部分でこの名前を使用するときは、この名前で参照します。
 END_DESCR
 
-EDITTIP: Give a name that easy to remember, other places will refer to this app by its name.
+EDITTIP: 覚えやすい名前をつけ、他の場所はその名前でこのアプリを参照します。
 END_EDITTIP
 
 SYNTAX: text
@@ -123,25 +111,25 @@ END_TIPS
 
 [ITEM]
 ID: extWorkers
-NAME: Workers
+NAME: ワーカー
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: List of worker groups previously defined in the external load balancer.
+DESCR: 以前に外部ロードバランサで定義されたワーカーグループのリスト。
 END_DESCR
 
-EDITTIP: Load balancing workers must be previously defined.
+EDITTIP: ロードバランサワーカーは、事前に定義されている必要があります。
 END_EDITTIP
 
-EDITTIP: Available ExtApp Types are fcgi(Fast CGI App), lsapi(LSAPI App), servlet(Servlet/JSP Engine), proxy(Web Server).
+EDITTIP: 使用可能なExtAppタイプは、fcgi（高速CGIアプリケーション）、LSAPIアプリケーション（LSAPIアプリケーション）、サーブレット（サーブレット/JSPエンジン）、プロキシ（Webサーバー）です。
 END_EDITTIP
 
-EDITTIP: Different types of external applications can be mixed in one load balancing cluster.
+EDITTIP: 1つの負荷分散クラスタに異なるタイプの外部アプリケーションを混在させることができます。
 END_EDITTIP
 
-SYNTAX: A comma-separated list in the form ExternalAppType::ExternalAppName
+SYNTAX: ExternalAppType::ExternalAppNameという形式のコンマ区切りリスト
 END_SYNTAX
 
 EXAMPLE: fcgi::localPHP, proxy::backend1
@@ -156,13 +144,13 @@ END_TIPS
 
 [ITEM]
 ID: workerName
-NAME: Name
+NAME: 名前
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: A unique name for a group of workers.
+DESCR: ワーカーグループの一意の名前。
 END_DESCR
 
 SYNTAX: text
@@ -180,13 +168,13 @@ END_TIPS
 
 [ITEM]
 ID: workerGroupEnabled
-NAME: Enabled
+NAME: 有効
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to enable this worker group.
+DESCR: このワーカーグループを有効にするかどうかを指定します。
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -204,14 +192,14 @@ END_TIPS
 
 [ITEM]
 ID: sourceIP
-NAME: Source IP
+NAME: ソースIP
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies a Source IP for connecting to the backend
-worker. It can be overriden in worker configuration.
+DESCR: バックエンドに接続するためのソースIPを指定します。
+ワーカー。 ワーカーの設定で上書きすることができます。
 END_DESCR
 
 SYNTAX: ドロップダウンリストから選択
@@ -715,9 +703,9 @@ APPLY: 3
 SINCE: 5.0
 SEE_ALSO: CGI {ITEM=ServSecurity_Help#umask} 
 
-DESCR: Sets default umask for this external application's processes.  
-See {cmd} man 2 umask {/} for details. The default value taken from the server-level  
-{ITEM=ServSecurity_Help#umask} setting. 
+DESCR:この外部アプリケーションのプロセスのデフォルトumaskを設定します。
+詳細は、{cmd}man 2 umask{/}を参照してください。
+デフォルト値はサーバーレベルの{ITEM=ServSecurity_Help#umask}設定から取得されます。
 END_DESCR
 
 SYNTAX: 有効範囲[000]〜[777]の値。
