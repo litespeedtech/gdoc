@@ -260,22 +260,14 @@ DESCR: 仮想ホストテンプレートを使用すると、同様の設定、�
 各テンプレートには、テンプレート構成ファイル、マップされたリスナーのリスト、およびメンバー仮想ホストのリストが含まれています。 
 
 
-The template configuration file contains all configuration entries for a virtual host, with some
-fields requiring special values. 
+テンプレート構成ファイルには、仮想ホストのすべての構成エントリが含まれ、一部のフィールドには特殊な値が必要です。
+
+テンプレートベースの仮想ホストを追加するには、一意の仮想ホスト名とその仮想ホストの修飾ドメイン名を使用して、テンプレートメンバーリストにメンバーを追加するだけです。
+リスナー/仮想ホストマッピングは、マップされたリスナーリストのすべてのリスナーに対して自動的に追加されます。
 
 
-To add a template-based virtual host, administrator only needs to
-add a member to the template member list with a unique virtual host name and a
-qualified domain name of that virtual host.
-Listener-to-virtual host mapping will be added automatically for 
-all listeners in the mapped listener list.
-
-
-Later on, if you need to customize the configuration for a particular
-virtual host, just "instantiate" that member virtual host, a
-standalone virtual host configuration will be created automatically.
-Even when setting up a virtual host with different configuration,
-it is still convenient to use a template as a starting point, and then customize it after instantiation.
+後で、特定の仮想ホストの構成をカスタマイズし、そのメンバー仮想ホストを「インスタンス化」するだけで、スタンドアロンの仮想ホスト構成が自動的に作成されます。
+構成が異なる仮想ホストを設定する場合でも、テンプレートを開始点として使用し、インスタンシエーション後にカスタマイズすると便利です。
 END_DESCR
 
 SEE_ALSO: 
@@ -285,29 +277,21 @@ SEE_ALSO:
 
 [PAGE]
 ID: Templates_Help 
-NAME: Virtual Host Templates
+NAME: 仮想ホストテンプレート
 NS: EO
 
-DESCR: Virtual host templates make it easy to create many new virtual
-hosts with similar configurations. 
+DESCR:仮想ホストテンプレートを使用すると、同様の構成で多くの新しい仮想ホストを簡単に作成できます。 
 
 
-Each template contains a template configuration file, a list of mapped listeners,
-and a list of member virtual hosts.
+各テンプレートには、テンプレート構成ファイル、マップされたリスナーのリスト、およびメンバー仮想ホストのリストが含まれています。
 
 
-To add a template-based virtual host, the administrator only needs to
-add a member with a unique virtual host name and a
-qualified domain name to the template member list.
-Listener-to-virtual host mapping will be added automatically for 
-all listeners in the template's mapped listener list. 
+テンプレートベースの仮想ホストを追加するには、管理者は一意の仮想ホスト名と修飾ドメイン名を持つメンバーをテンプレートメンバーリストに追加するだけです。
+リスナー/仮想ホストマッピングは、テンプレートのマップされたリスナーリストのすべてのリスナーに対して自動的に追加されます。
 
 
-Later on, if you need to customize the configuration for a particular
-virtual host, just "instantiate" that member virtual host and a
-standalone virtual host configuration will be created automatically.
-Even when setting up a customized virtual host,
-a template can still be a convenient starting point.
+後で、特定の仮想ホストの設定をカスタマイズする必要がある場合、そのメンバー仮想ホストとスタンドアロン仮想ホスト設定が自動的に作成されます。
+カスタマイズされた仮想ホストを設定する場合でも、テンプレートはまだ便利な出発点になります。
 END_DESCR
 
 SEE_ALSO: 
