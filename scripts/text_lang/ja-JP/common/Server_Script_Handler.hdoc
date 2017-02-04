@@ -6,41 +6,36 @@
 
 [ITEM]
 ID: suffix
-NAME: Suffix
+NAME: サフィックス
 NS: E
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:  Specifies the script file suffixes that will be handled by this 
-script handler. Suffixes must be unique. 
+DESCR:  このスクリプトハンドラによって処理されるスクリプトファイルのサフィックスを指定します。
+接尾辞は一意である必要があります。
 END_DESCR
 
-EDITTIP: If the web site supports php or jsp, please set up here.
+EDITTIP: ウェブサイトがPHPまたはJSPをサポートしている場合は、ここで設定してください。
 END_EDITTIP
 
-SYNTAX: Comma delimited list with period "." character prohibited.
+SYNTAX: コンマ区切りリストでピリオド"."は禁止されています。
 END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: The server will automatically add a special MIME type ("application/x-httpd-[suffix]") for the first 
-suffix in the list. For example, MIME type "application/x-httpd-php53" will be added 
-for suffix "php53". Suffixes after the first need to set up in the {ITEM=mime} settings.
+TIPS: サーバーは、リスト内の最初の接尾辞に特殊なMIMEタイプ（ "application/x-httpd-[suffix]"）を自動的に追加します。
+たとえば、接尾辞 "php53"にMIMEタイプ "application/x-httpd-php53"が追加されます。
+接尾辞は{ITEM=mime}設定で最初に設定する必要があります。
 
-Though we list suffixes in this field, the script handlers use MIME types, not suffixes, 
-to decide which scripts to handle. You can thus use the Apache configuration directives 
-"AddType" and "ForceType" (which control file MIME types) in .htaccess files to change 
-which script handler certain files will use. For example, with the directive 
-{cmd} AddType application/x-httpd-php53 .php{/} in a properly placed .htaccess file, 
-you can stipulate that php files in this directory have the MIME type "application/x-httpd-php53" and 
-thus will be handled by the script handler that uses MIME type "application/x-httpd-php53" 
-(suffix "php53"). This then allows you to assign different script handlers, not only for 
-different file suffixes, but also based on the locations of files.
+このフィールドではサフィックスを列挙していますが、スクリプトハンドラは接尾辞ではなくMIMEタイプを使用して、処理するスクリプトを決定します。
+したがって、.htaccessファイルのApache設定ディレクティブ "AddType"と "ForceType"（ファイルMIMEタイプを制御する）を使用して、特定のファイルが使用するスクリプトハンドラを変更することができます。
+たとえば、適切に配置された.htaccessファイルに{cmd}AddType application/x-httpd-php53.php{/}ディレクティブを指定すると、このディレクトリにあるphpファイルのMIMEタイプが "application/x-httpd-php53"となり、MIMEタイプ"application/x-httpd-php53"（接尾辞" php53 "）を使用するスクリプトハンドラによって処理されます。
+これにより、異なるファイルサフィックスだけでなく、ファイルの場所に基づいて、異なるスクリプトハンドラを割り当てることができます。
 
-[Performance & Security] Only specify the suffixes you really need.
+[パフォーマンス & セキュリティ]本当に必要なサフィックスのみを指定してください。
 END_TIPS
 
 [END_ITEM]
@@ -49,32 +44,31 @@ END_TIPS
 
 [ITEM]
 ID: suffix
-NAME: Suffix
+NAME: サフィックス
 NS: O
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:  Specifies the script file suffixes that will be handled by this 
-script handler. Suffixes must be unique. 
+DESCR:  このスクリプトハンドラによって処理されるスクリプトファイルのサフィックスを指定します。
+接尾辞は一意である必要があります。
 
 END_DESCR
 
-SYNTAX: Comma delimited list with period "." character prohibited.
+SYNTAX: コンマ区切りリストでピリオド"."は禁止されています。
 END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: The server will automatically add a special MIME type ("application/x-httpd-[suffix]") for the first 
-suffix in the list. For example, MIME type "application/x-httpd-php53" will be added 
-for suffix "php53". Suffixes after the first need to set up in the {ITEM=mime} settings.
+TIPS: サーバーは、リスト内の最初の接尾辞に特殊なMIMEタイプ（ "application / x-httpd- [suffix]"）を自動的に追加します。
+たとえば、接尾辞 "php53"にMIMEタイプ "application / x-httpd-php53"が追加されます。
+接尾辞は{ITEM = mime}設定で最初に設定する必要があります。
 
-Though we list suffixes in this field, the script handlers use MIME types, not suffixes, 
-to decide which scripts to handle. 
+このフィールドではサフィックスを列挙していますが、スクリプトハンドラは接尾辞ではなくMIMEタイプを使用して、処理するスクリプトを決定します。
 
-[Performance & Security] Only specify the suffixes you really need.
+[パフォーマンスとセキュリティ]本当に必要なサフィックスのみを指定してください。
 END_TIPS
 
 [END_ITEM]
@@ -83,20 +77,19 @@ END_TIPS
 
 [ITEM]
 ID: shType
-NAME: Handler Type
+NAME: ハンドラタイプ
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the type of external application that processes these script files.  
-Available types are: {val}CGI{/}, {val}FastCGI{/}, {val}Web Server{/},
-{val}LSAPI app{/}, {val}Load balancer{/}, or {val}Servlet Engine{/}. 
-For FastCGI, Web Server and Servlet Engine, a {ITEM=shHandlerName} needs to be specified. 
-This is an external application name as predefined in the {PAGE=ExtApp_Help} section.
+DESCR: これらのスクリプトファイルを処理する外部アプリケーションのタイプを指定します。
+使用可能なタイプは以下のとおりです：{val}CGI{/}、{val}FastCGI{/}、{val}Webサーバー{/}、{val}LSAPI app{/}、{val}ロードバランサ{/} 又は{val}サーブレットエンジン{/}。
+FastCGI、Webサーバー、およびServlet Engineの場合は、{ITEM=shHandlerName}を指定する必要があります。
+これは、{PAGE=ExtApp_Help}セクションで事前定義されている外部アプリケーション名です。
 END_DESCR
 
-EDITTIP: Script handler can be a CGI, an FCGI app, a module handler, a Servlet engine, or a proxy to Web server.
+EDITTIP: スクリプトハンドラは、CGI、FCGIアプリ、モジュールハンドラ、サーブレットエンジン、またはWebサーバーへのプロキシにすることができます。
 END_EDITTIP
 
 SYNTAX: ドロップダウンリストから選択
@@ -114,17 +107,16 @@ END_TIPS
 
 [ITEM]
 ID: shHandlerName
-NAME: Handler Name
+NAME: ハンドラ名
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the name of the external application that processes the script files 
-when the handler type is FastCGI, Web Server, LSAPI, Load Balancer, or Servlet Engine.
+DESCR: ハンドラタイプがFastCGI、Web Server、LSAPI、Load Balancer、またはServlet Engineの場合にスクリプトファイルを処理する外部アプリケーションの名前を指定します。
 END_DESCR
 
-EDITTIP: Except CGI, other handlers need to be predefined in the "External App" section.
+EDITTIP: CGIを除いて、他のハンドラは「外部アプリケーション」セクションで事前に定義する必要があります。
 END_EDITTIP
 
 SYNTAX: ドロップダウンリストから選択

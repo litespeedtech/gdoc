@@ -5,19 +5,19 @@
 
 [PAGE]
 ID: ServerStat_Help 
-NAME: WebAdmin Console - Service Manager
+NAME: WebAdminコンソール - サービス管理
 NS: LE
 
-DESCR: The Service Manager acts as a control room for monitoring the server and controlling certain 
-top-level functions. It provides the following features:
-(The Service Manager can be accessed by clicking on the Actions menu or from home page.)
+DESCR: サービスマネージャは、サーバーを監視し、特定のトップレベル機能を制御するための制御室として機能します。 
+以下の機能を提供します:
+（サービスマネージャは、アクションメニューまたはホームページからクリックしてアクセスできます。）
 <ul>
-<li>Monitor the current status of the server, listeners, and virtual hosts.</li>
-<li>Apply configuration changes with a graceful restart.</li>
-<li>Enable or disable a particular virtual host.</li>
-<li>View the server log through the log viewer.</li>
-<li>Monitor real-time server statistics.</li>
-<li>Download new versions or switch between installed versions.</li>
+<li>サーバー、リスナー、および仮想ホストの現在の状態を監視します。</li>
+<li>正常に再起動して構成の変更を適用します。</li>
+<li>特定の仮想ホストを有効または無効にします。</li>
+<li>ログビューアからサーバーログを表示します。</li>
+<li>リアルタイムのサーバー統計を監視する。</li>
+<li>新しいバージョンをダウンロードするか、インストールされているバージョン間を切り替えます。</li>
 </ul>
 
 END_DESCR
@@ -29,18 +29,18 @@ SEE_ALSO:
 
 [PAGE]
 ID: ServerStat_Help 
-NAME: WebAdmin Console - Service Manager
+NAME: WebAdminコンソール - サービス管理
 NS: O
 
-DESCR: The Service Manager acts as a control room for monitoring the server and controlling certain 
-top-level functions. It provides the following features:
-(The Service Manager can be accessed by clicking on the Actions menu or from home page.)
+DESCR: サービスマネージャは、サーバーを監視し、特定のトップレベル機能を制御するための制御室として機能します。
+以下の機能を提供します:
+（サービスマネージャは、アクションメニューまたはホームページからクリックしてアクセスできます。）
 <ul>
-<li>Monitor the current status of the server, listeners, and virtual hosts.</li>
-<li>Apply configuration changes with a graceful restart.</li>
-<li>Enable or disable a particular virtual host.</li>
-<li>View the server log through the log viewer.</li>
-<li>Monitor real-time server statistics.</li>
+<li>サーバー、リスナー、および仮想ホストの現在の状態を監視します。</li>
+<li>正常に再起動して構成の変更を適用します。</li>
+<li>特定の仮想ホストを有効または無効にします。</li>
+<li>ログビューアからサーバーログを表示します。</li>
+<li>リアルタイムのサーバー統計を監視する。</li>
 </ul>
 
  
