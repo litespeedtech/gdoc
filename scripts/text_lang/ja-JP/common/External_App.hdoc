@@ -217,29 +217,29 @@ END_TIPS
 
 [ITEM]
 ID: extAppAddress
-NAME: Address
+NAME: アドレス
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: A unique socket address used by the external application. 
-IPv4/IPv6 sockets and Unix Domain Sockets (UDS) are supported. 
-IPv4/IPv6 sockets can be used for communication over the network.  
-UDS can only be used when the external application resides on the same machine as the server.
+DESCR: 外部アプリケーションによって使用される一意のソケットアドレス。
+IPv4/IPv6ソケットとUnixドメインソケット（UDS）がサポートされています。
+IPv4/IPv6ソケットは、ネットワークを介した通信に使用できます。
+UDSは、外部アプリケーションがサーバーと同じマシンにある場合にのみ使用できます。
 END_DESCR
 
-EDITTIP: Address can be IPv4 socket address "IP:PORT", like 192.168.1.3:7777 and localhost:7777 or Unix domain socket address "UDS://path" like UDS://tmp/lshttpd/myfcgi.sock.
+EDITTIP: アドレスは、UDS：//tmp/lshttpd/myfcgi.sockのように192.168.1.3:7777およびlocalhost：7777のようなIPv4ソケットアドレス "IP：PORT"またはUnixドメインソケットアドレス "UDS：//path"とすることができます。
 END_EDITTIP
 
-EDITTIP: UDS is chrooted in chroot environment.
+EDITTIP: UDSはchroot環境でchrootされます。
 END_EDITTIP
 
-EDITTIP: For local applications, Unix domain socket is preferred due to security and better performance. If you have to use IPv4 socket, set the IP part 
-to localhost or 127.0.0.1, thus the application is inaccessible from other machines.
+EDITTIP: ローカルアプリケーションの場合、セキュリティとパフォーマンスが向上するため、Unixドメインソケットが優先されます。
+IPv4ソケットを使用する必要がある場合は、IP部分をlocalhostまたは127.0.0.1に設定します。したがって、アプリケーションは他のマシンからアクセスできません。
 END_EDITTIP
 
-SYNTAX: IPv4 or IPV6 address:port or UDS://path
+SYNTAX: IPv4またはIPV6アドレス：ポートまたはUDS：//パス
 END_SYNTAX
 
 EXAMPLE: 127.0.0.1:5434
@@ -247,12 +247,10 @@ EXAMPLE: 127.0.0.1:5434
 UDS://tmp/lshttpd/php.sock.
 END_EXAMPLE
 
-TIPS: [Security] If the external application runs on the same machine, 
-UDS is preferred. If you have to use an IPv4|IPV6 socket, 
-set the IP address to {val}localhost{/} or {val}127.0.0.1{/}, 
-so the external application is inaccessible from other machines. 
+TIPS: [セキュリティ]外部アプリケーションが同じマシン上で実行される場合は、UDSが優先されます。
+IPv4|IPV6ソケットを使用する必要がある場合は、IPアドレスを{val}localhost{/}または{val}127.0.0.1{/}に設定して、外部アプリケーションに他のマシンからアクセスできないようにします。
 
-[Performance] Unix Domain Sockets generally provide higher performance than IPv4 sockets.
+[Performance] Unixドメインソケットは、通常、IPv4ソケットよりも高いパフォーマンスを提供します。
 END_TIPS
 
 [END_ITEM]
@@ -261,16 +259,18 @@ END_TIPS
 
 [ITEM]
 ID: expWSAddress
-NAME: Address
+NAME: アドレス
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: HTTP or HTTPS address used by the external web server. 
+DESCR: 外部Webサーバーによって使用されるHTTPまたはHTTPSアドレス。
 END_DESCR
 
-SYNTAX: IPv4 or IPV6 address(:port). Add "https://" in front if the external web server uses https. Port is optional if the external web server uses the standard ports 80 or 443. 
+SYNTAX: IPv4またはIPV6アドレス（：ポート）。
+外部Webサーバーがhttpsを使用する場合は、先頭に「https：//」を追加します。
+外部Webサーバーが標準ポート80または443を使用する場合、ポートはオプションです。 
 END_SYNTAX
 
 EXAMPLE: 192.168.0.10 
@@ -282,9 +282,8 @@ https://10.0.8.9
 https://127.0.0.1:5438
 END_EXAMPLE
 
-TIPS: [Security] If you proxy to another web server running on the same machine,  
-set the IP address to {val}localhost{/} or {val}127.0.0.1{/}, 
-so the external application is inaccessible from other machines. 
+TIPS: [セキュリティ]同じマシン上で実行されている別のWebサーバーにプロキシする場合は、IPアドレスを{val}localhost{/}または{val}127.0.0.1{/}に設定します。
+外部アプリケーションは他のマシンからはアクセスできません。
 
 END_TIPS
 
@@ -294,13 +293,13 @@ END_TIPS
 
 [ITEM]
 ID: extSrcIP
-NAME: Type
+NAME: タイプ
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Select from available IPs.
+DESCR: 利用可能なIPから選択します。
 END_DESCR
 
 SYNTAX: ドロップダウンリストから選択
@@ -318,18 +317,15 @@ END_TIPS
 
 [ITEM]
 ID: maxConns
-NAME: Max Connections
+NAME: 最大接続数
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum number of concurrent connections that can be established 
-between the server and an external application. This setting controls how 
-many requests can be processed concurrently by an external application,  
-however, the real limit also depends on the external application itself. 
-Setting this value higher will not help if the external application is not fast enough
-or cannot scale to a large number of concurrent requests.
+DESCR: サーバーと外部アプリケーションの間で確立できる同時接続の最大数を指定します。
+この設定は、外部アプリケーションによって同時に処理できる要求の数を制御しますが、実際の制限は外部アプリケーション自体によっても異なります。
+この値を高く設定すると、外部アプリケーションの速度が不十分であるか、多数の同時要求に対応できない場合に役立ちません。
 END_DESCR
 
 SYNTAX: 整数
@@ -338,9 +334,8 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Setting a high value does not directly translate to higher performance. 
-Setting the limit to a value that will not overload the external 
-application will provide the best performance/throughput.
+TIPS: [パフォーマンス]高い値を設定しても、高いパフォーマンスに直接変換されるわけではありません。
+制限を外部アプリケーションに負荷をかけない値に設定すると、最高のパフォーマンス/スループットが得られます。
 END_TIPS
 
 [END_ITEM]
@@ -349,16 +344,16 @@ END_TIPS
 
 [ITEM]
 ID: env
-NAME: Environment
+NAME: 環境
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies extra environment variables for the external application.
+DESCR: 外部アプリケーション用の追加の環境変数を指定します。
 END_DESCR
 
-SYNTAX: Key=value. Multiple variables can be separated by "ENTER"
+SYNTAX: Key=value. 複数の変数は "ENTER"で区切ることができます。
 END_SYNTAX
 
 EXAMPLE: 
@@ -373,19 +368,16 @@ END_TIPS
 
 [ITEM]
 ID: initTimeout
-NAME: Initial Request Timeout (secs)
+NAME: 初期要求タイムアウト（秒）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum time in seconds the server will wait for the external 
-application to respond to the first request over a new established connection. 
-If the server does not receive any data from the external application
-within this timeout limit, it will mark this connection as bad. This
-helps to identify communication problems with external applications as
-quickly as possible. If some requests take longer to 
-process, increase this limit to avoid 503 error messages.
+DESCR: サーバーが、新しいアプリケーションが新しい確立された接続を介して最初の要求に応答するのを待つ最長時間を秒単位で指定します。
+サーバーがこのタイムアウト制限内に外部アプリケーションからデータを受信しない場合、この接続は不良とマークされます。
+これにより、外部アプリケーションとの通信の問題をできるだけ迅速に特定することができます。
+処理に時間がかかるリクエストがある場合は、この制限を増やして503のエラー・メッセージを避けてください。
 END_DESCR
 
 SYNTAX: 整数
@@ -403,14 +395,13 @@ END_TIPS
 
 [ITEM]
 ID: retryTimeout
-NAME: Retry Timeout (secs)
+NAME: リトライタイムアウト（秒）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the period of time that the server waits before
-retrying an external application that had a prior communication problem.
+DESCR: 以前の通信に問題があった外部アプリケーションを再試行する前に、サーバーが待機する時間を指定します。
 END_DESCR
 
 SYNTAX: 整数
@@ -428,16 +419,16 @@ END_TIPS
 
 [ITEM]
 ID: persistConn
-NAME: Persistent Connection
+NAME: 永続的な接続
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to keep the connection open after a request
-has been processed. Persistent connections can increase performance, 
-but some FastCGI external applications do not support persistent connections 
-fully. The default is "On". 
+DESCR: 要求後に接続を開いたままにするかどうかを指定します。
+処理されました。
+永続的接続はパフォーマンスを向上させる可能性がありますが、一部のFastCGI外部アプリケーションは永続的接続を完全にサポートしません。
+デフォルトは "オン"です。 
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -455,15 +446,15 @@ END_TIPS
 
 [ITEM]
 ID: pcKeepAliveTimeout
-NAME: Keep Alive Timeout (secs)
+NAME: キープアライブタイムアウト（秒）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum time to keep an idle persistent connection
-open. When set to "-1", the connection will never timeout. When set to greater than or equal to 0,
-the connection will be closed after this time in seconds has passed.
+DESCR: アイドル状態の永続的な接続を開いたままにする最大時間を指定します。
+"-1"に設定すると、接続はタイムアウトしません。
+0以上に設定すると、この時間が経過した後に接続が閉じられます。
 END_DESCR
 
 SYNTAX: int
@@ -481,15 +472,15 @@ END_TIPS
 
 [ITEM]
 ID: respBuffer
-NAME: Response Buffering
+NAME: 応答バッファリング
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to buffer responses received from external
-applications. If a "nph-" (Non-Parsed-Header) script is detected, 
-buffering is turned off for responses with full HTTP headers.
+DESCR: 外部から受信した応答をバッファリングするかどうかを指定します。
+アプリケーション。
+"nph-" (Non-Parsed-Header)スクリプトが検出された場合、完全なHTTPヘッダーを持つ応答ではバッファリングがオフになります。
 END_DESCR
 
 SYNTAX: ドロップダウンリストから選択
@@ -507,19 +498,17 @@ END_TIPS
 
 [ITEM]
 ID: autoStart
-NAME: Auto Start
+NAME: 自動スタート
 NS: E
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether you want the web server to start the
-application automatically. Only FastCGI and LSAPI applications
-running on the same machine can be started automatically. The IP in the
-{ITEM=extAppAddress} must be a local IP. Starting through the LiteSpeed 
-CGI Daemon instead of a main server process will help reduce system overhead.  
-CGI Daemon Async mode (non-blocking event-driven method) is recommended for servers with high I/O wait.
+DESCR: Webサーバーでアプリケーションを自動的に開始するかどうかを指定します。
+同じマシン上で実行されているFastCGIおよびLSAPIアプリケーションのみを自動的に起動することができます。
+{ITEM=extAppAddress}のIPはローカルIPでなければなりません。 メインサーバプロセスではなくLiteSpeed CGIデーモンを起動すると、システムのオーバーヘッドを軽減できます。
+CGIデーモン非同期モード（非ブロッキングイベントドリブン方式）は、I/O待ち時間が長いサーバーにお勧めします。
 END_DESCR
 
 SYNTAX: ドロップダウンリストから選択
@@ -537,18 +526,17 @@ END_TIPS
 
 [ITEM]
 ID: autoStart
-NAME: Auto Start
+NAME: 自動スタート
 NS: LO
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether you want the web server to start the
-application automatically. Only FastCGI and LSAPI applications
-running on the same machine can be started automatically. The IP in the
-{ITEM=extAppAddress} must be a local IP. Starting through the LiteSpeed 
-CGI Daemon instead of a main server process will help reduce system overhead.  
+DESCR: Webサーバーでアプリケーションを自動的に開始するかどうかを指定します。
+同じマシン上で実行されているFastCGIおよびLSAPIアプリケーションのみを自動的に起動することができます。
+{ITEM=extAppAddress}のIPはローカルIPでなければなりません。
+メインサーバプロセスではなくLiteSpeed CGIデーモンを起動すると、システムのオーバーヘッドを軽減できます。
 END_DESCR
 
 SYNTAX: ドロップダウンリストから選択
@@ -566,7 +554,7 @@ END_TIPS
 
 [ITEM]
 ID: extAppPath
-NAME: Command
+NAME: コマンド
 REQUIRED: 
 APPLY: 2
 SINCE: 
