@@ -1,11 +1,11 @@
-<h1>Web Console</h1>
+<h1>Webコンソール</h1>
 
-<p>The Web Console section controls the settings for the WebAdmin Console. Some of these settings include:</p>
+<p>Web Consoleセクションは、WebAdmin Consoleの設定を制御します。これらの設定の一部は次のとおりです:</p>
 <ul>
-<li>Session Timeout</li>
-<li>Log Settings</li>
-<li>Access Control</li>
-<li>Create/Delete Admin Users</li>
-<li>Reset Admin Passwords</li>
-<li>WebAdmin Listeners & SSL Settings</li>
+<li>セッションタイムアウト</li>
+<li>ログ設定</li>
+<li>アクセス制御</li>
+<li>管理者の作成/削除</li>
+<li>管理者パスワードをリセットする</li>
+<li>WebAdminリスナーとSSL設定</li>
 </ul>
