@@ -137,7 +137,7 @@ END_TIPS
 
 [TBL]
 ID: scriptHandler
-NAME: Script Handler Definition
+NAME: スクリプトハンドラの定義
 NS: EO
 
 DESCR: 
@@ -153,23 +153,19 @@ SEE_ALSO:
 
 [PAGE]
 ID: ScriptHandler_Help 
-NAME: Script Handler
+NAME: スクリプトハンドラ
 NS: EO
 
-DESCR: LiteSpeed Web Server supports all scripting languages including 
-Perl, PHP, Ruby, Python, Java, etc. Scripts written in these different 
-languages must be brought to the appropriate external application to be processed. 
-LiteSpeed Web Server uses script handlers to decide which external application a 
-script should go to. These script handlers map files to external applications by 
-using the file suffix. (Actually, the suffix is used to determine a MIME 
-type which is then mapped to the external application.) External applications 
-must be set up in the {PAGE= ExtApp_Help} tab before they can be ドロップダウンリストから選択ed for 
-use in a script handler.
+DESCR: LiteSpeed Web Serverは、Perl、PHP、Ruby、Python、Javaなどのすべてのスクリプト言語をサポートしています。
+これらの異なる言語で書かれたスクリプトは、適切な外部アプリケーションに持ち込まれて処理されなければなりません。
+LiteSpeed Web Serverはスクリプトハンドラを使用して、スクリプトを実行する外部アプリケーションを決定します。
+これらのスクリプトハンドラは、ファイルサフィックスを使用してファイルを外部アプリケーションにマッピングします。
+（実際には、MIMEタイプを決定するためにサフィックスが使用され、MIMEタイプが外部アプリケーションにマッピングされます。）
+外部アプリケーションは、スクリプトハンドラで使用するために選択する前に、{PAGE=ExtApp_Help}タブで設定する必要があります。
 
 
-You can set up script handler at the server or virtual host level. Server-level
-script handlers apply to all virtual hosts unless overridden in virtual host level. 
-Virtual host-level script handlers only apply within that virtual host.
+スクリプトハンドラは、サーバまたは仮想ホストレベルで設定できます。 サーバレベルのスクリプトハンドラは、仮想ホストレベルで上書きされない限り、すべての仮想ホストに適用されます。
+仮想ホストレベルのスクリプトハンドラは、その仮想ホスト内でのみ適用されます。
 END_DESCR
 
 
