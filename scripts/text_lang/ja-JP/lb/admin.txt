@@ -1,8 +1,8 @@
-<h1>Administration</h1>
+<h1>管理</h1>
 
-<p>LiteSpeed Load Balancer can be controlled in three ways: through the WebAdmin Console, from the command line, or by sending signals.</p> 
+<p>LiteSpeed Load Balancerは、WebAdmin Console、コマンドライン、またはシグナルの送信の3つの方法で制御できます。</p> 
 
-<p class="label1"><b>1. Through the WebAdmin Console.</b></p>
+<p class="label1"><b>1. WebAdminコンソールを使用します。</b></p>
 <ul>
   Log in to the web administration console and hover over <span class="tag">Actions</span> in the top menu. The drop menu contains shortcuts to common tasks. Clicking on 
 <span class="tag">Actions</span> will take you to a dedicate control panel page.<br>
@@ -25,39 +25,38 @@ Assuming the load balancer is installed in /opt/lslb.
 <br>
 Use the <span class="tag">lslbctrl</span> control script in the /opt/lslb/bin/ directory.<br>
 <p>
-To start the load balancer:<br>
+ロードバランサを起動するには：<br>
 <span class="cmd">/opt/lslb/bin/lslbctrl start</span>
 </p>
 <p>
-To stop the load balancer:<br>
+ロードバランサを停止するには：<br>
 <span class="cmd">/opt/lslb/bin/lslbctrl stop</span>
 </p>
 <p>
-To gracefully restart the load balancer:<br>
+ロードバランサを正常に再起動するには：<br>
 <span class="cmd">/opt/lslb/bin/lslbctrl restart</span>
 </p>
 </ul>
 
-<p class="label1"><b>3. By sending signals.</b></p>
+<p class="label1"><b>3. 信号を送信する。</b></p>
 <ul>
-You can stop the load balancer process by sending it signals.<br>
-<br>Firstly, you need to know the load balancer's process id, either through the "lslbd.pid" file or using the
-"ps" terminal command.<br>
+ロードバランサプロセスは、シグナルを送信することによって停止できます。<br>
+<br>まず、 "lslbd.pid"ファイルまたは "ps"ターミナルコマンドを使用して、ロードバランサのプロセスIDを知る必要があります。<br>
 
-<p>Through the "lslbd.pid" file:<br>
+<p>"lslbd.pid"ファイルを使って：<br>
 <span class="cmd">more /tmp/lslbd/lslbd.pid</span></p>
 
-<p>Using the "ps" command:<br>
+<p>"ps"コマンドを使う：<br>
 FreeBSD: <span class="cmd">ps -x | grep lslbd</span><br>
 Others: <span class="cmd">ps -ef | grep lslbd</span><br>
 <br>
-If multiple processes are listed, use the process whose PPID is equal to 1.
+複数のプロセスがリストされている場合は、PPIDが1のプロセスを使用します。
 </p>
 <p>
-To stop the load balancer, use the following terminal command:
+ロードバランサを停止するには、次のterminalコマンドを使用します：
 <span class="cmd">kill XXXX</span>
-   (where XXXX is the pid)<br>
-If the load balancer did not stop, use:
+   (XXXXはpidです)<br>
+ロードバランサが停止しなかった場合は、次のコマンドを使用します:
 <span class="cmd">kill -9 XXXX</span>
 </p>
 </ul>
