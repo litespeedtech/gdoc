@@ -6,7 +6,7 @@
 
 [ITEM]
 ID: docRoot
-NAME: Document Root
+NAME: ドキュメントルート
 REQUIRED: 
 APPLY: 3
 SINCE: 

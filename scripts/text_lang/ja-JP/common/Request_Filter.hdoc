@@ -6,15 +6,15 @@
 
 [ITEM]
 ID: enableCensorship
-NAME: Enable Request Filtering
+NAME: 要求フィルタリングを有効にする
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to enable request content deep inspection. This
-feature is equivalent to Apache's mod_security, which can be used to detect
-and block requests with ill intention by matching them to known signatures. 
+DESCR: 要求内容の詳細検査を有効にするかどうかを指定します。
+この機能は、Apacheのmod_securityと同等です。
+mod_securityは、既知のシグネチャと照合することで、悪意のある要求を検出してブロックするために使用できます。 
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -32,17 +32,18 @@ END_TIPS
 
 [ITEM]
 ID: censorLogLevel
-NAME: Log Level
+NAME: ログレベル
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: Server {ITEM=ServGeneral_Help#log_logLevel}, Virtual Host {ITEM=VHGeneral_Help#vhlog_logLevel}
 
-DESCR: Specifies the level of detail of the request filtering engine's debug output.
-This value ranges from {val}0{/} - {val}9{/}. {val}0{/} disables logging. {val}9{/} produces the
-most detailed log. The the server and virtual host's error log
-{ITEM=ServGeneral_Help#log_logLevel} must be set to at least {val}INFO{/} for this option to take effect.
-This is useful when testing request filtering rules.
+DESCR: 要求フィルタリングエンジンのデバッグ出力の詳細レベルを指定します。
+この値の範囲は{val}0{/}-{val}9{/}です。
+{val}0{/}はロギングを無効にします。
+{val}9{/}は最も詳細なログを生成します。
+このオプションを有効にするには、サーバーと仮想ホストのエラーログ{ITEM=ServGeneral_Help#log_logLevel}を少なくとも{val}INFO{/}以上に設定する必要があります。
+これは、要求フィルタリングルールをテストする場合に便利です。
 END_DESCR
 
 SYNTAX: 整数 
@@ -60,20 +61,19 @@ END_TIPS
 
 [ITEM]
 ID: defaultAction
-NAME: Default Action
+NAME: デフォルトのアクション
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=ruleSetAction}
 
-DESCR: Specifies the default actions that should be taken when a censoring rule
-is met. Default value is {val}deny,log,status:403{/}, which means to deny access with status code 403 and
-log the incident in the error log.
+DESCR: 検閲ルールが満たされたときに実行する必要があるデフォルトのアクションを指定します。
+デフォルト値は{val}deny、log、status：403{/}です。これは、ステータスコード403によるアクセスを拒否し、インシデントをエラーログに記録することを意味します。
 
 END_DESCR
 
-SYNTAX: String. This action string is compatible with the syntax of Apache
-mod_security. Please refer to the mod_security manual for more detail. 
+SYNTAX: 文字列。 このアクション文字列は、Apache mod_securityの構文と互換性があります。
+詳細については、mod_securityマニュアルを参照してください。 
 
 EXAMPLE: 
 END_EXAMPLE
@@ -87,14 +87,14 @@ END_TIPS
 
 [ITEM]
 ID: scanPOST
-NAME: Scan Request Body
+NAME: スキャンリクエストボディ
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to check the body of an HTTP POST request. 
-Default is "No".
+DESCR: HTTP POST要求の本文をチェックするかどうかを指定します。
+デフォルトは「いいえ」です。
 
 END_DESCR
 
@@ -113,15 +113,16 @@ END_TIPS
 
 [ITEM]
 ID: disableSecHtaccess
-NAME: Disable .htaccess Override
+NAME: .htaccessを無効にする
 NS: E
 REQUIRED: 
 APPLY: 2
 SINCE: 4.0.17
 SEE_ALSO: 
 
-DESCR: Disable turning off mod_security engine in .htaccess. This is a global setting only available at the server level. 
-Default is "No".
+DESCR: .htaccessのmod_securityエンジンを無効にする。
+これは、サーバーレベルでのみ使用可能なグローバル設定です。
+デフォルトは「いいえ」です。
 
 END_DESCR
 
@@ -140,19 +141,19 @@ END_TIPS
 
 [ITEM]
 ID: uploadTmpDir
-NAME: Temporary File Path
+NAME: 一時ファイルパス
 NS: O 
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Temporary directory where files being uploaded to server will be stored 
-while request body parser is working. Default value is {val}/tmp/lshttpd/{/}.
+DESCR: 要求本体パーサーが動作している間に、サーバーにアップロードされるファイルが格納される一時ディレクトリ。
+デフォルト値は{val}/tmp/lshttpd/{/}です。
 
 END_DESCR
 
-SYNTAX: Absolute path or path starting with $SERVER_ROOT (for Server and VHost levels) or $VH_ROOT (for VHost levels).
+SYNTAX: $SERVER_ROOT（ServerおよびVHostレベルの場合）または$VH_ROOT（VHostレベルの場合）で始まる絶対パスまたはパス。
 END_SYNTAX
 
 EXAMPLE: 
@@ -167,19 +168,19 @@ END_TIPS
 
 [ITEM]
 ID: uploadTmpDir
-NAME: Temporary File Path
+NAME: 一時ファイルパス
 NS: LE
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Temporary directory where files being uploaded to server will be stored 
-while request body parser is working. Default value is {val}/tmp{/}.
+DESCR: 要求本体パーサーが動作している間に、サーバーにアップロードされるファイルが格納される一時ディレクトリ。
+デフォルト値は{val}/tmp{/}です。
 
 END_DESCR
 
-SYNTAX: Absolute path or path starting with $SERVER_ROOT (for Server and VHost levels).
+SYNTAX: $SERVER_ROOTで始まる絶対パスまたはパス（サーバーレベルとVHostレベルの場合）。
 END_SYNTAX
 
 EXAMPLE: 
@@ -194,18 +195,18 @@ END_TIPS
 
 [ITEM]
 ID: uploadTmpFilePermission
-NAME: Temporary File Permissions
+NAME: 一時ファイルのアクセス許可
 NS: LE
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Global setting determining file permissions used for files stored in the <b>Temporary File Path</b> directory.
+DESCR: <b>一時ファイルパス</b>ディレクトリに格納されているファイルに使用されるファイルアクセス権を決定するグローバル設定。
 
 END_DESCR
 
-SYNTAX: 3 digits octet number. Default value is 666.
+SYNTAX: 3桁の8進数。 デフォルト値は666です。
 END_SYNTAX
 
 EXAMPLE: 
@@ -220,19 +221,19 @@ END_TIPS
 
 [ITEM]
 ID: uploadTmpFilePermission
-NAME: Temporary File Permissions
+NAME: 一時ファイルのアクセス許可
 NS: O
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Determines file permissions used for files stored in temporary directory. 
-Server level setting is global, can be overridden at VHost level.
+DESCR: 一時ディレクトリに格納されているファイルに使用されるファイルのアクセス権を決定します。
+サーバーレベルの設定はグローバルで、VHostレベルでオーバーライドできます。
 
 END_DESCR
 
-SYNTAX: 3 digits octet number. Default value is 666.
+SYNTAX: 3桁の8進数。 デフォルト値は666です。
 END_SYNTAX
 
 EXAMPLE: 
@@ -247,15 +248,15 @@ END_TIPS
 
 [ITEM]
 ID: secAuditLogEngine
-NAME: Enable Security Audit Log
+NAME: セキュリティ監査ログを有効にする
 REQUIRED: 
 APPLY: 2
 SINCE: 4.1.9
 SEE_ALSO: {ITEM=secAuditLog}
 
-DESCR: Specifies whether to enable audit logging. This
-feature is equivalent to Apache's mod_security audit engine. 
-If it is enabled and {ITEM=secAuditLog} is set, detailed request information will be saved. 
+DESCR: 監査ログを有効にするかどうかを指定します。
+この機能は、Apacheのmod_security監査エンジンと同等です。
+有効で、{ITEM=secAuditLog}が設定されている場合は、詳細な要求情報が保存されます。
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -273,15 +274,15 @@ END_TIPS
 
 [ITEM]
 ID: secAuditLog
-NAME: Security Audit Log
+NAME: セキュリティ監査ログ
 REQUIRED: 
 APPLY: 3
 SINCE: 4.1.9
 SEE_ALSO: {ITEM=secAuditLogEngine}
 
-DESCR: Specifies the path of the security audit log, which gives more detailed information. 
- This extra information can be useful if, for example, you wish to track the actions of 
- a particular user. Use {ITEM=secAuditLogEngine} to turn on the logging.   
+DESCR: より詳細な情報を提供するセキュリティ監査ログのパスを指定します。
+  この特別な情報は、たとえば、特定のユーザーの行動を追跡する場合に役立ちます。
+  ロギングをオンにするには、{ITEM=secAuditLogEngine}を使用します。   
 END_DESCR
 
 SYNTAX: ファイル名への絶対パス又は$SERVER_ROOTからの相対パス
@@ -302,17 +303,18 @@ END_TIPS
 
 [ITEM]
 ID: censorRuleSetName
-NAME: Name
+NAME: 名前
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Give a group of censorship rules a name. For display only.
+DESCR: １グループの検閲ルールに名前を付ける。
+表示専用です。
 
 END_DESCR
 
-SYNTAX: String
+SYNTAX: 文字列
 END_SYNTAX
 
 EXAMPLE: 
@@ -327,19 +329,18 @@ END_TIPS
 
 [ITEM]
 ID: ruleSetAction
-NAME: Rule Set Action
+NAME: ルールセットアクション
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the actions that should be taken when a censoring rule
-in current ruleset is met. If not set, {ITEM=defaultAction} will be
-used. 
+DESCR: 現在のルールセットの検閲ルールが満たされたときに実行する必要があるアクションを指定します。
+設定されていない場合、{ITEM=defaultAction}が使用されます。
 END_DESCR
 
-SYNTAX: String.  This action string uses the same syntax as Apache's 
-<a href="https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual#SecDefaultAction">mod_security SecDefaultAction directive</a>.
+SYNTAX: 文字列。 このアクション文字列はApacheと同じ構文を使用します
+<a href="https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual#SecDefaultAction">mod_security SecDefaultAction ディレクティブ</a>.
 END_SYNTAX
 
 EXAMPLE: 
@@ -354,14 +355,15 @@ END_TIPS
 
 [ITEM]
 ID: censorRuleSetEnabled
-NAME: Enabled 
+NAME: 有効 
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to enable this rule set. With this option, a rule set can be
-quickly turned on and off without adding or removing the rule set. Default is "Yes".
+DESCR: このルールセットを有効にするかどうかを指定します。
+このオプションを使用すると、ルールセットを追加または削除することなく、ルールセットをすぐにオン/オフすることができます。
+デフォルトは「はい」です。
 
 END_DESCR
 
@@ -380,7 +382,7 @@ END_TIPS
 
 [ITEM]
 ID: censorRuleSet
-NAME: Rules Definition
+NAME: ルール定義
 NS: L
 REQUIRED: 
 APPLY: 3
@@ -388,27 +390,26 @@ SINCE:
 SEE_ALSO: 
 
 
-DESCR: Specifies a list of censorship rules.
+DESCR: 検閲ルールのリストを指定します。
 
 
-If you are using an Apache config file, you have to set up rules in httpd.conf. 
-Rules defined here will have no effect.
+Apacheの設定ファイルを使用している場合は、httpd.confにルールを設定する必要があります。
+ここで定義されたルールは効果がありません。
 END_DESCR
 
-SYNTAX: String. Syntax of censoring rules follows that of Apache's mod_security
-directives. "SecFilter", "SecFilterSelective", and "SecRule" can be 
-used here.  You can copy and paste security rules from an Apache configuration file.
+SYNTAX: 文字列。 検閲ルールの構文は、Apacheのmod_securityディレクティブの構文に従います。
+ここでは、「SecFilter」、「SecFilterSelective」、「SecRule」を使用できます。
+Apacheの設定ファイルからセキュリティルールをコピーして貼り付けることができます。
 
 
-For more details about rule syntax, please refer to the 
+ルールの構文の詳細については、
 {ext-href}http://www.modsecurity.org/documentation/index.html{ext-href-end}Mod Security documentation{ext-href-end-a}.
 END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: Rules configured here only work for vhosts configured in native LSWS
-configuration, not for vhosts from Apache httpd.conf.
+TIPS: ここで設定されたルールは、ネイティブのLSWS設定で設定されたvhostsでのみ動作し、Apache httpd.confからのvhostでは動作しません。
 END_TIPS
 
 [END_ITEM]
@@ -417,7 +418,7 @@ END_TIPS
 
 [ITEM]
 ID: censorRuleSet
-NAME: Rules Definition
+NAME: ルール定義
 NS: E
 REQUIRED: 
 APPLY: 3
@@ -425,22 +426,22 @@ SINCE:
 SEE_ALSO: 
 
 
-DESCR: Specifies a list of censorship rules.
+DESCR: 検閲ルールのリストを指定します。
 
 
-If you are using an Apache config file, you have to set up rules in httpd.conf. 
-Rules defined here will have no effect.
+Apacheの設定ファイルを使用している場合は、httpd.confにルールを設定する必要があります。
+ここで定義されたルールは効果がありません。
 END_DESCR
 
-EDITTIP: If you are using apache config file, you have to set up rules in httpd.conf and rules defined here have no effect.
+EDITTIP: Apacheの設定ファイルを使用している場合、httpd.confにルールを設定する必要があり、ここで定義されているルールは効果がありません。
 END_EDITTIP
 
-SYNTAX: String. Syntax of censoring rules follows that of Apache's mod_security
-directives. "SecFilter", "SecFilterSelective", and "SecRule" can be 
-used here.  You can copy and paste security rules from an Apache configuration file.
+SYNTAX: 文字列。 検閲ルールの構文は、Apacheのmod_securityディレクティブの構文に従います。
+ここでは、「SecFilter」、「SecFilterSelective」、「SecRule」を使用できます。
+Apacheの設定ファイルからセキュリティルールをコピーして貼り付けることができます。
 
 
-For more details about rule syntax, please refer to the 
+ルールの構文の詳細については、
 {ext-href}http://www.modsecurity.org/documentation/index.html{ext-href-end}Mod Security
 documentation{ext-href-end-a}.
 END_SYNTAX
@@ -448,8 +449,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: Rules configured here only work for vhosts configured in native LSWS
-configuration, not for vhosts from Apache httpd.conf.
+TIPS: ここで設定されたルールは、ネイティブのLSWS設定で設定されたvhostsでのみ動作し、Apache httpd.confからのvhostでは動作しません。
 END_TIPS
 
 [END_ITEM]
@@ -461,7 +461,7 @@ END_TIPS
 
 [TBL]
 ID: reqCensorship
-NAME: Request Filter
+NAME: リクエストフィルタ
 NS: L
 
 DESCR: 
@@ -474,7 +474,7 @@ SEE_ALSO:
 
 [TBL]
 ID: reqCensorship
-NAME: Request Filter
+NAME: リクエストフィルタ
 NS: E
 
 DESCR: 
@@ -487,7 +487,7 @@ SEE_ALSO:
 
 [TBL]
 ID: VHreqCensorship
-NAME: Request Filter
+NAME: リクエストフィルタ
 NS: LE
 
 DESCR: 
@@ -500,15 +500,14 @@ SEE_ALSO:
 
 [TBL]
 ID: reqCensorshipRule
-NAME: Request Filtering Rule Set
+NAME: 要求フィルタリングルールセット
 NS: LE
 
-DESCR: Rules configured here only work for virtual hosts configured with a native LSWS
-configuration, not for virtual hosts using Apache httpd.conf.
+DESCR: ここで設定されたルールは、ネイティブのLSWS設定で設定された仮想ホストに対してのみ機能し、Apache httpd.confを使用する仮想ホストでは機能しません。
 END_DESCR
 
 SEE_ALSO: 
-[END_TBL]l
+[END_TBL]
 
 
 
@@ -517,14 +516,13 @@ SEE_ALSO:
 
 [PAGE]
 ID: RequestFilter_Help
-NAME: Request Filtering
+NAME: リクエストフィルタリング
 NS: LE
 
-DESCR: LiteSpeed's request filter is equivalent to that in Apache's mod_security. 
-There are two separate rule systems. Rules configured from the WebAdmin console only 
-work for virtual hosts configured via the WebAdmin console in native xml. 
-For virtual hosts configured through Apache httpd.conf, you  
-need to configure mod_security rules through httpd.conf, just like you would with Apache. 
+DESCR: LiteSpeedのリクエストフィルタは、Apacheのmod_securityのリクエストフィルタと同等です。
+2つの別々のルールシステムがあります。
+WebAdminコンソールから設定されたルールは、ネイティブXMLでWebAdminコンソールを使用して設定された仮想ホストでのみ機能します。
+Apache httpd.confで設定された仮想ホストの場合、Apacheと同じように、mod_securityルールをhttpd.confで設定する必要があります。 
 END_DESCR
 
 SEE_ALSO: 

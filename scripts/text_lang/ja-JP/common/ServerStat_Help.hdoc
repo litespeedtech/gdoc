@@ -3,14 +3,14 @@
 
 [ITEM]
 ID: sname
-NAME: Name - Server
+NAME: 名前 - サーバー
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The unique name that identifies this server. This is the 
-{ITEM=ServGeneral_Help#serverName} specified in the general configuration.
+DESCR: このサーバーを識別する一意の名前。
+これは一般的な設定で指定された{ITEM=ServGeneral_Help#serverName}です。
 END_DESCR
 
 SYNTAX: 
@@ -34,7 +34,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: PID (Process ID) of the current server process.
+DESCR: 現在のサーバープロセスのPID（プロセスID）。
 END_DESCR
 
 SYNTAX: 
@@ -43,7 +43,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: The PID will change each time the server is restarted.
+TIPS: PIDは、サーバーが再起動されるたびに変更されます。
 END_TIPS
 
 [END_ITEM]
@@ -52,22 +52,22 @@ END_TIPS
 
 [ITEM]
 ID: servAction
-NAME: Actions
+NAME: アクション
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Six actions are available from this menu: {val}Graceful Restart{/},
-{val}Toggle Debug Logging{/}, {val}Server Log Viewer{/}, {val}Real-Time Statistics{/}, 
-{val}Version Manager{/}, and {val}Compile PHP{/}. 
-<ul><li>{ITEM=restart} restarts server process gracefully without
-interrupting requests in process.</li>
-	<li>{ITEM=toggleDebugLog} turns debug logging on or off.</li>
-	<li>{ITEM=viewlog} allows you to view the server log through the log viewer.</li>
-	<li>{ITEM=realtimerpt} allows you to view real-time server status.</li>
-	<li>{ITEM=vermgr} allows you to download new versions of LSWS and switch between different versions.
-	<li>Compile PHP allows you to compile PHP for LiteSpeed Web Server.
+DESCR: このメニューからは、次の6つのアクションを使用できます： 
+{val}緩やかな再起動{/},
+{val}デバッグログの切り替え{/}, {val}サーバーログビューア{/}, {val}リアルタイム統計{/}, 
+{val}バージョンマネージャ{/}, and {val}PHPをコンパイル{/}. 
+<ul><li>{ITEM=restart}は、処理中のリクエストを中断することなく、正常にサーバプロセスを再起動します。</li>
+	<li>{ITEM=toggleDebugLog}は、デバッグログのオン/オフを切り替えます。</li>
+	<li>{ITEM=viewlog}は、ログビューアを介してサーバーログを表示できます。</li>
+	<li>{ITEM=realtimerpt}は、リアルタイムのサーバステータスを表示できます。</li>
+	<li>{ITEM=vermgr}は、LSWSの新しいバージョンをダウンロードし、異なるバージョン間で切り替えることができます。</li>
+	<li>PHPをコンパイルすると、PHPをLiteSpeed Web Server用にコンパイルできます。</li>
 </ul>
 END_DESCR
 
@@ -77,8 +77,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: The shell utility {cmd}$SERVER_ROOT/bin/lswsctrl{/} can be used to control the server processes as well, 
-but requires a login shell.
+TIPS: シェルユーティリティ{cmd}$SERVER_ROOT/bin/lswsctrl{/}を使用してサーバープロセスを制御することもできますが、ログインシェルが必要です。
 END_TIPS
 
 [END_ITEM]
@@ -87,19 +86,18 @@ END_TIPS
 
 [ITEM]
 ID: restart
-NAME: Apply Changes/Graceful Restart
+NAME: 変更を適用する/緩やかなリスタート
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: By clicking {val}Graceful Restart{/}, a new server process will be started. 
-For {val}Graceful Restart{/}, the old server process will only exit after all requests 
-to it have been finished (or the {ITEM=gracefulRestartTimeout} limit has been reached).
+DESCR: {val}緩やかな再起動{/}をクリックすると、新しいサーバープロセスが開始されます。
+{val}緩やかな再起動{/}の場合、古いサーバープロセスは、すべての要求が完了した後（または{ITEM=gracefulRestartTimeout}に達すると）終了します。
 
 
-Configuration changes are applied at the next restart. 
-{val}Graceful Restart{/} will apply these changes without any server downtime.
+設定の変更は、次回の再起動時に適用されます。
+{val}緩やかな再起動{/}は、サーバーのダウンタイムなしにこれらの変更を適用します。
 END_DESCR
 
 SYNTAX: 
@@ -108,7 +106,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: Graceful restart takes less than 2 seconds to generate a new server process.   
+TIPS: 緩やかな再起動は、新しいサーバー・プロセスを生成するために2秒以下で完了します。  
 END_TIPS
 
 [END_ITEM]
@@ -117,32 +115,25 @@ END_TIPS
 
 [ITEM]
 ID: vermgr
-NAME: Version Management
+NAME: バージョン管理
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: {ITEM=ServGeneral_Help#autoUpdateDownloadPkg}, {ITEM=ServGeneral_Help#autoUpdateInterval} 
 
 
-DESCR: Version Management (found by clicking on the the version number at 
-the top of the page) is a convenient tool to manage LSWS
-versions. It shows license info and information on all installed versions
-and available new releases. 
+DESCR: バージョン管理（ページ上部のバージョン番号をクリックすると見つかります）は、LSWSのバージョン管理に便利なツールです。
+ライセンス情報と、インストールされているすべてのバージョンと利用可能な新リリースに関する情報が表示されます。 
 
-<ul><li>If a new version has been released on the
-LiteSpeed website, and {ITEM=ServGeneral_Help#autoUpdateInterval} is 
-enabled, the new version will be listed with a {val}Download{/} link. If
-{ITEM=ServGeneral_Help#autoUpdateDownloadPkg} is
-enabled, new versions will be automatically downloaded and the new version 
-will be listed with an {val}Upgrade{/} link. Upgrade 
-installs the new package and restarts the web server. </li>
-<li>You return
-to a previous version by clicking the {val}Switch To{/} link. This will
-restart the web server with that version.</li>
-<li>If you are sure that you no longer need an old installation, you can remove
-it by clicking the {val}Delete{/} link. This will permanently remove that copy.</li></ul>
+<ul><li>LiteSpeed Webサイトで新しいバージョンがリリースされ、{ITEM=ServGeneral_Help#autoUpdateInterval}が有効になっている場合、新しいバージョンには{val}ダウンロード{/}リンクが表示されます。
+{ITEM=ServGeneral_Help#autoUpdateDownloadPkg}を有効にすると、新しいバージョンが自動的にダウンロードされ、新しいバージョンには{val}アップグレード{/}リンクが表示されます。
+アップグレードは新しいパッケージをインストールし、Webサーバーを再起動します。</li>
+<li>{val}切り替える{/}リンクをクリックすると、以前のバージョンに戻ります。
+これにより、そのバージョンのWebサーバーが再起動されます。</li>
+<li>古いインストールが不要になった場合は、{val}削除{/}リンクをクリックして削除することができます。
+これにより、そのコピーが永久に削除されます。</li></ul>
 
-Please note, service will not be interrupted during an upgrade or restart.
+アップグレードや再起動中にサービスが中断されることはありませんのでご注意ください。
 END_DESCR
 
 
@@ -161,19 +152,18 @@ END_TIPS
 
 [ITEM]
 ID: viewlog
-NAME: Server Log Viewer 
+NAME: サーバーログビューア
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The Server Log Viewer is a convenient tool for browsing the 
-current server log to check for errors or problems.  The log viewer 
-searches the server log file in blocks for the specified log level. 
+DESCR: Tサーバーログビューアは、現在のサーバーログを参照してエラーまたは問題をチェックするための便利なツールです。
+ログ・ビューアーは、サーバーログファイルを指定されたログ・レベルのブロックで検索します。 
 
 
-The default block size is 20KB. You can use the {val}Begin{/},
-  {val}End{/}, {val}Next{/}, and {val}Prev{/} buttons to navigate a large log file. 
+デフォルトのブロックサイズは20KBです。
+{val}Begin{/}、{val}End{/}、{val}Next{/}、{val}Prev{/}ボタンを使用して、大きなログファイルをナビゲートできます。 
 END_DESCR
 
 SYNTAX: 
@@ -182,8 +172,8 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: The size of a dynamically generated page is limited by {ITEM=ServTuning_Help#maxDynRespSize}.
-  So if the block is too big, the page might be truncated.
+TIPS: 動的に生成されるページのサイズは、{ITEM=ServTuning_Help#maxDynRespSize}によって制限されます。
+したがって、ブロックが大きすぎると、ページが切り捨てられることがあります。
 END_TIPS
 
 [END_ITEM]
@@ -192,38 +182,36 @@ END_TIPS
 
 [ITEM]
 ID: realtimerpt
-NAME: Real-Time Statistics
+NAME: リアルタイム統計
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The Real-Time Statistics link leads to a page with a real-time server status
-report. This is a convenient tool to monitor the system. 
+DESCR: リアルタイム統計のリンクは、リアルタイムのサーバステータスレポートを含むページにつながります。
+これは、システムを監視するのに便利なツールです。 
 
 
-The report shows a snapshot of your server statistics. The refresh rate for this snapshot 
-is controlled by the Refresh Interval drop-down list in the upper righthand corner.
+このレポートには、サーバー統計のスナップショットが表示されます。
+このスナップショットのリフレッシュレートは、右上隅のリフレッシュインターバルドロップダウンリストによって制御されます。
 
 
-The report contains the following sections:
-<ul><li>Server Health shows the basic server statistics, uptime, load, and anti-DDoS blocked IPs.</li>
-  <li>Server lists current traffic throughput, connections, and requests statistics.</li>
- <li>Virtual Host shows request processing statuses and external application statuses for each virtual host.</li>
- <li>External Application lists the external applications currently running and their usage statistics. 
- The CGI daemon process lscgid is always running as an external application.</li>
+このレポートには、次のセクションが含まれています：
+<ul><li>サーバーの正常性は、基本的なサーバーの統計情報、稼働時間、負荷、および阻止されたDDoS阻止IPを示します。</li>
+  <li>現在のトラフィックのスループット、接続、およびリクエストの統計情報を表示します。</li>
+ <li>仮想ホストは、各仮想ホストの要求処理状況と外部アプリケーションの状態を表示します</li>
+ <li>外部アプリケーションは、現在実行中の外部アプリケーションとその使用状況の統計情報を表示します。
+  CGIデーモンプロセスlscgidは、常に外部アプリケーションとして実行されます。</li>
 </ul>
 
 
-Many of the rows in the Real-Time Statistics feature a graph icon. 
-Clicking on this icon will open a graph of that row's statistics updated in real-time.
+リアルタイム統計の行の多くにグラフアイコンがあります。
+このアイコンをクリックすると、その行の統計がリアルタイムで更新されたグラフが開きます。
 
 
-In the Server section, next to Requests, there is a link labeled (Details). 
-This link takes you to the Requests Snapshot, where you can view detailed information 
-on which clients are making certain kinds of requests or which aspects of your site 
-are bottlenecking. The fields in the blue area allow you to filter the snapshot to isolate 
-certain parts of your server or look for clients that are performing certain actions. 
+「サーバー」セクションの「要求」の横に、「詳細」というラベルの付いたリンクがあります。
+このリンクをクリックすると、Requests Snapshotが表示されます。ここでは、どのクライアントが特定の種類のリクエストを行っているのか、サイトのどの部分がボトルネックになっているのかを詳しく見ることができます。
+青色の領域のフィールドを使用すると、スナップショットをフィルタリングしてサーバーの特定の部分を分離したり、特定の処理を実行しているクライアントを探すことができます。
 END_DESCR
 
 
@@ -243,20 +231,16 @@ END_TIPS
 
 [ITEM]
 ID: toggleDebugLog
-NAME: Toggle Debug Logging
+NAME: デバッグログを切り替える
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: {ITEM=ServGeneral_Help#log_debugLevel}, {ITEM=ServGeneral_Help#log_logLevel}
 
-DESCR: Toggle Debug Logging toggles the value of
-{ITEM=ServGeneral_Help#log_debugLevel} between {val}NONE{/} and {val}HIGH{/}. 
-As debug logging has an impact on performance and can fill up
-the hard drive quickly, so {ITEM=ServGeneral_Help#log_debugLevel} should
-usually be set to {val}NONE{/} on a production server. 
-This feature can be used instead to turn debug logging on and off quickly 
-in order to debug a problem on a production server. Debug logging turned on or 
-off in this way will not change anything shown in your server configurations.
+DESCR: デバッグログの切り替えは、{ITEM=ServGeneral_Help#log_debugLevel}の値を{val}NONE{/}と{val}HIGH{/}の間で切り替えます。
+デバッグロギングはパフォーマンスに影響を与え、ハードドライブをすばやく埋めることができるため、通常は本番サーバーで{ITEM=ServGeneral_Help#log_debugLevel}を{val}NONE{/}に設定する必要があります。
+この機能を代わりに使用して、本番サーバー上の問題をデバッグするために、デバッグログを素早くオン/オフすることができます。
+このようにデバッグロギングをオンまたはオフにしても、サーバー構成に表示されるものは変更されません。
 END_DESCR
 
 
@@ -266,13 +250,11 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: {ITEM=toggleDebugLog} will only work if {ITEM=ServGeneral_Help#log_logLevel} 
-is set to {val}DEBUG{/}.
+TIPS: {ITEM=toggleDebugLog}は、{ITEM=ServGeneral_Help#log_logLevel}が{val}DEBUG{/}に設定されている場合にのみ機能します。
 
-[Performance] Important! Debug logging includes detailed information for each 
-request and response. Active debug logging will severely degrade service performance
-and potentially saturate disk space in a very short time. This feature should only be 
-used for a short period of time when trying to diagnose server issues. 
+[パフォーマンス]重要！ デバッグログには、各要求と応答の詳細情報が含まれています。
+アクティブデバッグロギングは、サービスパフォーマンスを著しく低下させ、非常に短時間でディスクスペースを飽和させる可能性があります。
+この機能は、サーバーの問題を診断しようとすると、短時間しか使用しないでください 
 END_TIPS
 
 [END_ITEM]
@@ -281,14 +263,14 @@ END_TIPS
 
 [ITEM]
 ID: lname
-NAME: Name - Listener
+NAME: 名前 - リスナー
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The unique name that identifies this listener. This is the 
-{ITEM=Listeners_Help#listenerName} you specified when setting up the listener.
+DESCR: このリスナーを識別する固有の名前。
+これは、リスナーを設定するときに指定した{ITEM=Listeners_Help#listenerName}です。
 END_DESCR
 
 SYNTAX: 
@@ -306,13 +288,14 @@ END_TIPS
 
 [ITEM]
 ID: lstatus
-NAME: Status - Listener
+NAME: ステータス - リスナー
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The current status of this listener. The status is either {val}Running{/} or {val}Error{/}.
+DESCR: このリスナーの現在のステータス。
+ステータスは{val}Running{/}か{val}Error{/}のいずれかです。
 END_DESCR
 
 SYNTAX: 
@@ -321,7 +304,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: If the listener is in the {val}Error{/} state, you can view the server log to find out why.
+TIPS: リスナーが{val}Error{/}状態にある場合は、サーバーログを表示して理由を調べることができます。
 END_TIPS
 
 [END_ITEM]
@@ -330,14 +313,14 @@ END_TIPS
 
 [ITEM]
 ID: lmap
-NAME: Virtual Hosts Mappings
+NAME: 仮想ホストマッピング
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Shows currently established mappings to virtual hosts from a particular listener. 
-The virtual host name appears in brackets and is followed by the matching domain name(s) for this listener.
+DESCR: 特定のリスナーからの仮想ホストへの現在確立されているマッピングを表示します。
+仮想ホスト名は括弧内に表示され、このリスナーに一致するドメイン名が続きます。
 END_DESCR
 
 SYNTAX: 
@@ -346,8 +329,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: If a virtual host has not been loaded successfully (fatal errors in the 
-virtual host configuration), the mapping to that virtual host will not be displayed.
+TIPS: 仮想ホストが正常にロードされていない場合（仮想ホストの致命的なエラー）、その仮想ホストへのマッピングは表示されません。
 END_TIPS
 
 [END_ITEM]
@@ -356,14 +338,14 @@ END_TIPS
 
 [ITEM]
 ID: vname
-NAME: Name - Virtual Host
+NAME: 名前 - 仮想ホスト
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The unique name that identifies this virtual host. This is the {ITEM=VirtualHosts_Help#vhName} 
-you specified when setting up this virtual host.
+DESCR: この仮想ホストを識別する一意の名前。
+これは、この仮想ホストを設定するときに指定した{ITEM=VirtualHosts_Help#vhName}です。
 END_DESCR
 
 SYNTAX: 
@@ -381,22 +363,19 @@ END_TIPS
 
 [ITEM]
 ID: vstatus
-NAME: Status - Virtual Host
+NAME: ステータス - 仮想ホスト
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The current status of a virtual host. 
- The status can be: {val}Running{/}, {val}Stopped{/}, {val}Restart Required{/}, 
- or {val}Running - Removed from Configuration{/}.
+DESCR: 仮想ホストの現在のステータス。 
+ ステータスは{val}Running{/}、{val}Stopped{/}、{val}Restart Required{/}、または{val}Running - Removed from onfiguration{/}です。
  <ul>
-    <li>{val}Running{/} means the virtual host is loaded and in service.</li>
-    <li>{val}Stopped{/} means the virtual host is loaded but not in service (disabled). </li>
-    <li>{val} Restart Required{/} means this is a newly added virtual host and 
-        the server has not yet loaded its configuration. </li>
-    <li>{val}Running - Removed from Configuration{/} means the virtual host has been deleted 
-    from the server's configuration but it is still in service. </li>
+    <li>{val}Running{/}は、仮想ホストがロードされ、サービス中であることを意味します。</li>
+    <li>{val}Stopped{/}は、仮想ホストがロードされていてもサービスされていない（無効になっている）ことを意味します。 </li>
+    <li>{val}Restart Required{/}は、これが新しく追加された仮想ホストであり、サーバがまだ設定をロードしていないことを意味します。 </li>
+    <li>{val}Running - Removed from Configuration{/}は、仮想ホストがサーバの設定から削除されたが、まだ稼働中であることを意味します。 </li>
 </ul>
 END_DESCR
 
@@ -415,14 +394,14 @@ END_TIPS
 
 [ITEM]
 ID: vaction
-NAME: Actions - Virtual Host
+NAME: アクション - 仮想ホスト
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: This field shows buttons to disable, enable, or restart the virtual host.  
-Actions taken on one virtual host do not affect the rest of the web server.
+DESCR: このフィールドには、仮想ホストを無効化、有効化、または再起動するためのボタンが表示されます。
+1つの仮想ホストで実行されたアクションは、残りのWebサーバーには影響しません。
 END_DESCR
 
 SYNTAX: 
@@ -431,7 +410,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: It is good idea to disable a virtual host temporarily when updating its content.
+TIPS: 仮想ホストをコンテンツを更新するときに一時的に無効にすることをお勧めします。
 END_TIPS
 
 [END_ITEM]
@@ -440,14 +419,14 @@ END_TIPS
 
 [ITEM]
 ID: venable
-NAME: Enable
+NAME: 有効
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The {val}Enable{/} action starts up a stopped virtual host.  
-This allows new requests to be accepted.
+DESCR: {val}有効{/}アクションは、停止した仮想ホストを起動します。
+これにより、新しい要求を受け入れることができます。
 END_DESCR
 
 SYNTAX: 
@@ -465,14 +444,14 @@ END_TIPS
 
 [ITEM]
 ID: vdisable
-NAME: Disable
+NAME: 無効
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The {val}Disable{/} action stops a running virtual host.
-New requests will not be accepted, but requests being processed will finish as usual. 
+DESCR: {val}無効{/}アクションは、実行中の仮想ホストを停止します。
+新しいリクエストは受け付けられませんが、処理中のリクエストは通常通り終了します。
 END_DESCR
 
 SYNTAX: 
@@ -490,16 +469,16 @@ END_TIPS
 
 [ITEM]
 ID: vreload
-NAME: Restart - Virtual Host
+NAME: 再起動 - 仮想ホスト
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The Restart action causes the web server to load the newest configuration 
-for this virtual host. Requests being processed will finish with the old configuration. 
-The new configuration will only apply for new requests. All changes to a virtual host 
-can be applied on the fly this way. 
+DESCR: Restartアクションにより、Webサーバーはこの仮想ホストの最新の構成をロードします。
+処理中のリクエストは古い設定で終了します。
+新しい設定は新しいリクエストにのみ適用されます。
+仮想ホストへのすべてのハングは、この方法でオンザフライで適用できます。 
 END_DESCR
 
 SYNTAX: 
@@ -517,7 +496,7 @@ END_TIPS
 
 [TBL]
 ID: serviceMgrListener
-NAME: Listeners
+NAME: リスナー
 
 DESCR: 
 END_DESCR
@@ -529,7 +508,7 @@ SEE_ALSO:
 
 [TBL]
 ID: serviceMgrVh
-NAME: Virtual Hosts
+NAME: バーチャルホスト
 
 DESCR: 
 END_DESCR
@@ -541,7 +520,7 @@ SEE_ALSO:
 
 [TBL]
 ID: serviceMgr
-NAME: Server
+NAME: サーバー
 NS: LE
 
 DESCR: 
@@ -554,7 +533,7 @@ SEE_ALSO:
 
 [TBL]
 ID: serviceMgr
-NAME: Server
+NAME: サーバー
 NS: O
 
 DESCR: 

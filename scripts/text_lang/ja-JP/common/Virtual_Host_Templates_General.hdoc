@@ -6,18 +6,18 @@
 
 [ITEM]
 ID: templateVHRoot
-NAME: Default Virtual Host Root 
+NAME: デフォルトの仮想ホストルート 
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the default root directory for member virtual hosts using this template. 
-Variable {val}$VH_NAME{/} must appear in the path. This will allow each member template 
-to be automatically assigned a separate root directory based on its name. 
+DESCR: このテンプレートを使用して、メンバー仮想ホストのデフォルトルートディレクトリを指定します。
+変数{val}$VH_NAME{/}はパスに指定する必要があります。
+これにより、各メンバーテンプレートに名前に基づいて別々のルートディレクトリが自動的に割り当てられます。 
 END_DESCR
 
-SYNTAX: path
+SYNTAX: パス
 END_SYNTAX
 
 EXAMPLE: 
@@ -32,20 +32,20 @@ END_TIPS
 
 [ITEM]
 ID: templateVHConfigFile
-NAME: Instantiated VHost Config File
+NAME: インスタンス化されたVHost設定ファイル
 NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the location of the config file generated when you instantiate a member virtual host. 
-Variable {val}$VH_NAME{/} must appear in the path so each virtual host will have its own file.
-Suggested location is {val}$SERVER_ROOT/conf/vhosts/$VH_NAME.xml{/}. This config file will 
-be created only after you move a member vhost out of the template through instantiation.
+DESCR: メンバー仮想ホストをインスタンス化するときに生成される構成ファイルの場所を指定します。
+変数{val}$VH_NAME{/}は、各仮想ホストが独自のファイルを持つように、パスに現れなければなりません。
+推奨される場所は{val}$SERVER_ROOT/conf/vhosts/$VH_NAME.xml{/}です。
+この設定ファイルは、メンバの仮想ホストをインスタンス化によってテンプレートから移動した場合にのみ作成されます。
 END_DESCR
 
-SYNTAX: String with $VH_NAME variable and .xml suffix
+SYNTAX: $VH_NAME変数と.xml接尾辞付きの文字列
 END_SYNTAX
 
 EXAMPLE: 
@@ -60,26 +60,26 @@ END_TIPS
 
 [ITEM]
 ID: templateVHConfigFile
-NAME: Instantiated VHost Config File
+NAME: インスタンス化されたVHost設定ファイル
 NS: O 
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the location of the config file generated when you instantiate a member virtual host. 
-Variable {val}$VH_NAME{/} must appear in the path so each virtual host will have its own file. Must be located under 
-$SERVER_ROOT/conf/vhosts/. This config file will be created only after you move a member vhost out of the template 
-through instantiation.
+DESCR: メンバー仮想ホストをインスタンス化するときに生成される構成ファイルの場所を指定します。
+変数{val}$VH_NAME{/}は、各仮想ホストが独自のファイルを持つように、パスに現れなければなりません。
+$SERVER_ROOT/conf/vhosts/にある必要があります。
+この設定ファイルは、メンバの仮想ホストをインスタンス化によってテンプレートから移動した場合にのみ作成されます。
 END_DESCR
 
-SYNTAX: String with $VH_NAME variable and .conf suffix
+SYNTAX: $VH_NAME変数と.conf接尾辞付きの文字列
 END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: $VH_NAME/vhconf.conf is recommended for easy management.
+TIPS: $VH_NAME/ vhconf.confは管理が簡単です。
 END_TIPS
 
 [END_ITEM]
@@ -88,21 +88,20 @@ END_TIPS
 
 [ITEM]
 ID: templateVHDocRoot
-NAME: Document Root 
+NAME: ドキュメントルート 
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the unique path for each member virtual host's document root.  
-Variable {val}$VH_NAME{/} or {val}$VH_ROOT{/} must appear in the path so 
-each member virtual host will have its own document root.
+DESCR: 各メンバー仮想ホストのドキュメントルートの一意のパスを指定します。
+変数{val}$VH_NAME{/}または{val}$VH_ROOT{/}は、各メンバ仮想ホストが独自のドキュメントルートを持つように、パスに現れなければなりません。
 END_DESCR
 
-SYNTAX: path with $VH_NAME or $VH_ROOT variable
+SYNTAX: $VH_NAME又は$VH_ROOT変数を含むパス
 END_SYNTAX
 
-EXAMPLE: $VH_ROOT/public_html/ or $SERVER_ROOT/$VH_NAME/public_html.  
+EXAMPLE: $VH_ROOT/public_html/ 又は $SERVER_ROOT/$VH_NAME/public_html.  
 END_EXAMPLE
 
 TIPS: 
@@ -114,18 +113,17 @@ END_TIPS
 
 [ITEM]
 ID: templateFileRef
-NAME: File Name Used In Template 
+NAME: テンプレートで使用されるファイル名
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies a path for the file to be used for member virtual hosts.  
-Variable {val}$VH_NAME{/} or {val}$VH_ROOT{/} must appear in the path so 
-each member virtual host will have its own file.
+DESCR: メンバー仮想ホストに使用されるファイルのパスを指定します。
+変数{val}$VH_NAME{/}または{val}$VH_ROOT{/}は、各メンバ仮想ホストが独自のファイルを持つように、パスに現れなければなりません。
 END_DESCR
 
-SYNTAX: string
+SYNTAX: 文字列
 END_SYNTAX
 
 EXAMPLE: 
@@ -143,7 +141,7 @@ END_TIPS
 
 [TBL]
 ID: templateSettings
-NAME: Template Settings
+NAME: テンプレート設定
 NS: EO
 
 DESCR: 
@@ -156,7 +154,7 @@ SEE_ALSO:
 
 [TBL]
 ID: templateSettings
-NAME: Template Settings
+NAME: テンプレート設定
 NS: L
 
 DESCR: 

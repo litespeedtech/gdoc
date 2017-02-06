@@ -33,7 +33,7 @@ END_TIPS
 
 [ITEM]
 ID: listenerType
-NAME: Type
+NAME: タイプ
 NS: L
 REQUIRED: 
 APPLY: 3
@@ -394,7 +394,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: Listeners_General_Help 
-NAME: Listeners General
+NAME: リスナー全般
 NS: LEO
 
 DESCR: 

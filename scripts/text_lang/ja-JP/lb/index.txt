@@ -1,19 +1,19 @@
 <header>
-<h1>LiteSpeed Load Balancer 2.0<br/>
-Users' Manual<br/>
+<h1>LiteSpeed ロードバランサー 2.0<br/>
+ユーザーズマニュアル<br/>
 Rev. 5</h1>
 </header>
 
-<h3>Table of Contents</h3>
+<h3>目次</h3>
 <div>
 <ol class="toctop">
-<li><a href="license.html"><strong>License</strong></a></li>
-<li><a href="intro.html"><strong>Introduction</strong></a></li>
-<li><a href="install.html"><strong>Installation/Uninstallation</strong></a></li>
-<li><strong><a href="admin.html">Administration</a>/<a href="ServerStat_Help.html">Service Manager</a></strong></li>
-<li><a href="security.html"><strong>Security</strong></a></li>
-<li><a href="config.html"><strong>Configurations</strong></a></li>
-<li><a href="webconsole.html"><strong>Web Console</strong></a></li>
+<li><a href="license.html"><strong>ライセンス</strong></a></li>
+<li><a href="intro.html"><strong>導入</strong></a></li>
+<li><a href="install.html"><strong>インストール/アンインストール</strong></a></li>
+<li><strong><a href="admin.html">管理</a>/<a href="ServerStat_Help.html">サービスマネージャ</a></strong></li>
+<li><a href="security.html"><strong>セキュリティ</strong></a></li>
+<li><a href="config.html"><strong>設定</strong></a></li>
+<li><a href="webconsole.html"><strong>Webコンソール</strong></a></li>
 </ol>
-<p>For more information, visit our <b><a href="https://www.litespeedtech.com/support/wiki/doku.php">LiteSpeed Wiki</a></b></p>
+<p>詳細については、<b><a href="https://www.litespeedtech.com/support/wiki/doku.php">LiteSpeed Wiki</a></b></p>
 </div>

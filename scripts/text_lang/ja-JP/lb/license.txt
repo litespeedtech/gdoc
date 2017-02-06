@@ -9,12 +9,10 @@ This End-User License Agreement ("EULA") is a legal agreement between
 Speed Technologies Inc. a company registered in New Jersey, United
 States ("LITESPEED") for a software product ("SOFTWARE PRODUCT"). 
 
-YOU MUST READ THE TERMS BELOW BEFORE DOWNLOADING, INSTALLING, OR
-OTHERWISE USING THE SOFTWARE PRODUCT. BY DOWNLOADING, INSTALLING, OR
-USING THE SOFTWARE PRODUCT YOU AGREE TO BE AND WILL BE BOUND BY THE
-TERMS OF THIS EULA. IF YOU DO NOT AGREE TO THE TERMS OF THIS EULA, DO
-NOT DOWNLOAD, INSTALL, OR USE THE SOFTWARE PRODUCT AND YOU SHOULD
-DESTROY OR DELETE THE SOFTWARE PRODUCT.
+ソフトウェア製品をダウンロード、インストール、または使用する前に、以下の条項をお読みください。
+本ソフトウェア製品をダウンロード、インストールまたは使用することにより、お客様は本EULAの条件に同意したものとみなされます。
+本EULAの条項に同意しない場合は、ソフトウェア製品をダウンロード、インストール、または使用しないでください。
+ソフトウェア製品を破棄または削除する必要があります。
 
 
 1. LICENSE TO USE. 

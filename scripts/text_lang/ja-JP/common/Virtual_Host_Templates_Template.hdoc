@@ -6,13 +6,13 @@
 
 [ITEM]
 ID: templateName
-NAME: Template Name
+NAME: テンプレート名
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: A unique name for the template.
+DESCR: テンプレートの一意の名前。
 END_DESCR
 
 SYNTAX: text
@@ -30,21 +30,20 @@ END_TIPS
 
 [ITEM]
 ID: templateFile
-NAME: Template File 
+NAME: テンプレートファイル 
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the path to the configuration file of this template. 
-The file must be located within $SERVER_ROOT/conf/templates/ with a ".conf" filename.
-If the file you designate does not exist, after trying to save the template 
-an error will appear with the link "CLICK TO CREATE". This link will generate 
-a new empty template file. When you delete the template, the entry will be 
-removed from your configurations, but the actual template config file will not be deleted.
+DESCR: このテンプレートの構成ファイルへのパスを指定します。
+このファイルは$SERVER_ROOT/conf/templates/の中に ".conf"ファイル名で置く必要があります。
+指定したファイルが存在しない場合、テンプレートを保存しようとすると、 "CLICK TO CREATE"というリンクが表示されます。
+このリンクは新しい空のテンプレートファイルを生成します。
+テンプレートを削除すると、その設定は設定から削除されますが、実際のテンプレート設定ファイルは削除されません。
 END_DESCR
 
-SYNTAX: path
+SYNTAX: パス
 END_SYNTAX
 
 EXAMPLE: 
@@ -59,21 +58,19 @@ END_TIPS
 
 [ITEM]
 ID: mappedListeners
-NAME: Mapped Listeners 
+NAME: マッピングされたリスナー
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
 
-DESCR: Specifies the names of all listeners that this template maps
-to. A listener-to-virtual host mapping for this template's
-member virtual hosts will be added to the listeners specified in this field. 
-This mapping will map listeners to virtual hosts based on the domain names 
-and aliases set in the member virtual hosts' individual configurations. 
+DESCR: このテンプレートがマップするすべてのリスナーの名前を指定します。
+このテンプレートのメンバー仮想ホストのリスナー/仮想ホストマッピングが、このフィールドで指定されたリスナーに追加されます。
+このマッピングは、メンバ仮想ホストの個々の設定で設定されたドメイン名とエイリアスに基づいて、リスナを仮想ホストにマッピングします。 
 END_DESCR
 
-SYNTAX: comma-separated list
+SYNTAX: カンマ区切りリスト
 END_SYNTAX
 
 EXAMPLE: 
@@ -91,19 +88,18 @@ END_TIPS
 
 [ITEM]
 ID: templateVHName
-NAME: Virtual Host Name
+NAME: バーチャルホスト名
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: A unique name for this virtual host. This name must be unique among all 
-template member virtual hosts and standalone virtual hosts. Inside a directory 
-path configuration, this name can be referenced by the variable {val}$VH_NAME{/}.
+DESCR: この仮想ホストの一意の名前。
+この名前は、すべてのテンプレートメンバー仮想ホストとスタンドアロン仮想ホストで一意でなければなりません。
+ディレクトリパス設定では、この名前は変数{val}$VH_NAME{/}によって参照できます。
 
 
-If a standalone virtual host with the same name is also configured, then
-the member virtual host configuration will be ignored.
+同じ名前のスタンドアロン仮想ホストも設定されている場合、メンバー仮想ホスト設定は無視されます。
 END_DESCR
 
 SYNTAX: text
@@ -121,31 +117,28 @@ END_TIPS
 
 [ITEM]
 ID: templateVHDomain
-NAME: Domain
+NAME: ドメイン
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the main domain name for this member virtual host. 
-If left blank, the virtual host name will be used. This should
-be a fully qualified domain name, but you can use an IP address as well. 
-It is recommended to append {val}:<port>{/} for web sites not on port 80. 
-For configurations containing domain names, this domain can be referenced 
-with variable {val}$VH_DOMAIN{/}. 
+DESCR: このメンバー仮想ホストのメインドメイン名を指定します。
+空白のままにすると、仮想ホスト名が使用されます。
+これは完全修飾ドメイン名である必要がありますが、IPアドレスも使用できます。
+ポート80以外のWebサイトには、{val}：<port>{/}を追加することをお勧めします。
+ドメイン名を含む設定の場合、このドメインは変数{val}$VH_DOMAIN{/}で参照できます。
 
 
-This domain name will be used in the following situations:
+このドメイン名は、以下の状況で使用されます:
 <ol>
-  <li>To match the hostname in the Host header when processing a
-  request.</li>
-  <li>To populate domain name configurations for add-ons 
-  like FrontPage or AWstats.</li>
- <li>To configure listener-to-virtual host mappings based on the virtual host template.</li>
+  <li>要求を処理する際にホストヘッダー内のホスト名を照合する。</li>
+  <li>FrontPageやAWstatsなどのアドオンのドメイン名設定を入力する。</li>
+  <li>仮想ホストテンプレートに基づいてリスナーから仮想ホストへのマッピングを構成する。</li>
 </ol>
 END_DESCR
 
-SYNTAX: domain name
+SYNTAX: ドメイン名
 END_SYNTAX
 
 EXAMPLE: 
@@ -160,31 +153,29 @@ END_TIPS
 
 [ITEM]
 ID: templateVHAliases
-NAME: Aliases
+NAME: エイリアス
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies alternate names for the virtual host. All possible
-hostnames and IP addresses should be added to this list. The wildcard characters
-{val}*{/} and {val}?{/} are allowed in the name.
-Append {val}:<port>{/} for web sites not on port 80. 
+DESCR: 仮想ホストの代替名を指定します。
+すべての可能なホスト名とIPアドレスをこのリストに追加する必要があります。
+ワイルドカード文字{val}*{/}と{val}？{/}は名前に使用できます。
+ポート80にないWebサイトの場合は、{val}：<port> {/}を追加します。
 
 
-Aliases will be used in the following situations:
+エイリアスは、以下の状況で使用されます:
 <ol>
-  <li>To match the hostname in the Host header when processing a
-  request.</li>
-  <li>To populate domain name/alias configurations for add-ons 
-  like FrontPage or AWstats.</li>
-  <li>To configure listener-to-virtual host mappings based on the virtual host template.</li>
+  <li>要求を処理するときにホストヘッダー内のホスト名を照合する。</li>
+  <li>FrontPageやAWstatsなどのアドオンのドメイン名/エイリアス設定を設定する</li>
+  <li>仮想ホストテンプレートに基づいてリスナーから仮想ホストへのマッピングを構成する。</li>
 </ol>
 
 END_DESCR
 
 
-SYNTAX: Comma-separated list of domain names.
+SYNTAX: ドメイン名のカンマ区切りリスト。
 END_SYNTAX
 
 EXAMPLE: 
@@ -199,23 +190,22 @@ END_TIPS
 
 [ITEM]
 ID: memberVHRoot
-NAME: Member Virtual Host Root 
+NAME: メンバー仮想ホストルート
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the root directory of this virtual host. If left
-blank, the default virtual host root for this template will be used.
+DESCR: この仮想ホストのルートディレクトリを指定します。
+ブランクのままにすると、このテンプレートのデフォルトの仮想ホストルートが使用されます。
 
 
-Note: This is <b>NOT</b> the document root. It is recommended to place 
-all files related to the virtual host (like virtual host configuration, 
-log files, html files, CGI scripts, etc.) under this directory.  
-Virtual host root can be referred to as $VH_ROOT. 
+Note: これはドキュメントルートでは<b>ありません</b>。
+仮想ホストに関連するすべてのファイル（仮想ホスト設定、ログファイル、htmlファイル、CGIスクリプトなど）をこのディレクトリの下に配置することをお勧めします。
+仮想ホストのルートは$VH_ROOTと呼ばれます。 
 END_DESCR
 
-SYNTAX: path
+SYNTAX: パス
 END_SYNTAX
 
 EXAMPLE: 
@@ -233,7 +223,7 @@ END_TIPS
 
 [TBL]
 ID: templateGeneral
-NAME: Template Location
+NAME: テンプレートの場所
 
 DESCR: 
 END_DESCR
@@ -245,7 +235,7 @@ SEE_ALSO:
 
 [TBL]
 ID: templateMembers
-NAME: Member Virtual Hosts
+NAME: メンバー仮想ホスト
 
 DESCR: 
 END_DESCR
@@ -260,36 +250,24 @@ SEE_ALSO:
 
 [PAGE]
 ID: Templates_Help 
-NAME: Virtual Host Templates
+NAME: 仮想ホストテンプレート
 NS: L
 
-DESCR: Virtual host template can be used to simplify the
-administration of virtual hosts with similar configuration,
-especially, for mass hosting environment. Once a template is configured
-properly, only minimum configuration is required when adding a new virtual
-host. 
+DESCR: 仮想ホストテンプレートを使用すると、同様の設定、特に大量のホスト環境の仮想ホストの管理を簡素化できます。
+テンプレートが正しく構成されたら、新しい仮想ホストを追加するときに最小限の設定だけが必要です。
 
 
-Each template contains a template configuration file, a list of mapped listeners
-and a list of member virtual hosts. 
+各テンプレートには、テンプレート構成ファイル、マップされたリスナーのリスト、およびメンバー仮想ホストのリストが含まれています。 
 
 
-The template configuration file contains all configuration entries for a virtual host, with some
-fields requiring special values. 
+テンプレート構成ファイルには、仮想ホストのすべての構成エントリが含まれ、一部のフィールドには特殊な値が必要です。
+
+テンプレートベースの仮想ホストを追加するには、一意の仮想ホスト名とその仮想ホストの修飾ドメイン名を使用して、テンプレートメンバーリストにメンバーを追加するだけです。
+リスナー/仮想ホストマッピングは、マップされたリスナーリストのすべてのリスナーに対して自動的に追加されます。
 
 
-To add a template-based virtual host, administrator only needs to
-add a member to the template member list with a unique virtual host name and a
-qualified domain name of that virtual host.
-Listener-to-virtual host mapping will be added automatically for 
-all listeners in the mapped listener list.
-
-
-Later on, if you need to customize the configuration for a particular
-virtual host, just "instantiate" that member virtual host, a
-standalone virtual host configuration will be created automatically.
-Even when setting up a virtual host with different configuration,
-it is still convenient to use a template as a starting point, and then customize it after instantiation.
+後で、特定の仮想ホストの構成をカスタマイズし、そのメンバー仮想ホストを「インスタンス化」するだけで、スタンドアロンの仮想ホスト構成が自動的に作成されます。
+構成が異なる仮想ホストを設定する場合でも、テンプレートを開始点として使用し、インスタンシエーション後にカスタマイズすると便利です。
 END_DESCR
 
 SEE_ALSO: 
@@ -299,29 +277,21 @@ SEE_ALSO:
 
 [PAGE]
 ID: Templates_Help 
-NAME: Virtual Host Templates
+NAME: 仮想ホストテンプレート
 NS: EO
 
-DESCR: Virtual host templates make it easy to create many new virtual
-hosts with similar configurations. 
+DESCR:仮想ホストテンプレートを使用すると、同様の構成で多くの新しい仮想ホストを簡単に作成できます。 
 
 
-Each template contains a template configuration file, a list of mapped listeners,
-and a list of member virtual hosts.
+各テンプレートには、テンプレート構成ファイル、マップされたリスナーのリスト、およびメンバー仮想ホストのリストが含まれています。
 
 
-To add a template-based virtual host, the administrator only needs to
-add a member with a unique virtual host name and a
-qualified domain name to the template member list.
-Listener-to-virtual host mapping will be added automatically for 
-all listeners in the template's mapped listener list. 
+テンプレートベースの仮想ホストを追加するには、管理者は一意の仮想ホスト名と修飾ドメイン名を持つメンバーをテンプレートメンバーリストに追加するだけです。
+リスナー/仮想ホストマッピングは、テンプレートのマップされたリスナーリストのすべてのリスナーに対して自動的に追加されます。
 
 
-Later on, if you need to customize the configuration for a particular
-virtual host, just "instantiate" that member virtual host and a
-standalone virtual host configuration will be created automatically.
-Even when setting up a customized virtual host,
-a template can still be a convenient starting point.
+後で、特定の仮想ホストの設定をカスタマイズする必要がある場合、そのメンバー仮想ホストとスタンドアロン仮想ホスト設定が自動的に作成されます。
+カスタマイズされた仮想ホストを設定する場合でも、テンプレートはまだ便利な出発点になります。
 END_DESCR
 
 SEE_ALSO: 
