@@ -62,7 +62,7 @@ class DocPage extends Item
         $id = $this->getId();
 		echo ("generating $id  \n");
 
-        global $config;
+        $config = Config::getInstance();
 
         $gentool = new GenTool;
 
@@ -118,11 +118,11 @@ class DocPage extends Item
 		$buf .= '</div>'; // contentwrapper
 		$buf .= $gentool->getFooter();
 
-        $docname = $config['DOCS_DIR'] . $id . '.html';
+        $docname = $config->getOutputDir('docs') . $id . '.html';
 		GenTool::writePage($docname, $buf);
 
-        if ($config['FOR_WEB']) {
-			$docname = $config['WEB_DIR'] . $id . '.html';
+        if ($config->getForWeb()) {
+			$docname = $config->getOutputDir('web') . $id . '.html';
 			$webbuf = '<div class="lsdoc_content">' . $webbuf . '</div>';
 			GenTool::writePage($docname, $webbuf);
 		}

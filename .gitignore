@@ -1,5 +1,9 @@
 .cvsignore
 output/
+CVS
+.buildpath
+.project
+.settings/
 
 nbproject/
 /static/DTblDef.php

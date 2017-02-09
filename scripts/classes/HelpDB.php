@@ -13,17 +13,38 @@
  */
 class HelpDB
 {
-    public $_db = array();
+    private $_db;
 
     public $_static = array();
     public $_index = array();
     public $_tips = array();
+	private $_terms = array();
 
 	public $_nav = array();
+	
+	private static $_instance;
 
-
-    //put your code here
-    public function buildDB()
+	public static function GenerateDocs()
+	{
+		self::$_instance = new HelpDB();
+		self::$_instance->_generateDocs();
+	}
+	
+	public static function getInstance()
+	{
+		if (!isset(self::$_instance)) {
+			die('config not initialized');
+		}
+		return self::$_instance;
+		
+	}
+			
+	private function __construct()
+	{
+		$this->_buildDB();
+	}
+    
+    private function _buildDB()
     {
         $this->_db = array(
             HelpDocDef::TYPE_ITEM => array(),
@@ -33,96 +54,98 @@ class HelpDB
             HelpDocDef::TYPE_NAV => array()
         );
 
-        global $config ;
-
-        $config['CUR_LANG'] = DEFAULT_LANG;
-
-        // generate english
-        $helpDocs = $this->getFileList($config['base_dir'] . '/text' );
-
-		foreach( $helpDocs as $doc ) {
-			$this->parseHelpDoc($doc);
+        $config = Config::getInstance();
+		
+		foreach($config->getLanguages() as $lang) {
+			$config->SetCurrentLang($lang);
+            $helpDocs = $this->_loadFileList($config->getBaseDir(), $lang);
+			foreach( $helpDocs as $doc ) {
+				$this->parseHelpDoc($doc);
+			}
 		}
-
-        foreach ($config['lang'] as $lang) {
-            if ($lang != DEFAULT_LANG) {
-                $config['CUR_LANG'] = $lang;
-
-                $helpDocs = $this->getFileList($config['base_dir'] . '/text_lang/' . $lang);
-                foreach( $helpDocs as $doc ) {
-                    $this->parseHelpDoc($doc);
-                }
-            }
-        }
-
-		$this->populateData();
+		$this->_populateData();
     }
 
-    public function generateDocs()
+    private function _generateDocs()
     {
-        global $config;
+		$config = Config::getInstance();
+		
+		foreach($config->getLanguages() as $lang) {
+			$config->SetCurrentLang($lang);
 
-        foreach ($config['lang'] as $lang) {
-            $config['CUR_LANG'] = $lang;
+			$navchain = $this->_db[HelpDocDef::TYPE_NAV][$config->getDocNav()]->getChildren();
+			foreach($navchain as $nav) {
+				if ($seq = $nav->getSeq()) {
+					foreach($seq as $pid) {
+						$page = $this->getNavPage($pid);
+						$page->genDoc($this);
+					}
+				}
+			}
 
-            if ($lang == DEFAULT_LANG) {
-                $config['DOCS_DIR'] = $config['outdir']['docs'];
-                $config['WEB_DIR'] = $config['outdir']['web'];
-            }
-            else {
-                $config['DOCS_DIR'] = $config['outdir']['docs_lang'] . $lang . '/';
-                $config['WEB_DIR'] = $config['outdir']['web_lang'] . $lang . '/';
-            }
-
-            if (!file_exists($config['DOCS_DIR'])) {
-                mkdir($config['DOCS_DIR']);
-            }
-            if (!file_exists($config['WEB_DIR'])) {
-                mkdir($config['WEB_DIR']);
-            }
-
-            if ( isset($config['doc_nav']) ) {
-                $navchain = $this->_db[HelpDocDef::TYPE_NAV][$config['doc_nav']]->getChildren();
-                foreach($navchain as $nav) {
-                    if ($seq = $nav->getSeq()) {
-                        foreach($seq as $pid) {
-                            $page = $this->getNavPage($pid);
-                            $page->genDoc($this);
-                        }
-                    }
-                }
-            }
-
-            if ( isset($config['tip_nav']) ) {
-                if ($lang == DEFAULT_LANG && count($config['lang']) == 1) {
-                    $tipfile = $config['outdir']['tips'] . DOC_TYPE . '_tips' ;
-                }
-                else {
-                    $tipfile = $config['outdir']['tips_lang'] . $lang . '_tips' ;
-                }
-                GenTool::genTips($this, $tipfile) ;
-            }
-
+			$tipdir = $config->getOutputDir('tips');
+			if (DOC_TYPE == Config::DOC_TYPE_OLS) {
+				$tipfile = $tipdir . $lang . '_tips';
+			}
+			else {
+				$tipfile = $tipdir . DOC_TYPE . '_tips'; 
+			}
+			$this->genTips($tipfile);
         }
 
-
-        if ( $config['FOR_WEB'] ) {
+		if ($config->getForWeb()) {
             $webdocs = new GenWebDoc() ;
             $webdocs->Generate() ;
         }
 
     }
+	
+	public function genTips($outfile)
+	{
+		$fd = fopen($outfile, 'w');
+		if ( !$fd )	{
+			echo "fail to open file $outfile\n";
+			return false;
+		}
+		fwrite($fd, "<?php \n");
 
+        if (DOC_TYPE == 'ows') {
+            fwrite($fd, "\nglobal \$_tipsdb;\n\n");
+        }
+
+		$search = array("\n\n\n", "\n\n", "\r\n", "\n", '"', "'", '{ext-href}', '{ext-href-end}', '{ext-href-end-a}');
+		$replace = array('<br/><br/>', '<br/>',  ' ', ' ', '&quot;', '&#039;', '<a href="', '" target="_blank" rel="noopener noreferrer">', '</a>');
+
+        foreach( $this->_tips as $item )
+		{
+            if ( $item->hasValue('DESCR') ) {
+                $buf = $item->toToolTip();
+                fwrite($fd, $buf);
+            }
+		}
+
+        foreach( $this->_tips as $item )
+		{
+            if ( $item->hasValue('EDITTIP') ) {
+    			if ( $buf = $item->toEditTip() )
+                    fwrite($fd, $buf);
+            }
+		}
+
+		fclose($fd);
+		echo ("finish generate tips $outfile \n");
+	}
+	
 
     public function getStaticContent( $filename )
     {
-        global $config;
         $buf = '';
         if (isset($this->_static[$filename])) {
-            if (isset($this->_static[$filename][$config['CUR_LANG']]))
-                $file = $this->_static[$filename][$config['CUR_LANG']];
+			$lang = Config::CurrentLang();
+            if (isset($this->_static[$filename][$lang]))
+                $file = $this->_static[$filename][$lang];
             else
-                $file = $this->_static[$filename][DEFAULT_LANG];
+                $file = $this->_static[$filename][LanguagePack::DEFAULT_LANG];
 
             $buf = file_get_contents($file) ;
         }
@@ -133,10 +156,28 @@ class HelpDB
         return $buf ;
     }
 
-    private function getFileList( $textpath)
+    private function _loadFileList($base_dir, $lang)
     {
-        global $config;
-        $texts = array() ;
+		if ($lang == LanguagePack::DEFAULT_LANG) {
+			$textpath = $base_dir . '/text';
+		}
+		else {
+			$textpath = $base_dir . '/text_lang/' . $lang;
+		}
+		
+		global $docterms;
+
+		$texts = array() ;
+		$termsfile = "$textpath/common/BasicTerm.php";
+
+		if (file_exists($termsfile)) {
+			if (!isset($docterms)) {
+				$docterms = array();
+			}
+			$docterms[$lang] = array();
+			$ref = &$docterms[$lang];
+			include $termsfile;
+		}
         $path = array('common', DOC_TYPE) ;
         foreach ($path as $p) {
             $dir = $textpath . '/' . $p;
@@ -146,7 +187,7 @@ class HelpDB
                         $texts[] = $dir . '/' . $f ;
                     }
                     elseif (strpos($f, '.txt') !== false) {
-                        $this->_static[$f][$config['CUR_LANG']] = $dir . '/' . $f ;
+                        $this->_static[$f][$lang] = $dir . '/' . $f ;
                     }
                 }
             }
@@ -157,8 +198,6 @@ class HelpDB
 
     private function addToDB($item)
     {
-        global $config;
-
         if (!$item->inCurrentNameSpace())
             return;
 
@@ -169,19 +208,19 @@ class HelpDB
             return;
         }
 
-        $lang = $config['CUR_LANG'];
+        $lang = Config::CurrentLang();
 
         if (DEBUG) {
             $item->showErr('addToDB', 'DEBUG');
 
-            if (in_array($id, $config['DEBUG_TAG'])) {
+            if (Config::showDebugDump($id)) {
                 $item->dumpDebug();
             }
         }
 
-        if ($lang == DEFAULT_LANG) {
+        if ($lang == LanguagePack::DEFAULT_LANG) {
             if (isset($this->_index[$id])) {
-                $this->_index[$id]->showErr('duplicated ID first ' . $lang . ' defaultlang ' . DEFAULT_LANG);
+                $this->_index[$id]->showErr('duplicated ID first ' . $lang . ' defaultlang ' . LanguagePack::DEFAULT_LANG);
                 $item->showErr('duplicated ID current, ignore');
             }
             else {
@@ -277,9 +316,9 @@ class HelpDB
         return $this->_db[HelpDocDef::TYPE_PAGE][$id];
     }
 
-	private function populateData()
+	private function _populateData()
 	{
-        global $config;
+        $config = Config::getInstance();
 		foreach( $this->_db[HelpDocDef::TYPE_TBL] as $tbl ) {
             if ($cont = $tbl->getCont()) {
                 foreach ($cont as $id) {
@@ -306,56 +345,51 @@ class HelpDB
             }
 		}
 
-        if (isset($config['doc_nav'])) {
-            //doc pages
-            $navId = $config['doc_nav'];
-            $navchain = $this->getNavChain($navId);
-            $navroot = $this->_db[HelpDocDef::TYPE_NAV][$navId];
-            $navroot->setChildren($navchain);
+		$navId = $config->getDocNav();
+		$navchain = $this->getNavChain($navId);
+		$navroot = $this->_db[HelpDocDef::TYPE_NAV][$navId];
+		$navroot->setChildren($navchain);
 
-            foreach( $navchain as $nav )
-            {
-                if ($seq = $nav->getSeq()) {
-                    $topPage = $this->getNavPage($nav->getTopNav());
+		foreach( $navchain as $nav )
+		{
+			if ($seq = $nav->getSeq()) {
+				$topPage = $this->getNavPage($nav->getTopNav());
 
-                    $c = count($seq);
+				$c = count($seq);
 
-                    for ( $i = 0 ; $i < $c ; ++$i )
-                    {
-                        $curId = $seq[$i];
-                        $prevId = ($i > 0) ? $seq[$i-1] : '';
-                        $nextId = ($i < ($c-1)) ? $seq[$i+1] : '';
+				for ( $i = 0 ; $i < $c ; ++$i )
+				{
+					$curId = $seq[$i];
+					$prevId = ($i > 0) ? $seq[$i-1] : '';
+					$nextId = ($i < ($c-1)) ? $seq[$i+1] : '';
 
-                        $curPage = $this->getNavPage($curId);
-                        $prevPage = $this->getNavPage($prevId);
-                        $nextPage = $this->getNavPage($nextId);
-                        $curPage->setNav( $prevPage, $topPage, $nextPage);
-                    }
-                }
-            }
+					$curPage = $this->getNavPage($curId);
+					$prevPage = $this->getNavPage($prevId);
+					$nextPage = $this->getNavPage($nextId);
+					$curPage->setNav( $prevPage, $topPage, $nextPage);
+				}
+			}
+		}
 
-        }
+		$tipnav = $config->getTipNav();
+		// tips
+		$navchain = $this->getNavChain($tipnav);
+		$this->_db[HelpDocDef::TYPE_NAV][$tipnav]->setChildren($navchain);
 
-        if (isset($config['tip_nav'])) {
-            // tips
-            $navchain = $this->getNavChain($config['tip_nav']);
-            $this->_db[HelpDocDef::TYPE_NAV][$config['tip_nav']]->setChildren($navchain);
-
-            foreach( $navchain as $nav )
-            {
-                if ($seq = $nav->getSeq()) {
-                    foreach ($seq as $pid) {
-                        $page = $this->getNavPage($pid);
-                        $items = $page->getItems();
-                        foreach ($items as $id => $item) {
-                            if (!isset($this->_tips[$id]))
-                                $this->_tips[$id] = $item;
-                        }
-                    }
-                }
-            }
-            ksort($this->_tips);
-        }
+		foreach( $navchain as $nav )
+		{
+			if ($seq = $nav->getSeq()) {
+				foreach ($seq as $pid) {
+					$page = $this->getNavPage($pid);
+					$items = $page->getItems();
+					foreach ($items as $id => $item) {
+						if (!isset($this->_tips[$id]))
+							$this->_tips[$id] = $item;
+					}
+				}
+			}
+		}
+		ksort($this->_tips);
 
 	}
 
@@ -380,7 +414,7 @@ class HelpDB
         return $chain;
     }
 
-	public function translate($tag)
+	public function Translate($tag)
 	{
         $types = array(
             HelpDocDef::TYPE_ITEM => 'tagl',
