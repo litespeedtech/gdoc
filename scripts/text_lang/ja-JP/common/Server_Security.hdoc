@@ -132,12 +132,11 @@ APPLY: 3
 SINCE: 1.3
 SEE_ALSO: {ITEM=requiredPermissionMask}.
 
-DESCR: Specifies the restricted permission mask for static files that the
-server will not serve. For example, to prohibit serving files that are
-executable, set the mask to {val}0111{/}.
+DESCR: サーバーが提供しない静的ファイルに対する制限付きのアクセス許可マスクを指定します。
+たとえば、実行可能ファイルの配信を禁止するには、マスクを{val}0111{/}に設定します。
 
 
-See {cmd}man 2 stat{/} for all values. 
+すべての値について{cmd}man 2 stat{/}を参照してください。
 END_DESCR
 
 SYNTAX: 8進数
@@ -155,7 +154,7 @@ END_TIPS
 
 [ITEM]
 ID: restrictedScriptPermissionMask
-NAME: Script Restricted Permission Mask
+NAME: スクリプトのアクセス許可マスクの制限
 REQUIRED: 
 APPLY: 3
 SINCE: 4.1.5
