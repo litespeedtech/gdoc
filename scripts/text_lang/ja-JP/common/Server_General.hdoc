@@ -1380,20 +1380,20 @@ END_TIPS
 
 [ITEM]
 ID: apacheIgnoredModules
-NAME: Ignore Apache Modules
+NAME: Apacheモジュールを無視する
 NS: E
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies a list of names of Apache modules that should be ignored by LiteSpeed 
-while parsing the Apache configuration file. LiteSpeed will treat the listed modules as 
-unsupported. This will cause configuration directives related to these modules enclosed 
-in matching &lt;IfModule&gt; or &lt;IfDefined&gt; tags to be ignored.
+DESCR: Apache構成ファイルの解析中にLiteSpeedによって無視されるべきApacheモジュールの名前のリストを指定します。
+LiteSpeedは、リストされたモジュールをサポートされていないものとして扱います。
+
+これにより、一致する&lt;IfModule&gtタグまたは&lt;IfDefined&gtタグで囲まれたこれらのモジュールに関連する設定ディレクティブが無視されます。
 END_DESCR
 
-SYNTAX: comma delimited list of module names
+SYNTAX: カンマで区切られたモジュール名のリスト
 END_SYNTAX
 
 EXAMPLE: 
@@ -1408,16 +1408,15 @@ END_TIPS
 
 [ITEM]
 ID: jitConfig
-NAME: Just In Time Configuration
+NAME: ジャストインタイム設定
 NS: E
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: With just in time configuration, the web server only finalizes vhost configurations when that virtual host 
-is accessed for the first time, instead of loading all configurations at start up. This allows the web server to save 
-memory and speed up server start up.
+DESCR: ジャストインタイム設定では、起動時にすべての設定を読み込むのではなく、その仮想ホストが最初にアクセスされたときにWebサーバーは仮想ホストの設定を確定します。
+これにより、Webサーバーはメモリを節約し、サーバーの起動を高速化できます。
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -1442,13 +1441,11 @@ APPLY: 2
 SINCE: 
 SEE_ALSO: {ITEM=ServSecurity_Help#forceGID}
 
-DESCR: Specifies whether to run PHP script in suEXEC mode when "user"
-and "group" are specified for a virtual host. When set to {val}Yes{/}, PHP
-scripts will be executed under the user (and group unless {ITEM=ServSecurity_Help#forceGID} is set) specified.
-When set to {val}User's Home Directory Only{/}, scripts outside a user's 
-home directory will run as the global user/group that the web server
-run as. When using DirectAdmin, {val}User's Home Directory Only{/} is recommended.
-Default is {val}No{/}.
+DESCR: 仮想ホストに "user"と "group"が指定されている場合にsuEXECモードでPHPスクリプトを実行するかどうかを指定します。
+{val}はい{/}に設定すると、PHPスクリプトはユーザー（および{ITEM=ServSecurity_Help#forceGID}が設定されていない場合はグループ）で実行されます。
+{val}ユーザーのホームディレクトリのみ{/}に設定すると、ユーザーのホームディレクトリ外のスクリプトは、Webサーバーが実行されるグローバルユーザー/グループとして実行されます。
+DirectAdminを使用する場合、{val}ユーザーのホームディレクトリのみ{/}を推奨します。
+デフォルトは{val}いいえ{/}です。
 
 END_DESCR
 
@@ -1474,7 +1471,8 @@ APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum number of concurrent PHP processes that can be created by LSWS for each user when running PHP scripts in suEXEC mode. Default value is {val}5{/}.
+DESCR: suEXECモードでPHPスクリプトを実行しているときに、各ユーザーに対してLAWSによって作成できる同時PHPプロセスの最大数を指定します。
+デフォルト値は{val}5{/}です。
 
 END_DESCR
 
@@ -1484,7 +1482,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: This limit is per user per lshttpd process. Thus, if you have a 2-CPU license, this limit will be doubled. The limit will be 4x for a 4-CPU license, and so on.
+TIPS: この制限は、lshttpdプロセスごとにユーザーごとに制限されます。 したがって、2CPUライセンスをお持ちの場合、この制限は2倍になります。 4CPUライセンスの場合、制限は4倍になります。
 END_TIPS
 
 [END_ITEM]
@@ -1493,18 +1491,17 @@ END_TIPS
 
 [ITEM]
 ID: apacheEnableFP
-NAME: Enable FrontPage Extension
+NAME: FrontPage Extensionを有効にする
 NS: E
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to explicitly enable Microsoft Front Page Server
-Extension or not. Usually, LSWS will enable it when module "frontpage" has
-been loaded in Apache httpd.conf. However, when mod_frontpage is statically
-linked into the Apache binary, configuration for the FrontPage module is not in
-httpd.conf, and you need to enable it explicitly here. Default is "disabled".
+DESCR: Microsoft Front Page Server Extensionを明示的に有効にするかどうかを指定します。
+通常、LSWSはApache httpd.confにモジュール "frontpage"がロードされているときにそれを有効にします。
+しかし、mod_frontpageがApacheバイナリに静的にリンクされている場合、FrontPageモジュールの設定はhttpd.confにはなく、ここで明示的に有効にする必要があります。
+デフォルトは「無効」です。
 
 END_DESCR
 
@@ -1523,18 +1520,18 @@ END_TIPS
 
 [ITEM]
 ID: apacheEnvVars
-NAME: Apache Environment Variables
+NAME: Apache環境変数
 NS: E
 REQUIRED: 
 APPLY: 2
 SINCE: 4.1.8
-SEE_ALSO: Apache Env Syntax <a href="http://httpd.apache.org/docs/2.2/configuring.html#syntax">reference</a> 
+SEE_ALSO: Apache Env 構文 <a href="http://httpd.apache.org/docs/2.2/configuring.html#syntax">リファレンス</a> 
 
-DESCR: For shell environment variables used inside the Apache configuration file, LSWS will replace "${ENVVAR}" 
-with the values set here. If the ENVVAR variable is not set here, "${ENVVAR}" occurrences are left unchanged.
+DESCR: Apache構成ファイル内で使用されるシェル環境変数の場合、LSWSは "$ {ENVVAR}"をここで設定された値に置き換えます。
+ENVVAR変数がここで設定されていない場合、 "$ {ENVVAR}"のオカレンスは変更されません。
 END_DESCR
 
-SYNTAX: Name and value pairs, one pair per line in the form of ENV=VALUE
+SYNTAX: 名前と値のペア。ENV=VALUEの形式で1行に1組
 END_SYNTAX
 
 EXAMPLE:  
