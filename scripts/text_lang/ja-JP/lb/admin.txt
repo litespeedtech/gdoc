@@ -4,26 +4,27 @@
 
 <p class="label1"><b>1. WebAdminコンソールを使用します。</b></p>
 <ul>
-  Log in to the web administration console and hover over <span class="tag">Actions</span> in the top menu. The drop menu contains shortcuts to common tasks. Clicking on 
-<span class="tag">Actions</span> will take you to a dedicate control panel page.<br>
-Clicking on one of the shortcuts or the corresponding link on the dedicated control panel page can perform the following tasks: 
+  Web管理コンソールにログインし、トップメニューの<span class="tag">アクション</span>にカーソルを移動します。
+ドロップメニューには、一般的なタスクへのショートカットが含まれています。
+<span class="tag">アクション</span>をクリックすると、専用のコントロールパネルページに移動します。<br>
+ショートカットの1つまたは専用コントロールパネルページの対応するリンクをクリックすると、次のタスクを実行できます: 
 <ul>
-<li>Gracefully restart the server</li> 
-<li>View log</li>
-<li>Real-time monitoring</li>
-<li>Reload virtual hosts</li>
-<li>Enable/Disable virtual hosts</li>
-<li>Version management.</li>
+<li>サーバーを穏やかに再起動する</li>
+<li>ログを見る</li>
+<li>リアルタイム監視</ li>
+<li>仮想ホストをリロードする</li>
+<li>仮想ホストを有効/無効にする</li>
+<li>バージョン管理。</li>
 </ul>
-<p><a href="ServerStat_Help.html">More details ...</a></p>
-<p>To change the username and password combination for the load balancer's WebAdmin Console, run following command from shell:<br>
+<p><a href="ServerStat_Help.html">詳細...</a></p>
+<p>ロードバランサのWebAdmin Consoleのユーザー名とパスワードの組み合わせを変更するには、シェルから次のコマンドを実行します：<br>
 	<span class="cmd">[your install dir]/admin/misc/admpass.sh</span> </p>
 </ul>
-<p class="label1"><b>2. From the command line.</b></p>
+<p class="label1"><b>2.コマンドラインから。</b></p>
 <ul>
-Assuming the load balancer is installed in /opt/lslb.
+ロードバランサが/opt/lslbにインストールされていると仮定します。
 <br>
-Use the <span class="tag">lslbctrl</span> control script in the /opt/lslb/bin/ directory.<br>
+/opt/lslb/bin/ディレクトリーにある<span class="tag">lslbctrl</span>制御スクリプトを使用します。<br>
 <p>
 ロードバランサを起動するには：<br>
 <span class="cmd">/opt/lslb/bin/lslbctrl start</span>

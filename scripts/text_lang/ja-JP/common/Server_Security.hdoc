@@ -5,26 +5,25 @@
 
 [ITEM]
 ID: followSymbolLink
-NAME: Follow Symbolic Link
+NAME: シンボリックリンクに従う
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=checkSymbolLink}.
 
-DESCR: Specifies the server-level default setting of following symbolic links 
-when serving static files. 
+DESCR: 静的ファイルを提供する際のシンボリックリンクのサーバーレベルのデフォルト設定を指定します。 
 
 
-Choices are {val}Yes{/}, {val}If Owner Match{/} and {val}No{/}. 
+選択肢は{val}はい{/}、{val}オーナーと一致する場合{/} {val}いいえ{/}です。 
 
 
-{val}Yes{/} sets the server to always follow symbolic links. 
-{val}If Owner Match{/} sets the server to follow a symbolic link only if the owner of the link and of the target are same. 
-{val}No{/} means the server will never follow a symbolic link. 
-This setting can be overridden in the virtual host configurations but cannot be overridden from an .htaccess file.
+{val}はい{/}は、シンボリックリンクに常に従うようにサーバーを設定します。
+{val}所有者の一致がの場合{/}は、リンクの所有者とターゲットの所有者が同じ場合にのみシンボリックリンクに従うようにサーバーを設定します。 
+{val}いいえ{/}は、サーバーがシンボリックリンクを決して辿らないことを意味します。 
+この設定は仮想ホスト設定で上書きできますが、.htaccessファイルで上書きすることはできません。
 END_DESCR
 
-EDITTIP: If Follow-Symbolic-Link is enabled, you can still disable it at virtual host level.
+EDITTIP: Follow-Symbolic-Linkが有効になっている場合でも、仮想ホストレベルでそれを無効にできます。
 END_EDITTIP
 
 SYNTAX: ドロップダウンリストから選択
@@ -1144,7 +1143,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: ServSecurity_Help 
-NAME: Server Security
+NAME: サーバーのセキュリティ
 NS: EO
 
 DESCR: 
@@ -1157,7 +1156,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: ServSecurity_Help 
-NAME: Server Security
+NAME: サーバーのセキュリティ
 NS: L
 
 DESCR: 
