@@ -5,26 +5,25 @@
 
 [ITEM]
 ID: followSymbolLink
-NAME: Follow Symbolic Link
+NAME: シンボリックリンクに従う
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=checkSymbolLink}.
 
-DESCR: Specifies the server-level default setting of following symbolic links 
-when serving static files. 
+DESCR: 静的ファイルを提供する際のシンボリックリンクのサーバーレベルのデフォルト設定を指定します。 
 
 
-Choices are {val}Yes{/}, {val}If Owner Match{/} and {val}No{/}. 
+選択肢は{val}はい{/}、{val}オーナーと一致する場合{/} {val}いいえ{/}です。 
 
 
-{val}Yes{/} sets the server to always follow symbolic links. 
-{val}If Owner Match{/} sets the server to follow a symbolic link only if the owner of the link and of the target are same. 
-{val}No{/} means the server will never follow a symbolic link. 
-This setting can be overridden in the virtual host configurations but cannot be overridden from an .htaccess file.
+{val}はい{/}は、シンボリックリンクに常に従うようにサーバーを設定します。
+{val}所有者の一致がの場合{/}は、リンクの所有者とターゲットの所有者が同じ場合にのみシンボリックリンクに従うようにサーバーを設定します。 
+{val}いいえ{/}は、サーバーがシンボリックリンクを決して辿らないことを意味します。 
+この設定は仮想ホスト設定で上書きできますが、.htaccessファイルで上書きすることはできません。
 END_DESCR
 
-EDITTIP: If Follow-Symbolic-Link is enabled, you can still disable it at virtual host level.
+EDITTIP: Follow-Symbolic-Linkが有効になっている場合でも、仮想ホストレベルでそれを無効にできます。
 END_EDITTIP
 
 SYNTAX: ドロップダウンリストから選択
@@ -43,20 +42,20 @@ END_TIPS
 
 [ITEM]
 ID: checkSymbolLink
-NAME: Check Symbolic Link
+NAME: シンボリックリンクを確認する
+
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=followSymbolLink}, {ITEM=accessDenyDir} 
 
-DESCR: Specifies whether to check symbolic links against {ITEM=accessDenyDir} 
-when {ITEM=followSymbolLink} is turned on. If enabled, the canonical real path of the resource 
-referred by a URL will be checked against the configurable access denied directories. 
-Access will be denied if it falls inside an access denied directory.
+DESCR: {ITEM=followSymbolLink}がオンになっているときに、{ITEM=accessDenyDir}に対するシンボリックリンクをチェックするかどうかを指定します。
+有効にすると、URLで参照されるリソースのカノニカル実パスが、設定可能なアクセス拒否ディレクトリと照合されます。
+アクセスが拒否されたディレクトリ内にある場合、アクセスは拒否されます。
 END_DESCR
 
-EDITTIP: Check-Symbolic-Link control will take effect only if Follow-Symbolic-Link is turned on. 
-This controls whether symbolic links are checked against Access Denied Directories.
+EDITTIP: Check-Symbolic-Link制御は、Follow-Symbolic-Linkがオンになっている場合にのみ有効です。
+これは、シンボリックリンクがアクセス拒否ディレクトリに対してチェックされるかどうかを制御します。
 END_EDITTIP
 
 SYNTAX: ラジオボックスから選択
@@ -65,7 +64,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance & security] For best security, enable this option. For best performance, disable it.
+TIPS: [パフォーマンス & セキュリティ]最高のセキュリティを実現するには、このオプションを有効にします。 最高のパフォーマンスを得るには、無効にしてください。
 END_TIPS
 
 [END_ITEM]
@@ -74,16 +73,16 @@ END_TIPS
 
 [ITEM]
 ID: forceStrictOwnership
-NAME: Force Strict Ownership Checking
+NAME: 厳格な所有権チェックを強制する
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to enforce strict file ownership checking. 
-If it is enabled, the web server will check if the owner of the file being served is the same as 
-the owner of the virtual host. If it is different, a 403 Access Denied Error will be returned.
-This is turned off by default.
+DESCR: 厳密なファイル所有権チェックを実施するかどうかを指定します。
+有効になっている場合、Webサーバーは、提供されるファイルの所有者が仮想ホストの所有者と同じかどうかをチェックします。
+異なる場合は、403アクセス拒否エラーが返されます。
+これはデフォルトではオフになっています。
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -92,7 +91,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [security] For shared hosting, enable this check for better security.
+TIPS: [セキュリティ]共有ホスティングの場合、このチェックを有効にしてセキュリティを強化します。
 END_TIPS
 
 [END_ITEM]
@@ -101,19 +100,18 @@ END_TIPS
 
 [ITEM]
 ID: requiredPermissionMask
-NAME: Required Permission Mask
+NAME: 必要な許可マスク
 REQUIRED: 
 APPLY: 3
 SINCE: 1.3
 SEE_ALSO: {ITEM=restrictedPermissionMask}.
 
-DESCR: Specifies the required permission mask for static files that the
-server will serve. For example, if only files that are readable
-by everyone can be served, set the value to {val}0004{/}.
-See {cmd}man 2 stat{/} for all values.
+DESCR: サーバーが提供する静的ファイルに必要なアクセス許可マスクを指定します。
+たとえば、全員が読み取り可能なファイルのみを処理できる場合は、値を{val}0004{/}に設定します。
+すべての値について{cmd}man 2 stat{/}を参照してください
 END_DESCR
 
-SYNTAX: octal numbers
+SYNTAX: 8進数
 END_SYNTAX
 
 EXAMPLE: 
@@ -128,21 +126,20 @@ END_TIPS
 
 [ITEM]
 ID: restrictedPermissionMask
-NAME: Restricted Permission Mask
+NAME: 制限付き許可マスク
 REQUIRED: 
 APPLY: 3
 SINCE: 1.3
 SEE_ALSO: {ITEM=requiredPermissionMask}.
 
-DESCR: Specifies the restricted permission mask for static files that the
-server will not serve. For example, to prohibit serving files that are
-executable, set the mask to {val}0111{/}.
+DESCR: サーバーが提供しない静的ファイルに対する制限付きのアクセス許可マスクを指定します。
+たとえば、実行可能ファイルの配信を禁止するには、マスクを{val}0111{/}に設定します。
 
 
-See {cmd}man 2 stat{/} for all values. 
+すべての値について{cmd}man 2 stat{/}を参照してください。
 END_DESCR
 
-SYNTAX: octal numbers
+SYNTAX: 8進数
 END_SYNTAX
 
 EXAMPLE: 
@@ -157,28 +154,27 @@ END_TIPS
 
 [ITEM]
 ID: restrictedScriptPermissionMask
-NAME: Script Restricted Permission Mask
+NAME: スクリプトのアクセス許可マスクの制限
 REQUIRED: 
 APPLY: 3
 SINCE: 4.1.5
 SEE_ALSO: {ITEM=restrictedDirPermissionMask}.
 
-DESCR: Specifies the restricted permission mask for script files that the
-server will not serve. For example, to prohibit serving PHP scripts that are
-group and world writable, set the mask to {val}022{/}. Default value is {val}000{/}.
+DESCR: サーバーが提供しないスクリプトファイルに対する制限付きアクセス許可マスクを指定します。
+たとえば、グループおよびワールド書き込み可能なPHPスクリプトの配信を禁止するには、マスクを{val}022{/}に設定します。 デフォルト値は{val}000{/}です。
 
 
-See {cmd}man 2 stat{/} for all values. 
+すべての値について{cmd}man 2 stat{/}を参照してください。
 
 END_DESCR
 
-SYNTAX: octal numbers
+SYNTAX: 8進数
 END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: 
+TIPS: fur
 END_TIPS
 
 [END_ITEM]
@@ -187,24 +183,23 @@ END_TIPS
 
 [ITEM]
 ID: restrictedDirPermissionMask
-NAME: Script Directory Restricted Permission Mask
+NAME: スクリプトディレクトリのアクセス許可マスクの制限
 REQUIRED: 
 APPLY: 3
 SINCE: 4.1.5
 SEE_ALSO: {ITEM=restrictedScriptPermissionMask}.
 
-DESCR: Specifies the restricted permission mask of parent directories of script files that the
-server will not serve. For example, to prohibit serving PHP scripts in a directory that is
-group and world writable, set the mask to {val}022{/}. Default value is
-{val}000{/}. This option can be used to prevent serving scripts under a directory of
- uploaded files. 
+DESCR: Sサーバーが提供しないスクリプトファイルの親ディレクトリの制限付きアクセス許可マスクを指定します。
+たとえば、グループおよびワールド書き込み可能なディレクトリでPHPスクリプトを処理することを禁止するには、マスクを{val}022{/}に設定します。
+デフォルト値は{val}000{/}です。
+このオプションを使用して、アップロードされたファイルのディレクトリ下でスクリプトを提供しないようにすることができます。
 
 
-See {cmd}man 2 stat{/} for all values. 
+すべての値について{cmd}man 2 stat{/}を参照してください。
 
 END_DESCR
 
-SYNTAX: octal numbers
+SYNTAX: 8進数
 END_SYNTAX
 
 EXAMPLE: 
@@ -222,22 +217,20 @@ END_TIPS
 
 [ITEM]
 ID: staticReqPerSec
-NAME: Static Requests/Second
+NAME: 静的リクエスト/秒
 NS: EO
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=dynReqPerSec}
 
-DESCR: Specifies the maximum number of requests to static content coming from a single
-IP address that can be processed in a single second regardless of the number of
-connections established. 
+DESCR: 確立された接続の数に関係なく、1秒間に処理できる単一のIPアドレスからの静的コンテンツへの要求の最大数を指定します。
 
 
-When this limit is reached, all future requests are tar-pitted until the next second. 
-Request limits for dynamically generated content are independent of this limit.
-Per-client request limits can be set at server- or virtual host-level. 
-Virtual host-level settings override server-level settings.
+この制限に達すると、将来のすべての要求は次の秒までtar-pittedされます。
+動的に生成されるコンテンツのリクエスト制限は、この制限とは関係ありません。
+クライアントごとの要求制限は、サーバーまたは仮想ホストレベルで設定できます。
+仮想ホストレベルの設定は、サーバーレベルの設定よりも優先されます。
 END_DESCR
 
 SYNTAX: 整数
@@ -247,7 +240,7 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: 
-[Security] Trusted IPs or sub-networks are not affected.
+[セキュリティ]信頼できるIPまたはサブネットワークは影響を受けません。
 END_TIPS
 
 [END_ITEM]
@@ -256,7 +249,7 @@ END_TIPS
 
 [ITEM]
 ID: dynReqPerSec
-NAME: Dynamic Requests/Second
+NAME: 動的リクエスト/秒
 NS: EO
 REQUIRED: 
 APPLY: 3
@@ -1144,7 +1137,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: ServSecurity_Help 
-NAME: Server Security
+NAME: サーバーのセキュリティ
 NS: EO
 
 DESCR: 
@@ -1157,7 +1150,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: ServSecurity_Help 
-NAME: Server Security
+NAME: サーバーのセキュリティ
 NS: L
 
 DESCR: 

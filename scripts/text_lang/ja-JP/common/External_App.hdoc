@@ -560,13 +560,12 @@ APPLY: 2
 SINCE: 
 SEE_ALSO: {ITEM=autoStart} 
 
-DESCR: Specifies the full command line including parameters to execute
-the external application. Required value if 
-{ITEM=autoStart} is enabled. A parameter should be quoted with a
-double or single quote if the parameter contains space or tab characters.
+DESCR: 外部アプリケーションを実行するためのパラメータを含む完全なコマンドラインを指定します。
+{ITEM=autoStart}が有効な場合は必須値です。
+パラメータにスペースまたはタブ文字が含まれている場合は、パラメータを二重引用符または一重引用符で囲む必要があります。
 END_DESCR
 
-SYNTAX: Full path to the executable with optional parameters.
+SYNTAX: オプションのパラメータを含む実行可能ファイルへのフルパス。
 END_SYNTAX
 
 EXAMPLE: 
@@ -581,16 +580,18 @@ END_TIPS
 
 [ITEM]
 ID: backlog
-NAME: Back Log
+NAME: バックログ
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the backlog of the listening socket.  Required if {ITEM=autoStart} is enabled.
+DESCR: リスニングソケットのバックログを指定します。
+{ITEM=autoStart}が有効な場合は必須です。
 END_DESCR
 
-EDITTIP: Local applications can be started by the web server. In this case, you need to specify the path, backlog and number of instances.
+EDITTIP: ローカルアプリケーションは、Webサーバーによって開始できます。
+この場合、パス、バックログ、インスタンス数を指定する必要があります。
 END_EDITTIP
 
 SYNTAX: 整数
@@ -608,20 +609,17 @@ END_TIPS
 
 [ITEM]
 ID: instances
-NAME: Instances
+NAME: インスタンス
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum instances of the external application the server will
-create. It is required if {ITEM=autoStart} is
-enabled. Most FastCGI/LSAPI applications can only process one request
-per process instance and for those types of applications, instances should
-be set to match the value of {ITEM=maxConns}. Some FastCGI/LSAPI applications can 
-spawn multiple child processes to handle multiple requests concurrently. 
-For these types of applications, instances should be set to "1" and  
-environment variables used to control how many child processes the application can spawn.
+DESCR: サーバーが作成する外部アプリケーションの最大インスタンスを指定します。
+{ITEM=autoStart}が有効な場合は必須です。
+ほとんどのFastCGI/LSAPIアプリケーションは、プロセスインスタンスごとに1つの要求しか処理できません。これらのタイプのアプリケーションの場合、インスタンスは{ITEM=maxConns}の値に一致するように設定する必要があります。
+一部のFastCGI / LSAPIアプリケーションでは、複数の子プロセスを生成して複数の要求を同時に処理できます。
+これらのタイプのアプリケーションでは、インスタンスを "1"に設定し、環境変数を使用してアプリケーションが生成できる子プロセスの数を制御する必要があります。
 END_DESCR
 
 SYNTAX: 整数
@@ -639,13 +637,14 @@ END_TIPS
 
 [ITEM]
 ID: extUser
-NAME: suEXEC User
+NAME: suEXECユーザー
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: extGroup
 
-DESCR: Specifies username that the external application will run as. If not set, the external application will run as the user of the web server.   
+DESCR: 外部アプリケーションが実行されるユーザー名を指定します。
+設定されていない場合、外部アプリケーションはWebサーバーのユーザーとして実行されます。   
 END_DESCR
 
 SYNTAX: 有効なユーザー名。
@@ -662,13 +661,13 @@ END_TIPS
 
 [ITEM]
 ID: extGroup
-NAME: suEXEC Group
+NAME: suEXECグループ
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: extUser
 
-DESCR: Specifies group name that the external application will run as.    
+DESCR: 外部アプリケーションが実行されるグループ名を指定します。    
 END_DESCR
 
 SYNTAX: 有効なグループ名。
@@ -710,16 +709,15 @@ END_TIPS
 
 [ITEM]
 ID: runOnStartUp
-NAME: Run On Start Up
+NAME: 起動時に実行
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to start the external application at server start
-up. Only applicable to external applications that can manage their own child processes and where 
-{ITEM=instances} value is set to "1".
-If enabled, external processes will be created at server startup instead of run-time.   
+DESCR: サーバーの起動時に外部アプリケーションを起動するかどうかを指定します。
+自身の子プロセスを管理できる外部アプリケーション、および{ITEM=instances}の値が "1"に設定されている場合にのみ適用されます。
+有効にすると、実行時ではなくサーバーの起動時に外部プロセスが作成されます。   
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -728,28 +726,24 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS:[Performance] If the configured external process has significant startup overhead, like a Rails app, then 
-this option should be enabled to decrease first page response time. 
-END_TIPS
+TIPS:[パフォーマンス] Railsアプリケーションのように、設定された外部プロセスに重大な起動オーバーヘッドがある場合、このオプションを有効にして最初のページ応答時間を短縮する必要があります。
 [END_ITEM]
 
 
 
 [ITEM]
 ID: extMaxIdleTime
-NAME: Max Idle Time
+NAME: 最大アイドル時間
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum idle time before an external application
-is stopped by the server. When set to "-1", the external application
-will not be stopped by the server. The default value is "-1". This feature
-allows resources used by idle applications to be freed. It is
-especially useful in the mass hosting environment when you need to define
-many applications running in "setuid" mode for the sake of maximum
-security. 
+DESCR: サーバーが外部アプリケーションを停止するまでの最大アイドル時間を指定します。
+"-1"に設定すると、外部アプリケーションはサーバーによって停止されません。
+デフォルト値は "-1"です。
+この機能により、アイドル状態のアプリケーションが使用するリソースを解放することができます。
+最大限のセキュリティを確保するために、setuidモードで動作する多くのアプリケーションを定義する必要がある場合には、マスホスティング環境で特に便利です。 
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -758,11 +752,9 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] This feature is especially useful in the mass hosting environment. 
-In order to prevent files owned by one virtual host from being accessed by the 
-external application scripts of another virtual host, mass hosting often requires 
-many different applications running at the same time in SetUID mode. Set this Max 
-Idle Time low to prevent these external applications from idling unnecessarily.
+TIPS: [パフォーマンス]この機能は、大規模なホスティング環境で特に便利です。
+ある仮想ホストが所有するファイルが別の仮想ホストの外部アプリケーションスクリプトによってアクセスされないようにするため、大量ホスティングではSetUIDモードで同時に多くの異なるアプリケーションを実行する必要があります。
+これらの外部アプリケーションが不必要にアイドリングしないように、この最大アイドル時間を低く設定します。
 END_TIPS
 
 [END_ITEM]
@@ -771,19 +763,20 @@ END_TIPS
 
 [ITEM]
 ID: extAppPriority
-NAME: Priority
+NAME: 優先度
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: Server {ITEM=ServGeneral_Help#serverPriority}
 
-DESCR: Specifies priority of the external application process. Value ranges from
-{val}-20{/} to {val}20{/}. A lower number means a higher priority. 
-An external application process cannot have a higher priority than the web server. If this
-priority is set to a lower number than the server's, the server's priority will be used for this value.
+DESCR: 外部アプリケーション・プロセスの優先度を指定します。
+値の範囲は{val}−20{/}〜{val}20{/}です。
+数字が小さいほど優先度が高くなります。
+外部アプリケーションプロセスは、Webサーバーよりも高い優先度を持つことはできません。
+この優先度がサーバーの数値より低い数値に設定されている場合は、サーバーの優先度がこの値に使用されます。
 END_DESCR
 
-SYNTAX: int
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -798,29 +791,32 @@ END_TIPS
 
 [ITEM]
 ID: procSoftLimit
-NAME: Process Soft Limit
+NAME: プロセスソフトリミット
 NS: E
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Limits the total number of processes that can be created on behalf of a user. All existing processes will be counted against this limit, not just new 
-processes to be started.
+DESCR: ユーザーに代わって作成できるプロセスの総数を制限します。
+既存のすべてのプロセスは、開始される新しいプロセスだけでなく、この限度に対してカウントされます。
 
 
-The limit can be set at the server level or at an individual external application level. The server-level limit will be used if it is not set at an 
-individual application level. 
-The operating system's default setting will be used if this value is 0 or absent at both levels.
+制限は、サーバーレベルまたは個々の外部アプリケーションレベルで設定できます。
+サーバーレベルの制限は、個々のアプリケーションレベルで設定されていない場合に使用されます。
+この値が0または両方のレベルにない場合、オペレーティングシステムのデフォルト設定が使用されます。
 END_DESCR
 
-EDITTIP: Process soft/hard limit controls how many processes are allowed for one user. This includes all the processes spawned by CGI application. OS level limit is used if not set.
+EDITTIP: プロセスソフト/ハードリミットは、1人のユーザーに許可されるプロセスの数を制御します。
+これには、CGIアプリケーションによって生成されたすべてのプロセスが含まれます。
+設定されていない場合、OSレベル制限が使用されます。
 END_EDITTIP
 
-EDITTIP: Set to 0 or empty will use operation system default value for all soft/hard limits.
+EDITTIP: 0または空に設定すると、すべてのソフト/ハードリミットにオペレーティングシステムのデフォルト値が使用されます。
 END_EDITTIP
 
-EDITTIP: The soft limit is the value that the kernel enforces for the corresponding resource. The hard limit acts as a ceiling for the soft limit
+EDITTIP: ソフトリミットは、カーネルが対応するリソースに対して実施する値です。
+ハードリミットは、ソフトリミットの天井として機能します。
 END_EDITTIP 
 
 SYNTAX: 整数
@@ -830,13 +826,14 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: 
-To control how many processes LSWS will make for users in suEXEC mode, use the suEXEC Max Conn setting. PHP scripts can call for forking processes 
-and the number of processes needed for normal functioning can be above the suEXEC Max Conn setting. The main purpose of this limit is as a last line of 
-defense to prevent fork bombs and other attacks caused by PHP processes creating other processes. 
+suEXECモードでLSWSがユーザーに対して行うプロセスの数を制御するには、suEXEC Max Conn設定を使用します。
+PHPスクリプトはプロセスをフォークするために呼び出すことができ、通常の機能に必要なプロセスの数はsuEXEC Max Connの設定を上回る可能性があります。
+この制限の主な目的は、フォーク爆弾や他のプロセスを作成するPHPプロセスによって引き起こされる他の攻撃を防ぐための最終防衛線です。
 
-Setting this setting too low can severely hurt functionality. The setting will thus be ignored below certain levels.
+この設定を低すぎると、機能が著しく損なわれる可能性があります。
+この設定は特定のレベル以下では無視されます。
 
-When using suEXEC Daemon mode, the actual process limit will be higher than this setting to make sure parent processes are not limited.
+suEXECデーモンモードを使用する場合、親プロセスが制限されないように、実際のプロセス制限はこの設定よりも高くなります。
 
 END_TIPS
 
@@ -846,27 +843,31 @@ END_TIPS
 
 [ITEM]
 ID: procSoftLimit
-NAME: Process Soft Limit
+NAME: プロセスソフトリミット
 NS: O
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Limits the total number of processes that can be created on behalf of a user. All existing processes will be counted against this limit, not just new 
-processes to be started.
+DESCR: ユーザーに代わって作成できるプロセスの総数を制限します。
+既存のすべてのプロセスは、開始される新しいプロセスだけでなく、この限度に対してカウントされます。
+制限は、サーバーレベルまたは個々の外部アプリケーションレベルで設定できます。
 
-The limit can be set at the server level or at an individual external application level. The server-level limit will be used if it is not set at an 
-individual application level. The operating system's default setting will be used if this value is 0 or absent at both levels.
+サーバーレベルの制限は、個々のアプリケーションレベルで設定されていない場合に使用されます。
+この値が0または両方のレベルにない場合、オペレーティングシステムのデフォルト設定が使用されます。
 END_DESCR
 
-EDITTIP: Process soft/hard limit controls how many processes are allowed for one user. This includes all the processes spawned by CGI application. OS level limit is used if not set.
+EDITTIP: プロセスソフト/ハードリミットは、1人のユーザーに許可されるプロセスの数を制御します。
+これには、CGIアプリケーションによって生成されたすべてのプロセスが含まれます。
+設定されていない場合、OSレベル制限が使用されます。
 END_EDITTIP
 
-EDITTIP: Set to 0 or empty will use operation system default value for all soft/hard limits.
+EDITTIP: 0または空に設定すると、すべてのソフト/ハードリミットにオペレーティングシステムのデフォルト値が使用されます。
 END_EDITTIP
 
-EDITTIP: The soft limit is the value that the kernel enforces for the corresponding resource. The hard limit acts as a ceiling for the soft limit
+EDITTIP: ソフトリミットは、カーネルが対応するリソースに対して実施する値です。
+ハードリミットは、ソフトリミットの上限として機能します。
 END_EDITTIP 
 
 SYNTAX: 整数
@@ -876,12 +877,13 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: 
-PHP scripts can call for forking processes. The main purpose of this limit is as a last line of defense to prevent fork bombs and 
-other attacks caused by PHP processes creating other processes. 
+PHPスクリプトはプロセスをフォークするために呼び出すことができます。
+この制限の主な目的は、フォーク爆弾や他のプロセスを作成するPHPプロセスによって引き起こされる他の攻撃を防ぐための最終防衛線です。
 
-Setting this setting too low can severely hurt functionality. The setting will thus be ignored below certain levels.
+この設定を低すぎると、機能が著しく損なわれる可能性があります。
+この設定は特定のレベル以下では無視されます。
 
-When using suEXEC Daemon mode, the actual process limit will be higher than this setting to make sure parent processes are not limited.
+suEXECデーモンモードを使用する場合、親プロセスが制限されないように、実際のプロセス制限はこの設定よりも高くなります。
 END_TIPS
 
 [END_ITEM]
@@ -893,7 +895,7 @@ END_TIPS
 
 [TBL]
 ID: extapp
-NAME: External Application Settings
+NAME: 外部アプリケーション設定
 NS: EO
 
 DESCR: 
@@ -932,7 +934,7 @@ SEE_ALSO:
 
 [TBL]
 ID: extServlet
-NAME: Servlet Engine
+NAME: サーブレットエンジン
 NS: EO
 
 DESCR: 
@@ -987,91 +989,70 @@ SEE_ALSO:
 
 [PAGE]
 ID: ExtApp_Help 
-NAME: External Application
+NAME: 外部アプリケーション
 NS: EO
 
-DESCR: LiteSpeed web server can forward requests to external applications to 
-process and generate dynamic content. 
- 
-Since 2.0, LiteSpeed Web Server has supported seven types of external
-applications: CGI, FastCGI, web server, servlet engine, LiteSpeed SAPI
-application, load balancer, and piped logger.
+DESCR: LiteSpeed Webサーバーは、動的コンテンツを処理および生成するために外部アプリケーションに要求を転送できます。
+ 
+LiteSpeed Web Serverは、2.0以降、CGI、FastCGI、Webサーバー、サーブレットエンジン、LiteSpeed SAPIアプリケーション、ロードバランサ、およびパイプロガーの7種類の外部アプリケーションをサポートしています。
 
 <ul>
-<li>CGI stands for Common Gateway Interface. The current standard is CGI/1.1. 
-   CGI applications run in standalone processes. A CGI process is started 
-   for each request and will exit after finishing the request. 
+<li>CGIはCommon Gateway Interfaceの略です。 現在の標準はCGI / 1.1です。  
+CGIアプリケーションはスタンドアロンプロセスで動作します。
+各要求に対してCGIプロセスが開始され、要求終了後に終了します。 
 </li>
-<li>FastCGI is a fast, open, and secure web server interface that solves the 
-  performance problems inherent in CGI without introducing the overhead and 
-  complexity of proprietary APIs (Application Programming
-  Interfaces).  For more information, please visit {ext-href}http://www.fastcgi.com{ext-href-end}http://www.fastcgi.com{ext-href-end-a}.
+<li>FastCGIは、プロプライエタリなAPI（アプリケーションプログラミングインターフェイス）のオーバーヘッドと複雑さを導入することなく、CGIに内在するパフォーマンスの問題を解決する、高速でオープンで安全なWebサーバーインターフェイスです。
+詳細については、{ext-href} http://www.fastcgi.com {ext-href-end} http://www.fastcgi.com {ext-href-end-a}をご覧ください。
 
-  On LiteSpeed Web Server, FastCGI applications can take two roles: 
-  generating dynamic responses (a responder role) or authorizing requests 
-  (an authorizer role). LiteSpeed Web Server further defines two types of 
-  FastCGI applications: local FastCGI and remote FastCGI. 
-  Local FastCGI applications are started automatically by the web server
-  on demand. Remote FastCGI applications are not started by the web server. 
-  (They can run on a remote machine or on the same machine.)
+LiteSpeed Web Serverでは、FastCGIアプリケーションは動的応答の生成（応答者の役割）または要求の承認（承認者の役割）の2つの役割を果たすことができます。
+LiteSpeed Web Serverは、ローカルFastCGIとリモートFastCGIの2種類のFastCGIアプリケーションをさらに定義します。
+ローカルFastCGIアプリケーションは、オンデマンドでWebサーバーによって自動的に開始されます。 リモートFastCGIアプリケーションは、Webサーバーによって開始されません。
+   （これらはリモートマシン上または同じマシン上で実行できます。）
 </li>
-<li>a web server is a server application that supports HTTP 1.0/1.1
-protocols. LiteSpeed web server can serve as a transparent reverse proxy
-to accelerate and protect web servers and application servers. 
-When communicating with backend web servers, LiteSpeed will
-always try to utilize persistent connections in order to achieve the 
-highest performance.</li>
-<li>A servlet engine is an application, like Apache Tomcat and Jetty, 
-that implements Java servlets and Java Server Pages. LiteSpeed can communicate
-with servlet engines through AJPv1.3 (Apache JServ Protocol version 1.3).
-Servlet engine cannot be started by the web server and can be setup to run on a
-remote machine. </li>
-<li>A LiteSpeed SAPI (LiteSpeed Server Application Programming Interface) 
-application is an application that communicates with LiteSpeed Web Server through 
-LSAPI, a fast, scalable server interface specifically designed for LiteSpeed Web 
-Server to achieve maximum efficiency.
+<li>WebサーバーはHTTP 1.0 / 1.1プロトコルをサポートするサーバーアプリケーションです。
+LiteSpeed Webサーバーは、透過的な逆プロキシとして機能し、Webサーバーとアプリケーションサーバーを高速化および保護します。
+バックエンドWebサーバーと通信する場合、LiteSpeedは常に最高のパフォーマンスを達成するために永続的な接続を利用しようとします。</li>
+<li>サーブレットエンジンは、JavaサーブレットとJava Server Pagesを実装するApache TomcatやJettyのようなアプリケーションです。
+LiteSpeedはAJPv1.3（Apache JServプロトコルバージョン1.3）を介してサーブレットエンジンと通信できます。
+サーブレットエンジンはWebサーバーから起動できず、リモートマシン上で実行するように設定できます。
+</li>
+<li>LiteSpeed SAPI（LiteSpeed Server Application Programming Interface）アプリケーションは、LiteSpeed Web Serverと最大限の効率を達成するために特別に設計された高速でスケーラブルなサーバーインターフェイスであるLiteSpeed Web Serverと通信するアプリケーションです。
 
-LSAPI's mechanism of action are similar to FastCGI, but LSAPI applications can be
-up to 30% faster than comparable FastCGI applications. LSAPI is highly 
-recommended over FastCGI for supported applications. 
-(LSAPI currently supports applications written in PHP, Ruby, and Python.)
+LSAPIの動作メカニズムはFastCGIに似ていますが、LSAPIアプリケーションは同等のFastCGIアプリケーションより最大30％高速です。
+LSAPIは、サポートされるアプリケーションに対してFastCGIよりも強く推奨されます。
+（LSAPIは現在、PHP、Ruby、Pythonで書かれたアプリケーションをサポートしています）。
 
-For more information about LSAPI, please visit
+LSAPIの詳細については、次のURLを参照してください。
 {ext-href}http://www.litespeedtech.com/products/litespeed-sapi/overview/{ext-href-end}http://www.litespeedtech.com/products/litespeed-sapi/overview/{ext-href-end-a}.
 </li>
-<li>A load balancer is a virtual external application, which assigns
-requests to backend worker applications based on workload. Worker
-applications can be CGI, FastCGI, web server, servlet engine, or LSAPI
-applications. Different types of applications can
-be mixed together under one load balancer. Load balancers and piped
-loggers cannot be used as worker applications.</li>
-<li>A piped logger is an application that can process access
-logs in real-time, writing an access log into database or performing
-real-time statistics calculations, for example.</li>
+<li>ロードバランサは仮想外部アプリケーションで、ワークロードに基づいてバックエンドワーカーアプリケーションに要求を割り当てます。
+ワーカーアプリケーションは、CGI、FastCGI、Webサーバー、サーブレットエンジン、またはLSAPIアプリケーションです。
+1つのロードバランサの下でさまざまな種類のアプリケーションを混在させることができます。
+ロードバランサとパイプロガーはワーカーアプリケーションとして使用できません。</li>
+<li>パイプロガーは、アクセスログをリアルタイムで処理したり、アクセスログをデータベースに書き込んだり、リアルタイム統計計算を実行したりするアプリケーションです。</li>
 </ul>
 
-Unlike CGI applications, FastCGI applications, LSAPI applications, and 
-servlet engine do not exit after processing a request. The application process will stay/persist and serve 
-as many requests as it can. The socket connection can be reused for multiple requests as well. 
+CGIアプリケーションとは異なり、FastCGIアプリケーション、LSAPIアプリケーション、およびサーブレットエンジンは、要求の処理後に終了しません。
+アプリケーションプロセスは維持され、持続し、できるだけ多くの要求を処理します。
+ソケット接続は、複数のリクエストに対しても再利用できます。
 
-External applications can be set up in the {PAGE=ExtApp_Help} section. 
-External applications cannot, however, function on their own. Additional settings must 
-be configured so that the web server knows which requests to send to which application. 
-There are two ways to to configure this in LiteSpeed Web Server: 
+外部アプリケーションは、{PAGE = ExtApp_Help}セクションで設定できます。
+ただし、外部アプリケーションは単独では機能しません。
+Webサーバーがどのアプリケーションにどの要求を送信するかを知るように、追加の設定を構成する必要があります。
+LiteSpeed Web Serverでこれを設定するには、2つの方法があります: 
 <ol>
-  <li> Set the external application as a handler for a specific context.</li> 
-  <li> Set the external application as a handler of a script language via file suffix binding.</li>
+  <li> 外部アプリケーションを特定のコンテキストのハンドラとして設定します。</li> 
+  <li> ファイルサフィックスバインディングを使用して、外部アプリケーションをスクリプト言語のハンドラとして設定します。</li>
 </ol> 
 
-FastCGI applications, LSAPI applications, web servers, servlet engines,
-and load balancers have to be defined in the {PAGE=ExtApp_Help} 
-section before you can configure them to handle a context or script suffix . 
-It is not necessary to define CGI applications in the {PAGE=ExtApp_Help} section. 
+FastCGIアプリケーション、LSAPIアプリケーション、Webサーバー、サーブレットエンジン、およびロードバランサは、コンテキストまたはスクリプトサフィックスを処理するように構成する前に、{PAGE=ExtApp_Help}セクションで定義する必要があります。
+
+{PAGE=ExtApp_Help}セクションでCGIアプリケーションを定義する必要はありません。 
 
 
-External applications can be configured at the server level or at the virtual host level. 
-When configured at the server level, the application can be used by all virtual hosts. When configured at the
-virtual host level, it can only be used by that virtual host.
+外部アプリケーションは、サーバーレベルまたは仮想ホストレベルで構成できます。
+サーバーレベルで構成すると、アプリケーションはすべての仮想ホストで使用できます。
+仮想ホストレベルで設定すると、その仮想ホストだけが使用できます。
 
 END_DESCR
 
