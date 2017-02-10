@@ -160,16 +160,15 @@ APPLY: 3
 SINCE: 4.1.5
 SEE_ALSO: {ITEM=restrictedDirPermissionMask}.
 
-DESCR: Specifies the restricted permission mask for script files that the
-server will not serve. For example, to prohibit serving PHP scripts that are
-group and world writable, set the mask to {val}022{/}. Default value is {val}000{/}.
+DESCR: サーバーが提供しないスクリプトファイルに対する制限付きアクセス許可マスクを指定します。
+たとえば、グループおよびワールド書き込み可能なPHPスクリプトの配信を禁止するには、マスクを{val}022{/}に設定します。 デフォルト値は{val}000{/}です。
 
 
-See {cmd}man 2 stat{/} for all values. 
+すべての値について{cmd}man 2 stat{/}を参照してください。
 
 END_DESCR
 
-SYNTAX: octal numbers
+SYNTAX: 8進数
 END_SYNTAX
 
 EXAMPLE: 
@@ -184,24 +183,23 @@ END_TIPS
 
 [ITEM]
 ID: restrictedDirPermissionMask
-NAME: Script Directory Restricted Permission Mask
+NAME: スクリプトディレクトリのアクセス許可マスクの制限
 REQUIRED: 
 APPLY: 3
 SINCE: 4.1.5
 SEE_ALSO: {ITEM=restrictedScriptPermissionMask}.
 
-DESCR: Specifies the restricted permission mask of parent directories of script files that the
-server will not serve. For example, to prohibit serving PHP scripts in a directory that is
-group and world writable, set the mask to {val}022{/}. Default value is
-{val}000{/}. This option can be used to prevent serving scripts under a directory of
- uploaded files. 
+DESCR: Sサーバーが提供しないスクリプトファイルの親ディレクトリの制限付きアクセス許可マスクを指定します。
+たとえば、グループおよびワールド書き込み可能なディレクトリでPHPスクリプトを処理することを禁止するには、マスクを{val}022{/}に設定します。
+デフォルト値は{val}000{/}です。
+このオプションを使用して、アップロードされたファイルのディレクトリ下でスクリプトを提供しないようにすることができます。
 
 
-See {cmd}man 2 stat{/} for all values. 
+すべての値について{cmd}man 2 stat{/}を参照してください。
 
 END_DESCR
 
-SYNTAX: octal numbers
+SYNTAX: 8進数
 END_SYNTAX
 
 EXAMPLE: 
@@ -219,22 +217,20 @@ END_TIPS
 
 [ITEM]
 ID: staticReqPerSec
-NAME: Static Requests/Second
+NAME: 静的リクエスト/秒
 NS: EO
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=dynReqPerSec}
 
-DESCR: Specifies the maximum number of requests to static content coming from a single
-IP address that can be processed in a single second regardless of the number of
-connections established. 
+DESCR: 確立された接続の数に関係なく、1秒間に処理できる単一のIPアドレスからの静的コンテンツへの要求の最大数を指定します。
 
 
-When this limit is reached, all future requests are tar-pitted until the next second. 
-Request limits for dynamically generated content are independent of this limit.
-Per-client request limits can be set at server- or virtual host-level. 
-Virtual host-level settings override server-level settings.
+この制限に達すると、将来のすべての要求は次の秒までtar-pittedされます。
+動的に生成されるコンテンツのリクエスト制限は、この制限とは関係ありません。
+クライアントごとの要求制限は、サーバーまたは仮想ホストレベルで設定できます。
+仮想ホストレベルの設定は、サーバーレベルの設定よりも優先されます。
 END_DESCR
 
 SYNTAX: 整数
@@ -244,7 +240,7 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: 
-[Security] Trusted IPs or sub-networks are not affected.
+[セキュリティ]信頼できるIPまたはサブネットワークは影響を受けません。
 END_TIPS
 
 [END_ITEM]
@@ -253,7 +249,7 @@ END_TIPS
 
 [ITEM]
 ID: dynReqPerSec
-NAME: Dynamic Requests/Second
+NAME: 動的リクエスト/秒
 NS: EO
 REQUIRED: 
 APPLY: 3
