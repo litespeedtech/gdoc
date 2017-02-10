@@ -49,15 +49,14 @@ abstract class Item
 
     public function getValueInLang($fieldId)
     {
-        global $config;
-        $lang = $config['CUR_LANG'];
+        $lang = Config::CurrentLang();
 
         if (!isset($this->_fields[$fieldId])) {
             $this->showErr('getFieldValueInLang Invalid field ID ' . $fieldId);
             return '';
         }
 
-        if (($lang != DEFAULT_LANG) && isset($this->_lang[$lang][$fieldId]))
+        if (($lang != LanguagePack::DEFAULT_LANG) && isset($this->_lang[$lang][$fieldId]))
             return $this->_lang[$lang][$fieldId];
         else
             return $this->_fields[$fieldId];
@@ -98,7 +97,7 @@ abstract class Item
         }
 
         foreach ($tagsDef as $tag => $def) {
-            if ($def->isMultiLang) {
+            if ($def->isMultiLang()) {
                 if ($value = $peer->hasValue($tag)) {
                     $this->_lang[$lang][$tag] = $value;
                 }
@@ -109,13 +108,13 @@ abstract class Item
     public function addValue($value, $tagdef)
     {
         $value = trim($value);
-        $tag = $tagdef->tag;
+        $tag = $tagdef->getTag();
 
-        if ($tagdef->splitCont) {
+        if ($tagdef->splitCont()) {
             $value = preg_split( "/[\s,]+/", $value, -1, PREG_SPLIT_NO_EMPTY );
         }
 
-        if ($tagdef->isMultiEntry) {
+        if ($tagdef->isMultiEntry()) {
             if (!isset($this->_fields[$tag])) {
                 $this->_fields[$tag] = array();
             }
@@ -156,7 +155,7 @@ abstract class Item
                     if ( strncmp($tag, $line, strlen($tag)) == 0 )
                     {
                         $value = substr($line, strlen($tag));
-                        if ($def->isMultiLine) {
+                        if ($def->isMultiLine()) {
                             $curMultiLineTag = $id;
                             $curMultiLineVal = $value;
                         }
@@ -178,7 +177,7 @@ abstract class Item
 
         foreach ($tagsDef as $id => $def) {
             $buf .= $id . ': ' . $this->getDefaultValue($id) . $e;
-            if ($def->isMultiLine) {
+            if ($def->isMultiLine()) {
                 $buf .= 'END_' . $id . $e . $e;
             }
         }

@@ -5,6 +5,9 @@ class GenWebDoc
 
 	public function Generate()
 	{
+		$config = Config::getInstance();
+		$config->SetCurrentLang(LanguagePack::DEFAULT_LANG);
+		
 		$url_convert = $this->getUrlConvert() ;
 		$this->convertLinks($url_convert) ;
 	}
@@ -137,14 +140,16 @@ class GenWebDoc
 
 	private function convertLinks( $urlconvert )
 	{
-		global $config ;
+		$config = Config::getInstance();
+		$outdir = $config->getOutputDir('web');
+		
 		$search = $urlconvert['search'] ;
 		$replace = $urlconvert['replace'] ;
 		$files = $urlconvert['file'] ;
 
 		foreach ( $files as $f ) {
-			$fromfile = $config['outdir']['web'] . $f ;
-			$tofile = $config['outdir']['web'] . 'docs/' . $f ;
+			$fromfile = $outdir . $f ;
+			$tofile = $outdir . 'docs/' . $f ;
 			$buf = file_get_contents($fromfile) ;
 			if ( $buf === FALSE ) {
 				echo "ConvertLinks:fail to open $fromfile \n" ;

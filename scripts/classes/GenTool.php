@@ -13,20 +13,41 @@ class GenTool
 
         fclose($fd) ;
 
-        echo " ... finish Page $docname \n" ;
+        echo "\t ... finish Page $docname \n" ;
     }
 
+	public static function getTerm($id)
+	{
+		global $docterms;
+		$lang = Config::CurrentLang();
+		if (isset($docterms[$lang][$id])) {
+			return $docterms[$lang][$id];
+		}
+		elseif ($lang != LanguagePack::DEFAULT_LANG) {
+			if (isset($docterms[$lang][LanguagePack::DEFAULT_LANG])) {
+				return $docterms[$lang][LanguagePack::DEFAULT_LANG];
+			}
+			else {
+				die('wrong ref of term id = '. $id);
+			}
+		}
+		else {
+			die('wrong ref of term id = '. $id);
+		}
+		
+	}
+	
     public static function getHeader( $name )
     {
         $title = $name ;
         if ( DOC_TYPE == 'ows' ) {
-            $title = "Open LiteSpeed Web Server Users' Manual - $title" ;
+            $title = self::getTerm('ows_user_manual') . " - $title" ;
         }
         elseif ( DOC_TYPE == 'ws' ) {
-            $title = "LiteSpeed Web Server Users' Manual - $title" ;
+			$title = self::getTerm('ws_user_manual') . " - $title" ;
         }
         elseif ( DOC_TYPE == 'lb' ) {
-            $title = "LiteSpeed Load Balancer Users' Manual - $title" ;
+			$title = self::getTerm('lb_user_manual') . " - $title" ;
         }
         else {
             echo "Error: wrong DOC_TYPE\n" ;
@@ -53,7 +74,7 @@ EOD;
 
     public static function getSideTree( $docname )
     {
-        global $db ;
+        $db = HelpDB::getInstance();
         $buf = $db->getStaticContent('leftside_toc.txt') ;
         $pos = strpos($buf, "<a href=\"$docname\"") ;
         if ( $pos !== FALSE ) {
@@ -71,9 +92,9 @@ EOD;
 
     public static function getFooter()
     {
-        $copyyear = array('ows' => '2013-2016', 'ws' => '2003-2016', 'lb' => '2007-2016');
-        $footer =  '<footer class="copyright">Copyright &copy; ' . $copyyear[DOC_TYPE]
-                . '. <a href="https://www.litespeedtech.com">LiteSpeed Technologies Inc.</a> All rights reserved.</footer>'
+        $copyyear = array('ows' => '2013-2017', 'ws' => '2003-2017', 'lb' => '2007-2017');
+        $footer =  '<footer class="copyright">' . self::getTerm('copyright') . ' &copy; ' . $copyyear[DOC_TYPE]
+                . '. <a href="https://www.litespeedtech.com">LiteSpeed Technologies Inc.</a> ' . self::getTerm('all_rights_reserved') . '</footer>'
                 . "\n</div>\n</body>\n</html>" ;
         return $footer;
     }
@@ -110,8 +131,10 @@ EOD;
 
     public static function translateTag( &$buf)
     {
-        global $config, $db ;
-        $buf = str_replace($config['ws_lb'], $config['ws_lb_replace'], $buf) ;
+		$config = Config::getInstance();
+		$db = HelpDB::getInstance();
+		$wslb_replace = $config->getWsLbReplace();
+        $buf = str_replace($wslb_replace['from'], $wslb_replace['to'], $buf) ;
 
         $from = array( '{tag}', '{cmd}', '{val}', '{/}' ) ;
         $to = array( '<span class="tag">', '<span class="cmd">', '<span class="val">', '</span>' ) ;
@@ -125,7 +148,7 @@ EOD;
             $from1 = $matches[0] ;
             $to1 = array() ;
             foreach ( $from1 as $f ) {
-                $to1[] = $db->translate($f) ;
+                $to1[] = $db->Translate($f) ;
             }
             $buf1 = str_replace($from1, $to1, $buf1) ;
         }
@@ -140,8 +163,11 @@ EOD;
 
     public static function translateTagForTips( $buf)
     {
-        global $config, $db ;
-        $buf = str_replace($config['ws_lb'], $config['ws_lb_replace'], $buf) ;
+		$config = Config::getInstance();
+		$db = HelpDB::getInstance();
+		$wslb_replace = $config->getWsLbReplace();
+
+        $buf = str_replace($wslb_replace['from'], $wslb_replace['to'], $buf) ;
 
         $from = array( '{tag}', '{cmd}', '{val}', '{/}' ) ;
 
@@ -164,57 +190,21 @@ EOD;
     public static function translateSyntax( $syntax )
     {
         switch ( $syntax ) {
-            case 'bool': return 'Select from radio box' ;
-            case 'text': return NULL ;
-            case 'path1': return 'Absolute path.' ;
-            case 'path2': return 'An absolute path or a relative path to $SERVER_ROOT.' ;
-            case 'file2': return 'Filename which can be an absolute path or a relative path to $SERVER_ROOT.' ;
-            case 'file3': return 'Filename which can be an absolute path or a relative path to $SERVER_ROOT, $VH_ROOT.' ;
-            case 'path3': return 'A path which can be absolute, relative to $SERVER_ROOT, or relative to $VH_ROOT.' ;
-            case 'select': return 'Select from drop down list' ;
-            case 'checkbox': return 'Select from checkbox' ;
-            case 'uint': return 'Integer number' ;
+            case 'bool': return self::getTerm('syntax_bool');
+            case 'text': return null ;
+            case 'path1': return self::getTerm('syntax_path1') ;
+            case 'path2': return self::getTerm('syntax_path2') ;
+            case 'file2': return self::getTerm('syntax_file2') ;
+            case 'file3': return self::getTerm('syntax_file3') ;
+            case 'path3': return self::getTerm('syntax_path3');
+			case 'select': return self::getTerm('syntax_select') ;
+            case 'checkbox': return self::getTerm('syntax_checkbox') ;
+            case 'uint': return self::getTerm('syntax_uint') ;
         }
         return $syntax ;
     }
 
 
-	public static function genTips($db, $outfile)
-	{
-        global $config;
-		$fd = fopen($outfile, 'w');
-		if ( !$fd )	{
-			echo "fail to open file $outfile\n";
-			return false;
-		}
-		fwrite($fd, "<?php \n");
-
-        if (DOC_TYPE == 'ows') {
-            fwrite($fd, "\nglobal \$_tipsdb;\n\n");
-        }
-
-		$search = array("\n\n\n", "\n\n", "\r\n", "\n", '"', "'", '{ext-href}', '{ext-href-end}', '{ext-href-end-a}');
-		$replace = array('<br/><br/>', '<br/>',  ' ', ' ', '&quot;', '&#039;', '<a href="', '" target="_blank" rel="noopener noreferrer">', '</a>');
-
-        foreach( $db->_tips as $item )
-		{
-            if ( $item->hasValue('DESCR') ) {
-                $buf = $item->toToolTip();
-                fwrite($fd, $buf);
-            }
-		}
-
-        foreach( $db->_tips as $item )
-		{
-            if ( $item->hasValue('EDITTIP') ) {
-    			if ( $buf = $item->toEditTip() )
-                    fwrite($fd, $buf);
-            }
-		}
-
-		fclose($fd);
-		echo ("finish generate tips $outfile \n");
-	}
 
 
 }

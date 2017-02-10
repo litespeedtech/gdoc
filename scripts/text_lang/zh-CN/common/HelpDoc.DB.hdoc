@@ -66,12 +66,12 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: {ent_version} 指定chroot环境的根目录。
-只有Root用户可以在chroot模式下运行{ws_lb}。是否在chroot环境模式下运行是由
+只有Root用户可以在chroot模式下运行LiteSpeed。是否在chroot环境模式下运行是由
 {ITEM=enableChroot}选项控制的。安装程序会自动设置初始chroot环境。
 此条目是只读的，如果你想改变它，请在命令行中重新运行安装程序。
 
 
-在chroot环境中，{ws_lb}及其子进程不能访问chroot监狱以外
+在chroot环境中，LiteSpeed及其子进程不能访问chroot监狱以外
 的文件系统。Chroot的是一种高级安全功能，可能需要额外的配置以
 使其正常工作。所有需要的可执行文件，库文件，配置文件和设备文件应
 在chroot监狱中重新创建。
@@ -105,7 +105,7 @@ APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: {ent_version}指定是否在chroot模式启动{ws_lb}。
+DESCR: {ent_version}指定是否在chroot模式启动LiteSpeed。
 新的根目录路径通过安装时对{ITEM=servChrootPath}的配置来指定。
 END_DESCR
 
@@ -156,7 +156,7 @@ APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: 指定是否尝试通过平滑重启{ws_lb}修复“503 服务不可用”错误。“503”错误通常是由
+DESCR: 指定是否尝试通过平滑重启LiteSpeed修复“503 服务不可用”错误。“503”错误通常是由
 发生故障的外部应用程序引起的，Web服务器重新启动往往可以临时修复
 错误。如果启用，当30秒内出现超过30次“503”错误时，服务器将自动
 重新启动。此功能是默认启用的。
@@ -212,9 +212,6 @@ DESCR: 指定用于存储请求内容和相应的动态响应的最大缓冲区�
 服务器将在{ITEM=swappingDir}中创建临时交换文件。
 END_DESCR
 
-SYNTAX: 无符号整数
-END_SYNTAX
-
 EXAMPLE: 
 END_EXAMPLE
 
@@ -231,26 +228,17 @@ END_TIPS
 [ITEM]
 ID: swappingDir
 NAME: 交换目录
-REQUIRED: 
-APPLY: 2
-SINCE: 
-SEE_ALSO: {ITEM=inMemBufSize}
 
 DESCR: 指定交换文件的存放目录。
 服务器在chroot模式启动时，该路径相对于新的根目录，
 否则，它相对于真正的根目录。
 
 
-Litespeed {ws_lb}使用自己的虚拟内存
+Litespeed使用自己的虚拟内存
 以降低系统的内存使用量。虚拟内存和磁盘交换会用来存储大的请求内容和
 动态响应。交换目录应设置在有足够剩余空间的磁盘上。
 END_DESCR
 
-SYNTAX: 路径1
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
 
 TIPS: [性能建议] 将交换目录设置在一个单独的磁盘上，或者增加最大读写缓冲区大小以避免交换。
 END_TIPS
@@ -1128,7 +1116,7 @@ APPLY: 3
 SINCE: 1.3
 SEE_ALSO: {ITEM=restrictedPermissionMask}.
 
-DESCR: 为{ws_lb}服务的静态文件指定必需的权限掩码。
+DESCR: 为静态文件指定必需的权限掩码。
 例如，如果只允许所有人都可读的文件可以被输出，将该值设置为{val}0004{/}。
 用{cmd}man 2 stat{/}命令了解所有可选值。
 END_DESCR
@@ -1156,7 +1144,7 @@ APPLY: 3
 SINCE: 1.3
 SEE_ALSO: {ITEM=requiredPermissionMask}.
 
-DESCR: 为{ws_lb}不能输出的静态文件指定限制权限掩码。
+DESCR: 为不能输出的静态文件指定限制权限掩码。
 例如，要禁止服务可执行文件，将掩码设置为{val}0111{/}。
 
 
@@ -1185,7 +1173,7 @@ APPLY: 3
 SINCE: 4.1.5
 SEE_ALSO: {ITEM=restrictedDirPermissionMask}.
 
-DESCR: 为{ws_lb}不能服务的脚本文件指定限制权限掩码。
+DESCR: 为不能服务的脚本文件指定限制权限掩码。
 例如，要禁止服务属组可写和全局可写的PHP脚本，
 设置掩码为{val}022{/}。默认值是{val}000{/}。
 
@@ -1216,7 +1204,7 @@ APPLY: 3
 SINCE: 4.1.5
 SEE_ALSO: {ITEM=restrictedScriptPermissionMask}.
 
-DESCR: 为{ws_lb}不能服务的脚本文件父目录指定限制权限掩码。
+DESCR: 为不能服务的脚本文件父目录指定限制权限掩码。
 例如，要禁止服务属组可写和全局可写的文件夹内的PHP脚本，
 设置掩码为{val}022{/}。默认值是{val}000{/}。
 此选项可用于防止执行文件上传目录内的脚本。
@@ -2223,7 +2211,7 @@ DESCR: 指定要使用的I/O事件调度器。不同操作系统支持不同类�
   </li>
 </ul>
   {val}poll{/}被所有的平台支持，并且是默认的选择。
-  对于高流量的网站，可以使用其他事件调度器来提高{ws_lb}的可扩展性。
+  对于高流量的网站，可以使用其他事件调度器来提高可扩展性。
 END_DESCR
 
 SYNTAX: 选项
@@ -2420,33 +2408,6 @@ END_TIPS
 
 
 
-[ITEM]
-ID: SSLCryptoDevice
-NAME: SSL硬件加速器
-REQUIRED: 
-APPLY: 2
-SINCE: 
-SEE_ALSO: 
-
-DESCR: {ent_version}指定使用哪个SSL硬件加速设备。
-只有OpenSSL支持的设备可以被使用。如果未安装设备请选择{val}OpenSSL internal
-engine{/}。
-END_DESCR
-
-SYNTAX: 选项
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
-
 
 
 [ITEM]
@@ -2490,9 +2451,6 @@ SEE_ALSO:
 DESCR: 指定请求URL中包含的HTTP请求头最大值。
 硬限制为{val}16380{/}字节。
 END_DESCR
-
-SYNTAX: 无符号整数
-END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
@@ -2709,9 +2667,9 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: 指定是否由{ws_lb}自动创建/更新可压缩静态文件的GZIP压缩版本。
+DESCR: 指定是否由LiteSpeed自动创建/更新可压缩静态文件的GZIP压缩版本。
 如果设置为{val}Yes{/}，当请求文件MIME属于{ITEM=compressibleTypes}时，
-{ws_lb}会根据压缩的文件时间戳来创建/更新文件的压缩版本。
+LiteSpeed会根据压缩的文件时间戳来创建/更新文件的压缩版本。
 压缩的文档会创建在{ITEM=gzipCacheDir}目录下。
 文件名称根据原文件的MD5散列创建。
 END_DESCR
@@ -2792,7 +2750,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: 指定{ws_lb}可以自动创建压缩文件的静态文件最大尺寸。
+DESCR: 指定LiteSpeed可以自动创建压缩文件的静态文件最大尺寸。
 END_DESCR
 
 SYNTAX: 不小于1K的字节数。
@@ -2801,7 +2759,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [性能建议] 不建议使用{ws_lb}创建/更新较大文件的压缩文件。
+TIPS: [性能建议] 不建议使用LiteSpeed创建/更新较大文件的压缩文件。
 压缩操作会占用整个服务器进程并且在压缩结束前新请求都无法被处理。
 END_TIPS
 
@@ -2819,7 +2777,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: 指定{ws_lb}创建相应压缩文件的静态文件最小尺寸。
+DESCR: 指定LiteSpeed创建相应压缩文件的静态文件最小尺寸。
 END_DESCR
 
 SYNTAX: 不小于200的字节数。
@@ -4528,6 +4486,7 @@ END_TIPS
 [TBL]
 ID: vhHotlink
 NAME: 盗链控制
+NS: E
 
 DESCR: 盗链是指外部网站请求您网站下的文件，通常被称为"leeching"。
 这种做法会导致您承担不应承担的额外流量使用。

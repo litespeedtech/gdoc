@@ -1,11 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of HelpDocDef
  *
@@ -15,21 +9,46 @@
 
 class ParseTag
 {
-    public $tag;
-    public $isMultiLine;
-    public $isMultiLang;
-    public $splitCont;
-    public $isMultiEntry;
+    private $_tag;
+    private $_isMultiLine;
+    private $_isMultiLang;
+    private $_splitCont;
+    private $_isMultiEntry;
 
     public function __construct($tag, $isMultiLine, $isMultiLang,
             $splitCont=0, $isMultiEntry=0)
     {
-        $this->tag = $tag;
-        $this->isMultiLine = $isMultiLine;
-        $this->isMultiLang = $isMultiLang;
-        $this->splitCont = $splitCont;
-        $this->isMultiEntry = $isMultiEntry;
+        $this->_tag = $tag;
+        $this->_isMultiLine = $isMultiLine;
+        $this->_isMultiLang = $isMultiLang;
+        $this->_splitCont = $splitCont;
+        $this->_isMultiEntry = $isMultiEntry;
     }
+	
+	public function getTag()
+	{
+		return $this->_tag;
+	}
+	
+	public function isMultiLine()
+	{
+		return $this->_isMultiLine;
+	}
+	
+	public function isMultiLang()
+	{
+		return $this->_isMultiLang;
+	}
+	
+	public function splitCont()
+	{
+		return $this->_splitCont;
+	}
+	
+	public function isMultiEntry()
+	{
+		return $this->_isMultiEntry;
+	}
 }
 
 class HelpDocDef
@@ -40,6 +59,7 @@ class HelpDocDef
     const TYPE_QA = 'QA';
     const TYPE_NAV = 'PAGENAV';
     const TYPE_HELPDOC = 'HELPDOC';
+	const TYPE_TERMS = 'TERMS';
 
     //put your code here
     private $_def;
@@ -61,6 +81,7 @@ class HelpDocDef
 	private function __construct()
     {
         $this->_def = array();
+		// ParseTag($tag, $isMultiLine, $isMultiLang, $splitCont=0, $isMultiEntry=0)		
         $this->_def['ITEM'] = array(
             'ID' => new ParseTag('ID', 0, 0),
             'NAME' => new ParseTag('NAME', 0, 1),
@@ -81,7 +102,7 @@ class HelpDocDef
             'NS' => new ParseTag('NS', 0, 0),
             'DESCR' => new ParseTag('DESCR', 1, 1),
             'CONT' => new ParseTag('CONT', 1, 0, 1),
-            'SEE_ALSO' => new ParseTag('SEE_ALSO', 0, 0),
+            'SEE_ALSO' => new ParseTag('SEE_ALSO', 0, 1),
             'EXAMPLE' => new ParseTag('EXAMPLE', 1, 1),
             'TIPS' => new ParseTag('TIPS', 1, 1),
             'EDITTIP' => new ParseTag('EDITTIP', 1, 1, 0, 1)
@@ -92,11 +113,10 @@ class HelpDocDef
             'NS' => new ParseTag('NS', 0, 0),
             'DESCR' => new ParseTag('DESCR', 1, 1),
             'CONT' => new ParseTag('CONT', 1, 0, 1),
-            'SEE_ALSO' => new ParseTag('SEE_ALSO', 0, 0),
+            'SEE_ALSO' => new ParseTag('SEE_ALSO', 0, 1),
             'STATIC' => new ParseTag('STATIC', 0, 0)
             );
 
-        //($tag, $isMultiLine, $isMultiLang, $splitCont=0, $isMultiEntry=0)
         $this->_def['PAGENAV'] = array(
             'ID' => new ParseTag('ID', 0, 0),
             'NS' => new ParseTag('NS', 0, 0),
