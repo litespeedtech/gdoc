@@ -42,20 +42,20 @@ END_TIPS
 
 [ITEM]
 ID: checkSymbolLink
-NAME: Check Symbolic Link
+NAME: シンボリックリンクを確認する
+
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=followSymbolLink}, {ITEM=accessDenyDir} 
 
-DESCR: Specifies whether to check symbolic links against {ITEM=accessDenyDir} 
-when {ITEM=followSymbolLink} is turned on. If enabled, the canonical real path of the resource 
-referred by a URL will be checked against the configurable access denied directories. 
-Access will be denied if it falls inside an access denied directory.
+DESCR: {ITEM=followSymbolLink}がオンになっているときに、{ITEM=accessDenyDir}に対するシンボリックリンクをチェックするかどうかを指定します。
+有効にすると、URLで参照されるリソースのカノニカル実パスが、設定可能なアクセス拒否ディレクトリと照合されます。
+アクセスが拒否されたディレクトリ内にある場合、アクセスは拒否されます。
 END_DESCR
 
-EDITTIP: Check-Symbolic-Link control will take effect only if Follow-Symbolic-Link is turned on. 
-This controls whether symbolic links are checked against Access Denied Directories.
+EDITTIP: Check-Symbolic-Link制御は、Follow-Symbolic-Linkがオンになっている場合にのみ有効です。
+これは、シンボリックリンクがアクセス拒否ディレクトリに対してチェックされるかどうかを制御します。
 END_EDITTIP
 
 SYNTAX: ラジオボックスから選択
@@ -64,7 +64,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance & security] For best security, enable this option. For best performance, disable it.
+TIPS: [パフォーマンス & セキュリティ]最高のセキュリティを実現するには、このオプションを有効にします。 最高のパフォーマンスを得るには、無効にしてください。
 END_TIPS
 
 [END_ITEM]
@@ -73,16 +73,16 @@ END_TIPS
 
 [ITEM]
 ID: forceStrictOwnership
-NAME: Force Strict Ownership Checking
+NAME: 厳格な所有権チェックを強制する
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to enforce strict file ownership checking. 
-If it is enabled, the web server will check if the owner of the file being served is the same as 
-the owner of the virtual host. If it is different, a 403 Access Denied Error will be returned.
-This is turned off by default.
+DESCR: 厳密なファイル所有権チェックを実施するかどうかを指定します。
+有効になっている場合、Webサーバーは、提供されるファイルの所有者が仮想ホストの所有者と同じかどうかをチェックします。
+異なる場合は、403アクセス拒否エラーが返されます。
+これはデフォルトではオフになっています。
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -91,7 +91,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [security] For shared hosting, enable this check for better security.
+TIPS: [セキュリティ]共有ホスティングの場合、このチェックを有効にしてセキュリティを強化します。
 END_TIPS
 
 [END_ITEM]
@@ -100,19 +100,18 @@ END_TIPS
 
 [ITEM]
 ID: requiredPermissionMask
-NAME: Required Permission Mask
+NAME: 必要な許可マスク
 REQUIRED: 
 APPLY: 3
 SINCE: 1.3
 SEE_ALSO: {ITEM=restrictedPermissionMask}.
 
-DESCR: Specifies the required permission mask for static files that the
-server will serve. For example, if only files that are readable
-by everyone can be served, set the value to {val}0004{/}.
-See {cmd}man 2 stat{/} for all values.
+DESCR: サーバーが提供する静的ファイルに必要なアクセス許可マスクを指定します。
+たとえば、全員が読み取り可能なファイルのみを処理できる場合は、値を{val}0004{/}に設定します。
+すべての値について{cmd}man 2 stat{/}を参照してください
 END_DESCR
 
-SYNTAX: octal numbers
+SYNTAX: 8進数
 END_SYNTAX
 
 EXAMPLE: 
@@ -127,7 +126,7 @@ END_TIPS
 
 [ITEM]
 ID: restrictedPermissionMask
-NAME: Restricted Permission Mask
+NAME: 制限付き許可マスク
 REQUIRED: 
 APPLY: 3
 SINCE: 1.3
@@ -141,7 +140,7 @@ executable, set the mask to {val}0111{/}.
 See {cmd}man 2 stat{/} for all values. 
 END_DESCR
 
-SYNTAX: octal numbers
+SYNTAX: 8進数
 END_SYNTAX
 
 EXAMPLE: 
