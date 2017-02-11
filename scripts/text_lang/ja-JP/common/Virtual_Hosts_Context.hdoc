@@ -413,14 +413,10 @@ $DOC_ROOTはデフォルトの相対パスであり省略することができ�
 注意してください。 "＆"はクエリ文字列で "\＆"としてエスケープする必要があります。
 END_SYNTAX
 
-EXAMPLE:  A plain URI like {val}/examples/{/} with {ITEM=location} 
-set to {val}/home/john/web_examples{/} will map the request "/examples/foo/bar.html" 
-to file "/home/john/web_examples/foo/bar.html". 
+EXAMPLE: {ITEM=location}を{val}/home/john/web_examples{/}に設定した{val}/examples/{/}のような単純なURIは、リクエスト "/examples/foo/bar.html"をファイル "/home/john/web_examples/foo/bar.html"をマップします。
 
-To simulate Apache's mod_userdir, 
-set URI to {val}exp: ^/~([A-Za-z0-9]+)(.*){/}, 
-set {ITEM=location} to {val}/home/$1/public_html$2{/}. With these settings, a request of URI /~john/foo/bar.html will 
-map to file /home/john/public_html/foo/bar.html.
+Apacheのmod_userdirをシミュレートするには、URIを{val}exp：^ /〜（[A-Za-z0-9] +）（。*）{/}に設定し、{ITEM=location}を{val}/home/$1/public_html$2{/}に設定します。
+これらの設定で、URI /~john/foo/bar.html のリクエストが/home/john/public_html/foo/bar.htmlにマップします。
 END_EXAMPLE
 
 TIPS: 
@@ -438,7 +434,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=expuri}
 
-DESCR: Specifies the corresponding location of this context in the file system. 
+DESCR: ファイルシステム内のこのコンテキストの対応する場所を指定します。
 END_DESCR
 
 EDITTIP: Rack/Rails context is for easy configuration of running Rack/Rails application. You 

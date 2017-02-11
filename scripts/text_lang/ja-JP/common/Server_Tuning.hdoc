@@ -1385,7 +1385,7 @@ END_TIPS
 
 [TBL]
 ID: osTuning
-NAME: OS Optimization
+NAME: OSの最適化
 NS: LE
 
 DESCR: 
@@ -1398,7 +1398,7 @@ SEE_ALSO:
 
 [TBL]
 ID: osTuning
-NAME: OS Optimization
+NAME: OSの最適化
 NS: O
 
 DESCR: 
@@ -1411,7 +1411,7 @@ SEE_ALSO:
 
 [TBL]
 ID: connTuning
-NAME: Connection
+NAME: 接続
 NS: L
 
 DESCR: 
@@ -1424,7 +1424,7 @@ SEE_ALSO:
 
 [TBL]
 ID: connTuning
-NAME: Connection Tuning
+NAME: 接続のチューニング
 NS: EO
 
 DESCR: 
@@ -1437,7 +1437,7 @@ SEE_ALSO:
 
 [TBL]
 ID: reqTuning
-NAME: Request/Response Tuning
+NAME: 要求/応答のチューニング
 NS: LEO
 
 DESCR: 
@@ -1450,7 +1450,7 @@ SEE_ALSO:
 
 [TBL]
 ID: staticTuning
-NAME: Static File Delivery Optimization
+NAME: 静的ファイル配信の最適化
 NS: E
 
 DESCR: 
@@ -1463,7 +1463,7 @@ SEE_ALSO:
 
 [TBL]
 ID: staticTuning
-NAME: Static File Delivery Optimization
+NAME: 静的ファイル配信の最適化
 NS: O
 
 DESCR: 
@@ -1476,7 +1476,7 @@ SEE_ALSO:
 
 [TBL]
 ID: gzipTuning
-NAME: GZIP Compression Tuning
+NAME: GZIP圧縮チューニング
 NS: EO
 
 DESCR: 
@@ -1489,7 +1489,7 @@ SEE_ALSO:
 
 [TBL]
 ID: gzipTuning
-NAME: GZIP Compression Tuning
+NAME: GZIP圧縮チューニング
 NS: L
 
 DESCR: 
@@ -1502,7 +1502,7 @@ SEE_ALSO:
 
 [TBL]
 ID: sslGlobal
-NAME: SSL Global Setting
+NAME: SSLグローバル設定
 NS: LEO
 
 DESCR: 
@@ -1515,11 +1515,10 @@ SEE_ALSO:
 
 [TBL]
 ID: sslDynSNI
-NAME: SSL Dynamic SNI
+NAME: SSL動的SNI
 NS: L
 
-DESCR: SSL Dynamic SNI enables you to avoid using the load balancer's generic certificates by specifying a directory that the load balancer can then use to serve 
-clients site specific certificates when handling requests.
+DESCR: SSL動的SNIを使用すると、ロードバランサが要求を処理するときにクライアントのサイト固有の証明書を提供するために使用できるディレクトリを指定することによって、ロードバランサの汎用証明書を使用しないようにできます。
 END_DESCR
 
 SEE_ALSO: 
@@ -1532,7 +1531,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: ServTuning_Help 
-NAME: Server Tuning
+NAME: サーバーのチューニング
 NS: L
 
 DESCR: 
@@ -1545,7 +1544,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: ServTuning_Help 
-NAME: Server Tuning
+NAME: サーバーのチューニング
 NS: E
 
 DESCR: 
@@ -1558,7 +1557,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: ServTuning_Help 
-NAME: Server Tuning
+NAME: サーバーのチューニング
 NS: O
 
 DESCR: 
