@@ -851,63 +851,50 @@ END_TIPS
 
 [ITEM]
 ID: allowOverride
-NAME: Allow Override
+NAME: 上書きを許可する
 NS: E
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies what directives in an access control file are allowed. 
-An access control file can be placed in a directory to control the accessibility 
-of files under that directory. 
+DESCR: アクセス制御ファイル内のどのディレクティブが許可されるかを指定します。
+アクセス制御ファイルは、そのディレクトリの下にあるファイルのアクセシビリティを制御するためにディレクトリに置くことができます。
 
 <ul>
-	<li>When nothing is checked, inherited default settings will be
-	used. </li>
-	<li>When {val}None{/} is checked, access control files will be
-	ignored.
-	</li>
-	<li>When {val}Limit{/} is checked, directives "Order",
-	"Allow from" and "Deny from" are allowed. </li>
-	<li>When {val}Auth{/} is checked, directives
-	"AuthGroupFile",  "AuthName", "AuthType", 
-	"AuthUserFile", and "Require" are allowed.</li>
-	<li>When {val}FileInfo{/} is checked, directives
-	"Satisfy", AddDefaultCharset", "AddType",
-	"DefaultType", "ForceType", "ExpiresActive", "ExpiresDefault",
-	"ExpiresByType", "Redirect", "RedirectTemp", "RedirectPermanent",
-	"RewriteEngine", "RewriteOptions", "RewriteBase", "RewriteCond"
-	and "RewriteRule" are allowed</li>
-	<li>When {val}Indexes{/} is checked, directive
-	"DirectoryIndex" is allowed</li>
-	<li>When {val}Options{/} is checked, directive
-	"Options" is allowed</li>
+	<li>何もチェックしないと、継承されたデフォルト設定が使用されます。 </li>
+	<li>{val}None{/}をチェックすると、アクセス制御ファイルは無視されます。</li>
+	<li>{val}Limit{/}をチェックすると、 "Order"、 "Allow from"、 "Deny from"の各ディレクティブが許可されます。</li>
+	<li>{val}Auth{/}がチェックされていると、 "AuthGroupFile"、 "AuthName"、 "AuthType"、 "AuthUserFile"、および "Require"の各ディレクティブが許可されます。</li>
+	<li>{val}FileInfo{/}がチェックされているとき、 "Satisfy"、 "AddDefaultCharset"、 "AddType"、 "DefaultType"、 "ForceType"、 "ExpiresActive"、 "ExpiresDefault"、 "ExpiresByType"、 "RedirectTemp" 、 "RedirectPermanent"、 "RewriteEngine"、 "RewriteOptions"、 "RewriteBase"、 "RewriteCond"、および "RewriteRule"は許可されています</li>
+	<li>{val}Indexes{/}がチェックされている場合、ディレクティブ "DirectoryIndex"が許可されます</li>
+	<li>{val}Options{/}がチェックされていると、 "Options"ディレクティブが許可されます</li>
 </ul>
 
-Allow Override configuration is available at three levels: server, 
-virtual host and context. If a configuration is not checked at the server level, 
-the controlled directives will be disabled for the whole server whether or not 
-it is enabled at lower levels. If something is enabled at the server level, virtual hosts will 
-inherit same settings by default. Similarly context level settings will be inherited from virtual host settings. 
-Lower levels can disable a setting that is enabled at an upper level, but cannot 
-enable a setting that is disabled at an upper level.
+Allow Override設定には、サーバー、仮想ホスト、およびコンテキストの3つのレベルがあります。
+サーバレベルでコンフィグレーションがチェックされていない場合、より低いレベルで有効になっているかどうかに関わらず、制御されたディレクティブはサーバ全体で無効になります。
+サーバーレベルで何かが有効になっている場合、仮想ホストはデフォルトで同じ設定を継承します。
+同様に、コンテキストレベルの設定は仮想ホスト設定から継承されます。
+下位レベルでは、上位レベルで有効になっている設定は無効にできますが、上位レベルで無効になっている設定は有効にできません。
 END_DESCR
 
-EDITTIP: Allow Override configuration is available in three levels: server level, virtual host level and context level. Server level is 
-the overall control, i.e. lower level can disable a setting which is enabled by upper level, but cannot enable a setting which is disabled by upper level.
+EDITTIP: Allow Override設定には、サーバー、仮想ホスト、およびコンテキストの3つのレベルがあります。
+サーバレベルでコンフィグレーションがチェックされていない場合、より低いレベルで有効になっているかどうかに関わらず、制御されたディレクティブはサーバ全体で無効になります。
+サーバーレベルで何かが有効になっている場合、仮想ホストはデフォルトで同じ設定を継承します。
+同様に、コンテキストレベルの設定は仮想ホスト設定から継承されます。
+下位レベルでは、上位レベルで有効になっている設定は無効にできますが、上位レベルで無効になっている設定は有効にできません。
 END_EDITTIP
 
-EDITTIP: When all チェックボックスから選択es are unchecked, default setting will be used.
+EDITTIP: すべての選択がチェックされていない場合、デフォルト設定が使用されます。
 END_EDITTIP
 
-EDITTIP: When nothing but "None" is checked, access control file will be ignored.
+EDITTIP: 「None」以外のチェックをすると、アクセス制御ファイルは無視されます。
 END_EDITTIP
 
-EDITTIP: When "Limit" is checked, directives "Order", "Allow" and "Deny" are allowed.
+EDITTIP: 「Limit」がチェックされていると、「Order」、「Allow」、「Deny」という指示が許可されます。
 END_EDITTIP
 
-EDITTIP: When "Auth" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", "Require" are allowed. 
+EDITTIP: "Auth"をチェックすると、 "AuthGroupFile"、 "AuthName"、 "AuthType"、 "AuthUserFile"、 "Require"の各ディレクティブが許可されます。 
 END_EDITTIP
 
 SYNTAX: チェックボックスから選択
@@ -916,8 +903,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] If there is no need for directory level
-configuration customization, check {val}None{/}.
+TIPS: [パフォーマンス]ディレクトリレベルの設定をカスタマイズする必要がない場合は、{val}None{/}をチェックしてください。
 END_TIPS
 
 [END_ITEM]
@@ -926,23 +912,26 @@ END_TIPS
 
 [ITEM]
 ID: accessFileName
-NAME: Access File Name
+NAME: アクセスファイル名
 NS: E
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=allowOverride}
 
-DESCR: Specifies the name of access control files. These files will be used only if 
-{ITEM=allowOverride} is enabled. Default name is {val}.htaccess{/}. 
-You can configure this at server level and virtual host level. Server level is the default setting, and you 
- can override it at virtual host level.
+DESCR: アクセス制御ファイルの名前を指定します。
+これらのファイルは、{ITEM=allowOverride}が有効な場合にのみ使用されます。
+デフォルトの名前は{val}.htaccess{/}です。
+これはサーバーレベルと仮想ホストレベルで構成できます。
+サーバーレベルはデフォルト設定で、仮想ホストレベルでオーバーライドすることができます。
 END_DESCR
 
-EDITTIP: It is recommended to use a hidden access file. To do this simply start the filename with ".", similar to ".htaccess". LiteSpeed Web Server does not serve hidden files.
+EDITTIP: 隠しアクセスファイルを使用することをお勧めします。
+これを行うには、単に ".htaccess"に似た "."でファイル名を開始します。
+LiteSpeed Web Serverは隠しファイルを提供しません。
 END_EDITTIP
 
-SYNTAX: Filename starting with "."
+SYNTAX: "."で始まるファイル名
 END_SYNTAX
 
 EXAMPLE: 
@@ -960,25 +949,26 @@ END_TIPS
 
 [ITEM]
 ID: enableExpires
-NAME: Enable Expires
+NAME: 有効期限を有効にする
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to generate an Expires header for static files. If enabled, an Expires 
-header will be generated based on {ITEM=expiresDefault} and {ITEM=expiresByType}. 
+DESCR: 静的ファイルのExpiresヘッダーを生成するかどうかを指定します。
+有効にすると、{ITEM=expiresDefault}と{ITEM=expiresByType}に基づいてExpiresヘッダーが生成されます。
 
 
-This can be set at server, virtual host and context level. Lower level settings will 
-override higher level ones, i.e. context settings will override virtual host settings 
-and virtual host settings will override server settings.
+これは、サーバー、仮想ホスト、コンテキストレベルで設定できます。
+下位レベルの設定は上位レベルの設定を上書きします。
+コンテキスト設定は仮想ホストの設定を上書きし、仮想ホストの設定はサーバーの設定を上書きします。
 END_DESCR
 
-EDITTIP: Expires can be set at the Server/Virtual Host/Context level. Lower level settings will override higher 
-level settings. In terms of overwrite priority:
+EDITTIP: Expiresは、Server / Virtual Host / Contextレベルで設定できます。
+低いレベルの設定は、高いレベルの設定を上書きします。
+上書き優先度の観点から：
 <br><br>
-Context Level > Virtual Host Level > Server Level
+コンテキストレベル > 仮想ホストレベル > サーバーレベル
 <br><br>
 END_EDITTIP
 
@@ -997,32 +987,32 @@ END_TIPS
 
 [ITEM]
 ID: expiresDefault
-NAME: Expires Default
+NAME: 期限切れ
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies default settings for Expires header generation. This setting takes effect 
-when {ITEM=enableExpires} is set to "Yes". It can be overridden by {ITEM=expiresByType}. 
-Do not set this default at the server or virtual host level unless you have to, 
-since it will generate Expires headers for all pages. Most of time this should be 
-set at the context level for certain directories that do not change
-often. If there is no default setting, no Expires header will be
-generated for types not specified in {ITEM=expiresByType}.
+DESCR: Expiresヘッダー生成のデフォルト設定を指定します。
+この設定は、{ITEM=enableExpires}が "Yes"に設定されているときに有効になります。
+{ITEM=expiresByType}で上書きできます。
+すべてのページのExpiresヘッダーが生成されるため、必要がない限り、このデフォルトをサーバーまたは仮想ホストレベルで設定しないでください。
+ほとんどの場合、これは頻繁に変更されない特定のディレクトリのコンテキストレベルで設定する必要があります。
+デフォルト設定がない場合、{ITEM=expiresByType}で指定されていないタイプに対してExpiresヘッダーは生成されません。
 END_DESCR
 
-EDITTIP: Expires syntax, "A|Mseconds" means after base time (A or M) plus the specified time in seconds, the file will expire. "A" means client access time, "M" means file 
-modified time. You can override this default setting by different MIME types: A86400 means the file will expire after 1 day based on client access time.
+EDITTIP: Expires構文では、 "A | Mseconds"は、基準時間（AまたはM）に指定された時間（秒）を加えた後、ファイルの有効期限が切れます。
+「A」はクライアントのアクセス時間を意味し、「M」はファイルが変更された時間を意味する。
+このデフォルト設定を異なるMIMEタイプで上書きすることができます.A86400は、クライアントのアクセス時間に基づいて1日後にファイルが期限切れになることを意味します。
 END_EDITTIP
 
-EDITTIP: Here are some common numbers: 1 hour = 3600 sec, 1 day = 86400 sec, 1 week = 604800 sec, 1 month = 2592000 sec, 1 year = 31536000 sec.
+EDITTIP: 1時間= 3600秒、1日= 86400秒、1週間= 604800秒、1ヶ月= 2592000秒、1年= 31536000秒という一般的な数字があります。
 END_EDITTIP
 
-SYNTAX: A|Mseconds
+SYNTAX: A|M秒
 
-The file will expire after base time(A|M) plus specified seconds. 
-Base time "A" sets the value to the client's access time and "M" to the file's last modified time.
+このファイルは、基本時間（A | M）に指定された秒を加えた後に期限切れになります。
+ベース時刻 "A"はクライアントのアクセス時間に値を設定し、 "M"はファイルの最終変更時刻を設定します。
 END_SYNTAX
 
 EXAMPLE: 
@@ -1037,25 +1027,26 @@ END_TIPS
 
 [ITEM]
 ID: expiresByType
-NAME: Expires By Type
+NAME: タイプ別に期限切れ
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies Expires header settings for individual MIME types.
+DESCR: 各MIMEタイプのExpiresヘッダー設定を指定します。
 END_DESCR
 
-EDITTIP: Expires By Type will override default settings. Each entry is in the format of "MIME-type=A|Mseconds" with no space in between. You can input multiple entries 
-separated by comma.
+EDITTIP: Expires By Typeはデフォルト設定を上書きします。
+各エントリは、「MIME-type = A | Mseconds」の形式であり、間にスペースはありません。
+カンマで区切って複数のエントリを入力できます。
 END_EDITTIP
 
-SYNTAX: Comma delimited list of "MIME-type=A|Mseconds". 
-The file will expire after base time (A|M) plus specified seconds. 
+SYNTAX: "MIME-type = A | Mseconds"のコンマで区切られたリスト。
+このファイルは、基本時間（A | M）に指定された秒を加えた後に期限切れになります。
 
 
-Base time "A" sets the value to the client's access time and "M" to the file's last modified time. 
-MIME-type accepts wildcard "*", like image/*.
+ベース時刻 "A"はクライアントのアクセス時間に値を設定し、 "M"はファイルの最終変更時刻を設定します。
+MIMEタイプはimage / *のようなワイルドカード "*"を受け入れます。
 END_SYNTAX
 
 EXAMPLE: 
@@ -1073,18 +1064,17 @@ END_TIPS
 
 [ITEM]
 ID: uploadPassByPath
-NAME: Pass Upload Data by File Path
+NAME: ファイルパスによるアップロードデータの転送
 NS: O
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specify whether or not to pass upload file data by path. If enabled, file path along with 
-some other information is sent to backend handler instead of file itself when uploading. 
-This saves on CPU resources and file transfer time but requires some updates to 
-backend to implement. If disabled, file content will be transferred to backend handler, 
-request body is still parsed to files.
+DESCR: ファイルデータをパスでアップロードするかどうかを指定します。
+有効にすると、アップロード時にファイル自体ではなく、バックエンドハンドラにファイルパスと他の情報が送信されます。
+これにより、CPUリソースとファイル転送時間が節約されますが、実装するためにバックエンドに若干の更新が必要です。
+無効にすると、ファイルの内容はバックエンドハンドラに転送され、要求本文は引き続きファイルに解析されます。
 
 END_DESCR
 
@@ -1094,7 +1084,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [performance] Enable this to speed up file upload processing if backward compatibility is not an issue.
+TIPS: [パフォーマンス]下位互換性が問題にならないようにするには、これを有効にしてファイルのアップロード処理を高速化します。
 END_TIPS
 
 [END_ITEM]
@@ -1106,16 +1096,16 @@ END_TIPS
 
 [ITEM]
 ID: geoipDBFile
-NAME: DB File Path
+NAME: DBファイルのパス
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: {ent_version} Specifies the path to MaxMind GeoIP database.
+DESCR: {ent_version} MaxMind GeoIPデータベースへのパスを指定します。
 END_DESCR
 
-SYNTAX: file path
+SYNTAX: ファイルパス
 END_SYNTAX
 
 EXAMPLE: 
@@ -1130,14 +1120,15 @@ END_TIPS
 
 [ITEM]
 ID: geoipDBCache
-NAME: DB Cache Type
+NAME: DBキャッシュタイプ
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: {ent_version} Specifies what kind of cache mode should be used. Cache modes are:
-Standard, MemoryCache, CheckCache and IndexCache. MemoryCache is recommended and is the default. 
+DESCR: {ent_version}使用するキャッシュモードの種類を指定します。
+キャッシュモードは、Standard、MemoryCache、CheckCache、およびIndexCacheです。
+MemoryCacheが推奨されており、これがデフォルトです。 
 
 END_DESCR
 
@@ -1159,16 +1150,15 @@ END_TIPS
 
 [ITEM]
 ID: loadApacheConf
-NAME: Load Apache Configuration
+NAME: Apacheの設定を読み込む
 NS: E
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether LiteSpeed will read and use a Apache configuration file to configure
-the web server. Native configurations will have higher priority when 
-there is conflict between LiteSpeed internal and Apache-based configurations. 
+DESCR: LiteSpeedがWebサーバーを構成するためにApache構成ファイルを読み込んで使用するかどうかを指定します。
+LiteSpeedの内部構成とApacheベースの構成が競合すると、ネイティブ構成の優先度が高くなります。 
 
 END_DESCR
 
@@ -1187,25 +1177,24 @@ END_TIPS
 
 [ITEM]
 ID: autoReloadApacheConf
-NAME: Auto Reload On Changes
+NAME: 変更時の自動リロード
 NS: E
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: {ITEM=apacheBinPath}
 
-DESCR: Specifies how to apply Apache configuration changes. When set to "Yes",
-LSWS will perform a graceful restart whenever the Apache configuration file
-has been modified. This may cause LSWS to restart multiple times when
-updating Apache configurations. A better solution (introduced in version 3.3.8)
- is "Use Apache binary wrapper". This will replace Apache httpd binary
-with a wrapper script. Whenever Apache is requested to start/stop/restart, the
-script will tell LSWS to take corresponding action. 
-{ITEM=apacheBinPath} must be set to use this setting. Default is "No" for 
-standard installations. For cPanel servers, the default is "Use Apache binary wrapper". 
-("Override cPanel restart HTTPD script" is an optional workaround that should only 
-be used if the option "Use Apache binary wrapper" is having problems.) 
-For other control panels default is "Yes". 
+DESCR: Apache構成の変更を適用する方法を指定します。
+"はい"に設定すると、Apache設定ファイルが変更されたときにLSWSは正常に再起動します。
+これにより、Apache構成を更新するときにLSWSが何度も再起動する可能性があります。
+より良い解決策（バージョン3.3.8で導入されました）は "Use Apache binary wrapper"です。
+これにより、Apache httpdバイナリがラッパースクリプトに置き換えられます。
+Apacheが起動/停止/再起動を要求されると、スクリプトはLSWSに対応する処置をとるよう指示します。
+この設定を使用するには、{ITEM=apacheBinPath}を設定する必要があります。
+標準インストールでは、デフォルトは「いいえ」です。
+cPanelサーバーの場合、デフォルトは "Use Apache binary wrapper"です。
+（「Apacheバイナリラッパーを使用する」オプションに問題がある場合にのみ使用するオプションの回避策は、「cPanel restart HTTPDスクリプトのオーバーライド」です）。
+他のコントロールパネルの場合、デフォルトは「はい」です。 
 
 END_DESCR
 
@@ -1224,16 +1213,16 @@ END_TIPS
 
 [ITEM]
 ID: apacheBinPath
-NAME: Apache Binary Path
+NAME: Apacheバイナリパス
 NS: E
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: {ITEM=autoReloadApacheConf}
 
-DESCR: Specifies the location of the Apache binary. Usually, it is located at
-/usr/local/apache/bin/httpd or /usr/local/apache2/bin/httpd, etc. This option
-must be set when "Use Apache binary wrapper" is used for {ITEM=autoReloadApacheConf}.
+DESCR: Apacheバイナリの場所を指定します。
+通常、/usr/local/apache/bin/httpd または /usr/local/apache2/bin/httpd などにあります。
+このオプションは、{ITEM=autoReloadApacheConf}に "Use Apache binary wrapper"が使用されている場合に設定する必要があります。
 
 END_DESCR
 
@@ -1252,16 +1241,15 @@ END_TIPS
 
 [ITEM]
 ID: apacheConfFile
-NAME: Apache Configuration File
+NAME: Apache設定ファイル
 NS: E
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the location of Apache configuration 
-file. Usually, it is located at
-/usr/local/apache/conf/httpd.conf or /etc/httpd/conf/httpd.conf.
+DESCR: Apache構成ファイルの場所を指定します。
+通常、/usr/local/apache/conf/httpd.conf または /etc/httpd/conf/httpd.conf にあります。
 END_DESCR
 
 SYNTAX: 
@@ -1279,23 +1267,20 @@ END_TIPS
 
 [ITEM]
 ID: apachePortOffset
-NAME: Apache Port Offset
+NAME: Apacheポートオフセット
 NS: E
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies an offset to be added to listening TCP ports specified
-in the Apache configuration file. In the testing phase, this allows LiteSpeed to run alongside 
-Apache on a different port instead of switching back and forth between LiteSpeed and Apache 
-on a production server. 
+DESCR: Apache構成ファイルで指定された待機中のTCPポートに追加するオフセットを指定します。
+テストフェーズでは、LiteSpeedと本番サーバー上のApacheを切り替えるのではなく、LiteSpeedを別のポートでApacheと一緒に実行できます。
 
-If set to {val}0{/} or not set, LiteSpeed will use the ports specified in the Apache configuration file. 
-When testing, make this setting a non-zero value. LiteSpeed will then add this offset value to 
-the port specified in the Apache configuration and use this port.
-After confirming that everything works properly, you can stop
-Apache, set this option back to {val}0{/}, and restart LiteSpeed.
+{val}0{/}に設定されている場合、または設定されていない場合、LiteSpeedはApache設定ファイルで指定されたポートを使用します。
+テストするときは、この設定をゼロ以外の値にします。
+LiteSpeedはこのオフセット値をApache設定で指定されたポートに追加し、このポートを使用します。
+すべてが正常に動作していることを確認したら、Apacheを停止し、このオプションを{val}0{/}に戻してLiteSpeedを再起動します。
 
 END_DESCR
 
@@ -1314,23 +1299,22 @@ END_TIPS
 
 [ITEM]
 ID: apacheIpOffset
-NAME: Apache IP Offset
+NAME: Apache IPオフセット
 NS: E
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies an offset to be added to listening IP address specified
-in the Apache configuration file. This allows LiteSpeed to run alongside
-Apache in the testing phase instead of switching back and forth between LiteSpeed and Apache
-on a production server. The calculated IP address has to be available on this server. 
+DESCR: Apache設定ファイルで指定されているリスニングIPアドレスに追加するオフセットを指定します。
+これにより、プロダクションサーバー上でLiteSpeedとApacheを切り替えるのではなく、テスト段階でLiteSpeedをApacheと共に実行することができます。
+計算されたIPアドレスがこのサーバーで使用可能である必要があります。
 
 END_DESCR
 
-SYNTAX: The offset should be set as an integer (allow negative number), not an IP address. 
-Adding "256" will add 1 to the value of the C class subnet. This option
-only works with IPv4 address. 
+SYNTAX: オフセットは、IPアドレスではなく整数（負の数を許可）として設定する必要があります。
+"256"を追加すると、Cクラスサブネットの値に1が追加されます。
+このオプションは、IPv4アドレスでのみ動作します。
 
 END_SYNTAX
 
@@ -1346,26 +1330,22 @@ END_TIPS
 
 [ITEM]
 ID: apacheHandledContent
-NAME: Apache Handled Content
+NAME: Apacheハンドルコンテンツ
 NS: E
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies resources to be passed to and processed by 
-Apache on the backend. 
-This feature requires running Apache parallel to LiteSpeed on either another
-IP or a different port, so either "Apache Port Offset" or "Apache IP Offset" 
-should be set to a non-zero value. 
+DESCR: バックエンド上でApacheに渡され処理されるリソースを指定します。
+この機能では、別のIPまたは別のポートでLiteSpeedに対してApache parallelを実行する必要があるため、「Apache Port Offset」または「Apache IP Offset」のいずれかを0以外の値に設定する必要があります。
 
 END_DESCR
 
-SYNTAX: Resources are specified by a comma delimited list of URI, file suffixes, or regular
-expressions. A URI starts with "/"; a suffix starts with ".", a regular expression starts with "exp:". 
-For example: "/svn/, .shtml" lets Apache handle requests with a URI
-starting with "/svn/" or ending with ".shtml". The same effect can be achieved
-with the regular expression "exp:^/svn/, exp:\.shtml$".
+SYNTAX: リソースは、カンマ区切りのURI、ファイルサフィックス、または正規表現のリストで指定します。
+URIは「/」で始まります。 接尾辞は "."で始まり、正規表現は "exp："で始まります。
+たとえば、"/svn/,.shtml"は、Apacheが "/svn/"で始まるURIまたは ".shtml"で終わるURIでリクエストを処理できるようにします。
+正規表現 "exp:^/svn/, exp:\.shtml$"でも同じ効果が得られます。
 END_SYNTAX
 
 EXAMPLE: 
