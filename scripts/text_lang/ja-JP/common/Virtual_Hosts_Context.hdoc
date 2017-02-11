@@ -1542,12 +1542,11 @@ SEE_ALSO:
 
 [TBL]
 ID: redirectContext
-NAME: Redirect Context
+NAME: リダイレクトコンテキスト
 NS: L
 
-DESCR: A Redirect Context can be used to forward one URI or a group of URIs to another location. 
-The destination URI can be either on the same web site (internal
-redirect) or an absolute URI pointing to another web site (external redirect).
+DESCR: リダイレクトコンテキストは、1つのURIまたはURIのグループを別の場所に転送するために使用できます。
+宛先URIは、同じWebサイト（内部リダイレクト）または別のWebサイトを指す絶対URI（外部リダイレクト）のいずれかにすることができます。
 END_DESCR
 
 SEE_ALSO: 
@@ -1557,12 +1556,11 @@ SEE_ALSO:
 
 [TBL]
 ID: redirectContext
-NAME: Redirect Context
+NAME: リダイレクトコンテキスト
 NS: E
 
-DESCR: A Redirect Context can be used to forward one URI or a group of URIs to another location. 
-The destination URI can be either on the same web site (an internal
-redirect) or an absolute URI pointing to another web site (an external redirect).
+DESCR: リダイレクトコンテキストは、1つのURIまたはURIのグループを別の場所に転送するために使用できます。
+宛先URIは、同じWebサイト（内部リダイレクト）または別のWebサイトを指す絶対URI（外部リダイレクト）のいずれかにすることができます。
 END_DESCR
 
 SEE_ALSO: 
@@ -1572,12 +1570,11 @@ SEE_ALSO:
 
 [TBL]
 ID: redirectContext
-NAME: Redirect Context
+NAME: リダイレクトコンテキスト
 NS: O
 
-DESCR: A Redirect Context can be used to forward one URI or a group of URIs to another location. 
-The destination URI can be either on the same web site (an internal
-redirect) or an absolute URI pointing to another web site (an external redirect).
+DESCR: リダイレクトコンテキストは、1つのURIまたはURIのグループを別の場所に転送するために使用できます。
+宛先URIは、同じWebサイト（内部リダイレクト）または別のWebサイトを指す絶対URI（外部リダイレクト）のいずれかにすることができます。
 END_DESCR
 
 SEE_ALSO: 
