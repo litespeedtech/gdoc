@@ -6,34 +6,33 @@
 
 [ITEM]
 ID: eventDispatcher
-NAME: I/O Event Dispatcher 
+NAME: I/Oイベント・ディスパッチャー
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies which I/O event dispatcher to use. Different
-operating systems support different types of event dispatcher:
+DESCR: 使用するI / Oイベント・ディスパッチャーを指定します。
+オペレーティングシステムによって、さまざまなタイプのイベントディスパッチャがサポートされています:
 <ul>
-  <li>Linux kernel 2.4.x supports:
+  <li>Linux カーネル 2.4.x サポート:
      <ul><li>poll</li></ul>
   </li>
-  <li>Linux kernel 2.6.x supports:
+  <li>Linux カーネル 2.6.x サポート:
      <ul><li>poll</li><li>epoll</li></ul>
   </li>
-  <li>FreeBSD supports:
+  <li>FreeBSD サポート:
      <ul><li>poll</li><li>kqueue</li></ul>
   </li>
-  <li>Solaris supports:
+  <li>Solaris サポート:
      <ul><li>poll</li><li>devpoll</li></ul>
   </li>
-  <li>Mac OS X 10.3 and above supports:
+  <li>Mac OS X 10.3以降のサポート:
      <ul><li>poll</li><li>kqueue</li></ul>
   </li>
 </ul>
-  {val}poll{/} is supported by all platforms, and is the default ドロップダウンリストから選択ion. 
-  For high traffic web sites, an altenative event dispatcher can be used to improve the 
-  scalability of the server. 
+  {val}poll{/}はすべてのプラットフォームでサポートされており、デフォルトの選択です。
+   トラフィックの多いWebサイトでは、代替イベントディスパッチャを使用してサーバーのスケーラビリティを向上させることができます。
 END_DESCR
 
 SYNTAX: ドロップダウンリストから選択
@@ -51,24 +50,25 @@ END_TIPS
 
 [ITEM]
 ID: ramDiskPath
-NAME: RAM Disk Path
+NAME: RAMディスクパス
 NS: LE
 REQUIRED: 
 APPLY: 
 SINCE: 4.2.4
 SEE_ALSO: 
 
-DESCR: Setting the RAM Disk Path allows you to designate the location of a RAM disk. A RAM disk 
-is a world-writable directory stored in memory. A server with excess RAM can reduce disk I/O by serving 
-content from this RAM disk. Accessing content from RAM is much faster than reading data from the disk. 
-LSWS will use this RAM disk to optimize performance when there is enough memory available.
+DESCR: RAMディスクパスを設定すると、RAMディスクの場所を指定できます。
+RAMディスクは、メモリに格納されたどこからでも書き込み可能なディレクトリです。
+余分なRAMを持つサーバーは、このRAMディスクからのコンテンツを提供することによってディスクI/Oを減らすことができます。
+RAMからのコンテンツへのアクセスは、ディスクからのデータの読み取りよりもはるかに高速です。
+十分なメモリがある場合、LSWSはこのRAMディスクを使用してパフォーマンスを最適化します。
 
 
-(The RAM disk must be designated in your OS setup before it can be used by the web server. 
-Many Linux distributions assign /dev/shm as a RAM disk by default, but these settings depend on your OS.) 
+（RAMディスクは、Webサーバーで使用する前にOSセットアップで指定する必要があります。
+多くのLinuxディストリビューションは、デフォルトでRAMディスクとして/dev/shmを割り当てますが、これらの設定はお使いのOSによって異なります。) 
 END_DESCR
 
-SYNTAX: path
+SYNTAX: パス
 END_SYNTAX
 
 EXAMPLE: 
@@ -83,21 +83,24 @@ END_TIPS
 
 [ITEM]
 ID: SSLStrongDhKey
-NAME: SSL Strong DH Key
+NAME: SSL強力なDHキー
 NS: LEO
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to use 2048 or 1024 bit DH keys for SSL handshakes. If set to "Yes", 2048 bit DH keys will be used for 2048 bit SSL keys and certificates. 
-1024 bit DH keys will still be used in other situations. Default is "Yes".
+DESCR: SSLハンドシェイクに2048または1024ビットのDHキーを使用するかどうかを指定します。
+「Yes」に設定すると、2048ビットのSSLキーと証明書に2048ビットのDHキーが使用されます。
+他の状況でも1024ビットのDHキーが引き続き使用されます。
+デフォルトは「はい」です。
 
 
-Earlier versions of Java do not support DH key size higher than 1024 bits. If Java client compatibility is required, this should be set to "No".
+以前のバージョンのJavaでは、1024ビット以上のDHキーサイズはサポートされていません。
+Javaクライアントの互換性が必要な場合は、これを「いいえ」に設定する必要があります。
 END_DESCR
 
-SYNTAX: radio
+SYNTAX: ラジオ
 END_SYNTAX
 
 EXAMPLE: 
@@ -115,16 +118,16 @@ END_TIPS
 
 [ITEM]
 ID: maxConnections
-NAME: Max Connections
+NAME: 最大接続数
 NS: LO
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum number of concurrent connections that the server can accept. 
-This includes both plain TCP connections and SSL connections. Once the maximum concurrent connections limit is reached, 
-the server will close Keep-Alive connections when they complete active requests. 
+DESCR: サーバーが受け入れることができる同時接続の最大数を指定します。
+これには、プレーンTCP接続とSSL接続の両方が含まれます。
+最大同時接続制限に達すると、サーバーはアクティブな要求が完了するとキープアライブ接続を閉じます。 
 END_DESCR
 
 SYNTAX: 整数
@@ -133,9 +136,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: When the server is started by "root" user, the server will try to
-adjust the per-process file descriptor limits automatically, however,
-if this fails, you may need to increase this limit manually.
+TIPS: サーバーが "root"ユーザーによって起動されると、サーバーはプロセスごとのファイル記述子の制限を自動的に調整しようとしますが、失敗した場合は手動でこの制限を増やす必要があります。
 END_TIPS
 
 [END_ITEM]
@@ -144,18 +145,17 @@ END_TIPS
 
 [ITEM]
 ID: maxConnections
-NAME: Max Connections
+NAME: 最大接続数
 NS: E
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum number of concurrent connections that the server can accept. 
-This includes both plain TCP connections and SSL connections. This setting should not be set to exceed 
-the hard limit set by the server software edition or license: {val}150{/} for Standard Edition, {val}500{/} 
-for VPS license, {val}800{/} for Ultra VPS license. Once the maximum concurrent connections limit is reached, 
-the server will close Keep-Alive connections when they complete active requests. 
+DESCR: サーバーが受け入れることができる同時接続の最大数を指定します。
+これには、プレーンTCP接続とSSL接続の両方が含まれます。
+この設定は、Standard エディションの場合は{val}150{/}、VPSライセンスの場合は{VAL}500{/}、Ultra VPSライセンスの場合は{val}800{/}、サーバーソフトウェアのエディションまたはライセンスで設定されたハードリミットです。
+最大同時接続制限に達すると、サーバーはアクティブな要求が完了するとキープアライブ接続を閉じます。
 END_DESCR
 
 SYNTAX: 整数
@@ -164,9 +164,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: When the server is started by "root" user, the server will try to
-adjust the per-process file descriptor limits automatically, however,
-if this fails, you may need to increase this limit manually.
+TIPS: サーバーが "root"ユーザーによって起動されると、サーバーはプロセスごとのファイル記述子の制限を自動的に調整しようとしますが、失敗した場合は手動でこの制限を増やす必要があります。
 END_TIPS
 
 [END_ITEM]
@@ -175,16 +173,14 @@ END_TIPS
 
 [ITEM]
 ID: maxSSLConnections
-NAME: Max SSL Connections
+NAME: SSL接続の最大数
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum number of concurrent SSL connections the server will accept. 
-Since total concurrent SSL and non-SSL connections cannot exceed the limit specified by 
-{ITEM=maxConnections}, the actual number of concurrent SSL connections allowed 
-must be lower than this limit.
+DESCR: サーバーが受け入れる同時SSL接続の最大数を指定します。
+同時SSL接続と非SSL接続の合計が{ITEM=maxConnections}で指定された制限を超えることはできないため、許可される同時SSL接続の実際の数はこの制限より小さくなければなりません。
 END_DESCR
 
 SYNTAX: 整数
@@ -202,15 +198,14 @@ END_TIPS
 
 [ITEM]
 ID: connTimeout
-NAME: Connection Timeout (secs)
+NAME: 接続タイムアウト（秒）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=keepAliveTimeout}
 
-DESCR: Specifies the maximum connection idle time allowed during processing one request. 
-The connection will be closed if it has been idle, i.e. no I/O activity, for this period 
-of time. 
+DESCR: 1つの要求の処理中に許容される最大接続アイドル時間を指定します。
+この時間の間、接続がアイドル状態の場合、つまりI/Oアクティビティがない場合は、接続が閉じられます。
 END_DESCR
 
 SYNTAX: 整数
@@ -219,8 +214,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] Set this as low as you can to help recover dead 
-connections during a potential DoS attack.
+TIPS: [セキュリティ]潜在的なDoS攻撃の間に不在接続を回復するのに役立つように、この値を低く設定します。
 END_TIPS
 
 [END_ITEM]
