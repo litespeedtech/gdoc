@@ -223,15 +223,15 @@ END_TIPS
 
 [ITEM]
 ID: maxKeepAliveReq
-NAME: Max Keep-Alive Requests
+NAME: 最大キープアライブ要求
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: Virtual Host {ITEM=VirtualHosts_Help#vhMaxKeepAliveReq}
 
-DESCR: Specifies the maximum number of requests that can be served through a keep-alive (persistent) 
-session. The connection will be closed once this limit is reached. You
-can set this limit for each virtual host as well. 
+DESCR: キープアライブ（永続的）セッションを介して処理できる要求の最大数を指定します。
+この制限に達すると接続は終了します。
+仮想ホストごとにこの制限を設定することもできます。
 END_DESCR
 
 SYNTAX: 整数
@@ -240,7 +240,8 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Set this to a reasonably high value. A value of "1" or "0" will disable keep-alive.
+TIPS: [パフォーマンス]適度に高い値に設定します。
+"1"または "0"の値はキープアライブを無効にします。
 END_TIPS
 
 [END_ITEM]
@@ -249,22 +250,20 @@ END_TIPS
 
 [ITEM]
 ID: smartKeepAlive
-NAME: Smart Keep-Alive
+NAME: スマートキープアライブ
 REQUIRED: 
 APPLY: 3
 SINCE: 
-SEE_ALSO: Virtual Host {ITEM=VirtualHosts_Help#vhSmartKeepAlive}
-DESCR: Specifies whether to turn on Smart Keep-Alive. This option is
-effective only if {ITEM=maxKeepAliveReq} is greater than 1. If enabled,
-you can also enable/disable it at the virtual host level. Smart keep-alive
-will only establish keep-alive connections for requests of JavaScript,
-CSS Style Sheet, and image files. For html pages, the connection will not be kept alive. This
-will help serve more users more efficiently. Normally a web page
-contains multiple images and scripts that will be cached by the browser after the initial request. 
-It is more efficient to send those non-html static files through a single keep-alive
-connection and have the text/html file sent through another non-keep-alive connection. This
-method will reduce idle connections and in turn increase the capacity to handle more concurrent requests
-and users.
+SEE_ALSO: 仮想ホスト{ITEM=VirtualHosts_Help#vhSmartKeepAlive} DESCR：スマートキープアライブをオンにするかどうかを指定します。
+このオプションは、{ITEM=maxKeepAliveReq}が1より大きい場合にのみ有効です。
+有効にすると、仮想ホストレベルで有効/無効にすることもできます。
+スマートキープアライブは、JavaScript、CSSスタイルシート、およびイメージファイルの要求に対してのみキープアライブ接続を確立します。
+htmlページの場合、接続は維持されません。
+これにより、より多くのユーザーに効率的にサービスを提供できます。
+通常、Webページには、最初のリクエスト後にブラウザによってキャッシュされる複数のイメージとスクリプトが含まれています。
+
+これらの非HTML静的ファイルを単一のキープアライブ接続で送信し、text/htmlファイルを別の非キープアライブ接続経由で送信する方が効率的です。
+この方法は、アイドル状態の接続を減らし、より多くの同時要求およびユーザーを処理するための容量を増加させます。
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -273,7 +272,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Enable this for high-load web sites.
+TIPS: [パフォーマンス]高負荷のWebサイトでこれを有効にします。
 END_TIPS
 
 [END_ITEM]
@@ -282,15 +281,16 @@ END_TIPS
 
 [ITEM]
 ID: keepAliveTimeout
-NAME: Keep-Alive Timeout (secs)
+NAME: キープアライブタイムアウト（秒）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum idle time between requests from a keep-alive connection.
-If no new request is received during this period of time, the connection will be closed.
-This setting only applies to HTTP/1.1 connections. HTTP/2 connections have long keep-alive timeouts by design and are not affected by this setting.
+DESCR: キープアライブ接続からの要求間の最大アイドル時間を指定します。
+この期間中に新しい要求が受信されない場合、接続は閉じられます。
+この設定は、HTTP/1.1接続にのみ適用されます。
+HTTP/2接続は、設計によって長いキープアライブタイムアウトを持ち、この設定の影響を受けません。
 END_DESCR
 
 SYNTAX: 整数
@@ -299,11 +299,11 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security & Performance] We recommend that you set this value just long enough to wait for subsequent requests from
- a client when there are more assets referenced by a single page that need to be loaded. Do not set this too long hoping that
- the next page will be served over the keep-alive connection. Keeping many idle keep-alive connections is a waste of server 
-resources and could be taken advantage of by (D)DoS attacks. {val}2-5{/} seconds is a  reasonable range for most 
-applications. LiteSpeed is highly efficient in a non-keep-alive environment.
+TIPS: [セキュリティ & パフォーマンス]ロードする必要がある単一のページで参照されるアセットが多くある場合、クライアントからの後続のリクエストを待機するのに十分な時間だけこの値を設定することをお勧めします。
+キープアライブ接続で次のページが配信されることを期待して、これを長く設定しないでください。
+多くのアイドル状態のキープアライブ接続を維持することはサーバーリソースの浪費であり、（D）DoS攻撃によって活用される可能性があります。
+{val}2-5{/}秒はほとんどのアプリケーションにとって妥当な範囲です。
+LiteSpeedは非キープアライブ環境で非常に効率的です。
 END_TIPS
 
 [END_ITEM]
@@ -312,20 +312,21 @@ END_TIPS
 
 [ITEM]
 ID: sndBufSize
-NAME: Send Buffer Size (bytes)
+NAME: 送信バッファサイズ（バイト）
 NS: LEO
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The sending buffer size of each TCP socket. {val}512K{/} is the maximum allowed buffer size.
+DESCR: 各TCPソケットの送信バッファサイズ。
+{val}512K{/}は許容されるバッファの最大サイズです。
 END_DESCR
 
-EDITTIP: Numbers can be represented as 10240, 10K or 1M.
+EDITTIP: 数字は、10240,10K、または1Mとして表すことができます。
 END_EDITTIP
 
-EDITTIP: If send/receive buffer size is 0, OS default TCP buffer size will be used.
+EDITTIP: 送信/受信バッファサイズが0の場合、OSのデフォルトTCPバッファサイズが使用されます。
 END_EDITTIP
 
 SYNTAX: 整数
@@ -334,14 +335,11 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] It is recommended to leave this value as "Not Set" or set to 0 to use the operating system's default 
-buffer size.
+TIPS: [パフォーマンス]オペレーティングシステムのデフォルトのバッファサイズを使用するには、この値を "未設定"のままにするか、0に設定することをお勧めします。
 
-[Performance] If your web site serves large static files, increase the send buffer
- size to improve performance.
+[パフォーマンス] Webサイトで大きな静的ファイルが使用されている場合は、送信バッファサイズを大きくしてパフォーマンスを向上させてください。
 
-[Performance] Setting this to a lower value will reduce throughput and memory usage per socket allowing the server to have 
-more concurrent sockets when memory is a bottleneck.
+[パフォーマンス]これを低い値に設定すると、ソケットあたりのスループットとメモリ使用量が減少し、メモリがボトルネックになった場合にサーバーがより多くの同時ソケットを持つことが可能になります。
 END_TIPS
 
 [END_ITEM]
@@ -350,13 +348,14 @@ END_TIPS
 
 [ITEM]
 ID: rcvBufSize
-NAME: Receive Buffer Size (bytes)
+NAME: 受信バッファサイズ（バイト）
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The receiving buffer size of each TCP socket. {val}512K{/} is the maximum allowed buffer size.
+DESCR: 各TCPソケットの受信バッファーサイズ。
+{val}512K{/}は許容されるバッファの最大サイズです。
 END_DESCR
 
 SYNTAX: 整数
@@ -365,14 +364,11 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] It is recommended to leave this value as "Not Set" or set to 0 to use the operating system's default 
-buffer size.
+TIPS: [パフォーマンス]オペレーティングシステムのデフォルトのバッファサイズを使用するには、この値を "未設定"のままにするか、0に設定することをお勧めします。
 
-[Performance] A large receive buffer will increase performance when processing
- incoming requests with large payloads, i.e. file uploads.
+[パフォーマンス]大きい受信バッファは、大きなペイロード、すなわちファイルアップロードで着信要求を処理するときのパフォーマンスを向上させます。
 
-[Performance] Setting this to a lower value will reduce throughput and memory usage per socket allowing the server to have 
-more concurrent sockets when memory is a bottleneck.
+[パフォーマンス]これを低い値に設定すると、ソケットあたりのスループットとメモリ使用量が減少し、メモリがボトルネックになった場合にサーバーがより多くの同時ソケットを持つことが可能になります。
 END_TIPS
 
 [END_ITEM]
@@ -384,14 +380,14 @@ END_TIPS
 
 [ITEM]
 ID: maxReqURLLen
-NAME: Max Request URL Length (bytes)
+NAME: 最大リクエストURLの長さ（バイト）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum size of a request URL. URL is the full text address used to access
-a server resource including the query string. {val}8192{/} bytes is the hard limit.
+DESCR: リクエストURLの最大サイズを指定します。
+URLは、クエリ文字列を含むサーバーリソースへのアクセスに使用されるフルテキストアドレスです。 {val}8192{/}バイトがハードリミットです。
 END_DESCR
 
 SYNTAX: 整数
@@ -400,10 +396,9 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security & Performance] Set it reasonably low to reduce memory usage 
-and help identify bogus requests and DoS attacks. 
+TIPS: [セキュリティとパフォーマンス]メモリ使用量を減らし、偽のリクエストとDoS攻撃を特定するのに役立つよう、適度に低く設定します。
 
-2-3K is big enough for most web sites unless the HTTP GET method is used with large query strings instead of POST.
+HTTP GETメソッドがPOSTの代わりに大きなクエリ文字列とともに使用されていない限り、2-3KはほとんどのWebサイトにとって十分です。
 END_TIPS
 
 [END_ITEM]
@@ -412,17 +407,17 @@ END_TIPS
 
 [ITEM]
 ID: maxReqHeaderSize
-NAME: Max Request Header Size (bytes)
+NAME: 最大要求ヘッダーサイズ（バイト）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum size of an HTTP request header including request URL. 
-Hard limit is {val}16380{/} bytes. 
+DESCR: 要求URLを含むHTTP要求ヘッダーの最大サイズを指定します。
+ハード制限は{val}16380{/}バイトです。 
 END_DESCR
 
-EDITTIP: Numbers can be represented as 10240, 10K or 1M.
+EDITTIP: 数字は、10240,10K、または1Mとして表すことができます。
 END_EDITTIP
 
 SYNTAX: 整数
@@ -431,10 +426,9 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security & Performance] Set it reasonably low to reduce memory usage and 
-help identify bogus requests and DoS attacks.
+TIPS: [セキュリティとパフォーマンス]メモリ使用量を減らし、偽のリクエストとDoS攻撃を特定するのに役立つよう、適度に低く設定します。
 
-4-8K is big enough for most web sites.
+4-8Kは、ほとんどのWebサイトで十分です。
 END_TIPS
 
 [END_ITEM]
@@ -443,14 +437,15 @@ END_TIPS
 
 [ITEM]
 ID: maxReqBodySize
-NAME: Max Request Body Size (bytes)
+NAME: 最大リクエストボディサイズ（バイト）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum size of an HTTP request body. For a 32Bit OS, {val}2GB{/} is the hard limit.
- For a 64Bit OS, it is virtually unlimited. 
+DESCR: HTTPリクエスト本文の最大サイズを指定します。
+32ビットOSの場合、{val}2GB{/}はハード制限です。
+64ビットOSの場合、実質的に無制限です。 
 END_DESCR
 
 SYNTAX: 整数
@@ -459,8 +454,8 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] To help prevent DoS attacks, try to constrain this limit to only what is really needed. 
-Your swapping space must have enough free space to accommodate this limit.
+TIPS: [セキュリティ] DoS攻撃を防ぐには、この制限を実際に必要なものだけに制限してください。
+スワッピング空間には、この制限に対応するための十分な空き領域が必要です。
 END_TIPS
 
 [END_ITEM]
@@ -469,13 +464,13 @@ END_TIPS
 
 [ITEM]
 ID: maxDynRespHeaderSize
-NAME: Max Dynamic Response Header Size (bytes)
+NAME: 最大動的応答ヘッダーサイズ（バイト）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum header size of a dynamically generated response. Hard limit is {val}8KB{/}.
+DESCR: 動的に生成される応答の最大ヘッダーサイズを指定します。 ハードリミットは{val}8KB{/}です。
 END_DESCR
 
 SYNTAX: 整数
@@ -484,8 +479,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Reliability & Performance] Set it reasonably low to help recognize bad 
-responses dynamically generated by external applications. 
+TIPS:[信頼性 & パフォーマンス]適度に低く設定すると、外部アプリケーションによって動的に生成された不正な応答を認識するのに役立ちます。 
 END_TIPS
 
 [END_ITEM]
@@ -494,13 +488,14 @@ END_TIPS
 
 [ITEM]
 ID: maxDynRespSize
-NAME: Max Dynamic Response Body Size (bytes)
+NAME: 最大動的応答ボディサイズ（バイト）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum body size of a dynamically generated response. Hard limit is {val}2047MB{/}.
+DESCR: 動的に生成される応答の最大ボディサイズを指定します。
+ハードリミットは{val}2047MB{/}です。
 END_DESCR
 
 SYNTAX: 整数
@@ -509,9 +504,8 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Reliability & Performance] Set the limit reasonably low to help 
-identify bad responses. It is not uncommon to malformed scripts to contain an 
-infinite loop which leads to infinity-sized responses.
+TIPS: [信頼性 & パフォーマンス]不適切なレスポンスを識別するのに役立ちます。
+不正なスクリプトに無限ループが含まれて無限大の応答が生じることは珍しいことではありません。
 END_TIPS
 
 [END_ITEM]
@@ -523,21 +517,18 @@ END_TIPS
 
 [ITEM]
 ID: maxCachedFileSize
-NAME: Max Cached Small File Size (bytes)
+NAME: 最大キャッシュサイズの小さいファイルサイズ（バイト）
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the largest static file that will be cached in a
-pre-allocated memory buffer. Static files can be served in four different
-ways: memory buffer cache, memory-mapped cache, plain read/write, and sendfile().
-Files whose size is smaller than this setting are served
-from memory buffer cache. Files whose size is larger than this setting, but smaller than the
-{ITEM=maxMMapFileSize} will be served from memory-mapped cache.
-Files whose size is larger than the {ITEM=maxMMapFileSize} will be served via
-plain read/write or sendfile(). It is optimal to serve static files smaller than 4K from the memory
-buffer cache. 
+DESCR: 事前に割り当てられたメモリバッファにキャッシュされる最大の静的ファイルを指定します。
+静的ファイルは、メモリバッファキャッシュ、メモリマップキャッシュ、プレーンリード/ライト、およびsendfile（）の4つの方法で提供できます。
+サイズがこの設定より小さいファイルはメモリバッファキャッシュから提供されます。
+サイズがこの設定より大きく、{ITEM=maxMMapFileSize}より小さいファイルは、メモリマップドキャッシュから処理されます。
+{ITEM=maxMMapFileSize}より大きいサイズのファイルは、プレーン・リード/ライトまたはsendfile（）を介して処理されます。
+メモリバッファキャッシュから4Kより小さい静的ファイルを提供することが最適です。
 END_DESCR
 
 SYNTAX: 整数
@@ -555,14 +546,13 @@ END_TIPS
 
 [ITEM]
 ID: totalInMemCacheSize
-NAME: Total Small File Cache Size (bytes)
+NAME: 小ファイルキャッシュサイズ合計（バイト）
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the total memory that can be allocated to the 
-buffer cache in order to cache/serve small static files.
+DESCR: 小さな静的ファイルをキャッシュ/提供するためにバッファーキャッシュに割り振ることができる合計メモリーを指定します。
 END_DESCR
 
 SYNTAX: 整数
@@ -580,24 +570,18 @@ END_TIPS
 
 [ITEM]
 ID: maxMMapFileSize
-NAME: Max MMAP File Size (bytes)
+NAME: 最大MMAPファイルサイズ（バイト）
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR:  Specifies the largest static file that will be memory mapped
-(MMAP). 
- Static files can be served in four different
-ways: memory buffer cache, memory-mapped cache, plain read/write, and sendfile(). 
-Files whose size is smaller than the {ITEM=maxCachedFileSize} are served
-from memory buffer cache. Files whose size is larger than the 
- {ITEM=maxCachedFileSize}, but smaller than the Max MMAP File Size 
- will be served from memory-mapped cache.
-Files whose size is larger than the Max MMAP File Size will be served via
-plain read/write or sendfile(). 
-Since the server has a 32bit address space (2GB), it is not recommended to memory map
-very large files. 
+DESCR:  メモリマップされる最大の静的ファイル（MMAP）を指定します。
+  静的ファイルは、メモリバッファキャッシュ、メモリマップキャッシュ、プレーンリード/ライト、およびsendfile（）の4つの方法で提供できます。
+サイズが{ITEM=maxCachedFileSize}より小さいファイルはメモリバッファキャッシュから提供されます。
+サイズが{ITEM=maxCachedFileSize}よりも大きいが最大MAPファイルサイズより小さいファイルは、メモリマップドキャッシュから提供されます。
+最大MMAPファイルサイズよりも大きいファイルは、プレーンな読み取り/書き込みまたはsendfile（）を介して提供されます。
+サーバは32ビットのアドレス空間（2GB）を持っているので、非常に大きなファイルをメモリに格納することは推奨されません。
 END_DESCR
 
 SYNTAX: 整数
@@ -1176,7 +1160,7 @@ END_TIPS
 
 [ITEM]
 ID: sslSessionTicketKeyFile
-NAME: SSL Session Ticket Key File
+NAME: SSLセッションチケットキーファイル
 NS: L
 REQUIRED: 
 APPLY: 3
@@ -1214,27 +1198,28 @@ END_TIPS
 
 [ITEM]
 ID: sslSessionTicketKeyFile
-NAME: SSL Session Ticket Key File
+NAME: SSLセッションチケットキーファイル
 NS: EO
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO:
 
-EDITTIP: Session tickets will be rotated automatically if the tickets are being generated by the server. If using the <b>SSL Session Ticket Key File</b> option to create and manage your own
-session tickets, you must be rotate the tickets yourself using a cron job.
+EDITTIP: チケットがサーバーによって生成されている場合、セッションチケットは自動的にローテーションされます。
+<b>SSLセッションチケットキーファイル</b>オプションを使用して独自のセッションチケットを作成および管理する場合は、cronジョブを使用してチケットを自分自身でローテーションする必要があります。
 END_EDITTIP
 
-DESCR: Allows the SSL Ticket Key to be created/maintained by an administrator. The file must be 48 bytes long. If this option is left empty, the load balancer 
-will generate and rotate its own set of keys. 
+DESCR: SSLチケットキーを管理者が作成または維持できるようにします。
+ファイルの長さは48バイトでなければなりません。
+このオプションを空のままにすると、ロードバランサは独自のキーセットを生成してローテーションします。
 
 
-IMPORTANT: To maintain forward secrecy, it is strongly recommended to change the key every <b>SSL Session Ticket Lifetime</b>
- seconds. If this cannot be done, it is recommended to leave this field empty.
+重要：転送秘密を維持するには、<b> SSLセッションチケットの有効期間</b>秒ごとにキーを変更することを強くお勧めします。
+これができない場合は、このフィールドを空のままにすることをお勧めします。
 
 END_DESCR
 
-SYNTAX: Path
+SYNTAX: パス
 END_SYNTAX
 
 EXAMPLE: 
@@ -1249,19 +1234,19 @@ END_TIPS
 
 [ITEM]
 ID: sslDynCertsBaseDir
-NAME: SSL Dynamic Certificates Base Dir
+NAME: SSL動的証明書ベースディレクトリ
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the base directory that dynamic ssl certificates will be stored in. 
-Certificates, keys, and CA Bundles are expected to be named "cert", "key", and "ca", respectively.
+DESCR: 動的SSL証明書が格納されるベースディレクトリを設定します。
+証明書、鍵、およびCAバンドルの名前はそれぞれ「cert」、「key」、および「ca」とする予定です。
 
 
 END_DESCR
 
-SYNTAX: Path
+SYNTAX: パス
 END_SYNTAX
 
 EXAMPLE: $SERVER_ROOT/certStore/
@@ -1276,23 +1261,23 @@ END_TIPS
 
 [ITEM]
 ID: sslDynCertsNumLevels
-NAME: SSL Dynamic Certificates Levels
+NAME: SSL動的証明書のレベル
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The number of directory levels the certificate files will be in. 
+DESCR: 証明書ファイルが格納されるディレクトリレベルの数。 
 
 
-This is similar to PHP's <b><a href="http://php.net/manual/en/session.configuration.php#ini.session.save-path">Session.save_path</a></b>
+これはPHPに似ています<b><a href="http://php.net/manual/en/session.configuration.php#ini.session.save-path">Session.save_path</a></b>
 
 END_DESCR
 
-SYNTAX: Integer number
+SYNTAX: 整数
 END_SYNTAX
 
-EXAMPLE: If set to 2, "example.com" would be in BaseDir/e/x/example.com/
+EXAMPLE: 2に設定すると、 "example.com"はBaseDir/e/x/example.com/
 END_EXAMPLE
 
 TIPS:
@@ -1304,17 +1289,17 @@ END_TIPS
 
 [ITEM]
 ID: sslDynCertsExpire
-NAME: SSL Dynamic Certificates Expire Time (secs)
+NAME: SSL動的証明書有効期限（秒）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the expire time of a dynamically loaded certificate before it is invalidated.
+DESCR: 動的に読み込まれた証明書が無効にされる前に、有効期限を設定します。
 
 END_DESCR
 
-SYNTAX: Integer number
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -1329,18 +1314,19 @@ END_TIPS
 
 [ITEM]
 ID: sslDynCertsRefresh
-NAME: SSL Dynamic Certificates Refresh Time (secs)
+NAME: SSL動的証明書リフレッシュ時間（秒）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the refresh time of a dynamically loaded certificate before it will check for file validity. If 
-the file is removed before refresh time, the cert will be invalidated. If the file is updated before refresh time, the cert will be updated.
+DESCR: ファイルの有効性をチェックする前に、動的に読み込まれた証明書の更新時間を設定します。
+リフレッシュ時間前にファイルが削除された場合、証明書は無効になります。
+リフレッシュ時間前にファイルが更新されると、証明書が更新されます。
 
 END_DESCR
 
-SYNTAX: Integer number
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -1355,15 +1341,16 @@ END_TIPS
 
 [ITEM]
 ID: sslEnableMultiCerts
-NAME: Enable Multiple SSL Certificates
+NAME: 複数のSSL証明書を有効にする
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:  Allows listeners/vhosts to set multiple SSL certificates.  If multiple certificates are enabled, the certificates/keys 
-are expected to follow a naming scheme.  If the cert is named server.crt, other possible cert names are server.crt.rsa, server.crt.dsa, server.crt.ecc. If 
-"Not Set", defaults to "No".
+DESCR:  リスナー/仮想ホストが複数のSSL証明書を設定できるようにします。
+複数の証明書が有効な場合、証明書/キーは命名規則に従うことが想定されます。
+証明書の名前がserver.crtの場合、その他の可能な証明書名はserver.crt.rsa、server.crt.dsa、server.crt.eccです。
+「未設定」の場合、デフォルトは「いいえ」です。
 
 END_DESCR
 
