@@ -599,14 +599,13 @@ END_TIPS
 
 [ITEM]
 ID: totalMMapCacheSize
-NAME: Total MMAP Cache Size (bytes)
+NAME: MMAPキャッシュサイズ合計（バイト）
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the total memory that can be allocated for memory-
-mapped cache in order to cache/serve medium sized static files. 
+DESCR: 中規模の静的ファイルをキャッシュ/配信するためにメモリマップされたキャッシュに割り当てることができる合計メモリを指定します。 
 END_DESCR
 
 SYNTAX: 整数
@@ -624,23 +623,19 @@ END_TIPS
 
 [ITEM]
 ID: useSendfile
-NAME: Use sendfile()
+NAME: sendfile（）を使用する
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to use the sendfile()
-system call to serve static files. Static files can be served in four different
-ways: memory buffer cache, memory-mapped cache, plain read/write, and sendfile().
-Files smaller than the {ITEM=maxCachedFileSize} are served from memory buffer cache. 
-Files larger than the {ITEM=maxCachedFileSize} but smaller than the  
-{ITEM=maxMMapFileSize} will be served from memory-mapped cache. 
-Files larger than the {ITEM=maxMMapFileSize} will be served via
-plain read/write or sendfile(). Sendfile() is a "zero copy" system
-call that can greatly reduce CPU utilization when serving very large
-static files. Sendfile() requires an optimized network card kernel driver
-and thus may not be suitable for some small-vendor network adapters.
+DESCR: 静的ファイルを提供するためにsendfile（）システムコールを使用するかどうかを指定します。
+静的ファイルは、メモリバッファキャッシュ、メモリマップキャッシュ、プレーンリード/ライト、およびsendfile（）の4つの方法で提供できます。
+{ITEM=maxCachedFileSize}より小さいファイルはメモリバッファキャッシュから提供されます。
+{ITEM=maxCachedFileSize}より大きいが、{ITEM=maxMMapFileSize}より小さいファイルは、メモリマップドキャッシュから提供されます。
+{ITEM=maxMMapFileSize}より大きいファイルは、プレーンな読み取り/書き込みまたはsendfile（）で処理されます。
+Sendfile（）は、非常に大きな静的ファイルを処理するときにCPU使用率を大幅に下げることができる「ゼロコピー」システムコールです。
+Sendfile（）は最適化されたネットワークカードカーネルドライバを必要とするため、一部の小規模ベンダーのネットワークアダプタには適していない可能性があります。
  
 END_DESCR
 
@@ -659,16 +654,16 @@ END_TIPS
 
 [ITEM]
 ID: useAIO
-NAME: Use AIO
+NAME: AIOを使用する
 NS: E
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: {ITEM=AIOBlockSize}
 
-DESCR: Specifies whether to use AIO to serve static files. AIO will help if
-your server has a high I/O wait. For 64bit operation system, there is an option to keep 
-files mapped in process address space to improve AIO performance.
+DESCR: 静的ファイルを提供するためにAIOを使用するかどうかを指定します。
+サーバーのI/O待機時間が長い場合は、AIOが役立ちます。
+64ビットオペレーティングシステムの場合、AIOパフォーマンスを向上させるためにプロセスアドレス空間にファイルをマップするオプションがあります。
 
 END_DESCR
 
@@ -687,17 +682,17 @@ END_TIPS
 
 [ITEM]
 ID: AIOBlockSize
-NAME: AIO Block Size
+NAME: AIOブロックサイズ
 NS: E
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: {ITEM=useAIO}
 
-DESCR: Specifies the sent block size for AIO. 
-This block size multiplied by the total files being processed should be less than the physical 
-memory of the server, otherwise, AIO will not help. If your server has enough memory, 
-you can choose a bigger size. Default value is "1M".
+DESCR: AIOの送信ブロックサイズを指定します。
+このブロックサイズに処理されるファイルの総数を掛けた値は、サーバーの物理メモリより小さくなければなりません。それ以外の場合、AIOは役に立ちません。
+サーバーに十分なメモリがある場合は、より大きなサイズを選択できます。
+デフォルト値は "1M"です。
 
 END_DESCR
 
@@ -716,17 +711,16 @@ END_TIPS
 
 [ITEM]
 ID: fileETag
-NAME: File ETag
+NAME: ファイルETag
 REQUIRED: 
 APPLY: 2
 SINCE: 4.2.2
 SEE_ALSO: 
 
-DESCR: Specifies whether to use a file's inode, last-modified time, and size attributes 
-to generate the ETag HTTP response header for static files.  
-All three attributes are enabled by default. 
-If you plan to serve the same file out of mirrored servers, you should not include 
-inode; otherwise, the ETag generated for one file will be different on different servers.
+DESCR: ファイルのinode、last-modified time、およびsize属性を使用するかどうかを指定します。
+静的ファイル用のETag HTTP応答ヘッダーを生成します。
+3つの属性はすべてデフォルトで有効になっています。
+ミラー化されたサーバーから同じファイルを提供する予定の場合は、iノードを含めないでください。 それ以外の場合、1つのファイルに対して生成されるETagは、異なるサーバーで異なります。
 
 END_DESCR
 
@@ -748,13 +742,13 @@ END_TIPS
 
 [ITEM]
 ID: enableGzipCompress
-NAME: Enable Compression
+NAME: 圧縮を有効にする
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Controls GZIP compression for both static and dynamic HTTP responses. 
+DESCR: 静的HTTP応答と動的HTTP応答の両方のGZIP圧縮を制御します。 
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -763,9 +757,8 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Enable it to save network bandwidth. Text-based responses such as 
-html, css, and javascript files benefit the most and on average can be compressed to half 
-of their original size.
+TIPS: [パフォーマンス]ネットワーク帯域幅を節約するために有効にします。
+html、css、およびjavascriptファイルなどのテキストベースの応答が最大の利益をもたらし、平均で元のサイズの半分に圧縮できます。
 END_TIPS
 
 [END_ITEM]
@@ -774,17 +767,17 @@ END_TIPS
 
 [ITEM]
 ID: enableDynGzipCompress
-NAME: Enable Dynamic Compression
+NAME: 動的圧縮を有効にする
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Controls GZIP compression for dynamically generated HTTP response. 
-{ITEM=enableGzipCompress} must be set to {val}Yes{/} in order to enable dynamic GZIP compression.
+DESCR: 動的に生成されるHTTPレスポンスのGZIP圧縮を制御します。
+動的なGZIP圧縮を有効にするには、{ITEM=enableGzipCompress}を{val}はい{/}に設定する必要があります。
 END_DESCR
 
-EDITTIP: Dynamic GZIP compression control will be effective only if GZIP Compression is enabled.
+EDITTIP: 動的GZIP圧縮コントロールは、GZIP圧縮が有効な場合にのみ有効です。
 END_EDITTIP
 
 
@@ -794,8 +787,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Compressing dynamic responses increases CPU and memory 
-utilization but saves network bandwidth. 
+TIPS: [パフォーマンス]動的応答を圧縮すると、CPUとメモリの使用率は向上しますが、ネットワーク帯域幅は節約されます。
 END_TIPS
 
 [END_ITEM]
@@ -804,28 +796,29 @@ END_TIPS
 
 [ITEM]
 ID: gzipCompressLevel
-NAME: Compression Level (Dynamic Content)
+NAME: 圧縮レベル（動的コンテンツ）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the level of compression for dynamic content. Ranges 
-from {val}1{/} (lowest) to {val}9{/} (highest). The default is {val}2{/}.
+DESCR: 動的コンテンツの圧縮レベルを指定します。
+{val}1{/}（最低）から{val}9{/}（最高）までの範囲です。
+デフォルトは{val}2{/}です。
 END_DESCR
 
-EDITTIP: GZIP Compression level ranges from 1 (Minimum) to 9 (Maximum).
+EDITTIP: GZIP圧縮レベルの範囲は1（最小）〜9（最大）です。
 END_EDITTIP
 
-SYNTAX: Number between 1 and 9.
+SYNTAX: 1と9の間の数字。
 END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Higher compression level will use more memory and CPU cycles. 
-You can set it to a higher level if your machine has additional power. There is not much difference
-between 6 and 9, except 9 uses many more CPU cycles.
+TIPS: [パフォーマンス]高い圧縮レベルは、より多くのメモリとCPUサイクルを使用します。
+マシンに追加の電源がある場合は、それをより高いレベルに設定することができます。
+6と9の間に大きな違いはありませんが、9ではCPUサイクルが多く使用されます。
 END_TIPS
 
 [END_ITEM]
@@ -834,30 +827,32 @@ END_TIPS
 
 [ITEM]
 ID: compressibleTypes
-NAME: Compressible Types
+NAME: 圧縮可能なタイプ
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies what MIME types are allowed to be compressed. 
+DESCR: 圧縮できるMIMEタイプを指定します。
 END_DESCR
 
-EDITTIP: Compressible Types is a list of MIME types that are compressible, separated by commas. You can use wildcard "*" for MIME types, like */*, text/*. You 
-can put "!" in front to exclude certain types. The order of the list is important if you use "!". For e.g., a list like "text/*, !text/css, !text/js" will 
-compress all text file except for css and js.
+EDITTIP: 「圧縮可能タイプ」は、コンマで区切られた圧縮可能なMIMEタイプのリストです。
+* / *、text / *などのMIMEタイプにワイルドカード "*"を使用できます。
+あたたは、 "！" を特定のタイプを除外するために前面に置くことができます。
+"！"を使用すると、リストの順序が重要になります。
+たとえば、 "text/*、！text/css、！text/js"のようなリストは、cssとjsを除くすべてのテキストファイルを圧縮します。
 END_EDITTIP
 
-SYNTAX: MIME type list separated by commas. Wild card "*" and 
-negate sign "!" are allowed, such as text/*, !text/js.
+SYNTAX: MIMEタイプのリストをカンマで区切って指定します。
+ワイルドカード "*"と否定記号 "！" はtext/*、！text/jsなどで許可されています。
 END_SYNTAX
 
-EXAMPLE: If you want to compress text/* but not text/css, you can have a rule like 
-{val}text/*, !text/css{/}. "!" will exclude that MIME type.
+EXAMPLE: text/cssではないtext/*を圧縮する場合は、次のようなルールを設定できます。
+{val}text/*, !text/css{/}. "!"はそのMIMEタイプを除外します。
 END_EXAMPLE
 
-TIPS: [Performance] Only allow types that will benefit from GZIP compression. Binary 
-files such as gif/png/jpeg images and flash files do not benefit from compression.
+TIPS: [パフォーマンス] GZIP圧縮の恩恵を受けるタイプのみを許可します。
+gif / png / jpegイメージやフラッシュファイルなどのバイナリファイルは、圧縮の恩恵を受けません。
 END_TIPS
 
 [END_ITEM]
@@ -866,19 +861,16 @@ END_TIPS
 
 [ITEM]
 ID: gzipAutoUpdateStatic
-NAME: Auto Update Static File
+NAME: 静的ファイルの自動更新
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to let the server automatically create/update 
-GZIP-compressed versions of compressible static files or not. If set to {val}Yes{/}, 
-when a file with a MIME type listed in {ITEM=compressibleTypes} is requested, 
-the server may create or update the corresponding compressed version of 
-the file depending on the compressed file's timestamp. This compressed file 
-is created under the {ITEM=gzipCacheDir}. The filename is based on a MD5 
-hash of the path of the original file. 
+DESCR: Sサーバが圧縮可能な静的ファイルのGZIP圧縮バージョンを自動的に作成/更新するかどうかを指定します。
+{ITEM=compressibleTypes}にリストされているMIMEタイプのファイルが要求されたときに{val}はい{/}に設定されている場合、サーバーは圧縮ファイルのタイムスタンプに応じてファイルの対応する圧縮バージョンを作成または更新できます。
+この圧縮ファイルは、{ITEM=gzipCacheDir}の下に作成されます。
+ファイル名は元のファイルのパスのMD5ハッシュに基づいています。 
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -896,17 +888,17 @@ END_TIPS
 
 [ITEM]
 ID: gzipCacheDir
-NAME: Static GZIP Cache Directory
+NAME: 静的GZIPキャッシュディレクトリ
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the path of the directory used to store compressed
-files for static content. The default is {ITEM=swappingDir}.
+DESCR: 静的コンテンツ用の圧縮ファイルの格納に使用されるディレクトリのパスを指定します。
+デフォルトは{ITEM=swappingDir}です。
 END_DESCR
 
-SYNTAX: Directory Path
+SYNTAX: ディレクトリパス
 END_SYNTAX
 
 EXAMPLE: 
@@ -921,17 +913,18 @@ END_TIPS
 
 [ITEM]
 ID: gzipStaticCompressLevel
-NAME: Compression Level (Static Content)
+NAME: 圧縮レベル（静的コンテンツ）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the level of compression for static content. Ranges 
-from {val}1{/} (lowest) to {val}9{/} (highest). The default is {val}6{/}.
+DESCR: 静的コンテンツの圧縮レベルを指定します。
+{val}1{/}（最低）から{val}9{/}（最高）までの範囲です。
+デフォルトは{val}6{/}です。
 END_DESCR
 
-SYNTAX: Number between 1 and 9.
+SYNTAX: 1から9の間の数字。
 END_SYNTAX
 
 EXAMPLE: 
@@ -946,25 +939,24 @@ END_TIPS
 
 [ITEM]
 ID: gzipMaxFileSize
-NAME: Max Static File Size (bytes)
+NAME: 最大静的ファイルサイズ（バイト）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum size of a static file for which the
-server will create a compressed file automatically. 
+DESCR: 静的ファイルの最大サイズを指定します。
+サーバーは自動的に圧縮ファイルを作成します。 
 END_DESCR
 
-SYNTAX: Number in bytes not less than 1K.
+SYNTAX: 1K以上のバイト数
 END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] It is not recommended to have the server create/update
-compressed files for large files. Compressing blocks an entire server process and 
-no further requests can be processed until the compression is completed.
+TIPS: [パフォーマンス]大規模なファイルに対してサーバーが圧縮ファイルを作成/更新することはお勧めできません。
+圧縮は、サーバープロセス全体をブロックし、圧縮が完了するまで、それ以上の要求は処理できません。
 END_TIPS
 
 [END_ITEM]
@@ -973,23 +965,23 @@ END_TIPS
 
 [ITEM]
 ID: gzipMinFileSize
-NAME: Min Static File Size (bytes)
+NAME: 最小静的ファイルサイズ（バイト）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the minimum size of a static file for which the
-server will create a corresponding compressed file. 
+DESCR: 静的ファイルの最小サイズを指定します。
+サーバーは対応する圧縮ファイルを作成します。
 END_DESCR
 
-SYNTAX: Number in bytes not less than 200.
+SYNTAX: バイト数は200より小さくない。
 END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: It is not necessary to compress very small files as the bandwidth saving is negligible.
+TIPS: 帯域幅の節約はごくわずかなため、非常に小さいファイルを圧縮する必要はありません。
 END_TIPS
 
 [END_ITEM]
@@ -1001,18 +993,19 @@ END_TIPS
 
 [ITEM]
 ID: sslSessionCache
-NAME: Enable Session Cache
+NAME: セッションキャッシュを有効にする
 NS: LEO
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-EDITTIP: Session caching allows a client to resume a session within a set amount of time without having to re-perform an SSL handshake. You can do this by assigning clients a 
-session ID using  <b>Enable Session Cache</b>, or by creating and using session tickets.
+EDITTIP: Sセッションキャッシュを使用すると、クライアントはSSLハンドシェイクを再実行せずに一定時間内にセッションを再開できます。
+これを行うには、<b>セッションキャッシュを有効にする</b>を使用するか、セッションチケットを作成して使用して、クライアントにセッションIDを割り当てます。
 END_EDITTIP
 
-DESCR: Enables session id caching. If "Not Set", defaults to  "No". (Openssl Default)
+DESCR: セッションIDキャッシングを有効にします。
+「未設定」の場合、デフォルトは「いいえ」です。 （Opensslデフォルト）
 
 END_DESCR
 
@@ -1031,17 +1024,18 @@ END_TIPS
 
 [ITEM]
 ID: sslSessionCacheSize
-NAME: Session Cache Size (bytes)
+NAME: セッションキャッシュサイズ（バイト）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the maximum number of SSL session IDs to store in the cache. Default is 1,000,000.
+DESCR: キャッシュに格納するSSLセッションIDの最大数を設定します。
+デフォルトは1,000,000です。
 
 END_DESCR
 
-SYNTAX: Integer number
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -1056,17 +1050,18 @@ END_TIPS
 
 [ITEM]
 ID: sslSessionCacheTimeout
-NAME: Session Cache Timeout (secs)
+NAME: セッションキャッシュタイムアウト（秒）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: This value determines how long a session ID will be valid within the cache before renegotiation is required. Default is 3,600.
+DESCR: この値は、再ネゴシエーションが必要な前にセッションIDがキャッシュ内で有効である期間を決定します。
+デフォルトは3,600です。
 
 END_DESCR
 
-SYNTAX: Integer number
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -1081,14 +1076,15 @@ END_TIPS
 
 [ITEM]
 ID: sslSessionTickets
-NAME: Enable Session Tickets
+NAME: セッションチケットを有効にする
 NS: LEO
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Enables session tickets. If "Not Set", the server will use openSSL's default ticket.
+DESCR: セッションチケットを有効にします。
+「未設定」の場合、サーバーはopenSSLのデフォルトチケットを使用します。
 
 END_DESCR
 
@@ -1107,19 +1103,20 @@ END_TIPS
 
 [ITEM]
 ID: shmDefaultDir
-NAME: Default SHM Directory
+NAME: デフォルトのSHMディレクトリ
 NS: LEO
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Changes shared memory's default directory to the specified path. If the directory does not exist, it will be created. 
-All SHM data will be stored in this directory unless otherwise specified.
+DESCR: 共有メモリのデフォルトディレクトリを指定されたパスに変更します。
+ディレクトリが存在しない場合は作成されます。
+特に指定のない限り、すべてのSHMデータはこのディレクトリに保存されます。
 
 END_DESCR
 
-SYNTAX: Path
+SYNTAX: パス
 END_SYNTAX
 
 EXAMPLE: 
@@ -1134,18 +1131,19 @@ END_TIPS
 
 [ITEM]
 ID: sslSessionTicketLifetime
-NAME: SSL Session Ticket Lifetime (secs)
+NAME: SSLセッションチケットの有効期間（秒）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: This value determines how long a session ticket will be valid before a renegotiation is required. Default is 3,600.
+DESCR: この値は、再ネゴシエーションが必要となる前にセッションチケットが有効になる期間を決定します。
+デフォルトは3,600です。
 
 
 END_DESCR
 
-SYNTAX: Integer number
+SYNTAX: 整数
 END_SYNTAX
 
 EXAMPLE: 
@@ -1167,23 +1165,23 @@ APPLY: 3
 SINCE: 
 SEE_ALSO:
 
-EDITTIP: Session tickets will be rotated automatically if the tickets are being generated by the server. If using the <b>SSL Session Ticket Key File</b> option 
-to create and manage your own session tickets, you must be rotate the tickets yourself using a cron job.
+EDITTIP: チケットがサーバーによって生成されている場合、セッションチケットは自動的にローテーションされます。
+<b>SSLセッションチケットキーファイル</b>オプションを使用して独自のセッションチケットを作成および管理する場合は、cronジョブを使用してチケットを自分自身でローテーションする必要があります。
 END_EDITTIP
 
-EDITTIP: <b>SSL Session Ticket Key file</b> should be used for high availability setups to avoid re-issuing tickets when a client is handled by different load balancers.
+EDITTIP: クライアントが異なるロードバランサによって処理されたときにチケットを再発行しないようにするには、高可用性設定に<b>SSLセッションチケットキーファイル</b>を使用する必要があります。
 END_EDITTIP
 
-DESCR: Allows the SSL Ticket Key to be created/maintained by an administrator. The file must be 48 bytes long. If this option is left empty, the load balancer 
-will generate and rotate its own set of keys. 
+DESCR: ASSLチケットキーを管理者が作成または維持できるようにします。
+ファイルの長さは48バイトでなければなりません。 このオプションを空のままにすると、ロードバランサは独自のキーセットを生成してローテーションします。 
 
 
-IMPORTANT: To maintain forward secrecy, it is strongly recommended to change the key every <b>SSL Session Ticket Lifetime</b>
- seconds. If this cannot be done, it is recommended to leave this field empty.
+IMPORTANT: 重要：転送の秘密を維持するには、<b>SSLセッションチケットの有効期間</b>秒単位でキーを変更することを強くお勧めします。
+これができない場合は、このフィールドを空のままにすることをお勧めします。
 
 END_DESCR
 
-SYNTAX: Path
+SYNTAX: パス
 END_SYNTAX
 
 EXAMPLE: 
@@ -1214,7 +1212,7 @@ DESCR: SSLチケットキーを管理者が作成または維持できるよう�
 このオプションを空のままにすると、ロードバランサは独自のキーセットを生成してローテーションします。
 
 
-重要：転送秘密を維持するには、<b> SSLセッションチケットの有効期間</b>秒ごとにキーを変更することを強くお勧めします。
+重要：転送秘密を維持するには、<b> SSLセッションチケットの有効期間</b>秒単位でキーを変更することを強くお勧めします。
 これができない場合は、このフィールドを空のままにすることをお勧めします。
 
 END_DESCR

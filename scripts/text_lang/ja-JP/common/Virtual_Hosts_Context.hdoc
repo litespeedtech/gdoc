@@ -1526,12 +1526,12 @@ SEE_ALSO:
 
 [TBL]
 ID: lbContext
-NAME: Load Balancer Context
+NAME: ロードバランサコンテキスト
 NS: O
 
-DESCR: Like other external applications, load balancer worker applications 
-cannot be used directly. They must be mapped to a URL through a context. 
-A Load Balancer Context will associate a URI to be load balanced by the load balancer workers. 
+DESCR: 他の外部アプリケーションと同様に、ロードバランサワーカーアプリケーションは直接使用できません。
+それらは、コンテキストを介してURLにマップされなければなりません。
+ロードバランサコンテキストは、ロードバランサワーカーによって負荷分散されるURIを関連付けます。 
 END_DESCR
 
 
