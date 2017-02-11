@@ -437,12 +437,12 @@ SEE_ALSO: {ITEM=expuri}
 DESCR: ファイルシステム内のこのコンテキストの対応する場所を指定します。
 END_DESCR
 
-EDITTIP: Rack/Rails context is for easy configuration of running Rack/Rails application. You 
-only need to specify the root location of your rack/rails application in the "Location" field.
+EDITTIP: Rack/Railsコンテキストは、Rack/Railsアプリケーションを簡単に設定するためのコンテキストです。
+[Location]フィールドには、Rack/Railsアプリケーションのルートロケーションを指定するだけで済みます。
 END_EDITTIP
 
-SYNTAX: It can be an absolute path or path relative to $SERVER_ROOT, $VH_ROOT, or $DOC_ROOT. 
-$DOC_ROOT is the default relative path, and can be omitted.
+SYNTAX: $SERVER_ROOT、$VH_ROOT、または$DOC_ROOTに関連する絶対パスまたは相対パスにすることができます。
+$DOC_ROOTはデフォルトの相対パスであり省略することができます。
 
 
 If the {ITEM=expuri} is a regular expression, then the matched sub-string 
@@ -579,18 +579,16 @@ END_TIPS
 
 [ITEM]
 ID: allowSetUID
-NAME: Allow Set UID
+NAME: UIDの設定を許可する
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether the set UID bit is allowed for CGI scripts. If the 
-set UID bit is allowed and the set UID bit is enabled for a CGI script, 
-no matter which user the CGI script was started on behalf of, the user ID of the CGI process will
-switch to the user ID of the owner of the CGI script. 
+DESCR: 設定されたUIDビットがCGIスクリプトに許可されるかどうかを指定します。
+設定されたUIDビットが許可され、CGIスクリプトに対して設定されたUIDビットが有効になっている場合、CGIスクリプトがどのユーザーに代わって起動されたかにかかわらず、CGIプロセスのユーザーIDは、CGIスクリプトの所有者のユーザーIDに切り替わります。
 
-The default is "Off".
+デフォルトは「オフ」です。
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -599,8 +597,8 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] Do not allow Set UID CGI scripts whenever possible, as it
-is inherently a security risk.
+TIPS: [セキュリティ]可能であれば、UID CGIスクリプトを設定しないでください。
+本質的にセキュリティリスクです。
 END_TIPS
 
 [END_ITEM]
@@ -609,7 +607,7 @@ END_TIPS
 
 [ITEM]
 ID: externalredirect
-NAME: External Redirect
+NAME: 外部リダイレクト
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -640,14 +638,14 @@ END_TIPS
 
 [ITEM]
 ID: statuscode
-NAME: Status Code
+NAME: ステータスコード
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the response status code of the external redirection. 
-If the status code is between 300 and 399, {ITEM=destinationuri} can be specified.
+DESCR: 外部リダイレクトの応答ステータスコードを指定します。
+ステータスコードが300〜399の場合、{ITEM=destinationuri}を指定できます。
 END_DESCR
 
 SYNTAX: 選択
