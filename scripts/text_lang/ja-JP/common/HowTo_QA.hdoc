@@ -287,38 +287,27 @@ SEE_ALSO:
 ID: qa_extapp
 Q: 外部アプリケーション（Fast CGI、LSAPI アプリ、Webサーバー、またはサーブレットエンジン）を設定する方法は？
 
-A: All types of external applications can be set up at either server level or
-virtual host level.  
-The server level ones can be used by all virtual hosts.<br>
+A: すべてのタイプの外部アプリケーションは、サーバーレベルまたは仮想ホストレベルのいずれかで設定できます。
+サーバーレベルのものはすべての仮想ホストで使用できます。<br>
 
 <ul>
 <li>
-Fast CGI and LSAPI applications running on the same machine could be
-started by the Web Server on demand. We call this type of applications as
-Local External Applications. Applications that are not started by the Web
-server are referred as Remote External Applications, even when they are
-running on the same machine.<br> 
+同じマシン上で実行されているFast CGIおよびLSAPIアプリケーションは、オンデマンドでWebサーバーによって開始できます。
+このタイプのアプリケーションをローカル外部アプリケーションと呼びます。
+Webサーバーによって開始されないアプリケーションは、同じマシン上で実行されている場合でも、リモート外部アプリケーションと呼ばれます。<br> 
 
-Servlet Engine has to be started manually no matter whether it runs on the same
-machine or not. <br>
+Servlet Engineは、同じマシン上で実行されているかどうかに関係なく、手動で起動する必要があります。<br>
 </li><br>
 <li>
 
-An external application needs to be configured first, then it can be
-referenced by its name in other places. It is configured 
-under the {PAGE=ExtApp_Help} tab, either at server or virtual
-host level.<br> 
+最初に外部アプリケーションを構成する必要があります。その後、他の場所でその名前で参照することができます。
+{PAGE=ExtApp_Help}タブの下に、サーバーまたは仮想ホストレベルで構成されます。<br> 
 
-For all external applications, you must specify 
-{ITEM=ExtApp_Help#extAppName}, {ITEM=ExtApp_Help#extAppAddress} and
-{ITEM=ExtApp_Help#maxConns}.<br>
+すべての外部アプリケーションについて、{ITEM=ExtApp_Help#extAppName}、{ITEM=ExtApp_Help#extAppAddress}、および{ITEM=ExtApp_Help#maxConns}を指定する必要があります。<br>
 
-{ITEM=ExtApp_Help#extAppName} is used to reference this app
-internally. 
-{ITEM=ExtApp_Help#extAppAddress} is the socket address used by 
-the application, which web server needs to connect to. 
-{ITEM=ExtApp_Help#maxConns} indicates the maximum 
-concurrent connections that the external application would take.
+{ITEM=ExtApp_Help#extAppName}は、このアプリケーションを内部的に参照するために使用されます。
+{ITEM=ExtApp_Help#extAppAddress}は、Webサーバーが接続する必要のあるアプリケーションによって使用されるソケットアドレスです。
+{ITEM=ExtApp_Help#maxConns}は、外部アプリケーションがとる最大同時接続数を示します。
 
 For a local external application, you also need to specify 
 {ITEM=ExtApp_Help#extAppPath}, 
@@ -1066,7 +1055,7 @@ SEE_ALSO:
 
 [QA]
 ID: qa_awstats
-Q: How to use AWStats together with LiteSpeed Web Server?
+Q: AWStatsをLiteSpeed Web Serverで併用するには？
 
 A: AWStats can be used as an add-on module of LiteSpeed web server.
 It has been seamlessly integrated into our web administration
@@ -1121,22 +1110,18 @@ SEE_ALSO:
 
 [QA]
 ID: qa_perld
-Q: How to use the persistent Perl CGI daemon?
+Q: 永続的なPerl CGIデーモンを使用するには？
 
-A: The configuration of Perl CGI daemon is similar to that of PHP
-configuration. You need to configure it as a Fast CGI
-application, and then add a script handler for "pl" or whatever suffixes
-used for Perl scripts. The Perl CGI daemon is located at 
-lsws/fcgi-bin/lsperld.fpl. <br>
-As "lsperld.fpl" utilizes the Fast CGI interface, you need to install Perl
-Fast CGI module FCGI.pm first. It is available at <a
-href="http:://www.fastcgi.com">http://www.fastcgi.com</a> or through CPAN. <br>
-The following command can be used to install FCGI.pm through CPAN:
+A: Perl CGIデーモンの設定はPHPの設定と似ています。
+Fast CGIアプリケーションとして設定し、Perlスクリプトに使用される "pl"やその他のサフィックスのスクリプトハンドラを追加する必要があります。
+Perl CGIデーモンはlsws/fcgi-bin/lsperld.fplにあります。<br>
+"lsperld.fpl"はFast CGIインターフェイスを利用するため、まずPerl Fast CGIモジュールFCGI.pmをインストールする必要があります。
+<a href="http://www.fastcgi.com">http://www.fastcgi.com</a>またはCPANから入手できます。<br>
+CPAN経由でFCGI.pmをインストールするには、次のコマンドを使用できます：
 {cmd} perl -MCPAN -e 'install FCGI' {/} <br>
-In order to deal with increasing memory usage of a persistent process, 
-number of requests that a Perl daemon can process is controlled by an
-environment variable {val}FCGI_PERL_MAX_REQ{/}, default is 500. <br>
-For example: {val}FCGI_PERL_MAX_REQ=1000{/}.
+永続プロセスのメモリ使用量を増加させるために、Perlデーモンが処理できる要求の数は環境変数
+{val}FCGI_PERL_MAX_REQ{/}によって制御されます。デフォルトは500です。<br>
+例: {val}FCGI_PERL_MAX_REQ=1000{/}.
 
 END_A
 
@@ -1147,21 +1132,16 @@ SEE_ALSO:
 
 [QA]
 ID: qa_apimport
-Q: How to import Apache configuration?
+Q: Apacheの設定をインポートするには？
 
-A: An Apache configuration migration tool -
-{cmd}lsws/admin/misc/apimport.sh{/} is available to help you
-migrate existing Apache configurations. If you did not import your
-Apache configuration during installation, just run the migration tool
-from command line:<br>
+A: Apache構成移行ツール - {cmd}lsws/admin/misc/apimport.sh{/}は、既存のApache構成を移行するのに役立ちます。
+インストール時にApacheの設定をインポートしなかった場合は、コマンドラインから次のマイグレーションツールを実行してください：<br>
 <br>
 <br>
 	{cmd}lsws/admin/misc/apimport.sh /etc/httpd/conf/httpd.conf{/}<br>
 <br>
-Then you may want to log into web admin console, check and fine tune
-the configuration, then restart LiteSpeed Web Server.
-For production web sites, it is recommended to test imported web sites
-on a different port (bind imported virtual hosts to other listeners).
+次に、Web管理コンソールにログインし、設定を確認して微調整してから、LiteSpeed Web Serverを再起動します。
+プロダクションWebサイトでは、インポートされたWebサイトを別のポートでテストすること（インポートされた仮想ホストを他のリスナーにバインドすること）を推奨します。
 
 END_A
 
@@ -1172,12 +1152,11 @@ SEE_ALSO:
 
 [QA]
 ID: qa_pipedlogger
-Q: How to use piped logger?
+Q: パイプロガーを使用するには？
 
-A: A piped logger is a standalone application that receives access log
-data sent by web server through a pipe on its STDIN stream.
-This makes flexible logging possible, like logging into a database. 
-Here is a simple piped logger written in Perl:<br>
+A: A パイプロガーは、WebサーバーがSTDINストリーム上のパイプを通じて送信したアクセスログデータを受信するスタンドアロンアプリケーションです。
+これにより、データベースへのログインなど、柔軟なロギングが可能になります。
+Perlで書かれたシンプルなパイプロガーがあります：<br>
 <pre>
 
 #!/usr/bin/perl
@@ -1190,13 +1169,10 @@ while (<>)
 }
 
 </pre>
-It will receive data from STDIN and append to file pipedaccess.log.
+STDINからデータを受け取り、pipedaccess.logファイルに追加します。
 
-To use a piped logger, first, you need to define an external application with
-type "Piped Logger", then go to "Access Log" configuration and select the "Piped
-logger" from the drop down list. Once a piped
-logger is set, access log data will no logger be written to the access
-log file.
+パイプロガーを使用するには、まず「Piped Logger」タイプの外部アプリケーションを定義し、「Access Log」設定に行き、ドロップダウンリストから「Piped logger」を選択する必要があります。
+パイプロガーが設定されると、アクセスログファイルにロガーが書き込まれません。
 
 
 END_A
@@ -1208,58 +1184,40 @@ SEE_ALSO:
 
 [QA]
 ID: qa_template
-Q: How to use template to configure a group of virtual hosts with similar configuration?
+Q: 類似の設定で仮想ホストのグループを設定するにはテンプレートを使用するには？
 
-A: When you host multiple web sites on one server, you may find that
-most of them have similar configuration. To add a new virtual host,
-you have to duplicate existing configuration and then just make some
-minor changes. Also if you need to change one common configuration, you
-have to edit all the configuration files one by one. It is annoying and
-error-prone. LiteSpeed provides this excellent feature: virtual host
-template, which will reduce the burden of a web master in above situations.
+A: 1つのサーバーで複数のWebサイトをホストする場合、それらのほとんどが同様の構成を持つことがあります。
+新しい仮想ホストを追加するには、既存の設定を複製してから、少し変更を加えるだけです。
+また、共通の構成を1つ変更する必要がある場合は、すべての構成ファイルを1つずつ編集する必要があります。
+それは迷惑でエラーを起こしやすい。
+LiteSpeedはこの優れた機能を提供します。バーチャルホストテンプレートは、上記の状況でウェブマスターの負担を軽減します。
 <br>
 <br>
-For example, if all web sites are stored on a hard drive like below:
+たとえば、すべてのWebサイトが以下のようなハードドライブに格納されている場合:
 <ul>
-   <li>Each web site has it own root directory under /wwwroot
-   directory.</li>
-   <li>Web site's root directory is named as its qualified domain
-   name, for example, directory for "www.example.com" is
-   /wwwroot/www.example.com/</li>
-   <li>Document root is "html/" sub-directory under the web
-   site's root directory. For "www.example.com", it is
-   /wwwroot/www.example.com/html/</li>
-   <li>The directory for CGI scripts is "cgi-bin/" sub-directory under
-   the web site's root directory. For "www.example.com", it is 
-   /wwwroot/www.example.com/cgi-bin/</li>
+   <li>各Webサイトには、/ wwwrootディレクトリの下に独自のルートディレクトリがあります。</li>
+   <li>Webサイトのルートディレクトリは、修飾されたドメイン名として指定されます。たとえば、 "www.example.com"のディレクトリは/wwwroot/www.example.com/です。</li>
+   <li>ドキュメントルートは、Webサイトのルートディレクトリの下にある "html /"サブディレクトリです。
+"www.example.com"の場合は/wwwroot/www.example.com/html/です。</li>
+   <li>CGIスクリプトのディレクトリは、Webサイトのルートディレクトリの下にある "cgi-bin /"サブディレクトリです。
+"www.example.com"の場合は/wwwroot/www.example.com/cgi-bin/です</li>
 </ul> 
   
-The virtual host template should be configured like below:
+仮想ホストテンプレートは以下のように設定する必要があります:
 <ul>
-	<li>"Virtual host root" should be set to "/wwwroot/$VH_NAME/"</li>
-	<li>"Document Root" should be set to "$VH_ROOT/html/" or 
-    "/wwwroot/$VH_NAME/html/", the former is preferred.</li>
-	<li>To add a "CGI" context, set "URI" to "/cgi-bin/", set "Path" to
-    "$VH_ROOT/cgi-bin/" or "/wwwroot/$VH_NAME/cgi-bin", the former is 
-	preferred.</li>
+	<li>"仮想ホストルート"は、/wwwroot/$VH_NAME/"に設定する必要があります。</li>
+	<li>"ドキュメントルート"は、"$VH_ROOT/html/"または "/wwwroot/$VH_NAME/html/"に設定する必要があり、前者が優先されます。</li>
+	<li>"CGI"コンテキストを追加するには、 "URI"を "/ cgi-bin /"に設定、 "Path"を "$VH_ROOT/cgi-bin/"または "/wwwroot/$VH_NAME/cgi-bin"に設定する必要があり、前者が優先されます。</li>
 </ul>	 
 
-If all web sites are available on port 80, you can create a listener
-bind to all interfaces on port 80 and add the name of that listener to
-"Mapped Listeners" configuration.<br>
+すべてのWebサイトがポート80で使用可能な場合は、リスナーを作成してポート80のすべてのインターフェースにバインドし、そのリスナーの名前を「マップされたリスナー」構成に追加することができます。.<br>
 <br>
-Then the rest you need to do is to configure a member virtual host for
-each web site. Properties for a member virtual host are:
+次に、各Webサイトのメンバー仮想ホストを設定する必要があります。 メンバー仮想ホストのプロパティは次のとおりです:
 <ul>
-	<li>Virtual Host Name: This probably the only property need to be
-	set if virtual host root can be somehow determined by it (like
-	naming the directory after it, and the domain name is same as the virtual
-	host name). </li>
-	<li>Domain: need to be set when the qualified domain name of the
-	web site is different from "Virtual Host Name". </li>
-	<li>Aliases: need to be set if there are aliases for this web site. </li>
-	<li>Virtual Host Root: The root directory for a web site, only
-	need to be set when it cannot be determined by "Virtual Host Name".</li>
+	<li>仮想ホスト名：仮想ホストのルートを何らかの形で（例えば、その後にディレクトリの名前を付け、ドメイン名が仮想ホスト名と同じように）判別できる場合は、おそらく唯一のプロパティーを設定する必要があります。 </li>
+	<li>ドメイン：ウェブサイトの修飾ドメイン名が「仮想ホスト名」と異なる場合に設定する必要があります。 </li>
+	<li>エイリアス：このWebサイトのエイリアスがある場合は設定する必要があります。</li>
+	<li>バーチャルホストルート：ウェブサイトのルートディレクトリは、「バーチャルホスト名」で判断できない場合にのみ設定する必要があります。</li>
 </ul>
 「バーチャルホスト名」が「ドメイン」に等しく、バーチャルホストのルートディレクトリが「バーチャルホスト名」にちなんで名付けられ、エイリアスがないため、「www.example.com」では、 「バーチャルホスト名」を「www.example.com」に設定します。
 このように新しいバーチャルホストをすべて整理する場合は、メンバーバーチャルホストに適切な「バーチャルホスト名」を追加するだけです。 
