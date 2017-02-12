@@ -1223,15 +1223,11 @@ SEE_ALSO:
 
 [TBL]
 ID: generalContext
-NAME: Static Context
+NAME: 静的コンテキスト
 NS: O
 
-DESCR: Context settings are used to specify special settings for files in a 
-certain location. These settings can be used to bring in files outside of 
-the document root (like Apache's Alias or AliasMatch directives), 
-to protect a particular directory using authorization realms, or to 
-block or restrict access to a particular directory within the document root.
-END_DESCR
+DESCR: コンテキスト設定は、特定の場所にあるファイルの特別な設定を指定するために使用されます。
+これらの設定は、ApacheのAliasやAliasMatchディレクティブのようなドキュメントルートの外部にファイルを持ち込み、認可領域を使用して特定のディレクトリを保護したり、ドキュメントルート内の特定のディレクトリへのアクセスをブロックまたは制限するために使用できます。
 
 SEE_ALSO: 
 [END_TBL]
@@ -1282,7 +1278,7 @@ SEE_ALSO:
 
 [TBL]
 ID: javaWebAppContext
-NAME: Java Web App Context
+NAME: Java Webアプリコンテキスト
 NS: O
 
 DESCR: Many people running Java applications use the servlet engine to serve static 
@@ -1341,14 +1337,13 @@ SEE_ALSO:
 
 [TBL]
 ID: servletContext
-NAME: Servlet Context
+NAME: サーブレットコンテキスト
 NS: O
 
-DESCR: Servlets can be imported individually through Servlet Contexts. 
-A Servlet Context just specifies the URI for the servlet and the name of the servlet engine. 
-You only need to use this when you do not want to import the whole web application 
-or you want to protect different servlets with different authorization realms. 
-This URI has the same requirements as for a {TBL=javaWebAppContext}. 
+DESCR: サーブレットは、サーブレットコンテキストを介して個別にインポートできます。
+サーブレットコンテキストは、サーブレットのURIとサーブレットエンジンの名前を指定するだけです。
+Webアプリケーション全体をインポートしたくない場合や、異なるサーブレットを異なる認可レルムで保護したい場合にのみ、これを使用する必要があります。
+このURIには、{TBL=javaWebAppContext}と同じ要件があります。 
 END_DESCR
 
 SEE_ALSO: 
@@ -1373,12 +1368,12 @@ SEE_ALSO:
 
 [TBL]
 ID: fcgiContext
-NAME: FastCGI Context
+NAME: FastCGIコンテキスト
 NS: O
 
-DESCR: FastCGI applications cannot be used directly. A FastCGI application must be either configured as 
-a script handler or mapped to a URL through FastCGI context. A FastCGI context will 
-associate a URI with a FastCGI application. 
+DESCR: FastCGIアプリケーションは直接使用することはできません。
+FastCGIアプリケーションは、スクリプトハンドラとして構成するか、FastCGIコンテキストを介してURLにマップする必要があります。
+FastCGIコンテキストは、URIをFastCGIアプリケーションに関連付けます。 
 END_DESCR
 
 SEE_ALSO: 
@@ -1408,11 +1403,11 @@ ID: lsapiContext
 NAME: LiteSpeed SAPIコンテキスト
 NS: O
 
-DESCR: External applications cannot be used directly. They must be either configured as 
-a script handler or mapped to a URL through a context. An LiteSpeed SAPI Context will 
-associate a URI with an LSAPI (LiteSpeed Server Application Programming Interface) application.
-Currently PHP, Ruby and Python have LSAPI modules. LSAPI, as it is developed specifically for
-LiteSpeed web server, is the most efficient way to communicate with LiteSpeed web server.  
+DESCR: 外部アプリケーションは直接使用することはできません。
+スクリプトハンドラとして設定するか、コンテキストを介してURLにマップする必要があります。
+LiteSpeed SAPIコンテキストは、URIをLSAPI（LiteSpeed Server Application Programming Interface）アプリケーションに関連付けます。
+現在PHP、Ruby、PythonにはLSAPIモジュールがあります。
+LiteSpeed Webサーバー用に特別に開発されたLSAPIは、LiteSpeed Webサーバーと通信するための最も効率的な方法です。 
 END_DESCR
 
 SEE_ALSO: 
@@ -1439,14 +1434,12 @@ SEE_ALSO:
 
 [TBL]
 ID: proxyContext
-NAME: Proxy Context
+NAME: プロキシコンテキスト
 NS: O
 
-DESCR: A Proxy Context enables this virtual host as a transparent reverse
-proxy server. This proxy server can run in front of any web 
-servers or application servers that support HTTP protocol. The External
-web server that this virtual host proxies for  has to be defined in {PAGE=ExtApp_Help} 
-before you can set up a Proxy Context.
+DESCR: プロキシコンテキストは、この仮想ホストを透過的なリバースプロキシサーバとして有効にします。
+このプロキシサーバーは、HTTPプロトコルをサポートするWebサーバーまたはアプリケーションサーバーの前で実行できます。
+この仮想ホストがプロキシする外部Webサーバーは、プロキシコンテキストを設定する前に{PAGE=ExtApp_Help}で定義されている必要があります。
 END_DESCR
 
 SEE_ALSO: 
@@ -1475,16 +1468,14 @@ SEE_ALSO:
 
 [TBL]
 ID: cgiContext
-NAME: CGI Context
+NAME: CGIコンテキスト
 NS: O
 
-DESCR: A CGI context defines scripts in a particular directory as CGI scripts. 
-This directory can be inside or outside of the document root. 
-When a file under this directory is requested, the server will always 
-try to execute it as a CGI script, no matter if it's executable or not. 
-In this way, file content under a CGI Context is always protected and cannot 
-be read as static content. It is recommended that you put all your CGI 
-scripts in a directory and set up a CGI Context to access them. 
+DESCR: CGIコンテキストは、特定のディレクトリ内のスクリプトをCGIスクリプトとして定義します。
+このディレクトリは、ドキュメントルートの内側または外側にすることができます。
+このディレクトリの下にあるファイルが要求されると、サーバは実行可能かどうかに関わらず、常にCGIスクリプトとして実行しようとします。
+このように、CGIコンテキスト下のファイルの内容は常に保護されており、静的なコンテンツとして読み込むことができません。
+すべてのCGIスクリプトをディレクトリに置いて、それらにアクセスするためのCGIコンテキストを設定することをお勧めします。 
 END_DESCR
 
 SEE_ALSO: 
