@@ -892,20 +892,20 @@ END_TIPS
 
 [ITEM]
 ID: realm
-NAME: Realm
+NAME: レルム
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the authorization realm for this context. When specified, 
-a valid username and password must be provided in order to access this context. 
-{TBL=VHSecurity_Help#realms} are set up in the {PAGE=VHSecurity_Help} section. 
-This setting uses each realm's {ITEM=VHSecurity_Help#realmName}.
+DESCR: このコンテキストの認可レルムを指定します。
+このコンテキストにアクセスするには、有効なユーザー名とパスワードを指定する必要があります。
+{TBL=VHSecurity_Help#realms}は{PAGE = VHSecurity_Help}セクションに設定されています。
+この設定では、各レルムの{ITEM=VHSecurity_Help#realmName}が使用されます。
 END_DESCR
 
-EDITTIP: A Context can be protected with a predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
-additional requirements can be specified.
+EDITTIP: コンテキストは、仮想ホストセキュリティセクションで設定されている定義済みのレルムで保護することができます。
+必要に応じて、代替名と追加要件を指定することができます。
 END_EDITTIP
 
 SYNTAX: 選択
