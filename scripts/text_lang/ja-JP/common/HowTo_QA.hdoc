@@ -315,23 +315,18 @@ For a local external application, you also need to specify
 {ITEM=ExtApp_Help#instances}
 and {ITEM=ExtApp_Help#env} (optional). <br>
 
-{ITEM=ExtApp_Help#extAppPath} is the command that launches the application, optional command parameters can be supplied. 
-{ITEM=ExtApp_Help#backlog} is the queue size of the server
-socket that it listens to.  
-{ITEM=ExtApp_Help#instances} are the number of copies
-(instances) that the server will spawn. 
-{ITEM=ExtApp_Help#env} specifies additional environment
-variables for the external application.<br>
+{ITEM=ExtApp_Help#extAppPath}は、アプリケーションを起動するコマンドです。オプションのコマンド・パラメーターを指定することができます。
+{ITEM=ExtApp_Help#backlog}は、リッスンするサーバーソケットのキューサイズです。
+{ITEM=ExtApp_Help#instances}は、サーバーが生成するコピー（インスタンス）の数です。
+{ITEM=ExtApp_Help#env}は、外部アプリケーションの追加の環境変数を指定します。<br>
 
 </li>
 <br>
 <li>
-A Multithreaded external application can process multiple requests 
-concurrently within one process. Therefore it is unnecessary to create 
-multiple instances for that kind of external applications. However, 
-most external applications are not multithreaded and each process can
-only process one request at the same time. In this case, multiple
-instances have to be created to increase the level of concurrency. <br>
+マルチスレッド外部アプリケーションは、1つのプロセス内で複数の要求を同時に処理できます。
+したがって、その種の外部アプリケーション用に複数のインスタンスを作成する必要はありません。
+ただし、ほとんどの外部アプリケーションはマルチスレッドではなく、各プロセスは同時に1つの要求しか処理できません。
+この場合、並行処理のレベルを上げるために、複数のインスタンスを作成する必要があります。<br>
 
 {ITEM=ExtApp_Help#instances} can control how many 
 instances (processes) that the web server can spawn. 
@@ -370,24 +365,21 @@ SEE_ALSO:
 
 [QA]
 ID: qa_php
-Q: How to configure PHP support?
+Q: PHPサポートを設定するには？
 
-A: PHP is fully supported by LiteSpeed web server out of box, no
-additional configuration is required. Normally, there is no need to change
-the default settings. 
-Two types of PHP SAPI interfaces are supported by LiteSpeed:<br>
+A: PHPはLiteSpeed Webサーバーで完全にサポートされているため、追加の設定は必要ありません。
+通常、デフォルト設定を変更する必要はありません。
+LiteSpeedでは、2種類のPHP SAPIインタフェースがサポートされています:<br>
 <ul>
 	<li>LiteSpeed</li>
     <li>FastCGI</li>
 </ul>
 
-<p>LiteSpeed SAPI is a new PHP SAPI module that communicates with
-LiteSpeed Web Server based on our LSAPI protocol. LiteSpeed SAPI has
-similar architecture to the FastCGI SAPI with two major enhancements:
+<p>LiteSpeed SAPIは、当社のLSAPIプロトコルに基づいてLiteSpeed Web Serverと通信する新しいPHP SAPIモジュールです。
+LiteSpeed SAPIは、FastCGI SAPIと似たアーキテクチャを2つの主要な拡張機能を備えています:
 <ol>
-<li>upto 50% better performance</li>
-<li>support for dynamic PHP configuration changes
-through web server configuration and .htaccess files.</li>
+<li>50％向上したパフォーマンス</li>
+<li>Webサーバーの設定と.htaccessファイルを使用した動的なPHP設定の変更をサポートしています。</li>
 </ol>
 </p>
 
@@ -474,11 +466,9 @@ SEE_ALSO:
 
 [QA]
 ID: qa_phplsapi
-Q: How to build PHP binary with LiteSpeed SAPI?
+Q: LiteSpeed SAPIでPHPバイナリを構築するには？
 
-A: Usually, you do not need to build your own PHP binary unless you
-  need some PHP modules that are not built into the pre-built
-  binary. <br>
+A: 通常、ビルドされたバイナリに組み込まれていないPHPモジュールが必要な場合を除き、独自のPHPバイナリをビルドする必要はありません。<br>
 <p>First, you need to download the latest PHP source code. If
   php/sapi/litespeed/ directory does not exist in the expanded source
   code tree, you need to download our patch available at 
@@ -533,11 +523,9 @@ SEE_ALSO:
 
 [QA]
 ID: qa_phpfcgi
-Q: How to build PHP binary with FCGI SAPI?
+Q: FCGI SAPIでPHPバイナリを構築するには？
 
-A: Usually there is no need to build your own PHP binary unless you
-  need some particular PHP modules that are in the pre-built
-  binary. <br>
+A: あらかじめ構築されたバイナリにある特定のPHPモジュールが必要な場合を除き、通常はPHPバイナリをビルドする必要はありません。<br>
 
   If you need to build your own PHP binary, see the following
   steps:<br><br>
@@ -584,18 +572,15 @@ SEE_ALSO:
 
 [QA]
 ID: qa_phpacc
-Q: How to setup PHP Accelerators?
+Q: PHPアクセラレータを設定するには？
 
-A: "PHP accelerator", "Turck MMCache" and "Alternative PHP Cache (APC)"
-have been tested and work well with LiteSpeed. 
-"Zend accelerator" should work fine. For all accelerators, the PHP 
-configuration file - php.ini should be changed. The default php.ini 
-for the pre-built PHP engine is located at [lsws_home]/conf/php.ini.<br> 
-Litespeed installer can enable "Turck MMCache" or "APC" with our
-pre-built binaries. If you want to enable, disable or switch after
-installation, just run [lsws_home]/admin/misc/enable_phpa.sh.<br> 
-For detailed information regarding how to install the PHP Accelerators,
-please follow the documentation from respective vendors. 
+A: 「PHPアクセラレータ」、「Turck MMCache」、「代替PHPキャッシュ（APC）」は、LiteSpeedでテストされ、うまく機能しています。
+「Zendアクセラレータ」はうまく動作するはずです。
+すべてのアクセラレータについて、PHP設定ファイル - php.iniを変更する必要があります。
+あらかじめ構築されたPHPエンジンのデフォルトのphp.iniは、[lsws_home]/conf/php.iniにあります。<br> 
+Litespeedインストーラは、事前に構築されたバイナリで "Turck MMCache"または "APC"を有効にすることができます。
+インストール後に有効化、無効化、または切り替えを行う場合は、[lsws_home]/admin/misc/enable_phpa.shを実行してください。<br> 
+PHPアクセラレータのインストール方法の詳細については、それぞれのベンダのマニュアルを参照してください。
 END_A
 
 SEE_ALSO: 
@@ -605,7 +590,7 @@ SEE_ALSO:
 
 [QA]
 ID: qa_suexec
-Q: How to start CGI, FCGI, LSAPI and PHP in suEXEC mode?
+Q: suEXECモードでCGI、FCGI、LSAPI、PHPを起動する方法は？
 
 A: When a script is started in "suEXEC" mode, the script can run on
 behalf of a user other than the user that web server process running
@@ -628,13 +613,10 @@ SEE_ALSO:
 
 [QA]
 ID: qa_sproxy
-Q: How to set up LiteSpeed Web Server as a reverse proxy server?
+Q: LiteSpeed Web Serverをリバースプロキシサーバーとして設定する方法は？
 
-A: LiteSpeed Web Server can be used as a transparent reverse proxy
-server running in front of any web server or application server that
-supports HTTP protocol, to help improve the scalability, 
-performance and security of the whole system.<br>
-Please set up in the WebAdmin console according to the following steps: <br>
+A: LiteSpeed Web Serverは、HTTPプロトコルをサポートするWebサーバーまたはアプリケーションサーバーの前で実行されるトランスペアレントリバースプロキシサーバーとして使用でき、システム全体のスケーラビリティ、パフォーマンス、およびセキュリティを向上させることができます。<br>
+次の手順に従ってWebAdminコンソールに設定してください：<br>
 
 <ol>
 	<li> Define an {PAGE=ExtApp_Help} with 
@@ -681,11 +663,11 @@ SEE_ALSO:
 
 [QA]
 ID: qa_jsp
-Q: How to setup Servlet/JSP?
+Q: サーブレット/ JSPを設定するには？
 
-A: LiteSpeed web server supports Servlet/JSP through AJPv13 protocol. 
-You can choose a Servlet engine as long as it is AJPv13 compatible. 
-Please use the following guidelines to set up:
+A: LiteSpeed Webサーバーは、AJPv13プロトコルを使用してServlet/JSPをサポートしています。
+AJPv13と互換性がある限り、サーブレットエンジンを選択することができます。
+設定には次のガイドラインを使用してください：
 
 <ol>
 	<li> Install an AJPv13 compatible Servlet engine.</li><br>
@@ -743,10 +725,9 @@ SEE_ALSO:
 
 [QA]
 ID: qa_mapache
-Q: How to migrate from Apache?
+Q: Apacheから移行するには？
 
-A: If your web site does not depend on any apache modules that the equivalent is not 
-currently available in LiteSpeed web server, the migration is pretty easy.<br>
+A: あなたのWebサイトは、LiteSpeed Webサーバで現在入手できないApacheモジュールに依存していないため、移行は簡単です。<br>
 
 <ol>
 <li>
@@ -793,9 +774,9 @@ SEE_ALSO:
 
 [QA]
 ID: qa_prvtkey
-Q: How to generate a SSL private key?
+Q: SSL秘密鍵の生成方法
 
-A: <a href="http://www.openssl.org/">OpenSSL tool kit</a> is required to generate private key.
+A: <a href="http://www.openssl.org/">OpenSSL tool kit</a>で秘密鍵を生成する必要があります。
 
 <ol>
 	<li>Install OpenSSL if it is not installed already.</li>
@@ -843,13 +824,12 @@ SEE_ALSO:
 
 [QA]
 ID: qa_selfcert
-Q: How to create self-signed certificate?
+Q: 自己署名証明書を作成するには？
 
-A: Self-signed certificates can be used to secure the web administration console. 
-It is not recommended for a public web site.
+A: 自己管理証明書を使用してWeb管理コンソールを保護することができます。
+パブリックWebサイトには推奨されません。
 
-When you use a self-signed certificate, the browser will ask the user whether to accept the 
-certificate or not as self-signed certificates are not trusted by the browser.
+自己署名証明書を使用すると、ブラウザーは、自己署名証明書がブラウザーによって信頼されていないため、証明書を受け入れるかどうかをユーザーに尋ねます。
 
 <ol>
 	<li> Create your private key.</li>
