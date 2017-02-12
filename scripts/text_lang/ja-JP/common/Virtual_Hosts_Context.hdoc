@@ -784,24 +784,20 @@ END_TIPS
 
 [ITEM]
 ID: addMIMEType
-NAME: MIME Type
+NAME: MIMEタイプ
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies additional MIME types and mappings for this
-	   context. New mappings will override existing mappings under this
-	   context and its children contexts.
+DESCR: このコンテキストに追加のMIMEタイプとマッピングを指定します。
+新しいマッピングは、このコンテキストとその子コンテキストのもとで既存のマッピングを上書きします。
 
-	   If you want to show PHP scripts as text files instead of being
-	   executed as scripts, just override the .php mapping to MIME type
-	   "text/plain". 
+スクリプトとして実行するのではなく、PHPスクリプトをテキストファイルとして表示するには、MIMEタイプ "text/plain"への.phpマッピングをオーバーライドするだけです。 
 END_DESCR
 
 SYNTAX: MIME-type1 extension extension ..., MIME-type2 extension ...
-		Use comma to separate between MIME types, use space to
-		separate multiple extensions.
+		カンマを使用してMIMEタイプを区切り、スペースを使用して複数の拡張子を区切ります。
 END_SYNTAX
 
 EXAMPLE: {val}image/jpg jpeg jpg, image/gif gif{/}
@@ -816,13 +812,13 @@ END_TIPS
 
 [ITEM]
 ID: mimetype
-NAME: MIME Type
+NAME: MIMEタイプ
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: A MIME type consists of a type and subtype in the format of "type/subtype". 
+DESCR: MIMEタイプは、タイプとサブタイプの形式で "タイプ/サブタイプ"で構成されます。 
 END_DESCR
 
 SYNTAX: 
@@ -867,7 +863,7 @@ END_TIPS
 
 [ITEM]
 ID: defaultType
-NAME: Default MIME Type
+NAME: デフォルトのMIMEタイプ
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -925,18 +921,18 @@ END_TIPS
 
 [ITEM]
 ID: authName
-NAME: Authentication Name
+NAME: 認証名
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies an alternative name for the authorization realm for the current context. 
-If not specified, the original realm name will be used. The authentication name is 
-displayed on the browser's login pop-up.
+DESCR: 現在のコンテキストの認証レルムの代替名を指定します。
+指定しない場合、元のレルム名が使用されます。
+認証名は、ブラウザのログインポップアップに表示されます。
 END_DESCR
 
-SYNTAX: text
+SYNTAX: テキスト
 END_SYNTAX
 
 EXAMPLE: 
@@ -986,21 +982,20 @@ END_TIPS
 
 [ITEM]
 ID: accessAllowed
-NAME: Access Allowed
+NAME: アクセス許可
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies which IPs or sub-networks are allowed to access resources under this context. Together with 
-{ITEM=accessDenied} and server/virtual host level access control, accessibility is determined by 
-the smallest scope that a client's IP address falls into. 
+DESCR: このコンテキストでリソースにアクセスできるIPまたはサブネットワークを指定します。
+{ITEM=accessDenied}とサーバー/仮想ホスト・レベルのアクセス制御とともに、アクセシビリティは、クライアントのIPアドレスが入る最小の範囲によって決まります。 
 END_DESCR
 
-SYNTAX: Comma-delimited list of IPs/sub-networks. 
+SYNTAX: IP/サブネットワークのカンマ区切りリスト。 
 END_SYNTAX
 
-EXAMPLE: Sub-networks can be written as {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/}, or {val}192.168.1.*{/}.
+EXAMPLE: サブネットワークは以下のように書くことができます {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/}, or {val}192.168.1.*{/}.
 END_EXAMPLE
 
 TIPS: 
@@ -1012,21 +1007,20 @@ END_TIPS
 
 [ITEM]
 ID: accessDenied
-NAME: Access Denied
+NAME: アクセス拒否
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies which IPs or sub-networks are NOT allowed to access resources under this context. 
-Together with {ITEM=accessAllowed} and server/virtual host-level access control, accessibility is 
-determined by the smallest scope that a client's IP address falls into. 
+DESCR: このコンテキストでリソースにアクセスできないIPまたはサブネットワークを指定します。
+{ITEM=accessAllowed}とサーバー/仮想ホストレベルのアクセス制御とともに、アクセシビリティはクライアントのIPアドレスが入る最小の範囲で決まります。
 END_DESCR
 
-SYNTAX: Comma-delimited list of IPs/sub-networks. 
+SYNTAX: IP/サブネットワークのカンマ区切りリスト。
 END_SYNTAX
 
-EXAMPLE: Sub-networks can be written as {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/}, or {val}192.168.1.*{/}.
+EXAMPLE: サブネットワークは以下のように書くことができます {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/}, or {val}192.168.1.*{/}.
 END_EXAMPLE
 
 TIPS: 
