@@ -1,28 +1,24 @@
-<h1>Security</h1>
+<h1>セキュリティ</h1>
 
-<p>LiteSpeed Web Server is designed with security as a top consideration. 
-LSWS supports SSL, has access control at server and virtual host levels, 
-and context-specific realm protection. Besides these standard features, 
-LSWS also has the following special security features: </p>
+<p>LiteSpeed Web Serverは、セキュリティを最優先事項として設計されています。
+LSWSはSSLをサポートし、サーバおよび仮想ホストレベルでのアクセス制御、コンテキスト固有の領域保護を備えています。
+これらの標準機能に加えて、LSWSには次の特別なセキュリティ機能もあります： </p>
 
 <ol>
-	<li><h3>Connection level limits:</h3>
+	<li><h3>接続レベルの制限：</h3>
 	  <ul>
-	    <li> IP-level throttling limits network bandwidth to and from a single IP 
-	      address regardless of the number of connections. </li>
-	    <li> IP-level connection accounting limits the number of concurrent connections 
-	      from a single IP address. You can controll this with the connection 
-	      soft limit, connection hard limit, grace 
-	      period, and banned period settings in the WebAdmin console. </li>
+	    <li>IPレベルのスロットリングにより、接続数に関係なく、単一のIPアドレスとの間でネットワーク帯域幅が制限されます。</li>
+	    <li> IPレベルの接続アカウンティングは、単一のIPアドレスからの同時接続数を制限します。
+WebAdminコンソールで、接続のソフト制限、接続ハード制限、猶予期間、および禁止期間設定を使用してこれを制御できます。 </li>
 	  </ul>
 	</li>
-	<li><h3>Request checking:</h3>
+	<li><h3>リクエストのチェック：</h3>
 	  	<p> Every HTTP request is vetted by LiteSpeed Web Server. "/." is not allowed in
 	    a decoded URL, thus denying accessing hidden files and parent directories.</p>
 	    <p>Request size is limited by LiteSpeed Web Server's max request URL length, 
 	    max request header length, and max request body length settings. </p>
     </li>
-	<li><h3>Static file checking:</h3>
+	<li><h3>静的ファイルのチェック：</h3>
   		<p>LiteSpeed Web Server will serve a static file only if the following conditions 
     are satisfied: </p>
 	  <ul>
@@ -34,7 +30,7 @@ LSWS also has the following special security features: </p>
 	        files, it has to be enabled explicitly.</li>
 	  </ul>
 	</li>
-	<li><h3>External application firewall:</h3>
+	<li><h3>外部アプリケーションファイアウォール：</h3>
 		<p>LiteSpeed Web Server forwards requests to external applications to process/generate 
 dynamic content. Those applications can use a lot of system resources. The performance of the 
 whole system will be severely degraded when system resource consumption reaches a certain point 
