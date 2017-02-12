@@ -507,28 +507,30 @@ END_TIPS
 
 [ITEM]
 ID: cgi_path
-NAME: Path
+NAME: パス
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the location of CGI scripts. 
+DESCR: CGIスクリプトの場所を指定します。 
 END_DESCR
 
-EDITTIP: A CGI context can be used to specify a directory only contains CGI scripts. Path can be absolute path or relative to $SERVER_ROOT, $VH_ROOT 
-or $DOC_ROOT(default). Path and URI must be ended with "/" for a cgi-bin directory.
+EDITTIP: CGIコンテキストを使用して、ディレクトリにCGIスクリプトのみを指定することができます。
+パスは絶対パスでも、$SERVER_ROOT、$VH_ROOT、$DOC_ROOT（デフォルト）でもかまいません。
+パスとURIは、cgi-binディレクトリのために "/"で終わらなければなりません。
 END_EDITTIP
 
-EDITTIP: If only a specific script is needed in that directory, it is recommended to create a CGI context for that script only. In this case, path and 
-URI need not be a directory. For e.g., path can be ~/myapp/myscript.pl, URI can be /myapp/myscript.pl. All other files will not be served as CGI.
+EDITTIP: そのディレクトリに特定のスクリプトだけが必要な場合は、そのスクリプトのCGIコンテキストを作成することをお勧めします。
+この場合、pathとURIはディレクトリである必要はありません。
+たとえば、pathは〜/myapp/myscript.pl、URIは/myapp/myscript.plです。
+その他のファイルはすべてCGIとして提供されません。
 END_EDITTIP
 
-SYNTAX: The path can be a directory that contains a group of CGI scripts, 
-like {val}$VH_ROOT/myapp/cgi-bin/{/}. 
-In this case, the context {ITEM=expuri} must end with "/", like {val}/app1/cgi/{/}.  
-The Path can also specify only one CGI script, like {val}$VH_ROOT/myapp/myscript.pl{/}. 
-This script should have the corresponding {ITEM=expuri} {val}/myapp/myscript.pl{/}.
+SYNTAX: パスは{val}$VH_ROOT/myapp/cgi-bin/{/}のようなCGIスクリプトのグループが含まれているディレクトリにすることができます。
+この場合、コンテキスト{ITEM=expuri}は{val}/app1/cgi/{/}のように "/"で終わらなければなりません。
+パスは、{val}$VH_ROOT/myapp/myscript.pl{/}のように、CGIスクリプトを1つだけ指定することもできます。
+このスクリプトには対応する{ITEM = expuri}{val}/myapp/myscript.pl{/}が必要です。
 END_SYNTAX
 
 EXAMPLE: 
@@ -1347,12 +1349,12 @@ SEE_ALSO:
 
 [TBL]
 ID: fcgiContext
-NAME: FastCGI Context
+NAME: FastCGIコンテキスト
 NS: E
 
-DESCR: FastCGI applications cannot be used directly. A FastCGI application must be either configured as 
-a script handler or mapped to a URL through FastCGI context. A FastCGI context will 
-associate a URI with a FastCGI application. 
+DESCR: FastCGIアプリケーションは直接使用することはできません。
+FastCGIアプリケーションは、スクリプトハンドラとして構成するか、FastCGIコンテキストを介してURLにマップする必要があります。
+FastCGIコンテキストは、URIをFastCGIアプリケーションに関連付けます。
 END_DESCR
 
 SEE_ALSO: 
@@ -1411,14 +1413,12 @@ SEE_ALSO:
 
 [TBL]
 ID: proxyContext
-NAME: Proxy Context
+NAME: プロキシコンテキスト
 NS: E
 
-DESCR: A Proxy Context enables this virtual host as a transparent reverse
-proxy server. This proxy server can run in front of any web 
-servers or application servers that support HTTP protocol. The External
-web server that this virtual host proxies for  has to be defined in {PAGE=ExtApp_Help} 
-before you can set up a Proxy Context.
+DESCR: プロキシコンテキストは、この仮想ホストを透過的なリバースプロキシサーバとして有効にします。
+このプロキシサーバーは、HTTPプロトコルをサポートするWebサーバーまたはアプリケーションサーバーの前で実行できます。
+この仮想ホストがプロキシする外部Webサーバーは、プロキシコンテキストを設定する前に{PAGE=ExtApp_Help}で定義されている必要があります。
 END_DESCR
 
 SEE_ALSO: 
@@ -1443,16 +1443,14 @@ SEE_ALSO:
 
 [TBL]
 ID: cgiContext
-NAME: CGI Context
+NAME: CGIコンテキスト
 NS: E
 
-DESCR: A CGI context defines scripts in a particular directory as CGI scripts. 
-This directory can be inside or outside of the document root. 
-When a file under this directory is requested, the server will always 
-try to execute it as a CGI script, no matter if it's executable or not. 
-In this way, file content under a CGI Context is always protected and cannot 
-be read as static content. It is recommended that you put all your CGI 
-scripts in a directory and set up a CGI Context to access them. 
+DESCR: CGIコンテキストは、特定のディレクトリ内のスクリプトをCGIスクリプトとして定義します。
+このディレクトリは、ドキュメントルートの内側または外側にすることができます。
+このディレクトリの下にあるファイルが要求されると、サーバは実行可能かどうかにかかわらず、常にCGIスクリプトとして実行しようとします。
+このように、CGIコンテキスト下のファイルの内容は常に保護されており、静的なコンテンツとして読み込むことができません。
+すべてのCGIスクリプトをディレクトリに置いて、それらにアクセスするためのCGIコンテキストを設定することをお勧めします。
 END_DESCR
 
 SEE_ALSO: 
@@ -1479,11 +1477,11 @@ SEE_ALSO:
 
 [TBL]
 ID: loadBalancerContext
-NAME: Load Balancer Context
+NAME: ロードバランサコンテキスト
 NS: L
 
-DESCR: A Load Balancer Context can be used to forward one URI or a group of URIs to another location. 
-The destination URI can be either on the same web site or an absolute URI pointing to another web site.
+DESCR: ロードバランサコンテキストを使用して、1つのURIまたはURIのグループを別の場所に転送することができます。
+宛先URIは、同じWebサイトまたは別のWebサイトを指す絶対URIのいずれかにすることができます。
 END_DESCR
 
 SEE_ALSO: 
@@ -1493,12 +1491,12 @@ SEE_ALSO:
 
 [TBL]
 ID: lbContext
-NAME: Load Balancer Context
+NAME: ロードバランサコンテキスト
 NS: E
 
-DESCR: Like other external applications, load balancer worker applications 
-cannot be used directly. They must be mapped to a URL through a context. 
-A Load Balancer Context will associate a URI to be load balanced by the load balancer workers. 
+DESCR: 他の外部アプリケーションと同様に、ロードバランサワーカーアプリケーションは直接使用できません。
+それらは、コンテキストを介してURLにマップされなければなりません。
+ロードバランサコンテキストは、ロードバランサワーカーによって負荷分散されるURIを関連付けます。 
 END_DESCR
 
 
