@@ -13,53 +13,42 @@ WebAdminコンソールで、接続のソフト制限、接続ハード制限、
 	  </ul>
 	</li>
 	<li><h3>リクエストのチェック：</h3>
-	  	<p> Every HTTP request is vetted by LiteSpeed Web Server. "/." is not allowed in
-	    a decoded URL, thus denying accessing hidden files and parent directories.</p>
-	    <p>Request size is limited by LiteSpeed Web Server's max request URL length, 
-	    max request header length, and max request body length settings. </p>
+	  	<p> すべてのHTTPリクエストは、LiteSpeed Web Serverによって検証されます。"/" デコードされたURLでは許可されないため、隠しファイルや親ディレクトリへのアクセスが拒否されます。</p>
+	    <p>要求サイズは、LiteSpeed Web Serverの最大要求URL長、最大要求ヘッダー長、および最大要求本体長設定によって制限されます。</p>
     </li>
 	<li><h3>静的ファイルのチェック：</h3>
-  		<p>LiteSpeed Web Server will serve a static file only if the following conditions 
-    are satisfied: </p>
+  		<p>LiteSpeed Web Serverは、次の条件を満たす場合にのみ静的ファイルを提供します：</p>
 	  <ul>
-	    <li>The file is readable by everyone.</li>
-	    <li>The file is not executable.</li>
-	    <li>The file is not in the access denied directory list.</li>
-	    <li>The file does not contain symbolic link if symbolic links are not allowed. </li>
-	    <li>By default, LiteSpeed Web Server does not index a directory by listing its
-	        files, it has to be enabled explicitly.</li>
+	    <li>このファイルは誰でも読むことができます。</li>
+	    <li>ファイルが実行可能ではありません。</li>
+	    <li>ファイルがアクセス拒否ディレクトリリストにありません。</li>
+	    <li>シンボリックリンクが許可されていない場合、ファイルにシンボリックリンクは含まれません。 </li>
+	    <li>デフォルトでは、LiteSpeed Web Serverはファイルをリスト表示してディレクトリのインデックスを作成しません。明示的に有効にする必要があります。</li>
 	  </ul>
 	</li>
 	<li><h3>外部アプリケーションファイアウォール：</h3>
-		<p>LiteSpeed Web Server forwards requests to external applications to process/generate 
-dynamic content. Those applications can use a lot of system resources. The performance of the 
-whole system will be severely degraded when system resource consumption reaches a certain point 
--- when swapping space has to be used, for example. One way to conduct a DoS attack is to flood 
-the web server with concurrent requests to a cumbersome external application.</p>
-<p>LiteSpeed Web Server can pipeline requests and control the concurrent level of external 
-application use to prevent overconsumption of system resources. LSWS caches requests and only 
-forwards completed requests to the external application. This means the external application 
-will not be held waiting while the server is receiving the request. LSWS also caches the 
-external application's response so that the external application can be released as soon as 
-the response is completed and does not have to wait for the client to receive the complete response. 
-This way the server can utilize fewer external application instances to serve more concurrent 
-requests and achieve higher performance and scalability. LiteSpeed Web Server also uses its 
-own virtual memory to cache the request and response body to minimize the usage of system 
-memory without sacrificing performance. </p></li>
-  <li><h3>CGI resources consumption limit:</h3>
-<p>LiteSpeed Web Server restricts the amount of system resources that can be consumed by
- CGI applications. For each request to a CGI script, the web server needs to
- start a standalone CGI process to handle it. On a Unix system, the number of concurrent 
- processes is limited. With the CGI resources consumption limit, you can configure 
- the maximum number of concurrent CGI instances that the web server can launch.  
-Excessive concurrent processes will degrade the performance 
-of the whole system. (CGI processes are a common weapon for DoS attacks.)
-A system process limit can be specified per user in order to control the number
-of processes that can be spawned by a CGI application. Each process is further confined by CPU and memory limits.</p>
+		<p>LiteSpeed Web Serverは、動的コンテンツを処理/生成するために要求を外部アプリケーションに転送します。
+これらのアプリケーションは、多くのシステムリソースを使用できます。
+たとえば、スワップスペースを使用する必要がある場合など、システムリソース消費量が一定のポイントに達すると、システム全体のパフォーマンスが著しく低下します。
+DoS攻撃を実行する1つの方法は、煩雑な外部アプリケーションへの同時リクエストをWebサーバーに氾濫させることです。</p>
+<p>LiteSpeed Web Serverは、要求をパイプライン処理し、外部アプリケーションの同時使用レベルを制御して、システムリソースの過消費を防ぎます。
+LSWSは要求をキャッシュし、完了した要求のみを外部アプリケーションに転送します。
+つまり、サーバーがリクエストを受信している間に、外部アプリケーションが待機することはありません。
+LSWSはまた、外部アプリケーションの応答をキャッシュして、応答が完了するとすぐに外部アプリケーションを解放し、クライアントが完全な応答を受け取るのを待つ必要がないようにします。
+このようにして、サーバーはより少ない外部アプリケーション・インスタンスを使用してより多くの同時要求を処理し、より高いパフォーマンスとスケーラビリティーを達成することができます。
+  LiteSpeed Web Serverは、独自の仮想メモリを使用して要求と応答の本体をキャッシュし、パフォーマンスを犠牲にせずにシステムメモリの使用を最小限に抑えます。 </p></li>
+  <li><h3>CGIリソースの消費制限：</h3>
+<p>LiteSpeed Web Serverは、CGIアプリケーションで使用できるシステムリソースの量を制限します。
+CGIスクリプトへのリクエストごとに、Webサーバーはそれを処理するためにスタンドアロンCGIプロセスを開始する必要があります。
+Unixシステムでは、並行プロセスの数が制限されています。
+CGIリソースの消費制限により、Webサーバーが起動できる同時CGIインスタンスの最大数を構成できます。
+過度の並行プロセスは、システム全体のパフォーマンスを低下させます。 （CGIプロセスはDoS攻撃の一般的な武器です。）
+CGIアプリケーションによって生成されるプロセスの数を制御するために、ユーザーごとにシステムプロセスの制限を指定することができます。
+各プロセスは、CPUとメモリの制限によってさらに制限されます。</p>
 </li>
-  <li><h3>Enhanced CGI/FastCGI security with suEXEC:</h3>
-<p>In order to reduce the security risks of a CGI or Fast CGI script, LiteSpeed Web Server can restrict the system resources the CGI script can access by running it in "suEXEC" mode. 
-"suEXEC" starts the CGI or Fast CGI script with a different user ID from that of the web server. This greatly improves security in
-shared hosting environment by preventing one user's CGI script from accessing other users' files.</p>
+  <li><h3>suEXECによる強化されたCGI/FastCGIセキュリティ</h3>
+<p>CGIまたはFast CGIスクリプトのセキュリティリスクを軽減するため、LiteSpeed Web ServerはCGIスクリプトが "suEXEC"モードで実行することでアクセスできるシステムリソースを制限できます。
+"suEXEC"は、WebサーバーのユーザーIDとは異なるユーザーIDを持つCGIまたはFast CGIスクリプトを開始します。
+これにより、あるユーザーのCGIスクリプトが他のユーザーのファイルにアクセスするのを防ぐことで、共有ホスティング環境のセキュリティが大幅に向上します。</p>
 </li>
 </ol>
