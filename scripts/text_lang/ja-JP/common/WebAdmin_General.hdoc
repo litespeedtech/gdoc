@@ -129,7 +129,7 @@ SEE_ALSO:
 ID: AdminGeneral_Help 
 NAME: 管理コンソールの一般
 
-DESCR: 管理サーバーは、WebAdminコンソール専用の特別な仮想ホストです。
+DESCR: 管理サーバーは、WebAdminコンソール専用の特別なバーチャルホストです。
 管理者のマシンからのアクセスのみを許可するか、暗号化されたSSL接続を使用して、管理サーバーを安全に保護することが重要です。 
 END_DESCR
 

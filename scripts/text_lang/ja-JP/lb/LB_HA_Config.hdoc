@@ -12,7 +12,7 @@ APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: 仮想インターフェイスを識別する固有の番号。
+DESCR: バーチャルインターフェイスを識別する固有の番号。
 END_DESCR
 
 EDITTIP: 追加/削除/変更は、HA->ステータスページで適用されるまで有効になりません。
@@ -39,7 +39,7 @@ APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: HAインターフェイスの仮想IPアドレス。
+DESCR: HAインターフェイスのバーチャルIPアドレス。
 これはIPv4またはIPv6のいずれかのアドレスで、実際のIPアドレスと同じサブネット上になければなりません。
 END_DESCR
 
@@ -58,14 +58,14 @@ END_TIPS
 
 [ITEM]
 ID: haVipId
-NAME: 仮想IP ID
+NAME: バーチャルIP ID
 REQUIRED: 
 APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: 仮想IPアドレスのID。 1〜10の整数を使用してください。
-同じHAグループに対して<b>仮想IP</b>、<b>仮想IP ID</b>、および<b>仮想IPトークン</b>が同じである必要があります。
+DESCR: バーチャルIPアドレスのID。 1〜10の整数を使用してください。
+同じHAグループに対して<b>バーチャルIP</b>、<b>バーチャルIP ID</b>、および<b>バーチャルIPトークン</b>が同じである必要があります。
 END_DESCR
 
 SYNTAX: text
@@ -83,14 +83,14 @@ END_TIPS
 
 [ITEM]
 ID: haVipToken
-NAME: 仮想IPトークン
+NAME: バーチャルIPトークン
 REQUIRED: 
 APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: インターフェイス（carp/vrrp）の広告を認証するには、仮想IPアドレストークンが必要です。
-同じHAグループに対して<b>仮想IP</b>、<b>仮想IP ID</b>、および<b>仮想IPトークン</b>が同じである必要があります。
+DESCR: インターフェイス（carp/vrrp）の広告を認証するには、バーチャルIPアドレストークンが必要です。
+同じHAグループに対して<b>バーチャルIP</b>、<b>バーチャルIP ID</b>、および<b>バーチャルIPトークン</b>が同じである必要があります。
 END_DESCR
 
 SYNTAX: text
@@ -114,7 +114,7 @@ APPLY: 3
 SINCE: 2.0
 SEE_ALSO: 
 
-DESCR: 仮想IPがバインドするNIC名（eth0、eth1など）。Linuxプラットフォームでは必須です。
+DESCR: バーチャルIPがバインドするNIC名（eth0、eth1など）。Linuxプラットフォームでは必須です。
 
 
 <b>注意：</b>この設定は必須ですが、FreeBSDプラットフォームには影響しません。
@@ -375,7 +375,7 @@ END_TIPS
 
 [TBL]
 ID: HAInterface
-NAME: HA仮想インターフェイスの設定
+NAME: HAバーチャルインターフェイスの設定
 
 DESCR: 追加/削除/変更は、HA->ステータスページで適用されるまで有効になりません。
 END_DESCR

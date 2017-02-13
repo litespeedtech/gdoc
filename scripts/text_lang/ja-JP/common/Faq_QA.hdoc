@@ -314,9 +314,9 @@ SEE_ALSO:
 
 [QA]
 ID: vh
-Q: LiteSpeedサーバーは仮想ホスティングをサポートしていますか？
+Q: LiteSpeedサーバーはバーチャルホスティングをサポートしていますか？
 
-A: はい。 LiteSpeedサーバは、無限の数の仮想ホストをサポートします。
+A: はい。 LiteSpeedサーバは、無限の数のバーチャルホストをサポートします。
 END_A
 SEE_ALSO: 
 [END_QA]

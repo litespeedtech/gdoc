@@ -1,115 +1,73 @@
-<h1>End-User License Agreement for LiteSpeed Software</h1>
+<h1>LightSpeedソフトウェアのエンドユーザーライセンス契約</h1>
 
-<h3>IMPORTANT READ CAREFULLY</h3>
+<h3>重要なので注意深く読んでください</h3>
 
 <pre>
-This End-User License Agreement ("EULA") is a legal agreement between
-"You", the end user (either an individual or a single entity) and
-LiteSpeed Technologies Inc., a company registered in New Jersey, United
-States ("LITESPEED"), for a software product ("SOFTWARE PRODUCT"). 
+このエンドユーザーライセンス契約（以下「EULA」）は、エンドユーザー（個人または単一のエンティティ）と米国ニュージャージー州に登録されたLite Speed Technologies Inc.（以下「LITESPEED "）ソフトウェア製品（以下「ソフトウェア製品」といいます。 
 
-YOU MUST READ THE TERMS BELOW BEFORE DOWNLOADING, INSTALLING, OR
-OTHERWISE USING THE SOFTWARE PRODUCT. BY DOWNLOADING, INSTALLING, OR
-USING THE SOFTWARE PRODUCT YOU AGREE TO BE AND WILL BE BOUND BY THE TERMS 
-OF THIS EULA. IF YOU DO NOT AGREE TO THE TERMS OF THIS EULA, DO NOT 
-DOWNLOAD, INSTALL, OR USE THE SOFTWARE PRODUCT.
+ソフトウェア製品をダウンロード、インストール、または使用する前に、以下の条項をお読みください。
+ソフトウェア製品のダウンロード、インストール、または使用により、お客様は本EULAの条項に同意したものとみなされます。
+本EULAの条項に同意しない場合は、ソフトウェア製品をダウンロード、インストール、または使用しないでください。
 
 
-1. LICENSE TO USE. 
-In consideration of your agreement to comply with the terms and
-conditions of this EULA, LITESPEED hereby grants you a non-exclusive and
-nontransferable license to use the SOFTWARE PRODUCT and documentation on
-a computer for which you have paid the corresponding fee. You may not use 
-the SOFTWARE PRODUCT for any illegal activity or to host pornographic 
-content.
+1.使用するライセンス。
+本EULAの条件に同意することを考慮して、LITESPEEDは、お客様に、対応する料金を支払ったコンピュータ上でソフトウェア製品およびドキュメンテーションを使用するための非独占的かつ移譲不可能なライセンスを付与します。
+あなたは、違法行為やポルノコンテンツのホスティングにソフトウェア製品を使用することはできません。
 
-1(a) Evaluation Use. Users are granted a trial license to use the
-SOFTWARE PRODUCT for evaluation and trial purposed only for a period not 
-to exceed thirty (30) days. When the trial license expires, users must
-either register (purchase a license for continued use) or cease using the 
-SOFTWARE PRODUCT and remove it from their computer. 
+1（a）評価の使用。 ユーザーには、30日間を超えない期間に限り評価と試用のためにソフトウェア製品を使用する試用版ライセンスが付与されます。
+トライアルライセンスが期限切れになると、ユーザーは登録（継続的に使用するためにライセンスを購入する）またはソフトウェア製品の使用を中止してコンピュータから削除する必要があります。
 
-1(b) Permanent Use. Users are granted a permanent license to use the
-SOFTWARE PRODUCT after registration and payment of licensing fees.
-Certain hardware information for the computer that the software is
-running on is collected in order to generate the license.
+1（b）恒久使用。 ユーザーは、ライセンス料の登録および支払い後に、ソフトウェア製品を使用する永続的なライセンスを付与されます。
+ライセンスを生成するために、ソフトウェアが実行されているコンピュータの特定のハードウェア情報が収集されます。
 
-License registration includes 1 month of Email Support and 1 year of 
-Upgrades. After 1 year, registered users may continue using their current
-version. Additional Support and Upgrade services can be purchased
-separately by registered users.
+ライセンス登録には、1ヶ月のEメールサポートと1年間のアップグレードが含まれます。 1年後、登録ユーザーは現在のバージョンを使用し続けることができます。
+追加のサポートおよびアップグレードサービスは、登録ユーザーが別途購入することができます。
 
-1(c) This section is applicable to both section 1(a) and 1(b). A single
-license may only be used with one copy of the SOFTWARE PRODUCT. A license
-for the SOFTWARE PRODUCT may not be shared among multiple copies of the
-SOFTWARE PRODUCT running on a same computer or used concurrently on
-different computers. You may access the SOFTWARE PRODUCT through a
-network by multiple remote computers. If You need another copy of the 
-SOFTWARE PRODUCT, you must obtain another license. 
+1（c）このセクションは、セクション1（a）と1（b）の両方に適用されます。
+単一のライセンスは、ソフトウェア製品の1つのコピーでのみ使用できます。
+ソフトウェア製品のライセンスは、同じコンピュータ上で実行されている、または異なるコンピュータ上で同時に使用されているソフトウェア製品の複数のコピー間で共有することはできません。
+お客様は、複数のリモートコンピュータによってネットワークを通じてソフトウェア製品にアクセスすることができます。
+ソフトウェア製品の別のコピーが必要な場合は、別のライセンスを取得する必要があります。 
 
 
-2. COPYRIGHT AND RESTRICTIONS.
-The SOFTWARE PRODUCT and the associated intellectual property are 
-protected by copyright laws and international treaty provisions. Title to
-the SOFTWARE PRODUCT and all associated intellectual property rights are
-retained by LITESPEED. Unauthorized copying or use of the SOFTWARE 
-PRODUCT, including any portion of the SOFTWARE PRODUCT that has been 
-modified, merged, or included with other software, is expressly
-forbidden. Unless prohibited by applicable law, you may not modify,
-decompile, or reverse engineer the SOFTWARE PRODUCT.  
+2.著作権および制限。
+ソフトウェア製品および関連する知的財産は、著作権法および国際条約の規定により保護されています。
+ソフトウェア製品および関連するすべての知的財産権は、LITESPEEDに保持されます。
+修正、統合、または他のソフトウェアに含まれているソフトウェア製品の一部を含む、ソフトウェア製品の無断コピーまたは使用は、明示的に禁止されています。
+適用される法律で禁止されていない限り、ソフトウェア製品を変更、逆コンパイル、またはリバースエンジニアリングすることはできません。 
 
 
-3. LIMITED WARRANTY/LIMITATIONS ON LIABILITY.
+3.制限付き保証/責任の制限。
 
-3.1 Limited Warranty. With respect to the SOFTWARE PRODUCT licensed under
-Section 1(b) (i.e. permanent license), LITESPEED warrants you and for 
-your benefit only that (a) the SOFTWARE PRODUCT will perform 
-substantially in accordance with the accompanying written materials for 
-a period of thirty (30) days from the date of purchase, and (b) any 
-Support Services provided by LITESPEED shall be substantially as 
-described and LITESPEED support staff will make commercially reasonable
-efforts to solve any problem issues. If, during this time period, the 
-SOFTWARE PRODUCT does not perform as warranted, LITESPEED's entire 
-liability and your exclusive remedy shall be, at LITESPEED's option, upon
-presentation of a copy of Your receipt, either (a) return of the price
-paid, if any, or (b) repair or replacement of the SOFTWARE PRODUCT that
-does not meet this Limited Warranty. This Limited Warranty is void if
-failure of the SOFTWARE PRODUCT has resulted from accident, abuse, or 
-misapplication. 
+3.1制限付き保証。 1（b）に基づいて使用許諾されたソフトウェア製品（永久ライセンス）に関して、LITESPEEDはあなたに保証します。
+（a）本ソフトウェア製品は、購入日から30日間、付随する文書に実質的に従うものとします。
+（b）LITESPEEDによって提供されるサポートサービスは実質的に記述されているものとし、LITESPEEDサポートスタッフは問題のある問題を解決するために商業的に合理的な努力をするものとします。
+この期間中にソフトウェア製品が保証されたとおりに動作しない場合、LITESPEEDの責任とあなたの排他的な救済措置は、LITESPEEDの選択により、あなたの領収書のコピーを提示すると、
+（a）支払われた価格の返還、
+（b）本限定保証を満たしていない本ソフトウェア製品の修理または交換。
+この限定保証は、ソフトウェア製品の不具合が事故、濫用、または誤用によるものである場合、無効となります。
 
-3.2 No Other Warranties. EXCEPT AS PROVIDED IN SECTION 3.1, THIS SOFTWARE 
-PRODUCT IS PROVIDED "AS-IS"; LITESPEED MAKES NO OTHER REPRESENTATIONS OR 
-WARRANTIES, EITHER EXPRESSED OR IMPLIED, INCLUDING, WITHOUT LIMITATION, 
-WARRANTIES THAT THE COVERED CODE IS FREE OF DEFECTS, MERCHANTABLE, OR FIT 
-FOR A PARTICULAR PURPOSE.
+3.2その他の保証 3.1に規定されている場合を除き、本ソフトウェア製品は現状のまま提供されます。
+司書は他の表明をしません。
+LITESPEEDは、保証されたコードに欠陥、商業目的、または特定目的適合性がないことを保証するものを含め、明示または黙示を問わず、他の表明または保証を一切行いません。
 
-3.3 Software Changes. LITESPEED reserves the right at any time not to 
-release or to discontinue release of any SOFTWARE PRODUCTS and to alter 
-prices, features, specifications, licensing terms, release dates, general
-availability, or other characteristics of the SOFTWARE PRODUCT. LITESPEED
-has no obligation to notify You of any changes of the SOFTWARE PRODUCT or
-any other products or programs. 
+3.3ソフトウェアの変更。
+LITESPEEDは、ソフトウェア製品のリリースや中止、およびソフトウェア製品の価格、機能、仕様、ライセンス条項、リリース日、一般的な可用性、またはその他の特性を変更しないことがいつでも可能です。
+LITESPEEDは、ソフトウェア製品またはその他の製品またはプログラムの変更をお客様に通知する義務を負いません。 
 
 
-4. LIMITATION OF LIABILITY. 
-TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT WILL
-LITESPEED BE LIABLE FOR ANY SPECIAL, INCIDENTAL, INDIRECT, OR
-CONSEQUENTIAL DAMAGES WHATSOEVER (INCLUDING, WITHOUT LIMITATION, LOSS OF
-PROFITS OR DATA, BUSINESS INTERRUPTION, OR ANY OTHER TANGIBLE OR
-INTANGIBLE PECUNIARY LOSS) ARISING OUT OF THE USE OF OR INABILITY TO USE 
-THE SOFTWARE PRODUCT OR THE PROVISION OF OR FAILURE TO PROVIDE SUPPORT
-SERVICES, EVEN IF LITESPEED HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
-DAMAGES. LITESPEED IS NOT LIABLE FOR THE CONTENT OF ANY WEB SITES POWERED
-WITH OUR SOFTWARE.
+4.責任の制限。
+該当する法律によって許可されている最大限の範囲で、いかなる場合でも、裁定されるものとしますが、これに限定されない特別な、偶発的な、間接的な、または必然的な損害
+（利益またはデータの損失、事業の中断、その他の有形または無形の喪失を含むがこれらに限定されない）
+ソフトウェア製品の使用または使用不能、またはサポートサービスの提供が失敗したことによって生じた損害は、損害賠償がかかる損害の可能性について知らされていた場合でも同様です。
+本ソフトウェアを使用しているウェブサイトの内容については責任を負わないものとします。
 
 
-5. TERMINATION.
-This EULA shall be effective from the date You download, install or 
-otherwise use the SOFTWARE PRODUCT. This EULA will terminate immediately
-without notice from LITESPEED if you fail to comply with any provision
-of this EULA.  Upon Termination, you must destroy all copies of the
-SOFTWARE PRODUCT. You may terminate this EULA at any time by destroying
-all copies of the SOFTWARE PRODUCT. 
+5.終了。
+このEULAは、お客様がソフトウェア製品をダウンロード、インストール、または使用する日から有効となります。
+このEULAの条項を遵守しなかった場合、EULAはLITESPEEDの通知なしに直ちに終了します。
+終了時には、ソフトウェア製品のすべてのコピーを破棄する必要があります。
+お客様は、本ソフトウェア製品のすべてのコピーを破棄することにより、いつでもこのEULAを終了することができます。 
 
 
 6. SEVERABILITY.

@@ -231,7 +231,7 @@ SEE_ALSO: Virtual Host {ITEM=VirtualHosts_Help#vhMaxKeepAliveReq}
 
 DESCR: キープアライブ（永続的）セッションを介して処理できる要求の最大数を指定します。
 この制限に達すると接続は終了します。
-仮想ホストごとにこの制限を設定することもできます。
+バーチャルホストごとにこの制限を設定することもできます。
 END_DESCR
 
 SYNTAX: 整数
@@ -254,9 +254,9 @@ NAME: スマートキープアライブ
 REQUIRED: 
 APPLY: 3
 SINCE: 
-SEE_ALSO: 仮想ホスト{ITEM=VirtualHosts_Help#vhSmartKeepAlive} DESCR：スマートキープアライブをオンにするかどうかを指定します。
+SEE_ALSO: バーチャルホスト{ITEM=VirtualHosts_Help#vhSmartKeepAlive} DESCR：スマートキープアライブをオンにするかどうかを指定します。
 このオプションは、{ITEM=maxKeepAliveReq}が1より大きい場合にのみ有効です。
-有効にすると、仮想ホストレベルで有効/無効にすることもできます。
+有効にすると、バーチャルホストレベルで有効/無効にすることもできます。
 スマートキープアライブは、JavaScript、CSSスタイルシート、およびイメージファイルの要求に対してのみキープアライブ接続を確立します。
 htmlページの場合、接続は維持されません。
 これにより、より多くのユーザーに効率的にサービスを提供できます。
@@ -1345,7 +1345,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:  リスナー/仮想ホストが複数のSSL証明書を設定できるようにします。
+DESCR:  リスナー/バーチャルホストが複数のSSL証明書を設定できるようにします。
 複数の証明書が有効な場合、証明書/キーは命名規則に従うことが想定されます。
 証明書の名前がserver.crtの場合、その他の可能な証明書名はserver.crt.rsa、server.crt.dsa、server.crt.eccです。
 「未設定」の場合、デフォルトは「いいえ」です。
