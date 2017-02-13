@@ -174,7 +174,7 @@ LiteSpeedのRack/Railsホスティングソリューションは、
 さらに、既存のすべてのWebホスティングコントロールパネルと互換性があります。 
 
 
-ユーザが管理できるRack/Rails設定ファイル（".ls_rails_config"）は、ユーザのホームディレクトリまたは仮想ホストのルートディレクトリにあります。
+ユーザが管理できるRack/Rails設定ファイル（".ls_rails_config"）は、ユーザのホームディレクトリまたはバーチャルホストのルートディレクトリにあります。
 構文は次の通りです：
 
 <blockquote>
@@ -190,7 +190,7 @@ RailsAppMap testApp "testrails.com" "/"
 RailsAppMap testApp "test.testrails.com" "/" 
 </blockquote>
 
-「App Path」は、ユーザーのホームディレクトリまたは仮想ディレクトリ
+「App Path」は、ユーザーのホームディレクトリまたはバーチャルディレクトリ
 ホストルートディレクトリ。
 
 

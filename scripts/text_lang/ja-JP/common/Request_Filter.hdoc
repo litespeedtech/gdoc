@@ -42,7 +42,7 @@ DESCR: 要求フィルタリングエンジンのデバッグ出力の詳細レ�
 この値の範囲は{val}0{/}-{val}9{/}です。
 {val}0{/}はロギングを無効にします。
 {val}9{/}は最も詳細なログを生成します。
-このオプションを有効にするには、サーバーと仮想ホストのエラーログ{ITEM=ServGeneral_Help#log_logLevel}を少なくとも{val}INFO{/}以上に設定する必要があります。
+このオプションを有効にするには、サーバーとバーチャルホストのエラーログ{ITEM=ServGeneral_Help#log_logLevel}を少なくとも{val}INFO{/}以上に設定する必要があります。
 これは、要求フィルタリングルールをテストする場合に便利です。
 END_DESCR
 
@@ -503,7 +503,7 @@ ID: reqCensorshipRule
 NAME: 要求フィルタリングルールセット
 NS: LE
 
-DESCR: ここで設定されたルールは、ネイティブのLSWS設定で設定された仮想ホストに対してのみ機能し、Apache httpd.confを使用する仮想ホストでは機能しません。
+DESCR: ここで設定されたルールは、ネイティブのLSWS設定で設定されたバーチャルホストに対してのみ機能し、Apache httpd.confを使用するバーチャルホストでは機能しません。
 END_DESCR
 
 SEE_ALSO: 
@@ -521,8 +521,8 @@ NS: LE
 
 DESCR: LiteSpeedのリクエストフィルタは、Apacheのmod_securityのリクエストフィルタと同等です。
 2つの別々のルールシステムがあります。
-WebAdminコンソールから設定されたルールは、ネイティブXMLでWebAdminコンソールを使用して設定された仮想ホストでのみ機能します。
-Apache httpd.confで設定された仮想ホストの場合、Apacheと同じように、mod_securityルールをhttpd.confで設定する必要があります。 
+WebAdminコンソールから設定されたルールは、ネイティブXMLでWebAdminコンソールを使用して設定されたバーチャルホストでのみ機能します。
+Apache httpd.confで設定されたバーチャルホストの場合、Apacheと同じように、mod_securityルールをhttpd.confで設定する必要があります。 
 END_DESCR
 
 SEE_ALSO: 

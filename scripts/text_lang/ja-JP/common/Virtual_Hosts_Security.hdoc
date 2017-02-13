@@ -671,7 +671,7 @@ ID: realms
 NAME: 認可レルム
 NS: LE
 
-DESCR: この仮想ホストのすべての許可レルムをリストします。
+DESCR: このバーチャルホストのすべての許可レルムをリストします。
 権限領域は、権限のないユーザーが保護されたWebページにアクセスするのをブロックするために使用されます。
 レルムは、オプションのグループ分類を持つユーザー名とパスワードを含むユーザーディレクトリです。 
 認可はコンテキストレベルで実行されます。
@@ -689,7 +689,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: VHSecurity_Help 
-NAME: 仮想ホストのセキュリティ
+NAME: バーチャルホストのセキュリティ
 NS: L
 
 DESCR: 
@@ -702,7 +702,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: VHSecurity_Help 
-NAME: 仮想ホストのセキュリティ
+NAME: バーチャルホストのセキュリティ
 NS: E
 
 DESCR: 
@@ -715,7 +715,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: VHSecurity_Help 
-NAME: 仮想ホストのセキュリティ
+NAME: バーチャルホストのセキュリティ
 NS: O
 
 DESCR: 

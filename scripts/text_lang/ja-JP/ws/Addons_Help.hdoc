@@ -69,7 +69,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=disableAdmin}, {ITEM=enableFrontPage}
 
-DESCR: Front Page Server Extensionsサービスを提供する仮想サーバーを指定します。
+DESCR: Front Page Server Extensionsサービスを提供するバーチャルサーバーを指定します。
 Webサイトが複数のドメイン名またはサービスポートに割り当てられている場合、FrontPageのアクセスはこのリストで指定されたドメイン名とポートの組み合わせでのみ使用できます。
 
 
@@ -79,7 +79,7 @@ END_DESCR
 EDITTIP: ドメイン名は、ドメイン：ポートのカンマ区切りリストです。例えば www.domain1.com:80、www.domain2.com:443
 END_EDITTIP
 
-SYNTAX: Domain_name：port [、...]仮想サーバー名は、ドメイン名とポート番号で構成されます。
+SYNTAX: Domain_name：port [、...]バーチャルサーバー名は、ドメイン名とポート番号で構成されます。
 END_SYNTAX
 
 EXAMPLE: HTTPとHTTPSの両方の接続を介してアクセス可能なドメイン名 "www.mydomain.com"を持つWebサイトの場合、名前リストは次のようになります:
@@ -138,8 +138,8 @@ SEE_ALSO:
 
 DESCR: AWStats設定ファイルの 「DataDir」パラメータを指定します。
 すべての結果ファイルとAWStatsデータベースがそこに保存されます。
-このディレクトリは、この仮想ホストのドキュメントルートの所有者が書き込み可能である必要があります。
-通常、作業ディレクトリは{val}$VH_ROOT/awstats/{/}のように仮想ホストのルートに設定する必要があります。
+このディレクトリは、このバーチャルホストのドキュメントルートの所有者が書き込み可能である必要があります。
+通常、作業ディレクトリは{val}$VH_ROOT/awstats/{/}のようにバーチャルホストのルートに設定する必要があります。
 END_DESCR
 
 SYNTAX: 絶対パスか$SERVER_ROOTからの相対パス又は$VH_ROOTからの相対パス。
@@ -163,16 +163,16 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: この仮想ホストでAWStatsの結果にアクセスできるURIを指定します。
+DESCR: このバーチャルホストでAWStatsの結果にアクセスできるURIを指定します。
 END_DESCR
 
 SYNTAX: uri
 END_SYNTAX
 
-EXAMPLE:  このURIが仮想ホストwww.example.comの{val}/awstats/{/}に設定されている場合、AWStatsページの完全なURLはhttp://www.example.com/awstats/になります。
+EXAMPLE:  このURIがバーチャルホストwww.example.comの{val}/awstats/{/}に設定されている場合、AWStatsページの完全なURLはhttp://www.example.com/awstats/になります。
 END_EXAMPLE
 
-TIPS: URIは、この仮想ホスト上で一意である必要があります。
+TIPS: URIは、このバーチャルホスト上で一意である必要があります。
 それ以外の場合は、重複したコンテンツにアクセスできなくなります。
 END_TIPS
 
@@ -191,7 +191,7 @@ SEE_ALSO:
 DESCR: このWebサイトのメインドメイン名を指定します。
 AWStatsの設定ファイルの "SiteDomain"パラメータを制御します。
 完全なURLパスを生成するためにAwstatsによって使用されます。
-設定されていない場合、この仮想ホストの名前が使用されます。 
+設定されていない場合、このバーチャルホストの名前が使用されます。 
 
 END_DESCR
 
@@ -216,7 +216,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: この仮想ホストにアクセスできる他のすべてのドメイン名、IPアドレス、およびホスト別名を指定します。
+DESCR: このバーチャルホストにアクセスできる他のすべてのドメイン名、IPアドレス、およびホスト別名を指定します。
 この値は、AWStats設定の「SiteAliases」パラメータを設定するために使用されます。
 ログファイルの参照元フィールドを分析し、参照元URLがローカルURLか外部URLかをAWStatsが判断するのに役立ちます。
 最高のパフォーマンスを得るには、可能な最小数の名前とアドレスの組み合わせを使用します。
@@ -278,7 +278,7 @@ END_SYNTAX
 EXAMPLE: これを{val}3600{/}に設定すると、毎日更新するために1AMで統計処理を開始します。  
 END_EXAMPLE
 
-TIPS: 多くの仮想ホストが1台のサーバーでホストされている場合は、複数のAWstatsプロセスが同時に実行されずにサーバーが過負荷にならないように、「オフセットの更新」を広めることをお勧めします。
+TIPS: 多くのバーチャルホストが1台のサーバーでホストされている場合は、複数のAWstatsプロセスが同時に実行されずにサーバーが過負荷にならないように、「オフセットの更新」を広めることをお勧めします。
 ログ処理は、CPUとI/Oの集中的な作業です。
 END_TIPS
 
