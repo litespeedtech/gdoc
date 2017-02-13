@@ -1,92 +1,61 @@
-<h1>End-User License Agreement for LiteSpeed Software</h1>
+<h1>LiteSpeedソフトウェアのエンドユーザライセンス契約</h1>
 
-<h3>IMPORTANT READ CAREFULLY</h3>
+<h3>重要なので注意深く読んでください</h3>
 
 <pre>
-This End-User License Agreement ("EULA") is a legal agreement between
-"You", the end user (either an individual or a single entity) and 
-LiteSpeed Technologies Inc., a company registered in New Jersey, United 
-States ("LITESPEED"), for a software product ("SOFTWARE PRODUCT"). 
+このエンドユーザーライセンス契約（以下「EULA」）は、エンドユーザー（個人または単一のエンティティ）と米国ニュージャージー州に登録されたLite Speed Technologies Inc.（以下「LITESPEED "）ソフトウェア製品（以下「ソフトウェア製品」といいます。 
 
-YOU MUST READ THE TERMS BELOW BEFORE DOWNLOADING, INSTALLING, OR
-OTHERWISE USING THE SOFTWARE PRODUCT. BY DOWNLOADING, INSTALLING, OR
-USING THE SOFTWARE PRODUCT YOU AGREE TO BE AND WILL BE BOUND BY THE TERMS 
-OF THIS EULA. IF YOU DO NOT AGREE TO THE TERMS OF THIS EULA, DO NOT 
-DOWNLOAD, INSTALL, OR USE THE SOFTWARE PRODUCT.
+ソフトウェア製品をダウンロード、インストール、または使用する前に、以下の条項をお読みください。
+ソフトウェア製品のダウンロード、インストール、または使用により、お客様は本EULAの条項に同意したものとみなされます。
+本EULAの条項に同意しない場合は、ソフトウェア製品をダウンロード、インストール、または使用しないでください。
 
 
-1. LICENSE TO USE. 
-In consideration of your agreement to comply with the terms and
-conditions of this EULA, LITESPEED hereby grants You a non-exclusive and 
-nontransferable license to use the SOFTWARE PRODUCT and documentation on 
-a computer for which you have paid the corresponding fee. You may not use 
-the SOFTWARE PRODUCT for any illegal activity or to host pornographic 
-content.
+1.使用するライセンス。
+本EULAの条件に同意することを考慮して、本ライセンシーは、ソフトウェア製品およびドキュメンテーションを、お客様が対応する料金を支払ったコンピュータ上で使用するための非独占的かつ譲渡不能なライセンスをお客様に付与します。
+あなたは、違法行為やポルノコンテンツのホスティングにソフトウェア製品を使用することはできません。
 
-2. COPYRIGHT AND RESTRICTIONS.
-The SOFTWARE PRODUCT and the associated intellectual property are
-protected by copyright laws and international treaty provisions. Title to 
-the SOFTWARE PRODUCT and all associated intellectual property rights are 
-retained by LITESPEED. Unauthorized copying or use of the SOFTWARE 
-PRODUCT, including any portion of the SOFTWARE PRODUCT that has been 
-modified, merged, or included with other software, is expressly 
-forbidden. Unless prohibited by applicable law, you may not modify, 
-decompile, or reverse engineer the SOFTWARE PRODUCT.  
+2.著作権および制限。
+ソフトウェア製品および関連する知的財産は、著作権法および国際条約の規定により保護されています。
+本ソフトウェア製品および関連するすべての知的財産権は、LITESPEEDに保持されます。
+修正、統合、または他のソフトウェアに含まれているソフトウェア製品の一部を含む、ソフトウェア製品の無断コピーまたは使用は、明示的に禁止されています。
+適用される法律で禁止されていない限り、ソフトウェア製品を変更、逆コンパイル、またはリバースエンジニアリングすることはできません。  
 
 
-3. NO WARRANTY.
-THIS SOFTWARE PRODUCT IS PROVIDED "AS-IS" WITHOUT WARRANTY OF ANY KIND,
-EITHER EXPRESSED OR IMPLIED, INCLUDING, WITHOUT LIMITATION, WARRANTIES
-THAT THE COVERED CODE IS FREE OF DEFECTS, MERCHANTABLE, OR FIT FOR A
-PARTICULAR PURPOSE.
+3.保証はありません。
+本ソフトウェア製品は、保証されたコードに欠陥、商業目的、または特定の目的に適合していないことを保証するものを含め、明示または黙示を問わず、いかなる種類の保証も「現状のまま」提供されます。
 
 
-4. LIMITATION OF LIABILITY. 
-TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT WILL
-LITESPEED BE LIABLE FOR ANY SPECIAL, INCIDENTAL, INDIRECT, OR
-CONSEQUENTIAL DAMAGES WHATSOEVER (INCLUDING, WITHOUT LIMITATION, LOSS OF 
-PROFITS OR DATA, BUSINESS INTERRUPTION, OR ANY OTHER TANGIBLE OR
-INTANGIBLE PECUNIARY LOSS) ARISING OUT OF THE USE OF OR INABILITY TO USE 
-THE SOFTWARE PRODUCT OR THE PROVISION OF OR FAILURE TO PROVIDE SUPPORT 
-SERVICES, EVEN IF LITESPEED HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH 
-DAMAGES. LITESPEED IS NOT LIABLE FOR THE CONTENT OF ANY WEBSITES POWERED 
-WITH OUR SOFTWARE.
+4.責任の制限。
+該当する法律によって許可されている最大限の範囲で、いかなる場合でも、裁定されるものとしますが、これに限定されない特別な、偶発的な、間接的な、または必然的な損害
+（利益またはデータの損失、事業の中断、その他の有形または無形の喪失を含むがこれらに限定されない）
+ソフトウェア製品の使用または使用不能、またはサポートサービスの提供が失敗したことによって生じた損害は、損害賠償がかかる損害の可能性について知らされていた場合でも同様です。
+本ソフトウェアを使用したウェブサイトの内容については、責任を負わないものとします。
 
 
-5. TERMINATION.
-This EULA shall be effective from the date You download, install or
-otherwise use the SOFTWARE PRODUCT. This EULA will terminate immediately 
-without notice from LITESPEED if you fail to comply with any provision of 
-this EULA. Upon termination, you must destroy all copies of the SOFTWARE 
-PRODUCT. You may terminate this EULA at any time by destroying all copies
-of the SOFTWARE PRODUCT. 
+5.終了。
+このEULAは、お客様がソフトウェア製品をダウンロード、インストール、または使用する日から有効となります。
+このEULAの条項を遵守しなかった場合、EULAはLITESPEEDの通知なしに直ちに終了します。
+終了時には、ソフトウェア製品のすべてのコピーを破棄する必要があります。
+お客様は、本ソフトウェア製品のすべてのコピーを破棄することにより、いつでもこのEULAを終了することができます。 
 
 
-6. SEVERABILITY.
-If any provision of this EULA is held unenforceable, this EULA shall
-remain in effect with the provision reformed to the extent necessary to 
-make it enforceable, unless to do so would frustrate the intent of the 
-parties, in which case the EULA will immediately terminate.
+6.分離性。
+このEULAの条項が執行不能となった場合、このEULAは、EULAが即座に終了する場合には、当事者の意図を失望させる場合を除き、強制可能にするために必要な範囲で改正された条項の効力を継続します。
 
 
-7. GOVERNING LAW.
-This EULA shall be governed and be construed by the laws of state of New 
-Jersey and controlling U.S. federal law.
+7.準拠法。
+このEULAは、ニュージャージー州の法律および米国連邦法の規制に従って管理され、解釈されるものとします。
 
 
-8. EXPORT RESTRICTIONS.
-The SOFTWARE PRODUCT may be subject to U.S. export laws or regulations
-and/or export or import regulations in other countries. Each party shall 
-comply fully with all such laws and regulations to the extent applicable 
-and further acknowledges its responsibility to obtain such licenses to 
-export or import as may be required.
+8.輸出規制。
+本ソフトウェア製品は、米国の対象となる場合があります。
+輸出関連の法律や規制、輸出入規制などが含まれます。
+各当事者は、該当するすべての法令を遵守し、必要に応じて輸出入のためのライセンスを取得する責任をさらに認識しなければならない。
 
 
-9. U.S. GOVERNMENT. 
-If any SOFTWARE PRODUCT is being acquired by or on behalf of the U.S.
-Government or by a U.S. Government prime contractor or subcontractor (at 
-any tier), then the Government's rights in SOFTWARE PRODUCT and 
-accompanying documentation shall be only as set forth in this EULA.
+9.米国政府。
+米国によってまたはその代理人としてソフトウェア製品が取得されている場合
+政府または米国政府の主要請負業者または下請け業者（いずれかの層）が、ソフトウェア製品および付属書類に関する政府の権利は、このEULAに定められているものに限ります。
 
 
 </pre>
