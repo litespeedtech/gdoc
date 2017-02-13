@@ -1,91 +1,83 @@
-<h1>Introduction</h1>
+<h1>はじめに</h1>
 
-<h3>Overview</h3>
-<p>LiteSpeed Web Server is a high performance, secure, easy-to-use web server.
-It can handle thousands of concurrent connections with a small memory footprint. 
-Its security features also make it much less vulnerable to various attacks.
+<h3>概要</h3>
+<p>LiteSpeed Web Serverは、高性能で安全で使いやすいWebサーバーです。
+小さなメモリフットプリントで何千もの同時接続を処理できます。
+そのセキュリティ機能により、さまざまな攻撃に対する脆弱性が大幅に軽減されます。
 </p>
 
 
-<h3>Basic Features</h3>
+<h3>基本機能</h3>
 
 <ul>
   <li><p><strong>HTTP/1.1</strong></p>
 	  <ul>
-	    <li>Chunked transfer encoding</li>
-	    <li>Basic authentication (password file and LDAP backend)</li>
-	    <li>Entity tag</li>
-	    <li>Single and multiple ranges requests</li>
-	    <li>Static/dynamic response compression (gzip)</li>
-		<li>Apache-compatible URL rewrite</li>
-		<li>IPv6 support</li>
-	    <li>Apache mod_geoip compatible geotargeting support</li>
+	    <li>チャンク転送コード</li>
+        <li>基本認証（パスワードファイルとLDAPバックエンド）</li>
+        <li>エンティティタグ</li>
+        <li>単一および複数の範囲リクエスト</li>
+        <li>静的/動的レスポンス圧縮（gzip）</li>
+        <li>Apache互換のURL書き換え</li>
+        <li>IPv6のサポート</li>
+        <li>Apache mod_geoipと互換性のある地域ターゲティングのサポート</li>
 	  </ul>
   </li>
-  <li><p><strong>Dynamic Content Generation</strong></p>
-  <p>LiteSpeed Web Server supports the following dynamic content generation methods:</p>
+  <li><p><strong>動的コンテンツ生成</strong></p>
+  <p>LiteSpeed Web Serverは、以下の動的コンテンツ生成メソッドをサポートしています：</p>
 	  <ul>
-	    <li>CGI/1.1 with suEXEC</li>
-	    <li>Fast CGI with suEXEC</li>
-		<li>PHP with suEXEC through LiteSpeed PHP SAPI (top-of-the-line PHP performance with a mod_php equivalent feature set)
-	    <li>JSP/servlets (interface with AJP v1.3 compatible backend servlet engine)</li>
-		<li>Proxy (interface with any web server/application server that supports HTTP protocol)</li>
-		<li>Ruby on Rails with suEXEC through Ruby LSAPI module (best-in-class performance, easy deployment, supports dynamic spawning)
+	    <li>suEXECを使用したCGI/1.1 </li>
+	    <li>suEXECによる高速CGI </li>
+	    <li>LiteSpeedによるsuEXECを使用したPHP PHP SAPI（同等の機能を持つmod_phpを備えたPHPのトップクラスのパフォーマンス）</li>
+	    <li>JSP /サーブレット（AJP v1.3互換のバックエンドサーブレットエンジンとのインタフェース）</li>
+	    <li>プロキシ（HTTPプロトコルをサポートする任意のWebサーバー/アプリケーションサーバーとのインターフェイス）</li>
+	    <li>Ruby LSAPIモジュールによるsuEXECによるRuby on Rails（クラス最高のパフォーマンス、容易な配備、動的なspawningをサポート）</li>
 	  </ul>
   </li>
-  <li><p><strong>Virtual Hosting</strong></p>
+  <li><p><strong>バーチャルホスティング</strong></p>
     <ul>
-		<li>Supports IP-based and name-based virtual hosting</li>
-		<li>Virtual host templates make virtual hosting configuration easy</li>
+		<li>IPベースおよび名前ベースの仮想ホスティングをサポート</li>
+        <li>バーチャルホストテンプレートにより、バーチャルホスティングの簡単な設定</li>
 	</ul>
    </li>
 </ul>
 
-<h3>Security</h3>
-	<p>LiteSpeed Web Server provides the following security features:</p>
+<h3>セキュリティ</h3>
+	<p>LiteSpeed Web Serverには、次のセキュリティ機能があります：</p>
 	<ul>
 	  <li><strong>SSL</strong>
-	  <p>Supports SSLv3/TLSv1. <i>This product includes software developed by the OpenSSL Project
-	  for use in the OpenSSL Toolkit (http://www.openssl.org/)</i></p></li>
+	  <p>SSSLv3 / TLSv1をサポートします。 <i>この製品は、OpenSSL Toolkit（http://www.openssl.org/）を使用するため、OpenSSL Projectによって開発されたソフトウェアが含まれています。</i></p></li>
 	
-	  <li><strong>IP Level Throttling</strong>
-	  <p>Network bandwidth and request rate for a single IP address can be limited
-	  regardless of the number of connections. </p></li>
+	  <li><strong>IPレベルのスロットリング</strong>
+	  <p>1つのIPアドレスに対するネットワーク帯域幅と要求レートは、接続数に関係なく制限されます。 </p></li>
 	  
-	  <li><strong>Comprehensive Connection Accounting</strong>
-	  <p>Comprehensive control of concurrent connections allowed from a single IP address.</p></li>
+	  <li><strong>包括的な接続アカウンティング</strong>
+	  <p>単一のIPアドレスから許可される同時接続の包括的な制御。</p></li>
 	  
-	  <li><strong>Access Control</strong>
-	  <p>Access control rules can be set at server, virtual host, and per-directory (context) 
-	  levels.</p> </li>
+	  <li><strong>アクセス制御</strong>
+	  <p>アクセス制御ルールは、サーバー、バーチャルホスト、及びディレクトリ毎の（コンテキスト）レベルで設定できます。</p> </li>
 	  
-	  <li><strong>External Application Shield</strong>
-	  <p>LiteSpeed Web Server shields CGI, Fast CGI and servlet engines from talking directly 
-	  to web clients to ensure maximum reliability and performance. </p></li>
+	  <li><strong>外部アプリケーションシールド</strong>
+	  <p>LiteSpeed Web Serverは、CGI、Fast CGIおよびサーブレットエンジンがWebクライアントと直接通信するのを防ぎ、最大の信頼性とパフォーマンスを保証します。 </p></li>
 	  
-	  <li><strong>CGI Resources Consumption Limit</strong>
-	  <p>LiteSpeed Web Server prevents bad CGI scripts from overloading the server by 
-	  limiting the system resources CGI applications can consume.</p></li>
+	  <li><strong>CGIリソース消費制限</strong>
+	  <p>LiteSpeed Web Serverは、CGIアプリケーションが消費するシステムリソースを制限することにより、不正なCGIスクリプトによるサーバーのオーバーロードを防ぎます。</p></li>
 	  
-	  <li><strong>DoS Attack Prevention</strong>
-	  <p>LiteSpeed Web Server is much less vulnerable to HTTP Denial of Service(DoS) 
-	  and Distributed Denial of Service (DDoS) attacks thanks to IP-level throttling, 
-	  connection accounting, and its outstanding performance and scalability. </p></li>
+	  <li><strong>DoS攻撃防止</strong>
+	  <p>LiteSpeed Web Serverは、IPレベルのスロットル、接続アカウンティングなどの機能により、HTTP DoS（Denial of Service）攻撃やDDoS（Distributed Denial of Service）に優れたパフォーマンスと拡張性を備えています。</p></li>
 	</ul>
 
-<h3>Reliability</h3>
-	<p>LiteSpeed Web Server recovers from crashes instantly. LiteSpeed Web Server also runs completely in user space.
-	Thus the server can easily switch between different versions without affecting the reliability of the operating system.
+<h3>信頼性</h3>
+	<p>LiteSpeed Web Serverは即座にクラッシュから復旧します。 LiteSpeed Web Serverは完全にユーザー空間で動作します。
+したがって、サーバーは、オペレーティングシステムの信頼性に影響を与えることなく、異なるバージョン間で簡単に切り替えることができます。
 	</p>
-	<p>CGI, Fast CGI and Servlet engine run in their standalone processes, the
-reliability of web server is not affected by the quality of third party software.</p>
+	<p>CGI、Fast CGI、Servletエンジンはスタンドアロンプロセスで動作しますが、Webサーバーの信頼性はサードパーティ製ソフトウェアの品質には影響されません。</p>
 
-<h3>User Friendly</h3>
+<h3>使いやすい</h3>
 	<ul>
-		<li>No need to build the executable yourself.</li>
-		<li>Easy to install.</li>
-		<li>Easy to control and configure through the WebAdmin interface.</li>
-		<li>Sets up PHP and PHP accelerators automatically.</li>
-		<li>Applies most changes without restarting the server.</li>
+		<li>実行ファイルを自分でビルドする必要はありません。</li>
+        <li>簡単にインストールできます。</li>
+        <li>WebAdminインターフェイスで簡単に制御および設定できます。</li>
+        <li>PHPアクセラレータとPHPアクセラレータを自動的に設定します。</li>
+        <li>サーバーを再起動せずにほとんどの変更を適用します。</li>
 	</ul>
 

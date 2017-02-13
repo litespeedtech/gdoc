@@ -413,14 +413,10 @@ $DOC_ROOTはデフォルトの相対パスであり省略することができ�
 注意してください。 "＆"はクエリ文字列で "\＆"としてエスケープする必要があります。
 END_SYNTAX
 
-EXAMPLE:  A plain URI like {val}/examples/{/} with {ITEM=location} 
-set to {val}/home/john/web_examples{/} will map the request "/examples/foo/bar.html" 
-to file "/home/john/web_examples/foo/bar.html". 
+EXAMPLE: {ITEM=location}を{val}/home/john/web_examples{/}に設定した{val}/examples/{/}のような単純なURIは、リクエスト "/examples/foo/bar.html"をファイル "/home/john/web_examples/foo/bar.html"をマップします。
 
-To simulate Apache's mod_userdir, 
-set URI to {val}exp: ^/~([A-Za-z0-9]+)(.*){/}, 
-set {ITEM=location} to {val}/home/$1/public_html$2{/}. With these settings, a request of URI /~john/foo/bar.html will 
-map to file /home/john/public_html/foo/bar.html.
+Apacheのmod_userdirをシミュレートするには、URIを{val}exp：^ /〜（[A-Za-z0-9] +）（。*）{/}に設定し、{ITEM=location}を{val}/home/$1/public_html$2{/}に設定します。
+これらの設定で、URI /~john/foo/bar.html のリクエストが/home/john/public_html/foo/bar.htmlにマップします。
 END_EXAMPLE
 
 TIPS: 
@@ -438,15 +434,15 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=expuri}
 
-DESCR: Specifies the corresponding location of this context in the file system. 
+DESCR: ファイルシステム内のこのコンテキストの対応する場所を指定します。
 END_DESCR
 
-EDITTIP: Rack/Rails context is for easy configuration of running Rack/Rails application. You 
-only need to specify the root location of your rack/rails application in the "Location" field.
+EDITTIP: Rack/Railsコンテキストは、Rack/Railsアプリケーションを簡単に設定するためのコンテキストです。
+[Location]フィールドには、Rack/Railsアプリケーションのルートロケーションを指定するだけで済みます。
 END_EDITTIP
 
-SYNTAX: It can be an absolute path or path relative to $SERVER_ROOT, $VH_ROOT, or $DOC_ROOT. 
-$DOC_ROOT is the default relative path, and can be omitted.
+SYNTAX: $SERVER_ROOT、$VH_ROOT、または$DOC_ROOTに関連する絶対パスまたは相対パスにすることができます。
+$DOC_ROOTはデフォルトの相対パスであり省略することができます。
 
 
 If the {ITEM=expuri} is a regular expression, then the matched sub-string 
@@ -511,28 +507,30 @@ END_TIPS
 
 [ITEM]
 ID: cgi_path
-NAME: Path
+NAME: パス
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the location of CGI scripts. 
+DESCR: CGIスクリプトの場所を指定します。 
 END_DESCR
 
-EDITTIP: A CGI context can be used to specify a directory only contains CGI scripts. Path can be absolute path or relative to $SERVER_ROOT, $VH_ROOT 
-or $DOC_ROOT(default). Path and URI must be ended with "/" for a cgi-bin directory.
+EDITTIP: CGIコンテキストを使用して、ディレクトリにCGIスクリプトのみを指定することができます。
+パスは絶対パスでも、$SERVER_ROOT、$VH_ROOT、$DOC_ROOT（デフォルト）でもかまいません。
+パスとURIは、cgi-binディレクトリのために "/"で終わらなければなりません。
 END_EDITTIP
 
-EDITTIP: If only a specific script is needed in that directory, it is recommended to create a CGI context for that script only. In this case, path and 
-URI need not be a directory. For e.g., path can be ~/myapp/myscript.pl, URI can be /myapp/myscript.pl. All other files will not be served as CGI.
+EDITTIP: そのディレクトリに特定のスクリプトだけが必要な場合は、そのスクリプトのCGIコンテキストを作成することをお勧めします。
+この場合、pathとURIはディレクトリである必要はありません。
+たとえば、pathは〜/myapp/myscript.pl、URIは/myapp/myscript.plです。
+その他のファイルはすべてCGIとして提供されません。
 END_EDITTIP
 
-SYNTAX: The path can be a directory that contains a group of CGI scripts, 
-like {val}$VH_ROOT/myapp/cgi-bin/{/}. 
-In this case, the context {ITEM=expuri} must end with "/", like {val}/app1/cgi/{/}.  
-The Path can also specify only one CGI script, like {val}$VH_ROOT/myapp/myscript.pl{/}. 
-This script should have the corresponding {ITEM=expuri} {val}/myapp/myscript.pl{/}.
+SYNTAX: パスは{val}$VH_ROOT/myapp/cgi-bin/{/}のようなCGIスクリプトのグループが含まれているディレクトリにすることができます。
+この場合、コンテキスト{ITEM=expuri}は{val}/app1/cgi/{/}のように "/"で終わらなければなりません。
+パスは、{val}$VH_ROOT/myapp/myscript.pl{/}のように、CGIスクリプトを1つだけ指定することもできます。
+このスクリプトには対応する{ITEM = expuri}{val}/myapp/myscript.pl{/}が必要です。
 END_SYNTAX
 
 EXAMPLE: 
@@ -583,18 +581,16 @@ END_TIPS
 
 [ITEM]
 ID: allowSetUID
-NAME: Allow Set UID
+NAME: UIDの設定を許可する
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether the set UID bit is allowed for CGI scripts. If the 
-set UID bit is allowed and the set UID bit is enabled for a CGI script, 
-no matter which user the CGI script was started on behalf of, the user ID of the CGI process will
-switch to the user ID of the owner of the CGI script. 
+DESCR: 設定されたUIDビットがCGIスクリプトに許可されるかどうかを指定します。
+設定されたUIDビットが許可され、CGIスクリプトに対して設定されたUIDビットが有効になっている場合、CGIスクリプトがどのユーザーに代わって起動されたかにかかわらず、CGIプロセスのユーザーIDは、CGIスクリプトの所有者のユーザーIDに切り替わります。
 
-The default is "Off".
+デフォルトは「オフ」です。
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -603,8 +599,8 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] Do not allow Set UID CGI scripts whenever possible, as it
-is inherently a security risk.
+TIPS: [セキュリティ]可能であれば、UID CGIスクリプトを設定しないでください。
+本質的にセキュリティリスクです。
 END_TIPS
 
 [END_ITEM]
@@ -613,7 +609,7 @@ END_TIPS
 
 [ITEM]
 ID: externalredirect
-NAME: External Redirect
+NAME: 外部リダイレクト
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -644,14 +640,14 @@ END_TIPS
 
 [ITEM]
 ID: statuscode
-NAME: Status Code
+NAME: ステータスコード
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the response status code of the external redirection. 
-If the status code is between 300 and 399, {ITEM=destinationuri} can be specified.
+DESCR: 外部リダイレクトの応答ステータスコードを指定します。
+ステータスコードが300〜399の場合、{ITEM=destinationuri}を指定できます。
 END_DESCR
 
 SYNTAX: 選択
@@ -790,24 +786,20 @@ END_TIPS
 
 [ITEM]
 ID: addMIMEType
-NAME: MIME Type
+NAME: MIMEタイプ
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies additional MIME types and mappings for this
-	   context. New mappings will override existing mappings under this
-	   context and its children contexts.
+DESCR: このコンテキストに追加のMIMEタイプとマッピングを指定します。
+新しいマッピングは、このコンテキストとその子コンテキストのもとで既存のマッピングを上書きします。
 
-	   If you want to show PHP scripts as text files instead of being
-	   executed as scripts, just override the .php mapping to MIME type
-	   "text/plain". 
+スクリプトとして実行するのではなく、PHPスクリプトをテキストファイルとして表示するには、MIMEタイプ "text/plain"への.phpマッピングをオーバーライドするだけです。 
 END_DESCR
 
 SYNTAX: MIME-type1 extension extension ..., MIME-type2 extension ...
-		Use comma to separate between MIME types, use space to
-		separate multiple extensions.
+		カンマを使用してMIMEタイプを区切り、スペースを使用して複数の拡張子を区切ります。
 END_SYNTAX
 
 EXAMPLE: {val}image/jpg jpeg jpg, image/gif gif{/}
@@ -822,13 +814,13 @@ END_TIPS
 
 [ITEM]
 ID: mimetype
-NAME: MIME Type
+NAME: MIMEタイプ
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: A MIME type consists of a type and subtype in the format of "type/subtype". 
+DESCR: MIMEタイプは、タイプとサブタイプの形式で "タイプ/サブタイプ"で構成されます。 
 END_DESCR
 
 SYNTAX: 
@@ -873,7 +865,7 @@ END_TIPS
 
 [ITEM]
 ID: defaultType
-NAME: Default MIME Type
+NAME: デフォルトのMIMEタイプ
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -900,20 +892,20 @@ END_TIPS
 
 [ITEM]
 ID: realm
-NAME: Realm
+NAME: レルム
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the authorization realm for this context. When specified, 
-a valid username and password must be provided in order to access this context. 
-{TBL=VHSecurity_Help#realms} are set up in the {PAGE=VHSecurity_Help} section. 
-This setting uses each realm's {ITEM=VHSecurity_Help#realmName}.
+DESCR: このコンテキストの認可レルムを指定します。
+このコンテキストにアクセスするには、有効なユーザー名とパスワードを指定する必要があります。
+{TBL=VHSecurity_Help#realms}は{PAGE = VHSecurity_Help}セクションに設定されています。
+この設定では、各レルムの{ITEM=VHSecurity_Help#realmName}が使用されます。
 END_DESCR
 
-EDITTIP: A Context can be protected with a predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
-additional requirements can be specified.
+EDITTIP: コンテキストは、仮想ホストセキュリティセクションで設定されている定義済みのレルムで保護することができます。
+必要に応じて、代替名と追加要件を指定することができます。
 END_EDITTIP
 
 SYNTAX: 選択
@@ -931,18 +923,18 @@ END_TIPS
 
 [ITEM]
 ID: authName
-NAME: Authentication Name
+NAME: 認証名
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies an alternative name for the authorization realm for the current context. 
-If not specified, the original realm name will be used. The authentication name is 
-displayed on the browser's login pop-up.
+DESCR: 現在のコンテキストの認証レルムの代替名を指定します。
+指定しない場合、元のレルム名が使用されます。
+認証名は、ブラウザのログインポップアップに表示されます。
 END_DESCR
 
-SYNTAX: text
+SYNTAX: テキスト
 END_SYNTAX
 
 EXAMPLE: 
@@ -992,21 +984,20 @@ END_TIPS
 
 [ITEM]
 ID: accessAllowed
-NAME: Access Allowed
+NAME: アクセス許可
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies which IPs or sub-networks are allowed to access resources under this context. Together with 
-{ITEM=accessDenied} and server/virtual host level access control, accessibility is determined by 
-the smallest scope that a client's IP address falls into. 
+DESCR: このコンテキストでリソースにアクセスできるIPまたはサブネットワークを指定します。
+{ITEM=accessDenied}とサーバー/仮想ホスト・レベルのアクセス制御とともに、アクセシビリティは、クライアントのIPアドレスが入る最小の範囲によって決まります。 
 END_DESCR
 
-SYNTAX: Comma-delimited list of IPs/sub-networks. 
+SYNTAX: IP/サブネットワークのカンマ区切りリスト。 
 END_SYNTAX
 
-EXAMPLE: Sub-networks can be written as {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/}, or {val}192.168.1.*{/}.
+EXAMPLE: サブネットワークは以下のように書くことができます {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/}, or {val}192.168.1.*{/}.
 END_EXAMPLE
 
 TIPS: 
@@ -1018,21 +1009,20 @@ END_TIPS
 
 [ITEM]
 ID: accessDenied
-NAME: Access Denied
+NAME: アクセス拒否
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies which IPs or sub-networks are NOT allowed to access resources under this context. 
-Together with {ITEM=accessAllowed} and server/virtual host-level access control, accessibility is 
-determined by the smallest scope that a client's IP address falls into. 
+DESCR: このコンテキストでリソースにアクセスできないIPまたはサブネットワークを指定します。
+{ITEM=accessAllowed}とサーバー/仮想ホストレベルのアクセス制御とともに、アクセシビリティはクライアントのIPアドレスが入る最小の範囲で決まります。
 END_DESCR
 
-SYNTAX: Comma-delimited list of IPs/sub-networks. 
+SYNTAX: IP/サブネットワークのカンマ区切りリスト。
 END_SYNTAX
 
-EXAMPLE: Sub-networks can be written as {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/}, or {val}192.168.1.*{/}.
+EXAMPLE: サブネットワークは以下のように書くことができます {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/}, or {val}192.168.1.*{/}.
 END_EXAMPLE
 
 TIPS: 
@@ -1229,15 +1219,11 @@ SEE_ALSO:
 
 [TBL]
 ID: generalContext
-NAME: Static Context
+NAME: 静的コンテキスト
 NS: O
 
-DESCR: Context settings are used to specify special settings for files in a 
-certain location. These settings can be used to bring in files outside of 
-the document root (like Apache's Alias or AliasMatch directives), 
-to protect a particular directory using authorization realms, or to 
-block or restrict access to a particular directory within the document root.
-END_DESCR
+DESCR: コンテキスト設定は、特定の場所にあるファイルの特別な設定を指定するために使用されます。
+これらの設定は、ApacheのAliasやAliasMatchディレクティブのようなドキュメントルートの外部にファイルを持ち込み、認可領域を使用して特定のディレクトリを保護したり、ドキュメントルート内の特定のディレクトリへのアクセスをブロックまたは制限するために使用できます。
 
 SEE_ALSO: 
 [END_TBL]
@@ -1288,7 +1274,7 @@ SEE_ALSO:
 
 [TBL]
 ID: javaWebAppContext
-NAME: Java Web App Context
+NAME: Java Webアプリコンテキスト
 NS: O
 
 DESCR: Many people running Java applications use the servlet engine to serve static 
@@ -1347,14 +1333,13 @@ SEE_ALSO:
 
 [TBL]
 ID: servletContext
-NAME: Servlet Context
+NAME: サーブレットコンテキスト
 NS: O
 
-DESCR: Servlets can be imported individually through Servlet Contexts. 
-A Servlet Context just specifies the URI for the servlet and the name of the servlet engine. 
-You only need to use this when you do not want to import the whole web application 
-or you want to protect different servlets with different authorization realms. 
-This URI has the same requirements as for a {TBL=javaWebAppContext}. 
+DESCR: サーブレットは、サーブレットコンテキストを介して個別にインポートできます。
+サーブレットコンテキストは、サーブレットのURIとサーブレットエンジンの名前を指定するだけです。
+Webアプリケーション全体をインポートしたくない場合や、異なるサーブレットを異なる認可レルムで保護したい場合にのみ、これを使用する必要があります。
+このURIには、{TBL=javaWebAppContext}と同じ要件があります。 
 END_DESCR
 
 SEE_ALSO: 
@@ -1364,12 +1349,12 @@ SEE_ALSO:
 
 [TBL]
 ID: fcgiContext
-NAME: FastCGI Context
+NAME: FastCGIコンテキスト
 NS: E
 
-DESCR: FastCGI applications cannot be used directly. A FastCGI application must be either configured as 
-a script handler or mapped to a URL through FastCGI context. A FastCGI context will 
-associate a URI with a FastCGI application. 
+DESCR: FastCGIアプリケーションは直接使用することはできません。
+FastCGIアプリケーションは、スクリプトハンドラとして構成するか、FastCGIコンテキストを介してURLにマップする必要があります。
+FastCGIコンテキストは、URIをFastCGIアプリケーションに関連付けます。
 END_DESCR
 
 SEE_ALSO: 
@@ -1379,12 +1364,12 @@ SEE_ALSO:
 
 [TBL]
 ID: fcgiContext
-NAME: FastCGI Context
+NAME: FastCGIコンテキスト
 NS: O
 
-DESCR: FastCGI applications cannot be used directly. A FastCGI application must be either configured as 
-a script handler or mapped to a URL through FastCGI context. A FastCGI context will 
-associate a URI with a FastCGI application. 
+DESCR: FastCGIアプリケーションは直接使用することはできません。
+FastCGIアプリケーションは、スクリプトハンドラとして構成するか、FastCGIコンテキストを介してURLにマップする必要があります。
+FastCGIコンテキストは、URIをFastCGIアプリケーションに関連付けます。 
 END_DESCR
 
 SEE_ALSO: 
@@ -1414,11 +1399,11 @@ ID: lsapiContext
 NAME: LiteSpeed SAPIコンテキスト
 NS: O
 
-DESCR: External applications cannot be used directly. They must be either configured as 
-a script handler or mapped to a URL through a context. An LiteSpeed SAPI Context will 
-associate a URI with an LSAPI (LiteSpeed Server Application Programming Interface) application.
-Currently PHP, Ruby and Python have LSAPI modules. LSAPI, as it is developed specifically for
-LiteSpeed web server, is the most efficient way to communicate with LiteSpeed web server.  
+DESCR: 外部アプリケーションは直接使用することはできません。
+スクリプトハンドラとして設定するか、コンテキストを介してURLにマップする必要があります。
+LiteSpeed SAPIコンテキストは、URIをLSAPI（LiteSpeed Server Application Programming Interface）アプリケーションに関連付けます。
+現在PHP、Ruby、PythonにはLSAPIモジュールがあります。
+LiteSpeed Webサーバー用に特別に開発されたLSAPIは、LiteSpeed Webサーバーと通信するための最も効率的な方法です。 
 END_DESCR
 
 SEE_ALSO: 
@@ -1428,14 +1413,12 @@ SEE_ALSO:
 
 [TBL]
 ID: proxyContext
-NAME: Proxy Context
+NAME: プロキシコンテキスト
 NS: E
 
-DESCR: A Proxy Context enables this virtual host as a transparent reverse
-proxy server. This proxy server can run in front of any web 
-servers or application servers that support HTTP protocol. The External
-web server that this virtual host proxies for  has to be defined in {PAGE=ExtApp_Help} 
-before you can set up a Proxy Context.
+DESCR: プロキシコンテキストは、この仮想ホストを透過的なリバースプロキシサーバとして有効にします。
+このプロキシサーバーは、HTTPプロトコルをサポートするWebサーバーまたはアプリケーションサーバーの前で実行できます。
+この仮想ホストがプロキシする外部Webサーバーは、プロキシコンテキストを設定する前に{PAGE=ExtApp_Help}で定義されている必要があります。
 END_DESCR
 
 SEE_ALSO: 
@@ -1445,14 +1428,12 @@ SEE_ALSO:
 
 [TBL]
 ID: proxyContext
-NAME: Proxy Context
+NAME: プロキシコンテキスト
 NS: O
 
-DESCR: A Proxy Context enables this virtual host as a transparent reverse
-proxy server. This proxy server can run in front of any web 
-servers or application servers that support HTTP protocol. The External
-web server that this virtual host proxies for  has to be defined in {PAGE=ExtApp_Help} 
-before you can set up a Proxy Context.
+DESCR: プロキシコンテキストは、この仮想ホストを透過的なリバースプロキシサーバとして有効にします。
+このプロキシサーバーは、HTTPプロトコルをサポートするWebサーバーまたはアプリケーションサーバーの前で実行できます。
+この仮想ホストがプロキシする外部Webサーバーは、プロキシコンテキストを設定する前に{PAGE=ExtApp_Help}で定義されている必要があります。
 END_DESCR
 
 SEE_ALSO: 
@@ -1462,16 +1443,14 @@ SEE_ALSO:
 
 [TBL]
 ID: cgiContext
-NAME: CGI Context
+NAME: CGIコンテキスト
 NS: E
 
-DESCR: A CGI context defines scripts in a particular directory as CGI scripts. 
-This directory can be inside or outside of the document root. 
-When a file under this directory is requested, the server will always 
-try to execute it as a CGI script, no matter if it's executable or not. 
-In this way, file content under a CGI Context is always protected and cannot 
-be read as static content. It is recommended that you put all your CGI 
-scripts in a directory and set up a CGI Context to access them. 
+DESCR: CGIコンテキストは、特定のディレクトリ内のスクリプトをCGIスクリプトとして定義します。
+このディレクトリは、ドキュメントルートの内側または外側にすることができます。
+このディレクトリの下にあるファイルが要求されると、サーバは実行可能かどうかにかかわらず、常にCGIスクリプトとして実行しようとします。
+このように、CGIコンテキスト下のファイルの内容は常に保護されており、静的なコンテンツとして読み込むことができません。
+すべてのCGIスクリプトをディレクトリに置いて、それらにアクセスするためのCGIコンテキストを設定することをお勧めします。
 END_DESCR
 
 SEE_ALSO: 
@@ -1481,16 +1460,14 @@ SEE_ALSO:
 
 [TBL]
 ID: cgiContext
-NAME: CGI Context
+NAME: CGIコンテキスト
 NS: O
 
-DESCR: A CGI context defines scripts in a particular directory as CGI scripts. 
-This directory can be inside or outside of the document root. 
-When a file under this directory is requested, the server will always 
-try to execute it as a CGI script, no matter if it's executable or not. 
-In this way, file content under a CGI Context is always protected and cannot 
-be read as static content. It is recommended that you put all your CGI 
-scripts in a directory and set up a CGI Context to access them. 
+DESCR: CGIコンテキストは、特定のディレクトリ内のスクリプトをCGIスクリプトとして定義します。
+このディレクトリは、ドキュメントルートの内側または外側にすることができます。
+このディレクトリの下にあるファイルが要求されると、サーバは実行可能かどうかに関わらず、常にCGIスクリプトとして実行しようとします。
+このように、CGIコンテキスト下のファイルの内容は常に保護されており、静的なコンテンツとして読み込むことができません。
+すべてのCGIスクリプトをディレクトリに置いて、それらにアクセスするためのCGIコンテキストを設定することをお勧めします。 
 END_DESCR
 
 SEE_ALSO: 
@@ -1500,11 +1477,11 @@ SEE_ALSO:
 
 [TBL]
 ID: loadBalancerContext
-NAME: Load Balancer Context
+NAME: ロードバランサコンテキスト
 NS: L
 
-DESCR: A Load Balancer Context can be used to forward one URI or a group of URIs to another location. 
-The destination URI can be either on the same web site or an absolute URI pointing to another web site.
+DESCR: ロードバランサコンテキストを使用して、1つのURIまたはURIのグループを別の場所に転送することができます。
+宛先URIは、同じWebサイトまたは別のWebサイトを指す絶対URIのいずれかにすることができます。
 END_DESCR
 
 SEE_ALSO: 
@@ -1514,12 +1491,12 @@ SEE_ALSO:
 
 [TBL]
 ID: lbContext
-NAME: Load Balancer Context
+NAME: ロードバランサコンテキスト
 NS: E
 
-DESCR: Like other external applications, load balancer worker applications 
-cannot be used directly. They must be mapped to a URL through a context. 
-A Load Balancer Context will associate a URI to be load balanced by the load balancer workers. 
+DESCR: 他の外部アプリケーションと同様に、ロードバランサワーカーアプリケーションは直接使用できません。
+それらは、コンテキストを介してURLにマップされなければなりません。
+ロードバランサコンテキストは、ロードバランサワーカーによって負荷分散されるURIを関連付けます。 
 END_DESCR
 
 
@@ -1530,12 +1507,12 @@ SEE_ALSO:
 
 [TBL]
 ID: lbContext
-NAME: Load Balancer Context
+NAME: ロードバランサコンテキスト
 NS: O
 
-DESCR: Like other external applications, load balancer worker applications 
-cannot be used directly. They must be mapped to a URL through a context. 
-A Load Balancer Context will associate a URI to be load balanced by the load balancer workers. 
+DESCR: 他の外部アプリケーションと同様に、ロードバランサワーカーアプリケーションは直接使用できません。
+それらは、コンテキストを介してURLにマップされなければなりません。
+ロードバランサコンテキストは、ロードバランサワーカーによって負荷分散されるURIを関連付けます。 
 END_DESCR
 
 
@@ -1546,12 +1523,11 @@ SEE_ALSO:
 
 [TBL]
 ID: redirectContext
-NAME: Redirect Context
+NAME: リダイレクトコンテキスト
 NS: L
 
-DESCR: A Redirect Context can be used to forward one URI or a group of URIs to another location. 
-The destination URI can be either on the same web site (internal
-redirect) or an absolute URI pointing to another web site (external redirect).
+DESCR: リダイレクトコンテキストは、1つのURIまたはURIのグループを別の場所に転送するために使用できます。
+宛先URIは、同じWebサイト（内部リダイレクト）または別のWebサイトを指す絶対URI（外部リダイレクト）のいずれかにすることができます。
 END_DESCR
 
 SEE_ALSO: 
@@ -1561,12 +1537,11 @@ SEE_ALSO:
 
 [TBL]
 ID: redirectContext
-NAME: Redirect Context
+NAME: リダイレクトコンテキスト
 NS: E
 
-DESCR: A Redirect Context can be used to forward one URI or a group of URIs to another location. 
-The destination URI can be either on the same web site (an internal
-redirect) or an absolute URI pointing to another web site (an external redirect).
+DESCR: リダイレクトコンテキストは、1つのURIまたはURIのグループを別の場所に転送するために使用できます。
+宛先URIは、同じWebサイト（内部リダイレクト）または別のWebサイトを指す絶対URI（外部リダイレクト）のいずれかにすることができます。
 END_DESCR
 
 SEE_ALSO: 
@@ -1576,12 +1551,11 @@ SEE_ALSO:
 
 [TBL]
 ID: redirectContext
-NAME: Redirect Context
+NAME: リダイレクトコンテキスト
 NS: O
 
-DESCR: A Redirect Context can be used to forward one URI or a group of URIs to another location. 
-The destination URI can be either on the same web site (an internal
-redirect) or an absolute URI pointing to another web site (an external redirect).
+DESCR: リダイレクトコンテキストは、1つのURIまたはURIのグループを別の場所に転送するために使用できます。
+宛先URIは、同じWebサイト（内部リダイレクト）または別のWebサイトを指す絶対URI（外部リダイレクト）のいずれかにすることができます。
 END_DESCR
 
 SEE_ALSO: 

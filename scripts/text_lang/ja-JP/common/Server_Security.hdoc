@@ -227,7 +227,7 @@ SEE_ALSO: {ITEM=dynReqPerSec}
 DESCR: 確立された接続の数に関係なく、1秒間に処理できる単一のIPアドレスからの静的コンテンツへの要求の最大数を指定します。
 
 
-この制限に達すると、将来のすべての要求は次の秒までtar-pittedされます。
+この制限に達すると、将来のすべての要求は次の秒までタールピットされます。
 動的に生成されるコンテンツのリクエスト制限は、この制限とは関係ありません。
 クライアントごとの要求制限は、サーバーまたは仮想ホストレベルで設定できます。
 仮想ホストレベルの設定は、サーバーレベルの設定よりも優先されます。
@@ -256,16 +256,13 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=staticReqPerSec}
 
-DESCR: Specifies the maximum number of requests to dynamically generated content 
-coming from a single IP address that can be processed in each second
-regardless of the number of connections established. 
-When this limit is reached, all future requests to dynamic content 
-are tar-pitted until the next second. 
+DESCR: 確立された接続の数に関係なく、1秒ごとに処理できる単一のIPアドレスからの動的に生成されるコンテンツへの要求の最大数を指定します。
+この制限に達すると、今後のすべての動的コンテンツへのリクエストは、次の秒までタールピットされます。 
 
 
-The request limit for static content is independent of this limit.
-This per client request limit can be set at server or virtual host level. 
-Virtual host-level settings override server-level settings.
+静的コンテンツの要求制限は、この制限とは関係ありません。
+このクライアントごとの要求制限は、サーバーまたは仮想ホストレベルで設定できます。
+仮想ホストレベルの設定は、サーバーレベルの設定よりも優先されます。
 END_DESCR
 
 SYNTAX: 整数
@@ -275,7 +272,7 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: 
-[Security] Trusted IPs or sub-networks are not restrained by this limit.
+[セキュリティ]この制限によって、信頼できるIPまたはサブネットワークは制限されません。
 END_TIPS
 
 [END_ITEM]
@@ -284,20 +281,16 @@ END_TIPS
 
 [ITEM]
 ID: dynReqPerSec
-NAME: Requests/Second
+NAME: リクエスト/秒
 NS: L
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum number of requests for dynamically generated content 
-coming from a single IP address that can be processed in each second, 
-regardless of the number of connections established. 
-When this limit is reached, all future requests for dynamic content 
-are tar-pitted until the next second. 
-The per client request limit can be set at the server or virtual host level where 
-virtual host level settings override server level settings.
+DESCR: 確立された接続の数に関係なく、1秒間に処理できる単一のIPアドレスからの動的に生成されたコンテンツの要求の最大数を指定します。
+この制限に達すると、将来のすべての動的コンテンツ要求が次の秒までタールピットされます。
+クライアントごとの要求制限は、仮想ホストレベルの設定がサーバーレベルの設定を上回るサーバーまたは仮想ホストレベルで設定できます。
 END_DESCR
 
 SYNTAX: 整数
@@ -307,7 +300,7 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: 
-[Security] Trusted IPs or sub-networks are not effected
+[セキュリティ]信頼できるIPまたはサブネットワークは影響を受けません
 END_TIPS
 
 [END_ITEM]
@@ -316,18 +309,17 @@ END_TIPS
 
 [ITEM]
 ID: outBandwidth
-NAME: Outbound Bandwidth (bytes/sec)
+NAME: 送信帯域幅（バイト/秒）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=inBandwidth}
 
-DESCR: The maximum allowed outgoing throughput to a single
-IP address, regardless of the number of connections established.
-The real bandwidth may end up being slightly higher than this setting for efficiency reasons. 
-Bandwidth is allocated in 4KB units. Set to {val}0{/} to disable throttling.
-Per-client bandwidth limits (bytes/sec) can be set at the server or virtual host level where
-virtual host level settings override server level settings.
+DESCR: 確立された接続の数に関係なく、単一のIPアドレスへの最大の送信スループット。
+実際の帯域幅は効率上の理由からこの設定よりわずかに高くなることがあります。
+帯域幅は4KB単位で割り当てられます。
+スロットルを無効にするには、{val}0{/}に設定します。
+クライアント単位の帯域幅制限（バイト/秒）は、仮想ホストレベルの設定がサーバーレベルの設定を上回るサーバーまたは仮想ホストレベルで設定できます。
 END_DESCR
 
 SYNTAX: 整数
@@ -336,10 +328,10 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Set the bandwidth in 8KB units for better performance.
+TIPS: [パフォーマンス]パフォーマンスを向上させるため、帯域幅を8KB単位で設定します。.
 
 
-[Security] Trusted IPs or sub-networks are not affected.
+[セキュリティ]信頼できるIPまたはサブネットワークは影響を受けません。
 END_TIPS
 
 [END_ITEM]
@@ -348,18 +340,16 @@ END_TIPS
 
 [ITEM]
 ID: inBandwidth
-NAME: Inbound Bandwidth (bytes/sec)
+NAME: 受信帯域幅（バイト/秒）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=outBandwidth}
 
-DESCR: The maximum allowed incoming throughput from a single
-IP address, regardless of the number of connections established.
-The real bandwidth may end up being slightly higher than this setting for efficiency reasons. 
-Bandwidth is allocated in 1KB units. Set to {val}0{/} to disable throttling.
-Per-client bandwidth limits (bytes/sec) can be set at the server or virtual host level where
-virtual host level settings override server level settings.
+DESCR: 確立された接続の数に関係なく、単一のIPアドレスからの最大許容着信スループット。
+実際の帯域幅は効率上の理由からこの設定よりわずかに高くなることがあります。
+帯域幅は1KB単位で割り当てられます。 スロットルを無効にするには、{val}0{/}に設定します。
+クライアント単位の帯域幅制限（バイト/秒）は、仮想ホストレベルの設定がサーバーレベルの設定を上回るサーバーまたは仮想ホストレベルで設定できます。
 END_DESCR
 
 SYNTAX: 整数
@@ -369,7 +359,7 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: 
-[Security] Trusted IPs or sub-networks are not affected.
+[セキュリティ]信頼できるIPまたはサブネットワークは影響を受けません。
 END_TIPS
 
 [END_ITEM]
@@ -378,35 +368,33 @@ END_TIPS
 
 [ITEM]
 ID: softLimit
-NAME: Connection Soft Limit
+NAME: 接続ソフトリミット
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the soft limit of concurrent connections allowed from one IP. 
-This soft limit can be exceeded temporarily during {ITEM=gracePeriod} as long as 
-the number is below the {ITEM=hardLimit}, but Keep-Alive connections 
-will be closed as soon as possible until the number of connections is lower 
-than the limit. If number of connections is still over the limit after the 
-{ITEM=gracePeriod}, that IP will be blocked for the {ITEM=banPeriod}.
+DESCR: 1つのIPから許可される同時接続のソフト制限を指定します。
+このソフトリミットは、{ITEM = gracePeriod}の間に{ITEM=hardLimit}以下になると一時的に超過することができますが、接続の数が限界よりも少なくなるまで、キープアライブ接続はできるだけ早く閉じられます。
+{ITEM=gracePeriod}の後に接続数がまだ制限を超えている場合、そのIPは{ITEM=banPeriod}でブロックされます。
 
 
-For example, if a page contains many small graphs, the browser may try to set up 
-many connections at same time, especially for HTTP/1.0 clients. You would want to allow 
-those connections for a short period.
+例えば、ページに多数の小さなグラフが含まれている場合、ブラウザは、特にHTTP/1.0クライアントの場合、同時に多くの接続を設定しようとする可能性があります。
+これらの接続を短期間で許可する必要があります。
 
 
-HTTP/1.1 clients may also set up multiple connections to speed up downloading and SSL 
- requires separate connections from non-SSL connections. Make sure the limit is set properly, 
- as not to adversely affect normal service. The recommended limit is between {val}5{/} and {val}10{/}.
+HTTP/1.1クライアントは、複数の接続を設定してダウンロード速度を上げることができ、SSLにはSSL以外の接続とは別の接続が必要です。
+通常のサービスに悪影響を及ぼさないように、制限値が適切に設定されていることを確認してください。
+推奨される制限は、{val}5{/}〜{val}10{/}です。
 END_DESCR
 
-EDITTIP: Set IP level throttle limit here. The number will be rounded up to 4K units. Set to "0" to disable throttling.
+EDITTIP: ここでIPレベルのスロットル制限を設定します。
+番号は4K単位に切り上げられます。
+スロットリングを無効にするには、「0」に設定します。
 END_EDITTIP
 
-EDITTIP: Number of connections can temporarily exceed Soft Limit during Grace Period as long as under Hard Limit. After Grace Period, if it is 
-still above Soft Limit, then no more connections will be allowed from that IP for time of Banned Period.
+EDITTIP: 猶予期間中のハードリミットの間は、接続数が一時的にソフトリミットを超えることがあります。
+猶予期間の後、まだソフトリミットを超えている場合、そのIPからの禁止期間の接続は許可されません。
 END_EDITTIP
 
 SYNTAX: 整数
@@ -415,12 +403,11 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] A lower number will enable serving more distinct clients.
+TIPS: [セキュリティ]数字が小さいほど、より明確なクライアントに対応できます。
 
-[Security] Trusted IPs or sub-networks are not affected. 
+[セキュリティ]信頼できるIPまたはサブネットワークは影響を受けません。
 
-[Performance] Set to a high value when you are performing benchmark tests 
-with a large number of concurrent client machines.
+[パフォーマンス]多数の同時クライアントマシンでベンチマークテストを実行する場合は、高い値に設定します。
 END_TIPS
 
 [END_ITEM]
@@ -429,24 +416,20 @@ END_TIPS
 
 [ITEM]
 ID: hardLimit
-NAME: Connection Hard Limit
+NAME: 接続ハードリミット
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum number of allowed concurrent connections from a single IP address. 
-This limit is always enforced and a client will never be able to exceed this limit.  
-HTTP/1.0 clients usually try to set up as many connections as they need to download embedded 
-content at the same time. This limit should be set high enough so that HTTP/1.0 clients can still 
-access the site.  
-Use {ITEM=softLimit} to set the desired connection limit. 
+DESCR: 単一のIPアドレスから同時に許可される接続の最大数を指定します。
+この制限は常に強制され、クライアントはこの制限を超えることはできません。
+HTTP / 1.0クライアントは通常、埋め込みコンテンツを同時にダウンロードするのに必要な数の接続を設定しようとします。
+この制限は、HTTP / 1.0クライアントが引き続きサイトにアクセスできるように十分に高く設定する必要があります。
+{ITEM = softLimit}を使用して、目的の接続制限を設定します。
 
 
-The recommended limit is between {val}20{/} and {val}50{/} depending on the content of your web page and your traffic load. 
-END_DESCR
-
-EDITTIP: Set concurrent connection Limits coming from one client (per IP address). This helps against DoS attack.
+ウェブページのコンテンツとトラフィックの負荷に応じて、{val}20{/}〜{val}50{/}の間で設定することをお勧めします。
 END_EDITTIP
 
 SYNTAX: 整数
@@ -455,11 +438,11 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] A lower number will enable serving more distinct clients.
+TIPS: [セキュリティ]数字が小さいほど、より明確なクライアントに対応できます。
 
-[Security] Trusted IPs or sub-networks are not affected. 
+[セキュリティ]信頼できるIPまたはサブネットワークは影響を受けません。
 
-[Performance] Set to a high value when you are performing benchmark tests with a large number of concurrent client machines.
+[パフォーマンス]多数の同時クライアントマシンでベンチマークテストを実行する場合は、高い値に設定します。
 END_TIPS
 
 [END_ITEM]
@@ -468,14 +451,15 @@ END_TIPS
 
 [ITEM]
 ID: blockBadReq
-NAME: Block Bad Request
+NAME: 不良リクエストをブロックする
 REQUIRED: 
 APPLY: 3
 SINCE: 4.1.5
 SEE_ALSO: 
 
-DESCR: Block IPs that keep sending badly-formated HTTP requests for the {ITEM=banPeriod}. Default 
-is {val}Yes{/}. This helps to block botnet attacks that repeatedly sending junk requests. 
+DESCR: {ITEM=banPeriod}に不正な形式のHTTP要求を送信し続けるIPをブロックします。
+デフォルトは{val}はい{/}です。
+これは、ジャンク要求を繰り返し送信するボットネット攻撃をブロックするのに役立ちます。
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -493,17 +477,15 @@ END_TIPS
 
 [ITEM]
 ID: gracePeriod
-NAME: Grace Period (sec)
+NAME: 猶予期間（秒）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies how long new connections can be accepted after the number of connections 
-established from one IP is over the {ITEM=softLimit}. Within this period, new connections 
-will be accepted if the total connections is still below the {ITEM=hardLimit}. After this 
-period has elapsed, if the number of connections still higher than the {ITEM=softLimit}, 
-then the offending IP will be blocked for the {ITEM=banPeriod}.
+DESCR: 1つのIPから確立された接続の数が{ITEM=softLimit}を超えた後に新しい接続が受け入れられる期間を指定します。
+この期間内に、総接続数が{ITEM = hardLimit}未満の場合は、新しい接続が受け入れられます。
+この期間が経過した後、まだ接続数が{ITEM=softLimit}よりも高い場合、問題のIPは{ITEM=banPeriod}でブロックされます。
 END_DESCR
 
 SYNTAX: 整数
@@ -512,8 +494,8 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance & Security] Set to a proper number big enough for downloading 
-a complete page but low enough to prevent deliberate attacks.
+TIPS: [パフォーマンス & セキュリティ]ダウンロードに十分な大きさに設定してください。
+完全なページですが、故意の攻撃を防ぐのに十分な低さです。
 END_TIPS
 
 [END_ITEM]
@@ -522,16 +504,14 @@ END_TIPS
 
 [ITEM]
 ID: banPeriod
-NAME: Banned Period (sec)
+NAME: 禁止期間（秒）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies how long new connections will be rejected from an IP if, after the 
-{ITEM=gracePeriod} has elapsed, the number of connections is still more than 
-the {ITEM=softLimit}. If IPs are getting banned repeatedly, we suggest that you 
-increase your banned period to stiffen the penalty for abuse.
+DESCR: {ITEM=gracePeriod}経過後、接続数がまだ{ITEM=softLimit}以上の場合、新しい接続がIPから拒否される期間を指定します。
+IPが繰り返し禁止されている場合は、禁止期間を延長して虐待のペナルティを強化することをお勧めします。
 END_DESCR
 
 SYNTAX: 整数
@@ -552,17 +532,16 @@ END_TIPS
 
 [ITEM]
 ID: cgidSock
-NAME: CGI Daemon Socket
+NAME: CGIデーモンソケット
 REQUIRED: 
 APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
-DESCR: A unique socket address used to communicate with the CGI
-daemon. LiteSpeed server uses a standalone CGI daemon to 
-spawn CGI scripts for best performance and security.
-Default socket is "uds://$SERVER_ROOT/admin/conf/.cgid.sock". If you need to put in
-another location, specify a Unix domain socket here.
+DESCR: CGIデーモンとの通信に使用される一意のソケットアドレス。
+LiteSpeedサーバーは、スタンドアロンのCGIデーモンを使用して、最高のパフォーマンスとセキュリティを実現するCGIスクリプトを生成します。
+デフォルトソケットはuds：//$SERVER_ROOT/admin/conf/.cgid.sock "です。
+別の場所に配置する必要がある場合は、ここにUnixドメインソケットを指定します。
 END_DESCR
 
 SYNTAX: UDS://path 
@@ -580,25 +559,25 @@ END_TIPS
 
 [ITEM]
 ID: maxCGIInstances
-NAME: Max CGI Instances
+NAME: 最大CGIインスタンス
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum number of concurrent CGI processes the server can start. 
-For each request to a CGI script, the server needs to start a standalone CGI process. 
-On a Unix system, the number of concurrent processes is limited. Excessive 
-concurrent processes will degrade the performance of the whole system and are one way to perform a DoS attack. 
-LiteSpeed server pipelines requests to CGI scripts 
-and limits concurrent CGI processes to ensure the optimal performance and reliability. 
-The hard limit is {val}2000{/}. 
+DESCR: サーバーが開始できる同時CGIプロセスの最大数を指定します。
+CGIスクリプトに対する各要求に対して、サーバーはスタンドアロンCGIプロセスを開始する必要があります。
+Unixシステムでは、並行プロセスの数が制限されています。
+過度の並行処理は、システム全体のパフォーマンスを低下させ、DoS攻撃を実行する1つの方法です。
+LiteSpeedサーバーはCGIスクリプトへの要求をパイプライン処理し、同時のCGIプロセスを制限して最適なパフォーマンスと信頼性を確保します。
+上限は{val}2000{/}です。 
 END_DESCR
 
-EDITTIP: Limits resources that a CGI program can use. This helps against DoS attacks.
+EDITTIP: CGIプログラムが使用できるリソースを制限します。
+これは、DoS攻撃に役立ちます。
 END_EDITTIP
 
-EDITTIP: Max CGI Instances controls how many CGI processes the web server can launch.
+EDITTIP: 最大CGIインスタンスは、Webサーバーが起動できるCGIプロセスの数を制御します。
 END_EDITTIP
 
 SYNTAX: 整数
@@ -607,9 +586,9 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security & Performance] A higher limit does not necessarily translate to faster performance. 
-In most cases, a lower limit gives better performance and security. A higher limit will only help 
-when I/O latency is excessive during CGI processing.
+TIPS: [セキュリティ & パフォーマンス]上限が高いと必ずしもパフォーマンスが向上するとは限りません。
+ほとんどの場合、下限値を指定するとパフォーマンスとセキュリティが向上します。
+上限は、CGI処理中にI / O待ち時間が過大になる場合にのみ役立ちます。
 END_TIPS
 
 [END_ITEM]
@@ -618,16 +597,15 @@ END_TIPS
 
 [ITEM]
 ID: minUID
-NAME: Minimum UID
+NAME: 最小UID
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the minimum user ID of external applications.  
-Execution of an external script with a user ID lower than the value specified here will be denied.  
-If LiteSpeed web server is started by "root" user, it can run external applications in the "suEXEC"
-mode like Apache (to change to a user/group ID other than the web server's).
+DESCR: 外部アプリケーションの最小ユーザーIDを指定します。
+ここで指定した値よりも小さいユーザーIDを持つ外部スクリプトの実行は拒否されます。
+LiteSpeed Webサーバーが「root」ユーザーによって起動された場合、Apacheなどの「suEXEC」モードで外部アプリケーションを実行できます（Webサーバー以外のユーザー/グループIDに変更する）。
 END_DESCR
 
 SYNTAX: 整数
@@ -636,7 +614,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] Set it high enough to exclude all system/privileged users.
+TIPS: [セキュリティ]すべてのシステム/特権ユーザーを除外するのに十分な高さに設定します。
 END_TIPS
 
 [END_ITEM]
@@ -645,16 +623,14 @@ END_TIPS
 
 [ITEM]
 ID: minGID
-NAME: Minimum GID
+NAME: 最小GID
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
-
-DESCR: Specifies the minimum group ID of external applications. 
-Execution of an external with a group ID lower than the value specified here will be denied. 
-If LiteSpeed web server is started by the "root" user, it can run external applications in the "suEXEC"
-mode found in Apache (to change to a user/group ID other than the web server's). 
+外部アプリケーションの最小グループIDを指定します。
+ここで指定した値よりも小さいグループIDを持つ外部の実行は拒否されます。
+LiteSpeed Webサーバーが "root"ユーザーによって起動された場合、Apacheで見つかった "suEXEC"モードで外部アプリケーションを実行できます（Webサーバー以外のユーザー/グループIDに変更する）。 
 END_DESCR
 
 SYNTAX: 整数
@@ -663,7 +639,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] Set it high enough to exclude all groups used by system users.
+TIPS: [セキュリティ]システムユーザーが使用するすべてのグループを除外するのに十分な高さに設定します。
 END_TIPS
 
 [END_ITEM]
@@ -672,26 +648,22 @@ END_TIPS
 
 [ITEM]
 ID: forceGID
-NAME: Force GID
+NAME: 強制GID
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies a group ID to be used for all external applications started in suEXEC mode. 
-When set to non-zero value, all suEXEC external applications (CGI/FastCGI/LSAPI)
-will use this group ID. This can be used to prevent an external application
-from accessing files owned by other users.
+DESCR: suEXECモードで起動したすべての外部アプリケーションに使用するグループIDを指定します。
+ゼロ以外の値に設定すると、すべてのsuEXEC外部アプリケーション（CGI/FastCGI/LSAPI）がこのグループIDを使用します。
+これにより、外部アプリケーションが他のユーザーが所有するファイルにアクセスするのを防ぐことができます。
 
 
-For example, in a shared hosting environment, LiteSpeed runs as user
-"www-data", group "www-data". Each docroot is owned by a user account,
-with a group of "www-data" and permission mode 0750. If Force GID is set to
-"nogroup" (or any group other than 'www-data'), all suEXEC external applications will run
-as a particular user but in the group "nogroup". These external application processes 
-will still be able to access files owned by that particular user (because of their user ID), 
-but will not have group permission to access anyone else's files. The server, on the other hand, still
-can serve files under any user's docroot directory (because of its group ID).
+たとえば、共有ホスティング環境では、LiteSpeedはユーザー "www-data"として実行され、グループ "www-data"として実行されます。
+各docrootは、 "www-data"のグループと許可モード0750を持つユーザーアカウントによって所有されています。
+強制GIDが "nogroup"（または 'www-data'以外のグループ）に設定されている場合、すべてのsuEXEC外部アプリケーションは特定のユーザーとして実行されますが、グループ "nogroup"に実行されます。
+これらの外部アプリケーション・プロセスは（ユーザーIDのために）特定のユーザーが所有するファイルには引き続きアクセスできますが、他のユーザーのファイルにアクセスするためのグループ権限は持っていません。
+一方、サーバは、（グループIDのために）どんなユーザのdocrootディレクトリ下でもファイルを提供することができます。
 END_DESCR
 
 SYNTAX: 整数
@@ -700,7 +672,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] Set it high enough to exclude all groups used by system users.
+TIPS: [セキュリティ]システムユーザーが使用するすべてのグループを除外するのに十分な高さに設定します。
 END_TIPS
 
 [END_ITEM]
@@ -715,12 +687,12 @@ APPLY: 3
 SINCE: 5.0
 SEE_ALSO: ExtApp {ITEM=ExtApp_Help#extUmask}
 
-DESCR: Sets default umask for CGI processes.  
-See {cmd} man 2 umask {/} for details. This also serves as the default value for external applications  
-{ITEM=ExtApp_Help#extUmask}.      
+DESCR: CGIプロセスのデフォルトのumaskを設定します。
+詳細は、{cmd}man 2 umask{/}を参照してください。
+これは、外部アプリケーション{ITEM=ExtApp_Help#extUmask}のデフォルト値としても機能します。      
 END_DESCR
 
-SYNTAX: value valid range [000]-[777].
+SYNTAX: 有効範囲値[000]〜[777]。
 END_SYNTAX
 
 EXAMPLE: 
@@ -810,26 +782,22 @@ END_TIPS
 
 [ITEM]
 ID: memSoftLimit
-NAME: Memory Soft Limit (bytes)
+NAME: メモリソフトリミット（バイト）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the memory consumption limit in bytes for an external application process
-or an external application started by the server.  
+DESCR: 外部アプリケーション・プロセスまたはサーバーによって開始された外部アプリケーションのメモリー消費制限をバイト単位で指定します。
 
 
-The main purpose of this limit is to prevent excessive memory usage
-because of software bugs or intentional attacks, not to impose a limit on
-normal usage. Make sure to leave enough head room, otherwise your
-application may fail and 503 error may be returned. It can be set at the server-
-level or at an individual external application level. The server-level limit will be used if
-it is not set at the individual application level.
+この制限の主な目的は、ソフトウェアのバグや意図的な攻撃のために過度のメモリ使用を防止し、通常の使用に制限を設けないことです。
+十分なヘッドスペースを確保してください。そうしないと、アプリケーションが失敗し、503エラーが返される可能性があります。
+サーバーレベルまたは個々の外部アプリケーションレベルで設定できます。
+サーバーレベルの制限は、個々のアプリケーションレベルで設定されていない場合に使用されます。
 
 
-The operating system's default setting will be used if the value is absent at both levels or set to
-{val}0{/}. 
+オペレーティングシステムのデフォルト設定は、値が両方のレベルにないか、{val}0{/}に設定されている場合に使用されます。
 END_DESCR
 
 SYNTAX: 整数
@@ -838,8 +806,8 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Attention] Do not over adjust this limit. This may result in 503 errors
-if your application needs more memory. 
+TIPS: [注意]この制限を過度に調整しないでください。
+アプリケーションでより多くのメモリが必要な場合は、503のエラーが発生する可能性があります。 
 END_TIPS
 
 [END_ITEM]
@@ -854,21 +822,19 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Much the same as {ITEM=memSoftLimit}, except the soft limit can be raised up to the
-hard limit from within a user process. The hard limit can be set at server
-level or at an individual external application level. The server-level limit will be used if  
-it is not set at an individual application level. 
+DESCR: ソフトリミットをユーザープロセス内のハードリミットまで上げることができることを除けば、{ITEM=memSoftLimit}と同じくらい同じです。
+ハード・リミットは、サーバー・レベルまたは個々の外部アプリケーション・レベルで設定できます。
+サーバーレベルの制限は、個々のアプリケーションレベルで設定されていない場合に使用されます。 
 
 
-The operating system's default will be used if the value is absent at both levels or set to
-{val}0{/}. 
+値が両方のレベルにないか、{val}0{/}に設定されている場合、オペレーティングシステムのデフォルトが使用されます。 
 END_DESCR
 
 SYNTAX: 整数
 END_SYNTAX
 
-EXAMPLE: [Attention] Do not over adjust this limit. This may result in 503 errors
-if your application need more memory. 
+EXAMPLE: [注意]この制限を過度に調整しないでください。
+アプリケーションでより多くのメモリが必要な場合は、503のエラーが発生する可能性があります。
 END_EXAMPLE
 
 TIPS: 
@@ -880,18 +846,16 @@ END_TIPS
 
 [ITEM]
 ID: procHardLimit
-NAME: Process Hard Limit
+NAME: プロセスハードリミット
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Much the same as {ITEM=procSoftLimit}, except the soft limit can be raised up to the
-hard limit from within a user process. The hard limit can be set at the server level or at an  
-individual external application level. The server-level limit will be used if
-it is not set at an individual application level.   
-The operating system's default value will be used if the value is absent at both levels or set to
-{val}0{/}. 
+DESCR: ソフトリミットをユーザープロセス内のハードリミットまで上げることができることを除けば、{ITEM=procSoftLimit}とほとんど同じです。
+ハードリミットは、サーバー・レベルまたは個々の外部アプリケーションレベルで設定できます。
+サーバーレベルの制限は、個々のアプリケーションレベルで設定されていない場合に使用されます。
+オペレーティングシステムのデフォルト値は、値が両方のレベルにないか、{val}0{/}に設定されている場合に使用されます。
 END_DESCR
 
 SYNTAX: 整数
@@ -912,36 +876,35 @@ END_TIPS
 
 [ITEM]
 ID: accessDenyDir
-NAME: Access Denied Directories
+NAME: アクセスが拒否されたディレクトリ
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies directories that should be blocked from access. 
-Add directories that contain sensitive data to this list to prevent accidentally 
-exposing sensitive files to clients. Append a "*" to the path to include all sub-directories. 
-If both {ITEM=followSymbolLink} and {ITEM=checkSymbolLink} are enabled, symbolic 
-links will be checked against the denied directories.
+DESCR: アクセスをブロックするディレクトリを指定します。
+重要なデータを含むディレクトリをこのリストに追加して、誤って機密ファイルをクライアントに公開しないようにします。
+すべてのサブディレクトリを含めるためにパスに「*」を追加します。
+{ITEM=followSymbolLink}と{ITEM=checkSymbolLink}の両方を有効にすると、拒否されたディレクトリに対してシンボリックリンクがチェックされます。
 END_DESCR
 
-EDITTIP: Enter a full path if you want to deny access for specific directory; entering a path followed by * will disable all the sub directories.
+EDITTIP: 特定のディレクトリへのアクセスを拒否するにはフルパスを入力します。 *を続けてパスを入力すると、すべてのサブディレクトリが無効になります。
 END_EDITTIP
 
-EDITTIP: Path can be either absolute or relative to $SERVER_ROOT, use comma to separate.
+EDITTIP: パスは、絶対パスでも、$SERVER_ROOTパスでも構いません。カンマで区切ります。
 END_EDITTIP
 
-EDITTIP: If both <b>Follow Symbolic Link</b> and <b>Check Symbolic Link</b> are enabled, symbolic links will be checked against the denied directories.
+EDITTIP: <b>シンボリックリンクを実行</ b>と<b>シンボリックリンクを確認</ b>の両方が有効な場合、シンボリックリンクは拒否されたディレクトリと照合されます。
 END_EDITTIP
 
-SYNTAX: Comma-delimited list of directories
+SYNTAX: ディレクトリのカンマ区切りリスト
 END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] Of critical importance: This setting only prevents serving static 
-files from these directories. This does not prevent exposure by external scripts such as PHP/Ruby/CGI.
+TIPS: [セキュリティ]重要な点：この設定では、これらのディレクトリから静的ファイルを提供することができません。
+これは、PHP/Ruby/CGIなどの外部スクリプトによるエクスポージャーを防ぐものではありません。
 END_TIPS
 
 [END_ITEM]
@@ -953,29 +916,29 @@ END_TIPS
 
 [ITEM]
 ID: accessControl_allow
-NAME: Allowed List
+NAME: 許可リスト
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the list of IPs or sub-networks allowed.
-{val}*{/} or {val}ALL{/} are accepted.
+DESCR: 許可されるIPまたはサブネットワークのリストを指定します。
+{val}*{/}または{val}ALL{/}が受け入れられます。
 END_DESCR
 
-EDITTIP: You can set up access control at server, virtual host and context levels. If there is access control 
-at server level, the virtual host rules will be applied after the server rules are satisfied.
+EDITTIP: サーバー、仮想ホスト、コンテキストレベルでアクセス制御を設定できます。
+サーバーレベルでアクセス制御がある場合、サーバー規則が満たされた後に仮想ホスト規則が適用されます。
 END_EDITTIP
 
-EDITTIP: Input format can be an IP like 192.168.0.2, a sub-network like 192.168.*, or a subnet/netmask like 192.168.128.5/255.255.128.0.
+EDITTIP: 入力形式は、192.168.0.2のようなIP、192.168.*のようなサブネットワーク、または192.168.128.5/255.255.128.0のようなサブネット/ネットマスクです。
 END_EDITTIP
 
-EDITTIP: If you have trusted IP or sub-network, then you must specify them in allowed list by adding a trailing "T" such as 
-192.168.1.*T. Trusted IP or sub-network is not limited by connection/throttling limit.
+EDITTIP: 信頼できるIPまたはサブネットワークをお持ちの場合は、192.168.1.* Tのような末尾の "T"を追加して許可リストに指定する必要があります。
+信頼できるIPまたはサブネットワークは、接続/スロットリング制限によって制限されません。
 END_EDITTIP
 
-SYNTAX: Comma delimited list of IP addresses or sub-networks. 
-A trailing "T" can be used to indicate a trusted IP or sub-network, such as {val}192.168.1.*T{/}.
+SYNTAX: IPアドレスまたはサブネットワークのカンマ区切りリスト。
+末尾の「T」は、{val}192.168.1.*T{/}などの信頼できるIPまたはサブネットワークを示すために使用できます。
 END_SYNTAX
 
 EXAMPLE: <br />
@@ -988,8 +951,7 @@ EXAMPLE: <br />
 [3ffe:302:11:2:20f:1fff:fe29:717c]/64 
 END_EXAMPLE
 
-TIPS: [Security] Trusted IPs or sub-networks set at the server level access 
-control will be excluded from connection/throttling limits.
+TIPS: [セキュリティ]サーバーレベルのアクセス制御で設定された信頼されたIPまたはサブネットワークは、接続/スロットリングの制限から除外されます。
 END_TIPS
 
 [END_ITEM]
@@ -998,21 +960,21 @@ END_TIPS
 
 [ITEM]
 ID: accessControl_deny
-NAME: Denied List
+NAME: 拒否リスト
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the list of IPs or sub-networks disallowed.
+DESCR: 許可されていないIPまたはサブネットワークのリストを指定します。
 END_DESCR
 
-EDITTIP: To deny access from certain address, put "ALL" in allowed list, and put subnet or IP in denied 
-list. To allow only certain IP or subnet to access the site, put "ALL" in denied list and specify the address in the allowed list.
+EDITTIP: 特定のアドレスからのアクセスを拒否するには、許可リストに "ALL"を入れ、サブネットまたはIPを拒否リストに入れます。
+特定のIPまたはサブネットのみがサイトにアクセスできるようにするには、拒否リストに "ALL"を入れ、許可リストにそのアドレスを指定します。
 END_EDITTIP
 
-SYNTAX: Comma delimited list of IP addresses or sub-networks. 
-{val}*{/} or {val}ALL{/} are accepted. 
+SYNTAX: IPアドレスまたはサブネットワークのカンマ区切りリスト。
+{val}*{/}または{val}ALL{/}が受け入れられます。
 END_SYNTAX
 
 EXAMPLE: <br />
@@ -1037,7 +999,7 @@ END_TIPS
 
 [TBL]
 ID: fileAccessControl
-NAME: File Access
+NAME: ファイルアクセス
 
 DESCR: 
 END_DESCR
@@ -1049,11 +1011,11 @@ SEE_ALSO:
 
 [TBL]
 ID: perClientConnLimit
-NAME: Per Client Throttling
+NAME: クライアント単位のスロットル
 NS: EO
 
-DESCR: These are connection control settings are based on client IP. 
-These settings help to mitigate DoS (Denial of Service) and DDoS (Distributed Denial of Service) attacks.
+DESCR: これらは、クライアントIPに基づいた接続制御設定です。
+これらの設定は、DoS（サービス拒否）攻撃とDDoS（分散サービス拒否）攻撃を緩和するのに役立ちます。
 END_DESCR
 
 SEE_ALSO: 
@@ -1063,11 +1025,11 @@ SEE_ALSO:
 
 [TBL]
 ID: perClientConnLimit
-NAME: Per Client Throttling
+NAME: クライアント単位のスロットル
 NS: L
 
-DESCR: These are connection control setting on a per client/IP basis. 
-These settings help to mitigate DoS (Denied of Service) and DDoS (Distributed Denied of Service) attacks.
+DESCR: これらは、クライアント/ IPベースの接続制御設定です。
+これらの設定は、DdoS（サービス拒否）攻撃とDDoS（サービス拒否攻撃）攻撃を軽減するのに役立ちます。
 END_DESCR
 
 SEE_ALSO: 
@@ -1077,11 +1039,11 @@ SEE_ALSO:
 
 [TBL]
 ID: cgiResource
-NAME: CGI Settings
+NAME: CGI設定
 NS: EO
 
-DESCR: The following settings control CGI processes. Memory and process limits also serve as the default for 
-other external applications if limits have not been set explicitly for those applications. 
+DESCR: 次の設定は、CGIプロセスを制御します。
+これらのアプリケーションに対して制限が明示的に設定されていない場合は、メモリおよびプロセスの制限も他の外部アプリケーションのデフォルトとして機能します。
 END_DESCR
 
 SEE_ALSO: 
@@ -1091,7 +1053,7 @@ SEE_ALSO:
 
 [TBL]
 ID: accessDeny
-NAME: Access Denied Directories
+NAME: アクセスが拒否されたディレクトリ
 
 DESCR: 
 END_DESCR
@@ -1103,28 +1065,28 @@ SEE_ALSO:
 
 [TBL]
 ID: accessControl
-NAME: Access Control
+NAME: アクセス制御
 
-DESCR: Specifies what sub networks and/or IP addresses can access the server. 
-At the server level, this setting will affect all virtual hosts. You can also set up 
-access control unique to each virtual host at the virtual host level. Virtual host level settings will NOT 
-override server level settings. 
-
-
-Blocking/Allowing an IP is determined by the combination of the allowed list and the denied list. 
-If you want to block only certain IPs or sub-networks, put {val}*{/} or {val}ALL{/} in 
-the {ITEM=accessControl_allow} and list the blocked IPs or sub-networks in the {ITEM=accessControl_deny}. 
-If you want to allow only certain IPs or sub-networks, put {val}*{/} or {val}ALL{/} 
-in the {ITEM=accessControl_deny} and list the allowed IPs or sub-networks in the {ITEM=accessControl_allow}. 
-The setting of the smallest scope that fits for an IP will be used to determine access.
+DESCR: どのサブネットワークおよび/またはIPアドレスがサーバーにアクセスできるかを指定します。
+サーバレベルでは、この設定はすべての仮想ホストに影響します。
+仮想ホストレベルで各仮想ホストに固有のアクセス制御を設定することもできます。
+仮想ホストレベルの設定はサーバーレベルの設定を上書きしません。 
 
 
-<b>Server Level:</b> Trusted IPs or sub-networks must be specified in the {ITEM=accessControl_allow} by adding a 
-trailing "T". Trusted IPs or sub-networks are not affected by connection/throttling limits. 
-Only server level access control can set up trusted IPs/sub-networks.
+ブロック/ IPの許可は、許可リストと拒否リストの組み合わせによって決まります。
+特定のIPまたはサブネットワークのみをブロックする場合は、{ITEM=accessControl_allow}に{val}*{/}または{val}ALL{/}を入れ、ブロックされたIPまたはサブネットワークを{ITEM=accessControl_deny}。
+
+特定のIPまたはサブネットワークのみを許可する場合は、{ITEM=accessControl_deny}に{val}*{/}または{val}ALL{/}を入れ、許可されたIPまたはサブネットワークを{ITEM=accessControl_allow}。
+
+IPに適合する最小スコープの設定は、アクセスを決定するために使用されます。
+
+
+<b>サーバーレベル：</b>信頼できるIPまたはサブネットワークは、{ITEM=accessControl_allow}に、末尾の "T"を追加することで指定する必要があります。
+信頼できるIPまたはサブネットワークは、接続/スロットリング制限の影響を受けません。
+信頼できるIP/サブネットワークは、サーバーレベルのアクセス制御でのみ設定できます。
 END_DESCR
 
-TIPS: [Security] Use this at the server level for general restrictions that apply to all virtual hosts.
+TIPS: [セキュリティ]すべての仮想ホストに適用される一般的な制限については、サーバーレベルでこれを使用してください。
 END_TIPS
 
 SEE_ALSO: 

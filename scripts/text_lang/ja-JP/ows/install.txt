@@ -1,50 +1,56 @@
-<h1>Installation/Uninstallation</h1>
+<h1>インストール/アンインストール</h1>
 
-<h3>Minimum system requirements</h3>
-<ul><li><strong>Operating System:</strong>
-	<ul><li>Linux(i386): kernel 2.4 and up, glibc-2.2 and up</li>
-		<li>CentOS: 5 and up</li>
-		<li>Ubuntu: 8.04 and up</li>
-        <li>Debian: 4 and up</li>
-		<li>FreeBSD(i386): 4.5 and up</li>
-		<li>MacOSX: 10.3 and up</li>
+<h3>最小システム要件</h3>
+<ul><li><strong>オペレーティングシステム：</strong>
+	<ul><li>Linux(i386): カーネル 2.4 and up, glibc-2.2 and up</li>
+		<li>CentOS: 5以上</li>
+		<li>Ubuntu: 8.04以上</li>
+        <li>Debian: 4以上</li>
+		<li>FreeBSD(i386): 4.5以上</li>
+		<li>MacOSX: 10.3以上</li>
 	</ul></li>
 	<li><strong>CPU:</strong>
-		<ul><li>Intel: 80486 and up</li>
+		<ul><li>Intel: 80486以上</li>
 			<li>PowerPC: PowerPC G4</li>
 		</ul>
 	</li>
-	<li><strong>Memory:</strong> 32MB and up</li>
-	<li><strong>Disk:</strong>
-		<ul><li>Installation: 200MB</li><li>Runtime: 300MB and up, swapping space depends on usage.</li></ul></li>
+	<li><strong>メモリ:</strong> 32MB以上</li>
+	<li><strong>ディスク:</strong>
+		<ul><li>インストール: 200MB</li><li>ランタイム：300MB以上、スワップスペースは使用方法によって異なります。</li></ul></li>
 </ul>
 
-<h3>Installation</h3>
+<h3>インストール</h3>
 
-<p>Installation must be performed in a command line terminal. For testing purposes, LiteSpeed Web Server can be installed into a home directory by a non-privileged user. For production use, it should be installed into a system directory.</p>
+<p>インストールはコマンドライン端末で行う必要があります。
+テストの目的で、LiteSpeed Webサーバーは特権のないユーザーによってホームディレクトリにインストールできます。
+プロダクション用には、システムディレクトリにインストールする必要があります。</p>
 
-<p>In Mac OS X, the root user is disabled by default. It can be enabled using a series of actions detailed on the Apple website. You can also use the sudo command to install LSWS into a system directory without enabling the root user, but system folders will still only be manipulable by the root user. This means that every time you want to control LSWS from the command line terminal (like when you want to start or stop LSWS), you will have to use the sudo command.</p>
+<p>Mac OS Xでは、ルートユーザーはデフォルトで無効になっています。
+アップルのWebサイトで詳述されている一連の操作を使用して有効にすることができます。
+sudoコマンドを使用して、rootユーザーを有効にせずにLSWSをシステムディレクトリにインストールすることもできますが、システムフォルダはrootユーザーだけが操作できます。
+つまり、コマンドライン端末からLSWSを制御したいとき（LSWSを起動または停止したいときなど）には、sudoコマンドを使用する必要があります。</p>
 
-<h4>Installation Steps:</h4>
+<h4>インストール手順：</h4>
 <ol>
-	<li><p>Download and decompress the package into a convenient location:</p>
+	<li><p>便利な場所にパッケージをダウンロードして解凍します：</p>
 	<p class="cmd">wget http://open.litespeedtech.com/packages/openlitespeed.1.0.tgz; tar zxf openlitespeed.1.0.tgz</p>
 	</li>
 	
-	<li><p>Go to the installation directory, compile, and install the package as the root user (for production use):</p>
+	<li><p>インストールディレクトリに移動し、パッケージをrootユーザとしてコンパイルしてインストールします（実稼働環境用）：</p>
 		<p class="cmd">cd openlitespeed <br>./configure<br>make && make install</p>
-		<p><strong>Note: </strong> The following packages need to be installed before compiling and installing OpenLiteSpeed: PCRE, Expat, OpenSSL, GeoIP, zlib.</p>
-		<ul><li><strong>CentOS 5.* and 6.*</strong>
+		<p><strong>ノート：</strong> OpenLiteSpeedをコンパイルしてインストールする前に、PCRE、Expat、OpenSSL、GeoIP、zlibの次のパッケージをインストールする必要があります。</p>
+		<ul><li><strong>CentOS 5. *および6. *</strong>
 			<p class="cmd">wget http://dl.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm;
-rpm -Uvh epel-release-5-4.noarch.rpm  (CentOS 5.* only) </p>
-			<p class="cmd">wget http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm; rpm -Uvh epel-release-6-8.noarch.rpm  (CentOS 6.* only) </p>		
+rpm -Uvh epel-release-5-4.noarch.rpm  (CentOS 5.* のみ) </p>
+			<p class="cmd">wget http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm; rpm -Uvh epel-release-6-8.noarch.rpm  (CentOS 6.* のみ) </p>		
 			<p class="cmd">yum install gcc gcc-c++ make glibc</p>
 			<p class="cmd">yum install pcre-devel expat-devel openssl-devel geoip-devel zlib-devel</p></li>
 			<li><strong>Ubuntu/Debian</strong>
 			<p class="cmd">apt-get install build-essential</p>
 			<p class="cmd">apt-get install libpcre3-dev libexpat1-dev libssl-dev libgeoip-dev zlib1g-dev</p></li>
 	 		<li><strong>FreeBSD</strong>
-				<p class="cmd">Use pkg_add or ports. Here are some examples using ports.<br/><br/>cd /usr/ports/devel/pcre; make install clean; rehash;<br>
+				<p class="cmd">pkg_addまたはportsを使用してください。
+portsを使用した例をいくつか示します。<br/><br/>cd /usr/ports/devel/pcre; make install clean; rehash;<br>
 				cd /usr/ports/net/GeoIP; make install clean; rehash;<br>
 				cd /usr/ports/textproc/expat2; make install clean; rehash;<br>
 				cd /usr/ports/security/openssl; make install clean; rehash;</p></li>
@@ -52,53 +58,65 @@ rpm -Uvh epel-release-5-4.noarch.rpm  (CentOS 5.* only) </p>
 	 			<p>Install Xcode from https://developer.apple.com/xcode/</p>
 				<p>Install MacPorts from http://www.macports.org/install.php#pkg</p>
 				<p class="cmd">sudo port install pcre expat openssl libgeoip zlib</p>
-				<p><strong>Note: </strong>When OS X users run the configure command, they need to add a parameter telling the command where to look for the PCRE package if it is added via MacPorts. This is because MacPorts installs it in a non-standard location (/opt/local/). For example:</p> 
+				<p><strong>ノート： </strong>OS Xユーザーがconfigureコマンドを実行するとき、PCREパッケージがMacPorts経由で追加されている場合、PCREパッケージを探す場所を指定するパラメータを追加する必要があります。
+これは、MacPortsが非標準の場所（/opt/local/）にインストールするためです。
+例えば：</p> 
 				<p class="cmd">./configure --with-pcre=/opt/local</p></li>
 		</ul>
 	</li>
-	<li>By default, the Installer will install a sample site on port 8088 and set the WebAdmin console (the LiteSpeed GUI) to port 7080. 
-(user: admin,  password: 123456, admin email: root@localhost) </li>
+	<li>デフォルトでは、インストーラはサンプルサイトをポート8088にインストールし、WebAdminコンソール（LiteSpeed GUI）をポート7080に設定します。
+（ユーザー：admin、パスワード：123456、管理者メール：root@localhost） </li>
 
 </ol>
 
-<h3>Getting Started</h3>
+<h3>スタートする</h3>
 
 <ol>
-	<li><p>For detailed information on controlling the server processes, please see the Administration Guide.</p>
-	<p>To start the server, simply run [your_install_dir]/bin/lswsctrl start. (To stop it, run [your_install_dir]/bin/lswsctrl stop.)</p>
+	<li><p>サーバープロセスの制御の詳細については、「管理者ガイド」を参照してください。</p>
+	<p>サーバーを起動するには、単に [your_install_dir]/bin/lswsctrl start を実行してください。(それを止めるには、 [your_install_dir]/bin/lswsctrl stop。)</p>
 	</li>
-	<li><p>A sample site should be running on the server.</p>
-	<p>To access your site, point your browser to http://[address]:8088/, [address] being the IP address or domain name of your web server machine. Use &quot;localhost&quot; if the server is on the machine you are using. "8088" is the default port. If you chose another port for LiteSpeed during installation, use the port you designated.</p>
-	<p>A congratulations page linked to other testing pages should load into the browser when pointed to the above address. If not, try testing the WebAdmin interface.</p>
+	<li><p>サンプルサイトがサーバー上で実行されている必要があります。</p>
+	<p>サイトにアクセスするには、ブラウザでhttp：//[アドレス]：8088/にアクセスし、[アドレス]はWebサーバーマシンのIPアドレスまたはドメイン名を指定します。
+サーバーが使用しているマシン上にある場合は、「localhost」を使用します。 "8088"がデフォルトのポートです。
+インストール中にLiteSpeedの別のポートを選択した場合は、指定したポートを使用してください。</p>
+	<p>他のテストページにリンクされているおめでとうページは、上記のアドレスを指し示すとブラウザに読み込まれます。
+そうでない場合は、WebAdminインターフェイスをテストしてみてください。</p>
 	</li>
-	<li><p>The default port for the WebAdmin console is 7080.</p>
-	<p>Plug http://[address]:7080/, into your browser to go to the WebAdmin interface. (If you changed the port for WebAdmin during installation, use that port instead.)</p>
-	<p>Remember that for [address] you can use &quot;localhost&quot; if you're currently using the machine the server is on.</p>
-	<p>The WebAdmin welcome page should load. Click the &quot;Log on&quot; link and use the administrator's username and password specified during installation to log on.</p>
-	<p>For detailed information regarding configuration, please refer to our Configuration Guide, or click the &quot;Help&quot; link at the top of each page.</p>
+	<li><p>WebAdminコンソールのデフォルトポートは7080です。</p>
+	<p>http：// [アドレス]：7080 /をブラウザに入力し、WebAdminインターフェイスに移動します。
+（インストール中にWebAdminのポートを変更した場合は、代わりにそのポートを使用してください）。</p>
+	<p>[アドレス]にサーバーが稼動しているマシンを現在使用している場合は、「localhost」を使用することができます。</p>
+	<p>WebAdminのウェルカムページが読み込まれます。
+[ログオン]リンクをクリックし、インストール時に指定した管理者のユーザー名とパスワードを使用してログオンします。</p>
+	<p>設定に関する詳細については、設定ガイドを参照するか、各ページの上部にある[ヘルプ]リンクをクリックしてください。</p>
 	</li>
-	<li><p>If your server uses firewall, please make sure that localhost is trusted.</p>
-	<p>For instance, Linux with IPTables should include a rule ALLOW INPUT from LO.</p>
+	<li><p>サーバーがファイアウォールを使用している場合は、localhostが信頼できるものであることを確認してください。</p>
+	<p>たとえば、IPTablesを持つLinuxには、LOからのALLOW INPUTルールを含める必要があります。</p>
 	</li>
-	<li><p>If your web site and the WebAdmin interface are inaccessible, please take a look at the error log [your_install_dir]/logs/error.log.</p>
-		<p>If there is a TCP port conflict with other server applications, the web server should be reinstalled with an available port.
-The following command can be used to find an available port:
+	<li><p>WebサイトとWebAdminインターフェイスにアクセスできない場合は、エラーログ [your_install_dir]/logs/error.logを参照してください。</p>
+		<p>TCPポートが他のサーバーアプリケーションと競合する場合は、Webサーバーを使用可能なポートで再インストールする必要があります。
+次のコマンドを使用して、使用可能なポートを見つけることができます：
 <span class="cmd">netstat -an | grep XXXX </span> 
-XXXX is a port number. If the port is available, the command will produce no output.</p>
-		<p>If the swapping directory is not writable, you can either grant writing permission for the swapping directory to the user whom the web server is running as, or change the swapping directory's configurations manually. The swapping directory is configured in the server's XML configuration file: [your_install_dir]/conf/httpd_config.xml. Search the XML file for swappingDir. 
-		The default location for the swapping directory is /tmp/lshttpd/swap.</p>
-		<p>If you still have problems with installation, please check out our wiki or post your problem on our support forum.</p>
+XXXXはポート番号です。 ポートが使用可能な場合、コマンドは出力を生成しません。</p>
+		<p>スワッピングディレクトリが書き込み可能でない場合は、スワッピングディレクトリの書き込み権限をWebサーバーが実行されているユーザーに許可するか、スワップディレクトリの設定を手動で変更します。
+スワップディレクトリは、サーバーのXML構成ファイルで構成されます。
+[your_install_dir]/conf/httpd_config.xmlに移動します。
+swappingDirのXMLファイルを検索します。
+スワップディレクトリのデフォルトの場所は/tmp/lshttpd/swapです。</p>
+		<p>まだインストールに問題がある場合は、私たちのwikiをチェックするか、サポートフォーラムで問題を投稿してください。</p>
 	</li>
 </ol>
 
-<h3>Notes</h3>
+<h3>ノート</h3>
 <ul>
-	<li>OpenLiteSpeed supports both native LiteSpeed XML configuration files and plain text configuration files (for those used to editing Apache's httpd.conf). Run [your_install_dir]/conf/switch_config.sh to switch between these formats.</li>
-	<li>On FreeBSD, Mac OS X, Ubuntu, and Debian, the shipped PHP (for CentOS) will not run. You will need to build a new PHP for OpenLiteSpeed in order to run PHP applications with OpenLiteSpeed.</li>
+	<li>OpenLiteSpeedは、ネイティブのLiteSpeed XML設定ファイルとプレーンテキスト設定ファイル（Apacheのhttpd.confの編集に使用されるもの）の両方をサポートします。 
+[your_install_dir]/conf/switch_config.shを実行して、これらの形式を切り替えます。</li>
+	<li>FreeBSD、Mac OS X、Ubuntu、Debianでは、出荷されたPHP（CentOS用）は動作しません。
+OpenLiteSpeedでPHPアプリケーションを実行するには、OpenLiteSpeed用の新しいPHPをビルドする必要があります。</li>
 </ul>
 
-<h1>Uninstallation Steps</h1>
+<h1>アンインストール手順</h1>
 <ol>
-	<li>Stop OpenLiteSpeed if it is running: [your_install_dir]/bin/lswsctrl stop</li>
-	<li>Remove the install directory: rm -rf [your_install_dir]
+	<li>実行中のOpenLiteSpeedを停止する： [your_install_dir]/bin/lswsctrl stop</li>
+	<li>インストールディレクトリを削除します： rm -rf [your_install_dir]</li>
 </ol>
