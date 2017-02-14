@@ -1,28 +1,28 @@
-<h1>Introduction</h1>
+<h1>はじめに</h1>
 
-<h3>Overview</h3>
-<p>LiteSpeed Web Server is an Apache-interchangeable, high performance, secure, easy-to-use web server.
-It can handle thousands of concurrent connections with a small memory footprint. 
-Its security features also make it much less vulnerable to various attacks.
+<h3>概要</h3>
+<p>LiteSpeed Web Serverは、Apache互換、高性能、安全で使いやすいWebサーバーです。
+小さなメモリフットプリントで何千もの同時接続を処理できます。
+そのセキュリティ機能により、さまざまな攻撃に対する脆弱性が大幅に軽減されます。
 </p>
 
-<h3>Basic Features</h3>
+<h3>基本機能</h3>
 
 <ul>
   <li><p><strong>HTTP/1.1</strong></p>
 	  <ul>
-	    <li>Chunked transfer encoding</li>
-	    <li>Basic authentication (password file and LDAP backend)</li>
-	    <li>Entity tag</li>
-	    <li>Single and multiple ranges requests</li>
-	    <li>Static/dynamic response compression (gzip)</li>
-		<li>Apache-compatible URL rewrite</li>
+	    <li>チャンク転送コード</li>
+	    <li>基本認証（パスワードファイルとLDAPバックエンド）</li>
+	    <li>エンティティタグ</li>
+	    <li>単一および複数の範囲要請</li>
+	    <li>静的/動的レスポンス圧縮（gzip）</li>
+		<li>Apacheと互換性のあるURL書き換え</li>
 		<li>Microsoft FrontPage Server Extensions 2002</li>
-		<li>IPv6 support</li>
-	    <li>Apache mod_geoip compatible geotargeting support</li>
+		<li>IPv6サポート</li>
+	    <li>Apache mod_geoipとの互換性のある地域ターゲティングのサポート</li>
 	  </ul>
   </li>
-  <li><p><strong>Dynamic Content Generation</strong></p>
+  <li><p><strong>動的コンテンツ生成</strong></p>
   <p>LiteSpeed Web Server supports the following dynamic content generation methods:</p>
 	  <ul>
 	    <li>CGI/1.1 with suEXEC</li>
