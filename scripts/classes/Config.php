@@ -115,6 +115,7 @@ class Config
 			case self::DOC_TYPE_WS:
 				$this->_forweb				 = true;
 				$this->_ws_lb_replace['to']	 = array('{tag}Enterprise Edition Only{/}');
+				$this->_lang[]	 = LanguagePack::LANG_JAPANESE;
 				break;
 
 			case self::DOC_TYPE_LB:
