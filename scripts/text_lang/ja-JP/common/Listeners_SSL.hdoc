@@ -166,17 +166,17 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the cipher suite to be used when negotiating the SSL handshake. 
-LSWS supports cipher suites implemented in SSL v3.0, TLS v1.0, and TLS v1.2.
+DESCR: SSLハンドシェイクのネゴシエーション時に使用する暗号スイートを指定します。
+LSWSは、SSL v3.0、TLS v1.0、およびTLS v1.2で実装された暗号スイートをサポートしています。
 END_DESCR
 
-SYNTAX: Colon-separated string of cipher specifications.
+SYNTAX: コロンで区切られた暗号仕様の文字列。
 END_SYNTAX
 
 EXAMPLE: ECDHE-RSA-AES128-SHA256:RC4:HIGH:!MD5:!aNULL:!EDH
 END_EXAMPLE
 
-TIPS: [Security] We recommend leaving this field blank to use our default cipher which follows SSL cipher best practices. 
+TIPS: [セキュリティ] SSL暗号のベストプラクティスに従ったデフォルトの暗号を使用する場合は、このフィールドを空白のままにすることをお勧めします。
 END_TIPS
 
 [END_ITEM]
@@ -185,13 +185,13 @@ END_TIPS
 
 [ITEM]
 ID: enableECDHE
-NAME: Enable ECDH Key Exchange
+NAME: ECDH鍵交換を有効にする
 REQUIRED: 
 APPLY: 3
 SINCE: 4.2.5
 SEE_ALSO: 
 
-DESCR: Allows use of Elliptic Curve Diffie-Hellman key exchange for further SSL encryption.
+DESCR: さらにSSL暗号化のために楕円曲線 Diffie-Hellman鍵交換を使用できます。
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -200,10 +200,10 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] ECDH key exchange is more secure than using just an RSA key. ECDH and DH key exchange are equally secure.
+TIPS: [セキュリティ] ECDH鍵交換は、RSA鍵だけを使用するより安全です。 ECDHとDHキーの交換は同等に安全です。
 
 
-[Performance] Enabling ECDH key exchange will increase CPU load and is slower than using just an RSA key.
+[パフォーマンス] ECDH鍵交換を有効にするとCPU負荷が増加し、RSA鍵だけを使用する場合よりも遅くなります。
 END_TIPS
 
 [END_ITEM]
@@ -212,13 +212,13 @@ END_TIPS
 
 [ITEM]
 ID: enableDHE
-NAME: Enable DH Key Exchange
+NAME: DHキー交換を有効にする
 REQUIRED: 
 APPLY: 3
 SINCE: 4.2.5
 SEE_ALSO: 
 
-DESCR: Allows use of Diffie-Hellman key exchange for further SSL encryption. 
+DESCR: さらにSSL暗号化のためにDiffie-Hellman鍵交換を使用できます。 
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -227,10 +227,11 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] DH key exchange is more secure than using just an RSA key. ECDH and DH key exchange are equally secure.
+TIPS: [セキュリティ] DHキーの交換は、RSAキーを使用するよりも安全です。 ECDHとDHキーの交換は同等に安全です。
 
 
-[Performance] Enabling DH key exchange will increase CPU load and is slower than ECDH key exchange and RSA. ECDH key exchange is preferred when available.
+[パフォーマンス] DHキー交換を有効にするとCPU負荷が増加し、ECDHキー交換とRSAよりも遅くなります。
+ECDH鍵交換が利用可能である場合に優先される。
 END_TIPS
 
 [END_ITEM]
@@ -266,15 +267,15 @@ END_TIPS
 
 [ITEM]
 ID: renegProtection
-NAME: SSL Renegotiation Protection
+NAME: SSL再交渉保護
 NS: LEO
 REQUIRED: 
 APPLY: 3
 SINCE: 4.1.13
 SEE_ALSO: 
 
-DESCR: Specifies whether to enable SSL Renegotiation Protection to 
-defend against SSL handshake-based attacks. The default value is "Yes".
+DESCR: SSL再交渉保護を有効にするかどうかを指定します。
+SSLハンドシェイクベースの攻撃に対して防御します。 デフォルト値は "Yes"です。
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -292,18 +293,18 @@ END_TIPS
 
 [ITEM]
 ID: enableSpdy
-NAME: Enable SPDY/HTTP2
+NAME: SPDY/HTTP2を有効にする
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: HTTP/2 and SPDY are new versions of the HTTP network protocol with the goal of reducing page load times. 
-More information can be found at <a href="http://en.wikipedia.org/wiki/HTTP/2">http://en.wikipedia.org/wiki/HTTP/2</a>.
+DESCR: HTTP/2とSPDYは、ページロード時間を短縮する目的で、HTTPネットワークプロトコルの新バージョンです。
+より多くの情報は<a href="http://en.wikipedia.org/wiki/HTTP/2">http://en.wikipedia.org/wiki/HTTP/2</a>で見つけることができます。
 END_DESCR
 
-SYNTAX: Check the protocol(s) you wish to enable. Leaving all boxes unchecked will enable SPDY and HTTP/2 support (the default). 
-If you wish to disable SPDY and HTTP/2, check "None" only and leave all other boxes unchecked.
+SYNTAX: 有効にするプロトコルを確認します。 すべてのボックスをチェックしないと、SPDYとHTTP/2のサポート（デフォルト）が有効になります。
+SPDYとHTTP/2を無効にする場合は、「なし」のみをチェックし、その他のチェックボックスはすべてオフにします。
 END_SYNTAX
 
 
@@ -322,13 +323,13 @@ END_TIPS
 
 [ITEM]
 ID: enableStapling
-NAME: Enable OCSP Stapling
+NAME: OCSPステープルを有効にする
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Determines whether to enable OCSP stapling, a more efficient way of verifying public key certificates.
+DESCR: OCSPステープルを有効にするかどうかを決定します。これは、公開鍵証明書を検証するより効率的な方法です。
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -346,16 +347,19 @@ END_TIPS
 
 [ITEM]
 ID: ocspRespMaxAge
-NAME: OCSP Response Max Age (secs)
+NAME: OCSPの応答最大年齢（秒）
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: This option sets the maximum allowable age for an OCSP response. If an OCSP response is older than this maximum age, the server will contact the OCSP responder for a new response. The default value is {val}86400{/}. Maximum age can be turned off by setting this value to {val}-1{/}.
+DESCR: このオプションは、OCSP応答の許容可能な最大経過時間を設定します。
+OCSP応答がこの最大年齢より古い場合、サーバーはOCSP応答者に新しい応答を要求します。
+デフォルト値は{val}86400{/}です。
+この値を{val}-1{/}に設定すると、最大年齢を無効にすることができます。
 END_DESCR
 
-SYNTAX: Integer of seconds
+SYNTAX: 秒数
 END_SYNTAX
 
 EXAMPLE: 
@@ -370,19 +374,18 @@ END_TIPS
 
 [ITEM]
 ID: ocspResponder
-NAME: OCSP Responder
+NAME: OCSPレスポンダ
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the URL of the OCSP responder to be used. 
-If not set, the server will attempt to contact the OCSP responder 
-detailed in the certificate authority's issuer certificate. 
-Some issuer certificates may not have an OCSP responder URL specified.
+DESCR: 使用するOCSPレスポンダのURLを指定します。
+設定されていない場合、サーバーは認証局の発行者証明書に記載されているOCSPレスポンダに接続を試みます。
+一部の発行者証明書には、OCSPレスポンダURLが指定されていない場合があります。
 END_DESCR
 
-SYNTAX: URL starting with {val}http://{/}
+SYNTAX: {val}http：//{/}で始まるURL
 END_SYNTAX
 
 EXAMPLE: {val}http://rapidssl-ocsp.geotrust.com {/}
@@ -397,22 +400,19 @@ END_TIPS
 
 [ITEM]
 ID: ocspCACerts
-NAME: OCSP CA Certificates
+NAME: OCSP CA証明書
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the location of the file where OCSP certificate authority (CA) 
-certificates are stored. These certificates are used to check responses 
-from the OCSP responder (and make sure those responses are not spoofed or 
-otherwise compromised). This file should contain the whole certificate chain. 
-If this file does not contain the root certificate, LSWS should be able to find 
-the root certificate in your system directory without you adding it to the file, 
-but, if this validation fails, you should try adding your root certificate to this file. 
+DESCR: OCSP認証局（CA）証明書が格納されるファイルの場所を指定します。
+これらの証明書は、OCSPレスポンダからのレスポンスを確認するために使用されます（また、そのレスポンスが偽装されていないか、または妥協されていないことを確認してください）。
+このファイルには、証明書チェーン全体が含まれている必要があります。
+このファイルにルート証明書が含まれていない場合、LSWSはファイルに追加することなくシステムディレクトリのルート証明書を見つけることができますが、この検証に失敗した場合はルート証明書をこのファイルに追加してください。
 
 
-This setting is optional. If this setting is not set, the server will automatically check {ITEM= CACertFile}. 
+この設定はオプションです。 この設定が設定されていない場合、サーバーは自動的に{ITEM=CACertFile}をチェックします。
 END_DESCR
 
 SYNTAX: ファイル名への絶対パス又は$SERVER_ROOTからの相対パス
@@ -433,21 +433,21 @@ END_TIPS
 
 [ITEM]
 ID: clientVerify
-NAME: Client Verification
+NAME: クライアントの検証
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:{ent_version} Specifies the type of client certifcate authentication.
-Available types are:
+DESCR:{ent_version}クライアント証明書認証のタイプを指定します。
+使用できるタイプは次のとおりです：
 <ul>
-<li><b>None:</b> No client certificate is required.</li>
-<li><b>Optional:</b> Client certificate is optional.</li>
-<li><b>Require:</b> The client must has valid certificate.</li>
-<li><b>Optional_no_ca:</b> Same as optional.</li>
+<li><b>None:</b> クライアント証明書は必要ありません。</li>
+<li><b>Optional:</b> クライアント証明書はオプションです。</li>
+<li><b>Require:</b> クライアントには有効な証明書が必要です。</li>
+<li><b>Optional_no_ca:</b> オプションと同じです。</li>
 </ul>
-The default is "None". 
+デフォルトは "None"です。
 END_DESCR
 
 SYNTAX: ドロップダウンリストから選択
@@ -456,7 +456,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS:  "None" or "Require" are recommended.
+TIPS:  "None"または "Require"をお勧めします。
 END_TIPS
 
 [END_ITEM]
@@ -465,15 +465,14 @@ END_TIPS
 
 [ITEM]
 ID: verifyDepth
-NAME: Verify Depth
+NAME: 検証の深さ
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:{ent_version} Specifies how deeply a certificate should be verified before 
-determining that the client does not have a valid certificate.
-The default is "1".
+DESCR:{ent_version}クライアントに有効な証明書がないと判断する前に、証明書の検証の深さを指定します。
+デフォルトは "1"です。
 END_DESCR
 
 SYNTAX: ドロップダウンリストから選択
@@ -491,19 +490,19 @@ END_TIPS
 
 [ITEM]
 ID: crlPath
-NAME: Client Revocation Path
+NAME: クライアントの失効パス
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:{ent_version} Specifies the directory containing PEM-encoded CA CRL files for revoked 
-client certificates. The files in this directory have to be PEM-encoded. 
-These files are accessed through hash filenames, hash-value.rN.
-Please refer to openSSL or Apache mod_ssl documentation regarding creating the hash filename.
+DESCR:{ent_version}取り消されたクライアント証明書のPEMエンコードされたCA CRLファイルを含むディレクトリを指定します。
+このディレクトリのファイルはPEMでエンコードする必要があります。
+これらのファイルは、ハッシュファイル名、hash-value.rNによってアクセスされます。
+ハッシュファイル名の作成については、openSSLまたはApache mod_sslのドキュメントを参照してください。
 END_DESCR
 
-SYNTAX: path 
+SYNTAX: パス 
 END_SYNTAX
 
 EXAMPLE: 
@@ -518,15 +517,13 @@ END_TIPS
 
 [ITEM]
 ID: crlFile
-NAME: Client Revocation File
+NAME: クライアント失効ファイル
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:{ent_version} Specifies the file containing PEM-encoded CA CRL files enumerating revoked 
-client certificates. This can be used as an alternative or in addition to 
-{ITEM=crlPath}. 
+DESCR:{ent_version}取り消されたクライアント証明書を列挙するPEMエンコードCA CRLファイルを含むファイルを指定します。 これは、代わりに、または{ITEM=crlPath}に加えて使用することができます。 
 END_DESCR
 
 SYNTAX: ファイル名への絶対パス又は$SERVER_ROOTからの相対パス
