@@ -6,13 +6,13 @@
 
 [ITEM]
 ID: keyFile
-NAME: Private Key File
+NAME: 秘密鍵ファイル
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The filename of the SSL private key file. The key file should not be encrypted.
+DESCR: SSL秘密鍵ファイルのファイル名。キーファイルは暗号化しないでください。
 END_DESCR
 
 SYNTAX: ファイル名への絶対パス又は$SERVER_ROOTからの相対パス
@@ -21,8 +21,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] The private key file should be placed in a secured directory that 
-allows read-only access to the user the server runs as.
+TIPS: [セキュリティ]秘密鍵ファイルは、サーバーが実行されるユーザーへの読み取り専用アクセスを可能にするセキュリティ保護されたディレクトリに配置する必要があります。
 END_TIPS
 
 [END_ITEM]
@@ -31,13 +30,13 @@ END_TIPS
 
 [ITEM]
 ID: certFile
-NAME: Certificate File
+NAME: 証明書ファイル
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The filename of the SSL certificate file.
+DESCR: SSL証明書ファイルのファイル名。
 END_DESCR
 
 SYNTAX: ファイル名への絶対パス又は$SERVER_ROOTからの相対パス
@@ -46,8 +45,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] The certificate file should be placed in a secured directory, 
-which allows read-only access to the user that the server runs as.
+TIPS: [セキュリティ]証明書ファイルは、サーバーが実行されるユーザーへの読み取り専用アクセスを可能にする安全なディレクトリに配置する必要があります。
 END_TIPS
 
 [END_ITEM]
@@ -56,16 +54,13 @@ END_TIPS
 
 [ITEM]
 ID: certChain
-NAME: Chained Certificate
+NAME: チェーン証明書
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether the certificate is a chained certificate or
-not. The file that stores a certificate chain must be in PEM format,
-and the certificates must be in the chained order, from the lowest level
-(the actual client or server certificate) to the highest level (root) CA.
+DESCR: 証明書がチェーン証明書であるかどうかを指定します。 チェーン証明を格納するファイルは、PEM形式でなければならず、証明書は最下位レベル（実際のクライアントまたはサーバー証明書）から最上位（ルート）CAまでの連鎖の順序でなければなりません。
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -134,20 +129,20 @@ END_TIPS
 
 [ITEM]
 ID: sslProtocol
-NAME: Protocol Version
+NAME: プロトコルバージョン
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies which version of the SSL protocol will be used. You can choose from 
-{val}SSL v3.0{/} and {val}TLS v1.0{/}. Since OpenSSL 1.0.1, {val}TLS v1.1{/} and {val}TLS v1.2{/} are also supported. 
+DESCR: 使用するSSLプロトコルのバージョンを指定します。
+{val}SSL v3.0{/}と{val}TLS v1.0{/}から選択できます。 OpenSSL 1.0.1以降、{val}TLS v1.1{/}および{val}TLS v1.2{/}もサポートされています。 
 END_DESCR
 
-EDITTIP: "Yes" must be selected for <b>Secure</b> in General > Address Settings.
+EDITTIP: 一般>アドレス設定の<b>セキュリティ</b>で"はい"を選択する必要があります。
 END_EDITTIP
 
-EDITTIP: For SSL versions and encryption levels, please select all you want to accept.
+EDITTIP: SSLバージョンと暗号化レベルについては、受け入れるすべてのものを選択してください。
 END_EDITTIP
 
 SYNTAX:
@@ -156,7 +151,7 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: Leaving this field blank will enable TLS v1.0, TLS v1.1, and TLS v1.2 by default.
+TIPS: このフィールドを空白のままにすると、デフォルトでTLS v1.0、TLS v1.1、およびTLS v1.2が有効になります。
 END_TIPS
 
 [END_ITEM]
@@ -165,7 +160,7 @@ END_TIPS
 
 [ITEM]
 ID: ciphers
-NAME: Ciphers
+NAME: 暗号
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -552,19 +547,19 @@ END_TIPS
 
 [TBL]
 ID: sslCert
-NAME: SSL Private Key & Certificate
+NAME: SSL秘密鍵と証明書
 NS: LEO
 
-DESCR: Every SSL listener requires a paired SSL private key and SSL certificate. 
-Multiple SSL listeners can share the same key and certificate. 
+DESCR: すべてのSSLリスナーには、ペアのSSL秘密鍵とSSL証明書が必要です。
+複数のSSLリスナーは、同じ鍵と証明書を共有できます。
 
 
-You can generate SSL private keys yourself using an SSL software package, 
-such as OpenSSL. SSL certificates can also be purchased from an authorized certificate 
-issuer like VeriSign or Thawte. You can also sign the certificate yourself. 
-Self-signed certificates will not be trusted by web browsers and should not be used on public websites 
-containing critical data. However, a self-signed certificate is good 
-enough for internal use, e.g. for encrypting traffic to LiteSpeed Web Server's WebAdmin Console.
+OpenSSLなどのSSLソフトウェアパッケージを使用して、SSL秘密鍵を自分で生成することができます。
+SSL証明書は、VeriSignやThawteのような認可された証明書の発行者から購入することもできます。
+自分で証明書に署名することもできます。
+自己署名証明書はWebブラウザから信頼されないため、重要なデータを含む公開Webサイトでは使用しないでください。
+ただし、自己署名証明書は内部使用に十分適しており、
+例えば LiteSpeed Web ServerのWebAdminコンソールへのトラフィックを暗号化します。
 END_DESCR
 
 SEE_ALSO: 
@@ -574,10 +569,10 @@ SEE_ALSO:
 
 [TBL]
 ID: sslProtocolSetting
-NAME: SSL Protocol
+NAME: SSLプロトコル
 NS: LEO
 
-DESCR: Customizes SSL protocols accepted by the listener.
+DESCR: リスナーが受け入れたSSLプロトコルをカスタマイズします。
 END_DESCR
 
 SEE_ALSO: 
@@ -587,18 +582,14 @@ SEE_ALSO:
 
 [TBL]
 ID: sslOCSP
-NAME: OCSP Stapling
+NAME: OCSPステープリング
 NS: LEO
 
-DESCR: Online Certificate Status Protocol (OCSP) is a more efficient method 
-of checking whether a digital certificate is valid. It works by communicating 
-with another server — the OCSP responder — to get verification that the certificate 
-is valid instead of checking through certificate revocation lists (CRL).
+DESCR: オンライン証明書ステータスプロトコル（OCSP）は、デジタル証明書が有効かどうかを確認するより効率的な方法です。
+OCSP応答者である他のサーバーと通信して、証明書失効リスト（CRL）をチェックする代わりに証明書が有効であることを確認します。
 
-
-OCSP stapling is a further improvement on this protocol, allowing the server to 
-check with the OCSP responder at regular intervals instead of every time a certificate 
-is requested. See the <a href="http://en.wikipedia.org/wiki/OCSP_Stapling">OCSP Wikipedia page</a> for more details.
+OCSPステープリングは、このプロトコルのさらなる改良であり、証明書が要求されるたびにではなく、定期的な間隔でサーバーがOCSPレスポンダを確認できるようにします。
+詳細については、<a href="http://en.wikipedia.org/wiki/OCSP_Stapling">OCSP Wikipedia</a>のページをご覧ください。
 END_DESCR
 
 SEE_ALSO: 
@@ -608,7 +599,7 @@ SEE_ALSO:
 
 [TBL]
 ID: sslClientVerify
-NAME: Client Verification
+NAME: クライアントの検証
 NS: LEO
 
 DESCR: 
@@ -624,7 +615,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: Listeners_SSL_Help
-NAME: Listeners SSL
+NAME: リスナーSSL
 NS: LEO
 
 DESCR: 

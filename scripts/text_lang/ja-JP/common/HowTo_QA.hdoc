@@ -328,32 +328,18 @@ and {ITEM=ExtApp_Help#env} (optional). <br>
 ただし、ほとんどの外部アプリケーションはマルチスレッドではなく、各プロセスは同時に1つの要求しか処理できません。
 この場合、並行処理のレベルを上げるために、複数のインスタンスを作成する必要があります。<br>
 
-{ITEM=ExtApp_Help#instances} can control how many 
-instances (processes) that the web server can spawn. 
-And {ITEM=ExtApp_Help#maxConns} should be set to match the
-{ITEM=ExtApp_Help#instances}. <br>
+{ITEM=ExtApp_Help#instances}は、Webサーバーが生成できるインスタンス（プロセス）の数を制御できます。
+また、{ITEM=ExtApp_Help#maxConns}は、{ITEM=ExtApp_Help#instances}と一致するように設定する必要があります。 <br>
 
-Some single-threaded Fast CGI process itself can fork children 
-processes to handle multiple requests concurrently, such as 
-PHP Fast CGI implementation. For that type of Fast CGI, 
-set {ITEM=ExtApp_Help#instances} to {val}1{/} and 
-use Fast CGI's configuration to control how many children 
-processes should be created. For example, 
-PHP use a special {ITEM=ExtApp_Help#env} variable 
-{val}PHP_FCGI_CHILDREN{/} for this purpose.<br>
+いくつかのシングルスレッドFast CGIプロセス自体は、子プロセスをフォークして、PHP Fast CGIの実装など、複数の要求を同時に処理できます。
+そのタイプのFast CGIの場合、{ITEM=ExtApp_Help#instances}を{val}1{/}に設定し、Fast CGIの設定を使用して子プロセスをいくつ作成するかを制御します。
+たとえば、PHPではこの目的で特別な{ITEM=ExtApp_Help#env}変数{val}PHP_FCGI_CHILDREN{/}を使用します。<br>
 </li>
 <br>
 <li>
-External applications cannot be used directly; they have to be 
-configured as either {PAGE=ScriptHandler_Help} or 
-{PAGE=Context_Help} handler.
-When configured as a script handler, the web server 
-will forward a request to it if the request
-refers to a static  
-file with matching {ITEM=ScriptHandler_Help#suffix}. 
-When configured as a context handler, the web server will 
-forward a request to it as long as the 
-request's URL matches the Context {ITEM=Context_Help#expuri}.
+外部アプリケーションは直接使用することはできません。 {PAGE=ScriptHandler_Help}または{PAGE=Context_Help}ハンドラのいずれかに設定する必要があります。
+スクリプトハンドラとして設定すると、Webサーバは、要求が{ITEM=ScriptHandler_Help#suffix}に一致する静的ファイルを参照する場合、要求をそのハンドラに転送します。
+コンテキストハンドラとして設定すると、WebサーバはリクエストのURLがContext {ITEM=Context_Help#expuri}と一致する限りリクエストをリクエストに転送します。
 </li>
 </ul>
 END_A

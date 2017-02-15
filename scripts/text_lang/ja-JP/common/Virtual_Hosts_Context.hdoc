@@ -1083,18 +1083,15 @@ END_TIPS
 
 [ITEM]
 ID: addDefaultCharset
-NAME: Add Default Charset
+NAME: デフォルトの文字セットを追加
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to add a character set tag to the
-	   "Content-Type" response header, when content type is either
-	   "text/html" or "text/plain" without any parameters.
-	   When set to {val}Off{/},  this function is disabled. When set to
-	   {val}On{/}, either the character set specified by
-	   {ITEM=defaultCharsetCustomized} or the default "iso-8859-1" will be added.
+DESCR: コンテンツタイプが "text/html"または "text/plain"のいずれかのパラメータがない場合、文字セットタグを "Content-Type"レスポンスヘッダーに追加するかどうかを指定します。
+{val}Off{/}に設定すると、この機能は無効になります。
+{val}On{/}に設定すると、{ITEM=defaultCharsetCustomized}で指定された文字セットまたはデフォルトの "iso-8859-1"のいずれかが追加されます。
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -1112,19 +1109,18 @@ END_TIPS
 
 [ITEM]
 ID: defaultCharsetCustomized
-NAME: Customized Default Charset
+NAME: カスタマイズされたデフォルトの文字セット
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies a character set to be used when {ITEM=addDefaultCharset}
-	   is {val}On{/}. This is optional. The default value is {val}iso-8859-1{/}.
-	   This entry has no effect when {ITEM=addDefaultCharset} is
-	   {val}Off{/}.
+DESCR: {ITEM = addDefaultCharset}が{val}On{/}のときに使用される文字セットを指定します。
+       これはオプションです。 デフォルト値は{val} iso-8859-1 {/}です。
+       {ITEM = addDefaultCharset}が{val} Off {/}の場合、このエントリは無効です。
 END_DESCR
 
-SYNTAX: Name of a character set.
+SYNTAX: 文字セットの名前。
 END_SYNTAX
 
 EXAMPLE: utf-8
@@ -1145,8 +1141,9 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Name of the module. The module must be registered under the Server Module Configuration tab.  
-Once it is registered, the module name will be available in the drop down box for the Listener and Virtual Host configurations.
+DESCR: モジュールの名前。
+モジュールはサーバーモジュールの設定タブに登録する必要があります。
+登録されると、モジュール名がリスナーおよび仮想ホスト構成のドロップダウンボックスで使用可能になります。
 END_DESCR
 
 SYNTAX: ドロップダウンリストから選択
@@ -1166,7 +1163,7 @@ END_TIPS
 
 [TBL]
 ID: newContext
-NAME: Context Attributes
+NAME: コンテキスト属性
 
 [END_TBL]
 
@@ -1174,14 +1171,12 @@ NAME: Context Attributes
 
 [TBL]
 ID: generalContext
-NAME: Static Context
+NAME: 静的コンテキスト
 NS: E
 
-DESCR: Context settings are used to specify special settings for files in a 
-certain location. These settings can be used to bring in files outside of 
-the document root (like Apache's Alias or AliasMatch directives), 
-to protect a particular directory using authorization realms, or to 
-block or restrict access to a particular directory within the document root.
+DESCR: コンテキスト設定は、特定の場所にあるファイルの特別な設定を指定するために使用されます。
+これらの設定を使用して、(ApacheのエイリアスやAliasMatchディレクティブのような)ドキュメントルートの外にファイルを持ち込むことができます。
+許可レルムを使用して特定のディレクトリを保護したり、ドキュメントルート内の特定のディレクトリへのアクセスをブロックまたは制限することができます。
 END_DESCR
 
 SEE_ALSO: 
@@ -1207,34 +1202,30 @@ ID: javaWebAppContext
 NAME: Java Webアプリコンテキスト
 NS: E
 
-DESCR: Many people running Java applications use the servlet engine to serve static 
-content as well. But no servlet engine is nearly as efficient as LiteSpeed Web Server for these processes. In order to improve the overall performance, 
-LiteSpeed Web Server can be configured as a gateway server, which serves static content 
-and forwards dynamic Java page requests to the servlet engine. 
+DESCR: Javaアプリケーションを実行している多くの人々は、サーブレットエンジンを使用して静的コンテンツを提供しています。
+しかし、サーブレットエンジンは、これらのプロセスではLiteSpeed Web Serverほど効率的ではありません。
+全体のパフォーマンスを向上させるために、LiteSpeed Web Serverをゲートウェイサーバーとして構成することができます。ゲートウェイサーバーは静的コンテンツを処理し、動的Javaページ要求をサーブレットエンジンに転送します。
 
 
-LiteSpeed Web Server requires certain contexts to be defined in order to run a 
-Java application. A Java Web App Context automatically creates all required 
-contexts based on the Java web application's configuration file (WEB-INF/web.xml). 
+LiteSpeed Web Serverでは、Javaアプリケーションを実行するために特定のコンテキストを定義する必要があります。
+Java Webアプリケーションコンテキストは、Java Webアプリケーションの構成ファイル（WEB-INF/web.xml）に基づいて、必要なすべてのコンテキストを自動的に作成します。 
 
 
-There are a few points you need to keep in mind when setting up a Java Web App Context:
+Java Webアプリコンテキストを設定する際に留意すべき点がいくつかあります：
 
 <ul>
-<li>A {val}Servlet Engine{/} external application must be set up in {PAGE=ExtApp_Help} 
-before Java Web App Context can be set up.<li> 
-<li>A {PAGE=ScriptHandler_Help} for .jsp files should be defined as well.</li>
-<li>If the web application is packed into a .war file, the .war file must be expanded. 
-The server cannot access compressed archive files.</li>
-<li>For the same resources, the same URL should be used no matter whether it is accessed 
-through LiteSpeed Web Server or through the servlet engine's built-in HTTP server.
+<li>Java Webアプリコンテキストを設定する前に、{val}サーブレットエンジン{/}外部アプリケーションを{PAGE=ExtApp_Help}に設定する必要があります<li> 
+<li>.jspファイルの{PAGE=ScriptHandler_Help}も同様に定義する必要があります。</li>
+<li>Webアプリケーションが.warファイルにパックされている場合は、.warファイルを展開する必要があります。
+サーバーは圧縮されたアーカイブファイルにアクセスできません。</li>
+<li>同じリソースの場合、LiteSpeed Web Serverを介してアクセスするか、サーブレットエンジンの組み込みHTTPサーバーを介してアクセスするかにかかわらず、同じURLを使用する必要があります。
 
 
-For example, 
-  Tomcat 4.1 is installed under /opt/tomcat. Files for the "examples" web application are 
-  located at /opt/tomcat/webapps/examples/. Through Tomcat's built-in HTTP server, 
-  the "examples" web application is thus accessed with a URI like "/examples/***". 
-  The corresponding Java Web App Context should thus be configured: 
+例えば、
+  Tomcat 4.1は/ opt / tomcatにインストールされます。
+  "examples" Webアプリケーションのファイルは、/opt/tomcat/webapps/examples/にあります。
+  TomcatのビルトインHTTPサーバーを通じて、 "examples" Webアプリケーションは "/ examples / ***"のようなURIでアクセスされます。
+  したがって、対応するJava Webアプリコンテキストを設定する必要があります： 
   {ITEM=expuri} = {val}/examples/{/}, {ITEM=location} = {val}/opt/tomcat/webapps/examples/{/}.</li>
   </ul>
 END_DESCR
@@ -1258,22 +1249,20 @@ LiteSpeed Web Serverでは、Javaアプリケーションを実行するため�
 Java Webアプリケーションコンテキストは、Java Webアプリケーションの構成ファイル（WEB-INF/web.xml）に基づいて、必要なすべてのコンテキストを自動的に作成します。 
 
 
-There are a few points you need to keep in mind when setting up a Java Web App Context:
+Java Webアプリケーションコンテキストを設定する際に留意すべき点がいくつかあります：
 
 <ul>
-<li>A {val}Servlet Engine{/} external application must be set up in {PAGE=ExtApp_Help} 
-before Java Web App Context can be set up.</li> 
-<li>A {PAGE=ScriptHandler_Help} for .jsp files should be defined as well.</li>
-<li>If the web application is packed into a .war file, the .war file must be expanded. 
-The server cannot access compressed archive files.</li>
-<li>For the same resources, the same URL should be used no matter whether it is accessed 
-through LiteSpeed Web Server or through the servlet engine's built-in HTTP server.
+<li>Java Webアプリコンテキストを設定する前に、{val}サーブレットエンジン{/}外部アプリケーションを{PAGE=ExtApp_Help}に設定する必要があります<li> 
+<li>.jspファイルの{PAGE=ScriptHandler_Help}も同様に定義する必要があります。</li>
+<li>Webアプリケーションが.warファイルにパックされている場合は、.warファイルを展開する必要があります。
+サーバーは圧縮されたアーカイブファイルにアクセスできません。</li>
+<li>同じリソースの場合、LiteSpeed Web Serverを介してアクセスするか、サーブレットエンジンの組み込みHTTPサーバーを介してアクセスするかにかかわらず、同じURLを使用する必要があります。
 
-For example, 
-  Tomcat 4.1 is installed under /opt/tomcat. Files for the "examples" web application are 
-  located at /opt/tomcat/webapps/examples/. Through Tomcat's built-in HTTP server, 
-  the "examples" web application is thus accessed with a URI like "/examples/***". 
-  The corresponding Java Web App Context should thus be configured: 
+例えば、 
+  Tomcat 4.1は/ opt / tomcatにインストールされます。
+  "examples" Webアプリケーションのファイルは、/opt/tomcat/webapps/examples/にあります。
+  TomcatのビルトインHTTPサーバーを通じて、 "examples" Webアプリケーションは "/ examples / ***"のようなURIでアクセスされます。
+  したがって、対応するJava Webアプリコンテキストを設定する必要があります： 
   {ITEM=expuri} = {val}/examples/{/}, {ITEM=javaWebApp_location} = {val}/opt/tomcat/webapps/examples/{/}.</li>
   </ul>
 END_DESCR
@@ -1347,14 +1336,14 @@ SEE_ALSO:
 
 [TBL]
 ID: lsapiContext
-NAME: LiteSpeed SAPI Context
+NAME: LiteSpeed SAPIコンテキスト
 NS: E
 
-DESCR: External applications cannot be used directly. They must be either configured as 
-a script handler or mapped to a URL through a context. An LiteSpeed SAPI Context will 
-associate a URI with an LSAPI (LiteSpeed Server Application Programming Interface) application.
-Currently PHP, Ruby and Python have LSAPI modules. LSAPI, as it is developed specifically for
-LiteSpeed web server, is the most efficient way to communicate with LiteSpeed web server.  
+DESCR: 外部アプリケーションは直接使用することはできません。
+スクリプトハンドラとして設定するか、コンテキストを介してURLにマップする必要があります。
+LiteSpeed SAPIコンテキストは、URIをLSAPI（LiteSpeed Server Application Programming Interface）アプリケーションに関連付けます。
+現在PHP、Ruby、PythonにはLSAPIモジュールがあります。
+LiteSpeed Webサーバー用に特別に開発されたLSAPIは、LiteSpeed Webサーバーと通信するための最も効率的な方法です。
 END_DESCR
 
 SEE_ALSO: 
