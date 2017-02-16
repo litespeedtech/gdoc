@@ -4,8 +4,6 @@
 [ITEM]
 ID: extrapathenv
 NAME: 特別なPATH環境変数
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -28,8 +26,6 @@ END_TIPS
 [ITEM]
 ID: installpathprefix
 NAME: インストールパスのプレフィックス
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -52,8 +48,6 @@ END_TIPS
 [ITEM]
 ID: compilerflags
 NAME: コンパイラフラグ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -76,8 +70,6 @@ END_TIPS
 [ITEM]
 ID: configureparams
 NAME: パラメータの設定
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -101,8 +93,6 @@ END_TIPS
 [ITEM]
 ID: addonmodules
 NAME: アドオンモジュール
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 

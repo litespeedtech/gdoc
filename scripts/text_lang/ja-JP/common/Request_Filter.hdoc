@@ -7,8 +7,6 @@
 [ITEM]
 ID: enableCensorship
 NAME: 要求フィルタリングを有効にする
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -33,8 +31,6 @@ END_TIPS
 [ITEM]
 ID: censorLogLevel
 NAME: ログレベル
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: Server {ITEM=ServGeneral_Help#log_logLevel}, Virtual Host {ITEM=VHGeneral_Help#vhlog_logLevel}
 
@@ -62,8 +58,6 @@ END_TIPS
 [ITEM]
 ID: defaultAction
 NAME: デフォルトのアクション
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=ruleSetAction}
 
@@ -88,8 +82,6 @@ END_TIPS
 [ITEM]
 ID: scanPOST
 NAME: スキャンリクエストボディ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -115,8 +107,6 @@ END_TIPS
 ID: disableSecHtaccess
 NAME: .htaccessを無効にする
 NS: E
-REQUIRED: 
-APPLY: 2
 SINCE: 4.0.17
 SEE_ALSO: 
 
@@ -143,8 +133,6 @@ END_TIPS
 ID: uploadTmpDir
 NAME: 一時ファイルパス
 NS: O 
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -170,8 +158,6 @@ END_TIPS
 ID: uploadTmpDir
 NAME: 一時ファイルパス
 NS: LE
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -197,8 +183,6 @@ END_TIPS
 ID: uploadTmpFilePermission
 NAME: 一時ファイルのアクセス許可
 NS: LE
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -223,8 +207,6 @@ END_TIPS
 ID: uploadTmpFilePermission
 NAME: 一時ファイルのアクセス許可
 NS: O
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -249,8 +231,6 @@ END_TIPS
 [ITEM]
 ID: secAuditLogEngine
 NAME: セキュリティ監査ログを有効にする
-REQUIRED: 
-APPLY: 2
 SINCE: 4.1.9
 SEE_ALSO: {ITEM=secAuditLog}
 
@@ -275,8 +255,6 @@ END_TIPS
 [ITEM]
 ID: secAuditLog
 NAME: セキュリティ監査ログ
-REQUIRED: 
-APPLY: 3
 SINCE: 4.1.9
 SEE_ALSO: {ITEM=secAuditLogEngine}
 
@@ -304,8 +282,6 @@ END_TIPS
 [ITEM]
 ID: censorRuleSetName
 NAME: 名前
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -330,8 +306,6 @@ END_TIPS
 [ITEM]
 ID: ruleSetAction
 NAME: ルールセットアクション
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -356,8 +330,6 @@ END_TIPS
 [ITEM]
 ID: censorRuleSetEnabled
 NAME: 有効 
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -384,8 +356,6 @@ END_TIPS
 ID: censorRuleSet
 NAME: ルール定義
 NS: L
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -420,8 +390,6 @@ END_TIPS
 ID: censorRuleSet
 NAME: ルール定義
 NS: E
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 

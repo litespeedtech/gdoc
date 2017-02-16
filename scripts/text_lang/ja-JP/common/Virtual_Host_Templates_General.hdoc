@@ -7,8 +7,6 @@
 [ITEM]
 ID: templateVHRoot
 NAME: デフォルトのバーチャルホストルート 
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -34,8 +32,6 @@ END_TIPS
 ID: templateVHConfigFile
 NAME: インスタンス化されたVHost設定ファイル
 NS: LE
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -62,8 +58,6 @@ END_TIPS
 ID: templateVHConfigFile
 NAME: インスタンス化されたVHost設定ファイル
 NS: O 
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -89,8 +83,6 @@ END_TIPS
 [ITEM]
 ID: templateVHDocRoot
 NAME: ドキュメントルート 
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -114,8 +106,6 @@ END_TIPS
 [ITEM]
 ID: templateFileRef
 NAME: テンプレートで使用されるファイル名
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 

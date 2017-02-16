@@ -7,8 +7,6 @@
 [ITEM]
 ID: serverName
 NAME: サーバー名
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -35,8 +33,6 @@ END_TIPS
 ID: httpdWorkers
 NAME: ワーカーの数
 NS: O
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -61,8 +57,6 @@ END_TIPS
 ID: lslbdProcesses
 NAME: プロセス数
 NS: L
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -88,8 +82,6 @@ TIPS: [パフォーマンス]ニーズに合わせて適切な番号を設定し
 ID: runningAs
 NAME: Running As
 NS: LE
-REQUIRED: 
-APPLY: 1
 SINCE: 
 SEE_ALSO: 
 
@@ -115,8 +107,6 @@ END_TIPS
 ID: runningAs
 NAME: Running As
 NS: O
-REQUIRED: 
-APPLY: 1
 SINCE: 
 SEE_ALSO: 
 
@@ -142,8 +132,6 @@ END_TIPS
 ID: serverPriority
 NAME: Priority
 NS: EO
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: External App {ITEM=ExtApp_Help#extAppPriority}, {ITEM=ServSecurity_Help#CGIPriority}
 
@@ -168,8 +156,6 @@ END_TIPS
 ID: serverPriority
 NAME: Priority
 NS: L
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: External App {ITEM=ExtApp_Help#extAppPriority}, {ITEM=ServSecurity_Help#CGIPriority}
 
@@ -195,8 +181,6 @@ END_TIPS
 ID: cpuAffinity
 NAME: CPU Affinity
 NS: E
-REQUIRED: 
-APPLY: 1
 SINCE: 
 SEE_ALSO: 
 
@@ -225,8 +209,6 @@ END_TIPS
 [ITEM]
 ID: servChrootPath
 NAME: Chrootパス
-REQUIRED: 
-APPLY: 1
 SINCE: 
 SEE_ALSO: 
 
@@ -263,8 +245,6 @@ END_TIPS
 [ITEM]
 ID: enableChroot
 NAME: chrootを有効にする
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -288,8 +268,6 @@ END_TIPS
 [ITEM]
 ID: enableLVE
 NAME: Cloud-Linux 
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -314,8 +292,6 @@ END_TIPS
 [ITEM]
 ID: inMemBufSize
 NAME: 最大I/Oバッファサイズ
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: {ITEM=swappingDir}
 
@@ -340,8 +316,6 @@ END_TIPS
 [ITEM]
 ID: swappingDir
 NAME: スワップディレクトリ
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: {ITEM=inMemBufSize} 
 
@@ -372,8 +346,6 @@ END_TIPS
 [ITEM]
 ID: autoFix503
 NAME: Auto Fix 503 Error 
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -403,8 +375,6 @@ END_TIPS
 [ITEM]
 ID: enableh2c
 NAME: HTTP/2 over Cleartext TCPを有効にする
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -428,8 +398,6 @@ END_TIPS
 [ITEM]
 ID: gracefulRestartTimeout
 NAME: 緩やかな再起動タイムアウト（秒）
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -457,8 +425,6 @@ END_TIPS
 ID: statDir
 NAME: 統計出力ディレクトリ
 NS: O
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -489,8 +455,6 @@ END_TIPS
 [ITEM]
 ID: mime
 NAME: MIME設定
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -520,8 +484,6 @@ END_TIPS
 ID: disableInitLogRotation
 NAME: 初期ログローテーションを無効にする
 NS: LO
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -546,8 +508,6 @@ END_TIPS
 ID: disableInitLogRotation
 NAME: 初期ログローテーションを無効にする
 NS: E
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -573,8 +533,6 @@ END_TIPS
 [ITEM]
 ID: showVersionNumber
 NAME: サーバー署名
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -601,8 +559,6 @@ END_TIPS
 [ITEM]
 ID: hideSigInErrorPage
 NAME: エラーページの署名を隠す
-REQUIRED: 
-APPLY: 3
 SINCE: 4.2.3
 SEE_ALSO: 
 
@@ -628,8 +584,6 @@ END_TIPS
 [ITEM]
 ID: enableIpGeo
 NAME: IPジオロケーションを有効にする
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=ServGeneral_Help#useIpInProxyHeader}, {ITEM=ServGeneral_Help#geoipDBFile}, {ITEM=ServGeneral_Help#geoipDBCache}
 
@@ -653,8 +607,6 @@ END_TIPS
 [ITEM]
 ID: useIpInProxyHeader
 NAME: ヘッダーにクライアントIPを使用する
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -684,8 +636,6 @@ END_TIPS
 ID: extAppAbort
 NAME: 外部アプリケーションの中止
 NS: E
-REQUIRED: 
-APPLY: 
 SINCE: 4.2.3
 SEE_ALSO: 
 
@@ -717,8 +667,6 @@ END_TIPS
 [ITEM]
 ID: autoUpdateInterval
 NAME: 更新を確認
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -741,8 +689,6 @@ END_TIPS
 [ITEM]
 ID: autoUpdateDownloadPkg
 NAME: アップデートのダウンロード
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -766,8 +712,6 @@ END_TIPS
 [ITEM]
 ID: adminEmails
 NAME: 管理者用Eメール
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -797,8 +741,6 @@ END_TIPS
 [ITEM]
 ID: mimesuffix
 NAME: サフィックス
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -824,8 +766,6 @@ END_TIPS
 [ITEM]
 ID: indexFiles
 NAME: インデックスファイル
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -853,8 +793,6 @@ END_TIPS
 ID: allowOverride
 NAME: 上書きを許可する
 NS: E
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -914,8 +852,6 @@ END_TIPS
 ID: accessFileName
 NAME: アクセスファイル名
 NS: E
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=allowOverride}
 
@@ -950,8 +886,6 @@ END_TIPS
 [ITEM]
 ID: enableExpires
 NAME: 有効期限を有効にする
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -988,8 +922,6 @@ END_TIPS
 [ITEM]
 ID: expiresDefault
 NAME: 期限切れ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -1028,8 +960,6 @@ END_TIPS
 [ITEM]
 ID: expiresByType
 NAME: タイプ別に期限切れ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -1066,8 +996,6 @@ END_TIPS
 ID: uploadPassByPath
 NAME: ファイルパスによるアップロードデータの転送
 NS: O
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -1097,8 +1025,6 @@ END_TIPS
 [ITEM]
 ID: geoipDBFile
 NAME: DBファイルのパス
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -1121,8 +1047,6 @@ END_TIPS
 [ITEM]
 ID: geoipDBCache
 NAME: DBキャッシュタイプ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -1152,8 +1076,6 @@ END_TIPS
 ID: loadApacheConf
 NAME: Apacheの設定を読み込む
 NS: E
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -1179,8 +1101,6 @@ END_TIPS
 ID: autoReloadApacheConf
 NAME: 変更時の自動リロード
 NS: E
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: {ITEM=apacheBinPath}
 
@@ -1215,8 +1135,6 @@ END_TIPS
 ID: apacheBinPath
 NAME: Apacheバイナリパス
 NS: E
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: {ITEM=autoReloadApacheConf}
 
@@ -1243,8 +1161,6 @@ END_TIPS
 ID: apacheConfFile
 NAME: Apache設定ファイル
 NS: E
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -1269,8 +1185,6 @@ END_TIPS
 ID: apachePortOffset
 NAME: Apacheポートオフセット
 NS: E
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -1301,8 +1215,6 @@ END_TIPS
 ID: apacheIpOffset
 NAME: Apache IPオフセット
 NS: E
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -1332,8 +1244,6 @@ END_TIPS
 ID: apacheHandledContent
 NAME: Apacheハンドルコンテンツ
 NS: E
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -1362,8 +1272,6 @@ END_TIPS
 ID: apacheIgnoredModules
 NAME: Apacheモジュールを無視する
 NS: E
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -1390,8 +1298,6 @@ END_TIPS
 ID: jitConfig
 NAME: ジャストインタイム設定
 NS: E
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -1416,8 +1322,6 @@ END_TIPS
 ID: phpSuExec
 NAME: PHP suEXEC
 NS: E
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: {ITEM=ServSecurity_Help#forceGID}
 
@@ -1446,8 +1350,6 @@ END_TIPS
 ID: phpSuExecMaxConn
 NAME: PHP suEXEC Max Conn
 NS: E
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -1473,8 +1375,6 @@ END_TIPS
 ID: apacheEnableFP
 NAME: FrontPage Extensionを有効にする
 NS: E
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -1502,8 +1402,6 @@ END_TIPS
 ID: apacheEnvVars
 NAME: Apache環境変数
 NS: E
-REQUIRED: 
-APPLY: 2
 SINCE: 4.1.8
 SEE_ALSO: Apache Env 構文 <a href="http://httpd.apache.org/docs/2.2/configuring.html#syntax">リファレンス</a> 
 
@@ -1531,8 +1429,6 @@ END_TIPS
 ID: apacheConf
 NAME: Apacheスタイルの設定
 NS: E
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 

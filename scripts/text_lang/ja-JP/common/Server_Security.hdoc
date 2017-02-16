@@ -6,8 +6,6 @@
 [ITEM]
 ID: followSymbolLink
 NAME: シンボリックリンクに従う
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=checkSymbolLink}.
 
@@ -44,8 +42,6 @@ END_TIPS
 ID: checkSymbolLink
 NAME: シンボリックリンクを確認する
 
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=followSymbolLink}, {ITEM=accessDenyDir} 
 
@@ -74,8 +70,6 @@ END_TIPS
 [ITEM]
 ID: forceStrictOwnership
 NAME: 厳格な所有権チェックを強制する
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -101,8 +95,6 @@ END_TIPS
 [ITEM]
 ID: requiredPermissionMask
 NAME: 必要な許可マスク
-REQUIRED: 
-APPLY: 3
 SINCE: 1.3
 SEE_ALSO: {ITEM=restrictedPermissionMask}.
 
@@ -127,8 +119,6 @@ END_TIPS
 [ITEM]
 ID: restrictedPermissionMask
 NAME: 制限付き許可マスク
-REQUIRED: 
-APPLY: 3
 SINCE: 1.3
 SEE_ALSO: {ITEM=requiredPermissionMask}.
 
@@ -155,8 +145,6 @@ END_TIPS
 [ITEM]
 ID: restrictedScriptPermissionMask
 NAME: スクリプトのアクセス許可マスクの制限
-REQUIRED: 
-APPLY: 3
 SINCE: 4.1.5
 SEE_ALSO: {ITEM=restrictedDirPermissionMask}.
 
@@ -184,8 +172,6 @@ END_TIPS
 [ITEM]
 ID: restrictedDirPermissionMask
 NAME: スクリプトディレクトリのアクセス許可マスクの制限
-REQUIRED: 
-APPLY: 3
 SINCE: 4.1.5
 SEE_ALSO: {ITEM=restrictedScriptPermissionMask}.
 
@@ -219,8 +205,6 @@ END_TIPS
 ID: staticReqPerSec
 NAME: 静的リクエスト/秒
 NS: EO
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=dynReqPerSec}
 
@@ -251,8 +235,6 @@ END_TIPS
 ID: dynReqPerSec
 NAME: 動的リクエスト/秒
 NS: EO
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=staticReqPerSec}
 
@@ -283,8 +265,6 @@ END_TIPS
 ID: dynReqPerSec
 NAME: リクエスト/秒
 NS: L
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -310,8 +290,6 @@ END_TIPS
 [ITEM]
 ID: outBandwidth
 NAME: 送信帯域幅（バイト/秒）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=inBandwidth}
 
@@ -341,8 +319,6 @@ END_TIPS
 [ITEM]
 ID: inBandwidth
 NAME: 受信帯域幅（バイト/秒）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=outBandwidth}
 
@@ -369,8 +345,6 @@ END_TIPS
 [ITEM]
 ID: softLimit
 NAME: 接続ソフトリミット
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -417,19 +391,17 @@ END_TIPS
 [ITEM]
 ID: hardLimit
 NAME: 接続ハードリミット
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
 DESCR: 単一のIPアドレスから同時に許可される接続の最大数を指定します。
 この制限は常に強制され、クライアントはこの制限を超えることはできません。
-HTTP / 1.0クライアントは通常、埋め込みコンテンツを同時にダウンロードするのに必要な数の接続を設定しようとします。
-この制限は、HTTP / 1.0クライアントが引き続きサイトにアクセスできるように十分に高く設定する必要があります。
-{ITEM = softLimit}を使用して、目的の接続制限を設定します。
+HTTP/1.0クライアントは通常、埋め込みコンテンツを同時にダウンロードするのに必要な数の接続を設定しようとします。
+この制限は、HTTP/1.0クライアントが引き続きサイトにアクセスできるように十分に高く設定する必要があります。
+{ITEM=softLimit}を使用して、目的の接続制限を設定します。
+END_DESCR
 
-
-ウェブページのコンテンツとトラフィックの負荷に応じて、{val}20{/}〜{val}50{/}の間で設定することをお勧めします。
+EDITTIP: ウェブページのコンテンツとトラフィックの負荷に応じて、{val}20{/}〜{val}50{/}の間で設定することをお勧めします。
 END_EDITTIP
 
 SYNTAX: 整数
@@ -452,8 +424,6 @@ END_TIPS
 [ITEM]
 ID: blockBadReq
 NAME: 不良リクエストをブロックする
-REQUIRED: 
-APPLY: 3
 SINCE: 4.1.5
 SEE_ALSO: 
 
@@ -478,8 +448,6 @@ END_TIPS
 [ITEM]
 ID: gracePeriod
 NAME: 猶予期間（秒）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -505,8 +473,6 @@ END_TIPS
 [ITEM]
 ID: banPeriod
 NAME: 禁止期間（秒）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -533,8 +499,6 @@ END_TIPS
 [ITEM]
 ID: cgidSock
 NAME: CGIデーモンソケット
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -560,8 +524,6 @@ END_TIPS
 [ITEM]
 ID: maxCGIInstances
 NAME: 最大CGIインスタンス
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -598,8 +560,6 @@ END_TIPS
 [ITEM]
 ID: minUID
 NAME: 最小UID
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -624,11 +584,9 @@ END_TIPS
 [ITEM]
 ID: minGID
 NAME: 最小GID
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
-外部アプリケーションの最小グループIDを指定します。
+DESCR: 外部アプリケーションの最小グループIDを指定します。
 ここで指定した値よりも小さいグループIDを持つ外部の実行は拒否されます。
 LiteSpeed Webサーバーが "root"ユーザーによって起動された場合、Apacheで見つかった "suEXEC"モードで外部アプリケーションを実行できます（Webサーバー以外のユーザー/グループIDに変更する）。 
 END_DESCR
@@ -649,8 +607,6 @@ END_TIPS
 [ITEM]
 ID: forceGID
 NAME: 強制GID
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -682,8 +638,6 @@ END_TIPS
 [ITEM]
 ID: umask
 NAME: umask
-REQUIRED: 
-APPLY: 3
 SINCE: 5.0
 SEE_ALSO: ExtApp {ITEM=ExtApp_Help#extUmask}
 
@@ -707,8 +661,6 @@ END_TIPS
 [ITEM]
 ID: CGIPriority
 NAME: CGI プライオリティ
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: Server {ITEM=ServGeneral_Help#serverPriority}
 
@@ -734,8 +686,6 @@ END_TIPS
 [ITEM]
 ID: CPUSoftLimit
 NAME: CPUソフトリミット(秒)
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -758,8 +708,6 @@ END_TIPS
 [ITEM]
 ID: CPUHardLimit
 NAME: CPUハードリミット
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -783,8 +731,6 @@ END_TIPS
 [ITEM]
 ID: memSoftLimit
 NAME: メモリソフトリミット（バイト）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -817,8 +763,6 @@ END_TIPS
 [ITEM]
 ID: memHardLimit
 NAME: Memory Hard Limit
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -847,8 +791,6 @@ END_TIPS
 [ITEM]
 ID: procHardLimit
 NAME: プロセスハードリミット
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -877,8 +819,6 @@ END_TIPS
 [ITEM]
 ID: accessDenyDir
 NAME: アクセスが拒否されたディレクトリ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -917,8 +857,6 @@ END_TIPS
 [ITEM]
 ID: accessControl_allow
 NAME: 許可リスト
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -961,8 +899,6 @@ END_TIPS
 [ITEM]
 ID: accessControl_deny
 NAME: 拒否リスト
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 

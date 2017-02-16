@@ -8,8 +8,6 @@
 ID: extAppType
 NAME: タイプ
 NS: L
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -40,8 +38,6 @@ END_TIPS
 ID: extAppType
 NAME: タイプ
 NS: EO
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -84,8 +80,6 @@ END_TIPS
 [ITEM]
 ID: extAppName
 NAME: 名前
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -112,8 +106,6 @@ END_TIPS
 [ITEM]
 ID: extWorkers
 NAME: ワーカー
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -145,8 +137,6 @@ END_TIPS
 [ITEM]
 ID: workerName
 NAME: 名前
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -169,8 +159,6 @@ END_TIPS
 [ITEM]
 ID: workerGroupEnabled
 NAME: 有効
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -193,8 +181,6 @@ END_TIPS
 [ITEM]
 ID: sourceIP
 NAME: ソースIP
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -218,8 +204,6 @@ END_TIPS
 [ITEM]
 ID: extAppAddress
 NAME: アドレス
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -260,8 +244,6 @@ END_TIPS
 [ITEM]
 ID: expWSAddress
 NAME: アドレス
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -294,8 +276,6 @@ END_TIPS
 [ITEM]
 ID: extSrcIP
 NAME: タイプ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -318,8 +298,6 @@ END_TIPS
 [ITEM]
 ID: maxConns
 NAME: 最大接続数
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -345,8 +323,6 @@ END_TIPS
 [ITEM]
 ID: env
 NAME: 環境
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -369,8 +345,6 @@ END_TIPS
 [ITEM]
 ID: initTimeout
 NAME: 初期要求タイムアウト（秒）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -396,8 +370,6 @@ END_TIPS
 [ITEM]
 ID: retryTimeout
 NAME: リトライタイムアウト（秒）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -420,8 +392,6 @@ END_TIPS
 [ITEM]
 ID: persistConn
 NAME: 永続的な接続
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -447,8 +417,6 @@ END_TIPS
 [ITEM]
 ID: pcKeepAliveTimeout
 NAME: キープアライブタイムアウト（秒）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -473,8 +441,6 @@ END_TIPS
 [ITEM]
 ID: respBuffer
 NAME: 応答バッファリング
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -500,8 +466,6 @@ END_TIPS
 ID: autoStart
 NAME: 自動スタート
 NS: E
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -528,8 +492,6 @@ END_TIPS
 ID: autoStart
 NAME: 自動スタート
 NS: LO
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -555,8 +517,6 @@ END_TIPS
 [ITEM]
 ID: extAppPath
 NAME: コマンド
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: {ITEM=autoStart} 
 
@@ -581,8 +541,6 @@ END_TIPS
 [ITEM]
 ID: backlog
 NAME: バックログ
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -610,8 +568,6 @@ END_TIPS
 [ITEM]
 ID: instances
 NAME: インスタンス
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -638,8 +594,6 @@ END_TIPS
 [ITEM]
 ID: extUser
 NAME: suEXECユーザー
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: extGroup
 
@@ -662,8 +616,6 @@ END_TIPS
 [ITEM]
 ID: extGroup
 NAME: suEXECグループ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: extUser
 
@@ -685,8 +637,6 @@ END_TIPS
 [ITEM]
 ID: extUmask
 NAME: umask
-REQUIRED: 
-APPLY: 3
 SINCE: 5.0
 SEE_ALSO: CGI {ITEM=ServSecurity_Help#umask} 
 
@@ -710,8 +660,6 @@ END_TIPS
 [ITEM]
 ID: runOnStartUp
 NAME: 起動時に実行
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -734,8 +682,6 @@ TIPS:[パフォーマンス] Railsアプリケーションのように、設定�
 [ITEM]
 ID: extMaxIdleTime
 NAME: 最大アイドル時間
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -764,8 +710,6 @@ END_TIPS
 [ITEM]
 ID: extAppPriority
 NAME: 優先度
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: Server {ITEM=ServGeneral_Help#serverPriority}
 
@@ -793,8 +737,6 @@ END_TIPS
 ID: procSoftLimit
 NAME: プロセスソフトリミット
 NS: E
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -845,8 +787,6 @@ END_TIPS
 ID: procSoftLimit
 NAME: プロセスソフトリミット
 NS: O
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 

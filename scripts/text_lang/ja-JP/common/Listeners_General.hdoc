@@ -7,8 +7,6 @@
 [ITEM]
 ID: listenerName
 NAME: リスナー名
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -35,8 +33,6 @@ END_TIPS
 ID: listenerType
 NAME: タイプ
 NS: L
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -65,8 +61,6 @@ END_TIPS
 [ITEM]
 ID: listenerIP
 NAME: IPアドレス
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -97,8 +91,6 @@ END_TIPS
 [ITEM]
 ID: listenerPort
 NAME: ポート
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -130,8 +122,6 @@ END_TIPS
 ID: listenerBinding
 NAME: バインディング
 NS: L
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -158,8 +148,6 @@ END_TIPS
 ID: listenerBinding
 NAME: バインディング
 NS: E
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -186,8 +174,6 @@ END_TIPS
 ID: listenerBinding
 NAME: バインディング
 NS: O
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -212,8 +198,6 @@ END_TIPS
 [ITEM]
 ID: listenerSecure
 NAME: セキュア
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -241,8 +225,6 @@ END_TIPS
 ID: mapped_L4_clusters
 NAME: マッピングされたクラスタ
 NS: L
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -270,8 +252,6 @@ END_TIPS
 [ITEM]
 ID: virtualHostName
 NAME: バーチャルホスト
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -300,8 +280,6 @@ END_TIPS
 [ITEM]
 ID: domainName
 NAME: ドメイン
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -380,7 +358,7 @@ HTTP要求は、一致するドメイン名を持つバーチャルホストに�
 リスナーはその要求をそのキャッチオールバーチャルホストに転送します。
 END_DESCR
 
-TIPS:[パフォーマンス]必要なマッピングのみを追加します。
+TIPS: [パフォーマンス]必要なマッピングのみを追加します。
 リスナーが1つのバーチャルホストにのみマッピングされている場合は、キャッチオールマッピング "*"のみを設定します。
 END_TIPS
 

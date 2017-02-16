@@ -7,8 +7,6 @@
 [ITEM]
 ID: enableHotlinkCtrl
 NAME: ホットリンク保護を有効にする
-REQUIRED: 1
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -31,8 +29,6 @@ END_TIPS
 [ITEM]
 ID: suffixes
 NAME: サフィックス
-REQUIRED: 1
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -55,8 +51,6 @@ END_TIPS
 [ITEM]
 ID: redirectUri
 NAME: リダイレクトURL
-REQUIRED: 0
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -84,8 +78,6 @@ END_TIPS
 [ITEM]
 ID: allowDirectAccess
 NAME: ダイレクトアクセスを許可する
-REQUIRED: 0
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -114,8 +106,6 @@ END_TIPS
 [ITEM]
 ID: onlySelf
 NAME: 自己参照のみ
-REQUIRED: 0
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -147,8 +137,6 @@ END_TIPS
 [ITEM]
 ID: allowedHosts
 NAME: 許可されたドメイン
-REQUIRED: 1
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -171,8 +159,6 @@ END_TIPS
 [ITEM]
 ID: matchedHosts
 NAME: REGEXと一致するドメイン
-REQUIRED: 0
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -203,8 +189,6 @@ END_TIPS
 [ITEM]
 ID: realmType
 NAME: DB Type
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -234,8 +218,6 @@ END_TIPS
 [ITEM]
 ID: realmName
 NAME: レルム名
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -261,8 +243,6 @@ END_TIPS
 [ITEM]
 ID: userDBLocation
 NAME: ユーザーDBの場所
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO:  {ITEM=GroupDBLocation}, {ITEM=userDB_attrPasswd}, {ITEM=userDB_attrMemberOf}
 
@@ -314,8 +294,6 @@ END_TIPS
 [ITEM]
 ID: userDBMaxCacheSize
 NAME: ユーザーDB最大キャッシュサイズ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -340,8 +318,6 @@ END_TIPS
 [ITEM]
 ID: userDBCacheTimeout
 NAME: ユーザーDBキャッシュタイムアウト（秒）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -368,8 +344,6 @@ END_TIPS
 [ITEM]
 ID: GroupDBLocation
 NAME: グループDBの場所
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=userDBLocation}, Context {ITEM=Context_Help#required}, {ITEM=groupDB_attrGroupMember}
 
@@ -412,8 +386,6 @@ END_TIPS
 [ITEM]
 ID: groupDBMaxCacheSize
 NAME: グループDB最大キャッシュサイズ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=userDBMaxCacheSize}
 
@@ -437,8 +409,6 @@ END_TIPS
 [ITEM]
 ID: groupDBCacheTimeout
 NAME: グループDBキャッシュタイムアウト（秒）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=userDBCacheTimeout}
 
@@ -465,8 +435,6 @@ END_TIPS
 [ITEM]
 ID: userDB_attrPasswd
 NAME: パスワード属性
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -490,8 +458,6 @@ END_TIPS
 [ITEM]
 ID: userDB_attrMemberOf
 NAME: Member-of属性
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -516,8 +482,6 @@ END_TIPS
 [ITEM]
 ID: groupDB_attrGroupMember
 NAME: グループメンバ属性
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -541,8 +505,6 @@ END_TIPS
 [ITEM]
 ID: LDAPBindDN
 NAME: LDAPバインドDN
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: {ITEM=LDAPBindPasswd}
 
@@ -567,8 +529,6 @@ END_TIPS
 [ITEM]
 ID: LDAPBindPasswd
 NAME: LDAPバインドパスワード
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: {ITEM=LDAPBindDN}
 
@@ -595,8 +555,6 @@ END_TIPS
 [ITEM]
 ID: UDBgroup
 NAME: グループ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 
 DESCR: 
@@ -616,8 +574,6 @@ END_EDITTIP
 [ITEM]
 ID: users
 NAME: ユーザー
-REQUIRED: 
-APPLY: 3
 SINCE: 
 
 DESCR: 

@@ -5,8 +5,6 @@
 [ITEM]
 ID: log_fileName
 NAME: ファイル名
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -32,8 +30,6 @@ END_TIPS
 [ITEM]
 ID: log_logLevel
 NAME: ログレベル
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=log_debugLevel}
 
@@ -61,8 +57,6 @@ END_TIPS
 [ITEM]
 ID: log_debugLevel
 NAME: デバッグレベル
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=log_logLevel}, {ITEM=ServerStat_Help#toggleDebugLog}
 
@@ -96,8 +90,6 @@ END_TIPS
 [ITEM]
 ID: log_rollingSize
 NAME: ローテーションサイズ（バイト）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -124,8 +116,6 @@ END_TIPS
 [ITEM]
 ID: log_enableStderrLog
 NAME: stderrログを有効にする
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -152,8 +142,6 @@ END_TIPS
 [ITEM]
 ID: log_enableAioLog
 NAME: AIOロギングを有効にする
-REQUIRED: 
-APPLY: 3
 SINCE: 4.2.19
 SEE_ALSO: 
 
@@ -180,8 +168,6 @@ END_TIPS
 [ITEM]
 ID: accessLog_fileName
 NAME: ファイル名
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -208,8 +194,6 @@ END_TIPS
 ID: accessLog_pipedLogger
 NAME: Piped Logger
 NS: EO
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -252,8 +236,6 @@ END_TIPS
 ID: accessLog_pipedLogger
 NAME: Piped Logger
 NS: L
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -297,8 +279,6 @@ END_TIPS
 [ITEM]
 ID: accessLog_logFormat
 NAME: Log Format
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=accessLog_logHeader}
 
@@ -342,8 +322,6 @@ END_TIPS
 [ITEM]
 ID: accessLog_logHeader
 NAME: ログヘッダー
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=accessLog_logFormat}
 
@@ -366,8 +344,6 @@ END_TIPS
 [ITEM]
 ID: accessLog_keepDays
 NAME: Keep Days
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -393,8 +369,6 @@ END_TIPS
 [ITEM]
 ID: accessLog_compressArchive
 NAME: アーカイブを圧縮する
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 

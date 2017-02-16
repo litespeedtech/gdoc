@@ -6,8 +6,6 @@
 [ITEM]
 ID: vhName
 NAME: バーチャルホスト名
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -32,8 +30,6 @@ END_TIPS
 ID: vhRoot
 NAME: バーチャルホスト Root
 NS: E
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -67,8 +63,6 @@ END_TIPS
 ID: vhRoot
 NAME: バーチャルホスト Root
 NS: O
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -101,8 +95,6 @@ END_TIPS
 [ITEM]
 ID: defaultCluster
 NAME: デフォルトクラスタ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -129,8 +121,6 @@ END_TIPS
 ID: configFile
 NAME: 設定ファイル
 NS: LE
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -154,8 +144,6 @@ END_TIPS
 ID: configFile
 NAME: 設定ファイル
 NS: O
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -181,8 +169,6 @@ END_TIPS
 [ITEM]
 ID: vhMaxKeepAliveReq
 NAME: 最大キープアライブ要求
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=ServTuning_Help#maxKeepAliveReq}
 
@@ -209,8 +195,6 @@ END_TIPS
 [ITEM]
 ID: vhSmartKeepAlive
 NAME: Smartキープアライブ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -237,8 +221,6 @@ END_TIPS
 [ITEM]
 ID: allowSymbolLink
 NAME: シンボリックリンク参照
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -264,8 +246,6 @@ END_TIPS
 [ITEM]
 ID: enableScript
 NAME: スクリプトを有効にする
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -290,8 +270,6 @@ END_TIPS
 [ITEM]
 ID: restrained
 NAME: 拘束された
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -322,8 +300,6 @@ END_TIPS
 [ITEM]
 ID: setUidMode
 NAME: 外部アプリ Set UID モード
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -352,8 +328,6 @@ END_TIPS
 [ITEM]
 ID: chrootMode
 NAME: 外部アプリ Chroot モード
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -387,8 +361,6 @@ END_TIPS
 [ITEM]
 ID: chrootPath
 NAME: 外部アプリ Chroot パス
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -412,8 +384,6 @@ END_TIPS
 [ITEM]
 ID: totalBandwidth
 NAME: 総出力帯域幅（KB /秒）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 

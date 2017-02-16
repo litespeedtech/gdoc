@@ -9,8 +9,6 @@
 [ITEM]
 ID: enableCoreDump
 NAME: コアダンプを有効にする
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -30,6 +28,7 @@ END_EXAMPLE
 TIPS: [セキュリティ]サーバログファイルに{val}コアファイルが作成されていない{/}と表示されている場合にのみ有効にします。
 コアファイルを生成した直後に無効にしてください。
 コアダンプが作成されたときにバグレポートを提出してください。
+END_TIPS
 
 [END_ITEM]
 
@@ -38,8 +37,6 @@ TIPS: [セキュリティ]サーバログファイルに{val}コアファイル�
 [ITEM]
 ID: consoleSessionTimeout
 NAME: セッションタイムアウト（秒）
-REQUIRED: 
-APPLY: Immediately
 SINCE: 
 SEE_ALSO: 
 
@@ -76,8 +73,6 @@ END_TIPS
 [ITEM]
 ID: adminOldPass
 NAME: 古いパスワード
-REQUIRED: 
-APPLY: Immediately
 SINCE: 
 SEE_ALSO: 
 

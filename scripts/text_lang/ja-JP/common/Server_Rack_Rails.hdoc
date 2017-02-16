@@ -7,8 +7,6 @@
 [ITEM]
 ID: rubyBin
 NAME: Rubyパス
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -36,8 +34,6 @@ END_TIPS
 [ITEM]
 ID: railsEnv
 NAME: 実行時モード
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -64,8 +60,6 @@ END_TIPS
 [ITEM]
 ID: enableRailsHosting
 NAME: 共有ホスティングを有効にする
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -90,8 +84,6 @@ END_TIPS
 [ITEM]
 ID: railsAppLimit
 NAME: アカウントごとの最大アプリ数
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -105,7 +97,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS:[パフォーマンス] Rack/Railsアプリケーションは、大量のシステムリソースを消費する可能性があります。
+TIPS: [パフォーマンス] Rack/Railsアプリケーションは、大量のシステムリソースを消費する可能性があります。
 したがって、この制限をあまり高く設定しないことをお勧めします。
 そうしないと、1人のユーザーが悪用した場合にサーバー全体のパフォーマンスに影響を与える可能性があります。
 END_TIPS
@@ -117,8 +109,6 @@ END_TIPS
 [ITEM]
 ID: rubyProcLimit
 NAME: アカウントごとの最大Rubyプロセス
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -136,7 +126,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS:  [パフォーマンス] Rubyプロセスは大量のシステムリソースを消費する可能性があります。
+TIPS: [パフォーマンス] Rubyプロセスは大量のシステムリソースを消費する可能性があります。
 したがって、この制限をあまり高く設定しないことをお勧めします。
 そうしないと、1人のユーザーがサーバーを乱用した場合にサーバー全体のパフォーマンスに影響を与える可能性があります。
 END_TIPS

@@ -15,7 +15,7 @@
 	    <li>チャンク転送コード</li>
         <li>基本認証（パスワードファイルとLDAPバックエンド）</li>
         <li>エンティティタグ</li>
-        <li>単一および複数の範囲リクエスト</li>
+        <li>単一および複数の範囲要請</li>
         <li>静的/動的レスポンス圧縮（gzip）</li>
         <li>Apache互換のURL書き換え</li>
         <li>IPv6のサポート</li>
@@ -30,7 +30,7 @@
 	    <li>LiteSpeedによるsuEXECを使用したPHP PHP SAPI（同等の機能を持つmod_phpを備えたPHPのトップクラスのパフォーマンス）</li>
 	    <li>JSP /サーブレット（AJP v1.3互換のバックエンドサーブレットエンジンとのインタフェース）</li>
 	    <li>プロキシ（HTTPプロトコルをサポートする任意のWebサーバー/アプリケーションサーバーとのインターフェイス）</li>
-	    <li>Ruby LSAPIモジュールによるsuEXECによるRuby on Rails（クラス最高のパフォーマンス、容易な配備、動的なspawningをサポート）</li>
+	    <li>Ruby LSAPIモジュールによるsuEXECによるRuby on Rails（クラス最高のパフォーマンス、容易な配備、動的なスポーンをサポート）</li>
 	  </ul>
   </li>
   <li><p><strong>バーチャルホスティング</strong></p>

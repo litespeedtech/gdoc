@@ -7,8 +7,6 @@
 [ITEM]
 ID: docRoot
 NAME: ドキュメントルート
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -39,8 +37,6 @@ END_TIPS
 [ITEM]
 ID: vhadminEmails
 NAME: 管理者用電子メール
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -66,8 +62,6 @@ END_TIPS
 [ITEM]
 ID: enableGzip
 NAME: GZIPを有効にする
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=ServTuning_Help#enableGzipCompress}, {ITEM=ServTuning_Help#gzipStaticCompressLevel}, {ITEM=ServTuning_Help#enableDynGzipCompress}, {ITEM=ServTuning_Help#gzipCompressLevel}
 
@@ -92,8 +86,6 @@ END_TIPS
 [ITEM]
 ID: spdyAdHeader
 NAME: SPDY 広告
-REQUIRED: 
-APPLY: 3
 SINCE: 1.2.5
 SEE_ALSO: 
 
@@ -121,8 +113,6 @@ END_TIPS
 [ITEM]
 ID: indexUseServer
 NAME: サーバーインデックスファイルを使用する
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -161,8 +151,6 @@ END_TIPS
 [ITEM]
 ID: autoIndex
 NAME: 自動インデックス
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=indexFiles}, {ITEM=autoIndexURI}
 
@@ -189,8 +177,6 @@ END_TIPS
 [ITEM]
 ID: autoIndexURI
 NAME: 自動インデックス URI
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=indexFiles}, {ITEM=autoIndex}
 
@@ -220,8 +206,6 @@ END_TIPS
 [ITEM]
 ID: errCode
 NAME: エラーコード
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -246,8 +230,6 @@ END_TIPS
 ID: errMessage
 NAME: カスタムエラーメッセージ
 NS: L
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -270,8 +252,6 @@ END_TIPS
 [ITEM]
 ID: errURL
 NAME: URL
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
