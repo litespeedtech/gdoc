@@ -765,44 +765,33 @@ A: 証明書を取得したら、Webサーバー用に{TBL=Listeners_Help#sslSet
    <li>{ITEM=Listeners_Help#listenerSecure}を{val}Yes{/}に設定してリスナーを作成します。
        SSLの公式ポートは443ですが、他のポートでも使用できます。</li>
 
-   <li> Click on the newly created listener, then go to the 
-		{TBL=Listeners_Help#sslSetting}. Then edit the
-		{ITEM=Listeners_Help#keyFile} and  
-		{ITEM=Listeners_Help#certFile}. <br>
+   <li> 新しく作成したリスナーをクリックし、{TBL=Listeners_Help#sslSetting}に移動します。
+        次に、{ITEM=Listeners_Help#keyFile}と{ITEM=Listeners_Help#certFile}を編集します。 <br>
       
-	  	Give the path of the SSL private key file and certificate file in the 
-		pop-up window. Click "Finish" button to save your changes.
+	  	ポップアップウィンドウでSSL秘密鍵ファイルと証明書ファイルのパスを指定します。 "完了"ボタンをクリックして変更を保存します。
    </li>
 
-   <li> You can specify {ITEM=Listeners_Help#sslVersion} 
-		and {ITEM=Listeners_Help#sslEncryptionLevel}  on the same page.
-   </li>
+   <li>同じページに{ITEM=Listeners_Help#sslVersion}と{ITEM=Listeners_Help#sslEncryptionLevel}を指定できます。</li>
 
-   <li> Set {TBL=Listeners_Help#virtualHostMapping} in listener
-   	General tab. In the pop-up window, select the 
-	{ITEM=Listeners_Help#virtualHostName} that you 
-   	want to access through this listener and 
-	input the valid {ITEM=Listeners_Help#domainName}
+   <li> リスナーの全般タブで{TBL=Listeners_Help#virtualHostMapping}を設定します。
+    ポップアップウィンドウで、このリスナーからアクセスする{ITEM=Listeners_Help#virtualHostName}を選択し、有効な{ITEM=Listeners_Help#domainName}を入力します。
    </li>
    
-   <li> Click "Apply Changes" link below the banner. If the new listener 
-   uses {ITEM=Listeners_Help#listenerPort} number less than
-   {val}1024{/} click {ITEM=ServerStat_Help#restart} in {ITEM=ServerStat_Help#servAction}, 
-   otherwise just click {ITEM=ServerStat_Help#reload}.
+   <li> バナーの下にある"変更を適用"リンクをクリックします。
+    新しいリスナーが{ITEM=Listeners_Help#listenerPort}番号を{val}1024{/}より小さく使用すると、{ITEM=ServerStat_Help#servAction}の{ITEM=ServerStat_Help#restart}をクリックします。
+   それ以外の場合は、{ITEM = ServerStat_Help＃reload}をクリックしてください。
    </li>
    
-   <li> Test your SSL configuration with your browser by accessing 
-   https://your.domain:your_port/. The "s" after "http" at the beginning of the address 
-   indicates the browser to use SSL protocol.
+   <li> https：//your.domain：your_port/にアクセスして、ブラウザでSSL設定をテストします。
+   アドレスの先頭にある"http"の後の"s"は、SSLプロトコルを使用するブラウザを示します
    </li>
    
-   If you use a self-signed certificate, the browser will prompt you to accept 
-   the certificate. Otherwise the browser will accept the certificate automatically 
-   without bothering you.
+   自己署名証明書を使用すると、ブラウザは証明書の受け入れを求めるプロンプトを表示します。
+   そうしないと、ブラウザは気にせずに証明書を自動的に受け入れます。
 
 </ol>
 
-Now you should be able to see your web pages loaded through the secured SSL connection.
+これで、セキュアなSSL接続を介してロードされたWebページを見ることができるはずです。
 
 END_A
 
@@ -812,49 +801,38 @@ END_A
 
 [QA]
 ID: qa_frontpage
-Q: How to install Microsoft FrontPage Server Extension 2002 with LiteSpeed web server?
+Q: LiteSpeed WebサーバーでMicrosoft FrontPage Server Extension 2002をインストールするには？
 
-A: Please follow the following steps:
+A: 以下の手順に従ってください：
 <ol>
-   <li> Download the corresponding Microsoft FrontPage Server
-   Extension for your platform from 
-   <a href="http://www.rtr.com/fpsupport/fp2002sr1_download.htm">rtr.com</a>, 
-   save it to directory lsws/add-ons/frontpage/.</li>
+   <li> 対応するMicrosoft FrontPage Serverをダウンロードします。
+<a href="http://www.rtr.com/fpsupport/fp2002sr1_download.htm">rtr.com</a>からお使いのプラットフォームの拡張機能をlsws/add-ons/frontpage/ディレクトリに保存します。</li>
 
-   <li> run FrontPage installation script as root user:<br>
+   <li> FrontPageインストールスクリプトをrootユーザーとして実行します：<br>
 		{cmd}lsws/admin/misc/fp_install.sh <path_to_frontpage_package>{/}
 		</li>
 
-   <li> Restart LSWS with root user account. </li>
+   <li> rootユーザーアカウントでLSWSを再起動してください。</li>
 </ol>
-Now you can enable FrontPage extension for your web site. The most
-important configuration is the {val}Domain Names{/}, it must match
-the domain name part of the URL that you used to access the web page,
-and otherwise it will not work. Port number should be specified, example:
-{val}your.domain.name:80{/} <br>
-If you enable FrontPage Server Extension for one virtual host from
-LiteSpeed web admin console, LiteSpeed Web Server will try to
-install it to the document root of that virtual host when restart web
-server. If it is successful, you can access admin page
-of that virtual host from: <br>
+これで、WebサイトのFrontPage拡張機能を有効にすることができます。
+最も重要な設定は{val}ドメイン名{/}です。Webページにアクセスするために使用したURLのドメイン名部分と一致する必要があります。それ以外の場合は動作しません。
+ポート番号を指定する必要があります。
+例：{val}your.domain.name:80{/} <br>
+LiteSpeed Web管理コンソールから1つの仮想ホストに対してFrontPage Server Extensionを有効にすると、LiteSpeed Web ServerはWebサーバーを再起動するときにその仮想ホストのドキュメントルートにインストールしようとします。
+成功した場合は、次の場所からその仮想ホストの管理ページにアクセスできます：<br>
 	{cmd}http://your.doamin.name/_vti_bin/_vti_adm/fpadmcgi.exe{/}<br>
-The default login username is "admin" and password is "fp123456". You should
-change the password immediately after the extension is enabled.<br>
+デフォルトのログインユーザ名は"admin"、パスワードは"fp123456"です。 拡張機能が有効になったらすぐにパスワードを変更する必要があります。<br>
 <br>
-If you changed {val}Domain Names{/} setting, you need to reinstall
-FrontPage extension. What you need to do is just remove all "_vti_..."
-files under the document root of your web site, then restart web server.
+{val}ドメイン名{/}設定を変更した場合は、FrontPage拡張機能を再インストールする必要があります。
+あなたがする必要があるのは、Webサイトのドキュメントルートの下にあるすべての "_vti _..."ファイルを削除してから、Webサーバーを再起動することです。
 
-If you want to setup Admin Page for all virtual hosts, run the
-following command at command line as root user:<br>
+すべての仮想ホストの管理ページを設定する場合は、コマンドラインでrootユーザーとして次のコマンドを実行します：<br>
 {cmd}/usr/local/frontpage/version5.0/bin/owsadm.exe -o setadminport -p
 &lt;PORT&gt; -s &lt;path_to_/lsws/add-ons/frontage/conf/httpd.conf&gt; -username
 &lt;USERNAME&gt; -pw &lt;PASSWD&gt;{/}<br>
 
-Then add a virtual host with {ITEM=VHGeneral_Help#docRoot} pointing to
-{val}/usr/local/frontpage/version5.0/admin-exes/{/} from the web admin
-console. Now you can manage FrontPage Server Extension for all 
-virtual hosts from this virtual host.<br>
+次に、Web管理コンソールから{val}/usr/local/frontpage/version5.0/admin-exes/{/}を指す{ITEM=VHGeneral_Help#docRoot}の仮想ホストを追加します。
+これで、この仮想ホストからすべての仮想ホストのFrontPage Server Extensionを管理できます。<br>
 
 
 END_A
@@ -865,32 +843,23 @@ END_A
 
 [QA]
 ID: qa_autoindex
-Q: How to customize auto index script?
+Q: 自動インデックススクリプトをカスタマイズするには？
 
-A: LiteSpeed web server uses an external script to generate the 
-index page for a directory with no index file on the fly. The URI to the auto
-index script is configurable by field {ITEM=VHGeneral_Help#autoIndexURI} at virtual host level
-under general tab. Whenever a directory
-with no index file is accessed, LiteSpeed Web server will perform an
-internal redirect to that URI. <br>
-In order to share the script among all virtual hosts, a
-{TBL=Context_Help#generalContext} with {ITEM=Context_Help#expuri}
-{val}/_autoindex/{/} and {ITEM=Context_Help#location}
-{val}$SERVER_ROOT/share/autoindex/{/} 
-is automatically created for every virtual host. <br>
+A: LiteSpeed Webサーバーは、外部スクリプトを使用して、インデックスファイルのないディレクトリのインデックスページをオンザフライで生成します。
+自動インデックススクリプトへのURIは、一般タブの仮想ホストレベルの{ITEM=VHGeneral_Help#autoIndexURI}フィールドで設定できます。
+インデックスファイルのないディレクトリにアクセスすると、LiteSpeed WebサーバはそのURIへの内部リダイレクトを実行します。<br>
+すべての仮想ホスト間でスクリプトを共有するために、
+{TBL=Context_Help#generalContext} で {ITEM=Context_Help#expuri}
+{val}/_autoindex/{/} および {ITEM=Context_Help#location}
+{val}$SERVER_ROOT/share/autoindex/{/} が
+すべての仮想ホストに対して自動的に作成されます。 <br>
 
-A default php script is provided with same Look and Feel as
-Apache's mod_autoindex. The script is located at <br>
+デフォルトのPHPスクリプトはApacheのmod_autoindexと同じルックアンドフィールで提供されています。 スクリプトは <br>
 	   {cmd}lsws/share/autoindex/default.php{/}<br>
-Permission is granted to copy and change the default auto index
-script. It is recommended to make changes on a copy of the default
-script, the default script will be overwritten during next upgrade. 
-When you write your own script, just remember that the path to
-the directory to be indexed is passed to the script in a CGI
-environment variable: {cmd}"LS_AI_PATH"{/}. The script can be placed at
-anywhere you like, but if you want to share it among all virtual
-hosts, just place it under {cmd}lsws/share/autoindex/{/}
-directory. <br>
+デフォルトの自動インデックススクリプトをコピーして変更することが許可されています。
+デフォルトのスクリプトのコピーを変更することをお勧めします。デフォルトのスクリプトは、次回のアップグレード時に上書きされます。
+独自のスクリプトを書くときは、インデックスを作成するディレクトリへのパスがCGI環境変数{cmd}"LS_AI_PATH"{/}のスクリプトに渡されることを覚えておいてください。
+スクリプトは好きな場所に置くことができますが、すべての仮想ホスト間で共有したい場合は、{cmd}lsws/share/autoindex/{/}ディレクトリの下に置いてください。<br>
 
 END_A
 
@@ -902,49 +871,36 @@ END_A
 ID: qa_awstats
 Q: AWStatsをLiteSpeed Web Serverで併用するには？
 
-A: AWStats can be used as an add-on module of LiteSpeed web server.
-It has been seamlessly integrated into our web administration
-console, and the configuration and statistical updates has been automated as well. <br>
-To install AWStats as an add-on module, please run script: <br>
+A: AWStatsは、LiteSpeed Webサーバーのアドオンモジュールとして使用できます。
+Web管理コンソールにシームレスに統合され、構成や統計の更新も自動化されています。<br>
+アドオンモジュールとしてAWStatsをインストールするには、スクリプトを実行してください：<br>
    {cmd}lsws/admin/misc/awstats_install.sh{/} <br>
-This script will try to download the latest AWStats package from <a href=http://www.awstats.org>www.awstats.org</a>, expand it
-under {cmd}lsws/add-ons/{/} directory and create a symbolic link
-from "./awstats-x.x" to "awstats". If it fails to download for any reason, you can manually do this step as well.<br>
+このスクリプトは、<a href=http://www.awstats.org> www.awstats.org</a>から最新のAWStatsパッケージをダウンロードしようとします。
+{cmd}lsws/add-ons/{/}ディレクトリの下に展開し、 "./awstats-x.x"から "awstats"へのシンボリックリンクを作成します。
+何らかの理由でダウンロードに失敗した場合は、手動でこの手順を実行することもできます。<br>
 <br>
-Next step is to enable AWStats add-on module for the virtual host that
-you would have AWStats analyze its access log.<br>
-From the Web Admin console, just select the virtual host on left, click "Add-on" tab on the right, then fill in configurations in "AWStats Integration" table. Configurations are<br>
+次のステップでは、AWStatsにアクセスログを分析させる仮想ホスト用のAWStatsアドオンモジュールを有効にします。<br>
+Web管理コンソールから、左側の仮想ホストを選択し、右側の「アドオン」タブをクリックして、「AWStats統合」テーブルの設定を入力します。設定は<br>
 <ul>
-	<li>{ITEM=VHAddOns_Help#updateMode}: Disabled, Static or Dynamic.</li>
-	<li>{ITEM=VHAddOns_Help#workingDir}: The directory to be used to save
-	AWStats configuration and statistical results.</li>
-	<li>{ITEM=VHAddOns_Help#awstatsURI}: Where the statistical results can be accessed.</li>
-	<li>{ITEM=VHAddOns_Help#siteDomain}: The main domain name of the virtual host.</li>
-	<li>{ITEM=VHAddOns_Help#siteAliases}: All possible add-on domains, aliases and IP
-	addresses.</li>
-	<li>{ITEM=VHAddOns_Help#updateInterval}: Hourly or Daily.</li>
-	<li>{ITEM=VHAddOns_Help#updateOffset}: When to start the update.</li>
-	<li>{ITEM=VHAddOns_Help#securedConn}: the result is access via HTTP or
-	HTTPS.</li>
-	<li>{ITEM=VHAddOns_Help#awstatsRealm}: To protect the result with authentication.</li>
+	<li>{ITEM=VHAddOns_Help#updateMode}: 無効、静的または動的です。</li>
+	<li>{ITEM=VHAddOns_Help#workingDir}: AWStatsの設定と統計結果を保存するために使用するディレクトリ。</li>
+	<li>{ITEM=VHAddOns_Help#awstatsURI}: 統計的な結果にアクセスできる場所。</li>
+	<li>{ITEM=VHAddOns_Help#siteDomain}: 仮想ホストのメインドメイン名。</li>
+	<li>{ITEM=VHAddOns_Help#siteAliases}: 可能なすべてのアドオンドメイン、別名、およびIPアドレス。</li>
+	<li>{ITEM=VHAddOns_Help#updateInterval}: 毎時または毎日。</li>
+	<li>{ITEM=VHAddOns_Help#updateOffset}: 更新をいつ開始するか。</li>
+	<li>{ITEM=VHAddOns_Help#securedConn}: 結果はHTTPまたはHTTPS経由のアクセスです。</li>
+	<li>{ITEM=VHAddOns_Help#awstatsRealm}: 結果を認証で保護する。</li>
 </ul>
 
-After applying the configuration changes, you can access the statistical
-results produced by AWStats by clicking "statistics" action link for
-that virtual host under "Server Manager" page.<br>
+設定の変更を適用した後、AWStatsによって生成された統計結果にアクセスするには、"Server Manager"ページでその仮想ホストの"statistics"アクションリンクをクリックします。<br>
 <br>
-Customize AWStats configuration file:<br>
+AWStats設定ファイルをカスタマイズする：<br>
 <br>
-AWStats configuration file is generated automatically based on a
-model configuration file <working directory>/conf/awstats.model.conf,
-which is copied from
-lsws/add-ons/awstats/wwwroot/cgi-bin/awstats.model.conf. The following
-configuration parameters are populated by LiteSpeed: "LogFile",
-"LogType", "LogFormat", "SiteDomain", "HostAliases", "DirData",
-"DirConfig" and "DirIcons". Other parameters can be customized by
-changing awstats.model.conf.
-<br>NOTE: Never edit the destination configuration
-file as it is always overwritten by LiteSpeed before invoking AWStats updates.
+AWStats構成ファイルは、lsws/add-ons/awstats/wwwroot/cgi-bin/awstats.model.confからコピーされたモデル構成ファイル<working directory>/conf/awstats.model.confに基づいて自動的に生成されます。
+LiteSpeedによって設定された設定パラメータは、"LogFile"、"LogType"、"LogFormat"、"SiteDomain"、"HostAliases"、"DirData"、"DirConfig"および"DirIcons"です。
+他のパラメータは、awstats.model.confを変更してカスタマイズできます。
+<br>ノート：AWStatsアップデートを呼び出す前に、常にLiteSpeedによって上書きされるので、宛先設定ファイルを編集しないでください。
 
 END_A
 
