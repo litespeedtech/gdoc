@@ -8,7 +8,6 @@
 ID: modulename
 NAME: モジュール
 REQUIRED: 
-APPLY: 
 
 DESCR: モジュールの名前。
 モジュール名はモジュールファイル名と同じになります。
@@ -34,7 +33,6 @@ END_TIPS
 ID: internalmodule
 NAME: 内部
 REQUIRED: 
-APPLY: 
 
 DESCR: モジュールが外部の.soライブラリではなく、静的にリンクされている内部モジュールであるかどうかを指定します。
 
@@ -56,7 +54,6 @@ END_TIPS
 ID: modParams
 NAME: モジュールのパラメータ
 REQUIRED: 
-APPLY: 
 
 DESCR: モジュールのパラメータを設定します。 モジュールパラメータは、モジュール開発者によって定義されます。
 
@@ -82,7 +79,6 @@ END_TIPS
 ID: moduleEnabled
 NAME: フックを有効にする
 REQUIRED: 
-APPLY: 
 
 DESCR: モジュールフックをグローバルに有効または無効にします。 
 
@@ -106,7 +102,6 @@ END_TIPS
 ID: moduleEnabled_lst
 NAME: フックを有効にする
 REQUIRED: 
-APPLY: 
 
 DESCR: Listenerレベルでモジュールフックを有効または無効にします。
 モジュールにTCP/IPレベルのフック（L4_BEGSESSION、L4_ENDSESSION、L4_RECVING、L4_SENDING）がある場合のみ、この設定が有効になります。
@@ -132,7 +127,6 @@ END_TIPS
 ID: moduleEnabled_vh
 NAME: フックを有効にする
 REQUIRED: 
-APPLY: 
 
 DESCR: バーチャルホストまたはコンテキスト・レベルでモジュール・フックを使用可能または使用不可にします。
 モジュールにHTTPレベルのフックがある場合のみ、この設定が有効になります。
@@ -159,7 +153,6 @@ END_TIPS
 ID: L4_BEGINSESSION
 NAME: フック::L4_BEGINSESSION プライオリティ
 REQUIRED: 
-APPLY: 
 
 DESCR: このモジュールコールバックの優先度をL4 Begin Session フック内で設定します。
 
@@ -188,7 +181,6 @@ END_TIPS
 ID: L4_ENDSESSION
 NAME: フック::L4_ENDSESSION プライオリティ
 REQUIRED: 
-APPLY: 
 
 DESCR: このモジュールコールバックの優先度をL4 End Session フック内で設定します。
 
@@ -217,7 +209,6 @@ END_TIPS
 ID: L4_RECVING
 NAME: フック::L4_RECVING プライオリティ
 REQUIRED: 
-APPLY: 
 
 DESCR: L4 Receiving フック内のこのモジュールコールバックの優先度を設定します。
 
@@ -246,7 +237,6 @@ END_TIPS
 ID: L4_SENDING
 NAME: フック::L4_SENDING プライオリティ
 REQUIRED: 
-APPLY: 
 
 DESCR: このモジュールコールバックの優先度をL4 Sendingフック内で設定します。
 
@@ -274,7 +264,6 @@ END_TIPS
 ID: HTTP_BEGIN
 NAME: フック::HTTP_BEGIN プライオリティ
 REQUIRED: 
-APPLY: 
 
 DESCR: HTTP Begin フック内のこのモジュールコールバックの優先度を設定します。
 
@@ -303,7 +292,6 @@ END_TIPS
 ID: RECV_REQ_HEADER
 NAME: フック::RECV_REQ_HEADER プライオリティ
 REQUIRED: 
-APPLY: 
 
 DESCR: HTTP受信要求ヘッダーフック内のこのモジュールコールバックの優先度を設定します。
 
@@ -332,7 +320,6 @@ END_TIPS
 ID: URI_MAP
 NAME: フック::URI_MAP プライオリティ
 REQUIRED: 
-APPLY: 
 
 DESCR: このモジュールコールバックの優先度をHTTP URIマップフック内で設定します。
 
@@ -361,7 +348,6 @@ END_TIPS
 ID: HTTP_AUTH
 NAME: フック::HTTP_AUTH プライオリティ
 REQUIRED: 
-APPLY: 
 
 DESCR: HTTP認証フック内のこのモジュールコールバックの優先度を設定します。
 
@@ -391,7 +377,6 @@ END_TIPS
 ID: RECV_REQ_BODY
 NAME: フック::RECV_REQ_BODY プライオリティ
 REQUIRED: 
-APPLY: 
 
 DESCR: HTTP受信要求ボディフック内のこのモジュールコールバックの優先度を設定します。  
 
@@ -420,7 +405,6 @@ END_TIPS
 ID: RCVD_REQ_BODY
 NAME: フック::RCVD_REQ_BODY プライオリティ
 REQUIRED: 
-APPLY: 
 
 DESCR: HTTP Received Request Body Hook内のこのモジュールコールバックの優先度を設定します。  
 
@@ -449,7 +433,6 @@ END_TIPS
 ID: RECV_RESP_HEADER
 NAME: Hook::RECV_RESP_HEADER Priority
 REQUIRED: 
-APPLY: 
 
 DESCR: HTTP受信応答ヘッダーフック内のこのモジュールコールバックの優先度を設定します。  
 
@@ -478,7 +461,6 @@ END_TIPS
 ID: RECV_RESP_BODY
 NAME: フック::RECV_RESP_BODY プライオリティ
 REQUIRED: 
-APPLY: 
 
 DESCR: HTTP受信応答ボティフック内のこのモジュールコールバックの優先度を設定します。  
 
@@ -507,7 +489,6 @@ END_TIPS
 ID: RCVD_RESP_BODY
 NAME: フック::RCVD_RESP_BODY プライオリティ
 REQUIRED: 
-APPLY: 
 
 DESCR: HTTP受信応答ボディフック内のこのモジュールコールバックの優先度を設定します。  
 
@@ -536,7 +517,6 @@ END_TIPS
 ID: HANDLER_RESTART
 NAME: フック::HANDLER_RESTART プライオリティ
 REQUIRED: 
-APPLY: 
 
 DESCR: このモジュールコールバックの優先度をHTTPハンドラの再起動フック内で設定します。
 
@@ -565,7 +545,6 @@ END_TIPS
 ID: SEND_RESP_HEADER
 NAME: フック::SEND_RESP_HEADER プライオリティ
 REQUIRED: 
-APPLY: 
 
 DESCR: このモジュールコールバックの優先度を、HTTP送信応答ヘッダーフック内で設定します。 
 
@@ -594,7 +573,6 @@ END_TIPS
 ID: SEND_RESP_BODY
 NAME: フック::SEND_RESP_BODY プライオリティ
 REQUIRED: 
-APPLY: 
 
 DESCR: HTTP送信レスポンスボディフック内のこのモジュールコールバックの優先度を設定します。 
 
@@ -623,7 +601,6 @@ END_TIPS
 ID: HTTP_END
 NAME: フック::HTTP_END プライオリティ
 REQUIRED: 
-APPLY: 
 
 DESCR: HTTPセッション終了フック内のこのモジュールコールバックの優先度を設定します。 
 
@@ -651,7 +628,6 @@ END_TIPS
 ID: MAIN_INITED
 NAME: フック::MAIN_INITED プライオリティ
 REQUIRED: 
-APPLY: 
 
 DESCR: メイン初期化フック内のこのモジュールコールバックの優先度を設定します。 
 
@@ -679,7 +655,6 @@ END_TIPS
 ID: MAIN_PREFORK
 NAME: フック::MAIN_PREFORK プライオリティ
 REQUIRED: 
-APPLY: 
 
 DESCR: Main Prefork フック内のこのモジュールコールバックの優先度を設定します。 
 
@@ -708,7 +683,6 @@ END_TIPS
 ID: MAIN_POSTFORK
 NAME: フック::MAIN_POSTFORK プライオリティ
 REQUIRED: 
-APPLY: 
 
 DESCR: Main Postfork フック内のこのモジュールコールバックの優先度を設定します。
 
@@ -737,7 +711,6 @@ END_TIPS
 ID: WORKER_POSTFORK
 NAME: フック::WORKER_POSTFORK プライオリティ
 REQUIRED: 
-APPLY: 
 
 DESCR: Worker Postfork Hook内のこのモジュールコールバックの優先度を設定します。 
 
@@ -766,7 +739,6 @@ END_TIPS
 ID: WORKER_ATEXIT
 NAME: フック::WORKER_ATEXIT プライオリティ
 REQUIRED: 
-APPLY: 
 
 DESCR: このモジュールコールバックの優先度を、終了時のワーカーのフック内で設定します。 
 
@@ -795,7 +767,6 @@ END_TIPS
 ID: MAIN_ATEXIT
 NAME: フック::MAIN_ATEXIT プライオリティ
 REQUIRED: 
-APPLY: 
 
 DESCR: メインの出口フック内のこのモジュールコールバックの優先度を設定します 
 

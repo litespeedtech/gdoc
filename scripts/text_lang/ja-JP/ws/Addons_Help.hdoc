@@ -7,7 +7,6 @@
 ID: enableFrontPage
 NAME: 有効にする 
 REQUIRED: 
-APPLY: 3
 
 DESCR: Microsoft FrontPage Server Extensionsを有効にするかどうかを指定します。
 有効にすると、Microsoft FrontPageを使用してWebコンテンツを公開できます。
@@ -35,7 +34,6 @@ END_TIPS
 ID: disableAdmin
 NAME: 管理者を無効にする
 REQUIRED: 
-APPLY: 3
 
 DESCR: Microsoft FrontPage Server ExtensionsのWeb管理コンソールを無効にするかどうかを指定します。
 Web管理コンソールは、URL {val} http：//your.domain/_vti_bin/_vti_adm/fpadmcgi.exe {/}から入手できます。
@@ -61,7 +59,6 @@ END_TIPS
 ID: domainNames
 NAME: ドメイン名
 REQUIRED: 
-APPLY: 3
 
 DESCR: Front Page Server Extensionsサービスを提供するバーチャルサーバーを指定します。
 Webサイトが複数のドメイン名またはサービスポートに割り当てられている場合、FrontPageのアクセスはこのリストで指定されたドメイン名とポートの組み合わせでのみ使用できます。
@@ -96,7 +93,6 @@ END_TIPS
 ID: updateMode
 NAME: 更新モード
 REQUIRED: 
-APPLY: 3
 
 DESCR: AWStats統計の更新方法を指定します:  
 <ul>
@@ -124,7 +120,6 @@ END_TIPS
 ID: workingDir
 NAME: ワーキングディレクトリ
 REQUIRED: 
-APPLY: 3
 
 DESCR: AWStats設定ファイルの 「DataDir」パラメータを指定します。
 すべての結果ファイルとAWStatsデータベースがそこに保存されます。
@@ -149,7 +144,6 @@ END_TIPS
 ID: awstatsURI
 NAME: AWStats URI
 REQUIRED: 
-APPLY: 3
 
 DESCR: このバーチャルホストでAWStatsの結果にアクセスできるURIを指定します。
 END_DESCR
@@ -172,7 +166,6 @@ END_TIPS
 ID: siteDomain
 NAME: サイトドメイン 
 REQUIRED: 
-APPLY: 3
 
 DESCR: このWebサイトのメインドメイン名を指定します。
 AWStatsの設定ファイルの "SiteDomain"パラメータを制御します。
@@ -198,7 +191,6 @@ END_TIPS
 ID: siteAliases
 NAME: サイトエイリアス 
 REQUIRED: 
-APPLY: 3
 
 DESCR: このバーチャルホストにアクセスできる他のすべてのドメイン名、IPアドレス、およびホスト別名を指定します。
 この値は、AWStats設定の「SiteAliases」パラメータを設定するために使用されます。
@@ -223,7 +215,6 @@ END_TIPS
 ID: updateInterval
 NAME: 更新間隔
 REQUIRED: 
-APPLY: 3
 
 DESCR: AWstats統計の更新頻度を指定します。
 オプションは{val}毎日{/}または{val}毎時{/}です
@@ -247,7 +238,6 @@ END_TIPS
 ID: updateOffset
 NAME: オフセットの更新
 REQUIRED: 
-APPLY: 3
 
 DESCR: {ITEM=updateInterval}中に更新を実行する時期を指定します。
 END_DESCR
@@ -270,7 +260,6 @@ END_TIPS
 ID: securedConn 
 NAME: セキュアな接続
 REQUIRED: 
-APPLY: 3
 
 DESCR: AWstats統計にアクセスするためにHTTPSを使用するかどうかを指定します。
 
@@ -293,7 +282,6 @@ END_TIPS
 ID: awstatsRealm 
 NAME: 認証レムル 
 REQUIRED: 
-APPLY: 3
 
 DESCR: 統計結果の認可レルムを指定します。
 指定すると、許可されたユーザーだけが結果を表示できます。
