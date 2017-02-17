@@ -7,7 +7,6 @@
 [ITEM]
 ID: pagespeedActivate
 NAME: ロードモジュール
-REQUIRED:
 SEE_ALSO:
 
 DESCR: PageSpeedモジュールを読み込むかどうかを選択します。 
@@ -32,7 +31,6 @@ END_TIPS
 [ITEM]
 ID: pagespeedEnabled
 NAME: PageSpeedを有効にする
-REQUIRED:
 SEE_ALSO:
 
 DESCR: PageSpeedプロセスを有効にするかどうかを選択します。
@@ -57,7 +55,6 @@ END_TIPS
 [ITEM]
 ID: pagespeedParams
 NAME: モジュールのパラメータ
-REQUIRED:
 SEE_ALSO:
 
 DESCR: Googleのデフォルトフィルタセットを使用してパラメータを設定します。

@@ -7,7 +7,6 @@
 [ITEM]
 ID: lb_name
 NAME: 名前
-REQUIRED: 
 
 DESCR: クラスタの一意の名前。
 END_DESCR
@@ -28,7 +27,6 @@ END_TIPS
 [ITEM]
 ID: lb_type
 NAME: タイプ
-REQUIRED: 
 
 DESCR:
 クラスタのタイプを指定します。
@@ -56,7 +54,6 @@ END_TIPS
 [ITEM]
 ID: lb_mode
 NAME: モード
-REQUIRED: 
 
 DESCR: ロードバランサが "ステートレス"または "ステートフル"モードで動作するモードを指定します。 
 <br><br>
@@ -83,7 +80,6 @@ END_TIPS
 [ITEM]
 ID: strategy
 NAME: Strategy
-REQUIRED: 
 
 DESCR: リストから負荷分散戦略を選択します。 
 
@@ -113,7 +109,6 @@ END_TIPS
 [ITEM]
 ID: sessionExMethod
 NAME: セッション抽出
-REQUIRED: 
 
 DESCR: 要求からセッションIDを抽出する方法を指定します。 
 
@@ -157,7 +152,6 @@ END_TIPS
 [ITEM]
 ID: sessionId
 NAME: セッションID文字列
-REQUIRED: 
 
 DESCR: セッションID文字列を指定します。
 文字列は、Cookie、クエリ文字列、およびURLパスパラメータからセッションID値を抽出するために使用されます。
@@ -180,7 +174,6 @@ END_TIPS
 [ITEM]
 ID: sessionTimeout
 NAME: セッションタイムアウト
-REQUIRED: 
 
 DESCR: セッションが有効になる期間を秒単位で指定します。
 END_DESCR
@@ -201,7 +194,6 @@ END_TIPS
 [ITEM]
 ID: insertCookie
 NAME: トラッキングCookieを挿入する
-REQUIRED: 
 
 DESCR: 追跡Cookieを挿入するかどうかを指定します。
 ロードバランサがセッションキャッシュを失った場合に備えて、追跡キャッシュを使用してセッションキャッシュを再構築することができます。
@@ -223,7 +215,6 @@ END_TIPS
 [ITEM]
 ID: cookieName
 NAME: クッキー名の追跡
-REQUIRED: 
 
 DESCR: 追跡Cookie名を指定します。
 END_DESCR
