@@ -371,7 +371,7 @@ LiteSpeed Webサーバーは、Webサーバープロセス内にPHPエンジン�
    1.外部PHPアプリケーションを追加する。
    2.手順1で定義したPHPアプリケーションを使用してスクリプトハンドラを追加します。</p>
 
-<p>PHPアプリケーションはサーバーレベルまたは仮想ホストレベルで定義することができ、サーバーレベルで定義されたアプリケーションはすべての仮想ホストで使用できます。
+<p>PHPアプリケーションはサーバーレベルまたはバーチャルホストレベルで定義することができ、サーバーレベルで定義されたアプリケーションはすべてのバーチャルホストで使用できます。
    PHPエンジンは、ローカルホスト上またはリモートマシン上で実行できます。
    ローカルマシン上で実行する場合、PHPプロセスはサードパーティのFastCGI/LSAPIマネージャまたはWebサーバー自体によって開始できます。後者が優先されます。</p>
 
@@ -384,8 +384,8 @@ LiteSpeed Webサーバーは、Webサーバープロセス内にPHPエンジン�
 <p>PHPアプリケーションが設定された後、PHPアプリケーションがPHPスクリプトを処理するためには、{PAGE=ScriptHandler_Help}を設定する必要があります。
    PHPスクリプトのデフォルトの{ITEM=ScriptHandler_Help#suffix}は{val}php{/}に設定されています；{ITEM=ScriptHandler_Help#shType}が{val}Fast CGI{/}または {val}LiteSpeed API{/}に設定されています；{ITEM = ScriptHandler_Help#shHandlerName}は、PHPアプリケーションの名前に設定されています。
    複数の接尾辞を{val}php、php4、phtml{/}のようなコンマ区切りリストで指定できます。
-   {PAGE = ScriptHandler_Help}は、サーバーレベルまたは仮想ホストレベルで設定できます。
-   仮想ホストレベルの設定は、同じサフィックスのサーバーレベルの設定を上書きします。</p> 
+   {PAGE = ScriptHandler_Help}は、サーバーレベルまたはバーチャルホストレベルで設定できます。
+   バーチャルホストレベルの設定は、同じサフィックスのサーバーレベルの設定を上書きします。</p> 
 
 <p>LSAPI経由でPHPをカスタマイズするには、いくつかの環境変数があります。詳しくは、php/sapi/litespeedディレクトリのREADMEファイルを参照してください。 </p>
 
@@ -462,13 +462,11 @@ Q: FCGI SAPIでPHPバイナリを構築するには？
 
 A: あらかじめ構築されたバイナリにある特定のPHPモジュールが必要な場合を除き、通常はPHPバイナリをビルドする必要はありません。<br>
 
-  If you need to build your own PHP binary, see the following
-  steps:<br><br>
+  独自のPHPバイナリをビルドする必要がある場合は、次の手順を参照してください：<br><br>
 
-	download the latest PHP distribution package; <br>
+	最新のPHP配布パッケージをダウンロードしてください； <br>
 
-  	For PHP 4.3.4 and later releases, a small change should be made in source code {cmd}sapi/cgi/cgi_main.c{/}
-  		around line 858 and 862. <br>
+  	PHP 4.3.4以降のリリースでは、858行と862行のソースコード{cmd}sapi/cgi/cgi_main.c{/}に小さな変更を加える必要があります。<br>
   <pre class="eg">
 	if (env_path_info) {
 		SG(request_info).request_uri = env_path_info;
@@ -476,25 +474,17 @@ A: あらかじめ構築されたバイナリにある特定のPHPモジュー�
 		SG(request_info).request_uri = env_script_name;
 	} </pre>
 
-Should be commented out and replaced with the code in the else clause and look like:
+コメントアウトしてelse句コードを置き換えて、次のようにします：
   <pre class="eg">
         SG(request_info).request_uri = env_script_name; </pre>
 
-  Then configure php with
-  {cmd}--enable-fastcgi--enable-discard-path --disable-path-info-check {/} 
-  along with other options you need. Please disregard the statements
-  about {cmd}--enable-discard-path 
-  --disable-path-info-check{/} options in PHP documentation and
-  README.FastCGI, as they are only applicable to Apache.<br><br>
-  After PHP is successfully built, replace the stock PHP binary coming
-  with the package by command:<br>
+  次に、{cmd}--enable-fastcgi --enable-discard-path --disable-path-info-check{/}を使用して必要な他のオプションと共にphpを設定します。
+  PHPのマニュアルやREADME.FastCGIの{cmd}--enable-discard-path --disable-path-info-check{/}オプションに関する記述は、Apacheにのみ適用されるので、無視してください。<br><br>
+  PHPがうまく構築されたら、次のコマンドでパッケージに入っているPHPバイナリのバイナリを置き換えます：<br>
   {cmd}cp -f sapi/cgi/php [lsws_home]/fcgi-bin/php . {/}<br>
-  The pre-built PHP
-  executable is also configured with option
-  {cmd}--with-config-file-path=../conf{/}, in this way different
-  php.ini can be used for different PHP engine. It is just a
-  recommendation. The default  php.ini is located at 
-  {cmd}[lsws_home]/conf/php.ini{/}.   
+  あらかじめ構築されたPHP実行ファイルも、オプション{cmd}--with-config-file-path=../conf{/}で設定されます。このようにして、異なるPHPエンジンに対して異なるphp.iniを使用できます。
+  単なる推薦です。
+  デフォルトのphp.iniは{cmd}[lsws_home]/conf/php.ini{/}にあります。   
   </p>
 
 
@@ -527,7 +517,7 @@ Q: suEXECモードでCGI、FCGI、LSAPI、PHPを起動する方法は？
 
 A: スクリプトが "suEXEC"モードで起動されると、スクリプトは、Webサーバープロセスが実行されているユーザー以外のユーザーのために実行されます。
 これは、このスクリプトが所属する脆弱なスクリプトの被害を最小限に抑える共有ホスティング環境における重要なセキュリティ機能です。<br>
-LiteSpeed Web Serverで "suEXEC"をオンにするのは簡単ですが、仮想ホストを作成するときに "CGI set UID mode"を "DocRoot UID"に設定し、
+LiteSpeed Web Serverで "suEXEC"をオンにするのは簡単ですが、バーチャルホストを作成するときに "CGI set UID mode"を "DocRoot UID"に設定し、
 ドキュメントルートディレクトリの所有者をターゲットユーザーに変更します。<br>
 従来のCGIスクリプトでは、 "CGI File UID"を使用することもできますが、CGIスクリプトのユーザーIDがドキュメントのルートユーザーIDと異なる場合を除き、すべてのスクリプトで機能するので "DocRoot UID"をお勧めします。
 END_A
@@ -599,10 +589,10 @@ AJPv13と互換性がある限り、サーブレットエンジンを選択す�
 	
 	<li>Web管理コンソールを使用してサーブレットエンジンを設定します。</li><br> 
 	
-	サーバーレベルまたは仮想ホストレベルの{PAGE=ExtApp_Help}タブで、サーブレットエンジンを追加します。
+	サーバーレベルまたはバーチャルホストレベルの{PAGE=ExtApp_Help}タブで、サーブレットエンジンを追加します。
     {ITEM=ExtApp_Help#extAppAddress}がServletエンジンのAJP設定と一致することを確認してください。<br><br> 
 	
-	<li>仮想ホストの{PAGE=Context_Help}タブの{TBL=Context_Help#javaWebAppContext}を作成します。</li><br>
+	<li>バーチャルホストの{PAGE=Context_Help}タブの{TBL=Context_Help#javaWebAppContext}を作成します。</li><br>
 	
 	コンテキスト{ITEM=Context_Help#expuri}は、サーブレットエンジンによって使用されるURIと一致する必要があります。
     {ITEM=Context_Help#javaWebApp_location}をWebアプリケーションのディレクトリに設定します。
@@ -610,7 +600,7 @@ AJPv13と互換性がある限り、サーブレットエンジンを選択す�
 	
 	<li> JSP用に{PAGE=ScriptHandler_Help}を設定します。</li><br>
 
-	仮想ホストの{ITEM=ScriptHandler_Help#suffix} {val}jsp{/}の{PAGE=ScriptHandler_Help}を追加してください。
+	バーチャルホストの{ITEM=ScriptHandler_Help#suffix} {val}jsp{/}の{PAGE=ScriptHandler_Help}を追加してください。
     {ITEM=ScriptHandler_Help#shType}を{val}Servlet Engine{/}に設定し、{ITEM=ScriptHandler_Help#shHandlerName}を作成したサーブレットエンジンに設定します。
 	
 </ol>
@@ -637,8 +627,8 @@ LiteSpeed WebサーバーをApacheと並列に実行することをお勧めし�
 </li>
 
 <li>
-<B>注意：2.2リリース以来、LSWSはLSWSの仮想ホスト設定を複製せずにApache httpd.confを直接使用できます。詳細については、Wikiページをチェックアウトしてください。</b><br>
-仮想ホストを作成し、同じ設定に構成します：<br>
+<B>注意：2.2リリース以来、LSWSはLSWSのバーチャルホスト設定を複製せずにApache httpd.confを直接使用できます。詳細については、Wikiページをチェックアウトしてください。</b><br>
+バーチャルホストを作成し、同じ設定に構成します：<br>
 <ul>
 	<li>{ITEM=VHGeneral_Help#docRoot}をApacheで使用されているのと同じディレクトリに設定します（許可については注意してください）；</li>
 
@@ -667,40 +657,38 @@ Q: SSL秘密鍵の生成方法
 A: <a href="http://www.openssl.org/">OpenSSL tool kit</a>で秘密鍵を生成する必要があります。
 
 <ol>
-	<li>Install OpenSSL if it is not installed already.</li>
-	<li>Create RSA private key for your web server by using command<br>
+	<li>OpenSSLがまだインストールされていない場合は、インストールします。</li>
+	<li>コマンドを使用してWebサーバーのRSA秘密鍵を作成する<br>
 	
 	{cmd}openssl genrsa -out server.key 1024{/}<br>
 	
-	You can create a Triple-DES encrypted private key file by using<br>
+	トリプルDESで暗号化された秘密鍵ファイルを作成するには、<br>
+
 	{cmd}openssl genrsa -des3 -out server.skey 1024{/}
 	</li>
 	<br>
-	You need to give a password (pass-phase) for the private key file. 
-	You will be prompt for the password when the private key file is used every time.<br>
+	秘密鍵ファイルのパスワードを渡す必要があります（パスフェーズ）。
+    毎回秘密鍵ファイルを使用するときは、パスワードの入力を求められます。<br>
 
-	LiteSpeed web server only support private key files without encryption. 
-	You probably think it is not safe for the private key. Well, in theory, it is not 
-	as safe as the encrypt version. But in reality, it is impossible to let user input 
-	password for the SSL keys whenever the server starts or restarts. Some web server can 
-	save the password somehow and automate the pass-phase when the server starts, 
-	but it is only as good as the machine is not compromised unless your password is 
-	hardware protected. The private key file along with the certificate file should be placed 
-	in a directory that is only readable by whom the server running as.
+	LiteSpeed Webサーバーは、暗号化なしで秘密鍵ファイルのみをサポートします。
+    おそらく、秘密鍵にとって安全ではないと思うでしょう。
+    理論的には、暗号化バージョンほど安全ではありません。
+    しかし、実際には、サーバーの起動時または再起動時にユーザーがSSLキーのパスワードを入力することは不可能です。
+    一部のWebサーバーでは、パスワードを何らかの形で保存し、サーバーの起動時にパスフェーズを自動化できますが、パスワードがハードウェアで保護されていない限り、マシンが侵害されていないことが条件です。
+    秘密鍵ファイルは、証明書ファイルとともに、実行中のサーバーに誰からも読み込み可能なディレクトリに配置する必要があります。
 	
-	<li>If you generated the encrypted key file, the pass-phase can be removed with 
-	the following command:<br>
+	<li>暗号化されたキーファイルを生成した場合、パスフェーズは次のコマンドで削除できます：<br>
 	
 	{cmd}openssl rsa -in server.skey -out server.key{/}
 	</li>
 </ol>
 
-1024 in above commands is the length of the private key in bits. The bigger private key 
-is more secure. You can create bigger private key like 2048 bit. However, if you plan to get 
-your certificate from certificate issuer, you may have to use 1024 bit private key as it is 
-the biggest key they can process, check with the issuer first.
+上記コマンドの1024は秘密鍵の長さをビット数で表したものです。
+秘密鍵が大きいほど安全です。
+2048ビットのようなより大きなプライベートキーを作成することができます。
+ただし、証明書の発行者から証明書を取得する場合は、処理できる最大の鍵である1024ビットの秘密鍵を使用する必要があります。まず、発行者に確認してください。
 
-For more information about creating SSL private key please visit 
+SSL秘密鍵の作成の詳細については、次のURLを参照してください。 
 <a href="http://www.openssl.org/docs/HOWTO/keys.txt">http://www.openssl.org/docs/HOWTO/keys.txt</a>
 
 END_A
@@ -719,17 +707,15 @@ A: 自己管理証明書を使用してWeb管理コンソールを保護する�
 自己署名証明書を使用すると、ブラウザーは、自己署名証明書がブラウザーによって信頼されていないため、証明書を受け入れるかどうかをユーザーに尋ねます。
 
 <ol>
-	<li> Create your private key.</li>
-	<li> Create the self-signed certificate with the command,<br>
+	<li> 秘密鍵を作成します。</li>
+	<li> コマンドを使用して自己署名証明書を作成します。<br>
 	{cmd}openssl req -new -x509 -key server.key -out server.crt -days 365{/}<br>
 	
-	You will be asked for more information about your organization and web site. 
-	Please give correct information. You should give valid domain names of your web site 
-	when you are asked for Common Name but not any aliases. To determine the valid domain 
-	name, you can use commands such as {cmd}nslookup{/}, {cmd}dig{/} or {cmd}host{/}. 
-	For example, if the web site can be accessed via both 
-	http://foo.bar and http://www.foo.bar, usually foo.bar is the valid domain name 
-	(canonical name), www.foo.bar is an alias; foo.bar should be used for the Common Name.
+	あなたの組織とウェブサイトに関する詳細な情報が求められます。
+    正しい情報を与えてください。
+    コモンネームは要求されてもエイリアスは要求されない場合、Webサイトの有効なドメイン名を指定する必要があります。
+    有効なドメイン名を確認するには、{cmd}nslookup{/}、{cmd}dig{/}、{cmd}host{/}などのコマンドを使用できます。
+    たとえば、ウェブサイトにhttp://foo.barとhttp://www.foo.barの両方でアクセスできる場合、通常foo.barは有効なドメイン名（正式名）、www.foo.barは エイリアス。コモンネームにはfoo.barを使用する必要があります。
 	</li>
 </ol>
 
@@ -741,25 +727,24 @@ END_A
 
 [QA]
 ID: qa_cert
-Q: How to get a SSL certificate from certificate issuers?
+Q: 証明書の発行者からSSL証明書を取得する方法は？
 
-A: You need to generate a certificate request from your private key and send the request 
-to a certificate issuer, like VeriSign or Thawte. The certificate issuer will sign the 
-request and send back the certificate. To generate a certificate request:
+A: 秘密鍵から証明書要求を生成し、その要求をVeriSignやThawteなどの証明書の発行者に送信する必要があります。
+   証明書の発行者は要求に署名し、証明書を送り返す。
+   証明書要求を生成するには：
 
 <ol>
-	<li>Create your private key.</li>
-	<li> Create the certificate request with command,<br>
+	<li>秘密鍵を作成します。</li>
+	<li> コマンドで証明書要求を作成します。<br>
 	
 	{cmd}openssl req -new -key server.key -out server.csr{/}<br>
 	
-	You will be asked for more information about your organization and web site. 
-	Please give correct information. You should give valid domain names of your web site 
-	when you are asked for Common Name but not any aliases. To determine the valid domain 
-	name, you can use commands such as {cmd}nslookup{/}, {cmd}dig{/} or {cmd}host{/}. 
-	For example, if the web site can be accessed via both 
-	http://foo.bar and http://www.foo.bar, usually foo.bar is the valid domain name 
-	(canonical name), www.foo.bar is an alias; foo.bar should be used for the Common Name.
+	あなたの組織とウェブサイトに関する詳細な情報が求められます。
+
+    正しい情報を与えてください。
+    コモンネームは要求されてもエイリアスは要求されない場合、Webサイトの有効なドメイン名を指定する必要があります。
+    有効なドメイン名を確認するには、{cmd}nslookup{/}、{cmd}dig{/}、{cmd}host{/}などのコマンドを使用できます。
+    たとえば、ウェブサイトにhttp://foo.barとhttp://www.foo.barの両方でアクセスできる場合、通常foo.barは有効なドメイン名（正式名）、www.foo.barは エイリアス。 コモンネームとしてfoo.barを使用する必要があります
 
 	</li>
 </ol>
@@ -772,15 +757,13 @@ END_A
 
 [QA]
 ID: qa_confssl
-Q: How to configure SSL using the private key and certificate in LiteSpeed web server?
+Q: LiteSpeed Webサーバーで秘密鍵と証明書を使用してSSLを構成する方法は？
 
-A: After you get your certificate, you can configure 
-   {TBL=Listeners_Help#sslSetting} for your web server.
+A: 証明書を取得したら、Webサーバー用に{TBL=Listeners_Help#sslSetting}を構成できます。
 
 <ol>
-   <li> Create a listener with {ITEM=Listeners_Help#listenerSecure}
-		set to {val}Yes{/}. The official port for SSL is 443, 
-		but other port can be used too.</li>
+   <li>{ITEM=Listeners_Help#listenerSecure}を{val}Yes{/}に設定してリスナーを作成します。
+       SSLの公式ポートは443ですが、他のポートでも使用できます。</li>
 
    <li> Click on the newly created listener, then go to the 
 		{TBL=Listeners_Help#sslSetting}. Then edit the
