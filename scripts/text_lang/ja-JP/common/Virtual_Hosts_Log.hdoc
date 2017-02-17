@@ -7,7 +7,6 @@
 [ITEM]
 ID: logUseServer
 NAME: サーバーのログを使用する
-SINCE: 
 
 DESCR: 独自のログファイルを作成するのではなく、このバーチャルホストからのログメッセージをサーバーログファイルに入れるかどうかを指定します。
 END_DESCR
@@ -31,7 +30,6 @@ END_TIPS
 [ITEM]
 ID: vhlog_fileName
 NAME: File Name
-SINCE: 
 
 DESCR: ログファイルのパスを指定します。
 END_DESCR
@@ -60,7 +58,6 @@ END_TIPS
 [ITEM]
 ID: vhlog_logLevel
 NAME: ログレベル
-SINCE: 
 
 DESCR: ロギングのレベルを指定します。
 使用可能なレベルは、{val}ERROR{/}、{val}WARNING{/}、{val}NOTICE{/}、{val}INFO{/}、{val}DEBUG{/}です。
@@ -88,7 +85,6 @@ END_TIPS
 [ITEM]
 ID: aclogUseServer
 NAME: ログ制御
-SINCE: 
 
 DESCR: アクセスログを書き込むべき場所。 3つのオプションがあります: 
 <ol>
@@ -118,7 +114,6 @@ END_TIPS
 ID: vhaccessLog_fileName
 NAME: ファイル名
 NS: L
-SINCE: 
 
 DESCR: アクセスログファイル名。 
 END_DESCR
@@ -140,7 +135,6 @@ END_TIPS
 ID: vhaccessLog_fileName
 NAME: ファイル名
 NS: EO
-SINCE: 
 
 DESCR: アクセスログファイル名。 
 END_DESCR
@@ -164,7 +158,6 @@ END_TIPS
 [ITEM]
 ID: accessLog_bytesLog
 NAME: バイトログ
-SINCE: 
 
 DESCR: 帯域幅バイトのログファイルへのパスを指定します。
 指定すると、cPanel互換の帯域幅ログが作成されます。

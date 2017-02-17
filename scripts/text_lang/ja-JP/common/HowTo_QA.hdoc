@@ -818,21 +818,21 @@ A: 以下の手順に従ってください：
 最も重要な設定は{val}ドメイン名{/}です。Webページにアクセスするために使用したURLのドメイン名部分と一致する必要があります。それ以外の場合は動作しません。
 ポート番号を指定する必要があります。
 例：{val}your.domain.name:80{/} <br>
-LiteSpeed Web管理コンソールから1つの仮想ホストに対してFrontPage Server Extensionを有効にすると、LiteSpeed Web ServerはWebサーバーを再起動するときにその仮想ホストのドキュメントルートにインストールしようとします。
-成功した場合は、次の場所からその仮想ホストの管理ページにアクセスできます：<br>
+LiteSpeed Web管理コンソールから1つのバーチャルホストに対してFrontPage Server Extensionを有効にすると、LiteSpeed Web ServerはWebサーバーを再起動するときにそのバーチャルホストのドキュメントルートにインストールしようとします。
+成功した場合は、次の場所からそのバーチャルホストの管理ページにアクセスできます：<br>
 	{cmd}http://your.doamin.name/_vti_bin/_vti_adm/fpadmcgi.exe{/}<br>
 デフォルトのログインユーザ名は"admin"、パスワードは"fp123456"です。 拡張機能が有効になったらすぐにパスワードを変更する必要があります。<br>
 <br>
 {val}ドメイン名{/}設定を変更した場合は、FrontPage拡張機能を再インストールする必要があります。
 あなたがする必要があるのは、Webサイトのドキュメントルートの下にあるすべての "_vti _..."ファイルを削除してから、Webサーバーを再起動することです。
 
-すべての仮想ホストの管理ページを設定する場合は、コマンドラインでrootユーザーとして次のコマンドを実行します：<br>
+すべてのバーチャルホストの管理ページを設定する場合は、コマンドラインでrootユーザーとして次のコマンドを実行します：<br>
 {cmd}/usr/local/frontpage/version5.0/bin/owsadm.exe -o setadminport -p
 &lt;PORT&gt; -s &lt;path_to_/lsws/add-ons/frontage/conf/httpd.conf&gt; -username
 &lt;USERNAME&gt; -pw &lt;PASSWD&gt;{/}<br>
 
-次に、Web管理コンソールから{val}/usr/local/frontpage/version5.0/admin-exes/{/}を指す{ITEM=VHGeneral_Help#docRoot}の仮想ホストを追加します。
-これで、この仮想ホストからすべての仮想ホストのFrontPage Server Extensionを管理できます。<br>
+次に、Web管理コンソールから{val}/usr/local/frontpage/version5.0/admin-exes/{/}を指す{ITEM=VHGeneral_Help#docRoot}のバーチャルホストを追加します。
+これで、このバーチャルホストからすべてのバーチャルホストのFrontPage Server Extensionを管理できます。<br>
 
 
 END_A
@@ -846,20 +846,20 @@ ID: qa_autoindex
 Q: 自動インデックススクリプトをカスタマイズするには？
 
 A: LiteSpeed Webサーバーは、外部スクリプトを使用して、インデックスファイルのないディレクトリのインデックスページをオンザフライで生成します。
-自動インデックススクリプトへのURIは、一般タブの仮想ホストレベルの{ITEM=VHGeneral_Help#autoIndexURI}フィールドで設定できます。
+自動インデックススクリプトへのURIは、一般タブのバーチャルホストレベルの{ITEM=VHGeneral_Help#autoIndexURI}フィールドで設定できます。
 インデックスファイルのないディレクトリにアクセスすると、LiteSpeed WebサーバはそのURIへの内部リダイレクトを実行します。<br>
-すべての仮想ホスト間でスクリプトを共有するために、
+すべてのバーチャルホスト間でスクリプトを共有するために、
 {TBL=Context_Help#generalContext} で {ITEM=Context_Help#expuri}
 {val}/_autoindex/{/} および {ITEM=Context_Help#location}
 {val}$SERVER_ROOT/share/autoindex/{/} が
-すべての仮想ホストに対して自動的に作成されます。 <br>
+すべてのバーチャルホストに対して自動的に作成されます。 <br>
 
 デフォルトのPHPスクリプトはApacheのmod_autoindexと同じルックアンドフィールで提供されています。 スクリプトは <br>
 	   {cmd}lsws/share/autoindex/default.php{/}<br>
 デフォルトの自動インデックススクリプトをコピーして変更することが許可されています。
 デフォルトのスクリプトのコピーを変更することをお勧めします。デフォルトのスクリプトは、次回のアップグレード時に上書きされます。
 独自のスクリプトを書くときは、インデックスを作成するディレクトリへのパスがCGI環境変数{cmd}"LS_AI_PATH"{/}のスクリプトに渡されることを覚えておいてください。
-スクリプトは好きな場所に置くことができますが、すべての仮想ホスト間で共有したい場合は、{cmd}lsws/share/autoindex/{/}ディレクトリの下に置いてください。<br>
+スクリプトは好きな場所に置くことができますが、すべてのバーチャルホスト間で共有したい場合は、{cmd}lsws/share/autoindex/{/}ディレクトリの下に置いてください。<br>
 
 END_A
 
@@ -879,13 +879,13 @@ Web管理コンソールにシームレスに統合され、構成や統計の�
 {cmd}lsws/add-ons/{/}ディレクトリの下に展開し、 "./awstats-x.x"から "awstats"へのシンボリックリンクを作成します。
 何らかの理由でダウンロードに失敗した場合は、手動でこの手順を実行することもできます。<br>
 <br>
-次のステップでは、AWStatsにアクセスログを分析させる仮想ホスト用のAWStatsアドオンモジュールを有効にします。<br>
-Web管理コンソールから、左側の仮想ホストを選択し、右側の「アドオン」タブをクリックして、「AWStats統合」テーブルの設定を入力します。設定は<br>
+次のステップでは、AWStatsにアクセスログを分析させるバーチャルホスト用のAWStatsアドオンモジュールを有効にします。<br>
+Web管理コンソールから、左側のバーチャルホストを選択し、右側の「アドオン」タブをクリックして、「AWStats統合」テーブルの設定を入力します。設定は<br>
 <ul>
 	<li>{ITEM=VHAddOns_Help#updateMode}: 無効、静的または動的です。</li>
 	<li>{ITEM=VHAddOns_Help#workingDir}: AWStatsの設定と統計結果を保存するために使用するディレクトリ。</li>
 	<li>{ITEM=VHAddOns_Help#awstatsURI}: 統計的な結果にアクセスできる場所。</li>
-	<li>{ITEM=VHAddOns_Help#siteDomain}: 仮想ホストのメインドメイン名。</li>
+	<li>{ITEM=VHAddOns_Help#siteDomain}: バーチャルホストのメインドメイン名。</li>
 	<li>{ITEM=VHAddOns_Help#siteAliases}: 可能なすべてのアドオンドメイン、別名、およびIPアドレス。</li>
 	<li>{ITEM=VHAddOns_Help#updateInterval}: 毎時または毎日。</li>
 	<li>{ITEM=VHAddOns_Help#updateOffset}: 更新をいつ開始するか。</li>
@@ -893,7 +893,7 @@ Web管理コンソールから、左側の仮想ホストを選択し、右側�
 	<li>{ITEM=VHAddOns_Help#awstatsRealm}: 結果を認証で保護する。</li>
 </ul>
 
-設定の変更を適用した後、AWStatsによって生成された統計結果にアクセスするには、"Server Manager"ページでその仮想ホストの"statistics"アクションリンクをクリックします。<br>
+設定の変更を適用した後、AWStatsによって生成された統計結果にアクセスするには、"Server Manager"ページでそのバーチャルホストの"statistics"アクションリンクをクリックします。<br>
 <br>
 AWStats設定ファイルをカスタマイズする：<br>
 <br>

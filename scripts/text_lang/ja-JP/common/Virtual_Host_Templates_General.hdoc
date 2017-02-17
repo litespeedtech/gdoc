@@ -7,7 +7,6 @@
 [ITEM]
 ID: templateVHRoot
 NAME: デフォルトのバーチャルホストルート 
-SINCE: 
 
 DESCR: このテンプレートを使用して、メンバーバーチャルホストのデフォルトルートディレクトリを指定します。
 変数{val}$VH_NAME{/}はパスに指定する必要があります。
@@ -31,7 +30,6 @@ END_TIPS
 ID: templateVHConfigFile
 NAME: インスタンス化されたVHost設定ファイル
 NS: LE
-SINCE: 
 
 DESCR: メンバーバーチャルホストをインスタンス化するときに生成される構成ファイルの場所を指定します。
 変数{val}$VH_NAME{/}は、各バーチャルホストが独自のファイルを持つように、パスに現れなければなりません。
@@ -56,7 +54,6 @@ END_TIPS
 ID: templateVHConfigFile
 NAME: インスタンス化されたVHost設定ファイル
 NS: O 
-SINCE: 
 
 DESCR: メンバーバーチャルホストをインスタンス化するときに生成される構成ファイルの場所を指定します。
 変数{val}$VH_NAME{/}は、各バーチャルホストが独自のファイルを持つように、パスに現れなければなりません。
@@ -80,7 +77,6 @@ END_TIPS
 [ITEM]
 ID: templateVHDocRoot
 NAME: ドキュメントルート 
-SINCE: 
 
 DESCR: 各メンバーバーチャルホストのドキュメントルートの一意のパスを指定します。
 変数{val}$VH_NAME{/}または{val}$VH_ROOT{/}は、各メンババーチャルホストが独自のドキュメントルートを持つように、パスに現れなければなりません。
@@ -102,7 +98,6 @@ END_TIPS
 [ITEM]
 ID: templateFileRef
 NAME: テンプレートで使用されるファイル名
-SINCE: 
 
 DESCR: メンバーバーチャルホストに使用されるファイルのパスを指定します。
 変数{val}$VH_NAME{/}または{val}$VH_ROOT{/}は、各メンババーチャルホストが独自のファイルを持つように、パスに現れなければなりません。

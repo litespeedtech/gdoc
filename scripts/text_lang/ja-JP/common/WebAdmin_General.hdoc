@@ -9,7 +9,6 @@
 [ITEM]
 ID: enableCoreDump
 NAME: コアダンプを有効にする
-SINCE: 
 
 DESCR: サーバーが「root」ユーザーによって開始されたときにコア・ダンプを使用可能にするかどうかを指定します。
 最新のUnixシステムでは、セキュリティ上の理由から、ユーザーIDまたはグループIDを変更するプロセスはコアファイルをダンプできません。
@@ -36,7 +35,6 @@ END_TIPS
 [ITEM]
 ID: consoleSessionTimeout
 NAME: セッションタイムアウト（秒）
-SINCE: 
 
 DESCR: WebAdmin Consoleのセッションタイムアウトの長さをカスタマイズします。
 デフォルトは60秒です。
@@ -71,7 +69,6 @@ END_TIPS
 [ITEM]
 ID: adminOldPass
 NAME: 古いパスワード
-SINCE: 
 
 DESCR:
 END_DESCR

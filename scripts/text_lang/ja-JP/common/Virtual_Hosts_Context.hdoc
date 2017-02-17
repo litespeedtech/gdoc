@@ -8,7 +8,6 @@
 ID: ctxType
 NAME: コンテキストタイプ
 NS: L
-SINCE: 
 
 DESCR: 作成されるコンテキストのタイプによって、その用途が決まります。
 
@@ -31,7 +30,6 @@ END_EDITTIP
 ID: ctxType
 NAME: コンテキストタイプ
 NS: E
-SINCE: 
 
 DESCR: 作成されるコンテキストのタイプにより、その用途が決まります。:<br><br>
 <b>静的</b>コンテキストを使用して、URIをドキュメントルートの外部またはその内部にあるディレクトリにマップできます。<br>
@@ -84,7 +82,6 @@ END_EDITTIP
 ID: ctxType
 NAME: コンテキストタイプ
 NS: O
-SINCE: 
 
 DESCR: <b>静的</b>コンテキストを使用して、URIをドキュメントルートの外部またはその内部のディレクトリにマップできます。<br>
 <b>Java Webアプリ</b>コンテキストは、AJPv13コンパイラJavaサーブレットエンジンで定義済みのJavaアプリケーションを自動的にインポートするために使用されます。<br>
@@ -142,7 +139,6 @@ END_EDITTIP
 [ITEM]
 ID: uri
 NAME: URI
-SINCE: 
 
 DESCR: このコンテキストのURIを指定します。 URIは "/"で始まる必要があります。
 URIが「/」で終わる場合、このコンテキストはこのURIの下にすべてのサブURIを含みます。
@@ -164,7 +160,6 @@ END_TIPS
 [ITEM]
 ID: expuri
 NAME: URI
-SINCE: 
 
 DESCR: このコンテキストのURIを指定します。 
 END_DESCR
@@ -187,7 +182,6 @@ END_TIPS
 [ITEM]
 ID: servletEngine
 NAME: サーブレットエンジン
-SINCE: 
 
 DESCR: このWebアプリケーションを提供するサーブレットエンジンの名前を指定します。
 サーブレットエンジンは、サーバーまたはバーチャルホストレベルの{PAGE=ExtApp_Help}セクションで定義する必要があります。
@@ -213,7 +207,6 @@ END_TIPS
 [ITEM]
 ID: javaServletEngine
 NAME: サーブレットエンジン
-SINCE: 
 
 DESCR: このWebアプリケーションを提供するサーブレットエンジンの名前を指定します。
 サーブレットエンジンは、サーバーまたはバーチャルホストレベルの{PAGE=ExtApp_Help}セクションで定義する必要があります。
@@ -239,7 +232,6 @@ END_TIPS
 [ITEM]
 ID: fcgiapp
 NAME: FastCGI アプリ
-SINCE: 
 
 DESCR: FastCGIアプリケーションの名前を指定します。
 このアプリケーションは、サーバーまたはバーチャルホストレベルの{PAGE=ExtApp_Help}セクションで定義する必要があります。
@@ -265,7 +257,6 @@ END_TIPS
 [ITEM]
 ID: lsapiapp
 NAME: LiteSpeed SAPIアプリ
-SINCE: 
 
 DESCR: このコンテキストに接続するLiteSpeed SAPIアプリケーションの名前を指定します。
 このアプリケーションは、サーバーまたはバーチャルホストレベルの{PAGE=ExtApp_Help}セクションで定義する必要があります。
@@ -287,7 +278,6 @@ END_TIPS
 [ITEM]
 ID: lbapp
 NAME: ロードバランサー
-SINCE: 
 
 DESCR: このコンテキストに関連付けるロードバランサの名前を指定します。
 このロードバランサはバーチャルアプリケーションであり、サーバーまたはバーチャルホストレベルの{PAGE=ExtApp_Help}セクションで定義する必要があります
@@ -309,7 +299,6 @@ END_TIPS
 [ITEM]
 ID: extCluster
 NAME: クラスタ
-SINCE: 
 
 DESCR: このコンテキストへの要求を処理するクラスタを指定します。 
 END_DESCR
@@ -330,7 +319,6 @@ END_TIPS
 [ITEM]
 ID: proxyWebServer
 NAME: Webサーバー
-SINCE: 
 
 DESCR: 外部Webサーバーの名前を指定します。
 この外部Webサーバーは、サーバーまたはバーチャルホストレベルの{PAGE=ExtApp_Help}セクションで定義する必要があります。
@@ -358,7 +346,6 @@ END_TIPS
 [ITEM]
 ID: location
 NAME: ロケーション
-SINCE: 
 
 DESCR: ファイルシステム内のこのコンテキストの対応する場所を指定します。 
 END_DESCR
@@ -390,7 +377,6 @@ END_TIPS
 [ITEM]
 ID: rails_location
 NAME: ロケーション
-SINCE: 
 
 DESCR: ファイルシステム内のこのコンテキストの対応する場所を指定します。
 END_DESCR
@@ -428,7 +414,6 @@ END_TIPS
 [ITEM]
 ID: javaWebApp_location
 NAME: ロケーション
-SINCE: 
 
 DESCR: このWebアプリケーションのファイルを含むディレクトリを指定します。
 これは "WEB-INF/web.xml"を含むディレクトリです。
@@ -459,7 +444,6 @@ END_TIPS
 [ITEM]
 ID: cgi_path
 NAME: パス
-SINCE: 
 
 DESCR: CGIスクリプトの場所を指定します。 
 END_DESCR
@@ -494,7 +478,6 @@ END_TIPS
 [ITEM]
 ID: allowBrowse
 NAME: アクセス可能
-SINCE: 
 
 DESCR: このコンテキストにアクセスできるかどうかを指定します。
 アクセスを拒否するには{val}いいえ{/}に設定してください。
@@ -527,7 +510,6 @@ END_TIPS
 [ITEM]
 ID: allowSetUID
 NAME: UIDの設定を許可する
-SINCE: 
 
 DESCR: 設定されたUIDビットがCGIスクリプトに許可されるかどうかを指定します。
 設定されたUIDビットが許可され、CGIスクリプトに対して設定されたUIDビットが有効になっている場合、CGIスクリプトがどのユーザーに代わって起動されたかにかかわらず、CGIプロセスのユーザーIDは、CGIスクリプトの所有者のユーザーIDに切り替わります。
@@ -552,7 +534,6 @@ END_TIPS
 [ITEM]
 ID: externalredirect
 NAME: 外部リダイレクト
-SINCE: 
 
 DESCR: このリダイレクトが外部かどうかを指定します。
 外部リダイレクトの場合は、{ITEM=statuscode}を指定し、{ITEM=destinationuri}は "/"または "http(s)：//"で開始できます。
@@ -580,7 +561,6 @@ END_TIPS
 [ITEM]
 ID: statuscode
 NAME: ステータスコード
-SINCE: 
 
 DESCR: 外部リダイレクトの応答ステータスコードを指定します。
 ステータスコードが300〜399の場合、{ITEM=destinationuri}を指定できます。
@@ -602,7 +582,6 @@ END_TIPS
 [ITEM]
 ID: destinationuri
 NAME: 宛先URI
-SINCE: 
 
 DESCR: リダイレクトのターゲットの場所を指定します。
 このリダイレクトされたURIが別のリダイレクトコンテキストのURIにマップされると、リダイレクトされます。 
@@ -625,7 +604,6 @@ END_TIPS
 [ITEM]
 ID: extraHeaders
 NAME: Extra Headers
-SINCE: 
 
 DESCR: 追加される余分な応答ヘッダーを指定します。
 1行に1つのヘッダーを追加できます。
@@ -652,7 +630,6 @@ END_TIPS
 ID: allowOverrideContext
 NAME: 上書きを許可する
 NS: E
-SINCE: 
 
 DESCR: アクセス制御ファイル内のどのディレクティブが許可されるかを指定します。
 アクセス制御ファイルは、そのディレクトリの下にあるファイルのアクセシビリティを制御するためにディレクトリに置くことができます。 
@@ -697,7 +674,6 @@ END_TIPS
 [ITEM]
 ID: addMIMEType
 NAME: MIMEタイプ
-SINCE: 
 
 DESCR: このコンテキストに追加のMIMEタイプとマッピングを指定します。
 新しいマッピングは、このコンテキストとその子コンテキストのもとで既存のマッピングを上書きします。
@@ -722,7 +698,6 @@ END_TIPS
 [ITEM]
 ID: mimetype
 NAME: MIMEタイプ
-SINCE: 
 
 DESCR: MIMEタイプは、タイプとサブタイプの形式で "タイプ/サブタイプ"で構成されます。 
 END_DESCR
@@ -743,7 +718,6 @@ END_TIPS
 [ITEM]
 ID: forceType
 NAME: 強制MIMEタイプ
-SINCE: 
 
 DESCR: このコンテキストの下にあるすべてのファイルは、指定すると、ファイルの接尾辞に関係なくMIMEタイプが指定された静的ファイルとして提供されます。
        {val} NONE {/}に設定すると、継承された強制タイプの設定は無効になります。
@@ -765,7 +739,6 @@ END_TIPS
 [ITEM]
 ID: defaultType
 NAME: デフォルトのMIMEタイプ
-SINCE: 
 
 DESCR: この型を指定すると、ドキュメントの接尾辞でMIMEタイプのマッピングを判別できない場合、または接尾辞がない場合にこの型が使用されます。
        指定しない場合、デフォルト値{val}application/octet-stream{/}が使用されます。
@@ -787,7 +760,6 @@ END_TIPS
 [ITEM]
 ID: realm
 NAME: レルム
-SINCE: 
 
 DESCR: このコンテキストの認可レルムを指定します。
 このコンテキストにアクセスするには、有効なユーザー名とパスワードを指定する必要があります。
@@ -815,7 +787,6 @@ END_TIPS
 [ITEM]
 ID: authName
 NAME: 認証名
-SINCE: 
 
 DESCR: 現在のコンテキストの認証レルムの代替名を指定します。
 指定しない場合、元のレルム名が使用されます。
@@ -838,7 +809,6 @@ END_TIPS
 [ITEM]
 ID: required
 NAME: 必要（許可ユーザー/グループ）
-SINCE: 
 
 DESCR: このコンテキストにアクセスできるユーザー/グループを指定します。
 これにより、複数のコンテキストにわたって1つのユーザー/グループデータベース（{ITEM=realm}で指定）を使用できますが、そのデータベースの特定のユーザー/グループのみがこのコンテキストにアクセスできます。
@@ -869,7 +839,6 @@ END_TIPS
 [ITEM]
 ID: accessAllowed
 NAME: アクセス許可
-SINCE: 
 
 DESCR: このコンテキストでリソースにアクセスできるIPまたはサブネットワークを指定します。
 {ITEM=accessDenied}とサーバー/バーチャルホスト・レベルのアクセス制御とともに、アクセシビリティは、クライアントのIPアドレスが入る最小の範囲によって決まります。 
@@ -891,7 +860,6 @@ END_TIPS
 [ITEM]
 ID: accessDenied
 NAME: アクセス拒否
-SINCE: 
 
 DESCR: このコンテキストでリソースにアクセスできないIPまたはサブネットワークを指定します。
 {ITEM=accessAllowed}とサーバー/バーチャルホストレベルのアクセス制御とともに、アクセシビリティはクライアントのIPアドレスが入る最小の範囲で決まります。
@@ -913,7 +881,6 @@ END_TIPS
 [ITEM]
 ID: extAuthorizer
 NAME: Authorizer
-SINCE: 
 
 DESCR: 権限のある/権限のないかの決定を生成するために使用できる外部アプリケーションを指定します。
 現在、FastCGI Authorizerのみが使用可能です。
@@ -936,7 +903,6 @@ END_TIPS
 [ITEM]
 ID: rewriteInherit
 NAME: 継承を書き直す
-SINCE: 
 
 DESCR: 親コンテキストから書き換えルールを継承するかどうかを指定します。
 書き換えが有効で継承されていない場合は、このコンテキストで定義されている書き換えのベースルールと書き換えルールが使用されます。
@@ -958,7 +924,6 @@ END_TIPS
 [ITEM]
 ID: rewriteBase
 NAME: 書き換えベース
-SINCE: 
 
 DESCR: 書き換えルールのベースURLを指定します。
 END_DESCR
@@ -979,7 +944,6 @@ END_TIPS
 [ITEM]
 ID: addDefaultCharset
 NAME: デフォルトの文字セットを追加
-SINCE: 
 
 DESCR: コンテンツタイプが "text/html"または "text/plain"のいずれかのパラメータがない場合、文字セットタグを "Content-Type"レスポンスヘッダーに追加するかどうかを指定します。
 {val}Off{/}に設定すると、この機能は無効になります。
@@ -1002,7 +966,6 @@ END_TIPS
 [ITEM]
 ID: defaultCharsetCustomized
 NAME: カスタマイズされたデフォルトの文字セット
-SINCE: 
 
 DESCR: {ITEM = addDefaultCharset}が{val}On{/}のときに使用される文字セットを指定します。
        これはオプションです。 デフォルト値は{val} iso-8859-1 {/}です。
@@ -1025,7 +988,6 @@ END_TIPS
 [ITEM]
 ID: moduleNameSel
 NAME: Module
-SINCE: 
 
 DESCR: モジュールの名前。
 モジュールはサーバーモジュールの設定タブに登録する必要があります。

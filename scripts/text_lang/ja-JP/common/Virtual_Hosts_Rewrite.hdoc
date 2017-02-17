@@ -7,7 +7,6 @@
 [ITEM]
 ID: enableRewrite
 NAME: Rewriteを有効にする
-SINCE: 
 
 DESCR: LiteSpeedのURL書き換えエンジンを有効にするかどうかを指定します。
 このオプションは、バーチャルホストまたはコンテキストレベルでカスタマイズでき、明示的に上書きされるまでディレクトリツリーに沿って継承されます。 
@@ -30,7 +29,6 @@ END_TIPS
 ID: rewriteLogLevel
 NAME: ログレベル
 NS: EO
-SINCE: 
 
 
 DESCR: 書き換えエンジンのデバッグ出力の詳細レベルを指定します。
@@ -55,7 +53,6 @@ END_TIPS
 ID: rewriteLogLevel
 NAME: ログレベル
 NS: L
-SINCE: 
 SEE_ALSO:
 
 DESCR: 書き換えエンジンのデバッグ出力のログレベルを指定します。
@@ -84,7 +81,6 @@ END_TIPS
 [ITEM]
 ID: rewriteMapName
 NAME: 名前
-SINCE: 
 
 DESCR: バーチャルホスト・レベルでの再書き込みマップの一意の名前を指定します。
 この名前は、書き換えルールのマッピング参照によって使用されます。
@@ -117,7 +113,6 @@ END_TIPS
 [ITEM]
 ID: rewriteMapLocation
 NAME: ロケーション
-SINCE: 
 
 DESCR: {val}MapType：MapSource{/}構文を使用して、書き換えマップの場所を指定します。
 
@@ -186,7 +181,6 @@ END_TIPS
 [ITEM]
 ID: rewriteRules
 NAME: Rewriteルール
-SINCE: 
 
 DESCR: バーチャルホストまたはコンテキスト・レベルでの書き換えルールのリストを指定します。
 書き換えルールは、{val}RewriteRule{/}ディレクティブから構成され、オプションとして複数の{val}RewriteCond{/}ディレクティブが前に付いています。 

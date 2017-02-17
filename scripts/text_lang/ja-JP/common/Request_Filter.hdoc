@@ -7,7 +7,6 @@
 [ITEM]
 ID: enableCensorship
 NAME: 要求フィルタリングを有効にする
-SINCE: 
 
 DESCR: 要求内容の詳細検査を有効にするかどうかを指定します。
 この機能は、Apacheのmod_securityと同等です。
@@ -30,7 +29,6 @@ END_TIPS
 [ITEM]
 ID: censorLogLevel
 NAME: ログレベル
-SINCE: 
 
 DESCR: 要求フィルタリングエンジンのデバッグ出力の詳細レベルを指定します。
 この値の範囲は{val}0{/}-{val}9{/}です。
@@ -56,7 +54,6 @@ END_TIPS
 [ITEM]
 ID: defaultAction
 NAME: デフォルトのアクション
-SINCE: 
 
 DESCR: 検閲ルールが満たされたときに実行する必要があるデフォルトのアクションを指定します。
 デフォルト値は{val}deny、log、status：403{/}です。これは、ステータスコード403によるアクセスを拒否し、インシデントをエラーログに記録することを意味します。
@@ -79,7 +76,6 @@ END_TIPS
 [ITEM]
 ID: scanPOST
 NAME: スキャンリクエストボディ
-SINCE: 
 
 DESCR: HTTP POST要求の本文をチェックするかどうかを指定します。
 デフォルトは「いいえ」です。
@@ -103,7 +99,6 @@ END_TIPS
 ID: disableSecHtaccess
 NAME: .htaccessを無効にする
 NS: E
-SINCE: 4.0.17
 
 DESCR: .htaccessのmod_securityエンジンを無効にする。
 これは、サーバーレベルでのみ使用可能なグローバル設定です。
@@ -128,7 +123,6 @@ END_TIPS
 ID: uploadTmpDir
 NAME: 一時ファイルパス
 NS: O 
-SINCE: 
 
 DESCR: 要求本体パーサーが動作している間に、サーバーにアップロードされるファイルが格納される一時ディレクトリ。
 デフォルト値は{val}/tmp/lshttpd/{/}です。
@@ -152,7 +146,6 @@ END_TIPS
 ID: uploadTmpDir
 NAME: 一時ファイルパス
 NS: LE
-SINCE: 
 
 DESCR: 要求本体パーサーが動作している間に、サーバーにアップロードされるファイルが格納される一時ディレクトリ。
 デフォルト値は{val}/tmp{/}です。
@@ -176,7 +169,6 @@ END_TIPS
 ID: uploadTmpFilePermission
 NAME: 一時ファイルのアクセス許可
 NS: LE
-SINCE: 
 
 DESCR: <b>一時ファイルパス</b>ディレクトリに格納されているファイルに使用されるファイルアクセス権を決定するグローバル設定。
 
@@ -199,7 +191,6 @@ END_TIPS
 ID: uploadTmpFilePermission
 NAME: 一時ファイルのアクセス許可
 NS: O
-SINCE: 
 
 DESCR: 一時ディレクトリに格納されているファイルに使用されるファイルのアクセス権を決定します。
 サーバーレベルの設定はグローバルで、VHostレベルでオーバーライドできます。
@@ -222,7 +213,6 @@ END_TIPS
 [ITEM]
 ID: secAuditLogEngine
 NAME: セキュリティ監査ログを有効にする
-SINCE: 4.1.9
 
 DESCR: 監査ログを有効にするかどうかを指定します。
 この機能は、Apacheのmod_security監査エンジンと同等です。
@@ -245,7 +235,6 @@ END_TIPS
 [ITEM]
 ID: secAuditLog
 NAME: セキュリティ監査ログ
-SINCE: 4.1.9
 
 DESCR: より詳細な情報を提供するセキュリティ監査ログのパスを指定します。
   この特別な情報は、たとえば、特定のユーザーの行動を追跡する場合に役立ちます。
@@ -271,7 +260,6 @@ END_TIPS
 [ITEM]
 ID: censorRuleSetName
 NAME: 名前
-SINCE: 
 
 DESCR: １グループの検閲ルールに名前を付ける。
 表示専用です。
@@ -294,7 +282,6 @@ END_TIPS
 [ITEM]
 ID: ruleSetAction
 NAME: ルールセットアクション
-SINCE: 
 
 DESCR: 現在のルールセットの検閲ルールが満たされたときに実行する必要があるアクションを指定します。
 設定されていない場合、{ITEM=defaultAction}が使用されます。
@@ -317,7 +304,6 @@ END_TIPS
 [ITEM]
 ID: censorRuleSetEnabled
 NAME: 有効 
-SINCE: 
 
 DESCR: このルールセットを有効にするかどうかを指定します。
 このオプションを使用すると、ルールセットを追加または削除することなく、ルールセットをすぐにオン/オフすることができます。
@@ -342,7 +328,6 @@ END_TIPS
 ID: censorRuleSet
 NAME: ルール定義
 NS: L
-SINCE: 
 
 
 DESCR: 検閲ルールのリストを指定します。
@@ -375,7 +360,6 @@ END_TIPS
 ID: censorRuleSet
 NAME: ルール定義
 NS: E
-SINCE: 
 
 
 DESCR: 検閲ルールのリストを指定します。

@@ -7,7 +7,6 @@
 [ITEM]
 ID: serverName
 NAME: サーバー名
-SINCE: 
 
 DESCR: このサーバーの一意の名前。 値として$HOSTNAMEを使用できます。 
 END_DESCR
@@ -32,7 +31,6 @@ END_TIPS
 ID: httpdWorkers
 NAME: ワーカーの数
 NS: O
-SINCE: 
 
 DESCR: httpdワーカーの数を指定します。 
 
@@ -55,7 +53,6 @@ END_TIPS
 ID: lslbdProcesses
 NAME: プロセス数
 NS: L
-SINCE: 
 
 DESCR: <b> [無制限CPUライセンスでのみ利用可能] </b>
 <br />
@@ -79,7 +76,6 @@ TIPS: [パフォーマンス]ニーズに合わせて適切な番号を設定し
 ID: runningAs
 NAME: Running As
 NS: LE
-SINCE: 
 
 DESCR: サーバープロセスが実行されるユーザー/グループを指定します。
 この値はインストール時に設定されます。 それを変更するには、
@@ -103,7 +99,6 @@ END_TIPS
 ID: runningAs
 NAME: Running As
 NS: O
-SINCE: 
 
 DESCR: サーバープロセスが実行されるユーザー/グループを指定します。
 これは、インストールの前にconfigureコマンドを実行するときに、 "--with-user"と "--with-group"というパラメータを使用して設定されます。 これらの値をリセットするには、configureコマンドを再実行して再インストールする必要があります。
@@ -127,7 +122,6 @@ END_TIPS
 ID: serverPriority
 NAME: Priority
 NS: EO
-SINCE: 
 
 DESCR: サーバープロセスの優先度を指定します。値の範囲は{val}〜{20}〜{val} 20 {/}です。 数値が小さいほど優先度が高くなります。
 END_DESCR
@@ -150,7 +144,6 @@ END_TIPS
 ID: serverPriority
 NAME: Priority
 NS: L
-SINCE: 
 
 DESCR: サーバープロセスの優先度を指定します。
 値の範囲は{val}〜{20}〜{val} 20 {/}です。 数値が小さいほど優先度が高くなります。
@@ -174,7 +167,6 @@ END_TIPS
 ID: cpuAffinity
 NAME: CPU Affinity
 NS: E
-SINCE: 
 
 DESCR: CCPUアフィニティは、プロセスを1つ以上のCPU（コア）にバインドします。
 プロセスがCPUキャッシュに残っているデータを利用できるので、プロセスが常に同じCPUを使用することは有益です。
@@ -201,7 +193,6 @@ END_TIPS
 [ITEM]
 ID: servChrootPath
 NAME: Chrootパス
-SINCE: 
 
 DESCR: {ent_version} chroot環境がルートされるディレクトリを指定します。
 "root"ユーザだけがchrootモードでサーバを実行できます。 chrootモードで実行するかどうかは、{ITEM=enableChroot}オプションによって制御されます。
@@ -236,7 +227,6 @@ END_TIPS
 [ITEM]
 ID: enableChroot
 NAME: chrootを有効にする
-SINCE: 
 
 DESCR: {ent_version} chrootモードでサーバーを起動するかどうかを指定します。
 新しいルートディレクトリは、インストール中に{ITEM=servChrootPath}によって設定されます。
@@ -258,7 +248,6 @@ END_TIPS
 [ITEM]
 ID: enableLVE
 NAME: Cloud-Linux 
-SINCE: 
 
 DESCR: CloudLinuxの軽量バーチャル環境（LVE）が存在する場合に有効にするかどうかを指定します。
 LiteSpeedをLVEと共に使用すると、より良いリソース管理を実現できます。
@@ -281,7 +270,6 @@ END_TIPS
 [ITEM]
 ID: inMemBufSize
 NAME: 最大I/Oバッファサイズ
-SINCE: 
 
 DESCR: 要求本体およびその動的生成応答を格納するために使用される最大バッファー・サイズを指定します。
 この制限に達すると、サーバーは{ITEM=swappingDir}の下に一時的なスワップファイルを作成し始めます。
@@ -304,7 +292,6 @@ END_TIPS
 [ITEM]
 ID: swappingDir
 NAME: スワップディレクトリ
-SINCE: 
 
 DESCR: スワップファイルを配置するディレクトリを指定します。
 サーバがchrootモードで起動されると、このディレクトリは新しいルートディレクトリに相対的です。それ以外の場合は、実際のルートディレクトリに相対的です。
@@ -333,7 +320,6 @@ END_TIPS
 [ITEM]
 ID: autoFix503
 NAME: Auto Fix 503 Error 
-SINCE: 
 
 DESCR: 「503 Service Unavailable」エラーを修正するかどうかを指定します。
 サーバーを正常に再起動します。
@@ -361,7 +347,6 @@ END_TIPS
 [ITEM]
 ID: enableh2c
 NAME: HTTP/2 over Cleartext TCPを有効にする
-SINCE: 
 
 DESCR: 暗号化されていないTCP接続に対してHTTP/2を有効にするかどうかを指定します。 デフォルトは無効です。 
 
@@ -383,7 +368,6 @@ END_TIPS
 [ITEM]
 ID: gracefulRestartTimeout
 NAME: 緩やかな再起動タイムアウト（秒）
-SINCE: 
 
 DESCR: グレースフルリスタート時には、新しいサーバーインスタンスが起動した後でも、古いインスタンスは既存の要求を引き続き処理します。
 このタイムアウトは、前のインスタンスが終了するまでの待機時間を定義します。
@@ -409,7 +393,6 @@ END_TIPS
 ID: statDir
 NAME: 統計出力ディレクトリ
 NS: O
-SINCE: 
 
 DESCR: Real-Time Statsレポートファイルが書き込まれるディレクトリが作成されます。
 デフォルトのディレクトリは<b>/tmp/lshttpd/</b>です。
@@ -438,7 +421,6 @@ END_TIPS
 [ITEM]
 ID: mime
 NAME: MIME設定
-SINCE: 
 
 DESCR: このサーバーのMIME設定を含むファイルを指定します。
 chrootモードで絶対パスが指定されている場合、実際のルートと常に相対的です。
@@ -466,7 +448,6 @@ END_TIPS
 ID: disableInitLogRotation
 NAME: 初期ログローテーションを無効にする
 NS: LO
-SINCE: 
 
 DESCR: 起動時にサーバーエラーログファイルのローテーションを有効/無効にするかどうかを指定します。
 値が「未設定」の場合、初期ログローテーションはデフォルトで有効になっています。 
@@ -489,7 +470,6 @@ END_TIPS
 ID: disableInitLogRotation
 NAME: 初期ログローテーションを無効にする
 NS: E
-SINCE: 
 
 DESCR: 起動時にサーバーエラーログファイルのローテーションを無効にするかどうかを指定します。
 初期ログローテーションは、標準インストールではデフォルトで有効になっています。
@@ -513,7 +493,6 @@ END_TIPS
 [ITEM]
 ID: showVersionNumber
 NAME: サーバー署名
-SINCE: 
 
 DESCR: サーバーの署名とバージョン番号を次の場所に表示するかどうかを指定します。
 レスポンスヘッダの「Server」値。
@@ -538,7 +517,6 @@ END_TIPS
 [ITEM]
 ID: hideSigInErrorPage
 NAME: エラーページの署名を隠す
-SINCE: 4.2.3
 
 DESCR: 行を表示するかどうかを指定します。
 <blockquote> LiteSpeed Web Serverによって強化されました。
@@ -562,7 +540,6 @@ END_TIPS
 [ITEM]
 ID: enableIpGeo
 NAME: IPジオロケーションを有効にする
-SINCE: 
 
 DESCR: {ent_version} IPジオロケーション検索を有効/無効にするかどうかを指定します。
 サーバ、バーチャルホスト、コンテキストレベルで設定できます。
@@ -584,7 +561,6 @@ END_TIPS
 [ITEM]
 ID: useIpInProxyHeader
 NAME: ヘッダーにクライアントIPを使用する
-SINCE: 
 
 
 DESCR: 「X-Forwarded-For」HTTPリクエストヘッダーに記載されているIPアドレスを使用するかどうかを指定します。
@@ -612,7 +588,6 @@ END_TIPS
 ID: extAppAbort
 NAME: 外部アプリケーションの中止
 NS: E
-SINCE: 4.2.3
 
 DESCR: クライアントがサーバーとの接続を切断すると、LiteSpeed Web Serverは自動的に外部アプリケーションプロセスを中止し、そのクライアントの応答を生成します。
 ただし、一部のユーザーは、クライアントがまだ接続されているかどうかにかかわらず、実行を継続したい（長時間実行している）プロセスがある可能性があります。
@@ -642,7 +617,6 @@ END_TIPS
 [ITEM]
 ID: autoUpdateInterval
 NAME: 更新を確認
-SINCE: 
 
 DESCR: 更新エージェントが新しい製品リリースを確認する頻度を指定します。 オプションは、 "Daily"、 "Weekly"、 "Monthly"です。
 END_DESCR
@@ -663,7 +637,6 @@ END_TIPS
 [ITEM]
 ID: autoUpdateDownloadPkg
 NAME: アップデートのダウンロード
-SINCE: 
 
 DESCR: 新しい製品リリースパッケージファイルがある場合に自動ダウンロードするかどうかを指定します。
 新しいパッケージが正常にダウンロードされた場合は、Service Manager - {ITEM=ServerStat_Help#vermgr}のWebAdminコンソールからワンクリックでオンラインでアップグレードできます。 
@@ -685,7 +658,6 @@ END_TIPS
 [ITEM]
 ID: adminEmails
 NAME: 管理者用Eメール
-SINCE: 
 
 DESCR: サーバー管理者の電子メールアドレスを指定します。
 このオプションを指定すると、重大イベントの電子メールで管理者に通知されます（たとえば、クラッシュの検出またはライセンスの有効期限が切れたためにLiteSpeedサービスが自動的に再開された場合など）。 
@@ -713,7 +685,6 @@ END_TIPS
 [ITEM]
 ID: mimesuffix
 NAME: サフィックス
-SINCE: 
 
 DESCR: 同じMIMEタイプの複数のサフィックスをカンマで区切って指定することができます。
 END_DESCR
@@ -737,7 +708,6 @@ END_TIPS
 [ITEM]
 ID: indexFiles
 NAME: インデックスファイル
-SINCE: 
 
 DESCR: URLがディレクトリにマップされたときに順番に検索されるインデックスファイルの名前を指定します。
 サーバー、バーチャルホスト、コンテキストレベルでカスタマイズできます。
@@ -763,7 +733,6 @@ END_TIPS
 ID: allowOverride
 NAME: 上書きを許可する
 NS: E
-SINCE: 
 
 DESCR: アクセス制御ファイル内のどのディレクティブが許可されるかを指定します。
 アクセス制御ファイルは、そのディレクトリの下にあるファイルのアクセシビリティを制御するためにディレクトリに置くことができます。
@@ -821,7 +790,6 @@ END_TIPS
 ID: accessFileName
 NAME: アクセスファイル名
 NS: E
-SINCE: 
 
 DESCR: アクセス制御ファイルの名前を指定します。
 これらのファイルは、{ITEM=allowOverride}が有効な場合にのみ使用されます。
@@ -854,7 +822,6 @@ END_TIPS
 [ITEM]
 ID: enableExpires
 NAME: 有効期限を有効にする
-SINCE: 
 
 DESCR: 静的ファイルのExpiresヘッダーを生成するかどうかを指定します。
 有効にすると、{ITEM=expiresDefault}と{ITEM=expiresByType}に基づいてExpiresヘッダーが生成されます。
@@ -889,7 +856,6 @@ END_TIPS
 [ITEM]
 ID: expiresDefault
 NAME: 期限切れ
-SINCE: 
 
 DESCR: Expiresヘッダー生成のデフォルト設定を指定します。
 この設定は、{ITEM=enableExpires}が "Yes"に設定されているときに有効になります。
@@ -926,7 +892,6 @@ END_TIPS
 [ITEM]
 ID: expiresByType
 NAME: タイプ別に期限切れ
-SINCE: 
 
 DESCR: 各MIMEタイプのExpiresヘッダー設定を指定します。
 END_DESCR
@@ -961,7 +926,6 @@ END_TIPS
 ID: uploadPassByPath
 NAME: ファイルパスによるアップロードデータの転送
 NS: O
-SINCE: 
 
 DESCR: ファイルデータをパスでアップロードするかどうかを指定します。
 有効にすると、アップロード時にファイル自体ではなく、バックエンドハンドラにファイルパスと他の情報が送信されます。
@@ -989,7 +953,6 @@ END_TIPS
 [ITEM]
 ID: geoipDBFile
 NAME: DBファイルのパス
-SINCE: 
 
 DESCR: {ent_version} MaxMind GeoIPデータベースへのパスを指定します。
 END_DESCR
@@ -1010,7 +973,6 @@ END_TIPS
 [ITEM]
 ID: geoipDBCache
 NAME: DBキャッシュタイプ
-SINCE: 
 
 DESCR: {ent_version}使用するキャッシュモードの種類を指定します。
 キャッシュモードは、Standard、MemoryCache、CheckCache、およびIndexCacheです。
@@ -1038,7 +1000,6 @@ END_TIPS
 ID: loadApacheConf
 NAME: Apacheの設定を読み込む
 NS: E
-SINCE: 
 
 DESCR: LiteSpeedがWebサーバーを構成するためにApache構成ファイルを読み込んで使用するかどうかを指定します。
 LiteSpeedの内部構成とApacheベースの構成が競合すると、ネイティブ構成の優先度が高くなります。 
@@ -1062,7 +1023,6 @@ END_TIPS
 ID: autoReloadApacheConf
 NAME: 変更時の自動リロード
 NS: E
-SINCE: 
 
 DESCR: Apache構成の変更を適用する方法を指定します。
 "はい"に設定すると、Apache設定ファイルが変更されたときにLSWSは正常に再起動します。
@@ -1095,7 +1055,6 @@ END_TIPS
 ID: apacheBinPath
 NAME: Apacheバイナリパス
 NS: E
-SINCE: 
 
 DESCR: Apacheバイナリの場所を指定します。
 通常、/usr/local/apache/bin/httpd または /usr/local/apache2/bin/httpd などにあります。
@@ -1120,7 +1079,6 @@ END_TIPS
 ID: apacheConfFile
 NAME: Apache設定ファイル
 NS: E
-SINCE: 
 
 DESCR: Apache構成ファイルの場所を指定します。
 通常、/usr/local/apache/conf/httpd.conf または /etc/httpd/conf/httpd.conf にあります。
@@ -1143,7 +1101,6 @@ END_TIPS
 ID: apachePortOffset
 NAME: Apacheポートオフセット
 NS: E
-SINCE: 
 
 DESCR: Apache構成ファイルで指定された待機中のTCPポートに追加するオフセットを指定します。
 テストフェーズでは、LiteSpeedと本番サーバー上のApacheを切り替えるのではなく、LiteSpeedを別のポートでApacheと一緒に実行できます。
@@ -1172,7 +1129,6 @@ END_TIPS
 ID: apacheIpOffset
 NAME: Apache IPオフセット
 NS: E
-SINCE: 
 
 DESCR: Apache設定ファイルで指定されているリスニングIPアドレスに追加するオフセットを指定します。
 これにより、プロダクションサーバー上でLiteSpeedとApacheを切り替えるのではなく、テスト段階でLiteSpeedをApacheと共に実行することができます。
@@ -1200,7 +1156,6 @@ END_TIPS
 ID: apacheHandledContent
 NAME: Apacheハンドルコンテンツ
 NS: E
-SINCE: 
 
 DESCR: バックエンド上でApacheに渡され処理されるリソースを指定します。
 この機能では、別のIPまたは別のポートでLiteSpeedに対してApache parallelを実行する必要があるため、「Apache Port Offset」または「Apache IP Offset」のいずれかを0以外の値に設定する必要があります。
@@ -1227,7 +1182,6 @@ END_TIPS
 ID: apacheIgnoredModules
 NAME: Apacheモジュールを無視する
 NS: E
-SINCE: 
 
 DESCR: Apache構成ファイルの解析中にLiteSpeedによって無視されるべきApacheモジュールの名前のリストを指定します。
 LiteSpeedは、リストされたモジュールをサポートされていないものとして扱います。
@@ -1252,7 +1206,6 @@ END_TIPS
 ID: jitConfig
 NAME: ジャストインタイム設定
 NS: E
-SINCE: 
 
 DESCR: ジャストインタイム設定では、起動時にすべての設定を読み込むのではなく、そのバーチャルホストが最初にアクセスされたときにWebサーバーはバーチャルホストの設定を確定します。
 これにより、Webサーバーはメモリを節約し、サーバーの起動を高速化できます。
@@ -1275,7 +1228,6 @@ END_TIPS
 ID: phpSuExec
 NAME: PHP suEXEC
 NS: E
-SINCE: 
 
 DESCR: バーチャルホストに "user"と "group"が指定されている場合にsuEXECモードでPHPスクリプトを実行するかどうかを指定します。
 {val}はい{/}に設定すると、PHPスクリプトはユーザー（および{ITEM=ServSecurity_Help#forceGID}が設定されていない場合はグループ）で実行されます。
@@ -1302,7 +1254,6 @@ END_TIPS
 ID: phpSuExecMaxConn
 NAME: PHP suEXEC Max Conn
 NS: E
-SINCE: 
 
 DESCR: suEXECモードでPHPスクリプトを実行しているときに、各ユーザーに対してLAWSによって作成できる同時PHPプロセスの最大数を指定します。
 デフォルト値は{val}5{/}です。
@@ -1326,7 +1277,6 @@ END_TIPS
 ID: apacheEnableFP
 NAME: FrontPage Extensionを有効にする
 NS: E
-SINCE: 
 
 DESCR: Microsoft Front Page Server Extensionを明示的に有効にするかどうかを指定します。
 通常、LSWSはApache httpd.confにモジュール "frontpage"がロードされているときにそれを有効にします。
@@ -1352,7 +1302,6 @@ END_TIPS
 ID: apacheEnvVars
 NAME: Apache環境変数
 NS: E
-SINCE: 4.1.8
 
 DESCR: Apache構成ファイル内で使用されるシェル環境変数の場合、LSWSは "$ {ENVVAR}"をここで設定された値に置き換えます。
 ENVVAR変数がここで設定されていない場合、 "$ {ENVVAR}"のオカレンスは変更されません。
@@ -1378,7 +1327,6 @@ END_TIPS
 ID: apacheConf
 NAME: Apacheスタイルの設定
 NS: E
-SINCE: 
 
 DESCR: LiteSpeed固有の設定ファイルで使用するApache設定ディレクティブ（LiteSpeedでサポート）を指定します。
 たとえば、デフォルトのPHP設定（php.iniエントリ）をオーバーライドするには、 "php_value"、 "php_flag"、 "php_admin_value"、 "php_admin_flag"の4つのディレクティブが必要です。

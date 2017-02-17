@@ -9,7 +9,6 @@ ID: pagespeedActivate
 NAME: ロードモジュール
 REQUIRED:
 APPLY: 3
-SINCE: 
 SEE_ALSO:
 
 DESCR: PageSpeedモジュールを読み込むかどうかを選択します。 
@@ -36,7 +35,6 @@ ID: pagespeedEnabled
 NAME: PageSpeedを有効にする
 REQUIRED:
 APPLY: 3
-SINCE: 
 SEE_ALSO:
 
 DESCR: PageSpeedプロセスを有効にするかどうかを選択します。
@@ -63,7 +61,6 @@ ID: pagespeedParams
 NAME: モジュールのパラメータ
 REQUIRED:
 APPLY: 3
-SINCE:
 SEE_ALSO:
 
 DESCR: Googleのデフォルトフィルタセットを使用してパラメータを設定します。

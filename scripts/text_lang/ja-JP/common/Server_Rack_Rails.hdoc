@@ -7,7 +7,6 @@
 [ITEM]
 ID: rubyBin
 NAME: Rubyパス
-SINCE: 
 
 DESCR: Ruby実行可能ファイルへの指定されたパス。
 Rubyがどこにインストールされているかによって、/usr/bin/ruby又は/usr/local/bin/rubyになります。
@@ -33,7 +32,6 @@ END_TIPS
 [ITEM]
 ID: railsEnv
 NAME: 実行時モード
-SINCE: 
 
 DESCR: Rack/Railsが "Development"、"Production"、又は"Staging"のいずれのモードで実行されるかを指定します。
 デフォルトは "Production"です。
@@ -58,7 +56,6 @@ END_TIPS
 [ITEM]
 ID: enableRailsHosting
 NAME: 共有ホスティングを有効にする
-SINCE: 
 
 DESCR: Rack/Rails共有ホスティングを有効にするかどうかを指定します。
 デフォルトは "無効"です。
@@ -81,7 +78,6 @@ END_TIPS
 [ITEM]
 ID: railsAppLimit
 NAME: アカウントごとの最大アプリ数
-SINCE: 
 
 DESCR: アカウントごとに作成できるRack/Railsアプリケーションの最大数を指定します。 デフォルトは "1"です。
 
@@ -105,7 +101,6 @@ END_TIPS
 [ITEM]
 ID: rubyProcLimit
 NAME: アカウントごとの最大Rubyプロセス
-SINCE: 
 
 DESCR: アカウントごとに作成できるRubyプロセスの最大数を指定します。
 デフォルトは "10"です。

@@ -4,7 +4,6 @@
 [ITEM]
 ID: sname
 NAME: 名前 - サーバー
-SINCE: 
 
 DESCR: このサーバーを識別する一意の名前。
 これは一般的な設定で指定された{ITEM=ServGeneral_Help#serverName}です。
@@ -26,7 +25,6 @@ END_TIPS
 [ITEM]
 ID: pid
 NAME: PID
-SINCE: 
 
 DESCR: 現在のサーバープロセスのPID（プロセスID）。
 END_DESCR
@@ -47,7 +45,6 @@ END_TIPS
 [ITEM]
 ID: servAction
 NAME: アクション
-SINCE: 
 
 DESCR: このメニューからは、次の6つのアクションを使用できます： 
 {val}緩やかな再起動{/},
@@ -78,7 +75,6 @@ END_TIPS
 [ITEM]
 ID: restart
 NAME: 変更を適用する/緩やかなリスタート
-SINCE: 
 
 DESCR: {val}緩やかな再起動{/}をクリックすると、新しいサーバープロセスが開始されます。
 {val}緩やかな再起動{/}の場合、古いサーバープロセスは、すべての要求が完了した後（または{ITEM=gracefulRestartTimeout}に達すると）終了します。
@@ -104,7 +100,6 @@ END_TIPS
 [ITEM]
 ID: vermgr
 NAME: バージョン管理
-SINCE: 
 
 
 DESCR: バージョン管理（ページ上部のバージョン番号をクリックすると見つかります）は、LSWSのバージョン管理に便利なツールです。
@@ -138,7 +133,6 @@ END_TIPS
 [ITEM]
 ID: viewlog
 NAME: サーバーログビューア
-SINCE: 
 
 DESCR: Tサーバーログビューアは、現在のサーバーログを参照してエラーまたは問題をチェックするための便利なツールです。
 ログ・ビューアーは、サーバーログファイルを指定されたログ・レベルのブロックで検索します。 
@@ -165,7 +159,6 @@ END_TIPS
 [ITEM]
 ID: realtimerpt
 NAME: リアルタイム統計
-SINCE: 
 
 DESCR: リアルタイム統計のリンクは、リアルタイムのサーバステータスレポートを含むページにつながります。
 これは、システムを監視するのに便利なツールです。 
@@ -211,7 +204,6 @@ END_TIPS
 [ITEM]
 ID: toggleDebugLog
 NAME: デバッグログを切り替える
-SINCE: 
 
 DESCR: デバッグログの切り替えは、{ITEM=ServGeneral_Help#log_debugLevel}の値を{val}NONE{/}と{val}HIGH{/}の間で切り替えます。
 デバッグロギングはパフォーマンスに影響を与え、ハードドライブをすばやく埋めることができるため、通常は本番サーバーで{ITEM=ServGeneral_Help#log_debugLevel}を{val}NONE{/}に設定する必要があります。
@@ -240,7 +232,6 @@ END_TIPS
 [ITEM]
 ID: lname
 NAME: 名前 - リスナー
-SINCE: 
 
 DESCR: このリスナーを識別する固有の名前。
 これは、リスナーを設定するときに指定した{ITEM=Listeners_Help#listenerName}です。
@@ -262,7 +253,6 @@ END_TIPS
 [ITEM]
 ID: lstatus
 NAME: ステータス - リスナー
-SINCE: 
 
 DESCR: このリスナーの現在のステータス。
 ステータスは{val}Running{/}か{val}Error{/}のいずれかです。
@@ -284,7 +274,6 @@ END_TIPS
 [ITEM]
 ID: lmap
 NAME: バーチャルホストマッピング
-SINCE: 
 
 DESCR: 特定のリスナーからのバーチャルホストへの現在確立されているマッピングを表示します。
 バーチャルホスト名は括弧内に表示され、このリスナーに一致するドメイン名が続きます。
@@ -306,7 +295,6 @@ END_TIPS
 [ITEM]
 ID: vname
 NAME: 名前 - バーチャルホスト
-SINCE: 
 
 DESCR: このバーチャルホストを識別する一意の名前。
 これは、このバーチャルホストを設定するときに指定した{ITEM=VirtualHosts_Help#vhName}です。
@@ -328,7 +316,6 @@ END_TIPS
 [ITEM]
 ID: vstatus
 NAME: ステータス - バーチャルホスト
-SINCE: 
 
 DESCR: バーチャルホストの現在のステータス。 
  ステータスは{val}Running{/}、{val}Stopped{/}、{val}Restart Required{/}、または{val}Running - Removed from onfiguration{/}です。
@@ -356,7 +343,6 @@ END_TIPS
 [ITEM]
 ID: vaction
 NAME: アクション - バーチャルホスト
-SINCE: 
 
 DESCR: このフィールドには、バーチャルホストを無効化、有効化、または再起動するためのボタンが表示されます。
 1つのバーチャルホストで実行されたアクションは、残りのWebサーバーには影響しません。
@@ -378,7 +364,6 @@ END_TIPS
 [ITEM]
 ID: venable
 NAME: 有効
-SINCE: 
 
 DESCR: {val}有効{/}アクションは、停止したバーチャルホストを起動します。
 これにより、新しい要求を受け入れることができます。
@@ -400,7 +385,6 @@ END_TIPS
 [ITEM]
 ID: vdisable
 NAME: 無効
-SINCE: 
 
 DESCR: {val}無効{/}アクションは、実行中のバーチャルホストを停止します。
 新しいリクエストは受け付けられませんが、処理中のリクエストは通常通り終了します。
@@ -422,7 +406,6 @@ END_TIPS
 [ITEM]
 ID: vreload
 NAME: 再起動 - バーチャルホスト
-SINCE: 
 
 DESCR: Restartアクションにより、Webサーバーはこのバーチャルホストの最新の構成をロードします。
 処理中のリクエストは古い設定で終了します。
