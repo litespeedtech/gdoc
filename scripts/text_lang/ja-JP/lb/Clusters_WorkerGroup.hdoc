@@ -9,7 +9,6 @@ NAME: デフォルトのターゲットポート
 REQUIRED: 
 APPLY: 3
 SINCE: 
-SEE_ALSO: 
 
 DESCR: バックエンドワーカーに接続するためのデフォルトのターゲットポートを指定します。
 ワーカーの設定で上書きすることができます。
@@ -34,7 +33,6 @@ NAME: Ping URL
 REQUIRED: 
 APPLY: 3
 SINCE: 
-SEE_ALSO: 
 
 DESCR: Webサーバーバックエンドワーカーの可用性を確認するために使用されるHTTP URLを指定します。
 他のタイプの労働者には効果がありません。
@@ -59,7 +57,6 @@ NAME: Ping 間隔（秒）
 REQUIRED: 
 APPLY: 3
 SINCE: 
-SEE_ALSO: 
 
 DESCR: バックエンドワーカーにpingを実行する頻度を指定します。
 Webサーバーバックエンドの場合、「Ping URL」に基づくhttp要求が送信されます。
@@ -86,7 +83,6 @@ NAME: ノードアドレスリスト
 REQUIRED: 
 APPLY: 3
 SINCE: 
-SEE_ALSO: 
 
 DESCR: このグループに属するノードのアドレスを指定します。
 ノードに指定できる属性は、「Destination IP」、「Destination Port」、「Node Tag」、「Source IP」です。
@@ -121,7 +117,6 @@ NAME: レイヤ7ワーカーグループ
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -133,7 +128,6 @@ NAME: レイヤ4ワーカーグループ
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -148,7 +142,6 @@ NAME: クラスタワーカーグループ
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 

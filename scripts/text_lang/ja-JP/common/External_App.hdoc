@@ -9,7 +9,6 @@ ID: extAppType
 NAME: タイプ
 NS: L
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 外部アプリケーションのタイプを指定します。 以下から選んでください
 <ul>
@@ -39,7 +38,6 @@ ID: extAppType
 NAME: タイプ
 NS: EO
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 外部アプリケーションのタイプを指定します。
 アプリケーションタイプは、提供するサービスまたはサーバーとの通信に使用するプロトコルによって区別されます。
@@ -81,7 +79,6 @@ END_TIPS
 ID: extAppName
 NAME: 名前
 SINCE: 
-SEE_ALSO: 
 
 DESCR:この外部アプリケーションの一意の名前。
 設定の他の部分でこの名前を使用するときは、この名前で参照します。
@@ -107,7 +104,6 @@ END_TIPS
 ID: extWorkers
 NAME: ワーカー
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 以前に外部ロードバランサで定義されたワーカーグループのリスト。
 END_DESCR
@@ -138,7 +134,6 @@ END_TIPS
 ID: workerName
 NAME: 名前
 SINCE: 
-SEE_ALSO: 
 
 DESCR: ワーカーグループの一意の名前。
 END_DESCR
@@ -160,7 +155,6 @@ END_TIPS
 ID: workerGroupEnabled
 NAME: 有効
 SINCE: 
-SEE_ALSO: 
 
 DESCR: このワーカーグループを有効にするかどうかを指定します。
 END_DESCR
@@ -182,7 +176,6 @@ END_TIPS
 ID: sourceIP
 NAME: ソースIP
 SINCE: 
-SEE_ALSO: 
 
 DESCR: バックエンドに接続するためのソースIPを指定します。
 ワーカー。 ワーカーの設定で上書きすることができます。
@@ -205,7 +198,6 @@ END_TIPS
 ID: extAppAddress
 NAME: アドレス
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 外部アプリケーションによって使用される一意のソケットアドレス。
 IPv4/IPv6ソケットとUnixドメインソケット（UDS）がサポートされています。
@@ -245,7 +237,6 @@ END_TIPS
 ID: expWSAddress
 NAME: アドレス
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 外部Webサーバーによって使用されるHTTPまたはHTTPSアドレス。
 END_DESCR
@@ -277,7 +268,6 @@ END_TIPS
 ID: extSrcIP
 NAME: タイプ
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 利用可能なIPから選択します。
 END_DESCR
@@ -299,7 +289,6 @@ END_TIPS
 ID: maxConns
 NAME: 最大接続数
 SINCE: 
-SEE_ALSO: 
 
 DESCR: サーバーと外部アプリケーションの間で確立できる同時接続の最大数を指定します。
 この設定は、外部アプリケーションによって同時に処理できる要求の数を制御しますが、実際の制限は外部アプリケーション自体によっても異なります。
@@ -324,7 +313,6 @@ END_TIPS
 ID: env
 NAME: 環境
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 外部アプリケーション用の追加の環境変数を指定します。
 END_DESCR
@@ -346,7 +334,6 @@ END_TIPS
 ID: initTimeout
 NAME: 初期要求タイムアウト（秒）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: サーバーが、新しいアプリケーションが新しい確立された接続を介して最初の要求に応答するのを待つ最長時間を秒単位で指定します。
 サーバーがこのタイムアウト制限内に外部アプリケーションからデータを受信しない場合、この接続は不良とマークされます。
@@ -371,7 +358,6 @@ END_TIPS
 ID: retryTimeout
 NAME: リトライタイムアウト（秒）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 以前の通信に問題があった外部アプリケーションを再試行する前に、サーバーが待機する時間を指定します。
 END_DESCR
@@ -393,7 +379,6 @@ END_TIPS
 ID: persistConn
 NAME: 永続的な接続
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 要求後に接続を開いたままにするかどうかを指定します。
 処理されました。
@@ -418,7 +403,6 @@ END_TIPS
 ID: pcKeepAliveTimeout
 NAME: キープアライブタイムアウト（秒）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: アイドル状態の永続的な接続を開いたままにする最大時間を指定します。
 "-1"に設定すると、接続はタイムアウトしません。
@@ -442,7 +426,6 @@ END_TIPS
 ID: respBuffer
 NAME: 応答バッファリング
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 外部から受信した応答をバッファリングするかどうかを指定します。
 アプリケーション。
@@ -467,7 +450,6 @@ ID: autoStart
 NAME: 自動スタート
 NS: E
 SINCE: 
-SEE_ALSO: 
 
 DESCR: Webサーバーでアプリケーションを自動的に開始するかどうかを指定します。
 同じマシン上で実行されているFastCGIおよびLSAPIアプリケーションのみを自動的に起動することができます。
@@ -493,7 +475,6 @@ ID: autoStart
 NAME: 自動スタート
 NS: LO
 SINCE: 
-SEE_ALSO: 
 
 DESCR: Webサーバーでアプリケーションを自動的に開始するかどうかを指定します。
 同じマシン上で実行されているFastCGIおよびLSAPIアプリケーションのみを自動的に起動することができます。
@@ -518,7 +499,6 @@ END_TIPS
 ID: extAppPath
 NAME: コマンド
 SINCE: 
-SEE_ALSO: {ITEM=autoStart} 
 
 DESCR: 外部アプリケーションを実行するためのパラメータを含む完全なコマンドラインを指定します。
 {ITEM=autoStart}が有効な場合は必須値です。
@@ -542,7 +522,6 @@ END_TIPS
 ID: backlog
 NAME: バックログ
 SINCE: 
-SEE_ALSO: 
 
 DESCR: リスニングソケットのバックログを指定します。
 {ITEM=autoStart}が有効な場合は必須です。
@@ -569,7 +548,6 @@ END_TIPS
 ID: instances
 NAME: インスタンス
 SINCE: 
-SEE_ALSO: 
 
 DESCR: サーバーが作成する外部アプリケーションの最大インスタンスを指定します。
 {ITEM=autoStart}が有効な場合は必須です。
@@ -595,7 +573,6 @@ END_TIPS
 ID: extUser
 NAME: suEXECユーザー
 SINCE: 
-SEE_ALSO: extGroup
 
 DESCR: 外部アプリケーションが実行されるユーザー名を指定します。
 設定されていない場合、外部アプリケーションはWebサーバーのユーザーとして実行されます。   
@@ -617,7 +594,6 @@ END_TIPS
 ID: extGroup
 NAME: suEXECグループ
 SINCE: 
-SEE_ALSO: extUser
 
 DESCR: 外部アプリケーションが実行されるグループ名を指定します。    
 END_DESCR
@@ -638,7 +614,6 @@ END_TIPS
 ID: extUmask
 NAME: umask
 SINCE: 5.0
-SEE_ALSO: CGI {ITEM=ServSecurity_Help#umask} 
 
 DESCR:この外部アプリケーションのプロセスのデフォルトumaskを設定します。
 詳細は、{cmd}man 2 umask{/}を参照してください。
@@ -661,7 +636,6 @@ END_TIPS
 ID: runOnStartUp
 NAME: 起動時に実行
 SINCE: 
-SEE_ALSO: 
 
 DESCR: サーバーの起動時に外部アプリケーションを起動するかどうかを指定します。
 自身の子プロセスを管理できる外部アプリケーション、および{ITEM=instances}の値が "1"に設定されている場合にのみ適用されます。
@@ -683,7 +657,6 @@ TIPS:[パフォーマンス] Railsアプリケーションのように、設定�
 ID: extMaxIdleTime
 NAME: 最大アイドル時間
 SINCE: 
-SEE_ALSO: 
 
 DESCR: サーバーが外部アプリケーションを停止するまでの最大アイドル時間を指定します。
 "-1"に設定すると、外部アプリケーションはサーバーによって停止されません。
@@ -711,7 +684,6 @@ END_TIPS
 ID: extAppPriority
 NAME: 優先度
 SINCE: 
-SEE_ALSO: Server {ITEM=ServGeneral_Help#serverPriority}
 
 DESCR: 外部アプリケーション・プロセスの優先度を指定します。
 値の範囲は{val}−20{/}〜{val}20{/}です。
@@ -738,7 +710,6 @@ ID: procSoftLimit
 NAME: プロセスソフトリミット
 NS: E
 SINCE: 
-SEE_ALSO: 
 
 DESCR: ユーザーに代わって作成できるプロセスの総数を制限します。
 既存のすべてのプロセスは、開始される新しいプロセスだけでなく、この限度に対してカウントされます。
@@ -788,7 +759,6 @@ ID: procSoftLimit
 NAME: プロセスソフトリミット
 NS: O
 SINCE: 
-SEE_ALSO: 
 
 DESCR: ユーザーに代わって作成できるプロセスの総数を制限します。
 既存のすべてのプロセスは、開始される新しいプロセスだけでなく、この限度に対してカウントされます。
@@ -841,7 +811,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -854,7 +823,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -867,7 +835,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -880,7 +847,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -893,7 +859,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -906,7 +871,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -919,7 +883,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -996,7 +959,6 @@ FastCGIアプリケーション、LSAPIアプリケーション、Webサーバ�
 
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 
@@ -1009,7 +971,6 @@ NS: EO
 DESCR:
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 
@@ -1022,7 +983,6 @@ NS: EO
 DESCR:
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 
@@ -1034,7 +994,6 @@ NS: EO
 DESCR:
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 
@@ -1047,7 +1006,6 @@ NS: EO
 DESCR:
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 
@@ -1060,7 +1018,6 @@ NS: EO
 DESCR:
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 
@@ -1073,7 +1030,6 @@ NS: EO
 DESCR:
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 
@@ -1086,7 +1042,6 @@ NS: EO
 DESCR:
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 

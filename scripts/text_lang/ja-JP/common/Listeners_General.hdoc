@@ -8,7 +8,6 @@
 ID: listenerName
 NAME: リスナー名
 SINCE: 
-SEE_ALSO: 
 
 DESCR: このリスナーの一意の名前。
 END_DESCR
@@ -34,7 +33,6 @@ ID: listenerType
 NAME: タイプ
 NS: L
 SINCE: 
-SEE_ALSO: 
 
 DESCR: レイヤー7リスナータイプ。
 
@@ -62,7 +60,6 @@ END_TIPS
 ID: listenerIP
 NAME: IPアドレス
 SINCE: 
-SEE_ALSO: 
 
 DESCR: このリスナーのIPを指定します。 使用可能なすべてのIPアドレスがリストされます。
 IPv6アドレスは "[]"で囲まれています。
@@ -92,7 +89,6 @@ END_TIPS
 ID: listenerPort
 NAME: ポート
 SINCE: 
-SEE_ALSO: 
 
 DESCR: リスナーのTCPポートを指定します。
 スーパーユーザー（"root"）のみが{val}1024{/}より小さいポートを使用できます。 
@@ -123,7 +119,6 @@ ID: listenerBinding
 NAME: バインディング
 NS: L
 SINCE: 
-SEE_ALSO: 
 
 DESCR: リスナーがどのlslbd子プロセスに割り当てられているかを指定します。
 複数の子プロセスが生成され、SMPシステム内の複数のCPUを利用できます。
@@ -149,7 +144,6 @@ ID: listenerBinding
 NAME: バインディング
 NS: E
 SINCE: 
-SEE_ALSO: 
 
 DESCR: {ent_version}リスナーが割り当てられているlshttpd子プロセスを指定します。
 Enterprise Editionは複数の子プロセスを生成し、SMPシステム内の複数のCPUを利用します。
@@ -175,7 +169,6 @@ ID: listenerBinding
 NAME: バインディング
 NS: O
 SINCE: 
-SEE_ALSO: 
 
 DESCR: リスナーが割り当てられているlshttpd子プロセスを指定します。
 リスナーをプロセスに手動で関連付けることによって、異なるリスナーへのリクエストを処理するために、異なる子プロセスを使用できます。
@@ -199,7 +192,6 @@ END_TIPS
 ID: listenerSecure
 NAME: セキュア
 SINCE: 
-SEE_ALSO: 
 
 DESCR: Sこれがセキュア（SSL）リスナーかどうかを指定します。
 セキュアリスナーの場合は、追加のSSL設定を適切に設定する必要があります。
@@ -226,7 +218,6 @@ ID: mapped_L4_clusters
 NAME: マッピングされたクラスタ
 NS: L
 SINCE: 
-SEE_ALSO: 
 
 DESCR: レイヤ4リスナーがロードバランシングに使用するクラスタを指定します。
 マップされたクラスタは、「クラスタ」タブで事前定義されているレイヤ4クラスタである必要があります。
@@ -253,7 +244,6 @@ END_TIPS
 ID: virtualHostName
 NAME: バーチャルホスト
 SINCE: 
-SEE_ALSO: 
 
 DESCR: バーチャルホストの名前を指定します。 
 END_DESCR
@@ -281,7 +271,6 @@ END_TIPS
 ID: domainName
 NAME: ドメイン
 SINCE: 
-SEE_ALSO: 
 
 DESCR: マッピングドメイン名を指定します。
 ドメイン名は大文字と小文字を区別せず、先頭の "www." 削除されます。
@@ -326,7 +315,6 @@ NS: L
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -339,7 +327,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -362,7 +349,6 @@ TIPS: [パフォーマンス]必要なマッピングのみを追加します。
 リスナーが1つのバーチャルホストにのみマッピングされている場合は、キャッチオールマッピング "*"のみを設定します。
 END_TIPS
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -378,7 +364,6 @@ NS: LEO
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 

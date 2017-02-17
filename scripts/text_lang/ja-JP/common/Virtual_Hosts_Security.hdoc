@@ -8,7 +8,6 @@
 ID: enableHotlinkCtrl
 NAME: ホットリンク保護を有効にする
 SINCE: 
-SEE_ALSO: 
 
 DESCR: ホットリンクの保護を有効にするかどうかを指定します。
 END_DESCR
@@ -30,7 +29,6 @@ END_TIPS
 ID: suffixes
 NAME: サフィックス
 SINCE: 
-SEE_ALSO: 
 
 DESCR: ファイルの接尾辞をリストすることによって、ホットリンクから保護されるファイルの種類を指定します。
 END_DESCR
@@ -52,7 +50,6 @@ END_TIPS
 ID: redirectUri
 NAME: リダイレクトURL
 SINCE: 
-SEE_ALSO: 
 
 DESCR: ホットリンクアクションが検出されたときにユーザーがリダイレクトされるURLを指定します。
 ホットリンクが許可されていないことを示すイメージやページにリダイレクトすることができます。
@@ -79,7 +76,6 @@ END_TIPS
 ID: allowDirectAccess
 NAME: ダイレクトアクセスを許可する
 SINCE: 
-SEE_ALSO: 
 
 DESCR: リファラーなしで直接アクセスを許可するかどうかを指定します。
 リファラーヘッダーは、現在のページにリンクされているWebページを識別します。
@@ -107,7 +103,6 @@ END_TIPS
 ID: onlySelf
 NAME: 自己参照のみ
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 現在のWebサイトからの参照のみを許可するかどうかを指定します。
 {val}Yes{/}に設定すると、{ITEM=allowedHosts}は効果がなく、保護されたファイルに他のWebサイトをリンクすることはできません。
@@ -138,7 +133,6 @@ END_TIPS
 ID: allowedHosts
 NAME: 許可されたドメイン
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 保護されたコンテンツにリンクできるWebサイトを指定します。
 END_DESCR
@@ -160,7 +154,6 @@ END_TIPS
 ID: matchedHosts
 NAME: REGEXと一致するドメイン
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 正規表現で保護されたコンテンツにリンクできるWebサイトを指定します。
 正規表現は完全なURLではなくドメイン名と一致します。
@@ -190,7 +183,6 @@ END_TIPS
 ID: realmType
 NAME: DB Type
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 権限レルムのユーザー/グループ・データの格納方法を指定します。
 現在、ユーザー/グループのデータはフラットファイルまたはLDAPサーバーに格納できます。 
@@ -219,7 +211,6 @@ END_TIPS
 ID: realmName
 NAME: レルム名
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 認可レルムの一意の名前を指定します。
 END_DESCR
@@ -244,7 +235,6 @@ END_TIPS
 ID: userDBLocation
 NAME: ユーザーDBの場所
 SINCE: 
-SEE_ALSO:  {ITEM=GroupDBLocation}, {ITEM=userDB_attrPasswd}, {ITEM=userDB_attrMemberOf}
 
 DESCR: ユーザーデータベースの場所を指定します。
 DBタイプ{val}パスワードファイル{/}の場合、ユーザ/パスワード定義を含むフラットファイルへのパスです。
@@ -295,7 +285,6 @@ END_TIPS
 ID: userDBMaxCacheSize
 NAME: ユーザーDB最大キャッシュサイズ
 SINCE: 
-SEE_ALSO: 
 
 DESCR: ユーザーデータベースの最大キャッシュサイズを指定します。
 最近アクセスされたユーザー認証データは、最大のパフォーマンスを提供するためにメモリにキャッシュされます。
@@ -319,7 +308,6 @@ END_TIPS
 ID: userDBCacheTimeout
 NAME: ユーザーDBキャッシュタイムアウト（秒）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: バックエンドユーザーデータベースの変更の確認頻度を指定します。
 キャッシュ内のすべてのエントリにタイムスタンプがあります。
@@ -345,7 +333,6 @@ END_TIPS
 ID: GroupDBLocation
 NAME: グループDBの場所
 SINCE: 
-SEE_ALSO: {ITEM=userDBLocation}, Context {ITEM=Context_Help#required}, {ITEM=groupDB_attrGroupMember}
 
 DESCR: グループデータベースの場所を指定します。
 
@@ -387,7 +374,6 @@ END_TIPS
 ID: groupDBMaxCacheSize
 NAME: グループDB最大キャッシュサイズ
 SINCE: 
-SEE_ALSO: {ITEM=userDBMaxCacheSize}
 
 DESCR: グループデータベースの最大キャッシュサイズを指定します。
 END_DESCR
@@ -410,7 +396,6 @@ END_TIPS
 ID: groupDBCacheTimeout
 NAME: グループDBキャッシュタイムアウト（秒）
 SINCE: 
-SEE_ALSO: {ITEM=userDBCacheTimeout}
 
 DESCR: バックエンドグループデータベースの変更の確認頻度を指定します。
 詳細については、{ITEM=userDBCacheTimeout}を参照してください。
@@ -436,7 +421,6 @@ END_TIPS
 ID: userDB_attrPasswd
 NAME: パスワード属性
 SINCE: 
-SEE_ALSO: 
 
 DESCR: LDAPサーバーに格納されているユーザーレコードのパスワード属性の名前を指定します。
 デフォルト値は{val}userPassword{/}です。
@@ -459,7 +443,6 @@ END_TIPS
 ID: userDB_attrMemberOf
 NAME: Member-of属性
 SINCE: 
-SEE_ALSO: 
 
 DESCR: LDAPサーバーに格納されているユーザーレコードの「Member-of」属性の名前を指定します。
 デフォルト値は{val}memberOf{/}です。
@@ -483,7 +466,6 @@ END_TIPS
 ID: groupDB_attrGroupMember
 NAME: グループメンバ属性
 SINCE: 
-SEE_ALSO: 
 
 DESCR: LDAPサーバーに格納されているグループレコードの「Member」属性の名前を指定します。
 デフォルト値は{val}memberUid{/}です。 
@@ -506,7 +488,6 @@ END_TIPS
 ID: LDAPBindDN
 NAME: LDAPバインドDN
 SINCE: 
-SEE_ALSO: {ITEM=LDAPBindPasswd}
 
 DESCR: サーバーにバインドするために使用されるDNを指定します。
 LDAPサーバーで認証が必要な場合は、バインドDNとパスワードを指定する必要があります。
@@ -530,7 +511,6 @@ END_TIPS
 ID: LDAPBindPasswd
 NAME: LDAPバインドパスワード
 SINCE: 
-SEE_ALSO: {ITEM=LDAPBindDN}
 
 DESCR: サーバーにバインドするためのパスワードを指定します。
 LDAPサーバーで認証が必要な場合は、バインドDNとパスワードを指定する必要があります。  
@@ -617,7 +597,6 @@ LiteSpeed Webサーバーは、HTTPリクエスト内のRefererヘッダーを�
 Refererヘッダーがあなたのウェブサイトと一致しない場合、リクエストは拒否されます。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -635,7 +614,6 @@ DESCR: このバーチャルホストのすべての許可レルムをリスト�
 コンテキスト設定では、これらの名前でレルムを参照できます。 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -651,7 +629,6 @@ NS: L
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 
@@ -664,7 +641,6 @@ NS: E
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 
@@ -677,7 +653,6 @@ NS: O
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 

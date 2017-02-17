@@ -7,7 +7,6 @@
 ID: vhName
 NAME: バーチャルホスト名
 SINCE: 
-SEE_ALSO: 
 
 DESCR: バーチャルホストの一意の名前。 バーチャルホストのドメイン名をバーチャルホスト名として使用することをお勧めします。
 バーチャルホスト名は、変数$VH_NAMEを使用して参照できます。
@@ -31,7 +30,6 @@ ID: vhRoot
 NAME: バーチャルホスト Root
 NS: E
 SINCE: 
-SEE_ALSO: 
 
 DESCR: バーチャルホストのルートディレクトリを指定します。
 注：これはドキュメントのルートではありません<b> NOT </b>です。 このディレクトリの下に、バーチャルホストに関連するすべてのファイル（ログファイル、htmlファイル、CGIスクリプトなど）を置くことをお勧めします。
@@ -64,7 +62,6 @@ ID: vhRoot
 NAME: バーチャルホスト Root
 NS: O
 SINCE: 
-SEE_ALSO: 
 
 DESCR: バーチャルホストのルートディレクトリを指定します。
 注：これはドキュメントのルートではありません<b> NOT </b>です。 このディレクトリの下に、バーチャルホストに関連するすべてのファイル（ログファイル、htmlファイル、CGIスクリプトなど）を置くことをお勧めします。
@@ -96,7 +93,6 @@ END_TIPS
 ID: defaultCluster
 NAME: デフォルトクラスタ
 SINCE: 
-SEE_ALSO: 
 
 DESCR: このバーチャルホストへの要求を処理するために使用されるデフォルトのクラスタを指定します。 
 END_DESCR
@@ -122,7 +118,6 @@ ID: configFile
 NAME: 設定ファイル
 NS: LE
 SINCE: 
-SEE_ALSO: 
 
 DESCR: このバーチャルホストの設定ファイル名とディレクトリ。
 END_DESCR
@@ -145,7 +140,6 @@ ID: configFile
 NAME: 設定ファイル
 NS: O
 SINCE: 
-SEE_ALSO: 
 
 DESCR: このバーチャルホストの設定ファイル名とディレクトリ。
 設定ファイルは、$SERVER_ROOT/conf/vhosts/ディレクトリの下になければなりません。
@@ -170,7 +164,6 @@ END_TIPS
 ID: vhMaxKeepAliveReq
 NAME: 最大キープアライブ要求
 SINCE: 
-SEE_ALSO: {ITEM=ServTuning_Help#maxKeepAliveReq}
 
 DESCR: キープアライブ（永続的）接続を介して提供できる最大要求を特定します。
 この制限に達すると接続が閉じられます。
@@ -196,7 +189,6 @@ END_TIPS
 ID: vhSmartKeepAlive
 NAME: Smartキープアライブ
 SINCE: 
-SEE_ALSO: 
 
 DESCR: このバーチャルホストに対してSmart Keep-Aliveを有効にするかどうかを指定します。
 このオプションは、{ITEM=ServTuning_Help#smartKeepAlive}がサーバーレベルで有効で、{ITEM=vhMaxKeepAliveReq}が1より大きい場合にのみ有効です。
@@ -222,7 +214,6 @@ END_TIPS
 ID: allowSymbolLink
 NAME: シンボリックリンク参照
 SINCE: 
-SEE_ALSO: 
 
 DESCR: このバーチャルホスト内のシンボリックリンクをたどるかどうかを指定します。
 {val}IF OWNER MATCH{/}オプションは、同じ所有権を持つ場合にのみシンボリックリンクに従います。
@@ -247,7 +238,6 @@ END_TIPS
 ID: enableScript
 NAME: スクリプトを有効にする
 SINCE: 
-SEE_ALSO: 
 
 DESCR: このバーチャルホストでスクリプティング（非静的ページ）を許可するかどうかを指定します。
 無効にすると、CGI、FastCGI、LSAPI、サーブレットエンジン、その他のスクリプト言語はこのバーチャルホストでは許可されません。
@@ -271,7 +261,6 @@ END_TIPS
 ID: restrained
 NAME: 拘束された
 SINCE: 
-SEE_ALSO: 
 
 DESCR: このバーチャルホストのルート（$VH_ROOT）を超えるファイルにこのWebサイトからアクセスできるかどうかを指定します。
 {val}はい{/}に設定すると、$VH_ROOT以下のファイルにしかアクセスできず、シンボリックリンクや$VH_ROOTを超えるファイルやディレクトリを指すコンテキストへのアクセスが拒否されます。
@@ -301,7 +290,6 @@ END_TIPS
 ID: setUidMode
 NAME: 外部アプリ Set UID モード
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 外部アプリケーション・プロセスにユーザーIDを設定する方法を指定します。
 3つの選択肢があります： 
@@ -329,7 +317,6 @@ END_TIPS
 ID: chrootMode
 NAME: 外部アプリ Chroot モード
 SINCE: 
-SEE_ALSO: 
 
 DESCR: {ent_version}ルートディレクトリが外部アプリケーションプロセスに対してどのように設定されるかを指定します。
 機密システム・データ・ファイルが脆弱な外部アプリケーション・スクリプトによってアクセスされるのを防ぐために、新しいルート・ディレクトリ以外のファイルがアクセス不能になるように、外部アプリケーション・プロセス用の代替ルート・パスを設定できます。
@@ -362,7 +349,6 @@ END_TIPS
 ID: chrootPath
 NAME: 外部アプリ Chroot パス
 SINCE: 
-SEE_ALSO: 
 
 DESCR: {ent_version}{ITEM=chrootMode}が{val}Customized Chroot Path{/}に設定されている場合、現在のホストの外部アプリケーションスクリプトの新しいルートディレクトリを指定します。
 
@@ -385,7 +371,6 @@ END_TIPS
 ID: totalBandwidth
 NAME: 総出力帯域幅（KB /秒）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: このバーチャルホストの総出力帯域幅（KB / s）の制限を設定します。
 この制限に達すると、スロットリングが発生します。
@@ -471,7 +456,6 @@ NS: L
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -484,7 +468,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -502,7 +485,6 @@ DESCR: このページには、定義されたすべてのバーチャルホス�
 バーチャルホストを追加する前に、バーチャルホストのルートディレクトリが存在することを確認してください。
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 
@@ -516,7 +498,6 @@ DESCR: このページには、定義されたすべてのバーチャルホス�
 ここからバーチャルホストを追加/削除したり、既存のバーチャルホストを変更したりすることができます。
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 

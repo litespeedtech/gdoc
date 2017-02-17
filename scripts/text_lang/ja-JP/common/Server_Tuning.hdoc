@@ -8,7 +8,6 @@
 ID: eventDispatcher
 NAME: I/Oイベント・ディスパッチャー
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 使用するI / Oイベント・ディスパッチャーを指定します。
 オペレーティングシステムによって、さまざまなタイプのイベントディスパッチャがサポートされています:
@@ -51,7 +50,6 @@ ID: ramDiskPath
 NAME: RAMディスクパス
 NS: LE
 SINCE: 4.2.4
-SEE_ALSO: 
 
 DESCR: RAMディスクパスを設定すると、RAMディスクの場所を指定できます。
 RAMディスクは、メモリに格納されたどこからでも書き込み可能なディレクトリです。
@@ -82,7 +80,6 @@ ID: SSLStrongDhKey
 NAME: SSL強力なDHキー
 NS: LEO
 SINCE: 
-SEE_ALSO: 
 
 DESCR: SSLハンドシェイクに2048または1024ビットのDHキーを使用するかどうかを指定します。
 「Yes」に設定すると、2048ビットのSSLキーと証明書に2048ビットのDHキーが使用されます。
@@ -115,7 +112,6 @@ ID: maxConnections
 NAME: 最大接続数
 NS: LO
 SINCE: 
-SEE_ALSO: 
 
 DESCR: サーバーが受け入れることができる同時接続の最大数を指定します。
 これには、プレーンTCP接続とSSL接続の両方が含まれます。
@@ -140,7 +136,6 @@ ID: maxConnections
 NAME: 最大接続数
 NS: E
 SINCE: 
-SEE_ALSO: 
 
 DESCR: サーバーが受け入れることができる同時接続の最大数を指定します。
 これには、プレーンTCP接続とSSL接続の両方が含まれます。
@@ -165,7 +160,6 @@ END_TIPS
 ID: maxSSLConnections
 NAME: SSL接続の最大数
 SINCE: 
-SEE_ALSO: 
 
 DESCR: サーバーが受け入れる同時SSL接続の最大数を指定します。
 同時SSL接続と非SSL接続の合計が{ITEM=maxConnections}で指定された制限を超えることはできないため、許可される同時SSL接続の実際の数はこの制限より小さくなければなりません。
@@ -188,7 +182,6 @@ END_TIPS
 ID: connTimeout
 NAME: 接続タイムアウト（秒）
 SINCE: 
-SEE_ALSO: {ITEM=keepAliveTimeout}
 
 DESCR: 1つの要求の処理中に許容される最大接続アイドル時間を指定します。
 この時間の間、接続がアイドル状態の場合、つまりI/Oアクティビティがない場合は、接続が閉じられます。
@@ -211,7 +204,6 @@ END_TIPS
 ID: maxKeepAliveReq
 NAME: 最大キープアライブ要求
 SINCE: 
-SEE_ALSO: Virtual Host {ITEM=VirtualHosts_Help#vhMaxKeepAliveReq}
 
 DESCR: キープアライブ（永続的）セッションを介して処理できる要求の最大数を指定します。
 この制限に達すると接続は終了します。
@@ -236,7 +228,6 @@ END_TIPS
 ID: smartKeepAlive
 NAME: スマートキープアライブ
 SINCE: 
-SEE_ALSO: 
 
 DESCR: バーチャルホスト{ITEM=VirtualHosts_Help#vhSmartKeepAlive} DESCR：スマートキープアライブをオンにするかどうかを指定します。
 このオプションは、{ITEM=maxKeepAliveReq}が1より大きい場合にのみ有効です。
@@ -267,7 +258,6 @@ END_TIPS
 ID: keepAliveTimeout
 NAME: キープアライブタイムアウト（秒）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: キープアライブ接続からの要求間の最大アイドル時間を指定します。
 この期間中に新しい要求が受信されない場合、接続は閉じられます。
@@ -297,7 +287,6 @@ ID: sndBufSize
 NAME: 送信バッファサイズ（バイト）
 NS: LEO
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 各TCPソケットの送信バッファサイズ。
 {val}512K{/}は許容されるバッファの最大サイズです。
@@ -330,7 +319,6 @@ END_TIPS
 ID: rcvBufSize
 NAME: 受信バッファサイズ（バイト）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 各TCPソケットの受信バッファーサイズ。
 {val}512K{/}は許容されるバッファの最大サイズです。
@@ -360,7 +348,6 @@ END_TIPS
 ID: maxReqURLLen
 NAME: 最大リクエストURLの長さ（バイト）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: リクエストURLの最大サイズを指定します。
 URLは、クエリ文字列を含むサーバーリソースへのアクセスに使用されるフルテキストアドレスです。 {val}8192{/}バイトがハードリミットです。
@@ -385,7 +372,6 @@ END_TIPS
 ID: maxReqHeaderSize
 NAME: 最大要求ヘッダーサイズ（バイト）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 要求URLを含むHTTP要求ヘッダーの最大サイズを指定します。
 ハード制限は{val}16380{/}バイトです。 
@@ -413,7 +399,6 @@ END_TIPS
 ID: maxReqBodySize
 NAME: 最大リクエストボディサイズ（バイト）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: HTTPリクエスト本文の最大サイズを指定します。
 32ビットOSの場合、{val}2GB{/}はハード制限です。
@@ -438,7 +423,6 @@ END_TIPS
 ID: maxDynRespHeaderSize
 NAME: 最大動的応答ヘッダーサイズ（バイト）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 動的に生成される応答の最大ヘッダーサイズを指定します。 ハードリミットは{val}8KB{/}です。
 END_DESCR
@@ -460,7 +444,6 @@ END_TIPS
 ID: maxDynRespSize
 NAME: 最大動的応答ボディサイズ（バイト）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 動的に生成される応答の最大ボディサイズを指定します。
 ハードリミットは{val}2047MB{/}です。
@@ -487,7 +470,6 @@ END_TIPS
 ID: maxCachedFileSize
 NAME: 最大キャッシュサイズの小さいファイルサイズ（バイト）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 事前に割り当てられたメモリバッファにキャッシュされる最大の静的ファイルを指定します。
 静的ファイルは、メモリバッファキャッシュ、メモリマップキャッシュ、プレーンリード/ライト、およびsendfile（）の4つの方法で提供できます。
@@ -514,7 +496,6 @@ END_TIPS
 ID: totalInMemCacheSize
 NAME: 小ファイルキャッシュサイズ合計（バイト）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 小さな静的ファイルをキャッシュ/提供するためにバッファーキャッシュに割り振ることができる合計メモリーを指定します。
 END_DESCR
@@ -536,7 +517,6 @@ END_TIPS
 ID: maxMMapFileSize
 NAME: 最大MMAPファイルサイズ（バイト）
 SINCE: 
-SEE_ALSO: 
 
 DESCR:  メモリマップされる最大の静的ファイル（MMAP）を指定します。
   静的ファイルは、メモリバッファキャッシュ、メモリマップキャッシュ、プレーンリード/ライト、およびsendfile（）の4つの方法で提供できます。
@@ -563,7 +543,6 @@ END_TIPS
 ID: totalMMapCacheSize
 NAME: MMAPキャッシュサイズ合計（バイト）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 中規模の静的ファイルをキャッシュ/配信するためにメモリマップされたキャッシュに割り当てることができる合計メモリを指定します。 
 END_DESCR
@@ -585,7 +564,6 @@ END_TIPS
 ID: useSendfile
 NAME: sendfile（）を使用する
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 静的ファイルを提供するためにsendfile（）システムコールを使用するかどうかを指定します。
 静的ファイルは、メモリバッファキャッシュ、メモリマップキャッシュ、プレーンリード/ライト、およびsendfile（）の4つの方法で提供できます。
@@ -615,7 +593,6 @@ ID: useAIO
 NAME: AIOを使用する
 NS: E
 SINCE: 
-SEE_ALSO: {ITEM=AIOBlockSize}
 
 DESCR: 静的ファイルを提供するためにAIOを使用するかどうかを指定します。
 サーバーのI/O待機時間が長い場合は、AIOが役立ちます。
@@ -641,7 +618,6 @@ ID: AIOBlockSize
 NAME: AIOブロックサイズ
 NS: E
 SINCE: 
-SEE_ALSO: {ITEM=useAIO}
 
 DESCR: AIOの送信ブロックサイズを指定します。
 このブロックサイズに処理されるファイルの総数を掛けた値は、サーバーの物理メモリより小さくなければなりません。それ以外の場合、AIOは役に立ちません。
@@ -667,7 +643,6 @@ END_TIPS
 ID: fileETag
 NAME: ファイルETag
 SINCE: 4.2.2
-SEE_ALSO: 
 
 DESCR: ファイルのinode、last-modified time、およびsize属性を使用するかどうかを指定します。
 静的ファイル用のETag HTTP応答ヘッダーを生成します。
@@ -696,7 +671,6 @@ END_TIPS
 ID: enableGzipCompress
 NAME: 圧縮を有効にする
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 静的HTTP応答と動的HTTP応答の両方のGZIP圧縮を制御します。 
 END_DESCR
@@ -719,7 +693,6 @@ END_TIPS
 ID: enableDynGzipCompress
 NAME: 動的圧縮を有効にする
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 動的に生成されるHTTPレスポンスのGZIP圧縮を制御します。
 動的なGZIP圧縮を有効にするには、{ITEM=enableGzipCompress}を{val}はい{/}に設定する必要があります。
@@ -746,7 +719,6 @@ END_TIPS
 ID: gzipCompressLevel
 NAME: 圧縮レベル（動的コンテンツ）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 動的コンテンツの圧縮レベルを指定します。
 {val}1{/}（最低）から{val}9{/}（最高）までの範囲です。
@@ -775,7 +747,6 @@ END_TIPS
 ID: compressibleTypes
 NAME: 圧縮可能なタイプ
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 圧縮できるMIMEタイプを指定します。
 END_DESCR
@@ -807,7 +778,6 @@ END_TIPS
 ID: gzipAutoUpdateStatic
 NAME: 静的ファイルの自動更新
 SINCE: 
-SEE_ALSO: 
 
 DESCR: Sサーバが圧縮可能な静的ファイルのGZIP圧縮バージョンを自動的に作成/更新するかどうかを指定します。
 {ITEM=compressibleTypes}にリストされているMIMEタイプのファイルが要求されたときに{val}はい{/}に設定されている場合、サーバーは圧縮ファイルのタイムスタンプに応じてファイルの対応する圧縮バージョンを作成または更新できます。
@@ -832,7 +802,6 @@ END_TIPS
 ID: gzipCacheDir
 NAME: 静的GZIPキャッシュディレクトリ
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 静的コンテンツ用の圧縮ファイルの格納に使用されるディレクトリのパスを指定します。
 デフォルトは{ITEM=swappingDir}です。
@@ -855,7 +824,6 @@ END_TIPS
 ID: gzipStaticCompressLevel
 NAME: 圧縮レベル（静的コンテンツ）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 静的コンテンツの圧縮レベルを指定します。
 {val}1{/}（最低）から{val}9{/}（最高）までの範囲です。
@@ -879,7 +847,6 @@ END_TIPS
 ID: gzipMaxFileSize
 NAME: 最大静的ファイルサイズ（バイト）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 静的ファイルの最大サイズを指定します。
 サーバーは自動的に圧縮ファイルを作成します。 
@@ -903,7 +870,6 @@ END_TIPS
 ID: gzipMinFileSize
 NAME: 最小静的ファイルサイズ（バイト）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 静的ファイルの最小サイズを指定します。
 サーバーは対応する圧縮ファイルを作成します。
@@ -930,7 +896,6 @@ ID: sslSessionCache
 NAME: セッションキャッシュを有効にする
 NS: LEO
 SINCE: 
-SEE_ALSO: 
 
 EDITTIP: Sセッションキャッシュを使用すると、クライアントはSSLハンドシェイクを再実行せずに一定時間内にセッションを再開できます。
 これを行うには、<b>セッションキャッシュを有効にする</b>を使用するか、セッションチケットを作成して使用して、クライアントにセッションIDを割り当てます。
@@ -958,7 +923,6 @@ END_TIPS
 ID: sslSessionCacheSize
 NAME: セッションキャッシュサイズ（バイト）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: キャッシュに格納するSSLセッションIDの最大数を設定します。
 デフォルトは1,000,000です。
@@ -982,7 +946,6 @@ END_TIPS
 ID: sslSessionCacheTimeout
 NAME: セッションキャッシュタイムアウト（秒）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: この値は、再ネゴシエーションが必要な前にセッションIDがキャッシュ内で有効である期間を決定します。
 デフォルトは3,600です。
@@ -1007,7 +970,6 @@ ID: sslSessionTickets
 NAME: セッションチケットを有効にする
 NS: LEO
 SINCE: 
-SEE_ALSO: 
 
 DESCR: セッションチケットを有効にします。
 「未設定」の場合、サーバーはopenSSLのデフォルトチケットを使用します。
@@ -1032,7 +994,6 @@ ID: shmDefaultDir
 NAME: デフォルトのSHMディレクトリ
 NS: LEO
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 共有メモリのデフォルトディレクトリを指定されたパスに変更します。
 ディレクトリが存在しない場合は作成されます。
@@ -1057,7 +1018,6 @@ END_TIPS
 ID: sslSessionTicketLifetime
 NAME: SSLセッションチケットの有効期間（秒）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: この値は、再ネゴシエーションが必要となる前にセッションチケットが有効になる期間を決定します。
 デフォルトは3,600です。
@@ -1152,7 +1112,6 @@ END_TIPS
 ID: sslDynCertsBaseDir
 NAME: SSL動的証明書ベースディレクトリ
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 動的SSL証明書が格納されるベースディレクトリを設定します。
 証明書、鍵、およびCAバンドルの名前はそれぞれ「cert」、「key」、および「ca」とする予定です。
@@ -1177,7 +1136,6 @@ END_TIPS
 ID: sslDynCertsNumLevels
 NAME: SSL動的証明書のレベル
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 証明書ファイルが格納されるディレクトリレベルの数。 
 
@@ -1203,7 +1161,6 @@ END_TIPS
 ID: sslDynCertsExpire
 NAME: SSL動的証明書有効期限（秒）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 動的に読み込まれた証明書が無効にされる前に、有効期限を設定します。
 
@@ -1226,7 +1183,6 @@ END_TIPS
 ID: sslDynCertsRefresh
 NAME: SSL動的証明書リフレッシュ時間（秒）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: ファイルの有効性をチェックする前に、動的に読み込まれた証明書の更新時間を設定します。
 リフレッシュ時間前にファイルが削除された場合、証明書は無効になります。
@@ -1251,7 +1207,6 @@ END_TIPS
 ID: sslEnableMultiCerts
 NAME: 複数のSSL証明書を有効にする
 SINCE: 
-SEE_ALSO: 
 
 DESCR:  リスナー/バーチャルホストが複数のSSL証明書を設定できるようにします。
 複数の証明書が有効な場合、証明書/キーは命名規則に従うことが想定されます。
@@ -1284,7 +1239,6 @@ NS: LE
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1297,7 +1251,6 @@ NS: O
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1310,7 +1263,6 @@ NS: L
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1323,7 +1275,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1336,7 +1287,6 @@ NS: LEO
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1349,7 +1299,6 @@ NS: E
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1362,7 +1311,6 @@ NS: O
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1375,7 +1323,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1388,7 +1335,6 @@ NS: L
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1401,7 +1347,6 @@ NS: LEO
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1414,7 +1359,6 @@ NS: L
 DESCR: SSL動的SNIを使用すると、ロードバランサが要求を処理するときにクライアントのサイト固有の証明書を提供するために使用できるディレクトリを指定することによって、ロードバランサの汎用証明書を使用しないようにできます。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1430,7 +1374,6 @@ NS: L
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 
@@ -1443,7 +1386,6 @@ NS: E
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 
@@ -1456,7 +1398,6 @@ NS: O
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 

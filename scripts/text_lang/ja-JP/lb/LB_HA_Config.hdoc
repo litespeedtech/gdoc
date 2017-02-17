@@ -10,7 +10,6 @@ NAME: 名前
 REQUIRED: 
 APPLY: 3
 SINCE: 2.0
-SEE_ALSO: 
 
 DESCR: バーチャルインターフェイスを識別する固有の番号。
 END_DESCR
@@ -37,7 +36,6 @@ NAME: バーチャルIP
 REQUIRED: 
 APPLY: 3
 SINCE: 2.0
-SEE_ALSO: 
 
 DESCR: HAインターフェイスのバーチャルIPアドレス。
 これはIPv4またはIPv6のいずれかのアドレスで、実際のIPアドレスと同じサブネット上になければなりません。
@@ -62,7 +60,6 @@ NAME: バーチャルIP ID
 REQUIRED: 
 APPLY: 3
 SINCE: 2.0
-SEE_ALSO: 
 
 DESCR: バーチャルIPアドレスのID。 1〜10の整数を使用してください。
 同じHAグループに対して<b>バーチャルIP</b>、<b>バーチャルIP ID</b>、および<b>バーチャルIPトークン</b>が同じである必要があります。
@@ -87,7 +84,6 @@ NAME: バーチャルIPトークン
 REQUIRED: 
 APPLY: 3
 SINCE: 2.0
-SEE_ALSO: 
 
 DESCR: インターフェイス（carp/vrrp）の広告を認証するには、バーチャルIPアドレストークンが必要です。
 同じHAグループに対して<b>バーチャルIP</b>、<b>バーチャルIP ID</b>、および<b>バーチャルIPトークン</b>が同じである必要があります。
@@ -112,7 +108,6 @@ NAME: NIC名
 REQUIRED: 
 APPLY: 3
 SINCE: 2.0
-SEE_ALSO: 
 
 DESCR: バーチャルIPがバインドするNIC名（eth0、eth1など）。Linuxプラットフォームでは必須です。
 
@@ -133,7 +128,6 @@ NAME: プライオリティ
 REQUIRED: 
 APPLY: 3
 SINCE: 2.0
-SEE_ALSO: 
 
 DESCR: このロードバランササーバーの優先度。この値が大きいほど優先度が高くなります。
 最優先のロードバランサはマスターとして動作し、クラスタ内の他のロードバランサはスレーブとして動作します。
@@ -159,7 +153,6 @@ NAME: サーバーアドレス
 REQUIRED: 
 APPLY: 3
 SINCE: 2.0
-SEE_ALSO: 
 
 DESCR: 複製に使用されるローカルIPアドレスとポート。
 END_DESCR
@@ -183,7 +176,6 @@ NAME: レプリケーションクラスタ
 REQUIRED: 
 APPLY: 3
 SINCE: 2.0
-SEE_ALSO: 
 
 DESCR: このレプリケーションクラスタの一部であるレプリケータのIPアドレスとポート番号別リスト。
 END_DESCR
@@ -207,7 +199,6 @@ NAME: ハートビート間隔（秒）
 REQUIRED: 
 APPLY: 3
 SINCE: 2.0
-SEE_ALSO: 
 
 DESCR: 「I am alive」というメッセージが送信されます。
 END_DESCR
@@ -231,7 +222,6 @@ NAME: ハートビートタイムアウト（秒）
 REQUIRED: 
 APPLY: 3
 SINCE: 2.0
-SEE_ALSO: 
 
 DESCR: その後、「I am alive」メッセージが送信されない場合、レプリケータは失敗したとみなされます。 
 <b>ハートビート間隔（秒）</b>をより高く設定する必要があります。
@@ -256,7 +246,6 @@ NAME: Gzipストリーム
 REQUIRED: 
 APPLY: 3
 SINCE: 2.0
-SEE_ALSO: 
 
 DESCR: リプリケータトラフィックのGzip圧縮を有効にします。
 END_DESCR
@@ -280,7 +269,6 @@ NAME: インクリメンタル同期を有効にする
 REQUIRED: 
 APPLY: 3
 SINCE: 2.0
-SEE_ALSO: 
 
 DESCR: インクリメンタルレプリケーションの同期チェックを有効にします。
 END_DESCR
@@ -304,7 +292,6 @@ NAME: ファイルキャッシュを有効にする
 REQUIRED: 
 APPLY: 3
 SINCE: 2.0
-SEE_ALSO: 
 
 DESCR: ファイルキャッシュのレプリケーションを有効にします。
 END_DESCR
@@ -328,7 +315,6 @@ NAME: ファイルキャッシュサーバーアドレス
 REQUIRED: 
 APPLY: 3
 SINCE: 2.0
-SEE_ALSO: 
 
 DESCR: ファイルキャッシュサーバーのアドレスを選択します。
 END_DESCR
@@ -352,7 +338,6 @@ NAME: ファイルキャッシュの有効期限（秒）
 REQUIRED: 
 APPLY: 3
 SINCE: 2.0
-SEE_ALSO: 
 
 DESCR: ファイルキャッシュの有効期限を設定します。
 END_DESCR
@@ -380,7 +365,6 @@ NAME: HAバーチャルインターフェイスの設定
 DESCR: 追加/削除/変更は、HA->ステータスページで適用されるまで有効になりません。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -392,7 +376,6 @@ NAME: レプリケーション
 DESCR:
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -422,7 +405,6 @@ TIPS: configセクションの高可用性インターフェイスに対する�
 新しいインターフェースの追加や既存のインターフェースの削除にも同じことが言えます。変更はそれぞれ「追加/削除」をクリックするまで適用されません。
 END_TIPS
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -457,7 +439,6 @@ NAME: 高可用性設定
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 

@@ -10,7 +10,6 @@
 ID: enableCoreDump
 NAME: コアダンプを有効にする
 SINCE: 
-SEE_ALSO: 
 
 DESCR: サーバーが「root」ユーザーによって開始されたときにコア・ダンプを使用可能にするかどうかを指定します。
 最新のUnixシステムでは、セキュリティ上の理由から、ユーザーIDまたはグループIDを変更するプロセスはコアファイルをダンプできません。
@@ -38,7 +37,6 @@ END_TIPS
 ID: consoleSessionTimeout
 NAME: セッションタイムアウト（秒）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: WebAdmin Consoleのセッションタイムアウトの長さをカスタマイズします。
 デフォルトは60秒です。
@@ -74,7 +72,6 @@ END_TIPS
 ID: adminOldPass
 NAME: 古いパスワード
 SINCE: 
-SEE_ALSO: 
 
 DESCR:
 END_DESCR
@@ -100,7 +97,6 @@ NAME: 一般
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -113,7 +109,6 @@ DESCR: WebAdmin Consoleのユーザー名とパスワードを変更します。
 変更を保存するには、古いパスワードを入力して確認する必要があります。  
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -128,7 +123,6 @@ DESCR: 管理サーバーは、WebAdminコンソール専用の特別なバー�
 管理者のマシンからのアクセスのみを許可するか、暗号化されたSSL接続を使用して、管理サーバーを安全に保護することが重要です。 
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 
@@ -140,7 +134,6 @@ NAME: 管理コンソールのセキュリティ
 DESCR:
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 

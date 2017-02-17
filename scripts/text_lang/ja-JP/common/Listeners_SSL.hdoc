@@ -8,7 +8,6 @@
 ID: keyFile
 NAME: 秘密鍵ファイル
 SINCE: 
-SEE_ALSO: 
 
 DESCR: SSL秘密鍵ファイルのファイル名。キーファイルは暗号化しないでください。
 END_DESCR
@@ -30,7 +29,6 @@ END_TIPS
 ID: certFile
 NAME: 証明書ファイル
 SINCE: 
-SEE_ALSO: 
 
 DESCR: SSL証明書ファイルのファイル名。
 END_DESCR
@@ -52,7 +50,6 @@ END_TIPS
 ID: certChain
 NAME: チェーン証明書
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 証明書がチェーン証明書であるかどうかを指定します。 チェーン証明を格納するファイルは、PEM形式でなければならず、証明書は最下位レベル（実際のクライアントまたはサーバー証明書）から最上位（ルート）CAまでの連鎖の順序でなければなりません。
 END_DESCR
@@ -74,7 +71,6 @@ END_TIPS
 ID: CACertPath
 NAME: CA証明書パス
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 証明機関（CA）の証明書が保存されるディレクトリを指定します。 これらの証明書は、クライアント証明書の認証およびサーバー証明書チェーンの構築に使用されます。サーバー証明書チェーンは、サーバー証明書に加えてブラウザーにも送信されます。
 END_DESCR
@@ -96,7 +92,6 @@ END_TIPS
 ID: CACertFile
 NAME: CA証明書ファイル
 SINCE: 
-SEE_ALSO: 
 
 DESCR: チェーン証明書の証明機関（CA）のすべての証明書を含むファイルを指定します。 このファイルは、PEMでエンコードされた証明書ファイルを単に優先順に連結したものです。 これは、「CA証明書パス」の代替として、またはこれに加えて使用することができる。 これらの証明書は、クライアント証明書の認証およびサーバー証明書チェーンの構築に使用されます。サーバー証明書チェーンは、サーバー証明書に加えてブラウザーにも送信されます。
 END_DESCR
@@ -121,7 +116,6 @@ END_TIPS
 ID: sslProtocol
 NAME: プロトコルバージョン
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 使用するSSLプロトコルのバージョンを指定します。
 {val}SSL v3.0{/}と{val}TLS v1.0{/}から選択できます。 OpenSSL 1.0.1以降、{val}TLS v1.1{/}および{val}TLS v1.2{/}もサポートされています。 
@@ -150,7 +144,6 @@ END_TIPS
 ID: ciphers
 NAME: 暗号
 SINCE: 
-SEE_ALSO: 
 
 DESCR: SSLハンドシェイクのネゴシエーション時に使用する暗号スイートを指定します。
 LSWSは、SSL v3.0、TLS v1.0、およびTLS v1.2で実装された暗号スイートをサポートしています。
@@ -173,7 +166,6 @@ END_TIPS
 ID: enableECDHE
 NAME: ECDH鍵交換を有効にする
 SINCE: 4.2.5
-SEE_ALSO: 
 
 DESCR: さらにSSL暗号化のために楕円曲線 Diffie-Hellman鍵交換を使用できます。
 END_DESCR
@@ -198,7 +190,6 @@ END_TIPS
 ID: enableDHE
 NAME: DHキー交換を有効にする
 SINCE: 4.2.5
-SEE_ALSO: 
 
 DESCR: さらにSSL暗号化のためにDiffie-Hellman鍵交換を使用できます。 
 END_DESCR
@@ -224,7 +215,6 @@ END_TIPS
 ID: DHParam
 NAME: DHパラメータ
 SINCE: 4.2.5
-SEE_ALSO: 
 
 DESCR: DHキー交換に必要なDiffie-Hellmanパラメータファイルの場所を指定します。
 END_DESCR
@@ -250,7 +240,6 @@ ID: renegProtection
 NAME: SSL再交渉保護
 NS: LEO
 SINCE: 4.1.13
-SEE_ALSO: 
 
 DESCR: SSL再交渉保護を有効にするかどうかを指定します。
 SSLハンドシェイクベースの攻撃に対して防御します。 デフォルト値は "Yes"です。
@@ -273,7 +262,6 @@ END_TIPS
 ID: enableSpdy
 NAME: SPDY/HTTP2を有効にする
 SINCE: 
-SEE_ALSO: 
 
 DESCR: HTTP/2とSPDYは、ページロード時間を短縮する目的で、HTTPネットワークプロトコルの新バージョンです。
 より多くの情報は<a href="http://en.wikipedia.org/wiki/HTTP/2">http://en.wikipedia.org/wiki/HTTP/2</a>で見つけることができます。
@@ -301,7 +289,6 @@ END_TIPS
 ID: enableStapling
 NAME: OCSPステープルを有効にする
 SINCE: 
-SEE_ALSO: 
 
 DESCR: OCSPステープルを有効にするかどうかを決定します。これは、公開鍵証明書を検証するより効率的な方法です。
 END_DESCR
@@ -323,7 +310,6 @@ END_TIPS
 ID: ocspRespMaxAge
 NAME: OCSPの応答最大年齢（秒）
 SINCE: 
-SEE_ALSO: 
 
 DESCR: このオプションは、OCSP応答の許容可能な最大経過時間を設定します。
 OCSP応答がこの最大年齢より古い場合、サーバーはOCSP応答者に新しい応答を要求します。
@@ -348,7 +334,6 @@ END_TIPS
 ID: ocspResponder
 NAME: OCSPレスポンダ
 SINCE: 
-SEE_ALSO: 
 
 DESCR: 使用するOCSPレスポンダのURLを指定します。
 設定されていない場合、サーバーは認証局の発行者証明書に記載されているOCSPレスポンダに接続を試みます。
@@ -372,7 +357,6 @@ END_TIPS
 ID: ocspCACerts
 NAME: OCSP CA証明書
 SINCE: 
-SEE_ALSO: 
 
 DESCR: OCSP認証局（CA）証明書が格納されるファイルの場所を指定します。
 これらの証明書は、OCSPレスポンダからのレスポンスを確認するために使用されます（また、そのレスポンスが偽装されていないか、または妥協されていないことを確認してください）。
@@ -403,7 +387,6 @@ END_TIPS
 ID: clientVerify
 NAME: クライアントの検証
 SINCE: 
-SEE_ALSO: 
 
 DESCR:{ent_version}クライアント証明書認証のタイプを指定します。
 使用できるタイプは次のとおりです：
@@ -433,7 +416,6 @@ END_TIPS
 ID: verifyDepth
 NAME: 検証の深さ
 SINCE: 
-SEE_ALSO: 
 
 DESCR:{ent_version}クライアントに有効な証明書がないと判断する前に、証明書の検証の深さを指定します。
 デフォルトは "1"です。
@@ -456,7 +438,6 @@ END_TIPS
 ID: crlPath
 NAME: クライアントの失効パス
 SINCE: 
-SEE_ALSO: 
 
 DESCR:{ent_version}取り消されたクライアント証明書のPEMエンコードされたCA CRLファイルを含むディレクトリを指定します。
 このディレクトリのファイルはPEMでエンコードする必要があります。
@@ -481,7 +462,6 @@ END_TIPS
 ID: crlFile
 NAME: クライアント失効ファイル
 SINCE: 
-SEE_ALSO: 
 
 DESCR:{ent_version}取り消されたクライアント証明書を列挙するPEMエンコードCA CRLファイルを含むファイルを指定します。 これは、代わりに、または{ITEM=crlPath}に加えて使用することができます。 
 END_DESCR
@@ -518,7 +498,6 @@ SSL証明書は、VeriSignやThawteのような認可された証明書の発行
 例えば LiteSpeed WebサーバーのWebAdminコンソールへのトラフィックを暗号化します。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -531,7 +510,6 @@ NS: LEO
 DESCR: リスナーが受け入れたSSLプロトコルをカスタマイズします。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -548,7 +526,6 @@ OCSPステープリングは、このプロトコルのさらなる改良であ�
 詳細については、<a href="http://en.wikipedia.org/wiki/OCSP_Stapling">OCSP Wikipedia</a>のページをご覧ください。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -561,7 +538,6 @@ NS: LEO
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -577,7 +553,6 @@ NS: LEO
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 
