@@ -7,8 +7,6 @@
 [ITEM]
 ID: wsuri
 NAME: URI
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -38,8 +36,6 @@ END_TIPS
 [ITEM]
 ID: wsaddr
 NAME: アドレス
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 

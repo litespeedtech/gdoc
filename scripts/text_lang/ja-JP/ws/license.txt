@@ -70,31 +70,23 @@ LITESPEEDは、ソフトウェア製品またはその他の製品またはプ�
 お客様は、本ソフトウェア製品のすべてのコピーを破棄することにより、いつでもこのEULAを終了することができます。 
 
 
-6. SEVERABILITY.
-If any provision of this EULA is held unenforceable, this EULA shall 
-remain in effect with the provision reformed to the extent necessary to 
-make it enforceable, unless to do so would frustrate the intent of the 
-parties, in which case the EULA will immediately terminate.
+6.分離性。
+本EULAの規定が適用されない場合、このEULAは、執行可能にするために必要な程度まで改正された条項の有効なままであり、
+そうしない限り、当事者の意図を挫折させ、この場合、EULAは直ちに終了します。
 
 
-7. GOVERNING LAW.
-This EULA shall be governed and be construed by the laws of state of New 
-Jersey and controlling U.S. federal law.
+7.準拠法。
+このEULAは、ニュージャージー州の法律および米国連邦法の規制に準拠し、解釈されるものとします。
 
 
-8. EXPORT RESTRICTIONS.
-The SOFTWARE PRODUCT may be subject to U.S. export laws or regulations
-and/or export or import regulations in other countries. Each party shall 
-comply fully with all such laws and regulations to the extent applicable 
-and further acknowledges its responsibility to obtain such licenses to 
-export or import as may be required.
+8.輸出規制
+本ソフトウェア製品は、米国の輸出法または規制、および/または他の国の輸出または輸入規制の対象となる場合があります。
+各当事者は、該当するすべての法令を遵守し、必要に応じて輸出入のためのライセンスを取得する責任をさらに認識しなければならない。
 
 
-9. U.S. GOVERNMENT. 
-If any SOFTWARE PRODUCT is being acquired by or on behalf of the U.S.
-Government or by a U.S. Government prime contractor or subcontractor (at
-any tier), then the Government's rights in SOFTWARE PRODUCT and
-accompanying documentation shall be only as set forth in this EULA.
+9.米国政府。
+ソフトウェア製品の一部または全部が、米国政府または米国政府によって、または米国政府によって、または米国政府によって、
+このEULAに記載の（任意の層で）政府元請業者または下請業者は、その後、ソフトウェア製品と付属のドキュメントにおける政府の権利は唯一のものでなければなりません。
 
 
 </pre>

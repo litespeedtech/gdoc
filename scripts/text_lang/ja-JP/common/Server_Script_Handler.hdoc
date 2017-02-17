@@ -8,8 +8,6 @@
 ID: suffix
 NAME: サフィックス
 NS: E
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -46,8 +44,6 @@ END_TIPS
 ID: suffix
 NAME: サフィックス
 NS: O
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -78,8 +74,6 @@ END_TIPS
 [ITEM]
 ID: shType
 NAME: ハンドラタイプ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -108,8 +102,6 @@ END_TIPS
 [ITEM]
 ID: shHandlerName
 NAME: ハンドラ名
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 

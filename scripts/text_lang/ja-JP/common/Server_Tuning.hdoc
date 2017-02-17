@@ -7,8 +7,6 @@
 [ITEM]
 ID: eventDispatcher
 NAME: I/Oイベント・ディスパッチャー
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -52,8 +50,6 @@ END_TIPS
 ID: ramDiskPath
 NAME: RAMディスクパス
 NS: LE
-REQUIRED: 
-APPLY: 
 SINCE: 4.2.4
 SEE_ALSO: 
 
@@ -85,8 +81,6 @@ END_TIPS
 ID: SSLStrongDhKey
 NAME: SSL強力なDHキー
 NS: LEO
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -120,8 +114,6 @@ END_TIPS
 ID: maxConnections
 NAME: 最大接続数
 NS: LO
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -147,8 +139,6 @@ END_TIPS
 ID: maxConnections
 NAME: 最大接続数
 NS: E
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -174,8 +164,6 @@ END_TIPS
 [ITEM]
 ID: maxSSLConnections
 NAME: SSL接続の最大数
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -199,8 +187,6 @@ END_TIPS
 [ITEM]
 ID: connTimeout
 NAME: 接続タイムアウト（秒）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=keepAliveTimeout}
 
@@ -224,8 +210,6 @@ END_TIPS
 [ITEM]
 ID: maxKeepAliveReq
 NAME: 最大キープアライブ要求
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: Virtual Host {ITEM=VirtualHosts_Help#vhMaxKeepAliveReq}
 
@@ -251,10 +235,10 @@ END_TIPS
 [ITEM]
 ID: smartKeepAlive
 NAME: スマートキープアライブ
-REQUIRED: 
-APPLY: 3
 SINCE: 
-SEE_ALSO: バーチャルホスト{ITEM=VirtualHosts_Help#vhSmartKeepAlive} DESCR：スマートキープアライブをオンにするかどうかを指定します。
+SEE_ALSO: 
+
+DESCR: バーチャルホスト{ITEM=VirtualHosts_Help#vhSmartKeepAlive} DESCR：スマートキープアライブをオンにするかどうかを指定します。
 このオプションは、{ITEM=maxKeepAliveReq}が1より大きい場合にのみ有効です。
 有効にすると、バーチャルホストレベルで有効/無効にすることもできます。
 スマートキープアライブは、JavaScript、CSSスタイルシート、およびイメージファイルの要求に対してのみキープアライブ接続を確立します。
@@ -282,8 +266,6 @@ END_TIPS
 [ITEM]
 ID: keepAliveTimeout
 NAME: キープアライブタイムアウト（秒）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -314,8 +296,6 @@ END_TIPS
 ID: sndBufSize
 NAME: 送信バッファサイズ（バイト）
 NS: LEO
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -349,8 +329,6 @@ END_TIPS
 [ITEM]
 ID: rcvBufSize
 NAME: 受信バッファサイズ（バイト）
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -381,8 +359,6 @@ END_TIPS
 [ITEM]
 ID: maxReqURLLen
 NAME: 最大リクエストURLの長さ（バイト）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -408,8 +384,6 @@ END_TIPS
 [ITEM]
 ID: maxReqHeaderSize
 NAME: 最大要求ヘッダーサイズ（バイト）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -438,8 +412,6 @@ END_TIPS
 [ITEM]
 ID: maxReqBodySize
 NAME: 最大リクエストボディサイズ（バイト）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -465,8 +437,6 @@ END_TIPS
 [ITEM]
 ID: maxDynRespHeaderSize
 NAME: 最大動的応答ヘッダーサイズ（バイト）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -489,8 +459,6 @@ END_TIPS
 [ITEM]
 ID: maxDynRespSize
 NAME: 最大動的応答ボディサイズ（バイト）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -518,8 +486,6 @@ END_TIPS
 [ITEM]
 ID: maxCachedFileSize
 NAME: 最大キャッシュサイズの小さいファイルサイズ（バイト）
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -547,8 +513,6 @@ END_TIPS
 [ITEM]
 ID: totalInMemCacheSize
 NAME: 小ファイルキャッシュサイズ合計（バイト）
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -571,8 +535,6 @@ END_TIPS
 [ITEM]
 ID: maxMMapFileSize
 NAME: 最大MMAPファイルサイズ（バイト）
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -600,8 +562,6 @@ END_TIPS
 [ITEM]
 ID: totalMMapCacheSize
 NAME: MMAPキャッシュサイズ合計（バイト）
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -624,8 +584,6 @@ END_TIPS
 [ITEM]
 ID: useSendfile
 NAME: sendfile（）を使用する
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: 
 
@@ -656,8 +614,6 @@ END_TIPS
 ID: useAIO
 NAME: AIOを使用する
 NS: E
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: {ITEM=AIOBlockSize}
 
@@ -684,8 +640,6 @@ END_TIPS
 ID: AIOBlockSize
 NAME: AIOブロックサイズ
 NS: E
-REQUIRED: 
-APPLY: 2
 SINCE: 
 SEE_ALSO: {ITEM=useAIO}
 
@@ -712,8 +666,6 @@ END_TIPS
 [ITEM]
 ID: fileETag
 NAME: ファイルETag
-REQUIRED: 
-APPLY: 2
 SINCE: 4.2.2
 SEE_ALSO: 
 
@@ -743,8 +695,6 @@ END_TIPS
 [ITEM]
 ID: enableGzipCompress
 NAME: 圧縮を有効にする
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -768,8 +718,6 @@ END_TIPS
 [ITEM]
 ID: enableDynGzipCompress
 NAME: 動的圧縮を有効にする
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -797,8 +745,6 @@ END_TIPS
 [ITEM]
 ID: gzipCompressLevel
 NAME: 圧縮レベル（動的コンテンツ）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -828,8 +774,6 @@ END_TIPS
 [ITEM]
 ID: compressibleTypes
 NAME: 圧縮可能なタイプ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -862,8 +806,6 @@ END_TIPS
 [ITEM]
 ID: gzipAutoUpdateStatic
 NAME: 静的ファイルの自動更新
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -889,8 +831,6 @@ END_TIPS
 [ITEM]
 ID: gzipCacheDir
 NAME: 静的GZIPキャッシュディレクトリ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -914,8 +854,6 @@ END_TIPS
 [ITEM]
 ID: gzipStaticCompressLevel
 NAME: 圧縮レベル（静的コンテンツ）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -940,8 +878,6 @@ END_TIPS
 [ITEM]
 ID: gzipMaxFileSize
 NAME: 最大静的ファイルサイズ（バイト）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -966,8 +902,6 @@ END_TIPS
 [ITEM]
 ID: gzipMinFileSize
 NAME: 最小静的ファイルサイズ（バイト）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -995,8 +929,6 @@ END_TIPS
 ID: sslSessionCache
 NAME: セッションキャッシュを有効にする
 NS: LEO
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -1025,8 +957,6 @@ END_TIPS
 [ITEM]
 ID: sslSessionCacheSize
 NAME: セッションキャッシュサイズ（バイト）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -1051,8 +981,6 @@ END_TIPS
 [ITEM]
 ID: sslSessionCacheTimeout
 NAME: セッションキャッシュタイムアウト（秒）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -1078,8 +1006,6 @@ END_TIPS
 ID: sslSessionTickets
 NAME: セッションチケットを有効にする
 NS: LEO
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -1105,8 +1031,6 @@ END_TIPS
 ID: shmDefaultDir
 NAME: デフォルトのSHMディレクトリ
 NS: LEO
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -1132,8 +1056,6 @@ END_TIPS
 [ITEM]
 ID: sslSessionTicketLifetime
 NAME: SSLセッションチケットの有効期間（秒）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -1160,8 +1082,6 @@ END_TIPS
 ID: sslSessionTicketKeyFile
 NAME: SSLセッションチケットキーファイル
 NS: L
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO:
 
@@ -1198,8 +1118,6 @@ END_TIPS
 ID: sslSessionTicketKeyFile
 NAME: SSLセッションチケットキーファイル
 NS: EO
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO:
 
@@ -1233,8 +1151,6 @@ END_TIPS
 [ITEM]
 ID: sslDynCertsBaseDir
 NAME: SSL動的証明書ベースディレクトリ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -1260,8 +1176,6 @@ END_TIPS
 [ITEM]
 ID: sslDynCertsNumLevels
 NAME: SSL動的証明書のレベル
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -1288,8 +1202,6 @@ END_TIPS
 [ITEM]
 ID: sslDynCertsExpire
 NAME: SSL動的証明書有効期限（秒）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -1313,8 +1225,6 @@ END_TIPS
 [ITEM]
 ID: sslDynCertsRefresh
 NAME: SSL動的証明書リフレッシュ時間（秒）
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -1340,8 +1250,6 @@ END_TIPS
 [ITEM]
 ID: sslEnableMultiCerts
 NAME: 複数のSSL証明書を有効にする
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 

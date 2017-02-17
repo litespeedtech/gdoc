@@ -7,8 +7,6 @@
 [ITEM]
 ID: templateName
 NAME: テンプレート名
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -31,8 +29,6 @@ END_TIPS
 [ITEM]
 ID: templateFile
 NAME: テンプレートファイル 
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -59,8 +55,6 @@ END_TIPS
 [ITEM]
 ID: mappedListeners
 NAME: マッピングされたリスナー
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -89,8 +83,6 @@ END_TIPS
 [ITEM]
 ID: templateVHName
 NAME: バーチャルホスト名
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -118,8 +110,6 @@ END_TIPS
 [ITEM]
 ID: templateVHDomain
 NAME: ドメイン
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -154,8 +144,6 @@ END_TIPS
 [ITEM]
 ID: templateVHAliases
 NAME: エイリアス
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -191,8 +179,6 @@ END_TIPS
 [ITEM]
 ID: memberVHRoot
 NAME: メンバーバーチャルホストルート
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 

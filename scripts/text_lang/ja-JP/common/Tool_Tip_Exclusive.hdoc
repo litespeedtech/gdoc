@@ -4,9 +4,6 @@
 [ITEM]
 ID: note
 NAME: ノート
-REQUIRED: 
-APPLY: 3
-SINCE: 
 SEE_ALSO:
 
 DESCR: あなた自身のためにメモを追加してください。

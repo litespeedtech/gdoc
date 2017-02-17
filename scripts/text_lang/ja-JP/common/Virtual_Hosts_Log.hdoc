@@ -7,8 +7,6 @@
 [ITEM]
 ID: logUseServer
 NAME: サーバーのログを使用する
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -34,8 +32,6 @@ END_TIPS
 [ITEM]
 ID: vhlog_fileName
 NAME: File Name
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -66,8 +62,6 @@ END_TIPS
 [ITEM]
 ID: vhlog_logLevel
 NAME: ログレベル
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=ServGeneral_Help#log_debugLevel}
 
@@ -97,8 +91,6 @@ END_TIPS
 [ITEM]
 ID: aclogUseServer
 NAME: ログ制御
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -130,8 +122,6 @@ END_TIPS
 ID: vhaccessLog_fileName
 NAME: ファイル名
 NS: L
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -155,8 +145,6 @@ END_TIPS
 ID: vhaccessLog_fileName
 NAME: ファイル名
 NS: EO
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -182,8 +170,6 @@ END_TIPS
 [ITEM]
 ID: accessLog_bytesLog
 NAME: バイトログ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 

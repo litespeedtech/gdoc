@@ -1,59 +1,58 @@
-<h1>Introduction</h1>
+<h1>はじめに</h1>
 
-<h3>Overview</h3>
-<p>LiteSpeed Web Server is an Apache-interchangeable, high performance, secure, easy-to-use web server.
-It can handle thousands of concurrent connections with a small memory footprint. 
-Its security features also make it much less vulnerable to various attacks.
+<h3>概要</h3>
+<p>LiteSpeed Web Serverは、Apache互換、高性能、安全で使いやすいWebサーバーです。
+小さなメモリフットプリントで何千もの同時接続を処理できます。
+そのセキュリティ機能により、さまざまな攻撃に対する脆弱性が大幅に軽減されます。
 </p>
 
-<h3>Basic Features</h3>
+<h3>基本機能</h3>
 
 <ul>
   <li><p><strong>HTTP/1.1</strong></p>
 	  <ul>
-	    <li>Chunked transfer encoding</li>
-	    <li>Basic authentication (password file and LDAP backend)</li>
-	    <li>Entity tag</li>
-	    <li>Single and multiple ranges requests</li>
-	    <li>Static/dynamic response compression (gzip)</li>
-		<li>Apache-compatible URL rewrite</li>
+	    <li>チャンク転送コード</li>
+	    <li>基本認証（パスワードファイルとLDAPバックエンド）</li>
+	    <li>エンティティタグ</li>
+	    <li>単一および複数の範囲要請</li>
+	    <li>静的/動的レスポンス圧縮（gzip）</li>
+		<li>Apacheと互換性のあるURL書き換え</li>
 		<li>Microsoft FrontPage Server Extensions 2002</li>
-		<li>IPv6 support</li>
-	    <li>Apache mod_geoip compatible geotargeting support</li>
+		<li>IPv6サポート</li>
+	    <li>Apache mod_geoipとの互換性のある地域ターゲティングのサポート</li>
 	  </ul>
   </li>
-  <li><p><strong>Dynamic Content Generation</strong></p>
+  <li><p><strong>動的コンテンツ生成</strong></p>
   <p>LiteSpeed Web Server supports the following dynamic content generation methods:</p>
 	  <ul>
-	    <li>CGI/1.1 with suEXEC</li>
-	    <li>Fast CGI with suEXEC</li>
-		<li>PHP with suEXEC through LiteSpeed PHP SAPI (top-of-the-line PHP performance with a mod_php equivalent feature set)
-	    <li>JSP/servlets (interface with AJP v1.3 compatible backend servlet engine)</li>
-		<li>Proxy (interface with any web server/application server that supports HTTP protocol)</li>
-		<li>Ruby on Rails with suEXEC through Ruby LSAPI module (best-in-class performance, easy deployment, supports dynamic spawning)
+	    <li>suEXECを使ったCGI/1.1</li>
+	    <li>suEXECを使ったFast CGI</li>
+		<li>LiteSpeedを使用したsuEXECを使用したPHP PHP SAPI（同等の機能を備えたmod_phpを使用した最新のPHPパフォーマンス）</li>
+	    <li>JSP/サーブレット（AJP v1.3の互換性のあるバックエンドサーブレット・エンジンとのインタフェース）</li>
+		<li>プロキシ（HTTPプロトコルをサポートする任意のWebサーバー/アプリケーションサーバーとのインターフェイス）</li>
+		<li>Ruby LSAPIモジュールを使用したsuEXECによるRuby on Rails（クラス最高のパフォーマンス、容易なデプロイメント、動的なスポーンをサポート）</li>
 	  </ul>
   </li>
-  <li><p><strong>Virtual Hosting</strong></p>
+  <li><p><strong>バーチャルホスティング</strong></p>
     <ul>
-		<li>Supports IP-based and name-based virtual hosting</li>
-		<li>Virtual host templates make virtual hosting configuration easy</li>
-		<li>Compatible with popular hosting control panels like cPanel and Plesk</li>
+		<li>IPベースおよび名前ベースのバーチャルホスティングをサポート/li>
+		<li>バーチャルホストテンプレートにより、バーチャルホスティングの簡単な設定</li>
+		<li>cPanelやPleskのような一般的なホスティングコントロールパネルとの互換性</li>
 	</ul>
    </li>
-  <li><p><strong>Per-Directory Configuration File Support (.htaccess)</strong></p>
+  <li><p><strong>ディレクトリ単位の設定ファイルのサポート（.htaccess）</strong></p>
   <ul>
-    <li>Unlike other lightweight web servers, Apache-compatible per-directory configuration 
-    overrides are fully supported by LiteSpeed Web Server. These .htacess files 
-    allow you (or your users) to change configurations for any directory under the 
-    document root on the fly. This is a must-have for shared hosting.</li>
-    <li>Using .htaccess in LiteSpeed Web Server will not degrade the server's performance. 
-Compare that to Apache's 40% drop in performance when .htaccess files are used.</li> 
+    <li>他の軽量Webサーバーと異なり、Apache互換のディレクトリ単位の設定変更は、LiteSpeed Web Serverによって完全にサポートされています。
+これらの.htacessファイルを使用すると、ドキュメントルートの下にある任意のディレクトリの設定をその場で変更することができます。
+これは、共有ホスティングに欠かせないものです。</li>
+    <li>LiteSpeed Web Serverで.htaccessを使用しても、サーバーのパフォーマンスは低下しません。
+.htaccessファイルを使用した場合のApacheのパフォーマンスの40％低下と比較してください。</li> 
   </ul>
   </li>
  </ul>
 
-<h3>Security</h3>
-	<p>LiteSpeed Web Server provides the following security features:</p>
+<h3>セキュリティ</h3>
+	<p>LiteSpeed Web Serverには、次のセキュリティ機能があります：</p>
 	<ul>
 	  <li><strong>SSL</strong>
 	  <p>Supports SSLv3/TLSv1. <i>This product includes software developed by the OpenSSL Project

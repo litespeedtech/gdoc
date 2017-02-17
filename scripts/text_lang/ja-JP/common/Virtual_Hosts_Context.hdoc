@@ -8,8 +8,6 @@
 ID: ctxType
 NAME: コンテキストタイプ
 NS: L
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -34,8 +32,6 @@ END_EDITTIP
 ID: ctxType
 NAME: コンテキストタイプ
 NS: E
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -90,8 +86,6 @@ END_EDITTIP
 ID: ctxType
 NAME: コンテキストタイプ
 NS: O
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -151,8 +145,6 @@ END_EDITTIP
 [ITEM]
 ID: uri
 NAME: URI
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -176,8 +168,6 @@ END_TIPS
 [ITEM]
 ID: expuri
 NAME: URI
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=location}
 
@@ -202,8 +192,6 @@ END_TIPS
 [ITEM]
 ID: servletEngine
 NAME: サーブレットエンジン
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -231,8 +219,6 @@ END_TIPS
 [ITEM]
 ID: javaServletEngine
 NAME: サーブレットエンジン
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -260,8 +246,6 @@ END_TIPS
 [ITEM]
 ID: fcgiapp
 NAME: FastCGI アプリ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -289,8 +273,6 @@ END_TIPS
 [ITEM]
 ID: lsapiapp
 NAME: LiteSpeed SAPIアプリ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -314,8 +296,6 @@ END_TIPS
 [ITEM]
 ID: lbapp
 NAME: ロードバランサー
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -339,8 +319,6 @@ END_TIPS
 [ITEM]
 ID: extCluster
 NAME: クラスタ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -363,8 +341,6 @@ END_TIPS
 [ITEM]
 ID: proxyWebServer
 NAME: Webサーバー
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -394,8 +370,6 @@ END_TIPS
 [ITEM]
 ID: location
 NAME: ロケーション
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=expuri}
 
@@ -429,8 +403,6 @@ END_TIPS
 [ITEM]
 ID: rails_location
 NAME: ロケーション
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=expuri}
 
@@ -445,22 +417,19 @@ SYNTAX: $SERVER_ROOT、$VH_ROOT、または$DOC_ROOTに関連する絶対パス�
 $DOC_ROOTはデフォルトの相対パスであり省略することができます。
 
 
-If the {ITEM=expuri} is a regular expression, then the matched sub-string 
-can be used to form the "Root" string. The matched sub-string can be 
-referenced with the values "$1" - "$9". "$0" and "&" can be used to reference the 
-whole matched string. Additionally, a query string can be set by 
-appending a "?" followed by the query string. Be careful. "&" should
-be escaped as "\&" in the query string.
+{ITEM=expuri}が正規表現であれば、一致した部分文字列を使用して "Root"文字列を形成することができます。
+一致した部分文字列は、値 "$1"-"$9"で参照できます。
+一致した文字列全体を参照するには、 "$0"と "＆"を使用できます。
+さらに、クエリ文字列は、 "？" その後にクエリ文字列が続きます。
+注意してください。 "＆"はクエリ文字列で "\＆"としてエスケープする必要があります。
 END_SYNTAX
 
-EXAMPLE:  A plain URI like {val}/examples/{/} with {ITEM=location} 
-set to {val}/home/john/web_examples{/} will map the request "/examples/foo/bar.html" 
-to file "/home/john/web_examples/foo/bar.html". 
+EXAMPLE: {ITEM=location}の{val}/examples/{/}のような単純なURIは、{val}/home/john/web_examples{/}に設定すると、リクエスト "/examples/foo/bar.html"がファイル "/home/john/web_examples/foo/bar.html"にマップされます。 
 
-To simulate Apache's mod_userdir, 
-set URI to {val}exp: ^/~([A-Za-z0-9]+)(.*){/}, 
-set {ITEM=location} to {val}/home/$1/public_html$2{/}. With these settings, a request of URI /~john/foo/bar.html will 
-map to file /home/john/public_html/foo/bar.html.
+Apacheのmod_userdirをシミュレートするには、 
+URIを{val}exp: ^/~([A-Za-z0-9]+)(.*){/}に設定し, 
+set {ITEM=location}を{val}/home/$1/public_html$2{/}に設定します。
+これらの設定では、URIの/~john/foo/bar.htmlのリクエストは/home/john/public_html/foo/bar.htmlファイルにマップされます。
 END_EXAMPLE
 
 TIPS: 
@@ -472,24 +441,21 @@ END_TIPS
 
 [ITEM]
 ID: javaWebApp_location
-NAME: Location
-REQUIRED: 
-APPLY: 3
+NAME: ロケーション
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the directory that contains the files for this web application. 
-This is the directory containing "WEB-INF/web.xml".
+DESCR: このWebアプリケーションのファイルを含むディレクトリを指定します。
+これは "WEB-INF/web.xml"を含むディレクトリです。
 END_DESCR
 
-EDITTIP: Java web app context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine, the 
-servlet engine should be set up in external app section (either server or virtual host level). 
+EDITTIP: JJava Webアプリケーションコンテキストは、AJPv13コンパイラJavaサーブレットエンジンで事前定義されたJavaアプリケーションを自動的にインポートするために使用されます。サーブレットエンジンは、外部アプリケーションセクション（サーバーまたはバーチャルホストレベルのいずれか）に設定する必要があります。
 END_EDITTIP
 
-EDITTIP: Location is the directory that contains web application files, which includes WEB-INF/ sub directory.
+EDITTIP: ロケーションはWEB-INF/サブディレクトリを含むWebアプリケーションファイルを含むディレクトリです。
 END_EDITTIP
 
-EDITTIP: The web server will automatically import configuration file of web application, which usually is WEB-INF/web.xml under the driectory specified by "location".
+EDITTIP: Webサーバーは、自動的に "location"で指定されたドライバーのWEB-INF/web.xmlであるWebアプリケーションの構成ファイルをインポートします。
 END_EDITTIP
 
 SYNTAX: パス
@@ -508,8 +474,6 @@ END_TIPS
 [ITEM]
 ID: cgi_path
 NAME: パス
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -546,8 +510,6 @@ END_TIPS
 [ITEM]
 ID: allowBrowse
 NAME: アクセス可能
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -582,8 +544,6 @@ END_TIPS
 [ITEM]
 ID: allowSetUID
 NAME: UIDの設定を許可する
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -610,19 +570,17 @@ END_TIPS
 [ITEM]
 ID: externalredirect
 NAME: 外部リダイレクト
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether this redirect is external. 
-For external redirection, {ITEM=statuscode} may be specified and 
-{ITEM=destinationuri} can start either with "/" or "http(s)://". 
-For internal redirection, {ITEM=destinationuri} must start with "/".
+DESCR: このリダイレクトが外部かどうかを指定します。
+外部リダイレクトの場合は、{ITEM=statuscode}を指定し、{ITEM=destinationuri}は "/"または "http(s)：//"で開始できます。
+内部リダイレクトの場合、{ITEM=destinationuri}は "/"で始まらなければなりません。
 END_DESCR
 
-EDITTIP: Set up redirect URI here. If it is an external redirect, you can specify the status code. Internal 
-redirect has to start with "/", external redirect can either start with "/" or with "http(s)://".
+EDITTIP: リダイレクトURIをここに設定します。
+外部リダイレクトの場合は、ステータスコードを指定できます。
+内部リダイレクトは「/」で始まり、外部リダイレクトは"/"または"http(s)：//"で始まります。
 END_EDITTIP
 
 SYNTAX: 
@@ -641,8 +599,6 @@ END_TIPS
 [ITEM]
 ID: statuscode
 NAME: ステータスコード
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -665,20 +621,16 @@ END_TIPS
 
 [ITEM]
 ID: destinationuri
-NAME: Destination URI
-REQUIRED: 
-APPLY: 3
+NAME: 宛先URI
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the target location of the redirect. 
-If this redirected URI maps to a URI in another redirect context, it will be redirected again. 
+DESCR: リダイレクトのターゲットの場所を指定します。
+このリダイレクトされたURIが別のリダイレクトコンテキストのURIにマップされると、リダイレクトされます。 
 END_DESCR
 
-SYNTAX: This URI can either be a relative URI on the same web site starting with "/", 
-or an absolute URI pointing to different web site starting with "http(s)://".  
-If the {ITEM=expuri} contains regular expressions, the destination can reference 
-the matched variables, such as $1 or $2.
+SYNTAX: このURIは、"/"で始まる同じWebサイトの相対URIでもか、"http(s)：//"で始まる別のWebサイトを指す絶対URIでもかまいません。
+{ITEM=expuri}に正規表現が含まれている場合、宛先は$1や$2などの一致した変数を参照できます。
 END_SYNTAX
 
 EXAMPLE: 
@@ -694,16 +646,15 @@ END_TIPS
 [ITEM]
 ID: extraHeaders
 NAME: Extra Headers
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies extra response headers to be added. Multiple headers can be added, one header per line.
-Put "NONE" to disable headers inherited from parent content.
+DESCR: 追加される余分な応答ヘッダーを指定します。
+1行に1つのヘッダーを追加できます。
+親コンテンツから継承したヘッダーを無効にするには、"NONE"を入力します。
 END_DESCR
 
-SYNTAX: "[HeaderName]: [HeaderValue]" in each line.
+SYNTAX: 各行に "[HeaderName]: [HeaderValue]"
 END_SYNTAX
 
 EXAMPLE: 
@@ -721,53 +672,36 @@ END_TIPS
 
 [ITEM]
 ID: allowOverrideContext
-NAME: Allow Override
+NAME: 上書きを許可する
 NS: E
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies what directives in an access control file are allowed. 
-An access control file can be placed in a directory to control the accessibility 
-of files under that directory. 
+DESCR: アクセス制御ファイル内のどのディレクティブが許可されるかを指定します。
+アクセス制御ファイルは、そのディレクトリの下にあるファイルのアクセシビリティを制御するためにディレクトリに置くことができます。 
 
 <ul>
-	<li>When nothing is checked, inherited default settings will be
-	used. </li>
-	<li>When {val}None{/} is checked, access control files will be
-	ignored.
-	</li>
-	<li>When {val}Limit{/} is checked, directives "Order",
-	"Allow from" and "Deny from" are allowed. </li>
-	<li>When {val}Auth{/} is checked, directives
-	"AuthGroupFile",  "AuthName", "AuthType", 
-	"AuthUserFile", and "Require" are allowed.</li>
-	<li>When {val}FileInfo{/} is checked, directives
-	"Satisfy", "AddDefaultCharset", "AddType",
-	"DefaultType", "ForceType", "ExpiresActive", "ExpiresDefault",
-	"ExpiresByType", "Redirect", "RedirectTemp", "RedirectPermanent",
-	"RewriteEngine", "RewriteOptions", "RewriteBase", "RewriteCond"
-	and "RewriteRule" are allowed</li>
-	<li>When {val}Indexes{/} is checked, directive
-	"DirectoryIndex" is allowed</li>
-	<li>When {val}Options{/} is checked, directive
-	"Options" is allowed</li>
+	<li>何もチェックしないと、継承されたデフォルト設定が使用されます。</li>
+	<li>{val}None{/}をチェックすると、アクセス制御ファイルは無視されます。</li>
+	<li>{val}Limit{/}をチェックすると、 "Order"、 "Allow from"、 "Deny from"の各ディレクティブが許可されます。</li>
+	<li>{val}Auth{/}がチェックされていると、 "AuthGroupFile"、 "AuthName"、 "AuthType"、 "AuthUserFile"、および "Require"の各ディレクティブが許可されます。</li>
+	<li>{val}FileInfo{/}がチェックされると、 "Satisfy"、 "AddDefaultCharset"、 "AddType"、 "DefaultType"、 "ForceType"、 "ExpiresActive"、 "ExpiresDefault"、 "ExpiresByType"、 "RedirectTemp" "、" RedirectPermanent "、" RewriteEngine "、" RewriteOptions "、" RewriteBase "、" RewriteCond "、および" RewriteRule "は許可されています。</li>
+	<li>{val}Indexes{/}がチェックされている場合、ディレクティブ "DirectoryIndex"が許可されます。</li>
+	<li>{val}Options{/}がチェックされていると、 "Options"ディレクティブが許可されます。</li>
 </ul>
 
-Allow Override configuration is available at three levels: server, 
-virtual host and context. If a configuration is not checked at the server level, 
-the controlled directives will be disabled for the whole server whether or not 
-it is enabled at lower levels. If something is enabled at the server level, virtual hosts will 
-inherit same settings by default. Similarly context level settings will be inherited from virtual host settings. 
-Lower levels can disable a setting that is enabled at an upper level, but cannot 
-enable a setting that is disabled at an upper level.
+Allow Override設定には、サーバー、仮想ホスト、およびコンテキストの3つのレベルがあります。
+サーバレベルでコンフィグレーションがチェックされていない場合、より低いレベルで有効になっているかどうかに関わらず、制御されたディレクティブはサーバ全体で無効になります。
+サーバーレベルで何かが有効になっている場合、仮想ホストはデフォルトで同じ設定を継承します。
+同様に、コンテキストレベルの設定は仮想ホスト設定から継承されます。
+下位レベルでは、上位レベルで有効になっている設定は無効にできますが、上位レベルで無効になっている設定は有効にできません。
 END_DESCR
 
-EDITTIP: Allow Override will be effective only if server/vhost level setting is enabled. Context will inherit virtual host settings by 
-default when nothing is checked. When nothing but "None" is checked, access control file will be ignored. When "Access Control" is checked, 
-directives "Order", "Allow" and "Deny" are allowed. When "Authentication" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", 
-"Require" are allowed.
+EDITTIP:Allow Overrideは、サーバー/仮想ホストのレベル設定が有効な場合にのみ有効です。
+何もチェックされていなければ、コンテキストはデフォルトで仮想ホスト設定を継承します。
+"None"以外のチェックをすると、アクセス制御ファイルは無視されます。
+"アクセス制御"がチェックされている場合、"Order"、"Allow"、"Deny"という指示が許可されます。
+"認証"がチェックされている場合、 "AuthGroupFile"、 "AuthName"、 "AuthType"、 "AuthUserFile"、 "Require"の各ディレクティブが許可されます。
 END_EDITTIP
 
 SYNTAX: チェックボックス
@@ -776,8 +710,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] If there is no need for directory level
-configuration customization, check {val}None{/}.
+TIPS: [パフォーマンス]ディレクトリレベルの設定をカスタマイズする必要がない場合は、{val} None {/}をチェックしてください。
 END_TIPS
 
 [END_ITEM]
@@ -787,8 +720,6 @@ END_TIPS
 [ITEM]
 ID: addMIMEType
 NAME: MIMEタイプ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -815,8 +746,6 @@ END_TIPS
 [ITEM]
 ID: mimetype
 NAME: MIMEタイプ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -838,19 +767,15 @@ END_TIPS
 
 [ITEM]
 ID: forceType
-NAME: Force MIME Type
-REQUIRED: 
-APPLY: 3
+NAME: 強制MIMEタイプ
 SINCE: 
 SEE_ALSO: 
 
-DESCR: When specified, all files under this context will be served as
-	   static files with the MIME type specified regardless of file suffix. 
-	   When set to {val}NONE{/}, inherited force type setting will be
-	   disabled.
+DESCR: このコンテキストの下にあるすべてのファイルは、指定すると、ファイルの接尾辞に関係なくMIMEタイプが指定された静的ファイルとして提供されます。
+       {val} NONE {/}に設定すると、継承された強制タイプの設定は無効になります。
 END_DESCR
 
-SYNTAX: MIME type or NONE.
+SYNTAX: MIMEタイプまたはNONE。
 END_SYNTAX
 
 EXAMPLE: 
@@ -866,18 +791,14 @@ END_TIPS
 [ITEM]
 ID: defaultType
 NAME: デフォルトのMIMEタイプ
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: When specified, this type will be used when MIME type mapping
-	   cannot be determined by the suffix of a document or if there is no suffix.
-	   If not specified, the default value 
-	   {val}application/octet-stream{/} will be used.
+DESCR: この型を指定すると、ドキュメントの接尾辞でMIMEタイプのマッピングを判別できない場合、または接尾辞がない場合にこの型が使用されます。
+       指定しない場合、デフォルト値{val}application/octet-stream{/}が使用されます。
 END_DESCR
 
-SYNTAX: MIME-type
+SYNTAX: MIMEタイプ
 END_SYNTAX
 
 EXAMPLE: 
@@ -893,8 +814,6 @@ END_TIPS
 [ITEM]
 ID: realm
 NAME: レルム
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -924,8 +843,6 @@ END_TIPS
 [ITEM]
 ID: authName
 NAME: 認証名
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -949,27 +866,24 @@ END_TIPS
 
 [ITEM]
 ID: required
-NAME: Require (Authorized Users/Groups)
-REQUIRED: 
-APPLY: 3
+NAME: 必要（許可ユーザー/グループ）
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies which user/group can access this context. This allows you to use 
-one user/group database (specified in {ITEM=realm}) across a number of contexts, but 
-only allow certain users/groups from that database to access this context.
+DESCR: このコンテキストにアクセスできるユーザー/グループを指定します。
+これにより、複数のコンテキストにわたって1つのユーザー/グループデータベース（{ITEM=realm}で指定）を使用できますが、そのデータベースの特定のユーザー/グループのみがこのコンテキストにアクセスできます。
 END_DESCR
 
-SYNTAX: Syntax is compatible with Apache's Require directive. For example: 
+SYNTAX: 構文はApache Requireディレクティブと互換性があります。 例えば： 
 <ul>
 <li>{val}user username [username ...]{/} 
 
-Only listed users can access this context.</li>
+リストされたユーザーだけがこのコンテキストにアクセスできます。</li>
 <li> {val}group groupid [groupid ...]{/}
 
-Only users belonging to the listed groups can access this context.</li>
+リストされたグループに属するユーザーのみがこのコンテキストにアクセスできます。</li>
 </ul>
-If this setting is not specified, all valid users will be allowed to access this resource.
+この設定を指定しないと、すべての有効なユーザーがこのリソースにアクセスできます。
 END_SYNTAX
 
 EXAMPLE: 
@@ -985,8 +899,6 @@ END_TIPS
 [ITEM]
 ID: accessAllowed
 NAME: アクセス許可
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -1010,8 +922,6 @@ END_TIPS
 [ITEM]
 ID: accessDenied
 NAME: アクセス拒否
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
@@ -1035,15 +945,12 @@ END_TIPS
 [ITEM]
 ID: extAuthorizer
 NAME: Authorizer
-REQUIRED: 
-APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies an external application that can be used to
-generate authorized/unauthorized decisions. Currently, only the FastCGI
-Authorizer is available. For more details about the FastCGI Authorizer role, 
-please visit {ext-href}http://www.fastcgi.com{ext-href-end}http://www.fastcgi.com{ext-href-end-a}.
+DESCR: 権限のある/権限のないかの決定を生成するために使用できる外部アプリケーションを指定します。
+現在、FastCGI Authorizerのみが使用可能です。
+FastCGI Authorizerの役割の詳細については、{ext-href}http://www.fastcgi.com{ext-href-end}http://www.fastcgi.com{ext-href-end-a}を参照してください。 。
 END_DESCR
 
 SYNTAX: ドロップダウンリストから選択
@@ -1061,15 +968,12 @@ END_TIPS
 
 [ITEM]
 ID: rewriteInherit
-NAME: Rewrite Inherit
-REQUIRED: 
-APPLY: 3
+NAME: 継承を書き直す
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to inherit rewrite rules from parent
-contexts. If rewrite is enabled and not inherited, rewrite base and
-rewrite rules defined in this context will be used.
+DESCR: 親コンテキストから書き換えルールを継承するかどうかを指定します。
+書き換えが有効で継承されていない場合は、このコンテキストで定義されている書き換えのベースルールと書き換えルールが使用されます。
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -1087,13 +991,11 @@ END_TIPS
 
 [ITEM]
 ID: rewriteBase
-NAME: Rewrite Base
-REQUIRED: 
-APPLY: 3
+NAME: 書き換えベース
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the base URL for rewrite rules.
+DESCR: 書き換えルールのベースURLを指定します。
 END_DESCR
 
 SYNTAX: URL
@@ -1111,18 +1013,13 @@ END_TIPS
 
 [ITEM]
 ID: addDefaultCharset
-NAME: Add Default Charset
-REQUIRED: 
-APPLY: 3
+NAME: デフォルトの文字セットを追加
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to add a character set tag to the
-	   "Content-Type" response header, when content type is either
-	   "text/html" or "text/plain" without any parameters.
-	   When set to {val}Off{/},  this function is disabled. When set to
-	   {val}On{/}, either the character set specified by
-	   {ITEM=defaultCharsetCustomized} or the default "iso-8859-1" will be added.
+DESCR: コンテンツタイプが "text/html"または "text/plain"のいずれかのパラメータがない場合、文字セットタグを "Content-Type"レスポンスヘッダーに追加するかどうかを指定します。
+{val}Off{/}に設定すると、この機能は無効になります。
+{val}On{/}に設定すると、{ITEM=defaultCharsetCustomized}で指定された文字セットまたはデフォルトの "iso-8859-1"のいずれかが追加されます。
 END_DESCR
 
 SYNTAX: ラジオボックスから選択
@@ -1140,19 +1037,16 @@ END_TIPS
 
 [ITEM]
 ID: defaultCharsetCustomized
-NAME: Customized Default Charset
-REQUIRED: 
-APPLY: 3
+NAME: カスタマイズされたデフォルトの文字セット
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies a character set to be used when {ITEM=addDefaultCharset}
-	   is {val}On{/}. This is optional. The default value is {val}iso-8859-1{/}.
-	   This entry has no effect when {ITEM=addDefaultCharset} is
-	   {val}Off{/}.
+DESCR: {ITEM = addDefaultCharset}が{val}On{/}のときに使用される文字セットを指定します。
+       これはオプションです。 デフォルト値は{val} iso-8859-1 {/}です。
+       {ITEM = addDefaultCharset}が{val} Off {/}の場合、このエントリは無効です。
 END_DESCR
 
-SYNTAX: Name of a character set.
+SYNTAX: 文字セットの名前。
 END_SYNTAX
 
 EXAMPLE: utf-8
@@ -1168,13 +1062,12 @@ END_TIPS
 [ITEM]
 ID: moduleNameSel
 NAME: Module
-REQUIRED: 
-APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Name of the module. The module must be registered under the Server Module Configuration tab.  
-Once it is registered, the module name will be available in the drop down box for the Listener and Virtual Host configurations.
+DESCR: モジュールの名前。
+モジュールはサーバーモジュールの設定タブに登録する必要があります。
+登録されると、モジュール名がリスナーおよび仮想ホスト構成のドロップダウンボックスで使用可能になります。
 END_DESCR
 
 SYNTAX: ドロップダウンリストから選択
@@ -1194,7 +1087,7 @@ END_TIPS
 
 [TBL]
 ID: newContext
-NAME: Context Attributes
+NAME: コンテキスト属性
 
 [END_TBL]
 
@@ -1202,14 +1095,12 @@ NAME: Context Attributes
 
 [TBL]
 ID: generalContext
-NAME: Static Context
+NAME: 静的コンテキスト
 NS: E
 
-DESCR: Context settings are used to specify special settings for files in a 
-certain location. These settings can be used to bring in files outside of 
-the document root (like Apache's Alias or AliasMatch directives), 
-to protect a particular directory using authorization realms, or to 
-block or restrict access to a particular directory within the document root.
+DESCR: コンテキスト設定は、特定の場所にあるファイルの特別な設定を指定するために使用されます。
+これらの設定を使用して、(ApacheのエイリアスやAliasMatchディレクティブのような)ドキュメントルートの外にファイルを持ち込むことができます。
+許可レルムを使用して特定のディレクトリを保護したり、ドキュメントルート内の特定のディレクトリへのアクセスをブロックまたは制限することができます。
 END_DESCR
 
 SEE_ALSO: 
@@ -1232,37 +1123,33 @@ SEE_ALSO:
 
 [TBL]
 ID: javaWebAppContext
-NAME: Java Web App Context
+NAME: Java Webアプリコンテキスト
 NS: E
 
-DESCR: Many people running Java applications use the servlet engine to serve static 
-content as well. But no servlet engine is nearly as efficient as LiteSpeed Web Server for these processes. In order to improve the overall performance, 
-LiteSpeed Web Server can be configured as a gateway server, which serves static content 
-and forwards dynamic Java page requests to the servlet engine. 
+DESCR: Javaアプリケーションを実行している多くの人々は、サーブレットエンジンを使用して静的コンテンツを提供しています。
+しかし、サーブレットエンジンは、これらのプロセスではLiteSpeed Web Serverほど効率的ではありません。
+全体のパフォーマンスを向上させるために、LiteSpeed Web Serverをゲートウェイサーバーとして構成することができます。ゲートウェイサーバーは静的コンテンツを処理し、動的Javaページ要求をサーブレットエンジンに転送します。
 
 
-LiteSpeed Web Server requires certain contexts to be defined in order to run a 
-Java application. A Java Web App Context automatically creates all required 
-contexts based on the Java web application's configuration file (WEB-INF/web.xml). 
+LiteSpeed Web Serverでは、Javaアプリケーションを実行するために特定のコンテキストを定義する必要があります。
+Java Webアプリケーションコンテキストは、Java Webアプリケーションの構成ファイル（WEB-INF/web.xml）に基づいて、必要なすべてのコンテキストを自動的に作成します。 
 
 
-There are a few points you need to keep in mind when setting up a Java Web App Context:
+Java Webアプリコンテキストを設定する際に留意すべき点がいくつかあります：
 
 <ul>
-<li>A {val}Servlet Engine{/} external application must be set up in {PAGE=ExtApp_Help} 
-before Java Web App Context can be set up.<li> 
-<li>A {PAGE=ScriptHandler_Help} for .jsp files should be defined as well.</li>
-<li>If the web application is packed into a .war file, the .war file must be expanded. 
-The server cannot access compressed archive files.</li>
-<li>For the same resources, the same URL should be used no matter whether it is accessed 
-through LiteSpeed Web Server or through the servlet engine's built-in HTTP server.
+<li>Java Webアプリコンテキストを設定する前に、{val}サーブレットエンジン{/}外部アプリケーションを{PAGE=ExtApp_Help}に設定する必要があります<li> 
+<li>.jspファイルの{PAGE=ScriptHandler_Help}も同様に定義する必要があります。</li>
+<li>Webアプリケーションが.warファイルにパックされている場合は、.warファイルを展開する必要があります。
+サーバーは圧縮されたアーカイブファイルにアクセスできません。</li>
+<li>同じリソースの場合、LiteSpeed Web Serverを介してアクセスするか、サーブレットエンジンの組み込みHTTPサーバーを介してアクセスするかにかかわらず、同じURLを使用する必要があります。
 
 
-For example, 
-  Tomcat 4.1 is installed under /opt/tomcat. Files for the "examples" web application are 
-  located at /opt/tomcat/webapps/examples/. Through Tomcat's built-in HTTP server, 
-  the "examples" web application is thus accessed with a URI like "/examples/***". 
-  The corresponding Java Web App Context should thus be configured: 
+例えば、
+  Tomcat 4.1は/ opt / tomcatにインストールされます。
+  "examples" Webアプリケーションのファイルは、/opt/tomcat/webapps/examples/にあります。
+  TomcatのビルトインHTTPサーバーを通じて、 "examples" Webアプリケーションは "/ examples / ***"のようなURIでアクセスされます。
+  したがって、対応するJava Webアプリコンテキストを設定する必要があります： 
   {ITEM=expuri} = {val}/examples/{/}, {ITEM=location} = {val}/opt/tomcat/webapps/examples/{/}.</li>
   </ul>
 END_DESCR
@@ -1277,34 +1164,29 @@ ID: javaWebAppContext
 NAME: Java Webアプリコンテキスト
 NS: O
 
-DESCR: Many people running Java applications use the servlet engine to serve static 
-content as well. But no servlet engine is nearly as efficient as LiteSpeed Web Server 
-for these processes. In order to improve the overall performance, 
-LiteSpeed Web Server can be configured as a gateway server, which serves static content 
-and forwards dynamic Java page requests to the servlet engine. 
+DESCR: Javaアプリケーションを実行している多くの人々は、サーブレットエンジンを使用して静的コンテンツを提供しています。
+しかし、サーブレットエンジンは、これらのプロセスではLiteSpeed Web Serverほど効率的ではありません。
+全体のパフォーマンスを向上させるために、LiteSpeed Web Serverをゲートウェイサーバーとして構成することができます。ゲートウェイサーバーは静的コンテンツを処理し、動的Javaページ要求をサーブレットエンジンに転送します。 
 
 
-LiteSpeed Web Server requires certain contexts to be defined in order to run a 
-Java application. A Java Web App Context automatically creates all required 
-contexts based on the Java web application's configuration file (WEB-INF/web.xml). 
+LiteSpeed Web Serverでは、Javaアプリケーションを実行するために特定のコンテキストを定義する必要があります。
+Java Webアプリケーションコンテキストは、Java Webアプリケーションの構成ファイル（WEB-INF/web.xml）に基づいて、必要なすべてのコンテキストを自動的に作成します。 
 
 
-There are a few points you need to keep in mind when setting up a Java Web App Context:
+Java Webアプリケーションコンテキストを設定する際に留意すべき点がいくつかあります：
 
 <ul>
-<li>A {val}Servlet Engine{/} external application must be set up in {PAGE=ExtApp_Help} 
-before Java Web App Context can be set up.</li> 
-<li>A {PAGE=ScriptHandler_Help} for .jsp files should be defined as well.</li>
-<li>If the web application is packed into a .war file, the .war file must be expanded. 
-The server cannot access compressed archive files.</li>
-<li>For the same resources, the same URL should be used no matter whether it is accessed 
-through LiteSpeed Web Server or through the servlet engine's built-in HTTP server.
+<li>Java Webアプリコンテキストを設定する前に、{val}サーブレットエンジン{/}外部アプリケーションを{PAGE=ExtApp_Help}に設定する必要があります<li> 
+<li>.jspファイルの{PAGE=ScriptHandler_Help}も同様に定義する必要があります。</li>
+<li>Webアプリケーションが.warファイルにパックされている場合は、.warファイルを展開する必要があります。
+サーバーは圧縮されたアーカイブファイルにアクセスできません。</li>
+<li>同じリソースの場合、LiteSpeed Web Serverを介してアクセスするか、サーブレットエンジンの組み込みHTTPサーバーを介してアクセスするかにかかわらず、同じURLを使用する必要があります。
 
-For example, 
-  Tomcat 4.1 is installed under /opt/tomcat. Files for the "examples" web application are 
-  located at /opt/tomcat/webapps/examples/. Through Tomcat's built-in HTTP server, 
-  the "examples" web application is thus accessed with a URI like "/examples/***". 
-  The corresponding Java Web App Context should thus be configured: 
+例えば、 
+  Tomcat 4.1は/ opt / tomcatにインストールされます。
+  "examples" Webアプリケーションのファイルは、/opt/tomcat/webapps/examples/にあります。
+  TomcatのビルトインHTTPサーバーを通じて、 "examples" Webアプリケーションは "/ examples / ***"のようなURIでアクセスされます。
+  したがって、対応するJava Webアプリコンテキストを設定する必要があります： 
   {ITEM=expuri} = {val}/examples/{/}, {ITEM=javaWebApp_location} = {val}/opt/tomcat/webapps/examples/{/}.</li>
   </ul>
 END_DESCR
@@ -1316,14 +1198,13 @@ SEE_ALSO:
 
 [TBL]
 ID: servletContext
-NAME: Servlet Context
+NAME: サーブレットコンテキスト
 NS: E
 
-DESCR: Servlets can be imported individually through Servlet Contexts. 
-A Servlet Context just specifies the URI for the servlet and the name of the servlet engine. 
-You only need to use this when you do not want to import the whole web application 
-or you want to protect different servlets with different authorization realms. 
-This URI has the same requirements as for a {TBL=javaWebAppContext}. 
+DESCR: サーブレットは、サーブレットコンテキストを介して個別にインポートできます。
+サーブレットコンテキストは、サーブレットのURIとサーブレットエンジンの名前を指定するだけです。
+Webアプリケーション全体をインポートしたくない場合や、異なるサーブレットを異なる認可レルムで保護したい場合にのみ、これを使用する必要があります。
+このURIには、{TBL=javaWebAppContext}と同じ要件があります。 
 END_DESCR
 
 SEE_ALSO: 
@@ -1379,14 +1260,14 @@ SEE_ALSO:
 
 [TBL]
 ID: lsapiContext
-NAME: LiteSpeed SAPI Context
+NAME: LiteSpeed SAPIコンテキスト
 NS: E
 
-DESCR: External applications cannot be used directly. They must be either configured as 
-a script handler or mapped to a URL through a context. An LiteSpeed SAPI Context will 
-associate a URI with an LSAPI (LiteSpeed Server Application Programming Interface) application.
-Currently PHP, Ruby and Python have LSAPI modules. LSAPI, as it is developed specifically for
-LiteSpeed web server, is the most efficient way to communicate with LiteSpeed web server.  
+DESCR: 外部アプリケーションは直接使用することはできません。
+スクリプトハンドラとして設定するか、コンテキストを介してURLにマップする必要があります。
+LiteSpeed SAPIコンテキストは、URIをLSAPI（LiteSpeed Server Application Programming Interface）アプリケーションに関連付けます。
+現在PHP、Ruby、PythonにはLSAPIモジュールがあります。
+LiteSpeed Webサーバー用に特別に開発されたLSAPIは、LiteSpeed Webサーバーと通信するための最も効率的な方法です。
 END_DESCR
 
 SEE_ALSO: 
