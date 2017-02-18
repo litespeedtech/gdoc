@@ -1,88 +1,71 @@
-<h1>Security</h1>
+<h1>セキュリティ</h1>
 
-<p>LiteSpeed Web Server is designed with security as a top consideration. 
-LSWS supports SSL, has access control at server and virtual host levels, 
-and context-specific realm protection. Besides these standard features, 
-LSWS also has the following special security features: </p>
+<p>LiteSpeed Web Serverは、セキュリティを最優先事項として設計されています。
+LSWSはSSLをサポートし、サーバおよび仮想ホストレベルでのアクセス制御、コンテキスト固有の領域保護を備えています。
+これらの標準機能に加えて、LSWSには次の特別なセキュリティ機能もあります：</p>
 
 <ol>
-	<li><h3>Connection level limits:</h3>
+	<li><h3>接続レベルの制限：</h3>
 	  <ul>
-	    <li> IP-level throttling limits network bandwidth to and from a single IP 
-	      address regardless of the number of connections. </li>
-	    <li> IP-level connection accounting limits the number of concurrent connections 
-	      from a single IP address. You can controll this with the connection 
-	      soft limit, connection hard limit, grace 
-	      period, and banned period settings in the WebAdmin console. </li>
+	    <li> IPレベルのスロットリングにより、接続数に関係なく、単一のIPアドレスとの間でネットワーク帯域幅が制限されます。</li>
+	    <li> IPレベルの接続アカウンティングは、単一のIPアドレスからの同時接続数を制限します。
+            WebAdminコンソールで、接続のソフト制限、接続ハード制限、猶予期間、および禁止期間設定を使用してこれを制御できます。 </li>
 	  </ul>
 	</li>
-	<li><h3>Request checking:</h3>
-	  	<p> Every HTTP request is vetted by LiteSpeed Web Server. "/." is not allowed in
-	    a decoded URL, thus denying accessing hidden files and parent directories.</p>
-	    <p>Request size is limited by LiteSpeed Web Server's max request URL length, 
-	    max request header length, and max request body length settings. </p>
+	<li><h3>リクエストフィルタリング：</h3>
+	  	<p> すべてのHTTPリクエストは、LiteSpeed Web Serverによって検証されます。
+           "/" デコードされたURLでは許可されないため、隠しファイルや親ディレクトリへのアクセスが拒否されます。</p>
+	    <p>要求サイズは、LiteSpeed Web Serverの最大要求URL長、最大要求ヘッダー長、および最大要求本体長設定によって制限されます。 </p>
     </li>
     
-    <li><h3>Request filtering:</h3>
-  		<p> Request header and body can be checked against possible attack signatures. 
-  		This helps defend against XSS attacks and SQL injection attacks, blocking 
-     those requests right from the start. </p>
+    <li><h3>リクエストフィルタリング：</h3>
+  		<p> 要求ヘッダーと本文は、可能な攻撃シグネチャと照合することができます。
+            これは、XSS攻撃とSQLインジェクション攻撃から防御し、最初からこれらの要求をブロックします。 </p>
   	</li>
     
-	<li><h3>Static file checking:</h3>
-  		<p>LiteSpeed Web Server will serve a static file only if the following conditions 
-    are satisfied: </p>
+	<li><h3>静的ファイル検査：</h3>
+  		<p>LiteSpeed Web Serverは、次の条件を満たす場合にのみ静的ファイルを提供します：</p>
 	  <ul>
-	    <li>The file is readable by everyone.</li>
-	    <li>The file is not executable.</li>
-	    <li>The file is not in the access denied directory list.</li>
-	    <li>The file does not contain symbolic link if symbolic links are not allowed. </li>
-	    <li>By default, LiteSpeed Web Server does not index a directory by listing its
-	        files, it has to be enabled explicitly.</li>
+	    <li>このファイルは誰でも読むことができます。</li>
+	    <li>ファイルが実行可能ではありません。</li>
+	    <li>ファイルがアクセス拒否ディレクトリリストにありません。</li>
+	    <li>シンボリックリンクが許可されていない場合、ファイルにシンボリックリンクは含まれません。</li>
+	    <li>デフォルトでは、LiteSpeed Web Serverはファイルをリスト表示してディレクトリのインデックスを作成しません。明示的に有効にする必要があります。</li>
 	  </ul>
 	</li>
-	<li><h3>External application firewall:</h3>
-		<p>LiteSpeed Web Server forwards requests to external applications to process/generate 
-dynamic content. Those applications can use a lot of system resources. The performance of the 
-whole system will be severely degraded when system resource consumption reaches a certain point 
--- when swapping space has to be used, for example. One way to conduct a DoS attack is to flood 
-the web server with concurrent requests to a cumbersome external application.</p>
+	<li><h3>外部アプリケーションファイアウォール：</h3>
+		<p>LiteSpeed Web Serverは、動的コンテンツを処理/生成するために要求を外部アプリケーションに転送します。
+           これらのアプリケーションは、多くのシステムリソースを使用できます。
+           たとえば、スワップスペースを使用する必要がある場合など、システムリソース消費量が一定のポイントに達すると、システム全体のパフォーマンスが著しく低下します。
+           DoS攻撃を実行する1つの方法は、煩雑な外部アプリケーションへの同時要求をWebサーバーに氾濫させることです。</p>
 
-<p>LiteSpeed Web Server can pipeline requests and control the concurrent level of external 
-application use to prevent overconsumption of system resources. LSWS caches requests and only 
-forwards completed requests to the external application. This means the external application 
-will not be held waiting while the server is receiving the request. LSWS also caches the 
-external application's response so that the external application can be released as soon as 
-the response is completed and does not have to wait for the client to receive the complete response. 
-This way the server can utilize fewer external application instances to serve more concurrent 
-requests and achieve higher performance and scalability. LiteSpeed Web Server also uses its 
-own virtual memory to cache the request and response body to minimize the usage of system 
-memory without sacrificing performance. </p></li>
-  <li><h3>CGI resources consumption limit:</h3>
-<p>LiteSpeed Web Server restricts the amount of system resources that can be consumed by
- CGI applications. For each request to a CGI script, the web server needs to
- start a standalone CGI process to handle it. On a Unix system, the number of concurrent 
- processes is limited. With the CGI resources consumption limit, you can configure 
- the maximum number of concurrent CGI instances that the web server can launch.  
-Excessive concurrent processes will degrade the performance 
-of the whole system. (CGI processes are a common weapon for DoS attacks.)
-A system process limit can be specified per user in order to control the number
-of processes that can be spawned by a CGI application. Each process is further confined by CPU and memory limits.</p>
+<p>LiteSpeed Web Serverは、要求をパイプライン処理し、外部アプリケーションの同時使用レベルを制御して、システムリソースの過消費を防ぎます。
+   LSWSは要求をキャッシュし、完了した要求のみを外部アプリケーションに転送します。
+   つまり、サーバーがリクエストを受信している間に、外部アプリケーションが待機することはありません。
+   LSWSはまた、外部アプリケーションの応答をキャッシュして、応答が完了するとすぐに外部アプリケーションを解放し、クライアントが完全な応答を受け取るのを待つ必要がないようにします。
+   このようにして、サーバーはより少ない外部アプリケーション・インスタンスを利用してより多くの同時要求を処理し、より高いパフォーマンスとスケーラビリティーを達成することができます。
+   LiteSpeed Web Serverは、独自の仮想メモリを使用して要求と応答の本体をキャッシュし、パフォーマンスを犠牲にせずにシステムメモリの使用を最小限に抑えます。</p></li>
+  <li><h3>CGIリソースの消費制限：</h3>
+<p>LiteSpeed Web Serverは、CGIアプリケーションで使用できるシステムリソースの量を制限します。
+CGIスクリプトへのリクエストごとに、Webサーバーはそれを処理するためにスタンドアロンCGIプロセスを開始する必要があります。
+Unixシステムでは、並行プロセスの数が制限されています。
+CGIリソースの消費制限により、Webサーバーが起動できる同時CGIインスタンスの最大数を構成できます。
+過度の並行プロセスは、システム全体のパフォーマンスを低下させます。（CGIプロセスはDoS攻撃の一般的な武器です。）
+CGIアプリケーションによって生成されるプロセスの数を制御するために、ユーザーごとにシステムプロセスの制限を指定することができます。
+各プロセスは、CPUとメモリの制限によってさらに制限されます。</p>
 </li>
-  <li><h3>Enhanced CGI/FastCGI security with suEXEC:</h3>
-<p>In order to reduce the security risks of a CGI or Fast CGI script, LiteSpeed Web Server can restrict the system resources the CGI script can access by running it in 
-"suEXEC" or "chroot jail" mode. "suEXEC" starts the CGI or Fast CGI script with a different user ID from that of the web server. This greatly improves security in
-shared hosting environment by preventing one user's CGI script from accessing other users' files.</p>
-<p>"chroot jail" starts the CGI script under an assigned alternative
-     root directory. The script can not access files beyond this new root directory. 
-     With this, you no longer need to worry about confidential system files being 
-     exposed by vulnerable scripts.</p>
+  <li><h3>suEXECによる強化されたCGI/FastCGIセキュリティ：</h3>
+<p>CGIまたはFast CGIスクリプトのセキュリティリスクを軽減するために、LiteSpeed Web Serverは、CGIスクリプトが "suEXEC"または "chroot jail"モードで実行することによってアクセスできるシステムリソースを制限できます。
+"suEXEC"は、WebサーバーのユーザーIDとは異なるユーザーIDを持つCGIまたはFast CGIスクリプトを開始します。
+これにより、あるユーザーのCGIスクリプトが他のユーザーのファイルにアクセスするのを防ぐことで、共有ホスティング環境のセキュリティが大幅に向上します。</p>
+<p>"chroot jail"は、割り当てられた代替ルートディレクトリの下でCGIスクリプトを開始します。
+   スクリプトは、この新しいルートディレクトリ以外のファイルにはアクセスできません。
+   これにより、機密システムファイルが脆弱なスクリプトによって公開される心配がなくなりました。</p>
 </li>
 
-<li><h3>Run LSWS in chroot jail [Enterprise Edition Only]:</h3>
-  <p> LiteSpeed Web Server can run in a chroot environment (known as a chroot jail). 
-    In the chroot environment, the web server and its child processes cannot access 
-    files outside of the chroot jail. This protects the system from attacks 
-    by malicious code. </p>
+<li><h3>chroot jailでLSWSを実行する[Enterpriseエディションのみ]：</h3>
+  <p> LiteSpeed Web Serverは、chroot環境（chroot jail）として動作します。
+  chroot環境では、Webサーバーとその子プロセスはchroot jailの外部にあるファイルにアクセスできません。
+  これにより、悪質なコードによる攻撃からシステムが保護されます。 </p>
 </li>
 </ol>

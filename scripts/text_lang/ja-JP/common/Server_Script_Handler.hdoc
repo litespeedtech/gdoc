@@ -16,7 +16,7 @@ END_DESCR
 EDITTIP: ウェブサイトがPHPまたはJSPをサポートしている場合は、ここで設定してください。
 END_EDITTIP
 
-SYNTAX: コンマ区切りリストでピリオド"."は禁止されています。
+SYNTAX: カンマ区切りリストでピリオド"."は禁止されています。
 END_SYNTAX
 
 EXAMPLE: 
@@ -48,7 +48,7 @@ DESCR:  このスクリプトハンドラによって処理されるスクリプ
 
 END_DESCR
 
-SYNTAX: コンマ区切りリストでピリオド"."は禁止されています。
+SYNTAX: カンマ区切りリストでピリオド"."は禁止されています。
 END_SYNTAX
 
 EXAMPLE: 

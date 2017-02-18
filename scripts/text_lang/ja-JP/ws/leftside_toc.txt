@@ -1,5 +1,5 @@
 <div class="sidetree">
-<h3>LiteSpeed Webサーバー <a href="index.html">ユーザーズマニュアル</a></h3>
+<h3>LiteSpeed Web Server<a href="index.html">ユーザーズマニュアル</a></h3>
 <h5>Version 5.1 Rev. 4</h5>
 <hr/>
 <div>

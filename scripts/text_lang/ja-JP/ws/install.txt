@@ -1,115 +1,112 @@
-<h1>Installation/Uninstallation</h1>
+<h1>インストール/アンインストール</h1>
 
-<h3>Minimum system requirements</h3>
-<ul><li><strong>Operating System:</strong>
-	<ul><li>Linux(i386): kernel 2.4 and up, glibc-2.2 and up</li>
-		<li>CentOS: 5 and up</li>
-		<li>Ubuntu: 8.04 and up</li>
-        <li>Debian: 4 and up</li>
-		<li>Solaris(x86): Sun0S 5.8 and up</li>
-		<li>FreeBSD(i386): 4.5 and up</li>
-		<li>MacOSX: 10.3 and up</li>
+<h3>最小システム要件</h3>
+<ul><li><strong>オペレーティングシステム：</strong>
+	<ul><li>Linux(i386): カーネル 2.4以上, glibc-2.2以上</li>
+		<li>CentOS: 5以上</li>
+		<li>Ubuntu: 8.04以上</li>
+        <li>Debian: 4以上</li>
+		<li>Solaris(x86): Sun0S 5.8以上</li>
+		<li>FreeBSD(i386): 4.5以上</li>
+		<li>MacOSX: 10.3以上</li>
 	</ul></li>
 	<li><strong>CPU:</strong>
-		<ul><li>Intel: 80486 and up</li>
+		<ul><li>Intel: 80486以上</li>
 			<li>PowerPC: PowerPC G4</li>
 		</ul>
 	</li>
-	<li><strong>Memory:</strong> 32MB and up</li>
-	<li><strong>Disk:</strong>
-		<ul><li>Installation: 200MB</li><li>Runtime: 300MB and up, swapping space depends on usage.</li></ul></li>
+	<li><strong>メモリ:</strong> 32MB以上</li>
+	<li><strong>ディスク:</strong>
+		<ul><li>インストール: 200MB</li><li>ランタイム: 300MB以上、スワップスペースは使用方法によって異なります。</li></ul></li>
 </ul>
 
-<h3>Installation</h3>
+<h3>インストール</h3>
 
-<p>Installation must be performed in a command line terminal. For testing purposes, LiteSpeed Web Server can be installed into a home directory by a non-privileged user. For production use, it should be installed into a system directory.</p>
+<p>インストールはコマンドライン端末で行う必要があります。 
+   テストの目的で、LiteSpeed Web Serverは特権のないユーザーによってホームディレクトリにインストールできます。 
+   プロダクション用には、システムディレクトリにインストールする必要があります。</p>
 
-<p>In Mac OS X, root user is disabled by default. It can be enabled using a series of actions detailed on the <a href="http://support.apple.com/kb/PH11331">Apple</a> website. You can also use the sudo command to install LSWS into a system directory without enabling the root user, but system folders will still only be manipulable by the root user. This means that every time you want to control LSWS from the command line terminal (like when you want to start or stop LSWS), you will have to use the sudo command.</p>
+<p>Mac OS Xでは、rootユーザーはデフォルトで無効になっています。
+<a href="http://support.apple.com/kb/PH11331">Apple</a>のウェブサイトに記載されている一連の操作を使用して有効にすることができます。
+sudoコマンドを使用して、rootユーザーを有効にせずにLSWSをシステムディレクトリにインストールすることもできますが、システムフォルダはrootユーザーだけが操作できます。
+つまり、コマンドライン端末からLSWSを制御したいとき（LSWSを起動または停止したいときなど）には、sudoコマンドを使用する必要があります。</p>
 
-<h4>Installation Steps:</h4>
+<h4>インストール手順：</h4>
 <ol>
 
-  <li> Decompress the package into a convenient location:<br>
-    <span class="cmd">tar xvfz lsws-xxxx.tar.gz</span> or <span class="cmd">gunzip 
+  <li> 便利な場所にパッケージを解凍する：<br>
+    <span class="cmd">tar xvfz lsws-xxxx.tar.gz</span> 又は <span class="cmd">gunzip 
     -c lsws-xxxx.tar.gz | tar xvf -</span> <br>
   </li>
-  <li><span class="tag">[Enterprise Edition Only]</span> Install trial license key or serial number:
+  <li><span class="tag">[Enterpriseエディションのみ]</span> トライアルライセンスキーまたはシリアル番号をインストールします：
     <ul>
-      <li> Trial License: 
-           <p>A trial license is for evaluation purposes and 
-           is only good for 15 days after download. A trial license can be requested from download page.</p>
-           <p>A trial license key will be sent to you as an attachment in a confirmation email. 
-           Please save the attachment as <span class="val">trial.key</span> and copy 
-           it to the installation directory. </p>
-           <p>When you switch from a trial license to a production license, you can simply run the 
-        install script again after following the steps below to update your license.</p>
+      <li> トライアルライセンス： 
+           <p>トライアルライセンスは評価のためのもので、ダウンロード後15日間有効です。
+              トライアルライセンスは、ダウンロードページからリクエストできます。</p>
+           <p>試用ライセンスキーが確認メールの添付ファイルとして送信されます。 
+           添付ファイルを<span class="val">trial.key</span>として保存し、インストールディレクトリにコピーしてください。</p>
+           <p>トライアルライセンスからプロダクションライセンスに切り替えるときは、以下の手順に従ってライセンスを更新するだけで、インストールスクリプトを再実行することができます。</p>
       </li>
-      <li> Production license:
+      <li> プロダクションライセンス：
         <ol>
-          <li> Licenses can be leased or purchased at the LiteSpeed <a href="http://store.litespeedtech.com">store</a>.</li>
-          <li> A serial number will be sent to you in the confirmation email after you order has been successfully processed. Each serial number
-            allows for one server installation.</li>
-          <li> Save the serial number as "serial.no"; in the installation directory (where
-            install.sh is located).  The LiteSpeed products registration server will use this 
-            file to retrieve your license key during the installation process.</li>
+          <li> ライセンスはLiteSpeedの<a href="http://store.litespeedtech.com">ストアー</a>でリースまたは購入することができます 。</li>
+          <li> 注文が正常に処理された後、確認メールでシリアル番号が送信されます。
+               各シリアル番号により、1台のサーバーのインストールが可能です。</li>
+          <li> シリアル番号を "serial.no"として保存します。 インストールディレクトリ（install.shが置かれている場所）にあります。
+               LiteSpeed製品登録サーバーは、このファイルを使用して、インストールプロセス中にライセンスキーを取得します。</li>
         </ol>        
 		</li>
     </ul>
   </li>
   <li> 
-   <p>Go to the installation directory <span class="cmd">cd lsws-xxxx</span> 
-    and run command <span class="cmd">./install.sh</span> This will start LiteSpeed's Installer.</p>
-    <p>Note that only by running this command as the &quot;root&quot; user can you install the server 
-    into a system directory. Other users 
-    should install it to somewhere under their home directory. </p>
-    <p>Mac OS X users can install the server into a system directory with command 
+   <p>インストールディレクトリ<span class="cmd">cd lsws-xxxx</span>に移動し、<span class="cmd">./install.sh</span>コマンドを実行します。
+    LiteSpeedのインストーラが起動します。</p>
+    <p>このコマンドを &quot;root&quot;ユーザーとして実行するだけで、サーバーをシステムディレクトリにインストールできることに注意してください。
+    他のユーザーは、ホームディレクトリの下のどこかにインストールする必要があります。</p>
+    <p>Mac OS Xユーザーはコマンドを使用してサーバーをシステムディレクトリにインストールできます 
   <span class="cmd">sudo ./install.sh</span></p>
   </li>
   
-  <li> Read the End User License Agreement and type "Yes" to confirm your agreement.</li>
+  <li> エンドユーザー使用許諾契約書を読み、"Yes"と入力して契約を確認します。</li>
   
-  <li>Specify the directory where you would like to install LiteSpeed Web Server.
-   For the root user, the default is /usr/local/lsws. For non-privileged users, 
-   the default is their home directory. Remember, non-privileged users will not be 
-   able to install the server into a system directory.</li>
+  <li>LiteSpeed Web Serverをインストールするディレクトリを指定します。
+    rootユーザーの場合、デフォルトは/usr/local/lswsです。
+    特権を持たないユーザーの場合、デフォルトはホームディレクトリです。 
+    特権を持たないユーザーは、サーバーをシステムディレクトリにインストールすることはできません。</li>
    
-  <li><span class="tag">[Enterprise Edition Only]</span> <strong>Generate license request.</strong>
-    <p>If the Installer only finds serial number but no valid license key, it will 
-    prompt to generate a license request. The installer will talk to LiteSpeed products 
-    registration server and obtain a valid license key automatically. Upon getting the 
-    license key, it will go to next step. If failed, the installer will exit and leave 
-    a license request file. </p>
-    <p>If the automatic process failed, you can create a ticket with license department 
-    from online store client area.</p>  
-    <p>Note: Installation will continue only if there is a valid trial license or valid Enterprise license. </p>
+  <li><span class="tag">[Enterpriseエディションのみ]</span> <strong>ライセンス要求を生成します。</strong>
+    <p>インストーラがシリアル番号だけを検索し、有効なライセンスキーが見つからない場合は、ライセンス要求の生成を促します。
+     インストーラはLiteSpeed製品登録サーバーと通信し、有効なライセンスキーを自動的に取得します。
+     ライセンスキーを取得すると、次のステップに進みます。
+     失敗した場合、インストーラは終了してライセンス要求ファイルを残します。</p>
+    <p>自動処理が失敗した場合は、オンラインストアクライアントエリアのライセンス部門でチケットを作成することができます。</p>  
+    <p>注：インストールは、有効な試用版ライセンスまたは有効なエンタープライズライセンスがある場合にのみ継続されます。 </p>
    </li>
 
-    <li>Follow the instructions on the screen. The Installer will ask you to set the following: 
+    <li>画面の指示に従います。インストーラは、次の設定を要求します： 
     <ol>
-      <li> If a previously installed copy exists, the Installer will ask you to choose either
-        upgrade, reinstall, or change directory. Upgrading will keep your current 
-        configurations.</li>
-      <li> Administrator's username and password for the WebAdmin interface.</li>
-      <li> What control panel, if any, you will use with LSWS.</li>
-      <li> User and group that the server process will run on behalf of.</li>
-      <li> TCP port for normal web service.</li>
-      <li> TCP port for WebAdmin interface. </li>
-      <li> Whether to set up LiteSpeed PHP.
-      <li> <span class="tag">[Enterprise Edition Only]</span> Root user has the 
-        option to enable chroot. The installer will setup the initial chroot 
-        environment automatically. Chroot is an advanced feature and your CGI 
-        may fail without configuration tuning. We strongly recommend not enabling 
-        chroot unless you are familiar with it. You can always enable it later 
-        by performing an upgrade installation. 
+      <li> 以前にインストールされたコピーが存在する場合、インストーラはアップグレード、再インストール、またはディレクトリの変更のいずれかを選択するように求めます。
+           アップグレードすると、現在の設定が保持されます。</li>
+      <li> WebAdminインターフェイスの管理者のユーザー名とパスワード。</li>
+      <li> コントロールパネルがあればLSWSで使用。</li>
+      <li> サーバープロセスが代わって実行するユーザーおよびグループ。</li>
+      <li> 通常のWebサービスのTCPポート。</li>
+      <li> WebAdminインターフェイスのTCPポート。 </li>
+      <li> LiteSpeed PHPを設定するかどうか。
+      <li> <span class="tag">[Enterpriseエディションのみ]</span> rootユーザーには、chrootを有効にするオプションがあります。
+          インストーラは初期chroot環境を自動的に設定します。
+          Chrootは高度な機能であり、設定調整なしでCGIが失敗する可能性があります。
+          熟知していない限り、chrootを有効にしないことを強くお勧めします。
+          後でアップグレードインストールを実行して、いつでも有効にすることができます。</li>
     </ol>
     <p>
-    Finally, the Installer will ask you if you want to install the AWStats add-on module to 
-    keep track of your web statistics. Root user can also choose to run LiteSpeed web server 
-    automatically at system startup as a service. Then you're done! The installer can start up the 
-    server.</p>
+    最後に、Web統計を追跡するためにAWStatsアドオンモジュールをインストールするかどうかを尋ねるインストーラが表示されます。
+    ルートユーザーは、システム起動時にサービスとしてLiteSpeed Webサーバーを自動的に実行することもできます。
+    そして完了です！
+    インストーラはサーバを起動します。</p>
   </li>
 </ol>
-<h4>Testing Installation</h4>
+<h4>インストールのテスト</h4>
 <ol>
 <li> For detailed information on controlling the server processes,  
     please see the <a href="admin.html">Administration Guide</a>. To start the server, 

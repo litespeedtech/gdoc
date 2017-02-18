@@ -42,7 +42,7 @@ END_DESCR
 EDITTIP: カンマで区切って複数の管理用メールを入力できます。
 END_EDITTIP
 
-SYNTAX: 電子メールアドレスのコンマ区切りリスト
+SYNTAX: 電子メールアドレスのカンマ区切りリスト
 END_SYNTAX
 
 EXAMPLE: 

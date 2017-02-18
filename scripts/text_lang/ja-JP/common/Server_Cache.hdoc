@@ -428,7 +428,7 @@ ID: noCacheDomain
 NAME: キャッシュドメインなし
 NS: LE
 
-DESCR: キャッシュされないドメインのコンマ区切りのリスト。 
+DESCR: キャッシュされないドメインのカンマ区切りのリスト。 
 END_DESCR
 
 SYNTAX: Comma-separated list. Domain names are case insensitive and the leading "www." should be removed. 
