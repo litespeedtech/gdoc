@@ -16,7 +16,7 @@
         <li><a href="ServLog_Help.html">サーバーログ</a></li>
 	<li><a href="ServTuning_Help.html">サーバーのチューニング</a></li>
 	<li><a href="ServSecurity_Help.html">サーバーのセキュリティ</a></li>
-	<li><a href="RequestFilter_Help.html">Rリクエストフィルタ</a></li>
+	<li><a href="RequestFilter_Help.html">リクエストフィルタ</a></li>
 	<li><a href="Cache_Help.html">ページキャッシュ</a></li>
 	<li><a href="ExtApp_Help.html">外部アプリ</a></li>
                 <ul class="level3">
