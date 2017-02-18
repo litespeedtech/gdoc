@@ -19,7 +19,6 @@ A: <ul>
 
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
@@ -31,7 +30,6 @@ Q: サーバーがクラッシュしましたが、どうすればいいです�
 A: <a href="http://litespeedtech.com/bugs.html">バグレポート</a>を提出してください。
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
@@ -43,7 +41,6 @@ Q: 私はWeb管理インターフェースのパスワードを忘れました�
 A: <span class="cmd">$SERVER_ROOT/admin/misc/admpass.sh</span>を実行してユーザー名とパスワードをリセットしてください。
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
@@ -78,7 +75,6 @@ A: <ol>
 
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
@@ -122,7 +118,6 @@ A: chroot環境では、すべてのパス設定は新しいルートディレ�
 
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
@@ -134,7 +129,6 @@ Q: LiteSpeed Web Serverに切り替えた後、Nortonパーソナルファイア
 A: ホットリンクの保護設定で「ダイレクトアクセス」を許可してください。Nortonはリクエストから「Referer」ヘッダーを削除します。
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
@@ -146,7 +140,6 @@ Q: 私はIPでWebサイトにアクセスすることはできません、ドメ
 A: Webサイトがバインドするリスナーの「バーチャルホストマッピング」設定のドメインリストにIPアドレスを追加してください。
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
@@ -164,7 +157,6 @@ TOP_NAV: index.html = INDEX
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 

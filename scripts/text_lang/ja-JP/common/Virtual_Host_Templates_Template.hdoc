@@ -7,8 +7,6 @@
 [ITEM]
 ID: templateName
 NAME: テンプレート名
-SINCE: 
-SEE_ALSO: 
 
 DESCR: テンプレートの一意の名前。
 END_DESCR
@@ -29,8 +27,6 @@ END_TIPS
 [ITEM]
 ID: templateFile
 NAME: テンプレートファイル 
-SINCE: 
-SEE_ALSO: 
 
 DESCR: このテンプレートの構成ファイルへのパスを指定します。
 このファイルは$SERVER_ROOT/conf/templates/の中に ".conf"ファイル名で置く必要があります。
@@ -55,8 +51,6 @@ END_TIPS
 [ITEM]
 ID: mappedListeners
 NAME: マッピングされたリスナー
-SINCE: 
-SEE_ALSO: 
 
 
 DESCR: このテンプレートがマップするすべてのリスナーの名前を指定します。
@@ -83,8 +77,6 @@ END_TIPS
 [ITEM]
 ID: templateVHName
 NAME: バーチャルホスト名
-SINCE: 
-SEE_ALSO: 
 
 DESCR: このバーチャルホストの一意の名前。
 この名前は、すべてのテンプレートメンバーバーチャルホストとスタンドアロンバーチャルホストで一意でなければなりません。
@@ -110,8 +102,6 @@ END_TIPS
 [ITEM]
 ID: templateVHDomain
 NAME: ドメイン
-SINCE: 
-SEE_ALSO: 
 
 DESCR: このメンバーバーチャルホストのメインドメイン名を指定します。
 空白のままにすると、バーチャルホスト名が使用されます。
@@ -144,8 +134,6 @@ END_TIPS
 [ITEM]
 ID: templateVHAliases
 NAME: エイリアス
-SINCE: 
-SEE_ALSO: 
 
 DESCR: バーチャルホストの代替名を指定します。
 すべての可能なホスト名とIPアドレスをこのリストに追加する必要があります。
@@ -179,8 +167,6 @@ END_TIPS
 [ITEM]
 ID: memberVHRoot
 NAME: メンバーバーチャルホストルート
-SINCE: 
-SEE_ALSO: 
 
 DESCR: このバーチャルホストのルートディレクトリを指定します。
 ブランクのままにすると、このテンプレートのデフォルトのバーチャルホストルートが使用されます。
@@ -214,7 +200,6 @@ NAME: テンプレートの場所
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -226,7 +211,6 @@ NAME: メンバーバーチャルホスト
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -256,7 +240,6 @@ DESCR: バーチャルホストテンプレートを使用すると、同様の�
 構成が異なるバーチャルホストを設定する場合でも、テンプレートを開始点として使用し、インスタンシエーション後にカスタマイズすると便利です。
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 
@@ -280,7 +263,6 @@ DESCR:バーチャルホストテンプレートを使用すると、同様の�
 カスタマイズされたバーチャルホストを設定する場合でも、テンプレートはまだ便利な出発点になります。
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 

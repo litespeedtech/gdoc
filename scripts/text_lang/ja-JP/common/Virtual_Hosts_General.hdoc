@@ -7,8 +7,6 @@
 [ITEM]
 ID: docRoot
 NAME: ドキュメントルート
-SINCE: 
-SEE_ALSO: 
 
 DESCR: このバーチャルホストのドキュメントルートを指定します。
 {val}$VH_ROOT/html{/}をお勧めします。
@@ -37,8 +35,6 @@ END_TIPS
 [ITEM]
 ID: vhadminEmails
 NAME: 管理者用電子メール
-SINCE: 
-SEE_ALSO: 
 
 DESCR: このバーチャルホストの管理者の電子メールアドレスを指定します。
 END_DESCR
@@ -62,8 +58,6 @@ END_TIPS
 [ITEM]
 ID: enableGzip
 NAME: GZIPを有効にする
-SINCE: 
-SEE_ALSO: {ITEM=ServTuning_Help#enableGzipCompress}, {ITEM=ServTuning_Help#gzipStaticCompressLevel}, {ITEM=ServTuning_Help#enableDynGzipCompress}, {ITEM=ServTuning_Help#gzipCompressLevel}
 
 DESCR: このバーチャルホストに対してGZIP圧縮を有効にするかどうかを指定します。
 この設定は、サーバーレベルでGZIP圧縮が有効になっている場合にのみ有効です。
@@ -86,8 +80,6 @@ END_TIPS
 [ITEM]
 ID: spdyAdHeader
 NAME: SPDY 広告
-SINCE: 1.2.5
-SEE_ALSO: 
 
 DESCR: SPDYプロトコルが使用可能であることをクライアントに通知するかどうかを指定します。
 設定されている場合、クライアントがHTTP接続を介してSPDY対応のWebサイトにアクセスすると、LSWSは代替プロトコルの応答ヘッダーを送信します。
@@ -113,8 +105,6 @@ END_TIPS
 [ITEM]
 ID: indexUseServer
 NAME: サーバーインデックスファイルを使用する
-SINCE: 
-SEE_ALSO: 
 
 DESCR: サーバーのインデックスファイル設定を使用するかどうかを指定します。
 {val}はい{/}に設定すると、サーバーの設定だけが使用されます。
@@ -151,8 +141,6 @@ END_TIPS
 [ITEM]
 ID: autoIndex
 NAME: 自動インデックス
-SINCE: 
-SEE_ALSO: {ITEM=indexFiles}, {ITEM=autoIndexURI}
 
 DESCR: {ITEM=indexFiles}にリストされている索引ファイルがディレクトリで使用できないときに、その場でディレクトリー索引を生成するかどうかを指定します。
 このオプションは、バーチャルホストおよびコンテキストレベルでカスタマイズ可能で、明示的に上書きされるまでディレクトリツリーに沿って継承されます。
@@ -177,8 +165,6 @@ END_TIPS
 [ITEM]
 ID: autoIndexURI
 NAME: 自動インデックス URI
-SINCE: 
-SEE_ALSO: {ITEM=indexFiles}, {ITEM=autoIndex}
 
 DESCR: {ITEM=indexFiles}にリストされているインデックスファイルがディレクトリで使用できない場合に、インデックスページを生成するために使用されるURIを指定します。
 LiteSpeed Webサーバーは外部スクリプトを使用してインデックスページを生成し、最大限のカスタマイズの柔軟性を提供します。
@@ -206,8 +192,6 @@ END_TIPS
 [ITEM]
 ID: errCode
 NAME: エラーコード
-SINCE: 
-SEE_ALSO: 
 
 DESCR: SエラーページのHTTPステータスコードを指定します。
 選択したHTTPステータスコードだけがこのカスタマイズされたエラーページを持ちます。
@@ -230,8 +214,6 @@ END_TIPS
 ID: errMessage
 NAME: カスタムエラーメッセージ
 NS: L
-SINCE: 
-SEE_ALSO: 
 
 DESCR: カスタムエラーメッセージを指定します。
 END_DESCR
@@ -252,8 +234,6 @@ END_TIPS
 [ITEM]
 ID: errURL
 NAME: URL
-SINCE: 
-SEE_ALSO: 
 
 DESCR: カスタマイズされたエラーページのURLを指定します。
 サーバーは、対応するHTTPステータスコードが返されたときに、このURLにリクエストを転送します。
@@ -295,7 +275,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -307,7 +286,6 @@ NAME: インデックスファイル
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -320,7 +298,6 @@ NS: L
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -336,7 +313,6 @@ LiteSpeed Webサーバーには、エラーコードごとにデフォルトの�
 これらのエラーページは、各バーチャルホストごとに一意になるようにさらにカスタマイズすることができます。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -352,7 +328,6 @@ LiteSpeed Web Serverには、エラーコードごとにデフォルトのエラ
 これらのエラーページは、各バーチャルホストごとに一意になるようにさらにカスタマイズすることができます。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -364,7 +339,6 @@ NAME: 期限切れの設定
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -380,7 +354,6 @@ NS: L
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 
@@ -393,7 +366,6 @@ NS: E
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 
@@ -406,7 +378,6 @@ NS: O
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 

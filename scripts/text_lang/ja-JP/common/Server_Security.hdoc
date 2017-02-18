@@ -6,8 +6,6 @@
 [ITEM]
 ID: followSymbolLink
 NAME: シンボリックリンクに従う
-SINCE: 
-SEE_ALSO: {ITEM=checkSymbolLink}.
 
 DESCR: 静的ファイルを提供する際のシンボリックリンクのサーバーレベルのデフォルト設定を指定します。 
 
@@ -42,8 +40,6 @@ END_TIPS
 ID: checkSymbolLink
 NAME: シンボリックリンクを確認する
 
-SINCE: 
-SEE_ALSO: {ITEM=followSymbolLink}, {ITEM=accessDenyDir} 
 
 DESCR: {ITEM=followSymbolLink}がオンになっているときに、{ITEM=accessDenyDir}に対するシンボリックリンクをチェックするかどうかを指定します。
 有効にすると、URLで参照されるリソースのカノニカル実パスが、設定可能なアクセス拒否ディレクトリと照合されます。
@@ -70,8 +66,6 @@ END_TIPS
 [ITEM]
 ID: forceStrictOwnership
 NAME: 厳格な所有権チェックを強制する
-SINCE: 
-SEE_ALSO: 
 
 DESCR: 厳密なファイル所有権チェックを実施するかどうかを指定します。
 有効になっている場合、Webサーバーは、提供されるファイルの所有者がバーチャルホストの所有者と同じかどうかをチェックします。
@@ -95,8 +89,6 @@ END_TIPS
 [ITEM]
 ID: requiredPermissionMask
 NAME: 必要な許可マスク
-SINCE: 1.3
-SEE_ALSO: {ITEM=restrictedPermissionMask}.
 
 DESCR: サーバーが提供する静的ファイルに必要なアクセス許可マスクを指定します。
 たとえば、全員が読み取り可能なファイルのみを処理できる場合は、値を{val}0004{/}に設定します。
@@ -119,8 +111,6 @@ END_TIPS
 [ITEM]
 ID: restrictedPermissionMask
 NAME: 制限付き許可マスク
-SINCE: 1.3
-SEE_ALSO: {ITEM=requiredPermissionMask}.
 
 DESCR: サーバーが提供しない静的ファイルに対する制限付きのアクセス許可マスクを指定します。
 たとえば、実行可能ファイルの配信を禁止するには、マスクを{val}0111{/}に設定します。
@@ -145,8 +135,6 @@ END_TIPS
 [ITEM]
 ID: restrictedScriptPermissionMask
 NAME: スクリプトのアクセス許可マスクの制限
-SINCE: 4.1.5
-SEE_ALSO: {ITEM=restrictedDirPermissionMask}.
 
 DESCR: サーバーが提供しないスクリプトファイルに対する制限付きアクセス許可マスクを指定します。
 たとえば、グループおよびワールド書き込み可能なPHPスクリプトの配信を禁止するには、マスクを{val}022{/}に設定します。 デフォルト値は{val}000{/}です。
@@ -172,8 +160,6 @@ END_TIPS
 [ITEM]
 ID: restrictedDirPermissionMask
 NAME: スクリプトディレクトリのアクセス許可マスクの制限
-SINCE: 4.1.5
-SEE_ALSO: {ITEM=restrictedScriptPermissionMask}.
 
 DESCR: Sサーバーが提供しないスクリプトファイルの親ディレクトリの制限付きアクセス許可マスクを指定します。
 たとえば、グループおよびワールド書き込み可能なディレクトリでPHPスクリプトを処理することを禁止するには、マスクを{val}022{/}に設定します。
@@ -205,8 +191,6 @@ END_TIPS
 ID: staticReqPerSec
 NAME: 静的リクエスト/秒
 NS: EO
-SINCE: 
-SEE_ALSO: {ITEM=dynReqPerSec}
 
 DESCR: 確立された接続の数に関係なく、1秒間に処理できる単一のIPアドレスからの静的コンテンツへの要求の最大数を指定します。
 
@@ -235,8 +219,6 @@ END_TIPS
 ID: dynReqPerSec
 NAME: 動的リクエスト/秒
 NS: EO
-SINCE: 
-SEE_ALSO: {ITEM=staticReqPerSec}
 
 DESCR: 確立された接続の数に関係なく、1秒ごとに処理できる単一のIPアドレスからの動的に生成されるコンテンツへの要求の最大数を指定します。
 この制限に達すると、今後のすべての動的コンテンツへのリクエストは、次の秒までタールピットされます。 
@@ -265,8 +247,6 @@ END_TIPS
 ID: dynReqPerSec
 NAME: リクエスト/秒
 NS: L
-SINCE: 
-SEE_ALSO: 
 
 DESCR: 確立された接続の数に関係なく、1秒間に処理できる単一のIPアドレスからの動的に生成されたコンテンツの要求の最大数を指定します。
 この制限に達すると、将来のすべての動的コンテンツ要求が次の秒までタールピットされます。
@@ -290,8 +270,6 @@ END_TIPS
 [ITEM]
 ID: outBandwidth
 NAME: 送信帯域幅（バイト/秒）
-SINCE: 
-SEE_ALSO: {ITEM=inBandwidth}
 
 DESCR: 確立された接続の数に関係なく、単一のIPアドレスへの最大の送信スループット。
 実際の帯域幅は効率上の理由からこの設定よりわずかに高くなることがあります。
@@ -319,8 +297,6 @@ END_TIPS
 [ITEM]
 ID: inBandwidth
 NAME: 受信帯域幅（バイト/秒）
-SINCE: 
-SEE_ALSO: {ITEM=outBandwidth}
 
 DESCR: 確立された接続の数に関係なく、単一のIPアドレスからの最大許容着信スループット。
 実際の帯域幅は効率上の理由からこの設定よりわずかに高くなることがあります。
@@ -345,8 +321,6 @@ END_TIPS
 [ITEM]
 ID: softLimit
 NAME: 接続ソフトリミット
-SINCE: 
-SEE_ALSO: 
 
 DESCR: 1つのIPから許可される同時接続のソフト制限を指定します。
 このソフトリミットは、{ITEM = gracePeriod}の間に{ITEM=hardLimit}以下になると一時的に超過することができますが、接続の数が限界よりも少なくなるまで、キープアライブ接続はできるだけ早く閉じられます。
@@ -391,8 +365,6 @@ END_TIPS
 [ITEM]
 ID: hardLimit
 NAME: 接続ハードリミット
-SINCE: 
-SEE_ALSO: 
 
 DESCR: 単一のIPアドレスから同時に許可される接続の最大数を指定します。
 この制限は常に強制され、クライアントはこの制限を超えることはできません。
@@ -424,8 +396,6 @@ END_TIPS
 [ITEM]
 ID: blockBadReq
 NAME: 不良リクエストをブロックする
-SINCE: 4.1.5
-SEE_ALSO: 
 
 DESCR: {ITEM=banPeriod}に不正な形式のHTTP要求を送信し続けるIPをブロックします。
 デフォルトは{val}はい{/}です。
@@ -448,8 +418,6 @@ END_TIPS
 [ITEM]
 ID: gracePeriod
 NAME: 猶予期間（秒）
-SINCE: 
-SEE_ALSO: 
 
 DESCR: 1つのIPから確立された接続の数が{ITEM=softLimit}を超えた後に新しい接続が受け入れられる期間を指定します。
 この期間内に、総接続数が{ITEM = hardLimit}未満の場合は、新しい接続が受け入れられます。
@@ -473,8 +441,6 @@ END_TIPS
 [ITEM]
 ID: banPeriod
 NAME: 禁止期間（秒）
-SINCE: 
-SEE_ALSO: 
 
 DESCR: {ITEM=gracePeriod}経過後、接続数がまだ{ITEM=softLimit}以上の場合、新しい接続がIPから拒否される期間を指定します。
 IPが繰り返し禁止されている場合は、禁止期間を延長して虐待のペナルティを強化することをお勧めします。
@@ -499,8 +465,6 @@ END_TIPS
 [ITEM]
 ID: cgidSock
 NAME: CGIデーモンソケット
-SINCE: 
-SEE_ALSO: 
 
 DESCR: CGIデーモンとの通信に使用される一意のソケットアドレス。
 LiteSpeedサーバーは、スタンドアロンのCGIデーモンを使用して、最高のパフォーマンスとセキュリティを実現するCGIスクリプトを生成します。
@@ -524,8 +488,6 @@ END_TIPS
 [ITEM]
 ID: maxCGIInstances
 NAME: 最大CGIインスタンス
-SINCE: 
-SEE_ALSO: 
 
 DESCR: サーバーが開始できる同時CGIプロセスの最大数を指定します。
 CGIスクリプトに対する各要求に対して、サーバーはスタンドアロンCGIプロセスを開始する必要があります。
@@ -560,8 +522,6 @@ END_TIPS
 [ITEM]
 ID: minUID
 NAME: 最小UID
-SINCE: 
-SEE_ALSO: 
 
 DESCR: 外部アプリケーションの最小ユーザーIDを指定します。
 ここで指定した値よりも小さいユーザーIDを持つ外部スクリプトの実行は拒否されます。
@@ -584,8 +544,6 @@ END_TIPS
 [ITEM]
 ID: minGID
 NAME: 最小GID
-SINCE: 
-SEE_ALSO: 
 DESCR: 外部アプリケーションの最小グループIDを指定します。
 ここで指定した値よりも小さいグループIDを持つ外部の実行は拒否されます。
 LiteSpeed Webサーバーが "root"ユーザーによって起動された場合、Apacheで見つかった "suEXEC"モードで外部アプリケーションを実行できます（Webサーバー以外のユーザー/グループIDに変更する）。 
@@ -607,8 +565,6 @@ END_TIPS
 [ITEM]
 ID: forceGID
 NAME: 強制GID
-SINCE: 
-SEE_ALSO: 
 
 DESCR: suEXECモードで起動したすべての外部アプリケーションに使用するグループIDを指定します。
 ゼロ以外の値に設定すると、すべてのsuEXEC外部アプリケーション（CGI/FastCGI/LSAPI）がこのグループIDを使用します。
@@ -638,8 +594,6 @@ END_TIPS
 [ITEM]
 ID: umask
 NAME: umask
-SINCE: 5.0
-SEE_ALSO: ExtApp {ITEM=ExtApp_Help#extUmask}
 
 DESCR: CGIプロセスのデフォルトのumaskを設定します。
 詳細は、{cmd}man 2 umask{/}を参照してください。
@@ -661,8 +615,6 @@ END_TIPS
 [ITEM]
 ID: CGIPriority
 NAME: CGI プライオリティ
-SINCE: 
-SEE_ALSO: Server {ITEM=ServGeneral_Help#serverPriority}
 
 DESCR: 外部アプリケーションプロセスの優先度を指定します。 値の範囲は-20〜20です。数値が小さいほど優先度が高くなります。
 
@@ -686,8 +638,6 @@ END_TIPS
 [ITEM]
 ID: CPUSoftLimit
 NAME: CPUソフトリミット(秒)
-SINCE: 
-SEE_ALSO: 
 
 DESCR: CGIプロセスのCPU消費制限時間を秒単位で指定します。 プロセスがソフトリミットに達すると、シグナルによって通知されます。 値が存在しない場合、または{val}0{/}に設定されている場合は、オペレーティングシステムのデフォルト設定が使用されます。.
 END_DESCR
@@ -708,8 +658,6 @@ END_TIPS
 [ITEM]
 ID: CPUHardLimit
 NAME: CPUハードリミット
-SINCE: 
-SEE_ALSO: 
 
 DESCR: CGIプロセスの最大CPU使用時間制限を秒単位で指定します。プロセスがCPU時間を消費してハードリミットに達すると、プロセスは強制終了されます。
 値が存在しないか、{val}0{/}に設定されている場合は、オペレーティングシステムのデフォルト設定が使用されます。
@@ -731,8 +679,6 @@ END_TIPS
 [ITEM]
 ID: memSoftLimit
 NAME: メモリソフトリミット（バイト）
-SINCE: 
-SEE_ALSO: 
 
 DESCR: 外部アプリケーション・プロセスまたはサーバーによって開始された外部アプリケーションのメモリー消費制限をバイト単位で指定します。
 
@@ -763,8 +709,6 @@ END_TIPS
 [ITEM]
 ID: memHardLimit
 NAME: Memory Hard Limit
-SINCE: 
-SEE_ALSO: 
 
 DESCR: ソフトリミットをユーザープロセス内のハードリミットまで上げることができることを除けば、{ITEM=memSoftLimit}と同じくらい同じです。
 ハード・リミットは、サーバー・レベルまたは個々の外部アプリケーション・レベルで設定できます。
@@ -791,8 +735,6 @@ END_TIPS
 [ITEM]
 ID: procHardLimit
 NAME: プロセスハードリミット
-SINCE: 
-SEE_ALSO: 
 
 DESCR: ソフトリミットをユーザープロセス内のハードリミットまで上げることができることを除けば、{ITEM=procSoftLimit}とほとんど同じです。
 ハードリミットは、サーバー・レベルまたは個々の外部アプリケーションレベルで設定できます。
@@ -819,8 +761,6 @@ END_TIPS
 [ITEM]
 ID: accessDenyDir
 NAME: アクセスが拒否されたディレクトリ
-SINCE: 
-SEE_ALSO: 
 
 DESCR: アクセスをブロックするディレクトリを指定します。
 重要なデータを含むディレクトリをこのリストに追加して、誤って機密ファイルをクライアントに公開しないようにします。
@@ -857,8 +797,6 @@ END_TIPS
 [ITEM]
 ID: accessControl_allow
 NAME: 許可リスト
-SINCE: 
-SEE_ALSO: 
 
 DESCR: 許可されるIPまたはサブネットワークのリストを指定します。
 {val}*{/}または{val}ALL{/}が受け入れられます。
@@ -899,8 +837,6 @@ END_TIPS
 [ITEM]
 ID: accessControl_deny
 NAME: 拒否リスト
-SINCE: 
-SEE_ALSO: 
 
 DESCR: 許可されていないIPまたはサブネットワークのリストを指定します。
 END_DESCR
@@ -940,7 +876,6 @@ NAME: ファイルアクセス
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -954,7 +889,6 @@ DESCR: これらは、クライアントIPに基づいた接続制御設定で�
 これらの設定は、DoS（サービス拒否）攻撃とDDoS（分散サービス拒否）攻撃を緩和するのに役立ちます。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -968,7 +902,6 @@ DESCR: これらは、クライアント/ IPベースの接続制御設定です
 これらの設定は、DdoS（サービス拒否）攻撃とDDoS（サービス拒否攻撃）攻撃を軽減するのに役立ちます。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -982,7 +915,6 @@ DESCR: 次の設定は、CGIプロセスを制御します。
 これらのアプリケーションに対して制限が明示的に設定されていない場合は、メモリおよびプロセスの制限も他の外部アプリケーションのデフォルトとして機能します。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -994,7 +926,6 @@ NAME: アクセスが拒否されたディレクトリ
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1025,7 +956,6 @@ END_DESCR
 TIPS: [セキュリティ]すべてのバーチャルホストに適用される一般的な制限については、サーバーレベルでこれを使用してください。
 END_TIPS
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1041,7 +971,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 
@@ -1054,7 +983,6 @@ NS: L
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 

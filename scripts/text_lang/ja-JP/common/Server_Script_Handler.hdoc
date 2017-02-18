@@ -8,8 +8,6 @@
 ID: suffix
 NAME: サフィックス
 NS: E
-SINCE: 
-SEE_ALSO: 
 
 DESCR:  このスクリプトハンドラによって処理されるスクリプトファイルのサフィックスを指定します。
 接尾辞は一意である必要があります。
@@ -44,8 +42,6 @@ END_TIPS
 ID: suffix
 NAME: サフィックス
 NS: O
-SINCE: 
-SEE_ALSO: 
 
 DESCR:  このスクリプトハンドラによって処理されるスクリプトファイルのサフィックスを指定します。
 接尾辞は一意である必要があります。
@@ -74,8 +70,6 @@ END_TIPS
 [ITEM]
 ID: shType
 NAME: ハンドラタイプ
-SINCE: 
-SEE_ALSO: 
 
 DESCR: これらのスクリプトファイルを処理する外部アプリケーションのタイプを指定します。
 使用可能なタイプは以下のとおりです：{val}CGI{/}、{val}FastCGI{/}、{val}Webサーバー{/}、{val}LSAPI app{/}、{val}ロードバランサ{/} 又は{val}サーブレットエンジン{/}。
@@ -102,8 +96,6 @@ END_TIPS
 [ITEM]
 ID: shHandlerName
 NAME: ハンドラ名
-SINCE: 
-SEE_ALSO: 
 
 DESCR: ハンドラタイプがFastCGI、Web Server、LSAPI、Load Balancer、またはServlet Engineの場合にスクリプトファイルを処理する外部アプリケーションの名前を指定します。
 END_DESCR
@@ -135,7 +127,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -161,7 +152,6 @@ LiteSpeed Web Serverはスクリプトハンドラを使用して、スクリプ
 END_DESCR
 
 
-SEE_ALSO: 
 [END_PAGE]
 
 

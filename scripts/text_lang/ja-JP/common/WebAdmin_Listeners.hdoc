@@ -15,7 +15,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -28,7 +27,6 @@ NS: L
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -41,7 +39,6 @@ NS: LEO
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -57,7 +54,6 @@ NS: LEO
 DESCR: リスナー管理は管理サーバー専用です。 管理サーバーには、セキュア（SSL）リスナーを推奨します。
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 
@@ -70,7 +66,6 @@ NS: LEO
 DESCR: リスナー管理は管理サーバー専用です。 管理サーバーには、セキュア（SSL）リスナーを推奨します。
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 

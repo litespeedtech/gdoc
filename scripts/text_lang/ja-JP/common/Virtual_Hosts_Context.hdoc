@@ -8,8 +8,6 @@
 ID: ctxType
 NAME: コンテキストタイプ
 NS: L
-SINCE: 
-SEE_ALSO: 
 
 DESCR: 作成されるコンテキストのタイプによって、その用途が決まります。
 
@@ -32,8 +30,6 @@ END_EDITTIP
 ID: ctxType
 NAME: コンテキストタイプ
 NS: E
-SINCE: 
-SEE_ALSO: 
 
 DESCR: 作成されるコンテキストのタイプにより、その用途が決まります。:<br><br>
 <b>静的</b>コンテキストを使用して、URIをドキュメントルートの外部またはその内部にあるディレクトリにマップできます。<br>
@@ -86,8 +82,6 @@ END_EDITTIP
 ID: ctxType
 NAME: コンテキストタイプ
 NS: O
-SINCE: 
-SEE_ALSO: 
 
 DESCR: <b>静的</b>コンテキストを使用して、URIをドキュメントルートの外部またはその内部のディレクトリにマップできます。<br>
 <b>Java Webアプリ</b>コンテキストは、AJPv13コンパイラJavaサーブレットエンジンで定義済みのJavaアプリケーションを自動的にインポートするために使用されます。<br>
@@ -145,8 +139,6 @@ END_EDITTIP
 [ITEM]
 ID: uri
 NAME: URI
-SINCE: 
-SEE_ALSO: 
 
 DESCR: このコンテキストのURIを指定します。 URIは "/"で始まる必要があります。
 URIが「/」で終わる場合、このコンテキストはこのURIの下にすべてのサブURIを含みます。
@@ -168,8 +160,6 @@ END_TIPS
 [ITEM]
 ID: expuri
 NAME: URI
-SINCE: 
-SEE_ALSO: {ITEM=location}
 
 DESCR: このコンテキストのURIを指定します。 
 END_DESCR
@@ -192,8 +182,6 @@ END_TIPS
 [ITEM]
 ID: servletEngine
 NAME: サーブレットエンジン
-SINCE: 
-SEE_ALSO: 
 
 DESCR: このWebアプリケーションを提供するサーブレットエンジンの名前を指定します。
 サーブレットエンジンは、サーバーまたはバーチャルホストレベルの{PAGE=ExtApp_Help}セクションで定義する必要があります。
@@ -219,8 +207,6 @@ END_TIPS
 [ITEM]
 ID: javaServletEngine
 NAME: サーブレットエンジン
-SINCE: 
-SEE_ALSO: 
 
 DESCR: このWebアプリケーションを提供するサーブレットエンジンの名前を指定します。
 サーブレットエンジンは、サーバーまたはバーチャルホストレベルの{PAGE=ExtApp_Help}セクションで定義する必要があります。
@@ -246,8 +232,6 @@ END_TIPS
 [ITEM]
 ID: fcgiapp
 NAME: FastCGI アプリ
-SINCE: 
-SEE_ALSO: 
 
 DESCR: FastCGIアプリケーションの名前を指定します。
 このアプリケーションは、サーバーまたはバーチャルホストレベルの{PAGE=ExtApp_Help}セクションで定義する必要があります。
@@ -273,8 +257,6 @@ END_TIPS
 [ITEM]
 ID: lsapiapp
 NAME: LiteSpeed SAPIアプリ
-SINCE: 
-SEE_ALSO: 
 
 DESCR: このコンテキストに接続するLiteSpeed SAPIアプリケーションの名前を指定します。
 このアプリケーションは、サーバーまたはバーチャルホストレベルの{PAGE=ExtApp_Help}セクションで定義する必要があります。
@@ -296,8 +278,6 @@ END_TIPS
 [ITEM]
 ID: lbapp
 NAME: ロードバランサー
-SINCE: 
-SEE_ALSO: 
 
 DESCR: このコンテキストに関連付けるロードバランサの名前を指定します。
 このロードバランサはバーチャルアプリケーションであり、サーバーまたはバーチャルホストレベルの{PAGE=ExtApp_Help}セクションで定義する必要があります
@@ -319,8 +299,6 @@ END_TIPS
 [ITEM]
 ID: extCluster
 NAME: クラスタ
-SINCE: 
-SEE_ALSO: 
 
 DESCR: このコンテキストへの要求を処理するクラスタを指定します。 
 END_DESCR
@@ -341,8 +319,6 @@ END_TIPS
 [ITEM]
 ID: proxyWebServer
 NAME: Webサーバー
-SINCE: 
-SEE_ALSO: 
 
 DESCR: 外部Webサーバーの名前を指定します。
 この外部Webサーバーは、サーバーまたはバーチャルホストレベルの{PAGE=ExtApp_Help}セクションで定義する必要があります。
@@ -370,8 +346,6 @@ END_TIPS
 [ITEM]
 ID: location
 NAME: ロケーション
-SINCE: 
-SEE_ALSO: {ITEM=expuri}
 
 DESCR: ファイルシステム内のこのコンテキストの対応する場所を指定します。 
 END_DESCR
@@ -403,8 +377,6 @@ END_TIPS
 [ITEM]
 ID: rails_location
 NAME: ロケーション
-SINCE: 
-SEE_ALSO: {ITEM=expuri}
 
 DESCR: ファイルシステム内のこのコンテキストの対応する場所を指定します。
 END_DESCR
@@ -442,8 +414,6 @@ END_TIPS
 [ITEM]
 ID: javaWebApp_location
 NAME: ロケーション
-SINCE: 
-SEE_ALSO: 
 
 DESCR: このWebアプリケーションのファイルを含むディレクトリを指定します。
 これは "WEB-INF/web.xml"を含むディレクトリです。
@@ -474,8 +444,6 @@ END_TIPS
 [ITEM]
 ID: cgi_path
 NAME: パス
-SINCE: 
-SEE_ALSO: 
 
 DESCR: CGIスクリプトの場所を指定します。 
 END_DESCR
@@ -510,8 +478,6 @@ END_TIPS
 [ITEM]
 ID: allowBrowse
 NAME: アクセス可能
-SINCE: 
-SEE_ALSO: 
 
 DESCR: このコンテキストにアクセスできるかどうかを指定します。
 アクセスを拒否するには{val}いいえ{/}に設定してください。
@@ -544,8 +510,6 @@ END_TIPS
 [ITEM]
 ID: allowSetUID
 NAME: UIDの設定を許可する
-SINCE: 
-SEE_ALSO: 
 
 DESCR: 設定されたUIDビットがCGIスクリプトに許可されるかどうかを指定します。
 設定されたUIDビットが許可され、CGIスクリプトに対して設定されたUIDビットが有効になっている場合、CGIスクリプトがどのユーザーに代わって起動されたかにかかわらず、CGIプロセスのユーザーIDは、CGIスクリプトの所有者のユーザーIDに切り替わります。
@@ -570,8 +534,6 @@ END_TIPS
 [ITEM]
 ID: externalredirect
 NAME: 外部リダイレクト
-SINCE: 
-SEE_ALSO: 
 
 DESCR: このリダイレクトが外部かどうかを指定します。
 外部リダイレクトの場合は、{ITEM=statuscode}を指定し、{ITEM=destinationuri}は "/"または "http(s)：//"で開始できます。
@@ -599,8 +561,6 @@ END_TIPS
 [ITEM]
 ID: statuscode
 NAME: ステータスコード
-SINCE: 
-SEE_ALSO: 
 
 DESCR: 外部リダイレクトの応答ステータスコードを指定します。
 ステータスコードが300〜399の場合、{ITEM=destinationuri}を指定できます。
@@ -622,8 +582,6 @@ END_TIPS
 [ITEM]
 ID: destinationuri
 NAME: 宛先URI
-SINCE: 
-SEE_ALSO: 
 
 DESCR: リダイレクトのターゲットの場所を指定します。
 このリダイレクトされたURIが別のリダイレクトコンテキストのURIにマップされると、リダイレクトされます。 
@@ -646,8 +604,6 @@ END_TIPS
 [ITEM]
 ID: extraHeaders
 NAME: Extra Headers
-SINCE: 
-SEE_ALSO: 
 
 DESCR: 追加される余分な応答ヘッダーを指定します。
 1行に1つのヘッダーを追加できます。
@@ -674,8 +630,6 @@ END_TIPS
 ID: allowOverrideContext
 NAME: 上書きを許可する
 NS: E
-SINCE: 
-SEE_ALSO: 
 
 DESCR: アクセス制御ファイル内のどのディレクティブが許可されるかを指定します。
 アクセス制御ファイルは、そのディレクトリの下にあるファイルのアクセシビリティを制御するためにディレクトリに置くことができます。 
@@ -720,8 +674,6 @@ END_TIPS
 [ITEM]
 ID: addMIMEType
 NAME: MIMEタイプ
-SINCE: 
-SEE_ALSO: 
 
 DESCR: このコンテキストに追加のMIMEタイプとマッピングを指定します。
 新しいマッピングは、このコンテキストとその子コンテキストのもとで既存のマッピングを上書きします。
@@ -746,8 +698,6 @@ END_TIPS
 [ITEM]
 ID: mimetype
 NAME: MIMEタイプ
-SINCE: 
-SEE_ALSO: 
 
 DESCR: MIMEタイプは、タイプとサブタイプの形式で "タイプ/サブタイプ"で構成されます。 
 END_DESCR
@@ -768,8 +718,6 @@ END_TIPS
 [ITEM]
 ID: forceType
 NAME: 強制MIMEタイプ
-SINCE: 
-SEE_ALSO: 
 
 DESCR: このコンテキストの下にあるすべてのファイルは、指定すると、ファイルの接尾辞に関係なくMIMEタイプが指定された静的ファイルとして提供されます。
        {val} NONE {/}に設定すると、継承された強制タイプの設定は無効になります。
@@ -791,8 +739,6 @@ END_TIPS
 [ITEM]
 ID: defaultType
 NAME: デフォルトのMIMEタイプ
-SINCE: 
-SEE_ALSO: 
 
 DESCR: この型を指定すると、ドキュメントの接尾辞でMIMEタイプのマッピングを判別できない場合、または接尾辞がない場合にこの型が使用されます。
        指定しない場合、デフォルト値{val}application/octet-stream{/}が使用されます。
@@ -814,8 +760,6 @@ END_TIPS
 [ITEM]
 ID: realm
 NAME: レルム
-SINCE: 
-SEE_ALSO: 
 
 DESCR: このコンテキストの認可レルムを指定します。
 このコンテキストにアクセスするには、有効なユーザー名とパスワードを指定する必要があります。
@@ -843,8 +787,6 @@ END_TIPS
 [ITEM]
 ID: authName
 NAME: 認証名
-SINCE: 
-SEE_ALSO: 
 
 DESCR: 現在のコンテキストの認証レルムの代替名を指定します。
 指定しない場合、元のレルム名が使用されます。
@@ -867,8 +809,6 @@ END_TIPS
 [ITEM]
 ID: required
 NAME: 必要（許可ユーザー/グループ）
-SINCE: 
-SEE_ALSO: 
 
 DESCR: このコンテキストにアクセスできるユーザー/グループを指定します。
 これにより、複数のコンテキストにわたって1つのユーザー/グループデータベース（{ITEM=realm}で指定）を使用できますが、そのデータベースの特定のユーザー/グループのみがこのコンテキストにアクセスできます。
@@ -899,8 +839,6 @@ END_TIPS
 [ITEM]
 ID: accessAllowed
 NAME: アクセス許可
-SINCE: 
-SEE_ALSO: 
 
 DESCR: このコンテキストでリソースにアクセスできるIPまたはサブネットワークを指定します。
 {ITEM=accessDenied}とサーバー/バーチャルホスト・レベルのアクセス制御とともに、アクセシビリティは、クライアントのIPアドレスが入る最小の範囲によって決まります。 
@@ -922,8 +860,6 @@ END_TIPS
 [ITEM]
 ID: accessDenied
 NAME: アクセス拒否
-SINCE: 
-SEE_ALSO: 
 
 DESCR: このコンテキストでリソースにアクセスできないIPまたはサブネットワークを指定します。
 {ITEM=accessAllowed}とサーバー/バーチャルホストレベルのアクセス制御とともに、アクセシビリティはクライアントのIPアドレスが入る最小の範囲で決まります。
@@ -945,8 +881,6 @@ END_TIPS
 [ITEM]
 ID: extAuthorizer
 NAME: Authorizer
-SINCE: 
-SEE_ALSO: 
 
 DESCR: 権限のある/権限のないかの決定を生成するために使用できる外部アプリケーションを指定します。
 現在、FastCGI Authorizerのみが使用可能です。
@@ -969,8 +903,6 @@ END_TIPS
 [ITEM]
 ID: rewriteInherit
 NAME: 継承を書き直す
-SINCE: 
-SEE_ALSO: 
 
 DESCR: 親コンテキストから書き換えルールを継承するかどうかを指定します。
 書き換えが有効で継承されていない場合は、このコンテキストで定義されている書き換えのベースルールと書き換えルールが使用されます。
@@ -992,8 +924,6 @@ END_TIPS
 [ITEM]
 ID: rewriteBase
 NAME: 書き換えベース
-SINCE: 
-SEE_ALSO: 
 
 DESCR: 書き換えルールのベースURLを指定します。
 END_DESCR
@@ -1014,8 +944,6 @@ END_TIPS
 [ITEM]
 ID: addDefaultCharset
 NAME: デフォルトの文字セットを追加
-SINCE: 
-SEE_ALSO: 
 
 DESCR: コンテンツタイプが "text/html"または "text/plain"のいずれかのパラメータがない場合、文字セットタグを "Content-Type"レスポンスヘッダーに追加するかどうかを指定します。
 {val}Off{/}に設定すると、この機能は無効になります。
@@ -1038,8 +966,6 @@ END_TIPS
 [ITEM]
 ID: defaultCharsetCustomized
 NAME: カスタマイズされたデフォルトの文字セット
-SINCE: 
-SEE_ALSO: 
 
 DESCR: {ITEM = addDefaultCharset}が{val}On{/}のときに使用される文字セットを指定します。
        これはオプションです。 デフォルト値は{val} iso-8859-1 {/}です。
@@ -1062,8 +988,6 @@ END_TIPS
 [ITEM]
 ID: moduleNameSel
 NAME: Module
-SINCE: 
-SEE_ALSO: 
 
 DESCR: モジュールの名前。
 モジュールはサーバーモジュールの設定タブに登録する必要があります。
@@ -1103,7 +1027,6 @@ DESCR: コンテキスト設定は、特定の場所にあるファイルの特�
 許可レルムを使用して特定のディレクトリを保護したり、ドキュメントルート内の特定のディレクトリへのアクセスをブロックまたは制限することができます。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1116,7 +1039,6 @@ NS: O
 DESCR: コンテキスト設定は、特定の場所にあるファイルの特別な設定を指定するために使用されます。
 これらの設定は、ApacheのAliasやAliasMatchディレクティブのようなドキュメントルートの外部にファイルを持ち込み、認可領域を使用して特定のディレクトリを保護したり、ドキュメントルート内の特定のディレクトリへのアクセスをブロックまたは制限するために使用できます。
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1154,7 +1076,6 @@ Java Webアプリコンテキストを設定する際に留意すべき点がい
   </ul>
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1191,7 +1112,6 @@ Java Webアプリケーションコンテキストを設定する際に留意す
   </ul>
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1207,7 +1127,6 @@ Webアプリケーション全体をインポートしたくない場合や、�
 このURIには、{TBL=javaWebAppContext}と同じ要件があります。 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1223,7 +1142,6 @@ Webアプリケーション全体をインポートしたくない場合や、�
 このURIには、{TBL=javaWebAppContext}と同じ要件があります。 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1238,7 +1156,6 @@ FastCGIアプリケーションは、スクリプトハンドラとして構成�
 FastCGIコンテキストは、URIをFastCGIアプリケーションに関連付けます。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1253,7 +1170,6 @@ FastCGIアプリケーションは、スクリプトハンドラとして構成�
 FastCGIコンテキストは、URIをFastCGIアプリケーションに関連付けます。 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1270,7 +1186,6 @@ LiteSpeed SAPIコンテキストは、URIをLSAPI（LiteSpeed Server Application
 LiteSpeed Webサーバー用に特別に開発されたLSAPIは、LiteSpeed Webサーバーと通信するための最も効率的な方法です。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1287,7 +1202,6 @@ LiteSpeed SAPIコンテキストは、URIをLSAPI（LiteSpeed Server Application
 LiteSpeed Webサーバー用に特別に開発されたLSAPIは、LiteSpeed Webサーバーと通信するための最も効率的な方法です。 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1302,7 +1216,6 @@ DESCR: プロキシコンテキストは、このバーチャルホストを透�
 このバーチャルホストがプロキシする外部Webサーバーは、プロキシコンテキストを設定する前に{PAGE=ExtApp_Help}で定義されている必要があります。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1317,7 +1230,6 @@ DESCR: プロキシコンテキストは、このバーチャルホストを透�
 このバーチャルホストがプロキシする外部Webサーバーは、プロキシコンテキストを設定する前に{PAGE=ExtApp_Help}で定義されている必要があります。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1334,7 +1246,6 @@ DESCR: CGIコンテキストは、特定のディレクトリ内のスクリプ�
 すべてのCGIスクリプトをディレクトリに置いて、それらにアクセスするためのCGIコンテキストを設定することをお勧めします。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1351,7 +1262,6 @@ DESCR: CGIコンテキストは、特定のディレクトリ内のスクリプ�
 すべてのCGIスクリプトをディレクトリに置いて、それらにアクセスするためのCGIコンテキストを設定することをお勧めします。 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1365,7 +1275,6 @@ DESCR: ロードバランサコンテキストを使用して、1つのURIまた
 宛先URIは、同じWebサイトまたは別のWebサイトを指す絶対URIのいずれかにすることができます。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1381,7 +1290,6 @@ DESCR: 他の外部アプリケーションと同様に、ロードバランサ�
 END_DESCR
 
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1397,7 +1305,6 @@ DESCR: 他の外部アプリケーションと同様に、ロードバランサ�
 END_DESCR
 
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1411,7 +1318,6 @@ DESCR: リダイレクトコンテキストは、1つのURIまたはURIのグル
 宛先URIは、同じWebサイト（内部リダイレクト）または別のWebサイトを指す絶対URI（外部リダイレクト）のいずれかにすることができます。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1425,7 +1331,6 @@ DESCR: リダイレクトコンテキストは、1つのURIまたはURIのグル
 宛先URIは、同じWebサイト（内部リダイレクト）または別のWebサイトを指す絶対URI（外部リダイレクト）のいずれかにすることができます。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1439,7 +1344,6 @@ DESCR: リダイレクトコンテキストは、1つのURIまたはURIのグル
 宛先URIは、同じWebサイト（内部リダイレクト）または別のWebサイトを指す絶対URI（外部リダイレクト）のいずれかにすることができます。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1454,7 +1358,6 @@ Rack/RailsアプリケーションをRack/Railsコンテキストに追加する
 外部アプリケーションを定義したり、404ハンドラを追加したり、ルールを書き直すなど、すべての問題を解決する必要はありません。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1469,7 +1372,6 @@ Rack/RailsアプリケーションをRack/Railsコンテキストに追加する
 外部アプリケーションを定義したり、404ハンドラを追加したり、ルールを書き直すなど、すべての問題を解決する必要はありませ
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1482,7 +1384,6 @@ DESCR: モジュールハンドラコンテキストは、登録されたモジ�
 モジュールは[サーバーモジュールの構成]タブに登録する必要があります。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -1506,7 +1407,6 @@ Webサイトはコンテキストで構成されています。たとえば、�
 </ul>
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 
@@ -1530,7 +1430,6 @@ DESCR: LiteSpeed Web Serverの用語では、「コンテキスト」とはバ�
 </ul>
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 
@@ -1555,7 +1454,6 @@ DESCR: LiteSpeed Web Serverの用語では、「コンテキスト」とはバ�
 </ul>
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 

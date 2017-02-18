@@ -8,8 +8,6 @@
 ID: cacheStorePath
 NAME: ストレージパス
 NS: LE
-SINCE: 
-SEE_ALSO: 
 
 DESCR: キャッシュされたオブジェクトを保持するディレクトリを指定します。 現在、
 LiteSpeed Cacheは、各オブジェクトを独自のファイルに格納します。 ファイル名は、
@@ -39,8 +37,6 @@ END_TIPS
 ID: litemage
 NAME: LiteMageを有効にします
 NS: LE
-SINCE: 
-SEE_ALSO: 
 
 DESCR: MagentoのストアのLiteMageキャッシュを有効にします。 
 
@@ -66,8 +62,6 @@ END_TIPS
 ID: cacheMgrStorePath
 NAME: キャッシュマネージャーパス
 NS: LE
-SINCE: 
-SEE_ALSO: 
 
 DESCR: キャッシュマネージャファイルの格納に使用するディレクトリを指定します。 これらのファイルは、デフォルトで[<b>保存場所</ b>]に保存されます。
 END_DESCR
@@ -90,8 +84,6 @@ END_TIPS
 ID: pubStoreExpireMinutes
 NAME: パブリックストレージの有効期限（分）
 NS: LE
-SINCE: 
-SEE_ALSO: 
 
 DESCR: サーバーが物理的にファイルを削除しようとする前の、キャッシュされたファイルの最大経過時間。 この除去操作は、
 キャッシュストレージが過度に大きくならないように1日に1回発生します。 最小設定は60分です。
@@ -117,8 +109,6 @@ END_TIPS
 ID: cachePolicy:enableCache
 NAME: パブリックキャッシュを有効にする
 NS: LE
-SINCE: 
-SEE_ALSO: 
 
 DESCR: サーバー、バーチャルホスト、またはコンテキストレベルのいずれかで、現在のコンテキストのパブリックキャッシュを有効にするかどうかを指定します。 
 
@@ -147,8 +137,6 @@ END_TIPS
 ID: checkPublicCache
 NAME: パブリックキャッシュをチェックする
 NS: LE
-SINCE: 
-SEE_ALSO: 
 
 DESCR: 現在のコンテキストで要求されたURLのパブリックキャッシュをチェックするかどうかを指定します。 サーバーレベル、バーチャルホストレベル、またはコンテキストレベルで設定できます。
 END_DESCR
@@ -167,8 +155,6 @@ END_EXAMPLE
 ID: cachePolicy:maxCacheObjSize
 NAME: 最大オブジェクトサイズ
 NS: LE
-SINCE: 
-SEE_ALSO: 
 
 DESCR: キャッシュディレクトリに格納できるオブジェクトの最大サイズを指定します。 デフォルト値は "10 MB"です。
 END_DESCR
@@ -190,8 +176,6 @@ END_TIPS
 ID: cachePolicy:expireInSeconds
 NAME: キャッシュの有効期限（秒）
 NS: LE
-SINCE: 
-SEE_ALSO: 
 
 DESCR: オブジェクトがキャッシュされる期間を指定します。 デフォルトは "86400"秒（1日）です。
 END_DESCR
@@ -213,8 +197,6 @@ END_TIPS
 ID: cachePolicy:maxStaleAge
 NAME: Cache Stale Age（秒）
 NS: LE
-SINCE: 4.2.2
-SEE_ALSO: 
 
 DESCR: オブジェクトが期限切れになった後、新しいキャッシュされる前に、キャッシュからオブジェクトを引き続き提供する期間を指定します。
 コピーが利用可能です。 デフォルトは "10"秒です。
@@ -237,8 +219,6 @@ END_TIPS
 ID: cachePolicy:qsCache
 NAME: クエリ文字列によるキャッシュ要求
 NS: LE
-SINCE: 
-SEE_ALSO: 
 
 DESCR: URLにクエリ文字列を含む要求をキャッシュするかどうかを指定します。
 デフォルトは「はい」です。 URLの書き換えが関係する場合、サーバーは書き換えられたURLをチェックします
@@ -261,8 +241,6 @@ END_TIPS
 ID: cachePolicy:reqCookieCache
 NAME: Cookieによるキャッシュ要求
 NS: LE
-SINCE: 
-SEE_ALSO: 
 
 DESCR: Cookieを含む要求をキャッシュするかどうかを指定します。 デフォルトは「はい」です。
 END_DESCR
@@ -284,8 +262,6 @@ END_TIPS
 ID: cachePolicy:respCookieCache
 NAME: Cookieによるキャッシュレスポンス
 NS: LE
-SINCE: 
-SEE_ALSO: 
 
 DESCR: Cookieを含むレスポンスをキャッシュするかどうかを指定します。 デフォルトは「はい」です。 
 END_DESCR
@@ -307,8 +283,6 @@ END_TIPS
 ID: cachePolicy:ignoreReqCacheCtrl
 NAME: 要求キャッシュ制御を無視する
 NS: LE
-SINCE: 
-SEE_ALSO: 
 
 DESCR: Cache-Control要求ヘッダーを無視するかどうかを指定します。
 デフォルトは「いいえ」です。 "はい"に設定されている場合、サーバーはキャッシュコントロールに "no-cache"が設定されていると、キャッシュされたオブジェクトを提供できます。
@@ -331,8 +305,6 @@ END_TIPS
 ID: cachePolicy:ignoreRespCacheCtrl
 NAME: 応答キャッシュ制御を無視する
 NS: LE
-SINCE: 
-SEE_ALSO: 
 
 DESCR: Cache-Controlレスポンスヘッダーを無視するかどうかを指定します。
 デフォルトは「いいえ」です。 "Yes"に設定すると、サーバーが応答をキャッシュすることができます。
@@ -356,8 +328,6 @@ END_TIPS
 ID: cachePolicy:enablePrivateCache
 NAME: プライベートキャッシュを有効にする
 NS: LE
-SINCE: 
-SEE_ALSO: 
 
 DESCR: サーバー、バーチャルホスト、またはディレクトリレベルのいずれかで、現在のコンテキストのプライベートキャッシュを有効にするかどうかを指定します。 
 
@@ -388,8 +358,6 @@ END_TIPS
 ID: checkPrivateCache
 NAME: プライベートキャッシュをチェックする
 NS: LE
-SINCE: 
-SEE_ALSO: 
 
 DESCR: 現在のコンテキストで要求されたURLに対してプライベートキャッシュをチェックするかどうかを指定します。 で設定することができます
 サーバー、バーチャルホスト、またはコンテキストレベル。
@@ -409,8 +377,6 @@ END_EXAMPLE
 ID: cachePolicy:privateExpireInSeconds
 NAME: プライベートキャッシュの有効期限(秒)
 NS: LE
-SINCE: 
-SEE_ALSO: 
 
 DESCR: オブジェクトがプライベートキャッシュにキャッシュされる期間を指定します。 デフォルトは「60」秒です。
 END_DESCR
@@ -435,8 +401,6 @@ END_TIPS
 ID: noCacheUrl
 NAME: Do-Not-Cache URL
 NS: LE
-SINCE: 
-SEE_ALSO: 
 
 DESCR: これらのリストされたセグメントを含むURLがキャッシュされないURLセグメントのリスト。
 文字列マッチングが使用されます。 正規表現はサポートされていません。 サーバーまたはバーチャルホストのレベルで設定できます。
@@ -463,8 +427,6 @@ END_TIPS
 ID: noCacheDomain
 NAME: キャッシュドメインなし
 NS: LE
-SINCE: 
-SEE_ALSO: 
 
 DESCR: キャッシュされないドメインのコンマ区切りのリスト。 
 END_DESCR
@@ -496,7 +458,6 @@ NS: LE
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -509,7 +470,6 @@ NS: LE
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -522,7 +482,6 @@ NS: LE
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -535,7 +494,6 @@ NS: LE
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -550,7 +508,6 @@ NS: LE
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 

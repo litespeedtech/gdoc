@@ -12,7 +12,6 @@ NAME: ファイルアクセス制御
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -25,7 +24,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -38,7 +36,6 @@ NS: L
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -51,7 +48,6 @@ NS: EO
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 

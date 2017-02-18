@@ -48,7 +48,6 @@ LiteSpeedサーバーは少数のサーバープロセスを使用してすべ�
 
 END_A
 
-SEE_ALSO: 
 
 [END_QA]
 
@@ -85,7 +84,6 @@ A: 名前ベースのバーチャルホスティングでは、あなたが持�
 </ol>
 END_A
 
-SEE_ALSO: 
 
 [END_QA]
 
@@ -116,7 +114,6 @@ SSLを使用する場合は、IPベースのバーチャルホストごとに一
 
 END_A
 
-SEE_ALSO: 
 
 [END_QA]
 
@@ -178,7 +175,6 @@ A: LiteSpeedサーバーは、HTTPプロトコルレベルでDoS攻撃とDDoS攻
 
 END_A
 
-SEE_ALSO: 
 
 [END_QA]
 
@@ -216,7 +212,6 @@ WebAdminコンソールから、サーバー（TBL=ServTuning_Help#gzipTuning）
 </ul>
 END_A
 
-SEE_ALSO: 
 
 [END_QA]
 
@@ -278,7 +273,6 @@ Gigabits LANまたは複数のスイッチ100Mb接続でテストを実行する
 小さなファイルでテストを開始し、ネットワーク帯域幅が飽和するまで徐々にファイルサイズを増やします。
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
@@ -344,7 +338,6 @@ and {ITEM=ExtApp_Help#env} (optional). <br>
 </ul>
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
@@ -370,82 +363,55 @@ LiteSpeed SAPIは、FastCGI SAPIと似たアーキテクチャを2つの主要�
 </p>
 
 <p> 
-Unlike Apache's mod_php that
-embeds PHP engine inside web server processes, LiteSpeed 
-web server talks to standalone PHP Engine processes via Fast CGI or LSAPI
-protocol. A pre-built PHP executable with minimum features configured
-is installed to {cmd}[lsws_home]/fcgi-bin/php{/}. 
-If additional features are required, you should replace it with your own
-customized PHP executable.</p>
+LiteSpeed Webサーバーは、Webサーバープロセス内にPHPエンジンを埋め込んだApacheのmod_phpとは異なり、Fast CGIまたはLSAPIプロトコルを使用してスタンドアロンのPHPエンジンプロセスと通信します。
+設定済みの最小限の機能を備えたビルド済みのPHP実行ファイルは、{cmd}[lsws_home]/fcgi-bin/php{/}にインストールされています。
+追加の機能が必要な場合は、独自のカスタマイズされたPHP実行可能ファイルで置き換える必要があります。</p>
 
-<p>PHP support is configured in two steps: 1. adding an
-  	external PHP application; 2. adding a script
-  	handler using the PHP application just defined in step 1.</p>
+<p>PHPサポートは2つのステップで構成されています：
+   1.外部PHPアプリケーションを追加する。
+   2.手順1で定義したPHPアプリケーションを使用してスクリプトハンドラを追加します。</p>
 
-<p>PHP application can be defined at server level or virtual host
-  	level, application defined at server level is
-  	available to all virtual hosts. 
-	PHP engine can run on localhost or on a remote machine. When running
-  	on local machine, PHP processes can be started by third party
-  	FastCGI/LSAPI manager or by the web server itself, the latter
-  	is preferred.</p>
+<p>PHPアプリケーションはサーバーレベルまたはバーチャルホストレベルで定義することができ、サーバーレベルで定義されたアプリケーションはすべてのバーチャルホストで使用できます。
+   PHPエンジンは、ローカルホスト上またはリモートマシン上で実行できます。
+   ローカルマシン上で実行する場合、PHPプロセスはサードパーティのFastCGI/LSAPIマネージャまたはWebサーバー自体によって開始できます。後者が優先されます。</p>
 
-<p>Before adding/changing PHP application configuration, you need to
-  	know which PHP SAPI is built into the PHP binary.  
-  	Command: {cmd}[lsws_home]/fcgi-bin/php -v{/} will display the 
-	information. For LiteSpeed SAPI, you should define a LSAPI
-  	application, for CGI/FCGI SAPI, you should define a FastCGI application.
-	</p>
+<p>PHPアプリケーションの設定を追加/変更する前に、どのPHP SAPIがPHPバイナリに組み込まれているかを知る必要があります。
+   コマンド：{cmd}[lsws_home]/fcgi-bin/php -v{/}は情報を表示します。
+   LiteSpeed SAPIの場合は、LSAPIアプリケーションを定義し、CGI/FCGI SAPIの場合はFastCGIアプリケーションを定義する必要があります。
+   </p>
 
 
-<p>After a PHP application is configured, a {PAGE=ScriptHandler_Help}
-	needs to be configured in order to have PHP script handled by the PHP
-	application. The default {ITEM=ScriptHandler_Help#suffix} 
-	for PHP script is set to {val}php{/};  
-	{ITEM=ScriptHandler_Help#shType} is set to either {val}Fast CGI{/}
-	or {val}LiteSpeed API{/}; {ITEM=ScriptHandler_Help#shHandlerName}
-	is set to the name of the PHP application. You can specify
-	multiple suffixes in a comma-separated list like
-	{val}php,php4,phtml{/}. {PAGE=ScriptHandler_Help} can be set at
-	server level or virtual host level. Virtual host level setting
-	overrides the server level setting for the same suffix. </p> 
+<p>PHPアプリケーションが設定された後、PHPアプリケーションがPHPスクリプトを処理するためには、{PAGE=ScriptHandler_Help}を設定する必要があります。
+   PHPスクリプトのデフォルトの{ITEM=ScriptHandler_Help#suffix}は{val}php{/}に設定されています；{ITEM=ScriptHandler_Help#shType}が{val}Fast CGI{/}または {val}LiteSpeed API{/}に設定されています；{ITEM = ScriptHandler_Help#shHandlerName}は、PHPアプリケーションの名前に設定されています。
+   複数の接尾辞を{val}php、php4、phtml{/}のようなコンマ区切りリストで指定できます。
+   {PAGE = ScriptHandler_Help}は、サーバーレベルまたはバーチャルホストレベルで設定できます。
+   バーチャルホストレベルの設定は、同じサフィックスのサーバーレベルの設定を上書きします。</p> 
 
-<p>There are a few environment variables can be used to customize PHP
-via LSAPI, for detail information please refer to the README file in 
-php/sapi/litespeed directory. </p>
+<p>LSAPI経由でPHPをカスタマイズするには、いくつかの環境変数があります。詳しくは、php/sapi/litespeedディレクトリのREADMEファイルを参照してください。 </p>
 
-<p>There are several environment variables can
-  	be used to customize the PHP FCGI application: </p>
+<p>PHP FCGIアプリケーションをカスタマイズするために使用できる環境変数はいくつかあります。：</p>
 <ul>
 	<li>{val}PHP_FCGI_CHILDREN=XX{/}</li>
-	<p>This controls how many child processes the PHP engine process spawns. 
-	You can use {ITEM=ExtApp_Help#instances} or this environment 
-	variable to control the concurrency of PHP engine. 
-	{ITEM=ExtApp_Help#maxConns} setting should be set 
-	to the same value as the number of children processes.</p>
+	<p>これは、PHPエンジンプロセスが生成する子プロセスの数を制御します。
+    {ITEM=ExtApp_Help#instances}またはこの環境変数を使用すると、PHPエンジンの並行性を制御できます。
+    {ITEM=ExtApp_Help#maxConns}の設定は、子プロセスの数と同じ値に設定する必要があります。</p>
 		
 	<li>{val}PHP_FCGI_MAX_REQUESTS=XXXX{/}</li>
-	<p>This controls how many requests each child process will handle
-	before exit. It protects against memory leak inside PHP. Web
-	server needs to reestablish a connection with a new child
-	process. So set it as high as possible to increase the performance.</p>
+	<p>これは、各子プロセスが終了するまでに処理するリクエストの数を制御します。
+    PHP内部のメモリリークを防ぎます。
+    Webサーバーは、新しい子プロセスとの接続を再確立する必要があります。
+    したがって、パフォーマンスを高めるためにできるだけ高く設定してください。</p>
 		
 	<li>{val}FCGI_WEB_SERVER_ADDRS=127.0.0.1,192.168.0.1{/}</li>
-	<p>This controls who can connect to the PHP engine over the
-	network when TCP socket is used. Only 127.0.0.1 and 192.168.0.1 is
-	allowed in the above example. This option is not necessary when
-	PHP engine run on localhost with proper
-	{ITEM=ExtApp_Help#extAppAddress} setting. Both Unix domain socket
-	and TCP socket can be used when running on localhost, Unix domain
-	socket is preferred for better performance. If TCP socket has to
-	be used, then let PHP only listen on the local loopback interface
-	by setting {ITEM=ExtApp_Help#extAppAddress} to
-	{val}localhost:XXXX{/}. </p> 
+	<p>これは、TCPソケットが使用されているときにネットワーク経由でPHPエンジンに接続できる人を制御します。
+    上の例では、127.0.0.1と192.168.0.1のみが許可されています。
+    PHPエンジンが適切な{ITEM=ExtApp_Help#extAppAddress}設定でlocalhost上で実行されている場合、このオプションは必要ありません。
+    UnixドメインソケットとTCPソケットの両方を、localhost上で実行するときに使用することができます。Unixドメインソケットは、パフォーマンスを向上させるために優先されます。
+    TCPソケットを使用する必要がある場合は、{ITEM=ExtApp_Help#extAppAddress}を{val}localhost：XXXX{/}に設定して、PHPにローカルループバックインターフェイスだけをリッスンさせます。</p> 
 </ul>
 	
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
@@ -455,54 +421,37 @@ ID: qa_phplsapi
 Q: LiteSpeed SAPIでPHPバイナリを構築するには？
 
 A: 通常、ビルドされたバイナリに組み込まれていないPHPモジュールが必要な場合を除き、独自のPHPバイナリをビルドする必要はありません。<br>
-<p>First, you need to download the latest PHP source code. If
-  php/sapi/litespeed/ directory does not exist in the expanded source
-  code tree, you need to download our patch available at 
+<p>まず、最新のPHPソースコードをダウンロードする必要があります。
+  展開されたソースコードツリーにphp / sapi / litespeed /ディレクトリが存在しない場合は、 
  <a href="http://www.litespeedtech.com/lsapi/">http://www.litespeedtech.com/lsapi/</a>
   </p>
-<p>Then, configure PHP with {cmd}--with-litespeed{/} plus other
-  options you will need. Fast CGI related options
-  {cmd}--enable-fastcgi--enable-discard-path --disable-path-info-check
-  {/} should not be used together with {cmd}--with-litespeed{/}. </p>
-<p>Build PHP binary with {cmd}make{/}, you should find an executable
-  called "php" under sapi/litespeed/ directory after the compilation
-  succeeds. Then copy the new binary with command 
-  {cmd}cp php/sapi/litespeed/php lsws/fcgi-bin/lsphp{/}. We recommend renaming
-  php to lsphp in order to distinguish it from FastCGI version of PHP
-  binary.</p> 
+<p>次に、{cmd}--with-litespeed{/}と必要なその他のオプションを指定してPHPを設定します。
+  Fast CGI関連のオプション{cmd}--enable-fastcgi --enable-discard-path --disable-path-info-check{/}は{cmd}--with-litespeed{/}と一緒に使用しないでください。</p>
+<p>{cmd}make{/}でPHPバイナリをビルドすると、コンパイルが成功した後、sapi/litespeed/directoryの下に "php"という実行ファイルがあります。
+次に、コマンド{cmd}cp php/sapi/litespeed/php lsws/fcgi-bin/lsphp{/}を使用して新しいバイナリをコピーします。
+FastCGIバージョンのPHPバイナリと区別するために、phpをlsphpに変更することをお勧めします。</p> 
 
-<p>There are two environment variables that can be tweaked to control
-the behavior of LiteSpeed PHP. </p> 
+<p>LiteSpeed PHPの動作を制御するために微調整可能な環境変数が2つあります。</p> 
 <ul>
-<li>PHP_LSAPI_CHILDREN  (no default)</li>
+<li>PHP_LSAPI_CHILDREN  (デフォルトなし)</li>
 
-<p>In order to handle multiple requests concurrently, LiteSpeed web
-server can either spawn multiple PHP processes; or spawn one process,
-and this process will create a number of child processes to handle
-multiple requests simultaneously. 
+<p>複数のリクエストを同時に処理するために、LiteSpeed Webサーバーは複数のPHPプロセスを起動することができます； または1つのプロセスを生成します。このプロセスでは、複数の要求を同時に処理するいくつかの子プロセスが作成されます。 
 
-The web server will create PHP processes specified by
-{ITEM=ExtApp_Help#instances} in LSAPI application
-configuration. For one PHP process launched by the server, if
-PHP_LSAPI_CHILDREN is not set, it will not create any child process;
-if PHP_LSAPI_CHILDREN is set, it will spawn a number of child
-processes specified by PHP_LSAPI_CHILDREN. Usually, it should match
-{ITEM=ExtApp_Help#maxConns} configured for the LSAPI
-application, and both values should not be set over 100 in most
-cases.</p><br> 
+Webサーバーは、LSAPIアプリケーション構成で{ITEM=ExtApp_Help#instances}で指定されたPHPプロセスを作成します。
+サーバによって起動される1つのPHPプロセスに対して、PHP_LSAPI_CHILDRENが設定されていない場合、子プロセスは作成されません。
+PHP_LSAPI_CHILDRENが設定されている場合、PHP_LSAPI_CHILDRENで指定されたいくつかの子プロセスが生成されます。
+通常、LSAPIアプリケーション用に設定された{ITEM=ExtApp_Help#maxConns}に一致する必要があります。ほとんどの場合、両方の値を100以上に設定しないでください。</p><br> 
 
-<li>PHP_LSAPI_MAX_REQUESTS (default value: 500)</li>
+<li>PHP_LSAPI_MAX_REQUESTS (デフォルト値：500)</li>
 
-<p>This controls how many requests each child process will handle
-before exit. When one process exits, another will be created. This
-tuning is necessary because several PHP functions have been identified
-having memory leaks. If the PHP processes were left around forever,
-they could become very inefficient.</p>
+<p>これは、各子プロセスが終了するまでに処理するリクエストの数を制御します。
+1つのプロセスが終了すると、別のプロセスが作成されます。
+このチューニングは、メモリーリークを伴う複数のPHP関数が識別されているために必要です。
+PHPプロセスが永遠に残っていたとすると、非常に効率が悪くなる可能性があります。</p>
 </ul>
 
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
@@ -513,13 +462,11 @@ Q: FCGI SAPIでPHPバイナリを構築するには？
 
 A: あらかじめ構築されたバイナリにある特定のPHPモジュールが必要な場合を除き、通常はPHPバイナリをビルドする必要はありません。<br>
 
-  If you need to build your own PHP binary, see the following
-  steps:<br><br>
+  独自のPHPバイナリをビルドする必要がある場合は、次の手順を参照してください：<br><br>
 
-	download the latest PHP distribution package; <br>
+	最新のPHP配布パッケージをダウンロードしてください； <br>
 
-  	For PHP 4.3.4 and later releases, a small change should be made in source code {cmd}sapi/cgi/cgi_main.c{/}
-  		around line 858 and 862. <br>
+  	PHP 4.3.4以降のリリースでは、858行と862行のソースコード{cmd}sapi/cgi/cgi_main.c{/}に小さな変更を加える必要があります。<br>
   <pre class="eg">
 	if (env_path_info) {
 		SG(request_info).request_uri = env_path_info;
@@ -527,31 +474,22 @@ A: あらかじめ構築されたバイナリにある特定のPHPモジュー�
 		SG(request_info).request_uri = env_script_name;
 	} </pre>
 
-Should be commented out and replaced with the code in the else clause and look like:
+コメントアウトしてelse句コードを置き換えて、次のようにします：
   <pre class="eg">
         SG(request_info).request_uri = env_script_name; </pre>
 
-  Then configure php with
-  {cmd}--enable-fastcgi--enable-discard-path --disable-path-info-check {/} 
-  along with other options you need. Please disregard the statements
-  about {cmd}--enable-discard-path 
-  --disable-path-info-check{/} options in PHP documentation and
-  README.FastCGI, as they are only applicable to Apache.<br><br>
-  After PHP is successfully built, replace the stock PHP binary coming
-  with the package by command:<br>
+  次に、{cmd}--enable-fastcgi --enable-discard-path --disable-path-info-check{/}を使用して必要な他のオプションと共にphpを設定します。
+  PHPのマニュアルやREADME.FastCGIの{cmd}--enable-discard-path --disable-path-info-check{/}オプションに関する記述は、Apacheにのみ適用されるので、無視してください。<br><br>
+  PHPがうまく構築されたら、次のコマンドでパッケージに入っているPHPバイナリのバイナリを置き換えます：<br>
   {cmd}cp -f sapi/cgi/php [lsws_home]/fcgi-bin/php . {/}<br>
-  The pre-built PHP
-  executable is also configured with option
-  {cmd}--with-config-file-path=../conf{/}, in this way different
-  php.ini can be used for different PHP engine. It is just a
-  recommendation. The default  php.ini is located at 
-  {cmd}[lsws_home]/conf/php.ini{/}.   
+  あらかじめ構築されたPHP実行ファイルも、オプション{cmd}--with-config-file-path=../conf{/}で設定されます。このようにして、異なるPHPエンジンに対して異なるphp.iniを使用できます。
+  単なる推薦です。
+  デフォルトのphp.iniは{cmd}[lsws_home]/conf/php.ini{/}にあります。   
   </p>
 
 
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
@@ -569,7 +507,6 @@ Litespeedインストーラは、事前に構築されたバイナリで "Turck 
 PHPアクセラレータのインストール方法の詳細については、それぞれのベンダのマニュアルを参照してください。
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
@@ -578,18 +515,11 @@ SEE_ALSO:
 ID: qa_suexec
 Q: suEXECモードでCGI、FCGI、LSAPI、PHPを起動する方法は？
 
-A: When a script is started in "suEXEC" mode, the script can run on
-behalf of a user other than the user that web server process running
-as, this is an important security feature in shared hosting
-environment which minimize possible damage of a vulnerable script to
-whom this script belongs to.<br>
-It is very easy to turn on "suEXEC" in LiteSpeed Web Server, what you
-need to do is to set "CGI set UID mode" to "DocRoot UID" when you
-create a virtual host, then change the owner of the document root
-directory to target user. <br>
-For traditional CGI script, you can also use "CGI File UID", but
-"DocRoot UID" is recommended as it works with all scripts unless the
-user ID of the CGI script is different from document root user ID.
+A: スクリプトが "suEXEC"モードで起動されると、スクリプトは、Webサーバープロセスが実行されているユーザー以外のユーザーのために実行されます。
+これは、このスクリプトが所属する脆弱なスクリプトの被害を最小限に抑える共有ホスティング環境における重要なセキュリティ機能です。<br>
+LiteSpeed Web Serverで "suEXEC"をオンにするのは簡単ですが、バーチャルホストを作成するときに "CGI set UID mode"を "DocRoot UID"に設定し、
+ドキュメントルートディレクトリの所有者をターゲットユーザーに変更します。<br>
+従来のCGIスクリプトでは、 "CGI File UID"を使用することもできますが、CGIスクリプトのユーザーIDがドキュメントのルートユーザーIDと異なる場合を除き、すべてのスクリプトで機能するので "DocRoot UID"をお勧めします。
 END_A
 
 SEE_ALSO:
@@ -605,44 +535,28 @@ A: LiteSpeed Web Serverは、HTTPプロトコルをサポートするWebサー�
 次の手順に従ってWebAdminコンソールに設定してください：<br>
 
 <ol>
-	<li> Define an {PAGE=ExtApp_Help} with 
-		 {ITEM=ExtApp_Help#extAppType} {val}Web Server{/}.
-		 Set {ITEM=ExtApp_Help#extAppAddress} to the IP address 
-		 and port used by the backend web server.
+	<li>{ITEM=ExtApp_Help#extAppType} {val}Webサーバー{/}を使用して{PAGE=ExtApp_Help}を定義します。
+        {ITEM=ExtApp_Help#extAppAddress}に、バックエンドWebサーバーが使用するIPアドレスとポートを設定します。
 	</li> 
 
-	<li>Two choices:<br>
+	<li>2つの選択肢：<br>
 	<ul>
-		<li>Define a {TBL=Context_Help#proxyContext} with 
-			{ITEM=Context_Help#proxyWebServer} set to the
-			{PAGE=ExtApp_Help} just defined.</li>
+		<li>定義された{PAGE=ExtApp_Help}に設定された{ITEM=Context_Help#proxyWebServer}を持つ{TBL=Context_Help#proxyContext}を定義します。</li>
 
-		<li>Define a {PAGE=ScriptHandler_Help} with 
-			{ITEM=ScriptHandler_Help#shType} {val}Web Server{/},
-			and {ITEM=ScriptHandler_Help#shHandlerName} set to the
-			{PAGE=ExtApp_Help} just defined.</li>
+		<li>定義された{PAGE=ExtApp_Help}に{ITEM=ScriptHandler_Help#shType} {val}Webサーバー{/}、{ITEM=ScriptHandler_Help#shHandlerName}を設定して{PAGE=ScriptHandler_Help}を定義してください。</li>
 	</ul>
 </li>
 </ol>
 
-	For example, you may want to have Apache with mod_perl to handle
-	Perl scripts instead of running them as CGI, assuming Apache
-	is running on the same server machine on port 8080, pointing to
-	the same {ITEM=VHGeneral_Help#docRoot}. </br>
+	たとえば、Apacheがポート8080の同じサーバマシン上で実行されており、同じ{ITEM=VHGeneral_Help#docRoot}を指していると仮定すると、Apacheをmod_perlでCGIとして実行する代わりに、Perlスクリプトを処理することができます。</br>
 
-	First, define an {PAGE=ExtApp_Help}, set 
-	{ITEM=ExtApp_Help#extAppType} to {val}Web Server{/},
-	{ITEM=ExtApp_Help#extAppName} to {val}ApachePerl{/} and 
-	{ITEM=ExtApp_Help#extAppAddress} to {val}localhost:8080{/}.<br> 
-	Then define a {PAGE=ScriptHandler_Help}, set 
-	{ITEM=ScriptHandler_Help#suffix} to {val}pl{/},
-	{ITEM=ScriptHandler_Help#shType} to {val}Web Server{/} and
-	{ITEM=ScriptHandler_Help#shHandlerName} to {val}ApachePerl{/}.
+	まず、{PAGE=ExtApp_Help}を定義し、{ITEM=ExtApp_Help#extAppType}を{val}Webサーバー{/}に、{ITEM=ExtApp_Help#extAppName}を{val}ApachePerl{/}に、{ITEM=ExtApp_Help#extAppAddress}から{val}localhost：8080{/}。<br> 
+	次に、{PAGE=ScriptHandler_Help}を定義し、{ITEM=ScriptHandler_Help#suffix}を{val}pl{/}に設定します。
+   {ITEM=ScriptHandler_Help#shType}を{val}Webサーバー{/}に、{ITEM=ScriptHandler_Help#shHandlerName}を{val}ApachePerl{/}に変更します。
 
 
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
@@ -656,55 +570,43 @@ AJPv13と互換性がある限り、サーブレットエンジンを選択す�
 設定には次のガイドラインを使用してください：
 
 <ol>
-	<li> Install an AJPv13 compatible Servlet engine.</li><br>
+	<li> AJPv13互換サーブレットエンジンをインストールしてください。</li><br>
 	
-	Tomcat 3.x, 4.x and Jetty 4.x support AJPv13 protocol. The AJPv13
-	compatible connector of the Servlet engine must be enabled. Please
-	refer to respective documents coming with the Servlet engine. Make
-	sure the Servlet engine works properly through their build-in Http
-	Server.<br><br>  
+	Tomcat 3.x、4.xおよびJetty 4.xはAJPv13プロトコルをサポートしています。
+    サーブレットエンジンのAJPv13互換コネクタが有効になっている必要があります。
+    サーブレットエンジンに付属のドキュメントを参照してください。
+    サーブレットエンジンがビルドインHTTPサーバーを介して正しく動作することを確認してください。<br><br>  
 	
-	<li>Make the web application files available to web server.</li><br>
+	<li>WebアプリケーションファイルをWebサーバーで使用できるようにします。</li><br>
 	
-	If the Servlet engine runs on a different machine, make a local
-	copy of the web application files. Skip this step if the Servlet
-	engine runs on the same machine. Only the specific web application
-	directory is needed, not the whole web-apps/ directory.<br> 
+	サーブレットエンジンが別のマシン上で実行されている場合は、Webアプリケーションファイルのローカルコピーを作成します。
+    Servletエンジンが同じマシン上で実行されている場合は、この手順をスキップしてください。
+    特定のWebアプリケーションディレクトリのみが必要ですが、web-apps/ディレクトリ全体ではありません。<br> 
 	
-	If the web application is packed in a war file, you need to expand it. 
-	The WEB-INF/web.xml must exist along with the static files and JSP
-	files. The Java class files under WEB-INF/ can be removed.<br><br>
+	Webアプリケーションがwarファイルにパックされている場合は、展開する必要があります。
+    WEB-INF/web.xmlは、静的ファイルおよびJSPファイルとともに存在する必要があります。
+    WEB-INF/の下にあるJavaクラスファイルは削除できます。<br><br>
 	
-	<li>Configure the Servlet engine using web administration
-	console.</li><br> 
+	<li>Web管理コンソールを使用してサーブレットエンジンを設定します。</li><br> 
 	
-	Under the {PAGE=ExtApp_Help} tab at server level or virtual host
-	level add a Servlet engine. Make sure the
-	{ITEM=ExtApp_Help#extAppAddress} matches the AJP setting in
-	Servlet engine.<br><br> 
+	サーバーレベルまたはバーチャルホストレベルの{PAGE=ExtApp_Help}タブで、サーブレットエンジンを追加します。
+    {ITEM=ExtApp_Help#extAppAddress}がServletエンジンのAJP設定と一致することを確認してください。<br><br> 
 	
-	<li>Create a {TBL=Context_Help#javaWebAppContext} under 
-	{PAGE=Context_Help} tab of the virtual host.</li><br>
+	<li>バーチャルホストの{PAGE=Context_Help}タブの{TBL=Context_Help#javaWebAppContext}を作成します。</li><br>
 	
-	The Context {ITEM=Context_Help#expuri} should match the URI used
-	by the Servlet engine. 
-	Set {ITEM=Context_Help#javaWebApp_location} to the directory of
-	web application. Select the {ITEM=Context_Help#servletEngine}
-	just created.<br><br>
+	コンテキスト{ITEM=Context_Help#expuri}は、サーブレットエンジンによって使用されるURIと一致する必要があります。
+    {ITEM=Context_Help#javaWebApp_location}をWebアプリケーションのディレクトリに設定します。
+    作成した{ITEM=Context_Help#servletEngine}を選択してください。<br><br>
 	
-	<li> Set {PAGE=ScriptHandler_Help} for JSP.</li><br>
+	<li> JSP用に{PAGE=ScriptHandler_Help}を設定します。</li><br>
 
-	Add a {PAGE=ScriptHandler_Help} for 
-	{ITEM=ScriptHandler_Help#suffix} {val}jsp{/} for the virtual
-	host. Set {ITEM=ScriptHandler_Help#shType} to {val}Servlet
-	Engine{/} and set the {ITEM=ScriptHandler_Help#shHandlerName} 
-	to the Servlet engine just created.
+	バーチャルホストの{ITEM=ScriptHandler_Help#suffix} {val}jsp{/}の{PAGE=ScriptHandler_Help}を追加してください。
+    {ITEM=ScriptHandler_Help#shType}を{val}Servlet Engine{/}に設定し、{ITEM=ScriptHandler_Help#shHandlerName}を作成したサーブレットエンジンに設定します。
 	
 </ol>
 
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
@@ -717,43 +619,33 @@ A: あなたのWebサイトは、LiteSpeed Webサーバで現在入手できな�
 
 <ol>
 <li>
-It is recommended to run LiteSpeed web server parallel to Apache
-first. 
+LiteSpeed WebサーバーをApacheと並列に実行することをお勧めします。 
 </li>
 
 <li>
-Change the user and group to the same setting as Apache by running {cmd}install.sh{/} if the 
-server is started by root. 
+サーバーがrootで起動されている場合は、{cmd}install.sh{/}を実行して、Apacheと同じ設定にユーザーとグループを変更します。 
 </li>
 
 <li>
-<B>Attention: Since 2.2 release, LSWS can use Apache httpd.conf
-directly without duplicating vhost configuration in LSWS, you should
-try that first, for more information, please checkout our Wiki
-pages.</b><br>
-Create a virtual host and configure it to the same settings:<br>
+<B>注意：2.2リリース以来、LSWSはLSWSのバーチャルホスト設定を複製せずにApache httpd.confを直接使用できます。詳細については、Wikiページをチェックアウトしてください。</b><br>
+バーチャルホストを作成し、同じ設定に構成します：<br>
 <ul>
-	<li>Set the {ITEM=VHGeneral_Help#docRoot} to the same directory used by Apache 
-	(be careful about the permission);</li>
+	<li>{ITEM=VHGeneral_Help#docRoot}をApacheで使用されているのと同じディレクトリに設定します（許可については注意してください）；</li>
 
-	<li>Add {TBL=Context_Help#cgiContext} if CGI is used in
-	Apache;</li>
+	<li>CGIがApacheで使用されている場合は{TBL=Context_Help#cgiContext}を追加します；</li>
 
-	<li>Set up PHP or Servlet engine in {PAGE=ExtApp_Help} if needed. </li>
-	<li>Create {TBL=Context_Help#generalContext} to match the "Alias"
-	in Apache.</li>
+	<li>必要に応じてPHPまたはServletエンジンを{PAGE=ExtApp_Help}に設定します。 </li>
+	<li>Apacheの "Alias"と一致する{TBL=Context_Help#generalContext}を作成します。</li>
 </ul>
 </li>
 
 <li>
-Restart web server and test the setup by sending same requests to both servers. 
-After verifying that LiteSpeed web server is working properly, you can stop Apache 
-and change the listener setting to use the TCP port that Apache used.
+Webサーバーを再起動し、両方のサーバーに同じ要求を送信してセットアップをテストします。
+LiteSpeed Webサーバーが正常に動作していることを確認したら、Apacheを停止し、リスナー設定を変更してApacheが使用していたTCPポートを使用することができます。
 </li>
 </ol>
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
@@ -765,45 +657,42 @@ Q: SSL秘密鍵の生成方法
 A: <a href="http://www.openssl.org/">OpenSSL tool kit</a>で秘密鍵を生成する必要があります。
 
 <ol>
-	<li>Install OpenSSL if it is not installed already.</li>
-	<li>Create RSA private key for your web server by using command<br>
+	<li>OpenSSLがまだインストールされていない場合は、インストールします。</li>
+	<li>コマンドを使用してWebサーバーのRSA秘密鍵を作成する<br>
 	
 	{cmd}openssl genrsa -out server.key 1024{/}<br>
 	
-	You can create a Triple-DES encrypted private key file by using<br>
+	トリプルDESで暗号化された秘密鍵ファイルを作成するには、<br>
+
 	{cmd}openssl genrsa -des3 -out server.skey 1024{/}
 	</li>
 	<br>
-	You need to give a password (pass-phase) for the private key file. 
-	You will be prompt for the password when the private key file is used every time.<br>
+	秘密鍵ファイルのパスワードを渡す必要があります（パスフェーズ）。
+    毎回秘密鍵ファイルを使用するときは、パスワードの入力を求められます。<br>
 
-	LiteSpeed web server only support private key files without encryption. 
-	You probably think it is not safe for the private key. Well, in theory, it is not 
-	as safe as the encrypt version. But in reality, it is impossible to let user input 
-	password for the SSL keys whenever the server starts or restarts. Some web server can 
-	save the password somehow and automate the pass-phase when the server starts, 
-	but it is only as good as the machine is not compromised unless your password is 
-	hardware protected. The private key file along with the certificate file should be placed 
-	in a directory that is only readable by whom the server running as.
+	LiteSpeed Webサーバーは、暗号化なしで秘密鍵ファイルのみをサポートします。
+    おそらく、秘密鍵にとって安全ではないと思うでしょう。
+    理論的には、暗号化バージョンほど安全ではありません。
+    しかし、実際には、サーバーの起動時または再起動時にユーザーがSSLキーのパスワードを入力することは不可能です。
+    一部のWebサーバーでは、パスワードを何らかの形で保存し、サーバーの起動時にパスフェーズを自動化できますが、パスワードがハードウェアで保護されていない限り、マシンが侵害されていないことが条件です。
+    秘密鍵ファイルは、証明書ファイルとともに、実行中のサーバーに誰からも読み込み可能なディレクトリに配置する必要があります。
 	
-	<li>If you generated the encrypted key file, the pass-phase can be removed with 
-	the following command:<br>
+	<li>暗号化されたキーファイルを生成した場合、パスフェーズは次のコマンドで削除できます：<br>
 	
 	{cmd}openssl rsa -in server.skey -out server.key{/}
 	</li>
 </ol>
 
-1024 in above commands is the length of the private key in bits. The bigger private key 
-is more secure. You can create bigger private key like 2048 bit. However, if you plan to get 
-your certificate from certificate issuer, you may have to use 1024 bit private key as it is 
-the biggest key they can process, check with the issuer first.
+上記コマンドの1024は秘密鍵の長さをビット数で表したものです。
+秘密鍵が大きいほど安全です。
+2048ビットのようなより大きなプライベートキーを作成することができます。
+ただし、証明書の発行者から証明書を取得する場合は、処理できる最大の鍵である1024ビットの秘密鍵を使用する必要があります。まず、発行者に確認してください。
 
-For more information about creating SSL private key please visit 
+SSL秘密鍵の作成の詳細については、次のURLを参照してください。 
 <a href="http://www.openssl.org/docs/HOWTO/keys.txt">http://www.openssl.org/docs/HOWTO/keys.txt</a>
 
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
@@ -818,203 +707,162 @@ A: 自己管理証明書を使用してWeb管理コンソールを保護する�
 自己署名証明書を使用すると、ブラウザーは、自己署名証明書がブラウザーによって信頼されていないため、証明書を受け入れるかどうかをユーザーに尋ねます。
 
 <ol>
-	<li> Create your private key.</li>
-	<li> Create the self-signed certificate with the command,<br>
+	<li> 秘密鍵を作成します。</li>
+	<li> コマンドを使用して自己署名証明書を作成します。<br>
 	{cmd}openssl req -new -x509 -key server.key -out server.crt -days 365{/}<br>
 	
-	You will be asked for more information about your organization and web site. 
-	Please give correct information. You should give valid domain names of your web site 
-	when you are asked for Common Name but not any aliases. To determine the valid domain 
-	name, you can use commands such as {cmd}nslookup{/}, {cmd}dig{/} or {cmd}host{/}. 
-	For example, if the web site can be accessed via both 
-	http://foo.bar and http://www.foo.bar, usually foo.bar is the valid domain name 
-	(canonical name), www.foo.bar is an alias; foo.bar should be used for the Common Name.
+	あなたの組織とウェブサイトに関する詳細な情報が求められます。
+    正しい情報を与えてください。
+    コモンネームは要求されてもエイリアスは要求されない場合、Webサイトの有効なドメイン名を指定する必要があります。
+    有効なドメイン名を確認するには、{cmd}nslookup{/}、{cmd}dig{/}、{cmd}host{/}などのコマンドを使用できます。
+    たとえば、ウェブサイトにhttp://foo.barとhttp://www.foo.barの両方でアクセスできる場合、通常foo.barは有効なドメイン名（正式名）、www.foo.barは エイリアス。コモンネームにはfoo.barを使用する必要があります。
 	</li>
 </ol>
 
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
 
 [QA]
 ID: qa_cert
-Q: How to get a SSL certificate from certificate issuers?
+Q: 証明書の発行者からSSL証明書を取得する方法は？
 
-A: You need to generate a certificate request from your private key and send the request 
-to a certificate issuer, like VeriSign or Thawte. The certificate issuer will sign the 
-request and send back the certificate. To generate a certificate request:
+A: 秘密鍵から証明書要求を生成し、その要求をVeriSignやThawteなどの証明書の発行者に送信する必要があります。
+   証明書の発行者は要求に署名し、証明書を送り返す。
+   証明書要求を生成するには：
 
 <ol>
-	<li>Create your private key.</li>
-	<li> Create the certificate request with command,<br>
+	<li>秘密鍵を作成します。</li>
+	<li> コマンドで証明書要求を作成します。<br>
 	
 	{cmd}openssl req -new -key server.key -out server.csr{/}<br>
 	
-	You will be asked for more information about your organization and web site. 
-	Please give correct information. You should give valid domain names of your web site 
-	when you are asked for Common Name but not any aliases. To determine the valid domain 
-	name, you can use commands such as {cmd}nslookup{/}, {cmd}dig{/} or {cmd}host{/}. 
-	For example, if the web site can be accessed via both 
-	http://foo.bar and http://www.foo.bar, usually foo.bar is the valid domain name 
-	(canonical name), www.foo.bar is an alias; foo.bar should be used for the Common Name.
+	あなたの組織とウェブサイトに関する詳細な情報が求められます。
+
+    正しい情報を与えてください。
+    コモンネームは要求されてもエイリアスは要求されない場合、Webサイトの有効なドメイン名を指定する必要があります。
+    有効なドメイン名を確認するには、{cmd}nslookup{/}、{cmd}dig{/}、{cmd}host{/}などのコマンドを使用できます。
+    たとえば、ウェブサイトにhttp://foo.barとhttp://www.foo.barの両方でアクセスできる場合、通常foo.barは有効なドメイン名（正式名）、www.foo.barは エイリアス。 コモンネームとしてfoo.barを使用する必要があります
 
 	</li>
 </ol>
 
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
 
 [QA]
 ID: qa_confssl
-Q: How to configure SSL using the private key and certificate in LiteSpeed web server?
+Q: LiteSpeed Webサーバーで秘密鍵と証明書を使用してSSLを構成する方法は？
 
-A: After you get your certificate, you can configure 
-   {TBL=Listeners_Help#sslSetting} for your web server.
+A: 証明書を取得したら、Webサーバー用に{TBL=Listeners_Help#sslSetting}を構成できます。
 
 <ol>
-   <li> Create a listener with {ITEM=Listeners_Help#listenerSecure}
-		set to {val}Yes{/}. The official port for SSL is 443, 
-		but other port can be used too.</li>
+   <li>{ITEM=Listeners_Help#listenerSecure}を{val}Yes{/}に設定してリスナーを作成します。
+       SSLの公式ポートは443ですが、他のポートでも使用できます。</li>
 
-   <li> Click on the newly created listener, then go to the 
-		{TBL=Listeners_Help#sslSetting}. Then edit the
-		{ITEM=Listeners_Help#keyFile} and  
-		{ITEM=Listeners_Help#certFile}. <br>
+   <li> 新しく作成したリスナーをクリックし、{TBL=Listeners_Help#sslSetting}に移動します。
+        次に、{ITEM=Listeners_Help#keyFile}と{ITEM=Listeners_Help#certFile}を編集します。 <br>
       
-	  	Give the path of the SSL private key file and certificate file in the 
-		pop-up window. Click "Finish" button to save your changes.
+	  	ポップアップウィンドウでSSL秘密鍵ファイルと証明書ファイルのパスを指定します。 "完了"ボタンをクリックして変更を保存します。
    </li>
 
-   <li> You can specify {ITEM=Listeners_Help#sslVersion} 
-		and {ITEM=Listeners_Help#sslEncryptionLevel}  on the same page.
-   </li>
+   <li>同じページに{ITEM=Listeners_Help#sslVersion}と{ITEM=Listeners_Help#sslEncryptionLevel}を指定できます。</li>
 
-   <li> Set {TBL=Listeners_Help#virtualHostMapping} in listener
-   	General tab. In the pop-up window, select the 
-	{ITEM=Listeners_Help#virtualHostName} that you 
-   	want to access through this listener and 
-	input the valid {ITEM=Listeners_Help#domainName}
+   <li> リスナーの全般タブで{TBL=Listeners_Help#virtualHostMapping}を設定します。
+    ポップアップウィンドウで、このリスナーからアクセスする{ITEM=Listeners_Help#virtualHostName}を選択し、有効な{ITEM=Listeners_Help#domainName}を入力します。
    </li>
    
-   <li> Click "Apply Changes" link below the banner. If the new listener 
-   uses {ITEM=Listeners_Help#listenerPort} number less than
-   {val}1024{/} click {ITEM=ServerStat_Help#restart} in {ITEM=ServerStat_Help#servAction}, 
-   otherwise just click {ITEM=ServerStat_Help#reload}.
+   <li> バナーの下にある"変更を適用"リンクをクリックします。
+    新しいリスナーが{ITEM=Listeners_Help#listenerPort}番号を{val}1024{/}より小さく使用すると、{ITEM=ServerStat_Help#servAction}の{ITEM=ServerStat_Help#restart}をクリックします。
+   それ以外の場合は、{ITEM = ServerStat_Help＃reload}をクリックしてください。
    </li>
    
-   <li> Test your SSL configuration with your browser by accessing 
-   https://your.domain:your_port/. The "s" after "http" at the beginning of the address 
-   indicates the browser to use SSL protocol.
+   <li> https：//your.domain：your_port/にアクセスして、ブラウザでSSL設定をテストします。
+   アドレスの先頭にある"http"の後の"s"は、SSLプロトコルを使用するブラウザを示します
    </li>
    
-   If you use a self-signed certificate, the browser will prompt you to accept 
-   the certificate. Otherwise the browser will accept the certificate automatically 
-   without bothering you.
+   自己署名証明書を使用すると、ブラウザは証明書の受け入れを求めるプロンプトを表示します。
+   そうしないと、ブラウザは気にせずに証明書を自動的に受け入れます。
 
 </ol>
 
-Now you should be able to see your web pages loaded through the secured SSL connection.
+これで、セキュアなSSL接続を介してロードされたWebページを見ることができるはずです。
 
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
 
 [QA]
 ID: qa_frontpage
-Q: How to install Microsoft FrontPage Server Extension 2002 with LiteSpeed web server?
+Q: LiteSpeed WebサーバーでMicrosoft FrontPage Server Extension 2002をインストールするには？
 
-A: Please follow the following steps:
+A: 以下の手順に従ってください：
 <ol>
-   <li> Download the corresponding Microsoft FrontPage Server
-   Extension for your platform from 
-   <a href="http://www.rtr.com/fpsupport/fp2002sr1_download.htm">rtr.com</a>, 
-   save it to directory lsws/add-ons/frontpage/.</li>
+   <li> 対応するMicrosoft FrontPage Serverをダウンロードします。
+<a href="http://www.rtr.com/fpsupport/fp2002sr1_download.htm">rtr.com</a>からお使いのプラットフォームの拡張機能をlsws/add-ons/frontpage/ディレクトリに保存します。</li>
 
-   <li> run FrontPage installation script as root user:<br>
+   <li> FrontPageインストールスクリプトをrootユーザーとして実行します：<br>
 		{cmd}lsws/admin/misc/fp_install.sh <path_to_frontpage_package>{/}
 		</li>
 
-   <li> Restart LSWS with root user account. </li>
+   <li> rootユーザーアカウントでLSWSを再起動してください。</li>
 </ol>
-Now you can enable FrontPage extension for your web site. The most
-important configuration is the {val}Domain Names{/}, it must match
-the domain name part of the URL that you used to access the web page,
-and otherwise it will not work. Port number should be specified, example:
-{val}your.domain.name:80{/} <br>
-If you enable FrontPage Server Extension for one virtual host from
-LiteSpeed web admin console, LiteSpeed Web Server will try to
-install it to the document root of that virtual host when restart web
-server. If it is successful, you can access admin page
-of that virtual host from: <br>
+これで、WebサイトのFrontPage拡張機能を有効にすることができます。
+最も重要な設定は{val}ドメイン名{/}です。Webページにアクセスするために使用したURLのドメイン名部分と一致する必要があります。それ以外の場合は動作しません。
+ポート番号を指定する必要があります。
+例：{val}your.domain.name:80{/} <br>
+LiteSpeed Web管理コンソールから1つのバーチャルホストに対してFrontPage Server Extensionを有効にすると、LiteSpeed Web ServerはWebサーバーを再起動するときにそのバーチャルホストのドキュメントルートにインストールしようとします。
+成功した場合は、次の場所からそのバーチャルホストの管理ページにアクセスできます：<br>
 	{cmd}http://your.doamin.name/_vti_bin/_vti_adm/fpadmcgi.exe{/}<br>
-The default login username is "admin" and password is "fp123456". You should
-change the password immediately after the extension is enabled.<br>
+デフォルトのログインユーザ名は"admin"、パスワードは"fp123456"です。 拡張機能が有効になったらすぐにパスワードを変更する必要があります。<br>
 <br>
-If you changed {val}Domain Names{/} setting, you need to reinstall
-FrontPage extension. What you need to do is just remove all "_vti_..."
-files under the document root of your web site, then restart web server.
+{val}ドメイン名{/}設定を変更した場合は、FrontPage拡張機能を再インストールする必要があります。
+あなたがする必要があるのは、Webサイトのドキュメントルートの下にあるすべての "_vti _..."ファイルを削除してから、Webサーバーを再起動することです。
 
-If you want to setup Admin Page for all virtual hosts, run the
-following command at command line as root user:<br>
+すべてのバーチャルホストの管理ページを設定する場合は、コマンドラインでrootユーザーとして次のコマンドを実行します：<br>
 {cmd}/usr/local/frontpage/version5.0/bin/owsadm.exe -o setadminport -p
 &lt;PORT&gt; -s &lt;path_to_/lsws/add-ons/frontage/conf/httpd.conf&gt; -username
 &lt;USERNAME&gt; -pw &lt;PASSWD&gt;{/}<br>
 
-Then add a virtual host with {ITEM=VHGeneral_Help#docRoot} pointing to
-{val}/usr/local/frontpage/version5.0/admin-exes/{/} from the web admin
-console. Now you can manage FrontPage Server Extension for all 
-virtual hosts from this virtual host.<br>
+次に、Web管理コンソールから{val}/usr/local/frontpage/version5.0/admin-exes/{/}を指す{ITEM=VHGeneral_Help#docRoot}のバーチャルホストを追加します。
+これで、このバーチャルホストからすべてのバーチャルホストのFrontPage Server Extensionを管理できます。<br>
 
 
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
 
 [QA]
 ID: qa_autoindex
-Q: How to customize auto index script?
+Q: 自動インデックススクリプトをカスタマイズするには？
 
-A: LiteSpeed web server uses an external script to generate the 
-index page for a directory with no index file on the fly. The URI to the auto
-index script is configurable by field {ITEM=VHGeneral_Help#autoIndexURI} at virtual host level
-under general tab. Whenever a directory
-with no index file is accessed, LiteSpeed Web server will perform an
-internal redirect to that URI. <br>
-In order to share the script among all virtual hosts, a
-{TBL=Context_Help#generalContext} with {ITEM=Context_Help#expuri}
-{val}/_autoindex/{/} and {ITEM=Context_Help#location}
-{val}$SERVER_ROOT/share/autoindex/{/} 
-is automatically created for every virtual host. <br>
+A: LiteSpeed Webサーバーは、外部スクリプトを使用して、インデックスファイルのないディレクトリのインデックスページをオンザフライで生成します。
+自動インデックススクリプトへのURIは、一般タブのバーチャルホストレベルの{ITEM=VHGeneral_Help#autoIndexURI}フィールドで設定できます。
+インデックスファイルのないディレクトリにアクセスすると、LiteSpeed WebサーバはそのURIへの内部リダイレクトを実行します。<br>
+すべてのバーチャルホスト間でスクリプトを共有するために、
+{TBL=Context_Help#generalContext} で {ITEM=Context_Help#expuri}
+{val}/_autoindex/{/} および {ITEM=Context_Help#location}
+{val}$SERVER_ROOT/share/autoindex/{/} が
+すべてのバーチャルホストに対して自動的に作成されます。 <br>
 
-A default php script is provided with same Look and Feel as
-Apache's mod_autoindex. The script is located at <br>
+デフォルトのPHPスクリプトはApacheのmod_autoindexと同じルックアンドフィールで提供されています。 スクリプトは <br>
 	   {cmd}lsws/share/autoindex/default.php{/}<br>
-Permission is granted to copy and change the default auto index
-script. It is recommended to make changes on a copy of the default
-script, the default script will be overwritten during next upgrade. 
-When you write your own script, just remember that the path to
-the directory to be indexed is passed to the script in a CGI
-environment variable: {cmd}"LS_AI_PATH"{/}. The script can be placed at
-anywhere you like, but if you want to share it among all virtual
-hosts, just place it under {cmd}lsws/share/autoindex/{/}
-directory. <br>
+デフォルトの自動インデックススクリプトをコピーして変更することが許可されています。
+デフォルトのスクリプトのコピーを変更することをお勧めします。デフォルトのスクリプトは、次回のアップグレード時に上書きされます。
+独自のスクリプトを書くときは、インデックスを作成するディレクトリへのパスがCGI環境変数{cmd}"LS_AI_PATH"{/}のスクリプトに渡されることを覚えておいてください。
+スクリプトは好きな場所に置くことができますが、すべてのバーチャルホスト間で共有したい場合は、{cmd}lsws/share/autoindex/{/}ディレクトリの下に置いてください。<br>
 
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
@@ -1023,53 +871,39 @@ SEE_ALSO:
 ID: qa_awstats
 Q: AWStatsをLiteSpeed Web Serverで併用するには？
 
-A: AWStats can be used as an add-on module of LiteSpeed web server.
-It has been seamlessly integrated into our web administration
-console, and the configuration and statistical updates has been automated as well. <br>
-To install AWStats as an add-on module, please run script: <br>
+A: AWStatsは、LiteSpeed Webサーバーのアドオンモジュールとして使用できます。
+Web管理コンソールにシームレスに統合され、構成や統計の更新も自動化されています。<br>
+アドオンモジュールとしてAWStatsをインストールするには、スクリプトを実行してください：<br>
    {cmd}lsws/admin/misc/awstats_install.sh{/} <br>
-This script will try to download the latest AWStats package from <a href=http://www.awstats.org>www.awstats.org</a>, expand it
-under {cmd}lsws/add-ons/{/} directory and create a symbolic link
-from "./awstats-x.x" to "awstats". If it fails to download for any reason, you can manually do this step as well.<br>
+このスクリプトは、<a href=http://www.awstats.org> www.awstats.org</a>から最新のAWStatsパッケージをダウンロードしようとします。
+{cmd}lsws/add-ons/{/}ディレクトリの下に展開し、 "./awstats-x.x"から "awstats"へのシンボリックリンクを作成します。
+何らかの理由でダウンロードに失敗した場合は、手動でこの手順を実行することもできます。<br>
 <br>
-Next step is to enable AWStats add-on module for the virtual host that
-you would have AWStats analyze its access log.<br>
-From the Web Admin console, just select the virtual host on left, click "Add-on" tab on the right, then fill in configurations in "AWStats Integration" table. Configurations are<br>
+次のステップでは、AWStatsにアクセスログを分析させるバーチャルホスト用のAWStatsアドオンモジュールを有効にします。<br>
+Web管理コンソールから、左側のバーチャルホストを選択し、右側の「アドオン」タブをクリックして、「AWStats統合」テーブルの設定を入力します。設定は<br>
 <ul>
-	<li>{ITEM=VHAddOns_Help#updateMode}: Disabled, Static or Dynamic.</li>
-	<li>{ITEM=VHAddOns_Help#workingDir}: The directory to be used to save
-	AWStats configuration and statistical results.</li>
-	<li>{ITEM=VHAddOns_Help#awstatsURI}: Where the statistical results can be accessed.</li>
-	<li>{ITEM=VHAddOns_Help#siteDomain}: The main domain name of the virtual host.</li>
-	<li>{ITEM=VHAddOns_Help#siteAliases}: All possible add-on domains, aliases and IP
-	addresses.</li>
-	<li>{ITEM=VHAddOns_Help#updateInterval}: Hourly or Daily.</li>
-	<li>{ITEM=VHAddOns_Help#updateOffset}: When to start the update.</li>
-	<li>{ITEM=VHAddOns_Help#securedConn}: the result is access via HTTP or
-	HTTPS.</li>
-	<li>{ITEM=VHAddOns_Help#awstatsRealm}: To protect the result with authentication.</li>
+	<li>{ITEM=VHAddOns_Help#updateMode}: 無効、静的または動的です。</li>
+	<li>{ITEM=VHAddOns_Help#workingDir}: AWStatsの設定と統計結果を保存するために使用するディレクトリ。</li>
+	<li>{ITEM=VHAddOns_Help#awstatsURI}: 統計的な結果にアクセスできる場所。</li>
+	<li>{ITEM=VHAddOns_Help#siteDomain}: バーチャルホストのメインドメイン名。</li>
+	<li>{ITEM=VHAddOns_Help#siteAliases}: 可能なすべてのアドオンドメイン、別名、およびIPアドレス。</li>
+	<li>{ITEM=VHAddOns_Help#updateInterval}: 毎時または毎日。</li>
+	<li>{ITEM=VHAddOns_Help#updateOffset}: 更新をいつ開始するか。</li>
+	<li>{ITEM=VHAddOns_Help#securedConn}: 結果はHTTPまたはHTTPS経由のアクセスです。</li>
+	<li>{ITEM=VHAddOns_Help#awstatsRealm}: 結果を認証で保護する。</li>
 </ul>
 
-After applying the configuration changes, you can access the statistical
-results produced by AWStats by clicking "statistics" action link for
-that virtual host under "Server Manager" page.<br>
+設定の変更を適用した後、AWStatsによって生成された統計結果にアクセスするには、"Server Manager"ページでそのバーチャルホストの"statistics"アクションリンクをクリックします。<br>
 <br>
-Customize AWStats configuration file:<br>
+AWStats設定ファイルをカスタマイズする：<br>
 <br>
-AWStats configuration file is generated automatically based on a
-model configuration file <working directory>/conf/awstats.model.conf,
-which is copied from
-lsws/add-ons/awstats/wwwroot/cgi-bin/awstats.model.conf. The following
-configuration parameters are populated by LiteSpeed: "LogFile",
-"LogType", "LogFormat", "SiteDomain", "HostAliases", "DirData",
-"DirConfig" and "DirIcons". Other parameters can be customized by
-changing awstats.model.conf.
-<br>NOTE: Never edit the destination configuration
-file as it is always overwritten by LiteSpeed before invoking AWStats updates.
+AWStats構成ファイルは、lsws/add-ons/awstats/wwwroot/cgi-bin/awstats.model.confからコピーされたモデル構成ファイル<working directory>/conf/awstats.model.confに基づいて自動的に生成されます。
+LiteSpeedによって設定された設定パラメータは、"LogFile"、"LogType"、"LogFormat"、"SiteDomain"、"HostAliases"、"DirData"、"DirConfig"および"DirIcons"です。
+他のパラメータは、awstats.model.confを変更してカスタマイズできます。
+<br>ノート：AWStatsアップデートを呼び出す前に、常にLiteSpeedによって上書きされるので、宛先設定ファイルを編集しないでください。
 
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
@@ -1091,7 +925,6 @@ CPAN経由でFCGI.pmをインストールするには、次のコマンドを使
 
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
@@ -1111,7 +944,6 @@ A: Apache構成移行ツール - {cmd}lsws/admin/misc/apimport.sh{/}は、既存
 
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
@@ -1143,7 +975,6 @@ STDINからデータを受け取り、pipedaccess.logファイルに追加しま
 
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
@@ -1191,7 +1022,6 @@ LiteSpeedはこの優れた機能を提供します。バーチャルホスト�
 
 END_A
 
-SEE_ALSO: 
 [END_QA]
 
 
@@ -1210,7 +1040,6 @@ TOP_NAV: index.html = INDEX
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 

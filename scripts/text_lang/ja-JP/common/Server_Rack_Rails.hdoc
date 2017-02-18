@@ -7,8 +7,6 @@
 [ITEM]
 ID: rubyBin
 NAME: Rubyパス
-SINCE: 
-SEE_ALSO: 
 
 DESCR: Ruby実行可能ファイルへの指定されたパス。
 Rubyがどこにインストールされているかによって、/usr/bin/ruby又は/usr/local/bin/rubyになります。
@@ -34,8 +32,6 @@ END_TIPS
 [ITEM]
 ID: railsEnv
 NAME: 実行時モード
-SINCE: 
-SEE_ALSO: 
 
 DESCR: Rack/Railsが "Development"、"Production"、又は"Staging"のいずれのモードで実行されるかを指定します。
 デフォルトは "Production"です。
@@ -60,8 +56,6 @@ END_TIPS
 [ITEM]
 ID: enableRailsHosting
 NAME: 共有ホスティングを有効にする
-SINCE: 
-SEE_ALSO: 
 
 DESCR: Rack/Rails共有ホスティングを有効にするかどうかを指定します。
 デフォルトは "無効"です。
@@ -84,8 +78,6 @@ END_TIPS
 [ITEM]
 ID: railsAppLimit
 NAME: アカウントごとの最大アプリ数
-SINCE: 
-SEE_ALSO: 
 
 DESCR: アカウントごとに作成できるRack/Railsアプリケーションの最大数を指定します。 デフォルトは "1"です。
 
@@ -109,8 +101,6 @@ END_TIPS
 [ITEM]
 ID: rubyProcLimit
 NAME: アカウントごとの最大Rubyプロセス
-SINCE: 
-SEE_ALSO: 
 
 DESCR: アカウントごとに作成できるRubyプロセスの最大数を指定します。
 デフォルトは "10"です。
@@ -146,7 +136,6 @@ NS: EO
 DESCR: Ruby Rack/Railsアプリケーションのデフォルト設定。
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -187,7 +176,6 @@ RailsAppMap testApp "test.testrails.com" "/"
 このファイルに触れるたびに、Rack/Railsアプリケーションが再起動されます。
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 
@@ -200,7 +188,6 @@ NS: O
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 

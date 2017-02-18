@@ -4,8 +4,6 @@
 [ITEM]
 ID: extrapathenv
 NAME: 特別なPATH環境変数
-SINCE: 
-SEE_ALSO: 
 
 DESCR: ビルドスクリプトの現在のPATH環境変数に追加される追加のPATH値。  
 END_DESCR
@@ -26,8 +24,6 @@ END_TIPS
 [ITEM]
 ID: installpathprefix
 NAME: インストールパスのプレフィックス
-SINCE: 
-SEE_ALSO: 
 
 DESCR: "--prefix"設定オプションの値を設定します。 デフォルトのインストール場所はLiteSpeed Web Serverのインストールディレクトリの下にあります。  
 END_DESCR
@@ -48,8 +44,6 @@ END_TIPS
 [ITEM]
 ID: compilerflags
 NAME: コンパイラフラグ
-SINCE: 
-SEE_ALSO: 
 
 DESCR: 最適化されたコンパイラオプションのような追加のコンパイラフラグを追加します。
 END_DESCR
@@ -70,8 +64,6 @@ END_TIPS
 [ITEM]
 ID: configureparams
 NAME: パラメータの設定
-SINCE: 
-SEE_ALSO: 
 
 DESCR: PHPビルド用のパラメータを設定します。 Apache固有のパラメータと " - prefix"の値は自動的に削除され、次のステップをクリックすると "--with-litespeed"が自動的に追加されます。
 （前のフィールドにプレフィックスを設定することができます）このようにして、既存の動作中のPHPビルドのphpinfo（）出力からconfigureパラメータをコピーして貼り付けることができます。 
@@ -93,8 +85,6 @@ END_TIPS
 [ITEM]
 ID: addonmodules
 NAME: アドオンモジュール
-SINCE: 
-SEE_ALSO: 
 
 DESCR:  使用するアドオンモジュールを選択します。
 ここに記載されていないバージョンを使用する場合は、手動でソースコードを更新することができます。
@@ -124,7 +114,6 @@ NAME: PHPのコンパイル
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -139,7 +128,6 @@ NAME: PHPのコンパイル
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 

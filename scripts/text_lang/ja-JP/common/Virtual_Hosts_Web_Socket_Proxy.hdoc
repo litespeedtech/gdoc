@@ -7,8 +7,6 @@
 [ITEM]
 ID: wsuri
 NAME: URI
-SINCE: 
-SEE_ALSO: 
 
 DESCR: このWebSocketバックエンドを使用するURIを指定します。
 このURIへのトラフィックは、WebSocketのアップグレード要求が含まれている場合にのみWebSocketバックエンドに転送されます。
@@ -36,8 +34,6 @@ END_TIPS
 [ITEM]
 ID: wsaddr
 NAME: アドレス
-SINCE: 
-SEE_ALSO: 
 
 DESCR: WebSocketバックエンドによって使用される一意のソケットアドレス。
 IPv4ソケット、IPv6ソケット、Unixドメインソケット（UDS）がサポートされています。
@@ -74,7 +70,6 @@ NAME: Webソケットプロキシ
 DESCR: 
 END_DESCR
 
-SEE_ALSO: 
 [END_TBL]
 
 
@@ -92,7 +87,6 @@ DESCR: <a href="http://en.wikipedia.org/wiki/WebSocket"> WebSocket </a>は、HTT
 
 END_DESCR
 
-SEE_ALSO: 
 [END_PAGE]
 
 
