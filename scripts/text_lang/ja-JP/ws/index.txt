@@ -8,7 +8,7 @@ Rev. 4</h1>
 <div>
 <ol class="toctop">
 <li><strong>ライセンス</strong> <a href="license_std.html">Standard</a> / <a href="license.html">Enterprise</a></li>
-<li><a href="intro.html"><strong>序論</strong></a></li>
+<li><a href="intro.html"><strong>はじめに</strong></a></li>
 <li><a href="install.html"><strong>インストール/アンインストール</strong></a></li>
 <li><strong><a href="admin.html">管理</a>/<a href="ServerStat_Help.html">サービスマネージャ</a></strong></li>
 <li><a href="security.html"><strong>セキュリティ</strong></a></li>

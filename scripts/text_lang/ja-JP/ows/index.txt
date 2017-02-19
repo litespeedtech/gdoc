@@ -1,5 +1,5 @@
 <header>
-<h1>OpenLiteSpeed Web サーバー 1.4<br/>
+<h1>OpenLiteSpeed Web Server 1.4<br/>
 ユーザーズマニュアル<br/>
 Rev. 2</h1>
 </header>
@@ -8,7 +8,7 @@ Rev. 2</h1>
 <div>
 <ol class="toctop">
 <li><a href="license.html"><strong>ライセンス</strong></a></li>
-<li><a href="intro.html"><strong>序論</strong></a></li>
+<li><a href="intro.html"><strong>はじめに</strong></a></li>
 <li><a href="install.html"><strong>インストール/アンインストール</strong></a></li>
 <li><a href="admin.html"><strong>管理</strong></a></li>
 <li><a href="security.html"><strong>セキュリティ</strong></a></li>
