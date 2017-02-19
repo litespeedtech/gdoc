@@ -1,256 +1,229 @@
-<h1>Installation/Uninstallation</h1>
+<h1>インストール/アンインストール</h1>
 
-<h3>Minimum system requirements</h3>
-<ul><li><strong>Operating System:</strong>
-	<ul><li>Linux(i386): kernel 2.4 and up, glibc-2.2 and up</li>
-		<li>CentOS: 5 and up</li>
-		<li>Ubuntu: 8.04 and up</li>
-        <li>Debian: 4 and up</li>
-		<li>Solaris(x86): Sun0S 5.8 and up</li>
-		<li>FreeBSD(i386): 4.5 and up</li>
-		<li>MacOSX: 10.3 and up</li>
+<h3>最小システム要件</h3>
+<ul><li><strong>オペレーティングシステム：</strong>
+	<ul><li>Linux(i386): カーネル 2.4以上, glibc-2.2以上</li>
+		<li>CentOS: 5以上</li>
+		<li>Ubuntu: 8.04以上</li>
+        <li>Debian: 4以上</li>
+		<li>Solaris(x86): Sun0S 5.8以上</li>
+		<li>FreeBSD(i386): 4.5以上</li>
+		<li>MacOSX: 10.3以上</li>
 	</ul></li>
 	<li><strong>CPU:</strong>
-		<ul><li>Intel: 80486 and up</li>
+		<ul><li>Intel: 80486以上</li>
 			<li>PowerPC: PowerPC G4</li>
 		</ul>
 	</li>
-	<li><strong>Memory:</strong> 32MB and up</li>
-	<li><strong>Disk:</strong>
-		<ul><li>Installation: 200MB</li><li>Runtime: 300MB and up, swapping space depends on usage.</li></ul></li>
+	<li><strong>メモリ:</strong> 32MB以上</li>
+	<li><strong>ディスク:</strong>
+		<ul><li>インストール: 200MB</li><li>ランタイム: 300MB以上、スワップスペースは使用方法によって異なります。</li></ul></li>
 </ul>
 
-<h3>Installation</h3>
+<h3>インストール</h3>
 
-<p>Installation must be performed in a command line terminal. For testing purposes, LiteSpeed Web Server can be installed into a home directory by a non-privileged user. For production use, it should be installed into a system directory.</p>
+<p>インストールはコマンドライン端末で行う必要があります。 
+   テストの目的で、LiteSpeed Web Serverは特権のないユーザーによってホームディレクトリにインストールできます。 
+   プロダクション用には、システムディレクトリにインストールする必要があります。</p>
 
-<p>In Mac OS X, root user is disabled by default. It can be enabled using a series of actions detailed on the <a href="http://support.apple.com/kb/PH11331">Apple</a> website. You can also use the sudo command to install LSWS into a system directory without enabling the root user, but system folders will still only be manipulable by the root user. This means that every time you want to control LSWS from the command line terminal (like when you want to start or stop LSWS), you will have to use the sudo command.</p>
+<p>Mac OS Xでは、rootユーザーはデフォルトで無効になっています。
+<a href="http://support.apple.com/kb/PH11331">Apple</a>のウェブサイトに記載されている一連の操作を使用して有効にすることができます。
+sudoコマンドを使用して、rootユーザーを有効にせずにLSWSをシステムディレクトリにインストールすることもできますが、システムフォルダはrootユーザーだけが操作できます。
+つまり、コマンドライン端末からLSWSを制御したいとき（LSWSを起動または停止したいときなど）には、sudoコマンドを使用する必要があります。</p>
 
-<h4>Installation Steps:</h4>
+<h4>インストール手順：</h4>
 <ol>
 
-  <li> Decompress the package into a convenient location:<br>
-    <span class="cmd">tar xvfz lsws-xxxx.tar.gz</span> or <span class="cmd">gunzip 
+  <li> 便利な場所にパッケージを解凍する：<br>
+    <span class="cmd">tar xvfz lsws-xxxx.tar.gz</span> 又は <span class="cmd">gunzip 
     -c lsws-xxxx.tar.gz | tar xvf -</span> <br>
   </li>
-  <li><span class="tag">[Enterprise Edition Only]</span> Install trial license key or serial number:
+  <li><span class="tag">[Enterpriseエディションのみ]</span> トライアルライセンスキーまたはシリアル番号をインストールします：
     <ul>
-      <li> Trial License: 
-           <p>A trial license is for evaluation purposes and 
-           is only good for 15 days after download. A trial license can be requested from download page.</p>
-           <p>A trial license key will be sent to you as an attachment in a confirmation email. 
-           Please save the attachment as <span class="val">trial.key</span> and copy 
-           it to the installation directory. </p>
-           <p>When you switch from a trial license to a production license, you can simply run the 
-        install script again after following the steps below to update your license.</p>
+      <li> トライアルライセンス： 
+           <p>トライアルライセンスは評価のためのもので、ダウンロード後15日間有効です。
+              トライアルライセンスは、ダウンロードページからリクエストできます。</p>
+           <p>試用ライセンスキーが確認メールの添付ファイルとして送信されます。 
+           添付ファイルを<span class="val">trial.key</span>として保存し、インストールディレクトリにコピーしてください。</p>
+           <p>トライアルライセンスからプロダクションライセンスに切り替えるときは、以下の手順に従ってライセンスを更新するだけで、インストールスクリプトを再実行することができます。</p>
       </li>
-      <li> Production license:
+      <li> プロダクションライセンス：
         <ol>
-          <li> Licenses can be leased or purchased at the LiteSpeed <a href="http://store.litespeedtech.com">store</a>.</li>
-          <li> A serial number will be sent to you in the confirmation email after you order has been successfully processed. Each serial number
-            allows for one server installation.</li>
-          <li> Save the serial number as "serial.no"; in the installation directory (where
-            install.sh is located).  The LiteSpeed products registration server will use this 
-            file to retrieve your license key during the installation process.</li>
+          <li> ライセンスはLiteSpeedの<a href="http://store.litespeedtech.com">ストアー</a>でリースまたは購入することができます 。</li>
+          <li> 注文が正常に処理された後、確認メールでシリアル番号が送信されます。
+               各シリアル番号により、1台のサーバーのインストールが可能です。</li>
+          <li> シリアル番号を "serial.no"として保存します。 インストールディレクトリ（install.shが置かれている場所）にあります。
+               LiteSpeed製品登録サーバーは、このファイルを使用して、インストールプロセス中にライセンスキーを取得します。</li>
         </ol>        
 		</li>
     </ul>
   </li>
   <li> 
-   <p>Go to the installation directory <span class="cmd">cd lsws-xxxx</span> 
-    and run command <span class="cmd">./install.sh</span> This will start LiteSpeed's Installer.</p>
-    <p>Note that only by running this command as the &quot;root&quot; user can you install the server 
-    into a system directory. Other users 
-    should install it to somewhere under their home directory. </p>
-    <p>Mac OS X users can install the server into a system directory with command 
+   <p>インストールディレクトリ<span class="cmd">cd lsws-xxxx</span>に移動し、<span class="cmd">./install.sh</span>コマンドを実行します。
+    LiteSpeedのインストーラが起動します。</p>
+    <p>このコマンドを &quot;root&quot;ユーザーとして実行するだけで、サーバーをシステムディレクトリにインストールできることに注意してください。
+    他のユーザーは、ホームディレクトリの下のどこかにインストールする必要があります。</p>
+    <p>Mac OS Xユーザーはコマンドを使用してサーバーをシステムディレクトリにインストールできます 
   <span class="cmd">sudo ./install.sh</span></p>
   </li>
   
-  <li> Read the End User License Agreement and type "Yes" to confirm your agreement.</li>
+  <li> エンドユーザー使用許諾契約書を読み、"Yes"と入力して契約を確認します。</li>
   
-  <li>Specify the directory where you would like to install LiteSpeed Web Server.
-   For the root user, the default is /usr/local/lsws. For non-privileged users, 
-   the default is their home directory. Remember, non-privileged users will not be 
-   able to install the server into a system directory.</li>
+  <li>LiteSpeed Web Serverをインストールするディレクトリを指定します。
+    rootユーザーの場合、デフォルトは/usr/local/lswsです。
+    特権を持たないユーザーの場合、デフォルトはホームディレクトリです。 
+    特権を持たないユーザーは、サーバーをシステムディレクトリにインストールすることはできません。</li>
    
-  <li><span class="tag">[Enterprise Edition Only]</span> <strong>Generate license request.</strong>
-    <p>If the Installer only finds serial number but no valid license key, it will 
-    prompt to generate a license request. The installer will talk to LiteSpeed products 
-    registration server and obtain a valid license key automatically. Upon getting the 
-    license key, it will go to next step. If failed, the installer will exit and leave 
-    a license request file. </p>
-    <p>If the automatic process failed, you can create a ticket with license department 
-    from online store client area.</p>  
-    <p>Note: Installation will continue only if there is a valid trial license or valid Enterprise license. </p>
+  <li><span class="tag">[Enterpriseエディションのみ]</span> <strong>ライセンス要求を生成します。</strong>
+    <p>インストーラがシリアル番号だけを検索し、有効なライセンスキーが見つからない場合は、ライセンス要求の生成を促します。
+     インストーラはLiteSpeed製品登録サーバーと通信し、有効なライセンスキーを自動的に取得します。
+     ライセンスキーを取得すると、次のステップに進みます。
+     失敗した場合、インストーラは終了してライセンス要求ファイルを残します。</p>
+    <p>自動処理が失敗した場合は、オンラインストアクライアントエリアのライセンス部門でチケットを作成することができます。</p>  
+    <p>注：インストールは、有効な試用版ライセンスまたは有効なエンタープライズライセンスがある場合にのみ継続されます。 </p>
    </li>
 
-    <li>Follow the instructions on the screen. The Installer will ask you to set the following: 
+    <li>画面の指示に従います。インストーラは、次の設定を要求します： 
     <ol>
-      <li> If a previously installed copy exists, the Installer will ask you to choose either
-        upgrade, reinstall, or change directory. Upgrading will keep your current 
-        configurations.</li>
-      <li> Administrator's username and password for the WebAdmin interface.</li>
-      <li> What control panel, if any, you will use with LSWS.</li>
-      <li> User and group that the server process will run on behalf of.</li>
-      <li> TCP port for normal web service.</li>
-      <li> TCP port for WebAdmin interface. </li>
-      <li> Whether to set up LiteSpeed PHP.
-      <li> <span class="tag">[Enterprise Edition Only]</span> Root user has the 
-        option to enable chroot. The installer will setup the initial chroot 
-        environment automatically. Chroot is an advanced feature and your CGI 
-        may fail without configuration tuning. We strongly recommend not enabling 
-        chroot unless you are familiar with it. You can always enable it later 
-        by performing an upgrade installation. 
+      <li> 以前にインストールされたコピーが存在する場合、インストーラはアップグレード、再インストール、またはディレクトリの変更のいずれかを選択するように求めます。
+           アップグレードすると、現在の設定が保持されます。</li>
+      <li> WebAdminインターフェイスの管理者のユーザー名とパスワード。</li>
+      <li> コントロールパネルがあればLSWSで使用。</li>
+      <li> サーバープロセスが代わって実行するユーザーおよびグループ。</li>
+      <li> 通常のWebサービスのTCPポート。</li>
+      <li> WebAdminインターフェイスのTCPポート。 </li>
+      <li> LiteSpeed PHPを設定するかどうか。
+      <li> <span class="tag">[Enterpriseエディションのみ]</span> rootユーザーには、chrootを有効にするオプションがあります。
+          インストーラは初期chroot環境を自動的に設定します。
+          Chrootは高度な機能であり、設定調整なしでCGIが失敗する可能性があります。
+          熟知していない限り、chrootを有効にしないことを強くお勧めします。
+          後でアップグレードインストールを実行して、いつでも有効にすることができます。</li>
     </ol>
     <p>
-    Finally, the Installer will ask you if you want to install the AWStats add-on module to 
-    keep track of your web statistics. Root user can also choose to run LiteSpeed web server 
-    automatically at system startup as a service. Then you're done! The installer can start up the 
-    server.</p>
+    最後に、Web統計を追跡するためにAWStatsアドオンモジュールをインストールするかどうかを尋ねるインストーラが表示されます。
+    ルートユーザーは、システム起動時にサービスとしてLiteSpeed Webサーバーを自動的に実行することもできます。
+    そして完了です！
+    インストーラはサーバを起動します。</p>
   </li>
 </ol>
-<h4>Testing Installation</h4>
+<h4>インストールのテスト</h4>
 <ol>
-<li> For detailed information on controlling the server processes,  
-    please see the <a href="admin.html">Administration Guide</a>. To start the server, 
-    simply run <span class="cmd">[your_install_dir]/bin/lswsctrl start</span>.
+<li> サーバープロセスの制御の詳細については、<a href="admin.html">管理ガイド</a>を参照してください。
+サーバーを起動するには、<span class="cmd">[your_install_dir]/bin/lswsctrl start</span>を実行するだけです。
   </li>
   
-  <li> To access your site, 
-    point your browser to <span class="val">http://[address]:8088/</span>, 
-    [address] being the IP address or domain name of your web server machine. 
-    Use "localhost" if the server is on the machine you are using. 
-    "8088" is the default port. If you changed the port 
-    during installation, write the port you designated. A congratulations page 
-    should load into the browser. If not, try the WebAdmin interface.
+  <li> サイトにアクセスするには、
+    ブラウザで<span class="val">http：//[address]：8088/</span>にアクセスし、[address]はWebサーバーマシンのIPアドレスまたはドメイン名を指定します。
+    サーバーが使用しているマシン上にある場合は、「localhost」を使用します。
+    "8088"がデフォルトのポートです。
+    インストール時にポートを変更した場合は、指定したポートに書き込んでください。
+    おめでとうページがブラウザに読み込まれます。
+    そうでない場合は、WebAdminインターフェイスを試してください。
   </li>
   
-  <li> The default port for the WebAdmin interface is 7080. Plug 
-    <span class="val">http://[address]:7080/</span>, 
-    into your browser to go to the WebAdmin interface. (If you changed 
-    the port for WebAdmin during installation, use that port instead.) 
-    Remember that for [address] you can use "localhost" if you're using the 
-    machine the server is on. The administration interface welcome page should 
-    load. Click the "Log on" link and use the administrator's username and 
-    password specified during installation to log on. For detailed information 
-    regarding configuration, please refer to our <a href="config.html">Configuration
-    Guide</a>, or click the "help" link on top of each page. 
+  <li> WebAdminインターフェイスの既定のポートは7080です。
+   <span class="val">http：//[address]：7080/</span>をブラウザーに差し込み、WebAdminインターフェイスに移動します。
+  （インストール中にWebAdminのポートを変更した場合は、代わりにそのポートを使用してください）。
+   サーバーが稼働しているマシンを使用している場合は、[アドレス]には "localhost"を使用できます。
+   管理インターフェースのウェルカムページが読み込まれます。
+   [ログオン]リンクをクリックし、インストール時に指定した管理者のユーザー名とパスワードを使用してログオンします。 
+   設定に関する詳細については、<a href="config.html">設定ガイド</a>を参照するか、各ページの上部にある"ヘルプ"リンクをクリックしてください。
   </li>
   
-  <li> If your server uses firewall, please make sure that localhost is trusted. 
-    For instance, Linux with IPTables should include a rule <span class="cmd">ALLOW 
-    INPUT from LO</span>.
+  <li> サーバーがファイアウォールを使用している場合は、localhostが信頼できるものであることを確認してください。
+      たとえば、IPTablesを持つLinuxには、<span class="cmd">LOからのALLOW INPUT</span>というルールを含める必要があります。
     <br>
   </li>
-  <li> If your web site and the WebAdmin interface are inaccessible, please take 
-    a look at the error log - <span class="cmd">[your_install_dir]/logs/error.log 
-    </span>
+  <li> WebサイトとWebAdminインターフェイスにアクセスできない場合は、エラーログ<span class="cmd">[your_install_dir]/logs/error.log</span>を見てください。
     <ul>
-      <li> If there is a TCP port conflict with other server applications, 
-        the web server should be reinstalled with an available port.<br>
-        The following command can be used to find an available port:<br>
-        <span class="cmd">netstat -an | grep XXXX</span><br>
-        XXXX is a port number. If the port is available, the command will produce no 
-        output.
+      <li> TCPポートが他のサーバアプリケーションと競合している場合は、使用可能なポートを使用してWebサーバを再インストールする必要があります。<br>
+        次のコマンドを使用して、使用可能なポートを見つけることができます。<br>
+        <span class="cmd">netstat -an | grep XXXX</span> <br>
+        XXXXはポート番号です。ポートが使用可能な場合、コマンドは出力を生成しません。
       </li>
-      <li> If the swapping directory is not writable, you can either 
-        grant writing permission for the swapping directory to the user whom the web 
-        server is running as, or change the swapping directory manually. The swapping 
-        directory is configured in the server's XML configuration 
-        file located at <span class="cmd">[your_install_dir]/conf/httpd_config.xml</span>, 
-        default value is <span class="cmd">/tmp/lshttpd/swap</span>. Search for 
-        <span class="cmd">&lt;swappingDir&gt;</span>.
+      <li> スワッピングディレクトリが書き込み可能でない場合は、スワッピングディレクトリの書き込み権限をWebサーバーが実行されているユーザーに許可するか、スワップディレクトリを手動で変更します。
+        スワッピングディレクトリは、<span class="cmd">[<your_install_dir]/conf/httpd_config.xml</span>にあるサーバーのXML構成ファイルで構成されます。
+        デフォルト値は<span class="cmd">/tmp/lshttpd/swap</span>です。
+        <span class="cmd">&lt;swappingDir&gt;</span>を検索します。
       </li>
     </ul>
   </li>
 </ol>
-<p>If you still have problems with installation, please check out our 
-<a href="http://www.litespeedtech.com/support/wiki">wiki</a> or post your problem 
-on our support <a href="http://www.litespeedtech.com/support/forum/">forum</a>. </p>
-
-
-<h3>Upgrading</h3>
-
-<p>There are a few scenarios where you would need to update or upgrade the server:</p>
-
-<ul>
-<li>A new release is available</li>
-<li>Upgrade from Standard Edition to Enterprise Edition</li>
-<li>Upgrade from a trial license to production license</li>
-<li>Upgrade/downgrade to a different production license.</li>
-</ul>
-
-<p>There are a number of ways to upgrade. One way is to just run install.sh again and select 
-&quot;Upgrade&quot; when prompted. Your current configurations will be kept.</p>
-
-<p>Starting with release 2.0, version management can also be done from the WebAdmin interface, 
-under Actions - Version Management. All your installed versions and the available new releases 
-are listed here. You can install a new release or switch between different versions by 
-clicking the appropriate link. Since release 2.0, LSWS also features a built-in update agent 
-that will check for new releases periodically and send email notifications.</p>
-
-<p>Starting with release 4.1, you can upgrade to the latest release, force reinstall, or downgrade 
-to an old version using the command line tool lsup.sh. See detailed usage information in 
-<span class="cmd">[your_install_dir]/admin/misc/lsup.sh --help</span></p>
-
-<p>Since release 1.5.6, multiple versions of LiteSpeed Web Server can be installed. 
-    You can easily switch from one to another by using the version management utility: 
-    <span class="cmd">[your_install_dir]/admin/misc/mgr_ver.sh</span>.</p> 
-<ul><li>To switch to a version already installed, for example 1.5.6, just run <span class="cmd">[your_install_dir_current_version]/admin/misc/mgr_ver.sh 
-        1.5.6</span></li>
- 	<li>To remove previously installed files for a certain version, for example 1.5.6, 
-        just run <span class="cmd">[your_install_dir_current_version]/admin/misc/mgr_ver.sh 
-        -d 1.5.6</span> </li>
-</ul>
-
-<p>When upgrading your license (from trial to production license, for example), you can manually 
-copy "serial.no" to the <span class="cmd">[your_install_dir]/conf/</span> 
-directory, then restart. Please backup your old serial number and license key before restart.
+<p>引き続きインストールに問題がある場合は、<a href="http://www.litespeedtech.com/support/wiki">wiki</a>を確認するか、問題を当社のサポート<a href="http：//www.litespeedtech.com/support/forum/">フォーラム</a>をご覧ください。
 </p>
 
 
-<h3>License transfer procedure: </h3>
+<h3>アップグレード</h3>
 
-<p>Please be aware that each license key is associated with a serial number 
-and the server's hardware signature. A new key is required if a change 
-in hardware signature is detected. So if you upgrade or change your hardware, 
-you need to transfer your current production license in order to continue using the product. </p>
+<p>サーバーを更新またはアップグレードする必要があるシナリオがいくつかあります：</p>
+
+<ul>
+<li>新しいリリースが利用可能</li>
+<li>StandardエディションからEnterpriseエディションへのアップグレード</li>
+<li>トライアルライセンスからプロダクションライセンスへのアップグレード</li>
+<li>別のプロダクションライセンスへのアップグレード/ダウングレード</li>
+</ul>
+
+<p>アップグレードするにはいくつかの方法があります。
+1つの方法は、install.shをもう一度実行し、プロンプトが表示されたら＆quot;アップグレード＆quot;を選択することです。 
+あなたの現在の設定は保持されます。</p>
+
+<p>リース2.0以降、WebAdminインターフェイスのアクション - バージョン管理でバージョン管理を行うこともできます。
+インストールされているすべてのバージョンと利用可能な新しいリリースがここにリストされています。
+新しいリリースをインストールするか、適切なリンクをクリックして異なるバージョン間で切り替えることができます。
+リリース2.0以降、LSWSには、定期的に新しいリリースを確認し、電子メール通知を送信するビルトインアップデートエージェントも搭載されています</p>
+
+<p>リリース4.1から、コマンドラインツールlsup.shを使用して、最新リリースにアップグレードしたり、強制的に再インストールしたり、古いバージョンにダウングレードすることができます。
+詳細な使用方法については 
+<span class="cmd">[your_install_dir]/admin/misc/lsup.sh --help</span></p>
+
+<p>リリース1.5.6以降、複数バージョンのLiteSpeed Web Serverをインストールできます。
+  バージョン管理ユーティリティを使用すると、簡単に切り替えることができます： 
+    <span class="cmd">[your_install_dir]/admin/misc/mgr_ver.sh</span>.</p> 
+<ul><li>すでにインストールされているバージョン、例えば1.5.6などに切り替えるには、<span class="cmd"> [your_install_dir_current_version]/admin/misc/mgr_ver.sh 1.5.6 </span>を実行するだけです。</li>
+ 	<li>以前にインストールされた特定のバージョンのファイルを削除するには、
+<span class="cmd">[your_install_dir_current_version]/admin/misc/mgr_ver.sh -d 1.5.6</span>を実行するだけです。</li>
+</ul>
+
+<p>ライセンスをトライアルからプロダクションライセンスにアップグレードする場合は、手動で "serial.no"を<span class="cmd"> [your_install_dir]/conf/</span>ディレクトリにコピーして再起動します。
+再起動する前に、古いシリアル番号とライセンスキーをバックアップしてください。
+</p>
+
+
+<h3>ライセンス転送手順：</h3>
+
+<p>各ライセンスキーには、シリアル番号とサーバーのハードウェア署名が関連付けられています。
+ハードウェア署名の変更が検出された場合は、新しいキーが必要です。
+したがって、ハードウェアをアップグレードまたは変更する場合は、引き続き製品を使用するために現在のプロダクションライセンスを転送する必要があります。</p>
 
 <ol>
- <li> To migrate your current license, you can simply run the server binary 
-  <span class="cmd">./lshttpd -m</span>. It will talk to LiteSpeed' products 
-  registration server, unlock your serial number, and generate a temporary 
-  license key. This temporary key is good for 3 days. This allows you a smooth 
-  transition to the new server.</li>
-<li> If you wish, you can take this chance to download the latest version of 
-LiteSpeed Web Server to your new hardware. Then copy the serial number file "serial.no"
- to the installation directory and start up the Installer. You unlocked your serial 
- number in the previous step, so running the Installer will get you a new license key.</li>
- <li>If you wish to copy your old installation directory over to the new hardware, 
- then you just need to activate your license.
-   Run command <span class="cmd">./lshttpd -r</span> to retrieve a new license key.</li>  
- <li>If the process fails, you can create a ticket with the license 
-  department in the <a href="https://store.litespeedtech.com">client 
-  area</a> of the online store. </li>
+ <li> 現在のライセンスを移行するには、サーババイナリ<span class="cmd">./lshttpd -m </span>を実行するだけです。
+LiteSpeedの製品登録サーバーと通信し、シリアル番号をロック解除し、一時ライセンスキーを生成します。
+この一時的なキーは3日間有効です。
+これにより、新しいサーバーへのスムーズな移行が可能になります。</li>
+<li> 必要に応じて、この機会に新しいバージョンのLiteSpeed Web Serverを新しいハードウェアにダウンロードすることができます。
+次にシリアル番号ファイル "serial.no"をインストールディレクトリにコピーし、インストーラを起動します。
+前の手順でシリアル番号のロックを解除したため、インストーラを実行すると新しいライセンスキーが取得されます。</li>
+ <li>古いインストールディレクトリを新しいハードウェアにコピーする場合は、ライセンスをアクティブ化するだけです。
+  コマンド<span class="cmd">./lshttpd -r </span>を実行して、新しいライセンスキーを取得します。</li>  
+ <li>プロセスが失敗した場合は、オンラインストアの<a href="https://store.litespeedtech.com">クライアントエリア</a>にライセンス部門のチケットを作成できます。</li>
 </ol>
 
 
-<h3>Uninstallation Steps</h3>
+<h3>アンインストール手順</h3>
 <ol>
-  <li>Simply run <span class="cmd">[your_install_dir]/admin/misc/uninstall.sh</span> 
-    and follow the instructions on the screen.
+  <li><span class="cmd">[your_install_dir]/admin/misc/uninstall.sh</span>を実行し、画面の指示に従います。<br> 
   </li>
-  <li>The Uninstaller will ask the following questions: 
+  <li>アンインストーラは、次の質問をします： 
     <ul>
-      <li>whether to keep the log directory</li>
-      <li>whether to keep the configuration directory</li>
+      <li>ログディレクトリを保持するかどうか</li>
+      <li>設定ディレクトリを保持するかどうか</li>
     </ul>
     <br>
   </li>
-  <li>Directories that were not created by the Installer will not be touched, 
-    even if they are in [your_install_dir]. All the files created by the Installer 
-    will be removed.
+  <li>インストーラによって作成されなかったディレクトリは、[your_install_dir]にあっても変更されません。
+      インストーラによって作成されたすべてのファイルは削除されます。<br>
   </li>
-  <li>[your_install_dir] will be removed as well, if it is empty. </li>
+  <li>[your_install_dir]も空であれば削除されます。</li>
 </ol>
 

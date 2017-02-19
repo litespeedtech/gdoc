@@ -383,7 +383,7 @@ LiteSpeed Webサーバーは、Webサーバープロセス内にPHPエンジン�
 
 <p>PHPアプリケーションが設定された後、PHPアプリケーションがPHPスクリプトを処理するためには、{PAGE=ScriptHandler_Help}を設定する必要があります。
    PHPスクリプトのデフォルトの{ITEM=ScriptHandler_Help#suffix}は{val}php{/}に設定されています；{ITEM=ScriptHandler_Help#shType}が{val}Fast CGI{/}または {val}LiteSpeed API{/}に設定されています；{ITEM = ScriptHandler_Help#shHandlerName}は、PHPアプリケーションの名前に設定されています。
-   複数の接尾辞を{val}php、php4、phtml{/}のようなコンマ区切りリストで指定できます。
+   複数の接尾辞を{val}php、php4、phtml{/}のようなカンマ区切りリストで指定できます。
    {PAGE = ScriptHandler_Help}は、サーバーレベルまたはバーチャルホストレベルで設定できます。
    バーチャルホストレベルの設定は、同じサフィックスのサーバーレベルの設定を上書きします。</p> 
 

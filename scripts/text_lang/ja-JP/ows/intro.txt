@@ -63,7 +63,7 @@
 	  <p>LiteSpeed Web Serverは、CGIアプリケーションが消費するシステムリソースを制限することにより、不正なCGIスクリプトによるサーバーのオーバーロードを防ぎます。</p></li>
 	  
 	  <li><strong>DoS攻撃防止</strong>
-	  <p>LiteSpeed Web Serverは、IPレベルのスロットル、接続アカウンティングなどの機能により、HTTP DoS（Denial of Service）攻撃やDDoS（Distributed Denial of Service）に優れたパフォーマンスと拡張性を備えています。</p></li>
+	  <p>LiteSpeed Web Serverは、IPレベルのスロットル、接続アカウンティングなどの機能により、HTTPサービス拒否攻撃(DoS)や分散型サービス拒否攻撃(DDoS)に優れたパフォーマンスと拡張性を備えています。</p></li>
 	</ul>
 
 <h3>信頼性</h3>

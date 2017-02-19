@@ -275,7 +275,7 @@ END_EDITTIP
 EDITTIP: 指定されていないすべてのドメインを処理するバーチャルホストを1つだけ選択し、ドメインに「*」を入れることができます。
 END_EDITTIP
 
-SYNTAX: コンマで区切られたリスト。
+SYNTAX: カンマで区切られたリスト。
 END_SYNTAX
 
 EXAMPLE: www?.example.com

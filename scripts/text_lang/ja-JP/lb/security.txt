@@ -1,45 +1,36 @@
-<h1>Security</h1>
+<h1>セキュリティ</h1>
 
-<p>LiteSpeed Load Balancer is designed with security as top consideration in mind.<br>
-It supports <span class="tag">SSL</span>; has <span class="tag">Access Control</span> at server and virtual host level. Besides those standard features, it also has the following special security features. </p>
+<p>LiteSpeed Load Balancerは、セキュリティを最重要視して設計されています。<br>
+<span class="tag">SSL</span>をサポートしています；サーバーとバーチャルホストレベルで<span class="tag">アクセス制御</span>を持っています。
+これらの標準機能に加えて、以下の特別なセキュリティ機能も備えています。</p>
 <ol>
-  <li><span class="label1">Connection level limits:</span></li>
+  <li><span class="label1">接続レベルの制限：</span></li>
   <p>
   <ul>
-    <li> IP level throttling: Limits network bandwidth to and from a single IP 
-      address regardless of the number of connections. </li>
-    <li> IP level connection accounting: Limits the number of concurrent connections 
-      from a single IP address. It is controlled by <span class="tag">Connection 
-      Soft Limit</span>, <span class="tag">Connection Hard Limit</span>, <span class="tag">Grace 
-      Period</span> and <span class="tag">Banned Period</span>. </li>
+    <li> IPレベルのスロットル：接続数に関係なく、単一のIPアドレスとの間でネットワーク帯域幅を制限します。</li>
+    <li> IPレベル接続アカウンティング：単一のIPアドレスからの同時接続数を制限します。
+         これは<span class="tag">接続ソフトリミット</span>、<span class="tag">接続ハードリミット</span>
+         <span class="tag">猶予期間</span>および<span class="tag">禁止期間</span>によって制御されます。</li>
   </ul>
   <p></p>
-  <li><span class="label1">Request checking:</span></li>
-  <p> Every HTTP request is strictly checked by LiteSpeed load balancer.<br>
-    "/." is not allowed in a decoded URL, this will deny accessing hidden files 
-    and parent directories. <br>
-    Request size is limited by <span class="tag">Max Request URL Length</span>, 
-    <span class="tag">Max Request Header Length</span> and <span class="tag">Max 
-    Request Body Length</span>. </p>
+  <li><span class="label1">リクエストの確認：</span></li>
+  <p> すべてのHTTPリクエストは、LiteSpeedロードバランサによって厳密にチェックされます。<br>
+      "/" でデコードされたURLで許可されていない場合、隠しファイルと親ディレクトリへのアクセスが拒否されます。<br>
+      リクエストサイズは<span class="tag">最大リクエストURL長</span>、<span class="tag">最大リクエストヘッダ長</span>と<span class="tag">最大リクエストボディ長</span>によって制限されます。</p>
 
-  <li><span class="label1">Request filtering:</span></li>
-  <p> Request header and body can be checked against signatures of possible attacks
-     like XSS attack or SQL injection attackes, and block those requests in the first place. 
+  <li><span class="label1">リクエストフィルタリング：</span></li>
+  <p> 要求ヘッダーと本文は、XSS攻撃やSQLインジェクション攻撃などの可能性のある攻撃のシグネチャと照合し、それらの要求を最初にブロックすることができます。
   </p>
 
-  <li><span class="label1">Backend overloading prevention:</span></li>
-  <p>LiteSpeed load balancer can pipeline requests and control the concurrent level 
-    to an external applications to prevent overloading backend servers. 
-    It caches the response from web server, thus backend server will be immediately available to process 
-    next request without waiting for the response completely received by the client. 
-    In this way, backend server can serve more concurrent requests and will achieve 
-	higher performance and scalability. 
+  <li><span class="label1">バックエンド過負荷防止：</span></li>
+  <p>LiteSpeedロードバランサは、要求をパイプライン処理し、外部アプリケーションへの同時レベルを制御して、バックエンドサーバーのオーバーロードを防ぎます。
+     Webサーバーからの応答がキャッシュされるため、クライアントが完全に受け取った応答を待つことなく、バックエンドサーバーはすぐに次の要求を処理できます。
+     このようにして、バックエンドサーバーはより多くの同時要求を処理でき、より高いパフォーマンスとスケーラビリティを実現します。 
   </p>
   <p></p>
 
   <li><span class="label1">Chroot</span></li>
-  <p> LiteSpeed load balancer can run in chroot environment (known as a chroot jail). 
-    In chroot environment, the server and its children processes cannot access 
-    file system outside of the chroot jail. This protects system from attacks 
-    of malicious code. </p>
+  <p> LiteSpeedロードバランサは、chroot環境（chroot jail）として動作します。
+     chroot環境では、サーバとその子プロセスはchroot jailの外部にあるファイルシステムにアクセスできません。
+     これにより、システムが悪質なコードの攻撃から保護されます。</p>
 </ol>

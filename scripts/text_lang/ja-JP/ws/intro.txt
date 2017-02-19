@@ -55,72 +55,62 @@
 	<p>LiteSpeed Web Serverには、次のセキュリティ機能があります：</p>
 	<ul>
 	  <li><strong>SSL</strong>
-	  <p>Supports SSLv3/TLSv1. <i>This product includes software developed by the OpenSSL Project
-	  for use in the OpenSSL Toolkit (http://www.openssl.org/)</i></p></li>
+	  <p>SSLv3 / TLSv1をサポートします。 <i>この製品には、OpenSSL Toolkitで使用するためにOpenSSL Projectによって開発されたソフトウェアが含まれています(http://www.openssl.org/)</i></p></li>
 	
-	  <li><strong>IP Level Throttling</strong>
-	  <p>Network bandwidth and request rate for a single IP address can be limited
-	  regardless of the number of connections. </p></li>
+	  <li><strong>IPレベル調整</strong>
+	  <p>1つのIPアドレスに対するネットワーク帯域幅と要求レートは、接続数に関係なく制限されます。 </p></li>
 	  
-	  <li><strong>Comprehensive Connection Accounting</strong>
-	  <p>Comprehensive control of concurrent connections allowed from a single IP address.</p></li>
+	  <li><strong>包括的な接続アカウンティング</strong>
+	  <p>単一のIPアドレスから許可される同時接続の包括的な制御。</p></li>
 	  
-	  <li><strong>Request Filtering</strong>
-  		<p>Apache mod_security compatible request filtering. Block known as well as potential 
-  attempts at SQL/script injection XSS attacks.</p></li>
+	  <li><strong>リクエストフィルタリング</strong>
+  		<p>Apache mod_security互換のリクエストフィルタリング。
+           既知のブロックと、SQL/スクリプトインジェクションXSS攻撃の潜在的な試み。</p></li>
   
-	  <li><strong>Access Control</strong>
-	  <p>Access control rules can be set at server, virtual host, and per-directory (context) 
-	  levels.</p> </li>
+	  <li><strong>アクセス制御</strong>
+	  <p>アクセス制御ルールは、サーバー、バーチャルホスト、およびディレクトリごとの（コンテキスト）レベルで設定できます。</p> </li>
 	  
-	  <li><strong>External Application Shield</strong>
-	  <p>LiteSpeed Web Server shields CGI, Fast CGI and servlet engines from talking directly 
-	  to web clients to ensure maximum reliability and performance. </p></li>
+	  <li><strong>外部アプリケーションシールド</strong>
+	  <p>LiteSpeed Web Serverは、CGI、Fast CGIおよびサーブレットエンジンがWebクライアントと直接通信するのを防ぎ、最大の信頼性とパフォーマンスを保証します。 </p></li>
 	  
-	  <li><strong>CGI Resources Consumption Limit</strong>
-	  <p>LiteSpeed Web Server prevents bad CGI scripts from overloading the server by 
-	  limiting the system resources CGI applications can consume.</p></li>
+	  <li><strong>CGIリソース消費制限</strong>
+	  <p>LiteSpeed Web Serverは、CGIアプリケーションが消費するシステムリソースを制限することにより、悪いCGIスクリプトによるサーバーの過負荷を防ぎます。</p></li>
 	  
-	  <li><strong>suEXEC and chroot CGI/Fast CGI</strong>
-  		<p>LiteSpeed Web Server can run CGI scripts and Fast CGI applications in a chroot jail or a different user/group ID, minimizing possible damages from vulnerable scripts.</p>
+	  <li><strong>suEXECとchroot CGI/Fast CGI</strong>
+  		<p>LiteSpeed Web Serverは、CGIスクリプトとFast CGIアプリケーションをchroot jailまたは異なるユーザー/グループIDで実行できるため、脆弱なスクリプトの被害を最小限に抑えることができます。</p>
 		</li>  		 
 
-	  <li><strong>DoS Attack Prevention</strong>
-	  <p>LiteSpeed Web Server is much less vulnerable to HTTP Denial of Service(DoS) 
-	  and Distributed Denial of Service (DDoS) attacks thanks to IP-level throttling, 
-	  connection accounting, and its outstanding performance and scalability. </p></li>
+	  <li><strong>DoS攻撃防止</strong>
+	  <p>LiteSpeed Web Serverは、IPレベルのスロットル、接続アカウンティングなどの機能により、HTTPサービス拒否攻撃(DoS)や分散型サービス拒否攻撃(DDoS)に優れたパフォーマンスと拡張性を備えています。 </p></li>
 	  
-	  <li><strong>Chroot</strong> [Enterprise Edition only]
-  		<p>LiteSpeed Web Server can run in a chroot jail.</p></li> 
+	  <li><strong>Chroot</strong> [Enterpriseエディションのみ]
+  		<p>LiteSpeed Web Serverは、chroot jailで実行できます。</p></li> 
 	  
 	</ul>
 
-<h3>Reliability</h3>
-	<p>LiteSpeed Web Server recovers from crashes instantly. LiteSpeed Web Server also runs completely in user space.
-	Thus the server can easily switch between different versions without affecting the reliability of the operating system.
+<h3>信頼性</h3>
+	<p>LiteSpeed Web Serverは即座にクラッシュから復旧します。
+       LiteSpeed Web Serverも完全にユーザー空間で動作します。
+       従って、サーバーは、オペレーティングシステムの信頼性に影響を与えることなく、異なるバージョン間で簡単に切り替えることができます。
 	</p>
-	<p>CGI, Fast CGI and servlet engines run in their standalone processes, the
-reliability of web server is not affected by the quality of third party software.</p>
+	<p>CGI、Fast CGIおよびサーブレットエンジンは、スタンドアロンプロセスで実行され、Webサーバーの信頼性はサードパーティ製ソフトウェアの品質に影響を受けません。</p>
 
-<h3>User Friendly</h3>
+<h3>使いやすい</h3>
 	<ul>
-		<li>No need to build the executable yourself.</li>
-		<li>Easy to install.</li>
-		<li>Easy to control and configure through the WebAdmin interface.</li>
-		<li>Sets up PHP and PHP accelerators automatically.</li>
-		<li>Applies most changes without restarting the server.</li>
+		<li>実行ファイルを自分でビルドする必要はありません。</li>
+		<li>簡単にインストールできます。</li>
+		<li>WebAdminインターフェイスで簡単に制御および設定できます。</li>
+		<li>PHPアクセラレータとPHPアクセラレータを自動的に設定します。</li>
+		<li>サーバーを再起動せずにほとんどの変更を適用します。</li>
 	</ul>
 	
-<h3>Compatibility</h3>
-	<p>LiteSpeed Web Server is designed to be interchangeable with Apache, the most popular server software
- on the Web. LiteSpeed Web Server can even run directly from Apache's 
-configuration files.</p>
-	<p>LiteSpeed Web Server also uses the same syntax for distributed configuration 
-files (.htacess) and URL rewrite rules, which makes migration as easy as 
-setting the LiteSpeed Web Server document root to the same directory as Apache.</p> 
-	<p>Currently, functionalities of the following Apache modules have been implemented:<br>
+<h3>互換性</h3>
+	<p>LiteSpeed Web Serverは、Web上で最も一般的なサーバーソフトウェアであるApacheと互換性があるように設計されています。
+LiteSpeed Web Serverは、Apacheの設定ファイルから直接実行することもできます。</p>
+	<p>LiteSpeed Web Serverでは、分散設定ファイル（.htacess）とURL書き換えルールにも同じ構文が使用されているため、LiteSpeed Web ServerのドキュメントルートをApacheと同じディレクトリに設定するだけで簡単に移行できます。</p> 
+	<p>現在、以下のApacheモジュールの機能が実装されています：<br>
   mod_access, mod_actions, mod_alias, mod_auth, mod_auth_ldap, mod_auth_passthrough, 
   mod_autoindex, mod_cache, mod_cgi, mod_expires, mod_fastcgi, mod_frontpage, mod_geoip, 
   mod_gzip/mod_deflate, mod_jk, mod_mime, mod_php, mod_proxy, mod_rewrite, mod_security, 
-  mod_ssl, mod_suexec, and mod_throttle.</p>
+  mod_ssl, mod_suexec, そして mod_throttle.</p>
 

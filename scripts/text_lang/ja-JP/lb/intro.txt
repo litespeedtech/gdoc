@@ -1,35 +1,34 @@
-<h1>Introduction</h1>
+<h1>はじめに</h1>
 
-<div class="label2">Overview</div><br>
-LiteSpeed Load Balancer (LSLB) is a high performance, content aware, session aware HTTP application load balancer, which
-can forward request based on request content as well as session stickiness preference. LiteSpeed Load Balancer can help scaling
-your application beyond one server deployment as well as improving reliability of your service in case of hardware failures.
+<div class="label2">概要</div><br>
+LiteSpeed Load Balancer（LSLB）は、高性能でコンテンツを認識し、セッション対応のHTTPアプリケーション・ロード・バランサであり、リクエスト・コンテンツとセッション・スティッキー・プリファレンスに基づいてリクエストを転送できます。
+LiteSpeed Load Balancerは、ハードウェア障害の場合にサービスの信頼性を向上させるだけでなく、1つのサーバー配置を超えてアプリケーションを拡張するのに役立ちます。
 
 <br>
 <br>
 
-<div class="label2">Features</div>
+<div class="label2">特徴</div>
 
 <ul>
 
-  <li>HTTP/1.1, HTTP/1.0 backward compatible. </li>
-  <li>Supports HTTP, LiteSpeed SAPI, FastCGI and AJPv13 back ends</li>
-  <li>Load balance algorithms: round-robin, least load, least session</li>
-  <li>Session affiliation with fail-over</li>
-  <li>Directing request based on domain names, request URL, Cookie, SSL Session, etc.</li>
-  <li>Content aware: route request based on request content</li>
-  <li>Dynamic response compression/decompression (gzip)</li>
-  <li>Gzip compression with backend HTTP Server</li>
-  <li>Automatic HTTP protocol upgrade/downgrade to maintain persistent connection with backend servers</li>
-  <li>Massive shared hosting: load balance to millions of websites</li>
-  <li>URL rewrite</li>
-  <li>SSL acceleration</li>
-  <li>Geotargeting support</li>
-  <li>IPv6 support</li>
-  <li>Anti-(D)DoS attacks capability</li>
-  <li>Request filtering (HTTP firewall), filter attacking requests based on request content</li>
-  <li>Chroot for enhanced security</li>
-  <li>Backend server health monitoring</li>
-  <li>Web administration console</li>
-  <li>Online upgrade to keep your server up-to-date</li>
+  <li>HTTP/1.1、HTTP/1.0下位互換。</li>
+  <li>HTTP、LiteSpeed SAPI、FastCGIおよびAJPv13バックエンドをサポート</li>
+  <li>負荷分散アルゴリズム：ラウンドロビン、最小負荷、最小セッション</li>
+  <li>フェイルオーバーによるセッションの所属</li>
+  <li>ドメイン名、リクエストURL、Cookie、SSLセッションなどに基づいてリクエストを送信します。</li>
+  <li>コンテンツ認識：リクエストコンテンツに基づくルートリクエスト</li>
+  <li>動的レスポンスの圧縮/解凍（gzip）</li>
+  <li>バックエンドHTTPサーバーによるGzip圧縮</li>
+  <li>バックエンドサーバーとの永続的な接続を維持するための自動HTTPプロトコルのアップグレード/ダウングレード</li>
+  <li>大規模な共有ホスティング：何百万ものウェブサイトへの負荷分散</li>
+  <li>URLの書き換え</li>
+  <li>SSLアクセラレーション</li>
+  <li>地域ターゲティングのサポート</li>
+  <li>IPv6サポート</li>
+  <li>Anti-(D)DoS攻撃の可能性</li>
+  <li>リクエストフィルタリング（HTTPファイアウォール）、リクエストコンテンツに基づいて攻撃リクエストをフィルタリングする</li>
+  <li>セキュリティ強化のためのChroot</li>
+  <li>バックエンドサーバーの正常性監視</li>
+  <li>Web管理コンソール</li>
+  <li>サーバーを最新の状態に保つためのオンラインアップグレード</li>
 </ul>

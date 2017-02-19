@@ -113,7 +113,7 @@ END_EDITTIP
 EDITTIP: 1つの負荷分散クラスタに異なるタイプの外部アプリケーションを混在させることができます。
 END_EDITTIP
 
-SYNTAX: ExternalAppType::ExternalAppNameという形式のコンマ区切りリスト
+SYNTAX: ExternalAppType::ExternalAppNameという形式のカンマ区切りリスト
 END_SYNTAX
 
 EXAMPLE: fcgi::localPHP, proxy::backend1
