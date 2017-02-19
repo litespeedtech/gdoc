@@ -6,6 +6,7 @@ abstract class Item
 	protected $_type; // PAGE, QA, ITEM, TBL
     protected $_fields = array();
     protected $_lang = array();
+	protected $_width='100%';
 
     protected $_src;
     protected $_startLine = -1;
@@ -13,19 +14,16 @@ abstract class Item
     public function inCurrentNameSpace()
     {
         if ($ns = $this->hasValue('NS')) {
+			switch (Config::DocType()) {
+				case Config::DOC_TYPE_LB:
+					return (strpos($ns, 'L') !== false);
+					
+				case Config::DOC_TYPE_WS:
+					return (strpos($ns, 'E') !== false);
+					
+				case Config::DOC_TYPE_OLS:
+					return (strpos($ns, 'O') !== false);
 
-            if ( DOC_TYPE == 'lb') {
-                return (strpos($ns, 'L') !== false);
-            }
-            elseif ( DOC_TYPE == 'ws') {
-                return (strpos($ns, 'E') !== false );
-            }
-            elseif ( DOC_TYPE == 'ows') {
-                return (strpos($ns, 'O') !== false );
-            }
-            else {
-                $this->showErr("Unknown DOC_TYPE " . DOC_TYPE);
-                return false ;
             }
 
         }
@@ -46,6 +44,62 @@ abstract class Item
             echo "Fail to get ID for item\n";
         }
     }
+	
+    public function getName()
+    {
+        return $this->getValueInLang('NAME');
+    }
+
+    public function getDescr()
+    {
+        return $this->getValueInLang('DESCR');
+    }
+
+	public function toDoc()
+	{
+		$end = '</p></td></tr>'."\n";
+		$imgpath = Config::GetImagePath();
+		$buf = '<a name="'. $this->getId() . '"></a>';
+		$buf .= '<table width="'.$this->_width.'" class="ht" border="0" cellpadding="5" cellspacing="0">' . "\n";
+		$buf .= '<tr class="ht-title"><td><div>'.$this->getDefaultValue('NAME');
+		$buf .= '<span class="top"><a href="#top"><img border=0 height=13 width=13 alt="Go to top" src="' . $imgpath . 'img/top.gif"></a></span></div>'.$end;
+		//$buf .= '<tr class="ht-title"><td><table width="100%" border="0" cellpadding="0" cellspacing="0">';
+		//$buf .= '<tr><td class="ht-title">'.$this->_name.'</td><td class="top"><a href="#top"><img border=0 height=13 width=13 alt="Go to top" src="img/top.gif"></a></td></tr></table>'.$end;
+		$buf .= '<tr><td><span class="ht-label">Description</span><p>' . $this->getValueInLang('DESCR') . $end;
+
+        if ( $this->hasValue('SYNTAX') )	{
+			$syntax = GenTool::translateSyntax($this->getValueInLang('SYNTAX'));
+			if ( $syntax )
+				$buf .= '<tr><td><span class="ht-label">Syntax</span><p>'. $syntax . $end;
+		}
+
+        if ( ($apply = $this->hasValue('APPLY')) == 1 ) {
+			$buf .= '<tr><td><span class="ht-label">Apply</span><p>';
+			/* if ( $this->_apply ==  3 )
+				$buf .= 'On the fly with reload.';
+			elseif ( $this->_apply == 2 )
+				$buf .= 'Restart required.'; */
+			$buf .= 'Reinstall required.';
+			/* else
+				$buf .= $this->_apply; */
+			$buf .= $end;
+		}
+
+		if ( $this->hasValue('EXAMPLE')) {
+			$buf .= '<tr><td><span class="ht-label">Example</span><p>' . $this->getValueInLang('EXAMPLE') . $end;
+        }
+
+		if ( $this->hasValue('TIPS')) {
+			$buf .= '<tr><td><span class="ht-label">Tips</span><p>' . $this->getValueInLang('TIPS') . $end;
+        }
+
+		if ( $seeAlso = $this->hasValue('SEE_ALSO') )
+			$buf .= '<tr><td><span class="ht-label">See Also</span><p>'. $seeAlso . $end;
+
+		$buf .= "</table>\n";
+		return $buf;
+	}
+	
 
     public function getValueInLang($fieldId)
     {
@@ -186,6 +240,75 @@ abstract class Item
         return $buf;
 	}
 
+    public function toToolTip()
+    {
+		$search = array("\n\n\n", "\n\n", "\r\n", "\n", '"', "'", '{ext-href}', '{ext-href-end}', '{ext-href-end-a}');
+		$replace = array('<br/><br/>', '<br/>',  ' ', ' ', '&quot;', '&#039;', '<a href="', '" target="_blank" rel="noopener noreferrer">', '</a>');
+
+        $id = $this->getDefaultValue('ID');
+        $name = $this->getValueInLang('NAME');
+
+        $descr = $this->getValueInLang('DESCR');
+		$desc1 = GenTool::translateTagForTips($descr);
+		$desc = str_replace($search, $replace, $desc1);
+
+		$tip = '';
+        if ( $this->hasValue('TIPS') ) {
+            $tip = GenTool::translateTagForTips($this->getValueInLang('TIPS'));
+            $tip = str_replace($search, $replace, $tip);
+        }
+
+        $syntax = '';
+        if ( $this->hasValue('SYNTAX') )	{
+            $syntax = GenTool::translateSyntax(GenTool::translateTagForTips($this->getValueInLang('SYNTAX')));
+            $syntax = str_replace($search, $replace, $syntax);
+        }
+        $example = '';
+        if ( $this->hasValue('EXAMPLE')) {
+            $example = GenTool::translateTagForTips($this->getValueInLang('EXAMPLE'));
+            $example = str_replace($search, $replace, $example);
+        }
+
+        if (Config::DocType() == 'ows') {
+            $buf = "\$_tipsdb['$id'] = new DAttrHelp(\"$name\", '$desc', '$tip', '$syntax', '$example');\n\n";
+        }
+        else {
+            $buf = "\$this->db['$id'] = new DATTR_HELP_ITEM(\"$name\", '$desc', '$tip', '$syntax', '$example');\n";
+        }
+
+        global $config;
+        if (DEBUG && in_array($id, $config['DEBUG_TAG'])) {
+            $this->showErr('In toToolTip ' . $buf, 'DEBUG');
+
+		}
+        return $buf;
+    }
+
+    public function toEditTip()
+    {
+		$search = array("\n", '"', "'", '{ext-href}', '{ext-href-end}', '{ext-href-end-a}');
+		$replace = array(' ', '&quot;', '&#039;', '<a href="', '" target="_blank" rel="noopener noreferrer">', '</a>');
+
+        $buf = '';
+        if ($this->hasValue('EDITTIP')) {
+            $id = $this->getDefaultValue('ID');
+            $tips = $this->getValueInLang('EDITTIP');
+            if (Config::DocType() == 'ows') {
+                $buf .= "\n\$_tipsdb['EDTP:$id']";
+            }
+            else {
+                $buf .= '$this->edb[\'' . $id . "']";
+            }
+            $buf .= ' = array(';
+
+            foreach ($tips as $tip) {
+                $buf .= "'" . str_replace($search, $replace, $tip) . "',";
+            }
+            $buf = rtrim($buf, ',');
+            $buf .= "); \n";
+        }
+        return $buf;
+    }
 
     public function showErr($errMesg, $errType='ERR')
     {

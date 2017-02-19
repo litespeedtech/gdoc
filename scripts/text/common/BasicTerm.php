@@ -2,7 +2,7 @@
 
 // definition of basic terms used. This file has to be placed under common with fixed file name
 
-$ref['ows_user_manual'] = 'Open LiteSpeed Web Server Users\' Manual';
+$ref['ows_user_manual'] = 'OpenLiteSpeed Users\' Manual';
 $ref['ws_user_manual'] = 'LiteSpeed Web Server Users\' Manual';
 $ref['lb_user_manual'] = 'LiteSpeed Web ADC Users\' Manual';
 $ref['copyright'] = 'Copyright';

@@ -14,7 +14,8 @@ class GenWebDoc
 
 	private function getUrlConvert()
 	{
-		if ( DOC_TYPE == 'ws' ) {
+		$docType = Config::DocType();
+		if ( $docType == 'ws' ) {
 			$dyn_map = array(
 				'ServGeneral_Help' => 'config/general',
 				'ServLog_Help' => 'config/slog',
@@ -73,7 +74,7 @@ class GenWebDoc
 					) ;
 			$urlPrefix = '/docs/webserver/' ;
 		}
-		elseif ( DOC_TYPE == 'lb' ) {
+		elseif ( $docType == 'lb' ) {
                             $dyn_map = array(
                                 'ServGeneral_Help' => 'config/general',
                                 'ServLog_Help' => 'config/slog',

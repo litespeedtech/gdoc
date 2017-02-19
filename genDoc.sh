@@ -27,7 +27,6 @@ mkdir -p output/docs
 mkdir -p output/tips/lang
 mkdir -p output/forweb/docs
 mkdir -p output/forweb/lang
-mkdir -p output/docs_lang
 
 cd scripts
 php gen_main.php $DOCTYPE $DEBUG

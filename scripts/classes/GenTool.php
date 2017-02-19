@@ -39,21 +39,25 @@ class GenTool
 	
     public static function getHeader( $name )
     {
-        $title = $name ;
-        if ( DOC_TYPE == 'ows' ) {
-            $title = self::getTerm('ows_user_manual') . " - $title" ;
-        }
-        elseif ( DOC_TYPE == 'ws' ) {
-			$title = self::getTerm('ws_user_manual') . " - $title" ;
-        }
-        elseif ( DOC_TYPE == 'lb' ) {
-			$title = self::getTerm('lb_user_manual') . " - $title" ;
-        }
-        else {
-            echo "Error: wrong DOC_TYPE\n" ;
-        }
+		$title = '';
+		switch (Config::DocType()) {
+			case Config::DOC_TYPE_OLS:
+				$title = self::getTerm('ows_user_manual');
+				break;
+			case Config::DOC_TYPE_WS:
+				$title = self::getTerm('ws_user_manual');
+				break;
+			case Config::DOC_TYPE_LB:
+				$title = self::getTerm('lb_user_manual');
+				break;
+			default:
+				die('should not come here');
+		}
+		$title .= ' - ' . $name;
         $e = "\r\n" ;
 
+		$imgpath = Config::GetImagePath();
+		
         $buf =<<<EOD
 <!DOCTYPE html>
 <head>
@@ -62,8 +66,8 @@ class GenTool
   <title>$title</title>
   <meta name="description" content="$title." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="img/favicon.ico" />
-  <link rel="stylesheet" type="text/css" href="css/hdoc.css">
+  <link rel="shortcut icon" href="{$imgpath}img/favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="{$imgpath}css/hdoc.css">
 </head>
 <body>
 <div class="pagewrapper">
@@ -92,9 +96,10 @@ EOD;
 
     public static function getFooter()
     {
-        $copyyear = array('ows' => '2013-2017', 'ws' => '2003-2017', 'lb' => '2007-2017');
-        $footer =  '<footer class="copyright">' . self::getTerm('copyright') . ' &copy; ' . $copyyear[DOC_TYPE]
-                . '. <a href="https://www.litespeedtech.com">LiteSpeed Technologies Inc.</a> ' . self::getTerm('all_rights_reserved') . '</footer>'
+        $footer =  '<footer class="copyright">' 
+				. self::getTerm('copyright') . ' &copy; ' . Config::GetFooterYear()
+                . '. <a href="https://www.litespeedtech.com">LiteSpeed Technologies Inc.</a> ' 
+				. self::getTerm('all_rights_reserved') . '</footer>'
                 . "\n</div>\n</body>\n</html>" ;
         return $footer;
     }

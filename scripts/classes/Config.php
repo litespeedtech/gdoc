@@ -3,12 +3,12 @@
 
 class Config
 {
-
 	// define supported doc type
-	const DOC_TYPE_WS	 = 'ws';
-	const DOC_TYPE_LB	 = 'lb';
-	const DOC_TYPE_OLS = 'ows';
+	const DOC_TYPE_WS	 = 'ws'; // LiteSpeed Enterprise
+	const DOC_TYPE_LB	 = 'lb'; // LiteSpeed Web ADC
+	const DOC_TYPE_OLS = 'ows';	// OpenLiteSpeed
 
+	private $_docType;
 	private $_baseDir;
 	private $_outDir;
 	private $_lang;
@@ -38,6 +38,32 @@ class Config
 		return self::getInstance()->_curLang;
 	}
 
+	public static function DocType()
+	{
+		if (!isset(self::getInstance()->_docType)) {
+			debug_print_backtrace();
+			die("config doctype not initialized\n");
+		}
+		return self::getInstance()->_docType;
+	}
+	
+	public static function GetImagePath()
+	{
+		return (self::getInstance()->_curLang == LanguagePack::DEFAULT_LANG) ? '' : '../';
+	}
+
+	public static function GetFooterYear()
+	{
+		switch (self::DocType()) {
+			case self::DOC_TYPE_OLS:
+				return '2013-2017';
+			case self::DOC_TYPE_WS:
+				return '2003-2017';
+			case self::DOC_TYPE_LB:
+				return '2007-2017';
+		}
+	}
+	
 	public function getLanguages()
 	{
 		return $this->_lang;
@@ -80,7 +106,7 @@ class Config
 		}
 
 		if ($type == 'tips') {
-			$path = (DOC_TYPE == self::DOC_TYPE_OLS) ?
+			$path = ($this->_docType == self::DOC_TYPE_OLS) ?
 					$this->_outDir['tips_lang']
 					: $this->_outDir[$type];
 		}
@@ -131,7 +157,7 @@ class Config
 				die('illegal doc type');
 		}
 
-		define('DOC_TYPE', $type);
+		$this->_docType = $type;
 	}
 
 	private function _initBaseDir($base_dir)
@@ -143,7 +169,7 @@ class Config
 			'docs'		 => $outbase . 'docs/',
 			'tips'		 => $outbase . 'tips/',
 			'web'		 => $outbase . 'forweb/',
-			'docs_lang'	 => $outbase . 'docs_lang/',
+			'docs_lang'	 => $outbase . 'docs/',
 			'tips_lang'	 => $outbase . 'tips/lang/',
 			'web_lang'	 => $outbase . 'forweb/lang/',
 		);

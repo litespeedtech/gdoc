@@ -66,8 +66,9 @@ class DocPage extends Item
 
         $gentool = new GenTool;
 
-		$buf = $gentool->getHeader($this->getDefaultValue('NAME'));//header name still show english
-		$buf .= $gentool->getSideTree("{$id}.html");
+		//$buf = GenTool::getHeader($this->getDefaultValue('NAME'));//header name still show english
+		$buf = GenTool::getHeader($this->getValueInLang('NAME'));
+		$buf .= GenTool::getSideTree("{$id}.html");
 		$buf .= '<div class="contentwrapper">' . GenTool::getNavBar($this->_nav);
 
 		$webbuf = '';
@@ -116,7 +117,7 @@ class DocPage extends Item
 		$buf .= $webbuf;
 
 		$buf .= '</div>'; // contentwrapper
-		$buf .= $gentool->getFooter();
+		$buf .= GenTool::getFooter();
 
         $docname = $config->getOutputDir('docs') . $id . '.html';
 		GenTool::writePage($docname, $buf);

@@ -84,11 +84,11 @@ class HelpDB
 			}
 
 			$tipdir = $config->getOutputDir('tips');
-			if (DOC_TYPE == Config::DOC_TYPE_OLS) {
+			if (Config::DocType() == Config::DOC_TYPE_OLS) {
 				$tipfile = $tipdir . $lang . '_tips';
 			}
 			else {
-				$tipfile = $tipdir . DOC_TYPE . '_tips'; 
+				$tipfile = $tipdir . Config::DocType() . '_tips'; 
 			}
 			$this->genTips($tipfile);
         }
@@ -109,7 +109,7 @@ class HelpDB
 		}
 		fwrite($fd, "<?php \n");
 
-        if (DOC_TYPE == 'ows') {
+        if (Config::DocType() == 'ows') {
             fwrite($fd, "\nglobal \$_tipsdb;\n\n");
         }
 
@@ -178,7 +178,7 @@ class HelpDB
 			$ref = &$docterms[$lang];
 			include $termsfile;
 		}
-        $path = array('common', DOC_TYPE) ;
+        $path = array('common', Config::DocType()) ;
         foreach ($path as $p) {
             $dir = $textpath . '/' . $p;
             if (is_dir($dir) && ($pathfiles = scandir($dir))) {
