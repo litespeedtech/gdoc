@@ -18,12 +18,12 @@ $ref['syntax_select'] = 'ドロップダウンリストから選択' ;
 $ref['syntax_checkbox'] = 'チェックボックスから選択' ;
 $ref['syntax_uint'] = '整数' ;
 
-$ref['label_description'] = 'Description';
-$ref['label_syntax'] = 'Syntax';
-$ref['label_apply'] = 'Apply';
-$ref['label_example'] = 'Example';
-$ref['label_tips'] = 'Tips';
-$ref['label_seealso'] = 'See Also';
-$ref['label_toc'] = 'Table of Contents';
+$ref['label_description'] = '説明';
+$ref['label_syntax'] = '構文';
+$ref['label_apply'] = '適用';
+$ref['label_example'] = '例';
+$ref['label_tips'] = 'ヒント';
+$ref['label_seealso'] = '参照';
+$ref['label_toc'] = '目次';
 
-$ref['apply_1'] = 'Reinstall required.';
+$ref['apply_1'] = '再インストールが必要です。';
