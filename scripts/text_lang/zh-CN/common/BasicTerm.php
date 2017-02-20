@@ -18,3 +18,12 @@ $ref['syntax_select'] = 'Select from drop down list' ;
 $ref['syntax_checkbox'] = 'Select from checkbox' ;
 $ref['syntax_uint'] = '无符号整数' ;
 
+$ref['label_description'] = 'Description';
+$ref['label_syntax'] = 'Syntax';
+$ref['label_apply'] = 'Apply';
+$ref['label_example'] = 'Example';
+$ref['label_tips'] = 'Tips';
+$ref['label_seealso'] = 'See Also';
+$ref['label_toc'] = 'Table of Contents';
+
+$ref['apply_1'] = 'Reinstall required.';

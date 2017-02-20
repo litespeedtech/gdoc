@@ -18,3 +18,12 @@ $ref['syntax_select'] = 'ドロップダウンリストから選択' ;
 $ref['syntax_checkbox'] = 'チェックボックスから選択' ;
 $ref['syntax_uint'] = '整数' ;
 
+$ref['label_description'] = 'Description';
+$ref['label_syntax'] = 'Syntax';
+$ref['label_apply'] = 'Apply';
+$ref['label_example'] = 'Example';
+$ref['label_tips'] = 'Tips';
+$ref['label_seealso'] = 'See Also';
+$ref['label_toc'] = 'Table of Contents';
+
+$ref['apply_1'] = 'Reinstall required.';

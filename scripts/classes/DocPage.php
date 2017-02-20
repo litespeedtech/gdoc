@@ -85,7 +85,7 @@ class DocPage extends Item
 			$helpList = array();
 			if ( $this->_tables )
 			{
-				$webbuf .= '<h4>Table of Contents</h4>';
+				$webbuf .= '<h4>' . GenTool::getTerm('label_toc') . '</h4>';
 				$webbuf .= '<section class="toc">';
 
 				foreach ( $this->_tables as $table )

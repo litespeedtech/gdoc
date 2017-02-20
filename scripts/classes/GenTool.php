@@ -23,13 +23,8 @@ class GenTool
 		if (isset($docterms[$lang][$id])) {
 			return $docterms[$lang][$id];
 		}
-		elseif ($lang != LanguagePack::DEFAULT_LANG) {
-			if (isset($docterms[$lang][LanguagePack::DEFAULT_LANG])) {
-				return $docterms[$lang][LanguagePack::DEFAULT_LANG];
-			}
-			else {
-				die('wrong ref of term id = '. $id);
-			}
+		elseif (isset($docterms[LanguagePack::DEFAULT_LANG][$id])) {
+			return $docterms[LanguagePack::DEFAULT_LANG][$id];
 		}
 		else {
 			die('wrong ref of term id = '. $id);
