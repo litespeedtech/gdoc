@@ -343,7 +343,7 @@ Apacheの設定ファイルからセキュリティルールをコピーして�
 
 
 ルールの構文の詳細については、
-{ext-href}http://www.modsecurity.org/documentation/index.html{ext-href-end}Mod Security documentation{ext-href-end-a}.
+{ext-href}http://www.modsecurity.org/documentation/index.html{ext-href-end}Mod Security documentation{ext-href-end-a}を参照してください。
 END_SYNTAX
 
 EXAMPLE: 

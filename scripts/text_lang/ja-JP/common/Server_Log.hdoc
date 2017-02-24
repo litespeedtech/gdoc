@@ -179,7 +179,7 @@ END_TIPS
 
 [ITEM]
 ID: accessLog_pipedLogger
-NAME: Piped Logger
+NAME: パイプロガー
 NS: EO
 
 DESCR: LiteSpeedがSTDINストリーム上のパイプを通じて送信するアクセスログデータを受け取る外部アプリケーションを指定します（ファイルハンドルは0）。
@@ -219,7 +219,7 @@ END_TIPS
 
 [ITEM]
 ID: accessLog_pipedLogger
-NAME: Piped Logger
+NAME: パイプロガー
 NS: L
 
 DESCR: LiteSpeedがSTDINストリーム（ファイルハンドル0）上のパイプを通じて送信したアクセスログデータを受け取る外部アプリケーションを指定します。
