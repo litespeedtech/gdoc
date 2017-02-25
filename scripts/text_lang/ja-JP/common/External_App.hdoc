@@ -430,7 +430,7 @@ END_TIPS
 
 [ITEM]
 ID: autoStart
-NAME: 自動スタート
+NAME: 自動起動
 NS: E
 
 DESCR: Webサーバーでアプリケーションを自動的に開始するかどうかを指定します。

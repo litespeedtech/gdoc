@@ -322,7 +322,7 @@ END_TIPS
 
 [ITEM]
 ID: accessLog_keepDays
-NAME: Keep Days
+NAME: 保持日数
 
 DESCR: アクセスログファイルをディスクに保管する日数を指定します。
 指定した日数より古いローテーションしたログファイルのみが削除されます。

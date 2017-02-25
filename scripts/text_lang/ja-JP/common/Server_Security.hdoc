@@ -708,7 +708,7 @@ END_TIPS
 
 [ITEM]
 ID: memHardLimit
-NAME: Memory Hard Limit
+NAME: メモリハードリミット
 
 DESCR: ソフトリミットをユーザープロセス内のハードリミットまで上げることができることを除けば、{ITEM=memSoftLimit}と同じくらい同じです。
 ハード・リミットは、サーバー・レベルまたは個々の外部アプリケーション・レベルで設定できます。
