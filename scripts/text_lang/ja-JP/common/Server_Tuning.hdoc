@@ -153,7 +153,7 @@ END_TIPS
 
 [ITEM]
 ID: maxSSLConnections
-NAME: SSL接続の最大数
+NAME: 最大SSL接続数
 
 DESCR: サーバーが受け入れる同時SSL接続の最大数を指定します。
 同時SSL接続と非SSL接続の合計が{ITEM=maxConnections}で指定された制限を超えることはできないため、許可される同時SSL接続の実際の数はこの制限より小さくなければなりません。
@@ -174,7 +174,7 @@ END_TIPS
 
 [ITEM]
 ID: connTimeout
-NAME: 接続タイムアウト（秒）
+NAME: コネクションタイムアウト（秒）
 
 DESCR: 1つの要求の処理中に許容される最大接続アイドル時間を指定します。
 この時間の間、接続がアイドル状態の場合、つまりI/Oアクティビティがない場合は、接続が閉じられます。

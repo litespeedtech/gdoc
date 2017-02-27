@@ -847,7 +847,7 @@ END_DESCR
 SYNTAX: IP/サブネットワークのカンマ区切りリスト。 
 END_SYNTAX
 
-EXAMPLE: サブネットワークは以下のように書くことができます {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/}, or {val}192.168.1.*{/}.
+EXAMPLE: サブネットワークは以下のように書くことができます {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/}, 又は {val}192.168.1.*{/}.
 END_EXAMPLE
 
 TIPS: 
@@ -868,7 +868,7 @@ END_DESCR
 SYNTAX: IP/サブネットワークのカンマ区切りリスト。
 END_SYNTAX
 
-EXAMPLE: サブネットワークは以下のように書くことができます {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/}, or {val}192.168.1.*{/}.
+EXAMPLE: サブネットワークは以下のように書くことができます {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/}, 又は {val}192.168.1.*{/}.
 END_EXAMPLE
 
 TIPS: 
@@ -880,7 +880,7 @@ END_TIPS
 
 [ITEM]
 ID: extAuthorizer
-NAME: Authorizer
+NAME: 承認者
 
 DESCR: 権限のある/権限のないかの決定を生成するために使用できる外部アプリケーションを指定します。
 現在、FastCGI Authorizerのみが使用可能です。
@@ -1061,20 +1061,17 @@ Java Webアプリケーションコンテキストは、Java Webアプリケー�
 Java Webアプリコンテキストを設定する際に留意すべき点がいくつかあります：
 
 <ul>
-<li>Java Webアプリコンテキストを設定する前に、{val}サーブレットエンジン{/}外部アプリケーションを{PAGE=ExtApp_Help}に設定する必要があります<li> 
+<li>Java Webアプリコンテキストを設定する前に、{val}サーブレットエンジン{/}外部アプリケーションを{PAGE=ExtApp_Help}に設定する必要があります</li>
 <li>.jspファイルの{PAGE=ScriptHandler_Help}も同様に定義する必要があります。</li>
-<li>Webアプリケーションが.warファイルにパックされている場合は、.warファイルを展開する必要があります。
-サーバーは圧縮されたアーカイブファイルにアクセスできません。</li>
-<li>同じリソースの場合、LiteSpeed Web Serverを介してアクセスするか、サーブレットエンジンの組み込みHTTPサーバーを介してアクセスするかにかかわらず、同じURLを使用する必要があります。
-
-
-例えば、
-  Tomcat 4.1は/ opt / tomcatにインストールされます。
-  "examples" Webアプリケーションのファイルは、/opt/tomcat/webapps/examples/にあります。
-  TomcatのビルトインHTTPサーバーを通じて、 "examples" Webアプリケーションは "/ examples / ***"のようなURIでアクセスされます。
-  したがって、対応するJava Webアプリコンテキストを設定する必要があります： 
+<li>Webアプリケーションが.warファイルにパックされている場合は、.warファイルを展開する必要があります。サーバーは圧縮されたアーカイブファイルにアクセスできません。</li><li>同じリソースの場合、LiteSpeed Web Serverを介してアクセスするか、サーブレットエンジンの組み込みHTTPサーバーを介してアクセスするかにかかわらず、同じURLを使用する必要があります。<br>
+<br>
+例えば、<br>
+  Tomcat 4.1は/ opt / tomcatにインストールされます。<br>
+  "examples" Webアプリケーションのファイルは、/opt/tomcat/webapps/examples/にあります。<br>
+  TomcatのビルトインHTTPサーバーを通じて、 "examples" Webアプリケーションは "/ examples / ***"のようなURIでアクセスされます。<br>
+  したがって、対応するJava Webアプリコンテキストを設定する必要があります： <br>
   {ITEM=expuri} = {val}/examples/{/}, {ITEM=location} = {val}/opt/tomcat/webapps/examples/{/}.</li>
-  </ul>
+</ul>
 END_DESCR
 
 [END_TBL]
@@ -1098,19 +1095,17 @@ Java Webアプリケーションコンテキストは、Java Webアプリケー�
 Java Webアプリケーションコンテキストを設定する際に留意すべき点がいくつかあります：
 
 <ul>
-<li>Java Webアプリコンテキストを設定する前に、{val}サーブレットエンジン{/}外部アプリケーションを{PAGE=ExtApp_Help}に設定する必要があります<li> 
+<li>Java Webアプリコンテキストを設定する前に、{val}サーブレットエンジン{/}外部アプリケーションを{PAGE=ExtApp_Help}に設定する必要があります</li> 
 <li>.jspファイルの{PAGE=ScriptHandler_Help}も同様に定義する必要があります。</li>
-<li>Webアプリケーションが.warファイルにパックされている場合は、.warファイルを展開する必要があります。
-サーバーは圧縮されたアーカイブファイルにアクセスできません。</li>
-<li>同じリソースの場合、LiteSpeed Web Serverを介してアクセスするか、サーブレットエンジンの組み込みHTTPサーバーを介してアクセスするかにかかわらず、同じURLを使用する必要があります。
-
-例えば、 
-  Tomcat 4.1は/ opt / tomcatにインストールされます。
-  "examples" Webアプリケーションのファイルは、/opt/tomcat/webapps/examples/にあります。
-  TomcatのビルトインHTTPサーバーを通じて、 "examples" Webアプリケーションは "/ examples / ***"のようなURIでアクセスされます。
-  したがって、対応するJava Webアプリコンテキストを設定する必要があります： 
-  {ITEM=expuri} = {val}/examples/{/}, {ITEM=javaWebApp_location} = {val}/opt/tomcat/webapps/examples/{/}.</li>
-  </ul>
+<li>Webアプリケーションが.warファイルにパックされている場合は、.warファイルを展開する必要があります。サーバーは圧縮されたアーカイブファイルにアクセスできません。</li><li>同じリソースの場合、LiteSpeed Web Serverを介してアクセスするか、サーブレットエンジンの組み込みHTTPサーバーを介してアクセスするかにかかわらず、同じURLを使用する必要があります。<br>
+<br>
+例えば、<br>
+Tomcat 4.1は/ opt / tomcatにインストールされます。<br>
+"examples" Webアプリケーションのファイルは、/opt/tomcat/webapps/examples/にあります。<br>
+TomcatのビルトインHTTPサーバーを通じて、 "examples" Webアプリケーションは "/ examples / ***"のようなURIでアクセスされます。<br>
+したがって、対応するJava Webアプリコンテキストを設定する必要があります： <br>
+URI = {val}/examples/{/}, Location = {val}/opt/tomcat/webapps/examples/{/}.</li>
+</ul>
 END_DESCR
 
 [END_TBL]

@@ -430,7 +430,7 @@ END_TIPS
 
 [ITEM]
 ID: autoStart
-NAME: 自動スタート
+NAME: 自動起動
 NS: E
 
 DESCR: Webサーバーでアプリケーションを自動的に開始するかどうかを指定します。
@@ -623,6 +623,7 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS:[パフォーマンス] Railsアプリケーションのように、設定された外部プロセスに重大な起動オーバーヘッドがある場合、このオプションを有効にして最初のページ応答時間を短縮する必要があります。
+END_TIPS
 [END_ITEM]
 
 
@@ -835,7 +836,7 @@ END_DESCR
 
 [TBL]
 ID: extPL
-NAME: Piped Logger
+NAME: パイプロガー
 NS: EO
 
 DESCR: 
@@ -875,7 +876,7 @@ CGIアプリケーションはスタンドアロンプロセスで動作しま�
 各要求に対してCGIプロセスが開始され、要求終了後に終了します。 
 </li>
 <li>FastCGIは、プロプライエタリなAPI（アプリケーションプログラミングインターフェイス）のオーバーヘッドと複雑さを導入することなく、CGIに内在するパフォーマンスの問題を解決する、高速でオープンで安全なWebサーバーインターフェイスです。
-詳細については、{ext-href} http://www.fastcgi.com {ext-href-end} http://www.fastcgi.com {ext-href-end-a}をご覧ください。
+詳細については、{ext-href}http://www.fastcgi.com{ext-href-end}http://www.fastcgi.com{ext-href-end-a}をご覧ください。
 
 LiteSpeed Web Serverでは、FastCGIアプリケーションは動的応答の生成（応答者の役割）または要求の承認（承認者の役割）の2つの役割を果たすことができます。
 LiteSpeed Web Serverは、ローカルFastCGIとリモートFastCGIの2種類のFastCGIアプリケーションをさらに定義します。
@@ -994,7 +995,7 @@ END_DESCR
 
 [PAGE]
 ID: External_PL
-NAME: Piped Logger
+NAME: パイプロガー
 NS: EO
 
 DESCR:
