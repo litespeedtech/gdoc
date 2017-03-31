@@ -7,7 +7,7 @@ class GenWebDoc
 	{
 		$config = Config::getInstance();
 		$config->SetCurrentLang(LanguagePack::DEFAULT_LANG);
-		
+
 		$url_convert = $this->getUrlConvert() ;
 		$this->convertLinks($url_convert) ;
 	}
@@ -112,9 +112,10 @@ class GenWebDoc
 				'admin' => 'admin',
 				'security' => 'security',
 				'config' => 'config',
-                                'webconsole' => 'webconsole'
-					) ;
-			$urlPrefix = '/docs/loadbalancer/' ;
+                'webconsole' => 'webconsole'
+			) ;
+
+			$urlPrefix = '/docs/litespeed-web-adc/' ;
 		}
 		else {
 			error_log("Invalid entrance") ;
@@ -143,7 +144,7 @@ class GenWebDoc
 	{
 		$config = Config::getInstance();
 		$outdir = $config->getOutputDir('web');
-		
+
 		$search = $urlconvert['search'] ;
 		$replace = $urlconvert['replace'] ;
 		$files = $urlconvert['file'] ;
