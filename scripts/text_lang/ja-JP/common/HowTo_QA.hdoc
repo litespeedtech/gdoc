@@ -74,8 +74,8 @@ A: 名前ベースのバーチャルホスティングでは、あなたが持�
             または、1つの特定のIPアドレスだけをリッスンする1つのリスナーで複数のリスナーを作成できます。
 	    </li>
 	    <li>バーチャルホストマッピングを割り当てます。<br>
-            リスナー設定に移動し、{TBL=Listeners_Help#virtualHostMapping}テーブルの[編集]をクリックします。
-            マッピングするバーチャルホストをすべて確認し、対応する{ITEM=Listeners_Help#domainName}を指定します。<br>
+            リスナー設定に移動し、{TBL=Listeners_General_Help#virtualHostMapping}テーブルの[編集]をクリックします。
+            マッピングするバーチャルホストをすべて確認し、対応する{ITEM=Listeners_General_Help#domainName}を指定します。<br>
 		注：{val}your.domain{/}は{val}www.your.domain{/}と{val}your.domain{/}の両方に一致します。
         主要な "www" ドメイン名には無視されます。
 	    </li>
@@ -759,26 +759,26 @@ END_A
 ID: qa_confssl
 Q: LiteSpeed Webサーバーで秘密鍵と証明書を使用してSSLを構成する方法は？
 
-A: 証明書を取得したら、Webサーバー用に{TBL=Listeners_Help#sslSetting}を構成できます。
+A: 証明書を取得したら、Webサーバー用に{TBL=Listeners_SSL_Help#sslCert}を構成できます。
 
 <ol>
-   <li>{ITEM=Listeners_Help#listenerSecure}を{val}Yes{/}に設定してリスナーを作成します。
+   <li>{ITEM=Listeners_General_Help#listenerSecure}を{val}Yes{/}に設定してリスナーを作成します。
        SSLの公式ポートは443ですが、他のポートでも使用できます。</li>
 
-   <li> 新しく作成したリスナーをクリックし、{TBL=Listeners_Help#sslSetting}に移動します。
-        次に、{ITEM=Listeners_Help#keyFile}と{ITEM=Listeners_Help#certFile}を編集します。 <br>
+   <li> 新しく作成したリスナーをクリックし、{TBL=Listeners_SSL_Help#sslCert}に移動します。
+        次に、{ITEM=Listeners_SSL_Help#keyFile}と{ITEM=Listeners_SSL_Help#certFile}を編集します。 <br>
       
 	  	ポップアップウィンドウでSSL秘密鍵ファイルと証明書ファイルのパスを指定します。 "完了"ボタンをクリックして変更を保存します。
    </li>
 
-   <li>同じページに{ITEM=Listeners_Help#sslVersion}と{ITEM=Listeners_Help#sslEncryptionLevel}を指定できます。</li>
+   <li>同じページに{ITEM=Listeners_SSL_Help#sslProtocol}と{ITEM=Listeners_SSL_Help#ciphers}を指定できます。</li>
 
-   <li> リスナーの全般タブで{TBL=Listeners_Help#virtualHostMapping}を設定します。
-    ポップアップウィンドウで、このリスナーからアクセスする{ITEM=Listeners_Help#virtualHostName}を選択し、有効な{ITEM=Listeners_Help#domainName}を入力します。
+   <li> リスナーの全般タブで{TBL=Listeners_General_Help#virtualHostMapping}を設定します。
+    ポップアップウィンドウで、このリスナーからアクセスする{ITEM=Listeners_General_Help#virtualHostName}を選択し、有効な{ITEM=Listeners_General_Help#domainName}を入力します。
    </li>
    
    <li> バナーの下にある"変更を適用"リンクをクリックします。
-    新しいリスナーが{ITEM=Listeners_Help#listenerPort}番号を{val}1024{/}より小さく使用すると、{ITEM=ServerStat_Help#servAction}の{ITEM=ServerStat_Help#restart}をクリックします。
+    新しいリスナーが{ITEM=Listeners_General_Help#listenerPort}番号を{val}1024{/}より小さく使用すると、{ITEM=ServerStat_Help#servAction}の{ITEM=ServerStat_Help#restart}をクリックします。
    それ以外の場合は、{ITEM = ServerStat_Help＃reload}をクリックしてください。
    </li>
    

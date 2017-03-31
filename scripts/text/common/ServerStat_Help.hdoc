@@ -288,7 +288,7 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: The unique name that identifies this listener. This is the 
-{ITEM=Listeners_Help#listenerName} you specified when setting up the listener.
+{ITEM=Listeners_General_Help#listenerName} you specified when setting up the listener.
 END_DESCR
 
 SYNTAX: 

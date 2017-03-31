@@ -81,9 +81,9 @@ Use the following guidelines to setup name based virtual hosting.
 	    </li>
 	    <li>Assign virtual host mappings.<br>
 	        Go to listener settings, 
-	        click "Edit" on {TBL=Listeners_Help#virtualHostMapping} table. 
+	        click "Edit" on {TBL=Listeners_General_Help#virtualHostMapping} table. 
 	        Check all virtual hosts that should be mapped, and specify 
-	        the corresponding {ITEM=Listeners_Help#domainName}.<br>
+	        the corresponding {ITEM=Listeners_General_Help#domainName}.<br>
 	        
 		Note: {val}your.domain{/} will match both {val}www.your.domain{/} 
 		     and {val}your.domain{/}. The leading "www." in the domain name will be ignored.
@@ -976,35 +976,35 @@ ID: qa_confssl
 Q: How to configure SSL using the private key and certificate in LiteSpeed web server?
 
 A: After you get your certificate, you can configure 
-   {TBL=Listeners_Help#sslSetting} for your web server.
+   {TBL=Listeners_SSL_Help#sslCert} for your web server.
 
 <ol>
-   <li> Create a listener with {ITEM=Listeners_Help#listenerSecure}
+   <li> Create a listener with {ITEM=Listeners_General_Help#listenerSecure}
 		set to {val}Yes{/}. The official port for SSL is 443, 
 		but other port can be used too.</li>
 
    <li> Click on the newly created listener, then go to the 
-		{TBL=Listeners_Help#sslSetting}. Then edit the
-		{ITEM=Listeners_Help#keyFile} and  
-		{ITEM=Listeners_Help#certFile}. <br>
+		{TBL=Listeners_SSL_Help#sslCert}. Then edit the
+		{ITEM=Listeners_SSL_Help#keyFile} and  
+		{ITEM=Listeners_SSL_Help#certFile}. <br>
       
 	  	Give the path of the SSL private key file and certificate file in the 
 		pop-up window. Click "Finish" button to save your changes.
    </li>
 
-   <li> You can specify {ITEM=Listeners_Help#sslVersion} 
-		and {ITEM=Listeners_Help#sslEncryptionLevel}  on the same page.
+   <li> You can specify {ITEM=Listeners_SSL_Help#sslProtocol} 
+		and {ITEM=Listeners_SSL_Help#ciphers}  on the same page.
    </li>
 
-   <li> Set {TBL=Listeners_Help#virtualHostMapping} in listener
+   <li> Set {TBL=Listeners_General_Help#virtualHostMapping} in listener
    	General tab. In the pop-up window, select the 
-	{ITEM=Listeners_Help#virtualHostName} that you 
+	{ITEM=Listeners_General_Help#virtualHostName} that you 
    	want to access through this listener and 
-	input the valid {ITEM=Listeners_Help#domainName}
+	input the valid {ITEM=Listeners_General_Help#domainName}
    </li>
    
    <li> Click "Apply Changes" link below the banner. If the new listener 
-   uses {ITEM=Listeners_Help#listenerPort} number less than
+   uses {ITEM=Listeners_General_Help#listenerPort} number less than
    {val}1024{/} click {ITEM=ServerStat_Help#restart} in {ITEM=ServerStat_Help#servAction}, 
    otherwise just click {ITEM=ServerStat_Help#reload}.
    </li>

@@ -234,7 +234,7 @@ ID: lname
 NAME: 名前 - リスナー
 
 DESCR: このリスナーを識別する固有の名前。
-これは、リスナーを設定するときに指定した{ITEM=Listeners_Help#listenerName}です。
+これは、リスナーを設定するときに指定した{ITEM=Listeners_General_Help#listenerName}です。
 END_DESCR
 
 SYNTAX: 
