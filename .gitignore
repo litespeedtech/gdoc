@@ -4,6 +4,7 @@ CVS
 .buildpath
 .project
 .settings/
+.svn/
 
 nbproject/
 /static/DTblDef.php
