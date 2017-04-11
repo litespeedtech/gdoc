@@ -1,7 +1,7 @@
 <header>
 <h1>LiteSpeed Load Balancer 2.0<br/>
 Users' Manual<br/>
-Rev. 5</h1>
+Rev. 6</h1>
 </header>
 
 <h3>Table of Contents</h3>

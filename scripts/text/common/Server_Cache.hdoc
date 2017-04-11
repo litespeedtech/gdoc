@@ -123,42 +123,6 @@ END_TIPS
 
 
 [ITEM]
-ID: cachePolicy:enableCache
-NAME: Enable Public Cache
-NS: LE
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies whether to turn on public cache for the current context, either at the server, virtual host, or context level. 
-
-
-Virtual hosts configured through Apache's httpd.conf can use the "CacheEnable" and 
-"CacheDisable" directives at the server, virtual host, context, file, and location 
-level or in .htaccess. "CacheEnable" and "CacheDisable" directives are compatible 
-with Apache mod_cache directives. However, when used at the context, file, or 
-location level, or in .htaccess, "CacheEnable" and "CacheDisable" will only be applied 
-to directories below the current level. URL parameters will be ignored.
-
-
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: [Performance] It is not recommended to store large objects with low hit
-rates in cache. Doing so may result in high I/O wait and reduced overall server performance.
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
 ID: checkPublicCache
 NAME: Check Public Cache
 NS: LE
@@ -167,8 +131,8 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to check against the public cache for URLs requested in the current context. Can be set at the server
-level, virtual host level, or context level. 
+DESCR: Specifies whether to check against the public cache for URLs requested in the current context. Can be set at the 
+server level, virtual host level, or context level. 
 END_DESCR
 
 SYNTAX: bool
@@ -176,6 +140,54 @@ END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: checkPrivateCache
+NAME: Check Private Cache
+NS: LE
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies whether to check against the private cache for URLs requested in the current context. Can be set at the 
+server, virtual host, or context level. 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: respectCacheable
+NAME: Respect Cacheable 
+NS: LE
+REQUIRED: 
+APPLY: 3
+SINCE:
+SEE_ALSO: 
+
+DESCR: Respect "Cache-Control: public/private" response header values.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: This setting is enabled by default.
+END_TIPS
 
 [END_ITEM]
 
@@ -200,31 +212,6 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS:
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
-ID: cachePolicy:expireInSeconds
-NAME: Cache Expire Time (seconds)
-NS: LE
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies how long an object will be cached. The default is "86400" seconds (one day).
-END_DESCR
-
-SYNTAX: uint
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
 END_TIPS
 
 [END_ITEM]
@@ -258,17 +245,25 @@ END_TIPS
 
 
 [ITEM]
-ID: cachePolicy:qsCache
-NAME: Cache Request with Query String
+ID: cachePolicy:enableCache
+NAME: Publicly Cache All
 NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to cache a request with a query string in the URL. 
-The default is "Yes". When a URL rewrite is involved, the server will check against the 
-rewritten URL.
+DESCR: Publicly cache all URLs served under the current context (server, virtual host, or context level).
+
+
+Virtual hosts configured through Apache's httpd.conf can use the "CacheEnable" and 
+"CacheDisable" directives at the server, virtual host, context, file, and location 
+level or in .htaccess. "CacheEnable" and "CacheDisable" directives are compatible 
+with Apache mod_cache directives. However, when used at the context, file, or 
+location level, or in .htaccess, "CacheEnable" and "CacheDisable" will only be applied 
+to directories below the current level. URL parameters will be ignored.
+
+
 END_DESCR
 
 SYNTAX: bool
@@ -277,7 +272,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: 
+TIPS: Disabled by default. Do not enabled this setting if you are using any LSCache plugins.
 END_TIPS
 
 [END_ITEM]
@@ -285,97 +280,18 @@ END_TIPS
 
 
 [ITEM]
-ID: cachePolicy:reqCookieCache
-NAME: Cache Request with Cookie
+ID: cachePolicy:expireInSeconds
+NAME: Cache Expire Time (seconds)
 NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to cache a request containing cookies. The default is "Yes". 
+DESCR: Specifies how long an object will be cached. The default is "86400" seconds (one day).
 END_DESCR
 
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
-ID: cachePolicy:respCookieCache
-NAME: Cache Response with Cookie
-NS: LE
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies whether to cache a response containing cookies. The default is "Yes". 
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
-ID: cachePolicy:ignoreReqCacheCtrl
-NAME: Ignore Request Cache-Control
-NS: LE
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies whether to ignore Cache-Control request headers. 
-The default is "No". If set to "Yes", the server may serve a cached object when "no-cache"
-has been set in Cache-Control.
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
-ID: cachePolicy:ignoreRespCacheCtrl
-NAME: Ignore Response Cache-Control
-NS: LE
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies whether to ignore Cache-Control response headers.  
-The default is "No". If set to "Yes", the response can be cached by the server even when
-"no-store" or "private" has been set in a Cache-Control header.
-END_DESCR
-
-SYNTAX: bool
+SYNTAX: uint
 END_SYNTAX
 
 EXAMPLE: 
@@ -390,17 +306,17 @@ END_TIPS
 
 [ITEM]
 ID: cachePolicy:enablePrivateCache
-NAME: Enable Private Cache
+NAME: Privately Cache All
 NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies whether to turn on private cache for the current context, either at the server, virtual host, or directory level. 
+DESCR: Privately cache all URLs served under the current context (server, virtual host, or context level). 
 
 
-Private cache will cache a copy per user based on IP and cookies.
+A separate cached copy will be made per user based on their IP and set cookies.
 
  
 Virtual hosts configured through Apache's httpd.conf can use the "CacheEnable private /url" and
@@ -420,32 +336,8 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] It is not recommended to store large objects with low hit
-rates in cache. Doing so may result in high I/O wait and reduced overall server performance.
+TIPS: Disabled by default. Do not enabled this setting if you are using any LSCache plugins.
 END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
-ID: checkPrivateCache
-NAME: Check Private Cache
-NS: LE
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies whether to check against the private cache for URLs requested in the current context. Can be set at the 
-server, virtual host, or context level. 
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
 
 [END_ITEM]
 
@@ -564,10 +456,9 @@ NS: LE
 DESCR: 
 END_DESCR
 
-CONT: cachePolicy:enableCache checkPublicCache cachePolicy:maxCacheObjSize cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
- cachePolicy:reqCookieCache cachePolicy:respCookieCache 
-cachePolicy:ignoreReqCacheCtrl cachePolicy:ignoreRespCacheCtrl
-cachePolicy:enablePrivateCache checkPrivateCache cachePolicy:privateExpireInSeconds
+CONT: checkPublicCache checkPrivateCache respectCacheable cachePolicy:maxCacheObjSize cachePolicy:maxStaleAge 
+cachePolicy:enableCache  cachePolicy:expireInSeconds 
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
 END_CONT
 
 SEE_ALSO: 

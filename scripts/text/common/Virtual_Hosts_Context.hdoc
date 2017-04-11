@@ -1228,9 +1228,8 @@ extraHeaders addMIMEType forceType defaultType indexFiles autoIndex allowOverrid
 realm authName required accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized 
 enableRewrite rewriteInherit rewriteBase rewriteRules
-cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
-cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl 
-cachePolicy:ignoreRespCacheCtrl cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
+cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds 
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
 enableIpGeo apacheConf
 END_CONT
 
@@ -1306,9 +1305,8 @@ expiresDefault expiresByType extraHeaders autoIndex indexFiles
 allowOverrideContext realm
 authName required accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized 
-cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
-cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl 
-cachePolicy:ignoreRespCacheCtrl cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
+cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds 
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
 enableIpGeo 
 END_CONT
 
@@ -1381,9 +1379,8 @@ END_DESCR
 CONT: expuri servletEngine extraHeaders allowOverrideContext realm authName required
 accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
-cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
-cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl 
-cachePolicy:ignoreRespCacheCtrl cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
+cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds 
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
 enableIpGeo 
 END_CONT
 
@@ -1428,9 +1425,8 @@ END_DESCR
 CONT: expuri fcgiapp extraHeaders allowOverrideContext 
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
-cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
-cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl 
-cachePolicy:ignoreRespCacheCtrl cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
+cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds 
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
 enableIpGeo 
 END_CONT
 
@@ -1475,9 +1471,8 @@ END_DESCR
 CONT: expuri lsapiapp extraHeaders allowOverrideContext 
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
-cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
-cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl 
-cachePolicy:ignoreRespCacheCtrl cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
+cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds 
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
 enableIpGeo 
 END_CONT
 
@@ -1524,9 +1519,8 @@ END_DESCR
 CONT: expuri proxyWebServer extraHeaders 
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
-cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
-cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl 
-cachePolicy:ignoreRespCacheCtrl cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
+cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds 
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
 enableIpGeo
 END_CONT
 
@@ -1576,9 +1570,8 @@ CONT: expuri cgi_path extraHeaders allowSetUID allowOverrideContext
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 enableRewrite rewriteInherit rewriteBase rewriteRules 
-cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
-cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl 
-cachePolicy:ignoreRespCacheCtrl cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
+cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds 
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
 enableIpGeo apacheConf
 END_CONT
 
@@ -1622,9 +1615,10 @@ DESCR: A Load Balancer Context can be used to forward one URI or a group of URIs
 The destination URI can be either on the same web site or an absolute URI pointing to another web site.
 END_DESCR
 
-CONT: expuri extCluster realm authName required accessAllowed accessDenied cachePolicy:enableCache cachePolicy:maxCacheObjSize cachePolicy:expireInSeconds 
-cachePolicy:maxStaleAge cachePolicy:qsCache cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl cachePolicy:ignoreRespCacheCtrl 
-cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds enableRewrite rewriteInherit rewriteBase rewriteRules addDefaultCharset defaultCharsetCustomized 
+CONT: expuri extCluster realm authName required accessAllowed accessDenied 
+cachePolicy:maxCacheObjSize cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds 
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds 
+enableRewrite rewriteInherit rewriteBase rewriteRules addDefaultCharset defaultCharsetCustomized 
 enableIpGeo 
 END_CONT
 
@@ -1647,9 +1641,8 @@ END_DESCR
 CONT: expuri lbapp allowOverrideContext realm authName required
 accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
-cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
-cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl 
-cachePolicy:ignoreRespCacheCtrl cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
+cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds 
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
 enableIpGeo 
 END_CONT
 
@@ -1755,9 +1748,8 @@ indexFiles autoIndex allowOverrideContext
 realm authName required accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized 
 enableRewrite rewriteInherit rewriteBase rewriteRules 
-cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:maxStaleAge cachePolicy:qsCache
-cachePolicy:reqCookieCache cachePolicy:respCookieCache cachePolicy:ignoreReqCacheCtrl 
-cachePolicy:ignoreRespCacheCtrl cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
+cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
 enableIpGeo
 END_CONT
 
