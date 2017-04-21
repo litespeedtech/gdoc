@@ -11,15 +11,6 @@ STATIC: index.txt
 
 
 [PAGE]
-ID: license_std 
-NAME: EULA - スタンダードエディション
-NS: E
-STATIC: license_std.txt
-[END_PAGE]
-
-
-
-[PAGE]
 ID: license 
 NAME: ライセンス
 NS: LO

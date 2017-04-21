@@ -4,7 +4,7 @@
 <hr/>
 <div>
 <ul class="toctop">
-<li>License <a href="license_std.html">Std</a> / <a href="license.html">Ent</a></li>
+<li><a href="license.html">Ent ライセンス</a></li>
 <li><a href="intro.html">はじめに</a></li>
 <li><a href="install.html">インストール</a></li>
 <li><a href="admin.html">管理</a>

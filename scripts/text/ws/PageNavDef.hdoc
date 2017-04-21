@@ -32,7 +32,6 @@ ID: DOC_NAV
 TOP_NAV: index
 
 NAV_SEQ:
-license_std
 license
 intro
 install
