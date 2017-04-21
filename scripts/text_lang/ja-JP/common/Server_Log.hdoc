@@ -268,7 +268,7 @@ DESCR: {ent_version} アクセスログのログ形式を指定します。
 END_DESCR
 
 SYNTAX: 文字列。ログフォーマットの構文はApache 2.0のカスタムと互換性があります 
-{ext-href}http://httpd.apache.org/docs/2.0/mod/mod_log_config.html#formats{ext-href-end}log format{ext-href-end-a}。
+{ext-href}http://httpd.apache.org/docs/current/mod/mod_log_config.html#formats{ext-href-end}log format{ext-href-end-a}。
 END_SYNTAX
 
 EXAMPLE:

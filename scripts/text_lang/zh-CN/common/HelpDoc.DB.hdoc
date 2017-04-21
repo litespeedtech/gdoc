@@ -751,7 +751,7 @@ DESCR: {ent_version} 指定访问日志的格式。
 END_DESCR
 
 SYNTAX: 字符串。日志格式的语法与Apache 2.0自定义
-{ext-href}http://httpd.apache.org/docs/2.0/mod/mod_log_config.html#formats {ext-href-end}日志格式{ext-href-end-a}兼容。
+{ext-href}http://httpd.apache.org/docs/current/mod/mod_log_config.html#formats{ext-href-end}日志格式{ext-href-end-a}兼容。
 END_SYNTAX
 
 EXAMPLE: 

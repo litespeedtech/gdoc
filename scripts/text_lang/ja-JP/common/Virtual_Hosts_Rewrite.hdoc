@@ -92,7 +92,7 @@ $\{MapName:LookupKey|DefaultValue\}
 </code></blockquote>
 
 LiteSpeedのリライトエンジンの実装は、Apacheのリライトエンジンの仕様に準拠しています。
-書き直しマップの詳細については、{ext-href}http://httpd.apache.org/docs/mod/mod_rewrite.html{ext-href-end}Apacheのmod_rewrite文書{ext-href-end-a}を参照してください。
+書き直しマップの詳細については、{ext-href}http://httpd.apache.org/docs/current/mod/mod_rewrite.html{ext-href-end}Apacheのmod_rewrite文書{ext-href-end-a}を参照してください。
 
 
 END_DESCR
@@ -155,7 +155,7 @@ LiteSpeedの書き換えエンジンは、次の3種類の書き換えマップ�
 ハッシュファイルと外部書き換えプログラム。
 </ul>
 LiteSpeedのリライトエンジンの実装は、Apacheのリライトエンジンの仕様に準拠しています。
-書き直しマップの詳細については、{ext-href}http://httpd.apache.org/docs/mod/mod_rewrite.html{ext-href-end}Apacheのmod_rewrite文書{ext-href-end-a}を参照してください。
+書き直しマップの詳細については、{ext-href}http://httpd.apache.org/docs/current/mod/mod_rewrite.html{ext-href-end}Apacheのmod_rewrite文書{ext-href-end-a}を参照してください。
 
 END_DESCR
 
@@ -198,7 +198,7 @@ DESCR: バーチャルホストまたはコンテキスト・レベルでの書�
 </ul></li>
 </ul>
 LiteSpeedのリライトエンジンの実装は、Apacheのリライトエンジンの仕様に従います。
-書き換えルールの詳細については、{ext-href}http://httpd.apache.org/docs/mod/mod_rewrite.html{ext-href-end}Apacheのmod_rewriteドキュメント{ext-href-end-a}と{ext-href}http://httpd.apache.org/docs/misc/rewriteguide.html{ext-href-end}ApacheのURL書き換えガイド{ext-href-end-a}を参照してください。
+書き換えルールの詳細については、{ext-href}http://httpd.apache.org/docs/current/mod/mod_rewrite.html{ext-href-end}Apacheのmod_rewriteドキュメント{ext-href-end-a}と{ext-href}http://httpd.apache.org/docs/current/rewrite/{ext-href-end}ApacheのURL書き換えガイド{ext-href-end-a}を参照してください。
 
 
 END_DESCR

@@ -112,7 +112,7 @@ $\{MapName:LookupKey|DefaultValue\}
 
 The implementation of LiteSpeed's rewrite engine follows the
 specifications of Apache's rewrite engine. For more details about rewrite
-maps, please refer to {ext-href}http://httpd.apache.org/docs/mod/mod_rewrite.html{ext-href-end}Apache's
+maps, please refer to {ext-href}http://httpd.apache.org/docs/current/mod/mod_rewrite.html{ext-href-end}Apache's
 mod_rewrite document{ext-href-end-a}.
 
 
@@ -185,7 +185,7 @@ Hash File and External Rewriting Program.
 </ul>
 The implementation of LiteSpeed's rewrite engine follows the
 specifications of Apache's rewrite engine. For more details about rewrite
-map, please refer to {ext-href}http://httpd.apache.org/docs/mod/mod_rewrite.html{ext-href-end}Apache's
+map, please refer to {ext-href}http://httpd.apache.org/docs/current/mod/mod_rewrite.html{ext-href-end}Apache's
 mod_rewrite document{ext-href-end-a}.
 
 END_DESCR
@@ -236,8 +236,8 @@ meaning as the corresponding CGI environment variable. </li>
 </ul>
 The implementation of LiteSpeed's rewrite engine follows the 
 Apache's rewrite engine specifications. For more details about rewrite
-rules, please refer to {ext-href}http://httpd.apache.org/docs/mod/mod_rewrite.html{ext-href-end}Apache's
-mod_rewrite document{ext-href-end-a} and {ext-href}http://httpd.apache.org/docs/misc/rewriteguide.html{ext-href-end}Apache's URL 
+rules, please refer to {ext-href}http://httpd.apache.org/docs/current/mod/mod_rewrite.html{ext-href-end}Apache's
+mod_rewrite document{ext-href-end-a} and {ext-href}http://httpd.apache.org/docs/current/rewrite/{ext-href-end}Apache's URL 
 rewriting guide{ext-href-end-a}.
 
 

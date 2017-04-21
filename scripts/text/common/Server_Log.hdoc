@@ -340,7 +340,7 @@ setting.
 END_DESCR
 
 SYNTAX: String. The syntax of log format is compatible with Apache 2.0's custom 
-{ext-href}http://httpd.apache.org/docs/2.0/mod/mod_log_config.html#formats{ext-href-end}log format{ext-href-end-a}.
+{ext-href}http://httpd.apache.org/docs/current/mod/mod_log_config.html#formats{ext-href-end}log format{ext-href-end-a}.
 END_SYNTAX
 
 EXAMPLE:
