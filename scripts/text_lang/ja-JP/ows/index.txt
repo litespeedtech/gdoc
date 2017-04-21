@@ -1,7 +1,7 @@
 <header>
 <h1>OpenLiteSpeed Web Server 1.4<br/>
 ユーザーズマニュアル<br/>
-Rev. 2</h1>
+Rev. 3</h1>
 </header>
 
 <h3>目次</h3>

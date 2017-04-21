@@ -487,11 +487,13 @@ SEE_ALSO:
 [TBL]
 ID: servAcLog
 NAME: Access Log
+NS: LEO
 
 DESCR: 
 END_DESCR
 
-CONT: accessLog_fileName accessLog_pipedLogger accessLog_logFormat accessLog_logHeader log_rollingSize accessLog_keepDays accessLog_compressArchive
+CONT: accessLog_fileName accessLog_pipedLogger accessLog_logFormat accessLog_logHeader log_rollingSize 
+accessLog_keepDays accessLog_compressArchive
 END_CONT
 
 SEE_ALSO: 
