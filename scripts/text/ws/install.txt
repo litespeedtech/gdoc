@@ -175,7 +175,6 @@ on our support <a href="http://www.litespeedtech.com/support/forum/">forum</a>. 
 
 <ul>
 <li>A new release is available</li>
-<li>Upgrade from Standard Edition to Enterprise Edition</li>
 <li>Upgrade from a trial license to production license</li>
 <li>Upgrade/downgrade to a different production license.</li>
 </ul>

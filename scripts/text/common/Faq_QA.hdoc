@@ -4,30 +4,6 @@
 
 
 [QA]
-ID: isfree
-Q: Is LiteSpeed web server free?
-
-A: There are 2 editions: Standard and Enterprise. The Standard Edition is free for both personal and commercial use.
-END_A
-SEE_ALSO: 
-[END_QA]
-
-
-
-[QA]
-ID: diff
-Q: What are the differences between Standard and Enterprise editions?
-
-A: They are based on the same LiteSpeed Network Core. Standard Edition is a
-limited feature version and does not scale with MP servers. Enterprise Edition is fine-tuned for optimal 
-performance and is linearly scalable to N-Multi-CPU/Core servers.
-END_A
-SEE_ALSO: 
-[END_QA]
-
-
-
-[QA]
 ID: support
 Q: What kinds of support are available?
 
@@ -43,8 +19,7 @@ SEE_ALSO:
 ID: comp
 Q: How is the performance comparing to other web servers?
 
-A: For static content, LiteSpeed Standard Edition is up to 2 times faster than Apache, 
-Enterprise Edition is up to 6 times faster than Apache and matching the performance of 
+A: For static content, LiteSpeed Enterprise is up to 6 times faster than Apache and matching the performance of 
 RedHat's Content Accelerator TUX, a web server built into the Linux kernel. For dynamic content,
 PHP scripting is up to 50% faster than Apache's mod_php. For more information, please 
 take a look at our <a href="http://litespeedtech.com/benchmark.html">Benchmark</a> page. 

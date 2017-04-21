@@ -3,28 +3,6 @@
 ########## ITEM SECION #############
 
 
-[QA]
-ID: isfree
-Q: LiteSpeed Webサーバーは無料ですか？
-
-A: StandardとEnterpriseの2つのエディションがあります。
-Standard Editionは、個人用と商業用の両方で無料です。
-END_A
-[END_QA]
-
-
-
-[QA]
-ID: diff
-Q: Standard EditionとEnterprise Editionの違いは何ですか？
-
-A: Tそれらは同じLiteSpeed Network Coreに基づいています。
-Standard Editionは機能制限付きのバージョンであり、MPサーバーには対応していません。
-Enterprise Editionは最適なパフォーマンスが得られるように微調整されており、N-Multi-CPU/Coreサーバーに対して線形スケーラビリティを備えています。
-END_A
-[END_QA]
-
-
 
 [QA]
 ID: support
@@ -41,7 +19,7 @@ END_A
 ID: comp
 Q: パフォーマンスは他のWebサーバーとどのように比較されますか？
 
-A: スタティックコンテンツの場合、LiteSpeed Standard EditionはApacheより2倍高速で、Enterprise EditionはApacheより最大6倍高速で、Linuxカーネルに組み込まれたWebサーバーであるRedHatのContent Accelerator TUXのパフォーマンスと一致します。
+A: スタティックコンテンツの場合、LiteSpeed Enterprise EditionはApacheより最大6倍高速で、Linuxカーネルに組み込まれたWebサーバーであるRedHatのContent Accelerator TUXのパフォーマンスと一致します。
 動的コンテンツの場合、PHPスクリプトはApacheのmod_phpより最大50％高速です。
 詳細については、<a href="http://litespeedtech.com/benchmark.html">ベンチマーク</a>ページをご覧ください。
 自分で比較したいのであれば、 "{QA=HowTo_QA#qa_perf}"を読んでください。 

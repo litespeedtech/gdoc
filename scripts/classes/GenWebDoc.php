@@ -63,7 +63,6 @@ class GenWebDoc
 
 			$static_map = array(
 				'index' => '',
-				'license_std' => 'license-standard',
 				'license' => 'license-enterprise',
 				'intro' => 'introduction',
 				'install' => 'install',
