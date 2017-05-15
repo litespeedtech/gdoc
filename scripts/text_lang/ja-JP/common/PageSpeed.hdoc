@@ -7,6 +7,7 @@
 [ITEM]
 ID: pagespeedActivate
 NAME: ロードモジュール
+NS: LE
 SEE_ALSO:
 
 DESCR: PageSpeedモジュールを読み込むかどうかを選択します。 
@@ -31,6 +32,7 @@ END_TIPS
 [ITEM]
 ID: pagespeedEnabled
 NAME: PageSpeedを有効にする
+NS: LE
 SEE_ALSO:
 
 DESCR: PageSpeedプロセスを有効にするかどうかを選択します。
@@ -55,6 +57,7 @@ END_TIPS
 [ITEM]
 ID: pagespeedParams
 NAME: モジュールのパラメータ
+NS: LE
 SEE_ALSO:
 
 DESCR: Googleのデフォルトフィルタセットを使用してパラメータを設定します。
@@ -85,13 +88,32 @@ END_TIPS
 [TBL]
 ID: Mod_PageSpeed
 NAME: PageSpeedモジュールの設定
+NS: LE
 
 DESCR: 
 END_DESCR
 
+CONT: pagespeedActivate pagespeedEnabled pagespeedParams
+END_CONT
+
 SEE_ALSO:
 [END_TBL]
 
+
+
+[TBL]
+ID: VHMod_PageSpeed
+NAME: PageSpeedモジュールの設定
+NS: LE
+
+DESCR: 
+END_DESCR
+
+CONT: pagespeedEnabled pagespeedParams
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
 
 
 ########### Pages ############
@@ -100,9 +122,29 @@ SEE_ALSO:
 [PAGE]
 ID: PageSpeed_Config
 NAME: PageSpeedモジュールの設定
+NS: LE
 
 DESCR:
 END_DESCR
+
+CONT: Mod_PageSpeed
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+
+[PAGE]
+ID: VHPageSpeed_Config
+NAME: PageSpeedモジュールの設定
+NS: LE
+
+DESCR:
+END_DESCR
+
+CONT: VHMod_PageSpeed
+END_CONT
 
 SEE_ALSO:
 [END_PAGE]
