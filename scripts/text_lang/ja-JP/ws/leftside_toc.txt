@@ -1,6 +1,6 @@
 <div class="sidetree">
 <h3>LiteSpeed Web Server<a href="index.html">ユーザーズマニュアル</a></h3>
-<h5>Version 5.1 Rev. 6</h5>
+<h5>Version 5.1 Rev. 7</h5>
 <hr/>
 <div>
 <ul class="toctop">
@@ -18,6 +18,7 @@
 	<li><a href="ServSecurity_Help.html">サーバーのセキュリティ</a></li>
 	<li><a href="RequestFilter_Help.html">リクエストフィルタ</a></li>
 	<li><a href="Cache_Help.html">ページキャッシュ</a></li>
+         <li><a href="PageSpeed_Config.html">PageSpeedモジュール</a></li>
 	<li><a href="ExtApp_Help.html">外部アプリ</a></li>
                 <ul class="level3">
                 <li><a href="External_FCGI.html">Fast CGIアプリ</a></li>
@@ -36,7 +37,8 @@
 	<li><a href="VirtualHosts_Help.html">バーチャルホストの基本</a></li>
 	<li><a href="VHGeneral_Help.html">バーチャルホスト全般</a></li>
 	<li><a href="VHSecurity_Help.html">バーチャルホストのセキュリティ</a></li>
-        <li><a hhhhhref="VHSSL_Help.html">バーチャルホストのSSL</a></li>
+        <li><a href="VHSSL_Help.html">バーチャルホストのSSL</a></li>
+        <li><a href="VHPageSpeed_Config.html">PageSpeedモジュール</a></li>
 	<li><a href="Rewrite_Help.html">Rewrite</a></li>
 	<li><a href="Context_Help.html">コンテキスト</a></li>
                 <ul class="level3">
