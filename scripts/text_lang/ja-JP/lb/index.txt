@@ -1,7 +1,7 @@
 <header>
 <h1>LiteSpeed ロードバランサー 2.0<br/>
 ユーザーズマニュアル<br/>
-Rev. 7</h1>
+Rev. 8</h1>
 </header>
 
 <h3>目次</h3>
