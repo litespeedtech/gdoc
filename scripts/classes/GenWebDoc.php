@@ -15,6 +15,7 @@ class GenWebDoc
 	private function getUrlConvert()
 	{
 		$docType = Config::DocType();
+
 		if ( $docType == 'ws' ) {
 			$dyn_map = array(
 				'ServGeneral_Help' => 'config/general',
@@ -23,6 +24,7 @@ class GenWebDoc
 				'ServSecurity_Help' => 'config/security',
 				'RequestFilter_Help' => 'config/reqfilter',
 				'Cache_Help' => 'config/cache',
+				'PageSpeed_Config' => 'config/pagespeed',
 				'ExtApp_Help' => 'config/extapps',
 				'External_FCGI' => 'config/extapps/fcgi',
 				'External_FCGI_Auth' => 'config/extapps/fcgi-auth',
@@ -52,6 +54,7 @@ class GenWebDoc
 				'LB_Context' => 'config/context/load-balancer',
 				'Redirect_Context' => 'config/context/redirect',
 				'Rails_Context' => 'config/context/rails',
+				'VHPageSpeed_Config' => 'config/vhost-pagespeed',
 				'VHWebSocket_Help' => 'config/web-socket-proxy',
 				'VHAddOns_Help' => 'config/addons',
 				'AdminGeneral_Help' => 'config/admingeneral',
@@ -59,7 +62,7 @@ class GenWebDoc
 				'AdminListeners_General_Help' => 'config/adminlistenergen',
                 'AdminListeners_SSL_Help' => 'config/adminlistenerssl',
 				'ServerStat_Help' => 'admin/service',
-					) ;
+			);
 
 			$static_map = array(
 				'index' => '',
@@ -69,39 +72,41 @@ class GenWebDoc
 				'admin' => 'admin',
 				'security' => 'security',
 				'config' => 'config',
-                                'webconsole' => 'webconsole'
-					) ;
+                'webconsole' => 'webconsole'
+			);
+
 			$urlPrefix = '/docs/webserver/' ;
 		}
 		elseif ( $docType == 'lb' ) {
-                            $dyn_map = array(
-                                'ServGeneral_Help' => 'config/general',
-                                'ServLog_Help' => 'config/slog',
-                                'ServTuning_Help' => 'config/tuning',
-                                'ServSecurity_Help' => 'config/security',
-                                'RequestFilter_Help' => 'config/reqfilter',
+			$dyn_map = array(
+			    'ServGeneral_Help' => 'config/general',
+                'ServLog_Help' => 'config/slog',
+                'ServTuning_Help' => 'config/tuning',
+                'ServSecurity_Help' => 'config/security',
+                'RequestFilter_Help' => 'config/reqfilter',
 				'Cache_Help' => 'config/cache',
 				'PageSpeed_Config' => 'config/pagespeed',
 				'Listeners_General_Help' => 'config/listener-general',
-                                'Listeners_SSL_Help' => 'config/listener-ssl',
-                                'Clusters_General_Help' => 'config/cluster-general',
-                                'Clusters_WorkerGroup_Help' => 'config/cluster-wg',
+                'Listeners_SSL_Help' => 'config/listener-ssl',
+                'Clusters_General_Help' => 'config/cluster-general',
+                'Clusters_WorkerGroup_Help' => 'config/cluster-wg',
 				'Templates_Help' => 'config/templates',
 				'VirtualHosts_Help' => 'config/vhostbasic',
 				'VHGeneral_Help' => 'config/vhostgeneral',
 				'VHSecurity_Help' => 'config/vhostsecurity',
-                                'VHSSL_Help' => 'config/vhost-ssl',
+                'VHSSL_Help' => 'config/vhost-ssl',
+				'VHPageSpeed_Config' => 'config/vhost-pagespeed',
 				'Rewrite_Help' => 'config/rewrite',
 				'Context_Help' => 'config/context',
-                                'LB_Context' => 'config/context/load-balancer',
-                                'Redirect_Context' => 'config/context/redirect',
+                'LB_Context' => 'config/context/load-balancer',
+                'Redirect_Context' => 'config/context/redirect',
 				'AdminGeneral_Help' => 'config/admingeneral',
-                                'AdminSecurity_Help' => 'config/adminsecurity',
-                                'AdminListeners_General_Help' => 'config/adminlistenergen',
-                                'AdminListeners_SSL_Help' => 'config/adminlistenerssl',
-                                'HA_Config' => 'config/ha',
+                'AdminSecurity_Help' => 'config/adminsecurity',
+                'AdminListeners_General_Help' => 'config/adminlistenergen',
+                'AdminListeners_SSL_Help' => 'config/adminlistenerssl',
+                'HA_Config' => 'config/ha',
 				'ServerStat_Help' => 'admin/service',
-					) ;
+			) ;
 
 			$static_map = array(
 				'index' => '',
@@ -152,6 +157,7 @@ class GenWebDoc
 			$fromfile = $outdir . $f ;
 			$tofile = $outdir . 'docs/' . $f ;
 			$buf = file_get_contents($fromfile) ;
+
 			if ( $buf === FALSE ) {
 				echo "ConvertLinks:fail to open $fromfile \n" ;
 				continue ;
