@@ -1,6 +1,6 @@
 <div class="sidetree">
 <h3>LiteSpeed Load Balancer <a href="index.html">ユーザーズマニュアル</a></h3>
-<h5>バージョン 2.0 Rev. 7 </h5>
+<h5>バージョン 2.0 Rev. 8 </h5>
 <hr/>
 <div>
 <ul class="toctop">
@@ -28,6 +28,7 @@
 	<li><a href="VHGeneral_Help.html">バーチャルホストの全般</a></li>
 	<li><a href="VHSecurity_Help.html">バーチャルホストのセキュリティ</a></li>
         <li><a href="VHSSL_Help.html">バーチャルホストSSL</a></li>
+        <li><a href="VHPageSpeed_Config.html">PageSpeedモジュール</a></li>
 	<li><a href="Rewrite_Help.html">Rewrite</a></li>
         <li><a href="Context_Help.html">コンテキスト</a></li>
                 <ul class="level3">
