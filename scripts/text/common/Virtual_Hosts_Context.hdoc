@@ -1787,6 +1787,7 @@ SEE_ALSO:
 [TBL]
 ID: moduleContext
 NAME: Module Handler Context
+NS: O
 
 DESCR: A module handler context will associate a URI with a registered module. 
 Modules need to be registered at Server Module Configuration tab.
