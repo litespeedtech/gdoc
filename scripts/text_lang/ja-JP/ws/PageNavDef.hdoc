@@ -49,6 +49,7 @@ ServTuning_Help
 ServSecurity_Help
 RequestFilter_Help
 Cache_Help
+PageSpeed_Config
 ExtApp_Help
 ScriptHandler_Help 
 Rails_Help
@@ -59,6 +60,7 @@ VirtualHosts_Help
 VHGeneral_Help
 VHSecurity_Help
 VHSSL_Help
+VHPageSpeed_Config
 Rewrite_Help
 Context_Help 
 VHWebSocket_Help
