@@ -73,6 +73,7 @@ VirtualHosts_Help
 VHGeneral_Help
 VHSecurity_Help
 VHSSL_Help
+VHPageSpeed_Config
 Rewrite_Help
 Context_Help 
 HA_Config
