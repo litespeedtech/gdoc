@@ -447,7 +447,7 @@ DESCR:
 END_DESCR
 
 CONT: vhGeneral vhLog vhAcLog vhIndex errPage scriptHandler htaccess
-vhExpire apacheConfig 
+vhExpire apacheConfig websocketproxy
 END_CONT
 
 SEE_ALSO: 

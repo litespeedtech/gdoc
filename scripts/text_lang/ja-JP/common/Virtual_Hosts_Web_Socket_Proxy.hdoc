@@ -80,6 +80,7 @@ END_DESCR
 [PAGE]
 ID: VHWebSocket_Help 
 NAME: Webソケットプロキシ
+NS: O
 
 DESCR: <a href="http://en.wikipedia.org/wiki/WebSocket"> WebSocket </a>は、HTTPの代わりにインターネット上でリアルタイムの双方向通信を行うためのプロトコルです。
 バージョン1.1.1以降、OpenLiteSpeedはWebSocketプロキシを使用してWebSocketバックエンドをサポートしています。

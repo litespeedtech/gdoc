@@ -1166,17 +1166,15 @@ SEE_ALSO:
 
 ################ Pages ################
 
-
 [PAGE]
 ID: ServSecurity_Help 
 NAME: Server Security
-NS: EO
+NS: L
 
 DESCR: 
 END_DESCR
 
-CONT: fileAccessControl perClientConnLimit cgiResource
-accessDeny accessControl  
+CONT: perClientConnLimit accessControl reqCensorship reqCensorshipRule
 END_CONT
 
 SEE_ALSO: 
@@ -1187,12 +1185,30 @@ SEE_ALSO:
 [PAGE]
 ID: ServSecurity_Help 
 NAME: Server Security
-NS: L
+NS: E
 
 DESCR: 
 END_DESCR
 
-CONT: perClientConnLimit accessControl 
+CONT: fileAccessControl perClientConnLimit cgiResource
+accessDeny accessControl  reqCensorship reqCensorshipRule
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: ServSecurity_Help 
+NAME: Server Security
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: fileAccessControl perClientConnLimit cgiResource
+accessDeny accessControl  
 END_CONT
 
 SEE_ALSO: 

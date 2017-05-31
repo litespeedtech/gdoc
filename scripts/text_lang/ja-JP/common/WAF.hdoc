@@ -442,22 +442,4 @@ END_DESCR
 [END_TBL]
 
 
-
-################ Pages ###############
-
-
-[PAGE]
-ID: RequestFilter_Help
-NAME: リクエストフィルタリング
-NS: LE
-
-DESCR: LiteSpeedのリクエストフィルタは、Apacheのmod_securityのリクエストフィルタと同等です。
-2つの別々のルールシステムがあります。
-WebAdminコンソールから設定されたルールは、ネイティブXMLでWebAdminコンソールを使用して設定されたバーチャルホストでのみ機能します。
-Apache httpd.confで設定されたバーチャルホストの場合、Apacheと同じように、mod_securityルールをhttpd.confで設定する必要があります。 
-END_DESCR
-
-[END_PAGE]
-
-
 [END_HELPDOC]

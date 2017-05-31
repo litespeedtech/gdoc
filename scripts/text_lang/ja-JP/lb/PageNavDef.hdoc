@@ -54,7 +54,6 @@ ServGeneral_Help
 ServLog_Help 
 ServTuning_Help 
 ServSecurity_Help
-RequestFilter_Help
 Cache_Help
 PageSpeed_Config
 Listeners_General_Help

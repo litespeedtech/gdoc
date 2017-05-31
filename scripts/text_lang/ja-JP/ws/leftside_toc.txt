@@ -16,7 +16,6 @@
         <li><a href="ServLog_Help.html">サーバーログ</a></li>
 	<li><a href="ServTuning_Help.html">サーバーのチューニング</a></li>
 	<li><a href="ServSecurity_Help.html">サーバーのセキュリティ</a></li>
-	<li><a href="RequestFilter_Help.html">リクエストフィルタ</a></li>
 	<li><a href="Cache_Help.html">ページキャッシュ</a></li>
          <li><a href="PageSpeed_Config.html">PageSpeedモジュール</a></li>
 	<li><a href="ExtApp_Help.html">外部アプリ</a></li>
@@ -53,7 +52,6 @@
                 <li><a href="Redirect_Context.html">コンテキストのリダイレクト</a></li>
                 <li><a href="Rails_Context.html">Rack/Railsのコンテキスト</a></li>
                 </ul>
-        <li><a href="VHWebSocket_Help.html">Web Socketプロキシ</a></li>
 	<li><a href="VHAddOns_Help.html">アドオン</a></li>
 	</ul>
 </li>

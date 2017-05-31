@@ -520,30 +520,7 @@ CONT: censorRuleSetName ruleSetAction censorRuleSetEnabled censorRuleSet
 END_CONT
 
 SEE_ALSO: 
-[END_TBL]l
-
-
-
-################ Pages ###############
-
-
-[PAGE]
-ID: RequestFilter_Help
-NAME: Web Application Firewall (WAF)
-NS: LE
-
-DESCR: LiteSpeed's Web Application Firewall is equivalent to Apache's mod_security request filter. 
-There are two separate rule systems. Rules configured from the WebAdmin console only 
-work for virtual hosts configured via the WebAdmin console in native xml. 
-For virtual hosts configured through Apache httpd.conf, you  
-need to configure mod_security rules through httpd.conf, just like you would with Apache. 
-END_DESCR
-
-CONT: reqCensorship reqCensorshipRule
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
+[END_TBL]
 
 
 [END_HELPDOC]

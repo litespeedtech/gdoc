@@ -47,7 +47,6 @@ ServGeneral_Help
 ServLog_Help
 ServTuning_Help 
 ServSecurity_Help
-RequestFilter_Help
 Cache_Help
 PageSpeed_Config
 ExtApp_Help
@@ -63,7 +62,6 @@ VHSSL_Help
 VHPageSpeed_Config
 Rewrite_Help
 Context_Help 
-VHWebSocket_Help
 VHAddOns_Help
 
 END_NAV_SEQ

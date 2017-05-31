@@ -102,6 +102,7 @@ SEE_ALSO:
 [PAGE]
 ID: VHWebSocket_Help 
 NAME: Web Socket Proxy
+NS: O
 
 DESCR: <a href="http://en.wikipedia.org/wiki/WebSocket">WebSocket</a> is 
 a protocol that can be used instead of HTTP to deliver real-time, bidirectional 
