@@ -1,6 +1,6 @@
 <div class="sidetree">
   <h3>LiteSpeed Load Balancer <a href="index.html"> Users' Manual</a></h3>
-  <h5>Version 2.0 Rev. 8</h5>
+  <h5>Version 2.0 Rev. 9</h5>
   <hr/>
   <div>
     <ul class="toctop">
@@ -19,7 +19,7 @@
           <li><a href="ServLog_Help.html">Server Log</a></li>
           <li><a href="ServTuning_Help.html">Server Tuning</a></li>
           <li><a href="ServSecurity_Help.html">Server Security</a></li>
-          <li><a href="RequestFilter_Help.html">Request Filter</a></li>
+          <li><a href="RequestFilter_Help.html">WAF</a></li>
           <li><a href="Cache_Help.html">Page Cache</a></li>
           <li><a href="PageSpeed_Config.html">PageSpeed Settings</a></li>
           <li><a href="Listeners_General_Help.html">Listener General</a></li>

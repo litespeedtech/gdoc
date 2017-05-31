@@ -1,12 +1,12 @@
 [HELPDOC]
 
 
-########## Request Filter ##########
+########## WAF ##########
 
 
 [ITEM]
 ID: enableCensorship
-NAME: Enable Request Filtering
+NAME: Enable WAF
 REQUIRED: 
 APPLY: 2
 SINCE: 
@@ -38,7 +38,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: Server {ITEM=ServGeneral_Help#log_logLevel}, Virtual Host {ITEM=VHGeneral_Help#vhlog_logLevel}
 
-DESCR: Specifies the level of detail of the request filtering engine's debug output.
+DESCR: Specifies the level of detail of the Web Application Firewall engine's debug output.
 This value ranges from {val}0{/} - {val}9{/}. {val}0{/} disables logging. {val}9{/} produces the
 most detailed log. The the server and virtual host's error log
 {ITEM=ServGeneral_Help#log_logLevel} must be set to at least {val}INFO{/} for this option to take effect.
@@ -297,7 +297,7 @@ END_TIPS
 
 
 
-########## Request Filtering Rule Set ##########
+########## WAF Rule Set ##########
 
 
 [ITEM]
@@ -461,7 +461,7 @@ END_TIPS
 
 [TBL]
 ID: reqCensorship
-NAME: Request Filter
+NAME: Web Application Firewall (WAF)
 NS: L
 
 DESCR: 
@@ -477,7 +477,7 @@ SEE_ALSO:
 
 [TBL]
 ID: reqCensorship
-NAME: Request Filter
+NAME: Web Application Firewall (WAF)
 NS: E
 
 DESCR: 
@@ -493,7 +493,7 @@ SEE_ALSO:
 
 [TBL]
 ID: VHreqCensorship
-NAME: Request Filter
+NAME: Web Application Firewall (WAF)
 NS: LE
 
 DESCR: 
@@ -509,7 +509,7 @@ SEE_ALSO:
 
 [TBL]
 ID: reqCensorshipRule
-NAME: Request Filtering Rule Set
+NAME: Web Application Firewall (WAF) Rule Set
 NS: LE
 
 DESCR: Rules configured here only work for virtual hosts configured with a native LSWS
@@ -529,10 +529,10 @@ SEE_ALSO:
 
 [PAGE]
 ID: RequestFilter_Help
-NAME: Request Filtering
+NAME: Web Application Firewall (WAF)
 NS: LE
 
-DESCR: LiteSpeed's request filter is equivalent to that in Apache's mod_security. 
+DESCR: LiteSpeed's Web Application Firewall is equivalent to Apache's mod_security request filter. 
 There are two separate rule systems. Rules configured from the WebAdmin console only 
 work for virtual hosts configured via the WebAdmin console in native xml. 
 For virtual hosts configured through Apache httpd.conf, you  

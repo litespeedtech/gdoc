@@ -27,7 +27,7 @@ your application beyond one server deployment as well as improving reliability o
   <li>Geotargeting support</li>
   <li>IPv6 support</li>
   <li>Anti-(D)DoS attacks capability</li>
-  <li>Request filtering (HTTP firewall), filter attacking requests based on request content</li>
+  <li>Web Application Firewall (HTTP firewall), filter attacking requests based on request content</li>
   <li>Chroot for enhanced security</li>
   <li>Backend server health monitoring</li>
   <li>Web administration console</li>

@@ -22,9 +22,10 @@ It supports <span class="tag">SSL</span>; has <span class="tag">Access Control</
     <span class="tag">Max Request Header Length</span> and <span class="tag">Max 
     Request Body Length</span>. </p>
 
-  <li><span class="label1">Request filtering:</span></li>
-  <p> Request header and body can be checked against signatures of possible attacks
-     like XSS attack or SQL injection attackes, and block those requests in the first place. 
+  <li><span class="label1">Web Application Firewall:</span></li>
+  <p>Request Filtering can be performed on the request header/body to check against possible attack signatures. 
+  		This helps defend against XSS attacks and SQL injection attacks, blocking 
+     those requests right from the start. 
   </p>
 
   <li><span class="label1">Backend overloading prevention:</span></li>

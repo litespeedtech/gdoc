@@ -66,7 +66,7 @@ Compare that to Apache's 40% drop in performance when .htaccess files are used.<
 	  <li><strong>Comprehensive Connection Accounting</strong>
 	  <p>Comprehensive control of concurrent connections allowed from a single IP address.</p></li>
 	  
-	  <li><strong>Request Filtering</strong>
+	  <li><strong>Web Application Firewall</strong>
   		<p>Apache mod_security compatible request filtering. Block known as well as potential 
   attempts at SQL/script injection XSS attacks.</p></li>
   

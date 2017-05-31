@@ -23,8 +23,8 @@ LSWS also has the following special security features: </p>
 	    max request header length, and max request body length settings. </p>
     </li>
     
-    <li><h3>Request filtering:</h3>
-  		<p> Request header and body can be checked against possible attack signatures. 
+    <li><h3>Web Application Firewall:</h3>
+  		<p>Request Filtering can be performed on the request header/body to check against possible attack signatures. 
   		This helps defend against XSS attacks and SQL injection attacks, blocking 
      those requests right from the start. </p>
   	</li>

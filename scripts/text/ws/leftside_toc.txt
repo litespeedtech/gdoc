@@ -19,7 +19,7 @@
           <li><a href="ServLog_Help.html">Server Log</a></li>
           <li><a href="ServTuning_Help.html">Server Tuning</a></li>
           <li><a href="ServSecurity_Help.html">Server Security</a></li>
-          <li><a href="RequestFilter_Help.html">Request Filter</a></li>
+          <li><a href="RequestFilter_Help.html">WAF</a></li>
           <li><a href="Cache_Help.html">Page Cache</a></li>
           <li><a href="PageSpeed_Config.html">PageSpeed Settings</a></li>
           <li><a href="ExtApp_Help.html">External Apps</a></li>
