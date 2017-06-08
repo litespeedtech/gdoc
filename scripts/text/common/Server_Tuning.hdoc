@@ -1367,7 +1367,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:  Allows listeners/vhosts to set multiple SSL certificates.  If multiple certificates are enabled, the certificates/keys 
+DESCR: Allows listeners/vhosts to set multiple SSL certificates.  If multiple certificates are enabled, the certificates/keys 
 are expected to follow a naming scheme.  If the cert is named server.crt, other possible cert names are server.crt.rsa, server.crt.dsa, server.crt.ecc. If 
 "Not Set", defaults to "No".
 
@@ -1451,7 +1451,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:  A list of enabled QUIC versions. Supported versions are Q035 and Q037, other values will be ignored.
+DESCR: A list of enabled QUIC versions. Supported versions are Q035 and Q037, other values will be ignored.
 
 
 By default all supported versions are enabled.
@@ -1536,7 +1536,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:  The initial size of the stream flow control window.
+DESCR: The initial size of the stream flow control window.
 
 
 Default value is 1M.
@@ -1613,34 +1613,6 @@ END_TIPS
 
 
 [ITEM]
-ID: quicIdleTimeout
-NAME: Idle Timeout
-NS: L
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR:  The time in seconds after which a QUIC connection will be closed.
-
-
-Default value is 30.
-END_DESCR
-
-SYNTAX: Integer number between 10 and 600
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS:
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
 ID: quicHandshakeTimeout
 NAME: Handshake Timeout
 NS: L
@@ -1656,6 +1628,34 @@ Default value is 10.
 END_DESCR
 
 SYNTAX: Integer number between 1 and 15
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicIdleTimeout
+NAME: Idle Timeout
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The time in seconds after which a QUIC connection will be closed.
+
+
+Default value is 30.
+END_DESCR
+
+SYNTAX: Integer number between 10 and 600
 END_SYNTAX
 
 EXAMPLE: 
@@ -1865,7 +1865,7 @@ DESCR:
 END_DESCR
 
 CONT: quicEnable quicShmDir quicVersions quicCfcw quicMaxCfcw quicSfcw quicMaxSfcw 
-quicMaxStreams quicIdleTimeout quicHandshakeTimeout
+quicMaxStreams quicHandshakeTimeout quicIdleTimeout
 END_CONT
 
 SEE_ALSO: 
