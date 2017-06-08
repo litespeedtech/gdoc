@@ -1423,8 +1423,10 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:  Specifies the directory used to save QUIC data to shared memory. A RAM based partition, such as /dev/shm, is 
-preferred.
+DESCR: Specifies the directory used to save QUIC data to shared memory.
+
+
+By default, the server's default SHM directory will be used.
 END_DESCR
 
 SYNTAX: Path
@@ -1433,7 +1435,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: If not set, the server's default SHM directory will be used.
+TIPS: A RAM based partition, such as /dev/shm, is recommended.
 END_TIPS
 
 [END_ITEM]
@@ -1449,16 +1451,19 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:  A list of enabled QUIC versions.
+DESCR:  A list of enabled QUIC versions. Supported versions are Q035 and Q037, other values will be ignored.
+
+
+By default all supported versions are enabled.
 END_DESCR
 
 SYNTAX: Comma separated list
 END_SYNTAX
 
-EXAMPLE: Q35, Q36, Q38
+EXAMPLE: Q035, Q037
 END_EXAMPLE
 
-TIPS: Leave blank to enable all versions by default.
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1467,14 +1472,17 @@ END_TIPS
 
 [ITEM]
 ID: quicCfcw
-NAME: Connection flow Control Window
+NAME: Connection Flow Control Window
 NS: L
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The initial size of the connection flow control window. Default value is 1.5M.
+DESCR: The initial size of the connection flow control window.
+
+
+Default value is 1.5M.
 END_DESCR
 
 SYNTAX: Number between 64K and 512M
@@ -1483,7 +1491,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS:
+TIPS: A larger a window size will use more memory.
 END_TIPS
 
 [END_ITEM]
@@ -1499,16 +1507,20 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The maximum size of the connection flow control window. Default value is 1.5M.
+DESCR: Specifies the maximum allowed value the stream flow control window is allowed to reach due to window auto-tuning.
+
+
+By default, this value is 0, which means that the value of <b>Connection Flow Control Window</b> is used and 
+no size auto-tuning is performed.
 END_DESCR
 
-SYNTAX: Number between 64K and 512M
+SYNTAX: 0 or a number between 64K and 512M
 END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: Connection flow control window size will be tuned automatically to a size below this limit.
+TIPS: A larger a window size will use more memory.
 END_TIPS
 
 [END_ITEM]
@@ -1524,7 +1536,10 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:  The initial size of the stream flow control window. Default value is 1M.
+DESCR:  The initial size of the stream flow control window.
+
+
+Default value is 1M.
 END_DESCR
 
 SYNTAX: Number between 64K and 128M
@@ -1533,7 +1548,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS:
+TIPS: A larger a window size will use more memory.
 END_TIPS
 
 [END_ITEM]
@@ -1549,16 +1564,20 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The maximum size of the stream flow control window. Default value is 1M.
+DESCR: Specifies the maximum allowed value the stream flow control window is allowed to reach due to window auto-tuning.
+
+
+By default, this value is 0, which means that the value of <b>Stream Flow Control Window</b> is used and no size 
+auto-tuning is performed.
 END_DESCR
 
-SYNTAX: Number between 64K and 128M
+SYNTAX: 0 or a number between 64K and 128M
 END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: Stream flow control window size will be tuned automatically to a size below this limit.
+TIPS: A larger a window size will use more memory.
 END_TIPS
 
 [END_ITEM]
@@ -1574,7 +1593,10 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The maximum number of concurrent streams allowed per connection. Default value is 100.
+DESCR: The maximum number of concurrent streams allowed per connection.
+
+
+Default value is 100.
 END_DESCR
 
 SYNTAX: Integer number between 10 and 1000
@@ -1599,10 +1621,42 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:  The time in seconds after which a QUIC connection will be closed. Defailt value is 30.
+DESCR:  The time in seconds after which a QUIC connection will be closed.
+
+
+Default value is 30.
 END_DESCR
 
 SYNTAX: Integer number between 10 and 600
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicHandshakeTimeout
+NAME: Handshake Timeout
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR:  The time in seconds a new connection is allowed to complete it's handshake, after which the connection is 
+aborted. 
+
+
+Default value is 10.
+END_DESCR
+
+SYNTAX: Integer number between 1 and 15
 END_SYNTAX
 
 EXAMPLE: 
@@ -1812,7 +1866,7 @@ DESCR:
 END_DESCR
 
 CONT: quicEnable quicShmDir quicVersions quicCfcw quicMaxCfcw quicSfcw quicMaxSfcw 
-quicMaxStreams quicIdleTimeout
+quicMaxStreams quicIdleTimeout quicHandshakeTimeout
 END_CONT
 
 SEE_ALSO: 
