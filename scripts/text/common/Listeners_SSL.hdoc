@@ -331,6 +331,32 @@ END_TIPS
 
 
 
+[ITEM]
+ID: enableQuic
+NAME: Enable QUIC
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Enables the QUIC network protocol.
+END_DESCR
+
+SYNTAX:
+END_SYNTAX
+
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: This setting will override the server level setting.
+END_TIPS
+
+[END_ITEM]
+
+
+
 ########## OCSP Stapling ##########
 
 
