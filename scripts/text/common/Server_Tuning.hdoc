@@ -1386,6 +1386,235 @@ END_TIPS
 
 
 
+########## QUIC ##########
+
+
+[ITEM]
+ID: quicEnable
+NAME: Enable QUIC
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Enables the QUIC network protocol server wide.
+END_DESCR
+
+SYNTAX: Select from radiobox
+END_SYNTAX
+
+EXAMPLE: This setting can be overridden at the listener level.
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicShmDir
+NAME: QUIC SHM Directory
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR:  Specifies the directory used to save QUIC data to shared memory. A RAM based partition, such as /dev/shm, is 
+preferred.
+END_DESCR
+
+SYNTAX: Path
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: If not set, the server's default SHM directory will be used.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicVersions
+NAME: QUIC Versions
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR:  A list of enabled QUIC versions.
+END_DESCR
+
+SYNTAX: Comma separated list
+END_SYNTAX
+
+EXAMPLE: Q35, Q36, Q38
+END_EXAMPLE
+
+TIPS: Leave blank to enable all versions by default.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicCfcw
+NAME: Connection flow Control Window
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The initial size of the connection flow control window. Default value is 1.5M.
+END_DESCR
+
+SYNTAX: Number between 64K and 512M
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicMaxCfcw
+NAME: Max Connection Flow Control Window
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The maximum size of the connection flow control window. Default value is 1.5M.
+END_DESCR
+
+SYNTAX: Number between 64K and 512M
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: Connection flow control window size will be tuned automatically to a size below this limit.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicSfcw
+NAME: Stream Flow Control Window
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR:  The initial size of the stream flow control window. Default value is 1M.
+END_DESCR
+
+SYNTAX: Number between 64K and 128M
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicMaxSfcw
+NAME: Max Stream Flow Control Window
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The maximum size of the stream flow control window. Default value is 1M.
+END_DESCR
+
+SYNTAX: Number between 64K and 128M
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: Stream flow control window size will be tuned automatically to a size below this limit.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicMaxStreams
+NAME: Max Current Streams Per Connection
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The maximum number of streams allowed per connection. Default value is 100.
+END_DESCR
+
+SYNTAX: Integer number between 10 and 1000
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicIdleTimeout
+NAME: Idle Timeout
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR:  The time in seconds after which a QUIC connection will be closed. Defailt value is 30.
+END_DESCR
+
+SYNTAX: Integer number between 10 and 600
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# Tables #############
 
 
@@ -1574,6 +1803,23 @@ SEE_ALSO:
 
 
 
+[TBL]
+ID: quicTbl
+NAME: QUIC
+NS: L
+
+DESCR:
+END_DESCR
+
+CONT: quicEnable quicShmDir quicVersions quicCfcw quicMaxCfcw quicSfcw quicMaxSfcw 
+quicMaxStreams quicIdleTimeout
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
 ################ Pages ################
 
 
@@ -1585,7 +1831,7 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT:osTuning connTuning reqTuning gzipTuning sslGlobal sslDynSNI
+CONT:osTuning connTuning reqTuning gzipTuning sslGlobal sslDynSNI quicTbl
 END_CONT
 
 SEE_ALSO: 
