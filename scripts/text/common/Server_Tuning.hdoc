@@ -1649,8 +1649,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:  The time in seconds a new connection is allowed to complete it's handshake, after which the connection is 
-aborted. 
+DESCR:  The time in seconds a new connection is given to complete it's handshake, after which the connection is aborted. 
 
 
 Default value is 10.
