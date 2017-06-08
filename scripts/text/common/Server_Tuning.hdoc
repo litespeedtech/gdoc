@@ -1457,7 +1457,7 @@ DESCR:  A list of enabled QUIC versions. Supported versions are Q035 and Q037, o
 By default all supported versions are enabled.
 END_DESCR
 
-SYNTAX: Comma separated list
+SYNTAX: Comma-separated list
 END_SYNTAX
 
 EXAMPLE: Q035, Q037
@@ -1649,7 +1649,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR:  The time in seconds a new connection is given to complete it's handshake, after which the connection is aborted. 
+DESCR: The time in seconds a new connection is given to complete its handshake, after which the connection is aborted.
 
 
 Default value is 10.
