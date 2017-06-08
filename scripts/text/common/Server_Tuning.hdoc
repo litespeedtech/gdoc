@@ -1567,14 +1567,14 @@ END_TIPS
 
 [ITEM]
 ID: quicMaxStreams
-NAME: Max Current Streams Per Connection
+NAME: Max Concurrent Streams Per Connection
 NS: L
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The maximum number of streams allowed per connection. Default value is 100.
+DESCR: The maximum number of concurrent streams allowed per connection. Default value is 100.
 END_DESCR
 
 SYNTAX: Integer number between 10 and 1000
