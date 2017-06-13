@@ -55,7 +55,7 @@ abstract class Item
         return $this->getValueInLang('DESCR');
     }
 
-	public function toDoc()
+	public function toDoc_old()
 	{
 		$end = '</p></td></tr>'."\n";
 		$imgpath = Config::GetImagePath();
@@ -98,6 +98,54 @@ abstract class Item
 				. '</span><p>'. $seeAlso . $end;
 
 		$buf .= "</table>\n";
+		return $buf;
+	}
+	
+
+	public function toDoc()
+	{
+		$end = "</p>\n";
+		$imgpath = Config::GetImagePath();
+        
+		$buf = '<article class="ls-helpitem">';
+		$buf .= '<div><header id="' . $this->getId() . '"><h3>'.$this->getName('NAME') ;
+		$buf .= '<span class="top"><a href="#top">&#8657;</a></span></h3></header></div>';
+        
+		$buf .= '<h4>' . GenTool::getTerm('label_description') 
+				. '</h4><p>' . $this->getValueInLang('DESCR') . $end;
+
+        if ( $this->hasValue('SYNTAX') )	{
+			$syntax = GenTool::translateSyntax($this->getValueInLang('SYNTAX'));
+			if ( $syntax )
+				$buf .= '<h4>' 
+					. GenTool::getTerm('label_syntax') . '</h4><p>'. $syntax . $end;
+		}
+
+        if ( ($apply = $this->hasValue('APPLY')) == 1 ) {
+			$buf .= '<h4>' 
+					. GenTool::getTerm('label_apply')
+					. '</h4><p>';
+			$buf .= GenTool::getTerm('apply_1');
+			$buf .= $end;
+		}
+
+		if ( $this->hasValue('EXAMPLE')) {
+			$buf .= '<h4>' 
+					. GenTool::getTerm('label_example')
+					. '</h4><p class="ls-example">' . $this->getValueInLang('EXAMPLE') . $end;
+        }
+
+		if ( $this->hasValue('TIPS')) {
+			$buf .= '<h4>'
+					. GenTool::getTerm('label_tips') . '</h4><p>' . $this->getValueInLang('TIPS') . $end;
+        }
+
+		if ( $seeAlso = $this->hasValue('SEE_ALSO') )
+			$buf .= '<h4>' 
+				. GenTool::getTerm ('label_seealso')
+				. '</h4><p class="ls-text-small">'. $seeAlso . $end;
+
+		$buf .= "</article>\n";
 		return $buf;
 	}
 	

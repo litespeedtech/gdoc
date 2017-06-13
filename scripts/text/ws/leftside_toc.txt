@@ -1,24 +1,21 @@
-<div class="sidetree">
-  <h3>LiteSpeed Web Server <a href="index.html"> Users' Manual</a></h3>
-  <h5>Version 5.2 Rev. 0</h5>
-  <hr/>
-  <div>
-    <ul class="toctop">
-      <li><a href="license.html">Ent License</a></li>
-      <li><a href="intro.html">Introduction</a></li>
-      <li><a href="install.html">Installation</a></li>
-      <li><a href="admin.html">Administration</a>
-        <ul class="level2">
-          <li><a href="ServerStat_Help.html">Service Manager</a></li>
-        </ul>
-      </li>
-      <li><a href="security.html">Security</a></li>
-      <li><a href="config.html">Configuration</a>
-        <ul class="level2">
-          <li><a href="ServGeneral_Help.html">Server General</a></li>
-          <li><a href="ServLog_Help.html">Server Log</a></li>
-          <li><a href="ServTuning_Help.html">Server Tuning</a></li>
-          <li><a href="ServSecurity_Help.html">Server Security</a></li>
+<aside class="sidetree ls-col-1-5">
+<h3 class="ls-text-thin">LiteSpeed Web Server <span class="current"><a href="index.html"> Users' Manual</a></span></h3>
+<h5 class="ls-text-muted">Version 5.2 Rev. 0</h5>
+<hr/>
+<div>
+<ul>
+<li><a href="license.html">License Enterprise</a></li>
+<li><a href="intro.html">Introduction</a></li>
+<li><a href="install.html">Installation</a></li>
+<li><a href="admin.html">Administration</a>
+<ul class=" menu level2"><li><a href="ServerStat_Help.html">Service Manager</a></li></ul></li>
+<li><a href="security.html">Security</a></li>
+<li><a href="config.html">Configuration</a>
+	<ul class="level2">
+	<li><a href="ServGeneral_Help.html">Server General</a></li>
+        <li><a href="ServLog_Help.html">Server Log</a></li>
+	<li><a href="ServTuning_Help.html">Server Tuning</a></li>
+	<li><a href="ServSecurity_Help.html">Server Security</a></li>
           <li><a href="Cache_Help.html">Page Cache</a></li>
           <li><a href="PageSpeed_Config.html">PageSpeed Settings</a></li>
           <li><a href="ExtApp_Help.html">External Apps</a></li>
@@ -67,5 +64,6 @@
         </ul>
       </li>
     </ul>
-  </div>
+ 
 </div>
+</aside>

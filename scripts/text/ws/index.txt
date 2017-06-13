@@ -1,18 +1,21 @@
-<header>
-<h1>LiteSpeed Web Server 5.2 <br/>
-Users' Manual<br/>
-Rev. 0</h1>
+<header class="ls-spacer-small-top">
+    <h1 class="ls-text-thin ls-text-xlarge ls-text-blue">LiteSpeed Web Server</h1>
+    <h1 class="ls-text-thin ls-text-xlarge ls-spacer-micro-bottom">Users' Manual</h1>
+    <h1 class="ls-text-thin ls-text-muted ls-text-medium">&nbsp;Version 5.1&#8212; Rev. 4</h1>
+</header>
+<hr />
+
+<header class="ls-spacer-small-top">
+<h3 class="ls-text-thin ls-text-large ls-spacer-small-bottom">Table of Contents</h3>
 </header>
 
-<h3>Table of Contents</h3>
-<div>
-<ol class="toctop">
-<li><a href="license.html">Enterprise License</a></li>
-<li><a href="intro.html"><strong>Introduction</strong></a></li>
-<li><a href="install.html"><strong>Installation/Uninstallation</strong></a></li>
-<li><strong><a href="admin.html">Administration</a>/<a href="ServerStat_Help.html">Service Manager</a></strong></li>
-<li><a href="security.html"><strong>Security</strong></a></li>
-<li><a href="config.html"><strong>Configurations</strong></a></li>
+<ol class="toctop ls-text-style-upper-roman">
+<li class="ls-text-thinner ls-text-medium"><span class="ls-toc-text-right"><a href="license.html">License Enterprise</a></li></span>
+<li class="ls-text-thinner ls-text-medium"><span class="ls-toc-text-right"><a href="intro.html">Introduction</a></li></span>
+<li class="ls-text-thinner ls-text-medium"><span class="ls-toc-text-right"><a href="install.html">Installation/Uninstallation</a></li></span>
+<li class="ls-text-thinner ls-text-medium"><span class="ls-toc-text-right"><a href="admin.html">Administration</a>/<a href="ServerStat_Help.html">Service Manager</a></li></span>
+<li class="ls-text-thinner ls-text-medium"><span class="ls-toc-text-right"><a href="security.html">Security</a></li></span>
+<li class="ls-text-thinner ls-text-medium"><span class="ls-toc-text-right"><a href="config.html">Configurations</a></li></span>
 </ol>
-<p>For more information, visit our <b><a href="https://www.litespeedtech.com/support/wiki/doku.php">LiteSpeed Wiki</a></b></p>
-</div>
+<p class="ls-spacer-large-top ls-toc-text-right">For more information, visit our <a href="https://www.litespeedtech.com/support/wiki/doku.php" class="ls-text-small">LiteSpeed Wiki</a></p>
+

@@ -69,7 +69,7 @@ class DocPage extends Item
 		//$buf = GenTool::getHeader($this->getDefaultValue('NAME'));//header name still show english
 		$buf = GenTool::getHeader($this->getValueInLang('NAME'));
 		$buf .= GenTool::getSideTree("{$id}.html");
-		$buf .= '<div class="contentwrapper">' . GenTool::getNavBar($this->_nav);
+		$buf .= '<article class="contentwrapper ls-col-3-5 clearfix">' . GenTool::getNavBar($this->_nav);
 
 		$webbuf = '';
 
@@ -79,13 +79,13 @@ class DocPage extends Item
 		else {
 			$webbuf .= '<h1>' . $this->getValueInLang('NAME') . '</h1>';
 			if ( $desc = $this->getValueInLang('DESCR')) {
-				$webbuf .= '<p>' . $desc . "</p>\n";
+				$webbuf .= '<section class="ls-spacer-small-bottom">' . $desc . "</section>\n";
 			}
 
 			$helpList = array();
 			if ( $this->_tables )
 			{
-				$webbuf .= '<h4>' . GenTool::getTerm('label_toc') . '</h4>';
+				$webbuf .= '<h2 id="top">' . GenTool::getTerm('label_toc') . '</h2>';
 				$webbuf .= '<section class="toc">';
 
 				foreach ( $this->_tables as $table )
@@ -116,7 +116,7 @@ class DocPage extends Item
 
 		$buf .= $webbuf;
 
-		$buf .= '</div>'; // contentwrapper
+		$buf .= '</article>'; // contentwrapper
 		$buf .= GenTool::getFooter();
 
         $docname = $config->getOutputDir('docs') . $id . '.html';

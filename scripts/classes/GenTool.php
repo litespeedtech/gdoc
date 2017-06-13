@@ -65,7 +65,7 @@ class GenTool
   <link rel="stylesheet" type="text/css" href="{$imgpath}css/hdoc.css">
 </head>
 <body>
-<div class="pagewrapper">
+<div class="pagewrapper clearfix">
 EOD;
 
         return $buf ;
@@ -91,11 +91,12 @@ EOD;
 
     public static function getFooter()
     {
-        $footer =  '<footer class="copyright">' 
+        $footer =  '<div  class="ls-col-1-1"><footer class="copyright">' 
 				. self::getTerm('copyright') . ' &copy; ' . Config::GetFooterYear()
                 . '. <a href="https://www.litespeedtech.com">LiteSpeed Technologies Inc.</a> ' 
 				. self::getTerm('all_rights_reserved') . '</footer>'
-                . "\n</div>\n</body>\n</html>" ;
+                . "\n</div></div>\n</body>\n</html>" ;
+
         return $footer;
     }
 
@@ -104,7 +105,7 @@ EOD;
         if ( $nav['prev'] == NULL && $nav['top'] == NULL && $nav['next'] == NULL )
             return '' ;
 
-        $buf = '<div class="nav-bar"><div class="prev">' ;
+        $buf = '<div class="nav-bar ls-spacer-micro-top"><div class="prev">' ;
         if ( $nav['prev'] ) {
             $buf .= '&#171 <a href="' . $nav['prev']->getId() . '.html">' . $nav['prev']->getName() . '</a>' ;
         }
