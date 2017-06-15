@@ -33,8 +33,8 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance & security] For best security select {val}No{/} or {val}If Owner Match{/}. 
-For best performance, select {val}Yes{/}. 
+TIPS: <span title="Information" class="ls-icon-info"></span><span title="Performance" class="ls-icon-performance"></span><span title="Security" class="ls-icon-security"></span> For best security select {val}No{/} or {val}If Owner Match{/}. 
+For best performance, select {val}Yes{/}.
 END_TIPS
 
 [END_ITEM]
@@ -65,7 +65,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance & security] For best security, enable this option. For best performance, disable it.
+TIPS: {P}{S} For best security, enable this option. For best performance, disable it.
 END_TIPS
 
 [END_ITEM]
@@ -92,7 +92,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [security] For shared hosting, enable this check for better security.
+TIPS: <a href="javascript:;" title="Security">&#128737</a> For shared hosting, enable this check for better security.
 END_TIPS
 
 [END_ITEM]
@@ -990,7 +990,7 @@ SYNTAX: Comma delimited list of IP addresses or sub-networks.
 A trailing "T" can be used to indicate a trusted IP or sub-network, such as {val}192.168.1.*T{/}.
 END_SYNTAX
 
-EXAMPLE: <br />
+EXAMPLE:
 <b>Sub-networks:</b> 192.168.1.0/255.255.255.0, 192.168.1.0/24, 192.168.1, or
 192.168.1.*
 
@@ -1027,7 +1027,7 @@ SYNTAX: Comma delimited list of IP addresses or sub-networks.
 {val}*{/} or {val}ALL{/} are accepted. 
 END_SYNTAX
 
-EXAMPLE: <br />
+EXAMPLE:
 <b>Sub-networks:</b> 192.168.1.0/255.255.255.0, 192.168.1.0/24, 192.168.1, or
 192.168.1.*
 

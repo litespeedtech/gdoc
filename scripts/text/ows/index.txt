@@ -1,18 +1,23 @@
+<section class="ls-index">
 <header>
-<h1>OpenLiteSpeed Web Server 1.4<br/>
-Users' Manual<br/>
-Rev. 3</h1>
+    <h1>OpenLiteSpeed Web Server 1.4</h1>
+    <h1>Users' Manual</h1>
+    <h1>&#8212;&nbsp;Rev. 3</h1>
+</header>
+<hr />
+
+<header>
+<h3>Table of Contents</h3>
 </header>
 
-<h3>Table of Contents</h3>
-<div>
-<ol class="toctop">
-<li><a href="license.html"><strong>License</strong></a></li>
-<li><a href="intro.html"><strong>Introduction</strong></a></li>
-<li><a href="install.html"><strong>Installation/Uninstallation</strong></a></li>
-<li><a href="admin.html"><strong>Administration</strong></a></li>
-<li><a href="security.html"><strong>Security</strong></a></li>
-<li><a href="config.html"><strong>Configurations</strong></a></li>
+
+<ol>
+<li><span><a href="license.html">License</a></span></li>
+<li><span><a href="intro.html">Introduction</a></span></li>
+<li><span><a href="install.html">Installation/Uninstallation</a></span></li>
+<li><span><a href="admin.html">Administration</a></span></li>
+<li><span><a href="security.html">Security</a></span></li>
+<li><span><a href="config.html">Configurations</a></span></li>
 </ol>
-<p>For more information, visit our <b><a href="http://open.litespeedtech.com/mediawiki/">OpenLiteSpeed Wiki</a></b></p>
-</div>
+<p>For more information, visit our <a href="http://open.litespeedtech.com/mediawiki/">OpenLiteSpeed Wiki</a></p>
+</section>

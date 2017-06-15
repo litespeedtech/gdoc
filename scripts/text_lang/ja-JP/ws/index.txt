@@ -1,18 +1,21 @@
+<section class="ls-index">
 <header>
-<h1>LiteSpeed Web Server 5.2 <br/>
-ユーザーズマニュアル<br/>
-Rev. 0</h1>
+<h1>LiteSpeed Web Server 5.2 </h1>
+<h1>ユーザーズマニュアル </h1>
+<h1>&#8212;&nbsp;Rev. 0</h1>
 </header>
+<hr />
 
+<header>
 <h3>目次</h3>
-<div>
-<ol class="toctop">
+</header>
+<ol>
 <li><a href="license.html">Enterprise ライセンス</a></li>
-<li><a href="intro.html"><strong>はじめに</strong></a></li>
-<li><a href="install.html"><strong>インストール/アンインストール</strong></a></li>
-<li><strong><a href="admin.html">管理</a>/<a href="ServerStat_Help.html">サービスマネージャ</a></strong></li>
-<li><a href="security.html"><strong>セキュリティ</strong></a></li>
-<li><a href="config.html"><strong>設定</strong></a></li>
+<li><a href="intro.html">はじめに</a></li>
+<li><a href="install.html">インストール/アンインストール</a></li>
+<li><strong><a href="admin.html">管理</a>/<a href="ServerStat_Help.html">サービスマネージャ</a></li>
+<li><a href="security.html">セキュリティ</a></li>
+<li><a href="config.html">設定</a></li>
 </ol>
-<p>詳細については、<b><a href="https://www.litespeedtech.com/support/wiki/doku.php">LiteSpeed Wiki</a></b></p>
-</div>
+<p>詳細については、<a href="https://www.litespeedtech.com/support/wiki/doku.php">LiteSpeed Wiki</a>a</p>
+</section>

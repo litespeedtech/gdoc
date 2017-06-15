@@ -344,7 +344,6 @@ SYNTAX: String. The syntax of log format is compatible with Apache 2.0's custom
 END_SYNTAX
 
 EXAMPLE:
-<br>
 <b>Common Log Format (CLF)</b>
 
     "%h %l %u %t \"%r\" %>s %b"

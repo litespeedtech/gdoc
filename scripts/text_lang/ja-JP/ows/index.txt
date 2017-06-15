@@ -1,18 +1,21 @@
+<section class="ls-index">
 <header>
-<h1>OpenLiteSpeed Web Server 1.4<br/>
-ユーザーズマニュアル<br/>
-Rev. 3</h1>
+<h1>OpenLiteSpeed Web Server 1.4</h1>
+<h1>ユーザーズマニュアル</h1>
+<h1>&#8212;&nbsp;Rev. 3</h1>
 </header>
+<hr />
 
+<header>
 <h3>目次</h3>
-<div>
-<ol class="toctop">
-<li><a href="license.html"><strong>ライセンス</strong></a></li>
-<li><a href="intro.html"><strong>はじめに</strong></a></li>
-<li><a href="install.html"><strong>インストール/アンインストール</strong></a></li>
-<li><a href="admin.html"><strong>管理</strong></a></li>
-<li><a href="security.html"><strong>セキュリティ</strong></a></li>
-<li><a href="config.html"><strong>設定</strong></a></li>
+</header>
+<ol>
+<li><span><a href="license.html">ライセンス</a></span></li>
+<li><span><a href="intro.html">はじめに</a></span></li>
+<li><span><a href="install.html">インストール/アンインストール</a></span></li>
+<li><span><a href="admin.html">管理</a></span></li>
+<li><span><a href="security.html">セキュリティ</a></span></li>
+<li><span><a href="config.html">設定</a></span></li>
 </ol>
-<p>詳細については、<b><a href="http://open.litespeedtech.com/mediawiki/">OpenLiteSpeed Wiki</a></b></p>
-</div>
+<p>詳細については、<a href="http://open.litespeedtech.com/mediawiki/">OpenLiteSpeed Wiki</a></p>
+</section>

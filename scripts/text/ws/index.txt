@@ -1,21 +1,22 @@
-<header class="ls-spacer-small-top">
-    <h1 class="ls-text-thin ls-text-xlarge ls-text-blue">LiteSpeed Web Server</h1>
-    <h1 class="ls-text-thin ls-text-xlarge ls-spacer-micro-bottom">Users' Manual</h1>
-    <h1 class="ls-text-thin ls-text-muted ls-text-medium">&nbsp;Version 5.1&#8212; Rev. 4</h1>
+<section class="ls-index">
+<header>
+    <h1>LiteSpeed Web Server 5.1</h1>
+    <h1>Users' Manual</h1>
+    <h1>&#8212;&nbsp;Rev. 4</h1>
 </header>
 <hr />
 
-<header class="ls-spacer-small-top">
-<h3 class="ls-text-thin ls-text-large ls-spacer-small-bottom">Table of Contents</h3>
+<header>
+<h3>Table of Contents</h3>
 </header>
 
-<ol class="toctop ls-text-style-upper-roman">
-<li class="ls-text-thinner ls-text-medium"><span class="ls-toc-text-right"><a href="license.html">License Enterprise</a></li></span>
-<li class="ls-text-thinner ls-text-medium"><span class="ls-toc-text-right"><a href="intro.html">Introduction</a></li></span>
-<li class="ls-text-thinner ls-text-medium"><span class="ls-toc-text-right"><a href="install.html">Installation/Uninstallation</a></li></span>
-<li class="ls-text-thinner ls-text-medium"><span class="ls-toc-text-right"><a href="admin.html">Administration</a>/<a href="ServerStat_Help.html">Service Manager</a></li></span>
-<li class="ls-text-thinner ls-text-medium"><span class="ls-toc-text-right"><a href="security.html">Security</a></li></span>
-<li class="ls-text-thinner ls-text-medium"><span class="ls-toc-text-right"><a href="config.html">Configurations</a></li></span>
+<ol>
+<li><span><a href="license.html">License Enterprise</a></span></li>
+<li><span><a href="intro.html">Introduction</a></span></li>
+<li><span><a href="install.html">Installation/Uninstallation</a></span></li>
+<li><span><a href="admin.html">Administration</a>/<a href="ServerStat_Help.html">Service Manager</a></span></li>
+<li><span><a href="security.html">Security</a></span></li>
+<li><span><a href="config.html">Configurations</a></span></li>
 </ol>
-<p class="ls-spacer-large-top ls-toc-text-right">For more information, visit our <a href="https://www.litespeedtech.com/support/wiki/doku.php" class="ls-text-small">LiteSpeed Wiki</a></p>
-
+<p>For more information, visit our <a href="https://www.litespeedtech.com/support/wiki/doku.php">LiteSpeed Wiki</a></p>
+</section>

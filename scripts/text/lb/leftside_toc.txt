@@ -1,9 +1,12 @@
-<div class="sidetree">
-  <h3>LiteSpeed Load Balancer <a href="index.html"> Users' Manual</a></h3>
-  <h5>Version 2.0 Rev. 10</h5>
+<aside class="sidetree ls-col-1-5">
+      <figure>
+        <img src="img/web-adc_logo.svg" alt="lightspeed web adc logo" width="200px"/>
+      </figure>
+ <h3 class="ls-text-thin">LiteSpeed Web ADC <br /> <a href="index.html"> Users' Manual</a></h3>
+<h5 class="ls-text-muted">Version 2.1 &nbsp;&#8212;&nbsp;Rev. 1</h5>
   <hr/>
   <div>
-    <ul class="toctop">
+    <ul>
       <li><a href="license.html">License</a></li>
       <li><a href="intro.html">Introduction</a></li>
       <li><a href="install.html">Installation</a></li>
@@ -50,4 +53,4 @@
       </li>
     </ul>
   </div>
-</div>
+</aside>

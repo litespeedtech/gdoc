@@ -132,7 +132,7 @@ abstract class Item
 		if ( $this->hasValue('EXAMPLE')) {
 			$buf .= '<h4>' 
 					. GenTool::getTerm('label_example')
-					. '</h4><p class="ls-example">' . $this->getValueInLang('EXAMPLE') . $end;
+					. '</h4><div class="ls-example">' . $this->getValueInLang('EXAMPLE') . '</div>';
         }
 
 		if ( $this->hasValue('TIPS')) {

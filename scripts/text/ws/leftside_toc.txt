@@ -1,6 +1,9 @@
 <aside class="sidetree ls-col-1-5">
-<h3 class="ls-text-thin">LiteSpeed Web Server <span class="current"><a href="index.html"> Users' Manual</a></span></h3>
-<h5 class="ls-text-muted">Version 5.2 Rev. 0</h5>
+      <figure>
+        <img src="img/lsws_logo.svg" alt="lightspeed web server logo" width="100px"/>
+      </figure>
+<h3 class="ls-text-thin">LiteSpeed Web Server <br /><span class="current"><a href="index.html"> Users' Manual</a></span></h3>
+<h5 class="ls-text-muted">Version 5.1 &nbsp;&#8212;&nbsp;Rev. 4</h5>
 <hr/>
 <div>
 <ul>

@@ -1,146 +1,163 @@
-<h1>End-User License Agreement for LiteSpeed
-Software</h1>
 
-<h4>IMPORTANT READ CAREFULLY</h4>
+<section class="ls-eula">
+<h1>End-User License Agreement for LiteSpeed Software</h1>
 
-<pre>
+<h3>IMPORTANT READ CAREFULLY</h3>
+
+<p>
 This End-User License Agreement ("EULA") is a legal agreement between
-"You", the end user (either an individual or a single entity) and Lite
-Speed Technologies Inc. a company registered in New Jersey, United
-States ("LITESPEED") for a software product ("SOFTWARE PRODUCT"). 
-
+"You", the end user (either an individual or a single entity) and
+LiteSpeed Technologies Inc., a company registered in New Jersey, United
+States ("LITESPEED"), for a software product ("SOFTWARE PRODUCT").
+</p>
+<p>
 YOU MUST READ THE TERMS BELOW BEFORE DOWNLOADING, INSTALLING, OR
 OTHERWISE USING THE SOFTWARE PRODUCT. BY DOWNLOADING, INSTALLING, OR
-USING THE SOFTWARE PRODUCT YOU AGREE TO BE AND WILL BE BOUND BY THE
-TERMS OF THIS EULA. IF YOU DO NOT AGREE TO THE TERMS OF THIS EULA, DO
-NOT DOWNLOAD, INSTALL, OR USE THE SOFTWARE PRODUCT AND YOU SHOULD
-DESTROY OR DELETE THE SOFTWARE PRODUCT.
+USING THE SOFTWARE PRODUCT YOU AGREE TO BE AND WILL BE BOUND BY THE TERMS
+OF THIS EULA. IF YOU DO NOT AGREE TO THE TERMS OF THIS EULA, DO NOT
+DOWNLOAD, INSTALL, OR USE THE SOFTWARE PRODUCT.
+</p>
 
-
-1. LICENSE TO USE. 
-In consider of your agreement to comply with the terms and conditions
-under this EULA, LITESPEED hereby grants you a non-exclusive and
+<h4>1. LICENSE TO USE.</h4>
+<p>
+In consideration of your agreement to comply with the terms and
+conditions of this EULA, LITESPEED hereby grants you a non-exclusive and
 nontransferable license to use the SOFTWARE PRODUCT and documentation on
-a computer for which you have paid corresponding fee. You cannot use the 
-SOFTWARE PRODUCT for any illegal activity or to host pornographic 
-content.
-
+a computer for which you have paid the corresponding fee. You may not use
+the SOFTWARE PRODUCT for any illegal activity.
+</p>
+<p>
 1(a) Evaluation Use. Users are granted a trial license to use the
-SOFTWARE PRODUCT for evaluation and trial purpose only for a period not 
-to exceed thirty (30) days. When the license expires, users must either 
-register(purchase a license for continued use) or cease using the 
-SOFTWARE PRODUCT and remove it from their computer. 
-
+SOFTWARE PRODUCT for evaluation and trial purposed only for a period not
+to exceed thirty (30) days. When the trial license expires, users must
+either register (purchase a license for continued use) or cease using the
+SOFTWARE PRODUCT and remove it from their computer.
+</p>
+<p>
 1(b) Permanent Use. Users are granted a permanent license to use the
-SOFTWARE PRODUCT after registration and payment of license fees. Certain
-hardware information of the computer that the software is running on is 
-collected in order to generate the license.
-License registration includes 1 months of Email Support, 1 year of 
-Upgrades. After 1 year registered users can continue using their current 
-version. Additional Support and Upgrade service can be purchased 
-separately for registered users.
+SOFTWARE PRODUCT after registration and payment of licensing fees.
+Certain hardware information for the computer that the software is
+running on is collected in order to generate the license.
+</p>
+<p
+License registration includes 1 month of Email Support and 1 year of
+Upgrades. After 1 year, registered users may continue using their current
+version. Additional Support and Upgrade services can be purchased
+separately by registered users.
+</p>
+<p>
+1(c) This section is applicable to both section 1(a) and 1(b). A single
+license may only be used with one copy of the SOFTWARE PRODUCT. A license
+for the SOFTWARE PRODUCT may not be shared among multiple copies of the
+SOFTWARE PRODUCT running on a same computer or used concurrently on
+different computers. You may access the SOFTWARE PRODUCT through a
+network by multiple remote computers. If You need another copy of the
+SOFTWARE PRODUCT, you must obtain another license.
+</p>
 
-1(c) This section is applicable to both 1(a) and 1(b). One copy of the 
-SOFTWARE PRODUCT may be only used or installed on a single computer used 
-by many people under one license. A license for the SOFTWARE PRODUCT may 
-not be shared for multiple copies running on a same computer or used 
-concurrently on different computers. If you need another copy of the 
-SOFTWARE PRODUCT to be installed you must obtain another license. You may 
-access this program through a network by a number of remote computers. 
+<h4>2. COPYRIGHT AND RESTRICTIONS.</h4>
 
+<p>
+The SOFTWARE PRODUCT and the associated intellectual property are
+protected by copyright laws and international treaty provisions. Title to
+the SOFTWARE PRODUCT and all associated intellectual property rights are
+retained by LITESPEED. Unauthorized copying or use of the SOFTWARE
+PRODUCT, including any portion of the SOFTWARE PRODUCT that has been
+modified, merged, or included with other software, is expressly
+forbidden. Unless prohibited by applicable law, you may not modify,
+decompile, or reverse engineer the SOFTWARE PRODUCT.
+</p>
 
-2. COPYRIGHT AND RESTRICTIONS.
-The SOFTWARE PRODUCT and the associated intellectual property is 
-protected by copyright laws and international treaty provisions. Title
-to the SOFTWARE PRODUCT and all associated intellectual property rights 
-is retained by LITESPEED. Unauthorized copying or use of the SOFTWARE 
-PRODUCT, including any portion of the SOFTWARE PRODUCT that has been 
-modified, merged, or included with other software is expressly forbidden. 
-Unless prohibited by applicable law, you may not modify, decompile, or 
-reverse engineer the SOFTWARE PRODUCT.  
+<h4>3. LIMITED WARRANTY/LIMITATIONS ON LIABILITY.</h4>
 
-
-3. LIMITED WARRANTY/LIMITATIONS ON LIABILITY.
-
+<p>
 3.1 Limited Warranty. With respect to the SOFTWARE PRODUCT licensed under
-Section 1(b) (i.e. permanent license), LITESPEED warrants you and for 
-your benefit only that (a) the SOFTWARE PRODUCT will perform 
-substantially in accordance with the accompanying written materials for 
-a period of thirty (30) days from the date of purchase, and (b) any 
-Support Services provided by LITESPEED shall be substantially as 
-described, and LITESPEED support staff will make commercially reasonable
-efforts to solve any problem issues. If during this time period the 
-SOFTWARE PRODUCT does not perform as warranted, LITESPEED entire 
-liability and your exclusive remedy shall be, at LITESPEED's option, 
-either (a) return of the price paid, if any, or (b) repair or 
-replacement of the SOFTWARE PRODUCT that does not meet this Limited 
-Warranty with a copy of your receipt. This Limited Warranty is void if 
-failure of the SOFTWARE PRODUCT has resulted from accident, abuse, or 
-misapplication. 
-
-3.2 No Other Warranties. EXCEPT AS PROVIDED IN SECTION 3.1, THIS SOFTWARE 
-PRODUCT IS PROVIDED "AS-IS"; LITESPEED MAKES NO REPRESENTATION OR 
-WARRANTIES, EITHER EXPRESSED OR IMPLIED, INCLUDING, WITHOUT LIMITATION, 
-WARRANTIES THAT THE COVERED CODE IS FREE OF DEFECTS, MERCHANTABLE, FIT 
+Section 1(b) (i.e. permanent license), LITESPEED warrants you and for
+your benefit only that (a) the SOFTWARE PRODUCT will perform
+substantially in accordance with the accompanying written materials for
+a period of thirty (30) days from the date of purchase, and (b) any
+Support Services provided by LITESPEED shall be substantially as
+described and LITESPEED support staff will make commercially reasonable
+efforts to solve any problem issues. If, during this time period, the
+SOFTWARE PRODUCT does not perform as warranted, LITESPEED's entire
+liability and your exclusive remedy shall be, at LITESPEED's option, upon
+presentation of a copy of Your receipt, either (a) return of the price
+paid, if any, or (b) repair or replacement of the SOFTWARE PRODUCT that
+does not meet this Limited Warranty. This Limited Warranty is void if
+failure of the SOFTWARE PRODUCT has resulted from accident, abuse, or
+misapplication.
+</p>
+<p>
+3.2 No Other Warranties. EXCEPT AS PROVIDED IN SECTION 3.1, THIS SOFTWARE
+PRODUCT IS PROVIDED "AS-IS"; LITESPEED MAKES NO OTHER REPRESENTATIONS OR
+WARRANTIES, EITHER EXPRESSED OR IMPLIED, INCLUDING, WITHOUT LIMITATION,
+WARRANTIES THAT THE COVERED CODE IS FREE OF DEFECTS, MERCHANTABLE, OR FIT
 FOR A PARTICULAR PURPOSE.
+</p>
+<p>
+3.3 Software Changes. LITESPEED reserves the right at any time not to
+release or to discontinue release of any SOFTWARE PRODUCTS and to alter
+prices, features, specifications, licensing terms, release dates, general
+availability, or other characteristics of the SOFTWARE PRODUCT. LITESPEED
+has no obligation to notify You of any changes of the SOFTWARE PRODUCT or
+any other products or programs.
+</p>
 
-3.3 Software Changes. LITESPEED reserves the right at any time not to 
-release or to discontinue release of any SOFTWARE PRODUCTS and to alter 
-prices, features, specifications, licensing terms, release dates, 
-general availability or other characteristics of the SOFTWARE PRODUCT. 
-LITESPEED has no obligation to notify you of any changes of the SOFTWARE 
-PRODUCT or any other products or programs. 
-
-
-4. LIMITATION OF LIABILITY. 
+<h4>4. LIMITATION OF LIABILITY.</h4>
+<p>
 TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT WILL
 LITESPEED BE LIABLE FOR ANY SPECIAL, INCIDENTAL, INDIRECT, OR
-CONSEQUENTIAL DAMAGES WHATSOEVER (INCLUDING WITHOUT LIMITATION LOSS OF
+CONSEQUENTIAL DAMAGES WHATSOEVER (INCLUDING, WITHOUT LIMITATION, LOSS OF
 PROFITS OR DATA, BUSINESS INTERRUPTION, OR ANY OTHER TANGIBLE OR
-INTANGIBLE PECUNIARY LOSS) ARISING OUT OF THE USE OF OR INABILITY TO USE 
-THE SOFTWARE PRODUCT OR THE PROVISION OF, EVEN IF LITESPEED HAS BEEN 
-ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. LITESPEED IS NOT LIABLE FOR 
-THE CONTENT OF ANY WEB SITES POWERED WITH OUR SOFTWARE.
+INTANGIBLE PECUNIARY LOSS) ARISING OUT OF THE USE OF OR INABILITY TO USE
+THE SOFTWARE PRODUCT OR THE PROVISION OF OR FAILURE TO PROVIDE SUPPORT
+SERVICES, EVEN IF LITESPEED HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
+DAMAGES. LITESPEED IS NOT LIABLE FOR THE CONTENT OF ANY WEB SITES POWERED
+WITH OUR SOFTWARE.
+</p>
 
+<h4>5. TERMINATION.</h4>
 
-5. TERMINATION.
-This EULA shall remain in full force on the date You download, install or 
-otherwise use the SOFTWARE PRODUCT and shall be effective. This EULA will
-terminate immediately without notice from LITESPEED if you fail to comply 
-with any provision of this EULA.  Upon Termination, you must destroy all 
-copies of the SOFTWARE PRODUCT. You may terminate this EULA at any time 
-by destroying all copies of the SOFTWARE PRODUCT. 
+<p>
+This EULA shall be effective from the date You download, install or
+otherwise use the SOFTWARE PRODUCT. This EULA will terminate immediately
+without notice from LITESPEED if you fail to comply with any provision
+of this EULA.  Upon Termination, you must destroy all copies of the
+SOFTWARE PRODUCT. You may terminate this EULA at any time by destroying
+all copies of the SOFTWARE PRODUCT.
+</p>
 
+<h4>6. SEVERABILITY.</h4>
 
-6. SEVERABILITY.
-If any provision of this EULA is held unenforceable, this EULA shall 
-remain in effect with the provision reformed to the extent necessary to 
-make it enforceable, unless to do so would frustrate the intent of the 
+<p>
+If any provision of this EULA is held unenforceable, this EULA shall
+remain in effect with the provision reformed to the extent necessary to
+make it enforceable, unless to do so would frustrate the intent of the
 parties, in which case the EULA will immediately terminate.
+</p>
 
+<h4>7. GOVERNING LAW.</h4>
 
-7. GOVERNING LAW.
-This EULA shall be governed and be construed by the laws of state of New 
+<p>
+This EULA shall be governed and be construed by the laws of state of New
 Jersey and controlling U.S. federal law.
+</p>
 
+<h4>8. EXPORT RESTRICTIONS.</h4>
 
-8. EXPORT RESTRICTIONS
+<p>
 The SOFTWARE PRODUCT may be subject to U.S. export laws or regulations
-and/or export or import regulations in other countries. Each party shall 
-comply fully with all such laws and regulations to the extent applicable 
-and further acknowledges its responsibility to obtain such licenses to 
+and/or export or import regulations in other countries. Each party shall
+comply fully with all such laws and regulations to the extent applicable
+and further acknowledges its responsibility to obtain such licenses to
 export or import as may be required.
+</p>
 
-
-9. U.S. GOVERNMENT. 
-If any or all of the SOFTWARE PRODUCT are being acquired by or on behalf 
-of the U.S. Government or by a U.S. Government prime contractor or 
-subcontractor (at any tier), then the Government's rights in SOFTWARE 
-PRODUCT and accompanying documentation shall be only as set forth in this 
-EULA.
-
-
-Copyright (c) 2002-2007 Lite Speed Technologies Inc. All rights reserved.
-
-</pre>
-
+<h4>9. U.S. GOVERNMENT.</h4>
+<p>
+If any SOFTWARE PRODUCT is being acquired by or on behalf of the U.S.
+Government or by a U.S. Government prime contractor or subcontractor (at
+any tier), then the Government's rights in SOFTWARE PRODUCT and
+accompanying documentation shall be only as set forth in this EULA.
+</p>
+</section>
