@@ -124,7 +124,7 @@ class DocPage extends Item
 
         if ($config->getForWeb()) {
 			$docname = $config->getOutputDir('web') . $id . '.html';
-			$webbuf = '<div class="lsdoc_content">' . $webbuf . '</div>';
+			$webbuf = '<div id="lsdoc_content">' . $webbuf . '</div>';
 			GenTool::writePage($docname, $webbuf);
 		}
 	}

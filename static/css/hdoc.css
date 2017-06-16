@@ -177,22 +177,10 @@ a:hover{ color: #4caf50; }
 .nav-bar .center {text-align: center; float: left; width: 33%;}
 .nav-bar .next {text-align: right; float: right; width: 33%;}
 
-/*info, performance and security icons 
-.ls-icon-performance:before {
-    content: "\26A1";
-    font-size: 12pt;
-    color:#598bd9;
-}
 
-.ls-icon-security:before {
-    content: "\1F6E1";
-    font-size: 12pt;
-    color:#e6b800;
-}
-*/
 .ls-icon-performance {
     display: inline-block;
-    background: url(../img/lightning-bolt.svg)no-repeat;
+    background: url(/docs/img/lightning-bolt.svg)no-repeat;
     width: 16px;
     height: 14px;
     background-size: contain;
@@ -200,7 +188,7 @@ a:hover{ color: #4caf50; }
 
 .ls-icon-security {
     display: inline-block;
-    background: url(../img/shield.svg)no-repeat;
+    background: url(/docs/img/shield.svg)no-repeat;
     width: 16px;
     height: 14px;
     background-size: contain;
@@ -208,8 +196,16 @@ a:hover{ color: #4caf50; }
 
 .ls-icon-info {
     display: inline-block;
-    background: url(../img/info.svg)no-repeat;
+    background: url(/docs/img/info.svg)no-repeat;
     width: 16px;
     height: 14px;
     background-size: contain;
+}
+
+.ls-permlink a:after {
+    content: "\00a0 \0023";
+    color: #ccc;
+}
+.ls-permlink a:hover::after {
+    color: #96926e;
 }

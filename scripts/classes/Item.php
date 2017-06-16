@@ -109,7 +109,7 @@ abstract class Item
         
 		$buf = '<article class="ls-helpitem">';
 		$buf .= '<div><header id="' . $this->getId() . '"><h3>'.$this->getName('NAME') ;
-		$buf .= '<span class="top"><a href="#top">&#8657;</a></span></h3></header></div>';
+		$buf .= '<span class="ls-permlink"><a href="#' . $this->getId() . '"></a></span><span class="top"><a href="#top">&#8657;</a></span></h3></header></div>';
         
 		$buf .= '<h4>' . GenTool::getTerm('label_description') 
 				. '</h4><p>' . $this->getValueInLang('DESCR') . $end;

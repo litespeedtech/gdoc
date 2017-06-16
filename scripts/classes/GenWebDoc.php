@@ -131,12 +131,6 @@ class GenWebDoc
 			$url_convert['search'][] = $id . '.html' ;
 			$url_convert['replace'][] = $urlPrefix . $link ;
 		}
-		$url_convert['search'][] = '<h1>' ;
-		$url_convert['replace'][] = '<h2>' ;
-		$url_convert['search'][] = '</h1>' ;
-		$url_convert['replace'][] = '</h2>' ;
-		$url_convert['search'][] = 'img/top.gif' ;
-		$url_convert['replace'][] = '/static/image/top.gif' ;
 
 		return $url_convert;
 	}
