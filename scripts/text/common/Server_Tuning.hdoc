@@ -219,7 +219,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] Set this as low as you can to help recover dead 
+TIPS: [S] Set this as low as you can to help recover dead 
 connections during a potential DoS attack.
 END_TIPS
 
@@ -246,7 +246,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Set this to a reasonably high value. A value of "1" or "0" will disable keep-alive.
+TIPS: [P] Set this to a reasonably high value. A value of "1" or "0" will disable keep-alive.
 END_TIPS
 
 [END_ITEM]
@@ -279,7 +279,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Enable this for high-load web sites.
+TIPS: [P] Enable this for high-load web sites.
 END_TIPS
 
 [END_ITEM]
@@ -305,7 +305,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security & Performance] We recommend that you set this value just long enough to wait for subsequent requests from
+TIPS: [S][P] We recommend that you set this value just long enough to wait for subsequent requests from
  a client when there are more assets referenced by a single page that need to be loaded. Do not set this too long hoping that
  the next page will be served over the keep-alive connection. Keeping many idle keep-alive connections is a waste of server 
 resources and could be taken advantage of by (D)DoS attacks. {val}2-5{/} seconds is a  reasonable range for most 
@@ -340,13 +340,13 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] It is recommended to leave this value as "Not Set" or set to 0 to use the operating system's default 
+TIPS: [P] It is recommended to leave this value as "Not Set" or set to 0 to use the operating system's default 
 buffer size.
 
-[Performance] If your web site serves large static files, increase the send buffer
+[P] If your web site serves large static files, increase the send buffer
  size to improve performance.
 
-[Performance] Setting this to a lower value will reduce throughput and memory usage per socket allowing the server to have 
+[P] Setting this to a lower value will reduce throughput and memory usage per socket allowing the server to have 
 more concurrent sockets when memory is a bottleneck.
 END_TIPS
 
@@ -371,13 +371,13 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] It is recommended to leave this value as "Not Set" or set to 0 to use the operating system's default 
+TIPS: [P] It is recommended to leave this value as "Not Set" or set to 0 to use the operating system's default 
 buffer size.
 
-[Performance] A large receive buffer will increase performance when processing
+[P] A large receive buffer will increase performance when processing
  incoming requests with large payloads, i.e. file uploads.
 
-[Performance] Setting this to a lower value will reduce throughput and memory usage per socket allowing the server to have 
+[P] Setting this to a lower value will reduce throughput and memory usage per socket allowing the server to have 
 more concurrent sockets when memory is a bottleneck.
 END_TIPS
 
@@ -406,7 +406,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security & Performance] Set it reasonably low to reduce memory usage 
+TIPS: [S][P] Set it reasonably low to reduce memory usage 
 and help identify bogus requests and DoS attacks. 
 
 2-3K is big enough for most web sites unless the HTTP GET method is used with large query strings instead of POST.
@@ -437,7 +437,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security & Performance] Set it reasonably low to reduce memory usage and 
+TIPS: [S][P] Set it reasonably low to reduce memory usage and 
 help identify bogus requests and DoS attacks.
 
 4-8K is big enough for most web sites.
@@ -465,7 +465,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] To help prevent DoS attacks, try to constrain this limit to only what is really needed. 
+TIPS: [S] To help prevent DoS attacks, try to constrain this limit to only what is really needed. 
 Your swapping space must have enough free space to accommodate this limit.
 END_TIPS
 
@@ -785,7 +785,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Enable it to save network bandwidth. Text-based responses such as 
+TIPS: [P] Enable it to save network bandwidth. Text-based responses such as 
 html, css, and javascript files benefit the most and on average can be compressed to half 
 of their original size.
 END_TIPS
@@ -816,7 +816,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Compressing dynamic responses increases CPU and memory 
+TIPS: [P] Compressing dynamic responses increases CPU and memory 
 utilization but saves network bandwidth. 
 END_TIPS
 
@@ -845,7 +845,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Higher compression level will use more memory and CPU cycles. 
+TIPS: [P] Higher compression level will use more memory and CPU cycles. 
 You can set it to a higher level if your machine has additional power. There is not much difference
 between 6 and 9, except 9 uses many more CPU cycles.
 END_TIPS
@@ -878,7 +878,7 @@ EXAMPLE: If you want to compress text/* but not text/css, you can have a rule li
 {val}text/*, !text/css{/}. "!" will exclude that MIME type.
 END_EXAMPLE
 
-TIPS: [Performance] Only allow types that will benefit from GZIP compression. Binary 
+TIPS: [P] Only allow types that will benefit from GZIP compression. Binary 
 files such as gif/png/jpeg images and flash files do not benefit from compression.
 END_TIPS
 
@@ -984,7 +984,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] It is not recommended to have the server create/update
+TIPS: [P] It is not recommended to have the server create/update
 compressed files for large files. Compressing blocks an entire server process and 
 no further requests can be processed until the compression is completed.
 END_TIPS

@@ -137,7 +137,8 @@ abstract class Item
 
 		if ( $this->hasValue('TIPS')) {
 			$buf .= '<h4>'
-					. GenTool::getTerm('label_tips') . '</h4><p>' . $this->getValueInLang('TIPS') . $end;
+					. GenTool::getTerm('label_tips') . '</h4><p>' 
+                    . GenTool::translateTipMarker($this->getValueInLang('TIPS')) . $end;
         }
 
 		if ( $seeAlso = $this->hasValue('SEE_ALSO') )
@@ -303,7 +304,7 @@ abstract class Item
 
 		$tip = '';
         if ( $this->hasValue('TIPS') ) {
-            $tip = GenTool::translateTagForTips($this->getValueInLang('TIPS'));
+            $tip = GenTool::translateTagForTips(GenTool::translateTipMarker($this->getValueInLang('TIPS'), false));
             $tip = str_replace($search, $replace, $tip);
         }
 

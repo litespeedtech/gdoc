@@ -59,7 +59,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] Disable the administration console when you no longer
+TIPS: [S] Disable the administration console when you no longer
 need to manage users or change configurations.
 END_TIPS
 

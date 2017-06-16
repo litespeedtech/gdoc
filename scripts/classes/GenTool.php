@@ -205,7 +205,23 @@ EOD;
         return $syntax ;
     }
 
-
+    public static function translateTipMarker($tip, $keepMarker = true)
+    {
+        $search = array('[P]', '[S]', '[I]');
+        $replace = array('', '', '');
+        if ($keepMarker) {
+            $replace = array(
+                '<span title="Performance" class="ls-icon-performance"></span>',
+                '<span title="Security" class="ls-icon-security"></span>',
+                '<span title="Information" class="ls-icon-info"></span>'
+            );
+            if ($tip[0] != '[') {
+                $tip = '[I] ' . $tip;
+            }
+        }
+        $new_tip = str_replace($search, $replace, $tip);
+        return $new_tip;
+    }
 
 
 }

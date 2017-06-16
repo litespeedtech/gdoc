@@ -181,7 +181,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] It is recommended to turn off Auto Index wherever
+TIPS: [S] It is recommended to turn off Auto Index wherever
 possible to prevent revealing confidential data.
 END_TIPS
 

@@ -27,7 +27,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] Only enable this when you see {val}no core file created{/} in  
+TIPS: [S] Only enable this when you see {val}no core file created{/} in  
 the server log file. Disable it immediately after producing the core file.  
 Please submit a bug report when a core dump has been created.
 END_TIPS
@@ -54,7 +54,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] Set a proper value for production use, usually less than 300 seconds.
+TIPS: [S] Set a proper value for production use, usually less than 300 seconds.
 END_TIPS
 
 [END_ITEM]

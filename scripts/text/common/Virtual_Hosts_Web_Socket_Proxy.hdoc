@@ -66,12 +66,12 @@ EXAMPLE: 127.0.0.1:5434
 UDS://tmp/lshttpd/php.sock.
 END_EXAMPLE
 
-TIPS: [Security] If the WebSocket backend runs on the same machine, 
+TIPS: [S] If the WebSocket backend runs on the same machine, 
 UDS is preferred. If you have to use an IPv4 or IPv6 socket, 
 set the IP address to localhost or 127.0.0.1, so the WebSocket backend 
 is inaccessible from other machines.
 
-[Performance] Unix Domain Sockets generally provide higher performance than IPv4 or IPv6 sockets.
+[P] Unix Domain Sockets generally provide higher performance than IPv4 or IPv6 sockets.
 END_TIPS
 
 [END_ITEM]

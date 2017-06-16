@@ -26,7 +26,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Assign a dedicated disk or disk array as the cache
+TIPS: [P] Assign a dedicated disk or disk array as the cache
 storage. RAID0 is recommended.
 
 
@@ -85,7 +85,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [performance] A separate location on a fast disk is recommended to prevent the accidental removal of cache manager files.
+TIPS: [P] A separate location on a fast disk is recommended to prevent the accidental removal of cache manager files.
 Only set to a location on a RAM disk if cache storage is also saved on a RAM disk.
 END_TIPS
 

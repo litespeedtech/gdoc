@@ -87,7 +87,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] If your machine has multiple IPs on different sub-networks, 
+TIPS: [S] If your machine has multiple IPs on different sub-networks, 
 you can select a specific IP to only allow traffic from the corresponding sub-network.
 END_TIPS
 
@@ -328,7 +328,7 @@ EXAMPLE: www?.example.com
 "*" by itself is the catchall domain and will match any unmatched domain names.
 END_EXAMPLE
 
-TIPS: [Performance] If a listener is dedicated to one virtual host, 
+TIPS: [P] If a listener is dedicated to one virtual host, 
 always use {val}*{/} for the domain name to avoid unnecessary
 checking. Domain names with wildcard characters  (other than the catchall domain) 
 should be avoided whenever possible.
@@ -387,7 +387,7 @@ When there is no explicitly matched domain name in the listener's mapping,
 the listener will forward the request to that catchall virtual host.
 END_DESCR
 
-TIPS: [Performance] Only add necessary mappings. If the listener is mapped  
+TIPS: [P] Only add necessary mappings. If the listener is mapped  
 to only one virtual host, then only set up a catchall mapping "*".
 END_TIPS
 

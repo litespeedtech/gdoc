@@ -40,7 +40,7 @@ thus will be handled by the script handler that uses MIME type "application/x-ht
 (suffix "php53"). This then allows you to assign different script handlers, not only for 
 different file suffixes, but also based on the locations of files.
 
-[Performance & Security] Only specify the suffixes you really need.
+[P][S] Only specify the suffixes you really need.
 END_TIPS
 
 [END_ITEM]
@@ -74,7 +74,7 @@ for suffix "php53". Suffixes after the first need to set up in the {ITEM=mime} s
 Though we list suffixes in this field, the script handlers use MIME types, not suffixes, 
 to decide which scripts to handle. 
 
-[Performance & Security] Only specify the suffixes you really need.
+[P][S] Only specify the suffixes you really need.
 END_TIPS
 
 [END_ITEM]

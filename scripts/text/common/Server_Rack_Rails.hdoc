@@ -104,7 +104,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Rack/Rails applications can take a 
+TIPS: [P] Rack/Rails applications can take a 
 large amount of system resources. Thus it is not recommended to set this limit too high, 
 otherwise it may affect the performance of whole server if one user abuses it.
 END_TIPS
@@ -137,7 +137,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS:  [Performance] Ruby processes can take a
+TIPS:  [P] Ruby processes can take a
 large amount of system resources. Thus it is not recommended to set this limit too high,
 otherwise it may affect the performance of the whole server if one user abuses it.
 END_TIPS

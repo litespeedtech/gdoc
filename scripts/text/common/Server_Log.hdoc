@@ -22,7 +22,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Place the log file on a separate disk. 
+TIPS: [P] Place the log file on a separate disk. 
 END_TIPS
 
 [END_ITEM]
@@ -50,7 +50,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Using {val}DEBUG{/} log level does not have any
+TIPS: [P] Using {val}DEBUG{/} log level does not have any
 performance impact, unless {ITEM=log_debugLevel} is set to a level
 other than {val}NONE{/}. It's recommended to set Log Level to {val}DEBUG{/} and
 Debug Level to {val}NONE{/}. These settings mean that you will not fill up your 
@@ -86,7 +86,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Important! Always set this to {val}NONE{/} if you do
+TIPS: [P] Important! Always set this to {val}NONE{/} if you do
 not need detailed debug logging. Active debug logging will severely degrade service performance
 and potentially saturate disk space in a very short time.
 Debug logging includes detailed information for each request and response.
@@ -212,7 +212,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Put access log file on a separate disk.
+TIPS: [P] Put access log file on a separate disk.
 END_TIPS
 
 [END_ITEM]
@@ -389,7 +389,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Turn this off if you do not need these headers in the access log.
+TIPS: [P] Turn this off if you do not need these headers in the access log.
 END_TIPS
 
 [END_ITEM]

@@ -601,7 +601,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] Do not allow Set UID CGI scripts whenever possible, as it
+TIPS: [S] Do not allow Set UID CGI scripts whenever possible, as it
 is inherently a security risk.
 END_TIPS
 
@@ -778,7 +778,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] If there is no need for directory level
+TIPS: [P] If there is no need for directory level
 configuration customization, check {val}None{/}.
 END_TIPS
 

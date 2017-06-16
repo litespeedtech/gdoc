@@ -57,7 +57,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Place different virtual hosts on different hard drives.
+TIPS: [P] Place different virtual hosts on different hard drives.
 END_TIPS
 
 [END_ITEM]
@@ -93,7 +93,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Place different virtual hosts on different hard drives.
+TIPS: [P] Place different virtual hosts on different hard drives.
 END_TIPS
 
 [END_ITEM]
@@ -200,7 +200,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Set to a reasonably high value. A value of "1" or less will 
+TIPS: [P] Set to a reasonably high value. A value of "1" or less will 
 disable keep-alive connections. 
 END_TIPS
 
@@ -228,7 +228,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Enable this for busy web sites.
+TIPS: [P] Enable this for busy web sites.
 END_TIPS
 
 [END_ITEM]
@@ -257,7 +257,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance & security] For better security, disable this feature. For better performance, enable it.
+TIPS: [P][S] For better security, disable this feature. For better performance, enable it.
 END_TIPS
 
 [END_ITEM]
@@ -315,7 +315,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] Turn it on in the shared hosting environment.
+TIPS: [S] Turn it on in the shared hosting environment.
 END_TIPS
 
 [END_ITEM]
@@ -347,7 +347,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] In the shared hosting environment, it is recommended to
+TIPS: [S] In the shared hosting environment, it is recommended to
 use the {val}CGI File UID{/} or {val}Doc Root UID{/} modes to prevent files
 owned by one virtual host from being accessed by the external application scripts of another
 virtual host.

@@ -269,7 +269,7 @@ END_EXAMPLE
 TIPS: {ITEM=toggleDebugLog} will only work if {ITEM=ServGeneral_Help#log_logLevel} 
 is set to {val}DEBUG{/}.
 
-[Performance] Important! Debug logging includes detailed information for each 
+[P] Important! Debug logging includes detailed information for each 
 request and response. Active debug logging will severely degrade service performance
 and potentially saturate disk space in a very short time. This feature should only be 
 used for a short period of time when trying to diagnose server issues. 

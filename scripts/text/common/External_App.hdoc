@@ -259,12 +259,12 @@ EXAMPLE: 127.0.0.1:5434
 UDS://tmp/lshttpd/php.sock.
 END_EXAMPLE
 
-TIPS: [Security] If the external application runs on the same machine, 
+TIPS: [S] If the external application runs on the same machine, 
 UDS is preferred. If you have to use an IPv4|IPV6 socket, 
 set the IP address to {val}localhost{/} or {val}127.0.0.1{/}, 
 so the external application is inaccessible from other machines. 
 
-[Performance] Unix Domain Sockets generally provide higher performance than IPv4 sockets.
+[P] Unix Domain Sockets generally provide higher performance than IPv4 sockets.
 END_TIPS
 
 [END_ITEM]
@@ -294,7 +294,7 @@ https://10.0.8.9
 https://127.0.0.1:5438
 END_EXAMPLE
 
-TIPS: [Security] If you proxy to another web server running on the same machine,  
+TIPS: [S] If you proxy to another web server running on the same machine,  
 set the IP address to {val}localhost{/} or {val}127.0.0.1{/}, 
 so the external application is inaccessible from other machines. 
 
@@ -350,7 +350,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Setting a high value does not directly translate to higher performance. 
+TIPS: [P] Setting a high value does not directly translate to higher performance. 
 Setting the limit to a value that will not overload the external 
 application will provide the best performance/throughput.
 END_TIPS
@@ -752,7 +752,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS:[Performance] If the configured external process has significant startup overhead, like a Rails app, then 
+TIPS:[P] If the configured external process has significant startup overhead, like a Rails app, then 
 this option should be enabled to decrease first page response time. 
 END_TIPS
 [END_ITEM]
@@ -782,7 +782,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] This feature is especially useful in the mass hosting environment. 
+TIPS: [P] This feature is especially useful in the mass hosting environment. 
 In order to prevent files owned by one virtual host from being accessed by the 
 external application scripts of another virtual host, mass hosting often requires 
 many different applications running at the same time in SetUID mode. Set this Max 

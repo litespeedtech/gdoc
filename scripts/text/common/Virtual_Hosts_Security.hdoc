@@ -317,7 +317,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] It is recommended to store user password files outside of the document tree. 
+TIPS: [S] It is recommended to store user password files outside of the document tree. 
 If a user password file has to be placed inside document tree, simply name it with a leading ".ht" 
 like {val}.htuser{/} to prevent it being served as a static file.  LiteSpeed Web Server 
 does not serve files prefixed with ".ht".
@@ -346,7 +346,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] As a larger cache will consume more memory, 
+TIPS: [P] As a larger cache will consume more memory, 
 a higher value may or may not provide better performance. Set it to an appropriate size according 
 to your user database size and site usage.
 END_TIPS
@@ -376,7 +376,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] If the backend database does not change very often, 
+TIPS: [P] If the backend database does not change very often, 
 set a longer timeout for better performance. 
 END_TIPS
 
@@ -433,7 +433,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] It is recommended to store a group file outside the document tree. 
+TIPS: [S] It is recommended to store a group file outside the document tree. 
 If it has to be placed inside document tree, simply name it with a leading ".ht" 
 like {val}.htgroup{/}, to prevent the file being served as a static file.  LiteSpeed Web Server 
 does not serve files prefixed with ".ht".
@@ -460,7 +460,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS:  [Performance] As a larger cache will consume more memory, 
+TIPS:  [P] As a larger cache will consume more memory, 
 a higher value may or may not provide better performance. Set it to an appropriate size according 
 to your user database size and site usage.
 END_TIPS

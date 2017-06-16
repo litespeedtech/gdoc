@@ -33,7 +33,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: <span title="Information" class="ls-icon-info"></span><span title="Performance" class="ls-icon-performance"></span><span title="Security" class="ls-icon-security"></span> For best security select {val}No{/} or {val}If Owner Match{/}. 
+TIPS: [P][S] For best security select {val}No{/} or {val}If Owner Match{/}. 
 For best performance, select {val}Yes{/}.
 END_TIPS
 
@@ -65,7 +65,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: {P}{S} For best security, enable this option. For best performance, disable it.
+TIPS: [P][S] For best security, enable this option. For best performance, disable it.
 END_TIPS
 
 [END_ITEM]
@@ -92,7 +92,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: <a href="javascript:;" title="Security">&#128737</a> For shared hosting, enable this check for better security.
+TIPS: [S] For shared hosting, enable this check for better security.
 END_TIPS
 
 [END_ITEM]
@@ -247,7 +247,7 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: 
-[Security] Trusted IPs or sub-networks are not affected.
+[S] Trusted IPs or sub-networks are not affected.
 END_TIPS
 
 [END_ITEM]
@@ -282,7 +282,7 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: 
-[Security] Trusted IPs or sub-networks are not restrained by this limit.
+[S] Trusted IPs or sub-networks are not restrained by this limit.
 END_TIPS
 
 [END_ITEM]
@@ -314,7 +314,7 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: 
-[Security] Trusted IPs or sub-networks are not effected
+[S] Trusted IPs or sub-networks are not effected
 END_TIPS
 
 [END_ITEM]
@@ -343,10 +343,10 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Set the bandwidth in 8KB units for better performance.
+TIPS: [P] Set the bandwidth in 8KB units for better performance.
 
 
-[Security] Trusted IPs or sub-networks are not affected.
+[S] Trusted IPs or sub-networks are not affected.
 END_TIPS
 
 [END_ITEM]
@@ -376,7 +376,7 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: 
-[Security] Trusted IPs or sub-networks are not affected.
+[S] Trusted IPs or sub-networks are not affected.
 END_TIPS
 
 [END_ITEM]
@@ -422,11 +422,11 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] A lower number will enable serving more distinct clients.
+TIPS: [S] A lower number will enable serving more distinct clients.
 
-[Security] Trusted IPs or sub-networks are not affected. 
+[S] Trusted IPs or sub-networks are not affected. 
 
-[Performance] Set to a high value when you are performing benchmark tests 
+[P] Set to a high value when you are performing benchmark tests 
 with a large number of concurrent client machines.
 END_TIPS
 
@@ -462,11 +462,11 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] A lower number will enable serving more distinct clients.
+TIPS: [S] A lower number will enable serving more distinct clients.
 
-[Security] Trusted IPs or sub-networks are not affected. 
+[S] Trusted IPs or sub-networks are not affected. 
 
-[Performance] Set to a high value when you are performing benchmark tests with a large number of concurrent client machines.
+[P] Set to a high value when you are performing benchmark tests with a large number of concurrent client machines.
 END_TIPS
 
 [END_ITEM]
@@ -519,7 +519,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance & Security] Set to a proper number big enough for downloading 
+TIPS: [P][S] Set to a proper number big enough for downloading 
 a complete page but low enough to prevent deliberate attacks.
 END_TIPS
 
@@ -614,7 +614,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security & Performance] A higher limit does not necessarily translate to faster performance. 
+TIPS: [S][P] A higher limit does not necessarily translate to faster performance. 
 In most cases, a lower limit gives better performance and security. A higher limit will only help 
 when I/O latency is excessive during CGI processing.
 END_TIPS
@@ -643,7 +643,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] Set it high enough to exclude all system/privileged users.
+TIPS: [S] Set it high enough to exclude all system/privileged users.
 END_TIPS
 
 [END_ITEM]
@@ -670,7 +670,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] Set it high enough to exclude all groups used by system users.
+TIPS: [S] Set it high enough to exclude all groups used by system users.
 END_TIPS
 
 [END_ITEM]
@@ -707,7 +707,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] Set it high enough to exclude all groups used by system users.
+TIPS: [S] Set it high enough to exclude all groups used by system users.
 END_TIPS
 
 [END_ITEM]
@@ -952,7 +952,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Security] Of critical importance: This setting only prevents serving static 
+TIPS: [S] Of critical importance: This setting only prevents serving static 
 files from these directories. This does not prevent exposure by external scripts such as PHP/Ruby/CGI.
 END_TIPS
 
@@ -1000,7 +1000,7 @@ EXAMPLE:
 [3ffe:302:11:2:20f:1fff:fe29:717c]/64 
 END_EXAMPLE
 
-TIPS: [Security] Trusted IPs or sub-networks set at the server level access 
+TIPS: [S] Trusted IPs or sub-networks set at the server level access 
 control will be excluded from connection/throttling limits.
 END_TIPS
 
@@ -1153,7 +1153,7 @@ trailing "T". Trusted IPs or sub-networks are not affected by connection/throttl
 Only server level access control can set up trusted IPs/sub-networks.
 END_DESCR
 
-TIPS: [Security] Use this at the server level for general restrictions that apply to all virtual hosts.
+TIPS: [S] Use this at the server level for general restrictions that apply to all virtual hosts.
 END_TIPS
 
 CONT: accessControl_allow accessControl_deny 

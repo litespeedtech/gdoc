@@ -56,7 +56,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Place the log file on a separate disk. 
+TIPS: [P] Place the log file on a separate disk. 
 END_TIPS
 
 [END_ITEM]
@@ -84,7 +84,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Unless {ITEM=ServGeneral_Help#log_debugLevel} is set to a level
+TIPS: [P] Unless {ITEM=ServGeneral_Help#log_debugLevel} is set to a level
 other than {val}NONE{/}, {val}DEBUG{/} log level does not have any
 performance impact and is recommended.
 END_TIPS
@@ -146,7 +146,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Put the access log file on a separate disk.
+TIPS: [P] Put the access log file on a separate disk.
 END_TIPS
 
 [END_ITEM]
@@ -174,7 +174,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Put access log file on a separate disk.
+TIPS: [P] Put access log file on a separate disk.
 END_TIPS
 
 [END_ITEM]
@@ -200,7 +200,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Performance] Put the log file on a separate disk.
+TIPS: [P] Put the log file on a separate disk.
 END_TIPS
 
 [END_ITEM]
