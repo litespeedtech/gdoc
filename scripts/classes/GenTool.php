@@ -207,13 +207,14 @@ EOD;
 
     public static function translateTipMarker($tip, $keepMarker = true)
     {
-        $search = array('[P]', '[S]', '[I]');
-        $replace = array('', '', '');
+        $search = array('[P]', '[S]', '[I]', '[A]');
+        $replace = array('', '', '', '');
         if ($keepMarker) {
             $replace = array(
                 '<span title="Performance" class="ls-icon-performance"></span>',
                 '<span title="Security" class="ls-icon-security"></span>',
-                '<span title="Information" class="ls-icon-info"></span>'
+                '<span title="Information" class="ls-icon-info"></span>',
+                '<span title="Attention" class="ls-icon-attention"></span>'
             );
             if ($tip[0] != '[') {
                 $tip = '[I] ' . $tip;

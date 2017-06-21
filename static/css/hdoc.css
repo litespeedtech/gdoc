@@ -1,3 +1,12 @@
+font-face {
+    font-family: 'Open Sans';
+    src:
+    local('OPENSSANS-REGULAR'),
+    url ('/font/OPENSSANS-REGULAR.TTF')
+    format('truetype');
+
+}
+
 body,td,a,p{font-family: 'Open Sans', sans-serif;}
 
 body {color: #555; font-size: 11pt; background-color: #293e6a;}
@@ -197,6 +206,14 @@ a:hover{ color: #4caf50; }
 .ls-icon-info {
     display: inline-block;
     background: url(/docs/img/info.svg)no-repeat;
+    width: 16px;
+    height: 14px;
+    background-size: contain;
+}
+
+.ls-icon-attention {
+    display: inline-block;
+    background: url(/docs/img/attention.svg)no-repeat;
     width: 16px;
     height: 14px;
     background-size: contain;
