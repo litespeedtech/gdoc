@@ -1,0 +1,277 @@
+[HELPDOC]
+
+
+########## General ##########
+
+
+[ITEM]
+ID: zconf_enabled
+NAME: Enable Zero Config
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: SOME TEXT enable zconf
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: zconf_passwdFile
+NAME: User Password File
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: SOME TEXT user pass
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: zconf_groupFile
+NAME: Group Password File
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: SOME TEXT groupfile
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: zconfShmDir
+NAME: Zconf SHM Directory
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: SOME TEXT shm dir
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## Access Control ##########
+
+
+[ITEM]
+ID: zconf_accessControl_allow
+NAME: Allowed List
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: SOME TEXT allowed list
+END_DESCR
+
+SYNTAX: textarea
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: zconf_accessControl_deny
+NAME: Denied List
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: SOME TEXT deny list
+END_DESCR
+
+SYNTAX: textarea
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## Zconf Listeners ##########
+
+
+[ITEM]
+ID: zconf_laddr
+NAME: Address
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: SOME TEXT laddr
+END_DESCR
+
+SYNTAX: IP:port
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Tables #############
+
+
+[TBL]
+ID: zconf_general
+NAME: General
+
+DESCR: 
+END_DESCR
+
+CONT: zconf_enabled zconf_passwdFile zconf_groupFile zconfShmDir
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: zconfLog
+NAME: Zconf Log
+
+DESCR: 
+END_DESCR
+
+CONT: log_fileName log_logLevel log_debugLevel log_rollingSize
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: zconfAcLog
+NAME: Zconf Access Log
+
+DESCR: 
+END_DESCR
+
+CONT: accessLog_fileName accessLog_pipedLogger accessLog_logFormat accessLog_logHeader log_rollingSize 
+accessLog_keepDays accessLog_compressArchive
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: zconf_accessControl
+NAME: Access Control
+
+DESCR: SOME TEXT ac control 
+END_DESCR
+
+CONT: zconf_accessControl_allow zconf_accessControl_deny
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: zconf_listeners
+NAME: Zconf Listeners
+
+DESCR: SOME DESCRIPTION zconf list
+END_DESCR
+
+CONT: listenerName zconf_laddr keyFile certFile CACertFile
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: ZConf_Help
+NAME: ZeroConfig Settings
+
+DESCR: 
+END_DESCR
+
+CONT: zconf_general zconfLog zconfAcLog zconf_accessControl zconf_listeners
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]
