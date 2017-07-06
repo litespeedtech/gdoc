@@ -239,6 +239,34 @@ END_TIPS
 
 
 [ITEM]
+ID: zconfEnabled
+NAME: Enable Zero Config
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Use zero config managed load balancing and accept traffic bound for zero config enabled backends.
+END_DESCR
+
+EDITTIP: 
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: In order for this setting to take effect, Zero Config must also be enabled at the server level.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: mapped_L4_clusters
 NAME: Mapped Cluster
 NS: L
@@ -349,7 +377,7 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: listenerName listenerType listenerIP listenerPort listenerBinding listenerSecure mapped_L4_clusters
+CONT: listenerName listenerType listenerIP listenerPort listenerBinding listenerSecure zconfEnabled mapped_L4_clusters
 END_CONT
 
 SEE_ALSO: 
