@@ -850,7 +850,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [Attention] Do not over adjust this limit. This may result in 503 errors
+TIPS: [A] Do not over adjust this limit. This may result in 503 errors
 if your application needs more memory. 
 END_TIPS
 
@@ -879,7 +879,7 @@ END_DESCR
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: [Attention] Do not over adjust this limit. This may result in 503 errors
+EXAMPLE: [A] Do not over adjust this limit. This may result in 503 errors
 if your application need more memory. 
 END_EXAMPLE
 
