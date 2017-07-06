@@ -3,7 +3,7 @@
         <img src="img/web-adc_logo.svg" alt="lightspeed web adc logo" width="200px"/>
       </figure>
  <h3 class="ls-text-thin">LiteSpeed Web ADC <br /> <a href="index.html"> Users' Manual</a></h3>
-<h5 class="ls-text-muted">Version 2.1 &nbsp;&#8212;&nbsp;Rev. 1</h5>
+<h5 class="ls-text-muted">Version 2.1 &nbsp;&#8212;&nbsp;Rev. 2</h5>
   <hr/>
   <div>
     <ul>
@@ -25,6 +25,7 @@
           <li><a href="Cache_Help.html">Page Cache</a></li>
           <li><a href="PageSpeed_Config.html">PageSpeed Settings</a></li>
           <li><a href="Listeners_General_Help.html">Listener General</a></li>
+          <li><a href="ZConf_Help.html">ZConf Settings</a></li>
           <li><a href="Listeners_SSL_Help.html">Listener SSL</a></li>
           <li><a href="Clusters_General_Help.html">Cluster General</a></li>
           <li><a href="Clusters_WorkerGroup_Help.html">Cluster Worker Group</a></li>
