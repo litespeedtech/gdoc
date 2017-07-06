@@ -83,6 +83,7 @@ class GenWebDoc
                 'ServSecurity_Help' => 'config/security',
 				'Cache_Help' => 'config/cache',
 				'PageSpeed_Config' => 'config/pagespeed',
+                'ZConf_Help' => '/config/zeroconf',
 				'Listeners_General_Help' => 'config/listener-general',
                 'Listeners_SSL_Help' => 'config/listener-ssl',
                 'Clusters_General_Help' => 'config/cluster-general',
