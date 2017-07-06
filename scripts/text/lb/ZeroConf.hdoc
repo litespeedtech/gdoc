@@ -12,16 +12,16 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: SOME TEXT enable zconf
+DESCR: Choose whether or not to enable the zero config feature.
 END_DESCR
 
-SYNTAX: select
+SYNTAX: bool
 END_SYNTAX
 
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: 
+TIPS: Once enabled at the server level, this feature can be enabled individually per listener. 
 END_TIPS
 
 [END_ITEM]
@@ -36,7 +36,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: SOME TEXT user pass
+DESCR: The location of an HTTP basic authentication user password file.
 END_DESCR
 
 SYNTAX: path
@@ -60,7 +60,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: SOME TEXT groupfile
+DESCR: The location of an HTTP basic authentication group password file.
 END_DESCR
 
 SYNTAX: path
@@ -84,7 +84,8 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: SOME TEXT shm dir
+DESCR: The location where zero config shared memory files are stored. 
+The default directory is <b>$SERVER_ROOT/zconf</b>.
 END_DESCR
 
 SYNTAX: path
@@ -111,13 +112,29 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: SOME TEXT allowed list
+DESCR: Specifies the list of IPs or sub-networks allowed.
+{val}*{/} or {val}ALL{/} are accepted.
 END_DESCR
 
-SYNTAX: textarea
+EDITTIP: Input format can be an IP like 192.168.0.2, a sub-network like 192.168.*, or a subnet/netmask like 192.168.128.5/255.255.128.0.
+END_EDITTIP
+
+EDITTIP: If you have trusted IP or sub-network, then you must specify them in allowed list by adding a trailing "T" such as 
+192.168.1.*T. Trusted IP or sub-network is not limited by connection/throttling limit.
+END_EDITTIP
+
+SYNTAX: Comma delimited list of IP addresses or sub-networks. 
+A trailing "T" can be used to indicate a trusted IP or sub-network, such as {val}192.168.1.*T{/}.
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
+<b>Sub-networks:</b> 192.168.1.0/255.255.255.0, 192.168.1.0/24, 192.168.1, or
+192.168.1.*
+
+<b>IPv6 addresses:</b> ::1 or [::1] 
+
+<b>IPv6 subnets:</b> 3ffe:302:11:2:20f:1fff:fe29:717c/64 or 
+[3ffe:302:11:2:20f:1fff:fe29:717c]/64 
 END_EXAMPLE
 
 TIPS:
@@ -135,13 +152,25 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: SOME TEXT deny list
+DESCR: Specifies the list of IPs or sub-networks disallowed.
 END_DESCR
 
-SYNTAX: textarea
+EDITTIP: To deny access from certain address, put "ALL" in allowed list, and put subnet or IP in denied 
+list. To allow only certain IP or subnet to access the site, put "ALL" in denied list and specify the address in the allowed list.
+END_EDITTIP
+
+SYNTAX: Comma delimited list of IP addresses or sub-networks. 
+{val}*{/} or {val}ALL{/} are accepted. 
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
+<b>Sub-networks:</b> 192.168.1.0/255.255.255.0, 192.168.1.0/24, 192.168.1, or
+192.168.1.*
+
+<b>IPv6 addresses:</b> ::1 or [::1] 
+
+<b>IPv6 subnets:</b> 3ffe:302:11:2:20f:1fff:fe29:717c/64 or 
+[3ffe:302:11:2:20f:1fff:fe29:717c]/64 
 END_EXAMPLE
 
 TIPS: 
@@ -162,7 +191,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: SOME TEXT laddr
+DESCR: Address of listener that will only accept Zconf configuration and control messages.
 END_DESCR
 
 SYNTAX: IP:port
@@ -231,7 +260,8 @@ SEE_ALSO:
 ID: zconf_accessControl
 NAME: Access Control
 
-DESCR: SOME TEXT ac control 
+DESCR: Specifies what sub networks and/or IP addresses can send zero config messages to LiteSpeed Web ADC when
+zero config is enabled.
 END_DESCR
 
 CONT: zconf_accessControl_allow zconf_accessControl_deny
@@ -246,7 +276,7 @@ SEE_ALSO:
 ID: zconf_listeners
 NAME: Zconf Listeners
 
-DESCR: SOME DESCRIPTION zconf list
+DESCR: Secure SSL listeners that will listen for zero config messages only.
 END_DESCR
 
 CONT: listenerName zconf_laddr keyFile certFile CACertFile
@@ -264,7 +294,10 @@ SEE_ALSO:
 ID: ZConf_Help
 NAME: ZeroConfig Settings
 
-DESCR: 
+DESCR: ZeroConfig is a feature that allows authorized client servers to send their configuration 
+(domains, ip addresses, ports, etc.) to LiteSpeed Web ADC. This feature provides an alternative way to set up load 
+balancing dynamically rather than working with the webadmin interface. The ZeroConfig API describes the messages 
+accepted by the ZeroConfig feature. This section provides the interface to enable and configure the ZeroConfig feature.
 END_DESCR
 
 CONT: zconf_general zconfLog zconfAcLog zconf_accessControl zconf_listeners
