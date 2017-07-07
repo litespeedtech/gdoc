@@ -63,12 +63,12 @@ END_TIPS
 
 
 [ITEM]
-ID: enableGzip
-NAME: Enable GZIP
+ID: vhEnableGzip
+NAME: Enable Compression
 REQUIRED: 
 APPLY: 3
 SINCE: 
-SEE_ALSO: {ITEM=ServTuning_Help#enableGzipCompress}, {ITEM=ServTuning_Help#gzipStaticCompressLevel}, {ITEM=ServTuning_Help#enableDynGzipCompress}, {ITEM=ServTuning_Help#gzipCompressLevel}
+SEE_ALSO: {ITEM=ServTuning_Help#enableGzipCompress}, {ITEM=ServTuning_Help#enableBrCompress}
 
 DESCR: Specifies whether to enable GZIP compression for this virtual host. 
 This setting is only effective when GZIP compression is enabled at the server level. 
@@ -82,32 +82,6 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
-ID: spdyAdHeader
-NAME: SPDY Advertisement
-REQUIRED: 
-APPLY: 3
-SINCE: 1.2.5
-SEE_ALSO: 
-
-DESCR: Specifies whether to advertise to clients that SPDY protocol is available. If set, LSWS will send an Alternate-Protocol 
-response header when a client accesses SPDY-enabled websites through an HTTP connection. 
-This requires the website to have both HTTP and HTTPS connections set up, and SPDY support enabled. 
-END_DESCR
-
-SYNTAX: port:protocol string 
-END_SYNTAX
-
-EXAMPLE: If SPDY/3 is enabled on port 443, you can set the string to "443:npn-spdy/3"  
-END_EXAMPLE
-
-TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -318,12 +292,28 @@ END_TIPS
 [TBL]
 ID: vhGeneral
 NAME: General
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: vhMaxKeepAliveReq vhSmartKeepAlive vhEnableGzip enableIpGeo
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: vhGeneral
+NAME: General
 NS: EO
 
 DESCR: 
 END_DESCR
 
-CONT: docRoot vhadminEmails enableGzip enableIpGeo spdyAdHeader 
+CONT: docRoot vhadminEmails vhEnableGzip enableIpGeo
 END_CONT
 
 SEE_ALSO: 
@@ -339,22 +329,6 @@ DESCR:
 END_DESCR
 
 CONT: indexUseServer indexFiles autoIndex autoIndexURI
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
-ID: vhGeneral
-NAME: General
-NS: L
-
-DESCR: 
-END_DESCR
-
-CONT: vhMaxKeepAliveReq vhSmartKeepAlive enableGzip enableIpGeo
 END_CONT
 
 SEE_ALSO: 
