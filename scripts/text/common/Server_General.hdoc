@@ -641,7 +641,7 @@ END_TIPS
 
 [ITEM]
 ID: enableIpGeo
-NAME: Enable IP Geolocation
+NAME: Enable GeoLocation Lookup
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -1565,6 +1565,58 @@ END_TIPS
 
 
 
+############# IP2Location DB #############
+
+
+[ITEM]
+ID: ip2locDBFile
+NAME: IP2Location DB File Path
+NS: LEO
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The location of a valid database file.
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: ip2locDBCache
+NAME: DB Cache Type
+NS: LEO
+REQUIRED: 
+APPLY: 2
+SINCE: 
+
+DESCR: The caching method used. The default value is {val}Memory{/}.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:  
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# Apache Style Configurations #############
 
 
@@ -1838,6 +1890,22 @@ SEE_ALSO:
 
 
 [TBL]
+ID: ip2locDB
+NAME: IP2Location DB
+NS: LEO
+
+DESCR: 
+END_DESCR
+
+CONT: ip2locDBFile ip2locDBCache
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
 ID: apacheConfigFile
 NAME: Using Apache Configuration File
 NS: E
@@ -1885,7 +1953,7 @@ location where LiteSpeed load balancer is installed. For examples, it can be
 your_home_dir/lslb, /opt/lslb, or etc. The load balancer executable is under $SERVER_ROOT/bin. 
 END_DESCR
 
-CONT: servProcess servGeneral geolocationDB 
+CONT: servProcess servGeneral geolocationDB ip2locDB
 END_CONT
 
 SEE_ALSO: 
@@ -1905,7 +1973,7 @@ location where LiteSpeed web server has been installed (your_home_dir/lsws or
 END_DESCR
 
 CONT: servProcess servGeneral servIndex htaccess 
-expire geolocationDB apacheConfigFile apacheConfig
+expire geolocationDB ip2locDB apacheConfigFile apacheConfig
 END_CONT
 
 SEE_ALSO: 
@@ -1924,7 +1992,7 @@ location where LiteSpeed web server has been installed (your_home_dir/lsws or
 /opt/lsws, for example). The server executable is under $SERVER_ROOT/bin. 
 END_DESCR
 
-CONT: servProcess servGeneral servIndex expire fileUpload geolocationDB
+CONT: servProcess servGeneral servIndex expire fileUpload geolocationDB ip2locDB
 END_CONT
 
 SEE_ALSO: 
