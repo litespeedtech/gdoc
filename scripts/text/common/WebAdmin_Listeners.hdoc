@@ -42,7 +42,7 @@ SEE_ALSO:
 [TBL]
 ID: sslFeature
 NAME: Security & Features
-NS: L
+NS: LE
 
 DESCR: 
 END_DESCR
@@ -58,7 +58,7 @@ SEE_ALSO:
 [TBL]
 ID: sslFeature
 NAME: Security & Features
-NS: EO
+NS: O
 
 DESCR: 
 END_DESCR
