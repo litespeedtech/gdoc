@@ -64,7 +64,35 @@ END_TIPS
 
 [ITEM]
 ID: vhEnableGzip
+NAME: Enable GZIP
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=ServTuning_Help#enableGzipCompress}, {ITEM=ServTuning_Help#gzipStaticCompressLevel}, {ITEM=ServTuning_Help#enableDynGzipCompress}, {ITEM=ServTuning_Help#gzipCompressLevel}
+
+DESCR: Specifies whether to enable GZIP compression for this virtual host. 
+This setting is only effective when GZIP compression is enabled at the server level. 
+Compression settings are configured at the server level (Tuning > GZIP).
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhEnableGzip
 NAME: Enable Compression
+NS: EO
 REQUIRED: 
 APPLY: 3
 SINCE: 
