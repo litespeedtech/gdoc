@@ -167,11 +167,8 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: Leaving this field blank will enable TLS v1.0, TLS v1.1, and TLS v1.2 by default. TLS v1.3 will also be enabled if the
-underlying SSL library supports it.
-END_TIPS
-
-TIPS: TLS v1.3 requires BoringSSL.
+TIPS: Leaving this field blank will enable TLS v1.0, TLS v1.1, and TLS v1.2 by default. TLS v1.3 requires BoringSSL and will 
+also be enabled if the underlying SSL library supports it.
 END_TIPS
 
 [END_ITEM]
