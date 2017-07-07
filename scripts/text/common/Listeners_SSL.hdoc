@@ -144,13 +144,15 @@ END_TIPS
 [ITEM]
 ID: sslProtocol
 NAME: Protocol Version
+NS: LEO
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
 DESCR: Specifies which version of the SSL protocol will be used. You can choose from 
-{val}SSL v3.0{/} and {val}TLS v1.0{/}. Since OpenSSL 1.0.1, {val}TLS v1.1{/} and {val}TLS v1.2{/} are also supported. 
+{val}SSL v3.0{/} and {val}TLS v1.0{/}. Since OpenSSL 1.0.1, {val}TLS v1.1{/}, {val}TLS v1.2{/}, and {val}TLS v1.3{/} 
+are also supported. 
 END_DESCR
 
 EDITTIP: "Yes" must be selected for <b>Secure</b> in General > Address Settings.
@@ -165,7 +167,11 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: Leaving this field blank will enable TLS v1.0, TLS v1.1, and TLS v1.2 by default.
+TIPS: Leaving this field blank will enable TLS v1.0, TLS v1.1, and TLS v1.2 by default. TLS v1.3 will also be enabled if the
+underlying SSL library supports it.
+END_TIPS
+
+TIPS: TLS v1.3 requires BoringSSL.
 END_TIPS
 
 [END_ITEM]
@@ -175,13 +181,14 @@ END_TIPS
 [ITEM]
 ID: ciphers
 NAME: Ciphers
+NS: LEO
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
 DESCR: Specifies the cipher suite to be used when negotiating the SSL handshake. 
-LSWS supports cipher suites implemented in SSL v3.0, TLS v1.0, and TLS v1.2.
+LSWS supports cipher suites implemented in SSL v3.0, TLS v1.0, TLS v1.2, and TLS v1.3.
 END_DESCR
 
 SYNTAX: Colon-separated string of cipher specifications.
@@ -297,7 +304,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: 
+TIPS: This setting can be enabled at the listener and virtual host levels. 
 END_TIPS
 
 [END_ITEM]
@@ -324,7 +331,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS:
+TIPS: This setting can be set at the listener and virtual host levels. 
 END_TIPS
 
 [END_ITEM]
@@ -334,7 +341,7 @@ END_TIPS
 [ITEM]
 ID: enableQuic
 NAME: Enable QUIC
-NS: L
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -350,7 +357,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: This setting will override the server level setting.
+TIPS: This setting can be enabled at the listener and virtual host levels and will override the server level setting.
 END_TIPS
 
 [END_ITEM]
