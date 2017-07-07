@@ -1956,7 +1956,7 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT:osTuning connTuning reqTuning gzipTuning brotliTuning sslGlobal sslDynSNI quicTbl
+CONT:osTuning connTuning reqTuning gzipTuning sslGlobal sslDynSNI quicTbl
 END_CONT
 
 SEE_ALSO: 
