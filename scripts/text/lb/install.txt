@@ -3,13 +3,8 @@
 <div class="label2">Minimum system requirements</div>
 <ul>
   <li><span class="label1">Operating System:</span><br>
-    &nbsp;&nbsp;&nbsp;Linux(i386): kernel 2.4 and above, glibc-2.2 and above<br>
-    &nbsp;&nbsp;&nbsp;Solaris(Sparc): SunOS 5.8 and above<br>
-    &nbsp;&nbsp;&nbsp;Solaris(x86): Sun0S 5.8 and above<br>
-    &nbsp;&nbsp;&nbsp;FreeBSD(i386): 4.5 and above<br>
-    &nbsp;&nbsp;&nbsp;MacOSX(Powerpc): 10.3 and above<br>
-    &nbsp;&nbsp;&nbsp;MacOSX(Intel): 10.4 and above<br>
-    &nbsp;&nbsp;&nbsp;Open Darwin: 7.0 and above<br>
+    &nbsp;&nbsp;&nbsp;Linux(x86_64): kernel 2.6 and above<br>
+    &nbsp;&nbsp;&nbsp;FreeBSD(x86_64): 8.0 and above<br>
     <br>
   </li>
   <li><span class="label1">CPU:</span><br>
