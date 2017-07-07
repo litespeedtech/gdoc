@@ -1018,6 +1018,62 @@ END_TIPS
 
 
 
+############# Brotli Compression #############
+
+
+[ITEM]
+ID: enableBrCompress
+NAME: Enable Brotli Compression
+NS: EO
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Controls Brotli compression for static HTTP responses. The default value is enabled.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [P] Enable it to save network bandwidth. Text-based responses such as 
+html, css, and javascript files benefit the most and on average can be compressed to half 
+of their original size.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: brStaticCompressLevel
+NAME: Compression Level (Static File)
+NS: EO
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the level of compression for static content. Ranges 
+from {val}1{/} (lowest) to {val}9{/} (highest). The default is {val}5{/}.
+END_DESCR
+
+SYNTAX: Number between 1 and 9.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ########## SSL Session ##########
 
 
@@ -1392,7 +1448,7 @@ END_TIPS
 [ITEM]
 ID: quicEnable
 NAME: Enable QUIC
-NS: L
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -1417,7 +1473,7 @@ END_TIPS
 [ITEM]
 ID: quicShmDir
 NAME: QUIC SHM Directory
-NS: L
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -1445,7 +1501,7 @@ END_TIPS
 [ITEM]
 ID: quicVersions
 NAME: QUIC Versions
-NS: L
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -1473,7 +1529,7 @@ END_TIPS
 [ITEM]
 ID: quicCfcw
 NAME: Connection Flow Control Window
-NS: L
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -1501,7 +1557,7 @@ END_TIPS
 [ITEM]
 ID: quicMaxCfcw
 NAME: Max Connection Flow Control Window
-NS: L
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -1530,7 +1586,7 @@ END_TIPS
 [ITEM]
 ID: quicSfcw
 NAME: Stream Flow Control Window
-NS: L
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -1558,7 +1614,7 @@ END_TIPS
 [ITEM]
 ID: quicMaxSfcw
 NAME: Max Stream Flow Control Window
-NS: L
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -1587,7 +1643,7 @@ END_TIPS
 [ITEM]
 ID: quicMaxStreams
 NAME: Max Concurrent Streams Per Connection
-NS: L
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -1615,7 +1671,7 @@ END_TIPS
 [ITEM]
 ID: quicHandshakeTimeout
 NAME: Handshake Timeout
-NS: L
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -1643,7 +1699,7 @@ END_TIPS
 [ITEM]
 ID: quicIdleTimeout
 NAME: Idle Timeout
-NS: L
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -1823,6 +1879,22 @@ SEE_ALSO:
 
 
 [TBL]
+ID: brotliTuning
+NAME: Brotli Compression
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: enableBrCompress brStaticCompressLevel
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
 ID: sslGlobal
 NAME: SSL Global Setting
 NS: LEO
@@ -1859,7 +1931,7 @@ SEE_ALSO:
 [TBL]
 ID: quicTbl
 NAME: QUIC
-NS: L
+NS: LE
 
 DESCR:
 END_DESCR
@@ -1884,7 +1956,7 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT:osTuning connTuning reqTuning gzipTuning sslGlobal sslDynSNI quicTbl
+CONT:osTuning connTuning reqTuning gzipTuning brotliTuning sslGlobal sslDynSNI quicTbl
 END_CONT
 
 SEE_ALSO: 
@@ -1900,7 +1972,7 @@ NS: E
 DESCR: 
 END_DESCR
 
-CONT: osTuning connTuning reqTuning staticTuning gzipTuning sslGlobal
+CONT: osTuning connTuning reqTuning staticTuning gzipTuning brotliTuning sslGlobal quicTbl
 END_CONT
 
 SEE_ALSO: 
@@ -1916,7 +1988,7 @@ NS: O
 DESCR: 
 END_DESCR
 
-CONT: osTuning connTuning reqTuning staticTuning gzipTuning sslGlobal
+CONT: osTuning connTuning reqTuning staticTuning gzipTuning brotliTuning sslGlobal
 END_CONT
 
 SEE_ALSO: 
