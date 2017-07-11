@@ -23,7 +23,7 @@
           <li><a href="ServTuning_Help.html">Server Tuning</a></li>
           <li><a href="ServSecurity_Help.html">Server Security</a></li>
           <li><a href="Cache_Help.html">Page Cache</a></li>
-          <li><a href="PageSpeed_Config.html">PageSpeed Settings</a></li>
+          <li><a href="PageSpeed_Config.html">PageSpeed Config</a></li>
           <li><a href="ZConf_Help.html">ZConf Settings</a></li>
           <li><a href="Listeners_General_Help.html">Listener General</a></li>
           <li><a href="Listeners_SSL_Help.html">Listener SSL</a></li>
@@ -34,7 +34,7 @@
           <li><a href="VHGeneral_Help.html">Virtual Host General</a></li>
           <li><a href="VHSecurity_Help.html">Virtual Host Security</a></li>
           <li><a href="VHSSL_Help.html">Virtual Host SSL</a></li>
-          <li><a href="VHPageSpeed_Config.html">Virtual Host PageSpeed Settings</a></li>
+          <li><a href="VHPageSpeed_Config.html">Virtual Host PageSpeed Config</a></li>
           <li><a href="Rewrite_Help.html">Rewrite</a></li>
           <li><a href="Context_Help.html">Context</a></li>
           <ul class="level3">
