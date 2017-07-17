@@ -336,15 +336,17 @@ END_TIPS
 
 
 [ITEM]
-ID: enableQuic
-NAME: Enable QUIC
+ID: allowQuic
+NAME: Allow QUIC
 NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Enables the QUIC network protocol.
+DESCR: Allows the use of the QUIC network protocol for virtual hosts mapped to this listener. 
+For this setting to take effect, {ITEM=ServTuning_Help#quicEnable} must also be set to {val}Yes{/} at the server level. 
+Default value is {val}Yes{/}.
 END_DESCR
 
 SYNTAX:
@@ -354,7 +356,8 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: This setting can be enabled at the listener and virtual host levels and will override the server level setting.
+TIPS: When this setting is set to {val}Yes{/}, QUIC can still be disabled at the virtual host level through the 
+{ITEM=VHSSL_Help#vhEnableQuic} setting.
 END_TIPS
 
 [END_ITEM]
