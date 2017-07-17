@@ -1454,16 +1454,18 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Enables the QUIC network protocol server wide.
+DESCR: Enables the QUIC network protocol server wide. Default value is {val}Yes{/}.
 END_DESCR
 
-SYNTAX: Select from radiobox
+SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: This setting can be overridden at the listener level.
+EXAMPLE:
 END_EXAMPLE
 
-TIPS:
+TIPS: When this setting is set to {val}Yes{/}, QUIC can still be disabled at the listener level through the 
+{ITEM=Listeners_SSL_Help#allowQuic} setting, or at the virtual host level through the 
+{ITEM=VHSSL_Help#vhEnableQuic} setting.
 END_TIPS
 
 [END_ITEM]
@@ -1482,7 +1484,7 @@ SEE_ALSO:
 DESCR: Specifies the directory used to save QUIC data to shared memory.
 
 
-By default, the server's default SHM directory will be used.
+By default, the server's default SHM directory, {val}/dev/shm{/}, will be used.
 END_DESCR
 
 SYNTAX: Path
@@ -1491,7 +1493,7 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: A RAM based partition, such as /dev/shm, is recommended.
+TIPS: A RAM based partition, such as {val}/dev/shm{/}, is recommended.
 END_TIPS
 
 [END_ITEM]
@@ -1510,7 +1512,7 @@ SEE_ALSO:
 DESCR: A list of enabled QUIC versions. Supported versions are Q035 and Q037, other values will be ignored.
 
 
-By default all supported versions are enabled.
+By default all supported versions are enabled. (New versions coming soon)
 END_DESCR
 
 SYNTAX: Comma-separated list
@@ -1519,7 +1521,7 @@ END_SYNTAX
 EXAMPLE: Q035, Q037
 END_EXAMPLE
 
-TIPS:
+TIPS: Leave a supported version out of this list to disable it.
 END_TIPS
 
 [END_ITEM]
@@ -1535,10 +1537,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The initial size of the connection flow control window.
-
-
-Default value is 1.5M.
+DESCR: The initial size of the buffer allocated for a QUIC connection. Default value is {val}1.5M{/}.
 END_DESCR
 
 SYNTAX: Number between 64K and 512M
@@ -1563,11 +1562,12 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum allowed value the stream flow control window is allowed to reach due to window auto-tuning.
+DESCR: Specifies the maximum size that a connection flow control window buffer is allowed to reach due to window 
+auto-tuning.
 
 
-By default, this value is 0, which means that the value of <b>Connection Flow Control Window</b> is used and 
-no size auto-tuning is performed.
+Default value is {val}0{/}, which means that the value of {ITEM=ServTuning_Help#quicCfcw} is used and no auto-tuning 
+is performed.
 END_DESCR
 
 SYNTAX: 0 or a number between 64K and 512M
@@ -1592,10 +1592,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The initial size of the stream flow control window.
-
-
-Default value is 1M.
+DESCR: The initial amount of data a QUIC connection is willing to receive per stream. Default value is {val}1M{/}.
 END_DESCR
 
 SYNTAX: Number between 64K and 128M
@@ -1620,11 +1617,11 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum allowed value the stream flow control window is allowed to reach due to window auto-tuning.
+DESCR: Specifies the maximum size that a stream flow control window is allowed to reach due to window auto-tuning.
 
 
-By default, this value is 0, which means that the value of <b>Stream Flow Control Window</b> is used and no size 
-auto-tuning is performed.
+Default value is {val}0{/}, which means that the value of {ITEM=ServTuning_Help#quicSfcw} is used and no auto-tuning 
+is performed.
 END_DESCR
 
 SYNTAX: 0 or a number between 64K and 128M
@@ -1649,10 +1646,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The maximum number of concurrent streams allowed per connection.
-
-
-Default value is 100.
+DESCR: The maximum number of concurrent streams allowed per QUIC connection. Default value is {val}100{/}.
 END_DESCR
 
 SYNTAX: Integer number between 10 and 1000
@@ -1677,10 +1671,8 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The time in seconds a new connection is given to complete its handshake, after which the connection is aborted.
-
-
-Default value is 10.
+DESCR: The time in seconds a new QUIC connection is given to complete its handshake, after which the connection is 
+aborted. Default value is {val}10{/}.
 END_DESCR
 
 SYNTAX: Integer number between 1 and 15
@@ -1705,10 +1697,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The time in seconds after which a QUIC connection will be closed.
-
-
-Default value is 30.
+DESCR: The time in seconds after which an idle QUIC connection will be closed. Default value is {val}30{/}.
 END_DESCR
 
 SYNTAX: Integer number between 10 and 600
