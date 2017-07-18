@@ -28,7 +28,9 @@
 <h4>Installation Steps:</h4>
 <ol>
 	<li><p>Download and decompress the package into a convenient location:</p>
-	<p class="cmd">wget http://open.litespeedtech.com/packages/openlitespeed.1.0.tgz; tar zxf openlitespeed.1.0.tgz</p>
+	<p class="cmd">
+           wget http://open.litespeedtech.com/packages/openlitespeed-1.4.26.tgz; tar zxf openlitespeed-1.4.26.tgz
+         </p>
 	</li>
 	
 	<li><p>Go to the installation directory, compile, and install the package as the root user (for production use):</p>
