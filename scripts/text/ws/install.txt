@@ -46,7 +46,10 @@
       </li>
       <li> Production license:
         <ol>
-          <li> Licenses can be leased or purchased at the LiteSpeed <a href="http://store.litespeedtech.com">store</a>.</li>
+          <li>
+            Licenses can be leased or purchased at the LiteSpeed 
+            <a href="https://store.litespeedtech.com/store/cart.php">store</a>.
+          </li>
           <li> A serial number will be sent to you in the confirmation email after you order has been successfully processed. Each serial number
             allows for one server installation.</li>
           <li> Save the serial number as "serial.no"; in the installation directory (where
@@ -165,8 +168,8 @@
   </li>
 </ol>
 <p>If you still have problems with installation, please check out our 
-<a href="http://www.litespeedtech.com/support/wiki">wiki</a> or post your problem 
-on our support <a href="http://www.litespeedtech.com/support/forum/">forum</a>. </p>
+<a href="https://www.litespeedtech.com/support/wiki/doku.php">wiki</a> or post your problem 
+on our support <a href="https://www.litespeedtech.com/support/forum/">forum</a>. </p>
 
 
 <h3>Upgrading</h3>
