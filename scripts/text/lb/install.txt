@@ -174,10 +174,10 @@
     </ul>
   </li>
 </ol>
-If you still have problem with installation, please read the up to date <a href="http://www.litespeedtech.com/docs/trouble.html">Trouble 
-Shooting</a> first. Post your problem on our support <a href="http://www.litespeedtech.com/forum/">Forum</a> 
-if you cannot find an answer. <br>
-<br>
+If you still have problem with installation, please post your problem on our support 
+<a href="https://www.litespeedtech.com/support/forum/">Forum</a>.
+<br />
+<br />
 
 <div class="label2">Upgrade</div>
 <p>There are a few scenarios that you need to update the server software or license.</p>
