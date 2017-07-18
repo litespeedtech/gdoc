@@ -1114,7 +1114,7 @@ recommended over FastCGI for supported applications.
 (LSAPI currently supports applications written in PHP, Ruby, and Python.)
 
 For more information about LSAPI, please visit
-{ext-href}http://www.litespeedtech.com/products/litespeed-sapi/overview/{ext-href-end}http://www.litespeedtech.com/products/litespeed-sapi/overview/{ext-href-end-a}.
+{ext-href}https://www.litespeedtech.com/open-source/litespeed-sapi{ext-href-end}https://www.litespeedtech.com/open-source/litespeed-sapi{ext-href-end-a}.
 </li>
 <li>A load balancer is a virtual external application, which assigns
 requests to backend worker applications based on workload. Worker
