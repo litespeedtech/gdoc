@@ -7,8 +7,7 @@
 ID: support
 Q: What kinds of support are available?
 
-A: Various levels  Enterprise Support Contracts are available at our online site: <a href="http://www.litespeedtech.com/support/services/">LiteSpeed Support Services</a>.
-Stand Edition users can get free community based support at the <a href="http://www.litspeedtech.com/forum/">Support Forum</a>.
+A: Various levels of Enterprise Support Contracts are available at: <a href="https://www.litespeedtech.com/support">LiteSpeed Support</a>.
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -22,7 +21,7 @@ Q: How is the performance comparing to other web servers?
 A: For static content, LiteSpeed Enterprise is up to 6 times faster than Apache and matching the performance of 
 RedHat's Content Accelerator TUX, a web server built into the Linux kernel. For dynamic content,
 PHP scripting is up to 50% faster than Apache's mod_php. For more information, please 
-take a look at our <a href="http://litespeedtech.com/benchmark.html">Benchmark</a> page. 
+take a look at our <a href="https://litespeedtech.com/benchmarks">Benchmarks</a> page. 
 If you are interested in comparing them yourself, please read "{QA=HowTo_QA#qa_perf}". 
 END_A
 SEE_ALSO: 
@@ -161,7 +160,7 @@ better than Apache's mod_php. <br>
 With PHP LiteSpeed SAPI, LiteSpeed's PHP performance is upto 100%
 better than Apache's mod_php. <br>
 For more detail, please visit our <a
-href="http://www.litespeedtech.com/benchmark.html">benchmark page</a>.
+href="https://www.litespeedtech.com/benchmarks">benchmarks page</a>.
 END_A
 SEE_ALSO: 
 [END_QA]
@@ -375,8 +374,8 @@ Q: I would like to help, is there anything I can do?
 
 A: Even though LiteSpeed server is not open-source, LiteSpeed embraces the community spirit and 
 all our users can contribute in many ways: feature testing, bug reporting, new feature suggestions, 
-helping others to move to LiteSpeed, and much more. We have a public forum and wiki setup on our online site at 
-<a href="http://www.litespeedtech.com">LiteSpeed Technologies</a>.
+helping others to move to LiteSpeed, and much more. We have a public forum and wiki setup on our site
+<a href="https://www.litespeedtech.com">https://www.litespeedtech.com</a>.
 END_A
 SEE_ALSO: 
 [END_QA]
