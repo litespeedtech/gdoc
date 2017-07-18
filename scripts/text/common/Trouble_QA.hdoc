@@ -8,14 +8,15 @@
 ID: start
 Q: The server would not start, what should I do?
 
-A: <ul>
-<li>Determine whether the server is running already. Stop the running server first.</li>
-<li>If you get complaints when you start the server from command line, fix the complaints.</li>
-<li>Take a look at the server log, which is located at $SERVER_ROOT/logs/error.log or the location you specified.</li>
-<li>Make sure the user who tries to start the web server has write permission to /tmp/lshttpd/, remove the /tmp/lshttpd directory if it exists already.</li>
-<li>Make sure all the files installed still exist. Reinstall server software if needed.</li>
-<li>Post a message on the <a href="http://litespeedtech.com/forum/">forum</a> at LiteSpeed Tech web site, 
-	or contact our <a href="http://litespeedtech.com/support.html">support</a> department if you are a paid customer.</li>
+A:
+<ul>
+  <li>Determine whether the server is running already. Stop the running server first.</li>
+  <li>If you get complaints when you start the server from command line, fix the complaints.</li>
+  <li>Take a look at the server log, which is located at $SERVER_ROOT/logs/error.log or the location you specified.</li>
+  <li>Make sure the user who tries to start the web server has write permission to /tmp/lshttpd/, remove the /tmp/lshttpd directory if it exists already.</li>
+  <li>Make sure all the files installed still exist. Reinstall server software if needed.</li>
+  <li>If the problem persists, post a message on our <a href="https://litespeedtech.com/support/forum/">forum</a>
+    or visit our <a href="https://litespeedtech.com/support">support page</a> for more options.</li>
 </ul>
 
 END_A
@@ -29,7 +30,9 @@ SEE_ALSO:
 ID: crash
 Q: The server crashed, what should I do?
 
-A: Please submit a <a href="http://litespeedtech.com/bugs.html">bug report</a>.
+A: Please submit a bug report by submitting an email to 
+<a href="mailto:bug@litespeedtech.com>bug@litespeedtech.com</a> or posting in our 
+<a href="https://www.litespeedtech.com/support/forum/forums/bug-reports.9/">forum</a>.
 END_A
 
 SEE_ALSO: 
