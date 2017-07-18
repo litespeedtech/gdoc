@@ -548,8 +548,10 @@ A: Usually, you do not need to build your own PHP binary unless you
 <p>First, you need to download the latest PHP source code. If
   php/sapi/litespeed/ directory does not exist in the expanded source
   code tree, you need to download our patch available at 
- <a href="http://www.litespeedtech.com/lsapi/">http://www.litespeedtech.com/lsapi/</a>
-  </p>
+  <a href="https://www.litespeedtech.com/open-source/litespeed-sapi/">
+    https://www.litespeedtech.com/open-source/litespeed-sapi
+  </a>
+</p>
 <p>Then, configure PHP with {cmd}--with-litespeed{/} plus other
   options you will need. Fast CGI related options
   {cmd}--enable-fastcgi--enable-discard-path --disable-path-info-check
