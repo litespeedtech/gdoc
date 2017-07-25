@@ -151,8 +151,8 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies which version of the SSL protocol will be used. You can choose from 
-{val}SSL v3.0{/} and {val}TLS v1.0{/}. Since OpenSSL 1.0.1, {val}TLS v1.1{/}, {val}TLS v1.2{/}, and {val}TLS v1.3{/} 
-are also supported. 
+{val}SSL v3.0{/} and {val}TLS v1.0{/}. Since OpenSSL 1.0.1, {val}TLS v1.1{/}, {val}TLS v1.2{/} are also supported. {val}TLS v1.3{/} 
+is also supported via BoringSSL.
 END_DESCR
 
 EDITTIP: "Yes" must be selected for <b>Secure</b> in General > Address Settings.
