@@ -77,28 +77,6 @@ END_TIPS
 
 
 
-[ITEM]
-ID: spdyAdHeader
-NAME: SPDY 広告
-
-DESCR: SPDYプロトコルが使用可能であることをクライアントに通知するかどうかを指定します。
-設定されている場合、クライアントがHTTP接続を介してSPDY対応のWebサイトにアクセスすると、LSWSは代替プロトコルの応答ヘッダーを送信します。
-これを行うには、WebサイトにHTTPとHTTPSの両方の接続を設定し、SPDYサポートを有効にする必要があります。
-END_DESCR
-
-SYNTAX: ポート:プロトコル 文字列 
-END_SYNTAX
-
-EXAMPLE: ポート443でSPDY/3が有効になっている場合、文字列を "443：npn-spdy/3"に設定できます。
-END_EXAMPLE
-
-TIPS:
-END_TIPS
-
-[END_ITEM]
-
-
-
 ############# Index Files #############
 
 
