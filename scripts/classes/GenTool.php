@@ -29,9 +29,9 @@ class GenTool
 		else {
 			die('wrong ref of term id = '. $id);
 		}
-		
+
 	}
-	
+
     public static function getHeader( $name )
     {
 		$title = '';
@@ -52,7 +52,7 @@ class GenTool
         $e = "\r\n" ;
 
 		$imgpath = Config::GetImagePath();
-		
+
         $buf =<<<EOD
 <!DOCTYPE html>
 <head>
@@ -91,11 +91,11 @@ EOD;
 
     public static function getFooter()
     {
-        $footer =  '<div  class="ls-col-1-1"><footer class="copyright">' 
+        $footer =  '<div  class="ls-col-1-1"><footer class="copyright">'
 				. self::getTerm('copyright') . ' &copy; ' . Config::GetFooterYear()
-                . '. <a href="https://www.litespeedtech.com">LiteSpeed Technologies Inc.</a> ' 
+                . '. <a href="https://www.litespeedtech.com">LiteSpeed Technologies Inc.</a> '
 				. self::getTerm('all_rights_reserved') . '</footer>'
-                . "\n</div></div>\n</body>\n</html>" ;
+                . "\n</div></div>\n</body>\n</html>\n" ;
 
         return $footer;
     }

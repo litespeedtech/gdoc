@@ -17,10 +17,10 @@ abstract class Item
 			switch (Config::DocType()) {
 				case Config::DOC_TYPE_LB:
 					return (strpos($ns, 'L') !== false);
-					
+
 				case Config::DOC_TYPE_WS:
 					return (strpos($ns, 'E') !== false);
-					
+
 				case Config::DOC_TYPE_OLS:
 					return (strpos($ns, 'O') !== false);
 
@@ -44,7 +44,7 @@ abstract class Item
             echo "Fail to get ID for item\n";
         }
     }
-	
+
     public function getName()
     {
         return $this->getValueInLang('NAME');
@@ -63,18 +63,18 @@ abstract class Item
 		$buf .= '<table width="'.$this->_width.'" class="ht" border="0" cellpadding="5" cellspacing="0">' . "\n";
 		$buf .= '<tr class="ht-title"><td><div>'.$this->getName('NAME');
 		$buf .= '<span class="top"><a href="#top"><img border=0 height=13 width=13 alt="Go to top" src="' . $imgpath . 'img/top.gif"></a></span></div>'.$end;
-		$buf .= '<tr><td><span class="ht-label">' . GenTool::getTerm('label_description') 
+		$buf .= '<tr><td><span class="ht-label">' . GenTool::getTerm('label_description')
 				. '</span><p>' . $this->getValueInLang('DESCR') . $end;
 
         if ( $this->hasValue('SYNTAX') )	{
 			$syntax = GenTool::translateSyntax($this->getValueInLang('SYNTAX'));
 			if ( $syntax )
-				$buf .= '<tr><td><span class="ht-label">' 
+				$buf .= '<tr><td><span class="ht-label">'
 					. GenTool::getTerm('label_syntax') . '</span><p>'. $syntax . $end;
 		}
 
         if ( ($apply = $this->hasValue('APPLY')) == 1 ) {
-			$buf .= '<tr><td><span class="ht-label">' 
+			$buf .= '<tr><td><span class="ht-label">'
 					. GenTool::getTerm('label_apply')
 					. '</span><p>';
 			$buf .= GenTool::getTerm('apply_1');
@@ -82,7 +82,7 @@ abstract class Item
 		}
 
 		if ( $this->hasValue('EXAMPLE')) {
-			$buf .= '<tr><td><span class="ht-label">' 
+			$buf .= '<tr><td><span class="ht-label">'
 					. GenTool::getTerm('label_example')
 					. '</span><p>' . $this->getValueInLang('EXAMPLE') . $end;
         }
@@ -93,36 +93,36 @@ abstract class Item
         }
 
 		if ( $seeAlso = $this->hasValue('SEE_ALSO') )
-			$buf .= '<tr><td><span class="ht-label">' 
+			$buf .= '<tr><td><span class="ht-label">'
 				. GenTool::getTerm ('label_seealso')
 				. '</span><p>'. $seeAlso . $end;
 
 		$buf .= "</table>\n";
 		return $buf;
 	}
-	
+
 
 	public function toDoc()
 	{
 		$end = "</p>\n";
 		$imgpath = Config::GetImagePath();
-        
+
 		$buf = '<article class="ls-helpitem">';
 		$buf .= '<div><header id="' . $this->getId() . '"><h3>'.$this->getName('NAME') ;
 		$buf .= '<span class="ls-permlink"><a href="#' . $this->getId() . '"></a></span><span class="top"><a href="#top">&#8657;</a></span></h3></header></div>';
-        
-		$buf .= '<h4>' . GenTool::getTerm('label_description') 
+
+		$buf .= '<h4>' . GenTool::getTerm('label_description')
 				. '</h4><p>' . $this->getValueInLang('DESCR') . $end;
 
         if ( $this->hasValue('SYNTAX') )	{
 			$syntax = GenTool::translateSyntax($this->getValueInLang('SYNTAX'));
 			if ( $syntax )
-				$buf .= '<h4>' 
+				$buf .= '<h4>'
 					. GenTool::getTerm('label_syntax') . '</h4><p>'. $syntax . $end;
 		}
 
         if ( ($apply = $this->hasValue('APPLY')) == 1 ) {
-			$buf .= '<h4>' 
+			$buf .= '<h4>'
 					. GenTool::getTerm('label_apply')
 					. '</h4><p>';
 			$buf .= GenTool::getTerm('apply_1');
@@ -130,26 +130,26 @@ abstract class Item
 		}
 
 		if ( $this->hasValue('EXAMPLE')) {
-			$buf .= '<h4>' 
+			$buf .= '<h4>'
 					. GenTool::getTerm('label_example')
 					. '</h4><div class="ls-example">' . $this->getValueInLang('EXAMPLE') . '</div>';
         }
 
 		if ( $this->hasValue('TIPS')) {
 			$buf .= '<h4>'
-					. GenTool::getTerm('label_tips') . '</h4><p>' 
+					. GenTool::getTerm('label_tips') . '</h4><p>'
                     . GenTool::translateTipMarker($this->getValueInLang('TIPS')) . $end;
         }
 
 		if ( $seeAlso = $this->hasValue('SEE_ALSO') )
-			$buf .= '<h4>' 
+			$buf .= '<h4>'
 				. GenTool::getTerm ('label_seealso')
 				. '</h4><p class="ls-text-small">'. $seeAlso . $end;
 
 		$buf .= "</article>\n";
 		return $buf;
 	}
-	
+
 
     public function getValueInLang($fieldId)
     {
@@ -355,7 +355,7 @@ abstract class Item
                 $buf .= "'" . str_replace($search, $replace, $tip) . "',";
             }
             $buf = rtrim($buf, ',');
-            $buf .= "); \n";
+            $buf .= ");\n";
         }
         return $buf;
     }
