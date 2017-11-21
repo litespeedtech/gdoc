@@ -56,7 +56,7 @@ END_TIPS
 
 
 [ITEM]
-ID: enableGzip
+ID: vhEnableGzip
 NAME: GZIPを有効にする
 
 DESCR: このバーチャルホストに対してGZIP圧縮を有効にするかどうかを指定します。

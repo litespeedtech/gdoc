@@ -1,5 +1,5 @@
 <header>
-<h1>LiteSpeed ロードバランサー 2.0<br/>
+<h1>LiteSpeed Load Balancer 2.0<br/>
 ユーザーズマニュアル<br/>
 Rev. 8</h1>
 </header>

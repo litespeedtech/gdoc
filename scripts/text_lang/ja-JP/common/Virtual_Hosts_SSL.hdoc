@@ -5,9 +5,9 @@
 
 
 [TBL]
-ID: vhSSLFeature
+ID: vhSslFeature
 NAME: セキュリティ
-NS: LEO
+NS: LE
 
 DESCR: 
 END_DESCR
@@ -22,7 +22,7 @@ END_DESCR
 [PAGE]
 ID: VHSSL_Help
 NAME: バーチャルホストSSL
-NS: LEO
+NS: LE
 
 DESCR: 
 END_DESCR
