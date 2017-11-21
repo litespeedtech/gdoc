@@ -1,5 +1,70 @@
 [HELPDOC]
 
+############# Web Application Protection #############
+
+
+[ITEM]
+ID: wpProtect
+NAME: WordPress Brute Force Protection
+NS: E
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO:
+
+DESCR: 
+Specifies the maximum number of wp-login.php and xmlrpc.php POST attempts allowed within 5 minutes before 
+the IP is banned.
+
+
+This limit is handled using a quota system where limit = quota. Each POST attempt will decrease the quota by 1 with the 
+quota increasing back to the set limit over time. The IP will be throttled starting at 1/2 the set limit, slowing more as the 
+quota drops further. When the quota reaches 0, the IP is banned.
+
+
+Resetting the server will clear blocked IPs.
+
+
+Default value is {val}10{/}.
+END_DESCR
+
+SYNTAX:
+Valid Range: {val}5 - 1000{/}, use {val}0{/} to disable.
+END_SYNTAX
+
+EXAMPLE:
+With a limit of 10:
+
+
+Starting quota: 10
+
+
+Throttling begins: 5
+
+
+Throttling worsens: 4-1
+
+
+IP is Banned: 0
+END_EXAMPLE
+
+TIPS:
+[S] Trusted IPs or sub-networks are not affected.
+
+
+[I] This setting will override Apache conf {val}WordPressProtect{/} setting for LSWS only. Apache will be unaffected.
+
+
+[I] This can be set at the Server level and overwritten at the Virtual Host level. If not overridden at the Virtual Host level, this 
+setting can also be overridden in a user's docroot .htaccess file using Apache configuration directive 
+{val}WordPressProtect{/} with value {val}0{/} (disabled), {val}1{/} (use server level setting), or {val}5 - 1000{/}. 
+(Values 2 - 4 will be treated as 5)
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# Web Application Firewall (WAF) #############
 
 
@@ -949,13 +1014,17 @@ If both {ITEM=followSymbolLink} and {ITEM=checkSymbolLink} are enabled, symbolic
 links will be checked against the denied directories.
 END_DESCR
 
-EDITTIP: Enter a full path if you want to deny access for specific directory; entering a path followed by * will disable all the sub directories.
+EDITTIP:
+Enter a full path if you want to deny access for specific directory; entering a path followed by * will disable all the 
+sub directories.
 END_EDITTIP
 
 EDITTIP: Path can be either absolute or relative to $SERVER_ROOT, use comma to separate.
 END_EDITTIP
 
-EDITTIP: If both <b>Follow Symbolic Link</b> and <b>Check Symbolic Link</b> are enabled, symbolic links will be checked against the denied directories.
+EDITTIP:
+If both <b>Follow Symbolic Link</b> and <b>Check Symbolic Link</b> are enabled, symbolic links will be checked 
+against the denied directories.
 END_EDITTIP
 
 SYNTAX: Comma-delimited list of directories
@@ -1060,15 +1129,14 @@ END_TIPS
 
 
 [TBL]
-ID: fileAccessControl
-NAME: File Access
+ID: webAppProtection
+NAME: Web Application Protection
+NS: E
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: followSymbolLink checkSymbolLink forceStrictOwnership requiredPermissionMask
-restrictedPermissionMask restrictedScriptPermissionMask
-restrictedDirPermissionMask 
+CONT: wpProtect
 END_CONT
 
 SEE_ALSO: 
@@ -1103,6 +1171,23 @@ These settings help to mitigate DoS (Denied of Service) and DDoS (Distributed De
 END_DESCR
 
 CONT: dynReqPerSec outBandwidth inBandwidth softLimit hardLimit blockBadReq gracePeriod banPeriod 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: fileAccessControl
+NAME: File Access
+
+DESCR: 
+END_DESCR
+
+CONT: followSymbolLink checkSymbolLink forceStrictOwnership requiredPermissionMask
+restrictedPermissionMask restrictedScriptPermissionMask
+restrictedDirPermissionMask 
 END_CONT
 
 SEE_ALSO: 
@@ -1203,7 +1288,7 @@ NS: E
 DESCR: 
 END_DESCR
 
-CONT: reqCensorship reqCensorshipRule perClientConnLimit fileAccessControl cgiResource
+CONT: webAppProtection reqCensorship reqCensorshipRule perClientConnLimit fileAccessControl cgiResource
 accessDeny accessControl 
 END_CONT
 
