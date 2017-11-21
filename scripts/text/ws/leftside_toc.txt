@@ -3,7 +3,7 @@
         <img src="img/lsws_logo.svg" alt="lightspeed web server logo" width="100px"/>
       </figure>
 <h3 class="ls-text-thin">LiteSpeed Web Server <br /><span class="current"><a href="index.html"> Users' Manual</a></span></h3>
-<h5 class="ls-text-muted">Version 5.2 &nbsp;&#8212;&nbsp;Rev. 4</h5>
+<h5 class="ls-text-muted">Version 5.2 &nbsp;&#8212;&nbsp;Rev. 5</h5>
 <hr/>
 <div>
 <ul>
@@ -35,7 +35,7 @@
           <li><a href="Rails_Help.html">Rack/Rails Settings</a></li>
           <li><a href="Listeners_General_Help.html">Listener General</a></li>
           <li><a href="Listeners_SSL_Help.html">Listener SSL</a></li>
-          <li><a href="Templates_Help.html">Templates</a></li>
+          <li><a href="Templates_Help.html">Virtual Host Templates</a></li>
           <li><a href="VirtualHosts_Help.html">Virtual Host Basic</a></li>
           <li><a href="VHGeneral_Help.html">Virtual Host General</a></li>
           <li><a href="VHSecurity_Help.html">Virtual Host Security</a></li>
