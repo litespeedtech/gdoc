@@ -1615,7 +1615,7 @@ DESCR: A Load Balancer Context can be used to forward one URI or a group of URIs
 The destination URI can be either on the same web site or an absolute URI pointing to another web site.
 END_DESCR
 
-CONT: expuri extCluster realm authName required accessAllowed accessDenied 
+CONT: expuri extCluster extraHeaders realm authName required accessAllowed accessDenied 
 cachePolicy:maxCacheObjSize cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds 
 cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds 
 enableRewrite rewriteInherit rewriteBase rewriteRules addDefaultCharset defaultCharsetCustomized 
@@ -1638,7 +1638,7 @@ A Load Balancer Context will associate a URI to be load balanced by the load bal
 END_DESCR
 
 
-CONT: expuri lbapp allowOverrideContext realm authName required
+CONT: expuri lbapp extraHeaders allowOverrideContext realm authName required
 accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds 
@@ -1662,7 +1662,7 @@ A Load Balancer Context will associate a URI to be load balanced by the load bal
 END_DESCR
 
 
-CONT: expuri lbapp realm authName required
+CONT: expuri lbapp extraHeaders realm authName required
 accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 enableIpGeo 
@@ -1683,7 +1683,7 @@ The destination URI can be either on the same web site (internal
 redirect) or an absolute URI pointing to another web site (external redirect).
 END_DESCR
 
-CONT: expuri externalredirect statuscode destinationuri realm authName 
+CONT: expuri externalredirect statuscode destinationuri extraHeaders realm authName 
 required accessAllowed accessDenied 
 END_CONT
 
@@ -1702,7 +1702,7 @@ The destination URI can be either on the same web site (an internal
 redirect) or an absolute URI pointing to another web site (an external redirect).
 END_DESCR
 
-CONT: expuri externalredirect statuscode destinationuri allowOverrideContext realm 
+CONT: expuri externalredirect statuscode destinationuri extraHeaders allowOverrideContext realm 
 authName required accessAllowed accessDenied extAuthorizer
 END_CONT
 
@@ -1721,7 +1721,7 @@ The destination URI can be either on the same web site (an internal
 redirect) or an absolute URI pointing to another web site (an external redirect).
 END_DESCR
 
-CONT: expuri externalredirect statuscode destinationuri realm 
+CONT: expuri externalredirect statuscode destinationuri extraHeaders realm 
 authName required accessAllowed accessDenied extAuthorizer
 END_CONT
 
