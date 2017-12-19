@@ -4,48 +4,27 @@
 
 
 [ITEM]
-ID: wpProtect
-NAME: WordPress Brute Force Protection
-NS: E
+ID: wpProtectAction 
+NAME: Protection Mode
+NS: EL
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO:
 
 DESCR: 
-Specifies the maximum number of wp-login.php and xmlrpc.php POST attempts allowed within 5 minutes before 
-the IP is banned.
+Specifies the action to be taken when the specified Allowed Login Attempts limit is reached within 5 minutes.
 
+{val}Throttle{/} gradually slows down the speed of the server response, {val}drop{/} severs the connection without any reply, and {val}deny{/} returns a 403 response.
 
-This limit is handled using a quota system where limit = quota. Each POST attempt will decrease the quota by 1 with the 
-quota increasing back to the set limit over time. The IP will be throttled starting at 1/2 the set limit, slowing more as the 
-quota drops further. When the quota reaches 0, the IP is banned.
-
-
-Resetting the server will clear blocked IPs.
-
-
-Default value is {val}10{/}.
+Default value is {val}Throttle{/}.
 END_DESCR
 
 SYNTAX:
-Valid Range: {val}5 - 1000{/}, use {val}0{/} to disable.
+select
 END_SYNTAX
 
 EXAMPLE:
-With a limit of 10:
-
-
-Starting quota: 10
-
-
-Throttling begins: 5
-
-
-Throttling worsens: 4-1
-
-
-IP is Banned: 0
 END_EXAMPLE
 
 TIPS:
@@ -57,12 +36,72 @@ TIPS:
 
 [I] This can be set at the Server level and overwritten at the Virtual Host level. If not overridden at the Virtual Host level, this 
 setting can also be overridden in a user's docroot .htaccess file using Apache configuration directive 
-{val}WordPressProtect{/} with value {val}0{/} (disabled), {val}1{/} (use server level setting), or {val}5 - 1000{/}. 
-(Values 2 - 4 will be treated as 5)
+{val}WordPressProtect{/} with value {val}0{/} (disabled), {val}1{/} (use server level setting), {val}throttle{/}, {val}deny{/}, or {val}drop{/}.
 END_TIPS
 
 [END_ITEM]
 
+
+[ITEM]
+ID: wpProtectLimit
+NAME: Allowed Login Attempts
+NS: EL
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO:
+
+DESCR: 
+Specifies the maximum number of wp-login.php and xmlrpc.php POST attempts allowed within 5 minutes before the action specified in Protection Mode is taken.
+
+
+This limit is handled using a quota system where limit = quota. Each POST attempt will decrease the quota by 1 with the 
+quota increasing back to the set limit over time. The IP will be throttled starting at 1/2 the set limit, slowing more as the 
+quota drops further. When the quota reaches 0, the specified action is taken toward the IP.
+
+
+Resetting the server will clear blocked IPs.
+
+
+Default value is {val}10{/}.
+END_DESCR
+
+SYNTAX:
+Valid Range: 5 - 1000.
+END_SYNTAX
+
+EXAMPLE:
+With an Attempt limit of 10, and a Mode of drop:
+
+
+After the first POST attempt, the quota is decreased to 9.
+
+
+Quota decreases by 1 for each POST attempt.
+
+
+After Quota reaches half of the limit (5), the IP will be throttled.
+
+
+Throttling will get worse with each POST attempt.
+
+
+Once the quota reaches 0, the connection will be dropped.
+END_EXAMPLE
+
+TIPS:
+[S] Trusted IPs or sub-networks are not affected.
+
+
+[I] This setting will override Apache conf {val}WordPressProtect{/} setting for LSWS only. Apache will be unaffected.
+
+
+[I] This can be set at the Server level and overwritten at the Virtual Host level. If not overridden at the Virtual Host level, this 
+setting can also be overridden in a user's docroot .htaccess file using Apache configuration directive 
+{val}WordPressProtect{/} with integer value between 5 and 1000.
+END_TIPS
+
+[END_ITEM]
 
 
 ############# Web Application Firewall (WAF) #############
@@ -1129,14 +1168,14 @@ END_TIPS
 
 
 [TBL]
-ID: webAppProtection
-NAME: Web Application Protection
-NS: E
+ID: wpProtect
+NAME: WordPress Brute Force Attacks Protection
+NS: LE
 
 DESCR:
 END_DESCR
 
-CONT: wpProtect
+CONT: wpProtectAction wpProtectLimit
 END_CONT
 
 SEE_ALSO: 
@@ -1272,7 +1311,7 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: perClientConnLimit accessControl reqCensorship reqCensorshipRule
+CONT: wpProtect reqCensorship reqCensorshipRule perClientConnLimit accessControl 
 END_CONT
 
 SEE_ALSO: 
@@ -1288,7 +1327,7 @@ NS: E
 DESCR: 
 END_DESCR
 
-CONT: webAppProtection reqCensorship reqCensorshipRule perClientConnLimit fileAccessControl cgiResource
+CONT: wpProtect reqCensorship reqCensorshipRule perClientConnLimit fileAccessControl cgiResource
 accessDeny accessControl 
 END_CONT
 

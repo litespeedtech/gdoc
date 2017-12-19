@@ -243,6 +243,35 @@ END_TIPS
 [END_ITEM]
 
 
+[ITEM]
+ID: cachePolicy:cacheKeyMod 
+NAME: Cache Key Modifications
+NS: LE
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO:
+
+DESCR: 
+Makes some requests more cache-friendly by allowing junk query string parameters to be dropped from URLs.
+END_DESCR
+
+SYNTAX:
+{val}clear{/} discards all previous configurations, {val}-qs:[string]{/} drop all query strings where the name matches [string] exactly, or {val}-qs:utm*{/} drop all query strings where the name part starts with [string]. Input one rule per line.
+END_SYNTAX
+
+EXAMPLE:
+{val}-qs:utm*{/} drops all query strings where the name part starts with "utm".
+
+{val}-qs:gclid{/} drops all query strings where the name matches "gclid" exactly.
+
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
 
 [ITEM]
 ID: cachePolicy:enableCache
@@ -368,6 +397,7 @@ END_TIPS
 
 
 
+
 ########## Do-Not-Cache URL ##########
 
 
@@ -456,7 +486,7 @@ NS: LE
 DESCR: 
 END_DESCR
 
-CONT: checkPublicCache checkPrivateCache respectCacheable cachePolicy:maxCacheObjSize cachePolicy:maxStaleAge 
+CONT: checkPublicCache checkPrivateCache respectCacheable cachePolicy:maxCacheObjSize cachePolicy:maxStaleAge cachePolicy:cacheKeyMod 
 cachePolicy:enableCache  cachePolicy:expireInSeconds 
 cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
 END_CONT
