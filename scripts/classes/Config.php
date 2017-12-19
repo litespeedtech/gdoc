@@ -46,7 +46,7 @@ class Config
 		}
 		return self::getInstance()->_docType;
 	}
-	
+
 	public static function GetImagePath()
 	{
 		return (self::getInstance()->_curLang == LanguagePack::DEFAULT_LANG) ? '' : '../';
@@ -56,14 +56,14 @@ class Config
 	{
 		switch (self::DocType()) {
 			case self::DOC_TYPE_OLS:
-				return '2013-2017';
+				return '2013-2018';
 			case self::DOC_TYPE_WS:
-				return '2003-2017';
+				return '2003-2018';
 			case self::DOC_TYPE_LB:
-				return '2007-2017';
+				return '2007-2018';
 		}
 	}
-	
+
 	public function getLanguages()
 	{
 		return $this->_lang;
@@ -116,7 +116,7 @@ class Config
 		else {
 			$path = $this->_outDir["{$type}_lang"] . $this->_curLang . '/';
 		}
-		
+
 		if (!file_exists($path)) {
 			mkdir($path);
 		}
