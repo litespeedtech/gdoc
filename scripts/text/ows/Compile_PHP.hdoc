@@ -33,7 +33,8 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Sets the value for the "--prefix" configure option. The default installation location is under LiteSpeed Web Server's install directory.  
+DESCR: Sets the value for the "--prefix" configure option. The default installation location is under LiteSpeed Web Server's 
+install directory.  
 END_DESCR
 
 SYNTAX: path
@@ -42,7 +43,8 @@ END_SYNTAX
 EXAMPLE: /usr/local/lsws/lsphp5
 END_EXAMPLE
 
-TIPS: LiteSpeed Web Server can use multiple PHP versions at the same time. If you are installing multiple versions, you should give them different prefixes. 
+TIPS: LiteSpeed Web Server can use multiple PHP versions at the same time. If you are installing multiple versions, you 
+should give them different prefixes. 
 END_TIPS
 
 [END_ITEM]
@@ -60,7 +62,8 @@ SEE_ALSO:
 DESCR: Add additional compiler flags, like optimized compiler options. 
 END_DESCR
 
-SYNTAX: Supported flags are CFLAGS, CXXFLAGS, CPPFLAGS, LDFLAGS. Use a space to separate different flags. Use single quotes (not double quotes) for flag values.  
+SYNTAX: Supported flags are CFLAGS, CXXFLAGS, CPPFLAGS, LDFLAGS. Use a space to separate different flags. 
+Use single quotes (not double quotes) for flag values.  
 END_SYNTAX
 
 EXAMPLE: CFLAGS='-O3 -msse2 -msse3 -msse4.1 -msse4.2 -msse4 -mavx'

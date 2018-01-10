@@ -1700,7 +1700,7 @@ SEE_ALSO:
 DESCR: The time in seconds after which an idle QUIC connection will be closed. Default value is {val}30{/}.
 END_DESCR
 
-SYNTAX: Integer number between 10 and 600
+SYNTAX: Integer number between 10 and 30
 END_SYNTAX
 
 EXAMPLE: 
