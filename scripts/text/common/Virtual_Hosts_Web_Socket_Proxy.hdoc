@@ -7,6 +7,7 @@
 [ITEM]
 ID: wsuri
 NAME: URI
+NS: EO
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -23,8 +24,7 @@ LSWS will treat this traffic as though it is accessing a static context with
 the location {val}$DOC_ROOT/URI{/}.
 END_DESCR
 
-SYNTAX: The URI can be a plain URI (starting with "/") or a Perl-compatible 
-regular expression URI (starting with "exp:"). If a plain URI ends with a "/", 
+SYNTAX: A plain URI (starting with "/"). If the URI ends with a "/", 
 then this WebSocket backend will include all sub-URIs under this URI. 
 END_SYNTAX
 
@@ -84,6 +84,7 @@ END_TIPS
 [TBL]
 ID: websocketproxy
 NAME: Web Socket Proxy
+NS: EO
 
 DESCR: 
 END_DESCR
