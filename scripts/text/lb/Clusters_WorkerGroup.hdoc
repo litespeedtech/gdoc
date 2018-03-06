@@ -94,10 +94,13 @@ specified for a node are "Node Tag" (used to match "JVM Route"), "Source IP",  "
 "Destination IP" address is mandatory while other attributes are optional. 
 END_DESCR
 
-SYNTAX: Optional [(Node Tag)] and/or [SourceIP->] followed by DestinationAddress with optional [:port].
+SYNTAX: [(Node Tag)][SourceIP->]DestinationAddress[:port]
 
 
-Note: IPv6 addresses must be surrounded by square brackets ( [ ] ).
+Note:(NodeTag), SourceIP->, and :port are optional here.
+
+
+Note: IPv6 addresses must be surrounded by square brackets "[ ]"  as seen in the following example.
 END_SYNTAX
 
 EXAMPLE: 192.168.0.11, (node1)192.168.0.11,
