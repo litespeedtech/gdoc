@@ -90,20 +90,19 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies the addresses of the nodes belonging to this group. Attributes that can be
-specified for a node are "Destination IP", "Destination Port", "Node Tag" and
-"Source IP". Destination IP
-address is mandatory, the other attributes are optional. 
+specified for a node are "Node Tag" (used to match "JVM Route"), "Source IP",  "Destination IP", and "Destination Port". 
+"Destination IP" address is mandatory while other attributes are optional. 
 END_DESCR
 
-SYNTAX: text
+SYNTAX: Optional [(Node Tag)] and/or [SourceIP->] followed by DestinationAddress with optional [:port].
+
+
+Note: IPv6 addresses must be surrounded by square brackets ( [ ] ).
 END_SYNTAX
 
 EXAMPLE: 192.168.0.11, (node1)192.168.0.11,
 
-(node1)192.168.0.10->192.168.0.11:80,
-
-
-"node1" is the "Node Tag", "Node Tag" is used to match "JVM Route".
+(node1)192.168.0.10->192.168.0.11:80, [2a0b:4342:4000:bd::d627]
 END_EXAMPLE
 
 TIPS: 
