@@ -61,6 +61,7 @@ class GenTool
   <title>$title</title>
   <meta name="description" content="$title." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex">
   <link rel="shortcut icon" href="{$imgpath}img/favicon.ico" />
   <link rel="stylesheet" type="text/css" href="{$imgpath}css/hdoc.css">
 </head>
