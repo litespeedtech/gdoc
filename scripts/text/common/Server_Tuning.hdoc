@@ -1509,7 +1509,8 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: A list of enabled QUIC versions. Supported versions are Q035 and Q037, other values will be ignored.
+DESCR: A list of enabled QUIC versions. This setting should only be used to limit QUIC support to the versions listed and is 
+best left blank.
 
 
 By default all supported versions are enabled. (New versions coming soon)
@@ -1518,10 +1519,10 @@ END_DESCR
 SYNTAX: Comma-separated list
 END_SYNTAX
 
-EXAMPLE: Q035, Q037
+EXAMPLE: Q035, Q039
 END_EXAMPLE
 
-TIPS: Leave a supported version out of this list to disable it.
+TIPS: It is recommended to leave this setting blank to have the the best configuration applied automatically.
 END_TIPS
 
 [END_ITEM]
