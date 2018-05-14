@@ -1255,7 +1255,7 @@ extraHeaders addMIMEType forceType defaultType indexFiles autoIndex
 realm authName required accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized 
 enableRewrite rewriteInherit rewriteBase rewriteRules
-enableIpGeo 
+enableIpGeo phpIniOverride
 END_CONT
 
 SEE_ALSO: 
