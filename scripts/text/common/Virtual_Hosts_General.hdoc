@@ -310,7 +310,58 @@ END_TIPS
 
 ############# HT Access #############
 ############# Expires Settings #############
+############# File Upload #############
 ############# Apache Style Configurations #############
+
+
+
+############# php.ini Override #############
+
+
+[ITEM]
+ID: phpIniOverride
+NAME: php.ini Override
+NS: O
+REQUIRED: 
+APPLY:
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Used to overwrite php.ini settings in the current context (Virtual Host level or Context level).
+
+
+Supported directives are:
+
+php_value
+
+php_flag
+
+php_admin_value
+
+php_admin_flag
+
+
+All other lines/directives will be ignored.
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: Override syntax is similar to Apache, a newline separated list of directives and their values with each directive 
+being prepended by php_value, php_flag, php_admin_value, or php_admin_flag appropriately. 
+END_SYNTAX
+
+EXAMPLE: php_value include_path ".:/usr/local/lib/php"
+
+php_admin_flag engine on
+
+php_admin_value open_basedir "/home"
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
 
 
 
@@ -419,6 +470,20 @@ END_CONT
 SEE_ALSO: 
 [END_TBL]
 
+[TBL]
+ID: phpIniOverrideTbl
+NAME: php.ini Override
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: phpIniOverride
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
 
 
 ############# Pages ##############
@@ -466,7 +531,7 @@ DESCR:
 END_DESCR
 
 CONT: vhGeneral vhLog vhAcLog vhIndex errPage expire fileUpload scriptHandler 
-vhExpire  
+vhExpire  phpIniOverrideTbl
 END_CONT
 
 SEE_ALSO: 
