@@ -174,10 +174,9 @@ LiteSpeed Web Server uses script handlers to decide which external application a
 script should go to. These script handlers map files to external applications by 
 using the file suffix. (Actually, the suffix is used to determine a MIME 
 type which is then mapped to the external application.) External applications 
-must be set up in the {PAGE= ExtApp_Help} tab before they can be selected for 
+must be set up in the External Application tab before they can be selected for 
 use in a script handler.
-
-
+<br /><br />
 You can set up script handler at the server or virtual host level. Server-level
 script handlers apply to all virtual hosts unless overridden in virtual host level. 
 Virtual host-level script handlers only apply within that virtual host.
