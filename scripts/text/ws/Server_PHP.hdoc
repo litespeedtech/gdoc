@@ -14,7 +14,6 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Run PHP handler processes detached from the main LiteSpeed worker process. 
-
 END_DESCR
 
 SYNTAX: bool
@@ -233,6 +232,7 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Handler ID.
+
 
 Well known IDs include "phpXX", "alt-phpXX", and "ea-phpXX".
 END_DESCR
