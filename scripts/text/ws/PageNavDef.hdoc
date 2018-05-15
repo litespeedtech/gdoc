@@ -56,7 +56,8 @@ ServSecurity_Help
 Cache_Help
 PageSpeed_Config
 ExtApp_Help
-ScriptHandler_Help 
+ScriptHandler_Help
+PHP_Help
 Rails_Help
 Listeners_General_Help
 Listeners_SSL_Help
