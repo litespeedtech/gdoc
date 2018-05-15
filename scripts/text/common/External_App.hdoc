@@ -467,14 +467,17 @@ END_TIPS
 
 [ITEM]
 ID: pcKeepAliveTimeout
-NAME: Keep Alive Timeout (secs)
+NAME: Connection Keepalive Timeout
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the maximum time to keep an idle persistent connection
-open. When set to "-1", the connection will never timeout. When set to greater than or equal to 0,
+DESCR: Specifies the maximum time in seconds to keep an idle persistent connection
+open. 
+
+
+When set to "-1", the connection will never timeout. When set to 0 or greater,
 the connection will be closed after this time in seconds has passed.
 END_DESCR
 
