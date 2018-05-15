@@ -25,6 +25,9 @@ END_TIPS
 
 
 
+############# Tables ############
+
+
 [TBL]
 ID: notesTBL
 NAME: Tool Tip Exclusives
@@ -39,6 +42,28 @@ SEE_ALSO:
 [END_TBL]
 
 
+[TBL]
+ID: phpHandlers
+NAME: PHP Handlers
+NS: E
+
+DESCR: List of custom PHP handlers.
+END_DESCR
+
+CONT:
+END_CONT
+
+TIPS: [I] External applications explicitly defined at the server level with the same "Handler ID" or "Command" will have a 
+higher priority.
+END_TIPS
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+############# Pages ############
+
 
 [PAGE]
 ID: Tool_Tips
@@ -47,7 +72,7 @@ Name:
 DESCR:
 END_DESCR
 
-CONT: notesTBL
+CONT: notesTBL phpHandlers
 END_CONT
 
 SEE_ALSO:
