@@ -121,6 +121,7 @@ END_TIPS
 [TBL]
 ID: ClusterWorkerGroup
 NAME: Layer 7 Worker Group
+NS: L
 
 DESCR: 
 END_DESCR
