@@ -2,7 +2,7 @@
 <header>
     <h1>OpenLiteSpeed Web Server 1.4</h1>
     <h1>Users' Manual</h1>
-    <h1>&#8212;&nbsp;Rev. 9</h1>
+    <h1>&#8212;&nbsp;Rev. 10</h1>
 </header>
 <hr />
 
