@@ -33,6 +33,7 @@ class GenWebDoc
 				'External_PL' => 'config/extapps/piped-logger',
 				'External_LB' => 'config/extapps/load-balancer',
 				'ScriptHandler_Help' => 'config/scripthandler',
+                'PHP_Help' => 'config/php',
 				'Rails_Help' => 'config/rails',
 				'Listeners_General_Help' => 'config/listener-general',
                 'Listeners_SSL_Help' => 'config/listener-ssl',
