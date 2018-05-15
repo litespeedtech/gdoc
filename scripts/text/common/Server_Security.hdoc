@@ -1011,7 +1011,7 @@ END_TIPS
 
 [ITEM]
 ID: memHardLimit
-NAME: Memory Hard Limit
+NAME: Memory Hard Limit (bytes)
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -1030,11 +1030,10 @@ END_DESCR
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: [A] Do not over adjust this limit. This may result in 503 errors
-if your application need more memory. 
+EXAMPLE: 
 END_EXAMPLE
 
-TIPS: 
+TIPS: [A] Do not over adjust this limit. This may result in 503 errors if your application need more memory.
 END_TIPS
 
 [END_ITEM]
