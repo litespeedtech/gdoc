@@ -116,7 +116,24 @@ DAMAGES. LITESPEED IS NOT LIABLE FOR THE CONTENT OF ANY WEB SITES POWERED
 WITH OUR SOFTWARE.
 </p>
 
-<h4>5. TERMINATION.</h4>
+<h4>5. DATA PROTECTION AND GDPR COMPLIANCE.</h4>
+<p>
+LITESPEED agrees to deal with personal data relevant to your end-users in accordance 
+with applicable data protection laws and regulations and the following: (a) with respect to 
+personal data provided in connection with sales and marketing activities or use of 
+LITESPEED websites, the LiteSpeed Privacy Policy at 
+<a href="https://www.litespeedtech.com/company/privacy-policy">
+https://www.litespeedtech.com/company/privacy-policy
+</a>;
+and (b) with respect to any personal information of European Union residents processed 
+in connection with the SOFTWARE PRODUCT, the GDPR Statement included within the 
+aforementioned Privacy Policy. You agree to provide any notices and obtain any consent 
+necessary for LITESPEED to access and process personal and other data as specified 
+in this Agreement. The Privacy Policy, and the GDPR Statement are incorporated herein 
+by reference.
+</p>
+
+<h4>6. TERMINATION.</h4>
 
 <p>
 This EULA shall be effective from the date You download, install or
@@ -127,7 +144,7 @@ SOFTWARE PRODUCT. You may terminate this EULA at any time by destroying
 all copies of the SOFTWARE PRODUCT.
 </p>
 
-<h4>6. SEVERABILITY.</h4>
+<h4>7. SEVERABILITY.</h4>
 
 <p>
 If any provision of this EULA is held unenforceable, this EULA shall
@@ -136,14 +153,14 @@ make it enforceable, unless to do so would frustrate the intent of the
 parties, in which case the EULA will immediately terminate.
 </p>
 
-<h4>7. GOVERNING LAW.</h4>
+<h4>8. GOVERNING LAW.</h4>
 
 <p>
 This EULA shall be governed and be construed by the laws of state of New
 Jersey and controlling U.S. federal law.
 </p>
 
-<h4>8. EXPORT RESTRICTIONS.</h4>
+<h4>9. EXPORT RESTRICTIONS.</h4>
 
 <p>
 The SOFTWARE PRODUCT may be subject to U.S. export laws or regulations
@@ -153,7 +170,7 @@ and further acknowledges its responsibility to obtain such licenses to
 export or import as may be required.
 </p>
 
-<h4>9. U.S. GOVERNMENT.</h4>
+<h4>10. U.S. GOVERNMENT.</h4>
 <p>
 If any SOFTWARE PRODUCT is being acquired by or on behalf of the U.S.
 Government or by a U.S. Government prime contractor or subcontractor (at
