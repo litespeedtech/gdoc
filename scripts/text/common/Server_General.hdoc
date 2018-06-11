@@ -642,10 +642,12 @@ END_TIPS
 [ITEM]
 ID: enableIpGeo
 NAME: Enable GeoLocation Lookup
+NS: LEO
 REQUIRED: 
 APPLY: 3
 SINCE: 
-SEE_ALSO: {ITEM=ServGeneral_Help#useIpInProxyHeader}, {ITEM=ServGeneral_Help#geoipDBFile}, {ITEM=ServGeneral_Help#geoipDBCache}
+SEE_ALSO: {ITEM=ServGeneral_Help#useIpInProxyHeader}, {ITEM=ServGeneral_Help#geoipDBFile}, 
+{ITEM=ServGeneral_Help#geoipDBName}, {ITEM=ServGeneral_Help#maxMindDBEnv}
 
 DESCR: {ent_version} Specifies whether to enable/disable IP Geolocation lookup. 
 Can be set at server, virtual host, or context level. IP Geolocation is disabled by default when using value "Not Set". 
@@ -1125,18 +1127,19 @@ END_TIPS
 [ITEM]
 ID: geoipDBFile
 NAME: DB File Path
+NS: LEO
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: {ent_version} Specifies the path to MaxMind GeoIP database.
+DESCR: Specifies the path to MaxMind GeoIP database.
 END_DESCR
 
-SYNTAX: file path
+SYNTAX: path1
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE: /usr/local/share/GeoIP/GeoLite2-Country.mmdb
 END_EXAMPLE
 
 TIPS: 
@@ -1147,22 +1150,51 @@ END_TIPS
 
 
 [ITEM]
-ID: geoipDBCache
-NAME: DB Cache Type
+ID: geoipDBName
+NAME: DB Name
+NS: LEO
 REQUIRED: 
-APPLY: 3
+APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: {ent_version} Specifies what kind of cache mode should be used. Cache modes are:
-Standard, MemoryCache, CheckCache and IndexCache. MemoryCache is recommended and is the default. 
-
+DESCR: MaxMind GeoIP database name.
 END_DESCR
 
-SYNTAX: select
+SYNTAX: text
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE: COUNTRY_DB
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: maxMindDBEnv
+NAME: Environment Variables
+NS: LEO
+REQUIRED: 
+APPLY:
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Assign the results of database lookups to environment variables.
+END_DESCR
+
+SYNTAX: Variable_Name mapped_DB_data
+
+
+One entry per line. Path to data can use map keys or 0-based array indexes, both being separated by /.
+END_SYNTAX
+
+EXAMPLE: COUNTRY_CODE COUNTRY_DB/country/iso_code
+
+REGION_CODE  CITY_DB/subdivisions/0/iso_code
 END_EXAMPLE
 
 TIPS: 
@@ -1874,14 +1906,15 @@ SEE_ALSO: {ITEM=HTTP_BEGIN}
 [TBL]
 ID: geolocationDB
 NAME: IP to Geolocation DB
+NS: LEO
 
-DESCR: {ent_version} Multiple MaxMind geolocation databases can be specified here. MaxMind
+DESCR: Multiple MaxMind geolocation databases can be specified here. MaxMind
 has the following type of DBs: Country, Region, City, Organization, ISP and Netspeed. 
 If multiple databases of types "Country", "Region", and "City" are configured, the
-last one will be effective.
+last configuration will be effective.
 END_DESCR
 
-CONT: geoipDBFile geoipDBCache 
+CONT: geoipDBFile geoipDBName maxMindDBEnv
 END_CONT
 
 SEE_ALSO: 
