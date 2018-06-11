@@ -68,11 +68,29 @@ SEE_ALSO:
 [PAGE]
 ID: Tool_Tips
 Name:
+NS: E
 
 DESCR:
 END_DESCR
 
 CONT: notesTBL phpHandlers
+END_CONT
+
+SEE_ALSO:
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: Tool_Tips
+Name:
+NS: LO
+
+DESCR:
+END_DESCR
+
+CONT: notesTBL
 END_CONT
 
 SEE_ALSO:
