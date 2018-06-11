@@ -975,7 +975,10 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies the maximum size of a static file for which the
-server will create a compressed file automatically. 
+server will create a compressed file automatically.
+
+
+Default value is 10M
 END_DESCR
 
 SYNTAX: Number in bytes not less than 1K.
