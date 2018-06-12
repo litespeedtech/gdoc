@@ -206,79 +206,25 @@ END_TIPS
 
 
 
-########## DocRoot Rewrite Rules (from docroot .htaccess) ##########
-
-
-[ITEM]
-ID: docRootRewriteRules
-NAME: DocRoot Rewrite Rules (from docroot .htaccess)
-NS: O
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies a list of rewrite rules at the document root level.
-
-
-A rewrite rule is comprised of one {val}RewriteRule{/} directive and optionally preceded by multiple 
-{val}RewriteCond{/} directives. 
-<ul>
-<li>Each directive should take only one line. </li>
-<li>{val}RewriteCond{/} and {val}RewriteRule{/} follow Apache's rewrite directive
-syntax. Just copy and paste rewrite directives from your Apache configuration files.</li>
-<li>There are minor differences between LiteSpeed and Apache mod_rewrite
-implementation: 
-<ul><li>{val}%\{LA-U:variable\}{/} and {val}%\{LA-F:variable\}{/} are ignored
-by the LiteSpeed rewrite engine </li>
-  <li>two new server variables are added in the LiteSpeed rewrite engine: 
-  {val}%\{CURRENT_URI\}{/} represents the current
-URI being processed by the rewrite engine and {val}%\{SCRIPT_NAME\}{/} has the same 
-meaning as the corresponding CGI environment variable. </li>
-</ul></li>
-</ul>
-The implementation of LiteSpeed's rewrite engine follows the 
-Apache's rewrite engine specifications. For more details about rewrite
-rules, please refer to {ext-href}http://httpd.apache.org/docs/current/mod/mod_rewrite.html{ext-href-end}Apache's
-mod_rewrite document{ext-href-end-a} and {ext-href}http://httpd.apache.org/docs/current/rewrite/{ext-href-end}Apache's URL 
-rewriting guide{ext-href-end-a}.
-
-
-END_DESCR
-
-SYNTAX: string 
-END_SYNTAX
-
-EXAMPLE: RewriteFile $DOC_ROOT/.htaccess
-END_EXAMPLE
-
-TIPS: [I] "RewriteFile $DOC_ROOT/.htaccess" can be used to automatically read/include the contents of this virtual host's 
-docroot .htaccess file.
-file.
-
-
-[A] Only document root level rewrite rules should be used here.
-
-All virtual host/context level .htaccess rewrite rules should be placed in {ITEM=Virtual_Hosts_Rewrite#rewriteRules} instead.
-END_TIPS
-
-[END_ITEM]
-
-
-
 ########## Rewrite Rules ##########
 
 
 [ITEM]
 ID: rewriteRules
 NAME: Rewrite Rules
-NS: LE
+NS: LEO
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies a list of rewrite rules at the virtual host or context level.
+DESCR: Specifies a list of rewrite rules at the virtual host level.
+
+
+Do NOT add any document root level rewrite rules here. If you have any document root level rewrite rules from .htaccess, 
+you should instead create a static context with uri "/" and add the rewrite rules there.
+
+
 A rewrite rule is comprised of one {val}RewriteRule{/} directive and
 optionally preceded by multiple {val}RewriteCond{/} directives. 
 <ul>
@@ -313,59 +259,10 @@ END_EXAMPLE
 TIPS: 
 END_TIPS
 
-[END_ITEM]
-
-
-
-[ITEM]
-ID: rewriteRules
-NAME: Rewrite Rules
-NS: O
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies a list of rewrite rules at the virtual host or context level.
-
-
-A rewrite rule is comprised of one {val}RewriteRule{/} directive and
-optionally preceded by multiple {val}RewriteCond{/} directives. 
-<ul>
-<li>Each directive should take only one line. </li>
-<li>{val}RewriteCond{/} and {val}RewriteRule{/} follow Apache's rewrite directive
-syntax. Just copy and paste rewrite directives from your Apache configuration files.</li>
-<li>There are minor differences between LiteSpeed and Apache mod_rewrite
-implementation: 
-<ul><li>{val}%\{LA-U:variable\}{/} and {val}%\{LA-F:variable\}{/} are ignored
-by the LiteSpeed rewrite engine </li>
-  <li>two new server variables are added in the LiteSpeed rewrite engine: 
-  {val}%\{CURRENT_URI\}{/} represents the current
-URI being processed by the rewrite engine and {val}%\{SCRIPT_NAME\}{/} has the same 
-meaning as the corresponding CGI environment variable. </li>
-</ul></li>
-</ul>
-The implementation of LiteSpeed's rewrite engine follows the 
-Apache's rewrite engine specifications. For more details about rewrite
-rules, please refer to {ext-href}http://httpd.apache.org/docs/current/mod/mod_rewrite.html{ext-href-end}Apache's
-mod_rewrite document{ext-href-end-a} and {ext-href}http://httpd.apache.org/docs/current/rewrite/{ext-href-end}Apache's URL 
-rewriting guide{ext-href-end-a}.
-
-
-END_DESCR
-
-SYNTAX: string 
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: [A] Only virtual host/context level rewrite rules should be used here, such as those found in an Apache virtual host config 
-file.
-
-All document root level .htaccess rewrite rules should be placed in {ITEM=Virtual_Hosts_Rewrite#docRootRewriteRules} 
-instead.
-END_TIPS
+EDITTIP: Only virtual host level rewrite rules should be used here, such as those found in an Apache virtual host 
+config file. Do NOT add any document root level rewrite rules here. If you have any document root level rewrite rules from 
+.htaccess, you should instead create a static context with uri "/" and add the rewrite rules there.
+END_EDITTIP
 
 [END_ITEM]
 
@@ -405,24 +302,9 @@ SEE_ALSO:
 
 
 [TBL]
-ID: rewriteDocRootRulesTbl
-NAME: DocRoot Rewrite Rules (from docroot .htaccess)
-NS: O
-
-DESCR:
-END_DESCR
-
-CONT: docRootRewriteRules
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
-[TBL]
 ID: RewriteRules
 NAME: Rewrite Rules
+NS: LEO
 
 DESCR: 
 END_DESCR
@@ -438,33 +320,15 @@ SEE_ALSO:
 ################ Pages ################
 
 
-
-
 [PAGE]
 ID: Rewrite_Help 
 NAME: Rewrite
-NS: LE
+NS: LEO
 
 DESCR: 
 END_DESCR
 
 CONT: rewriteControl rewriteMap RewriteRules
-END_CONT
-
-SEE_ALSO: 
-[END_PAGE]
-
-
-
-[PAGE]
-ID: Rewrite_Help 
-NAME: Rewrite
-NS: O
-
-DESCR: 
-END_DESCR
-
-CONT: rewriteControl rewriteMap rewriteDocRootRulesTbl RewriteRules
 END_CONT
 
 SEE_ALSO: 
