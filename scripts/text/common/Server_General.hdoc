@@ -7,12 +7,41 @@
 [ITEM]
 ID: serverName
 NAME: Server Name
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
 DESCR: A unique name for this server. You can use $HOSTNAME as value. 
+END_DESCR
+
+EDITTIP: The user and group setting of the server process cannot be modified. This was set up during installation. You have to reinstall to change this option.
+END_EDITTIP
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: serverName
+NAME: Server Name
+NS: O
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: A unique name for this server. If empty, server hostname will be used by default. 
 END_DESCR
 
 EDITTIP: The user and group setting of the server process cannot be modified. This was set up during installation. You have to reinstall to change this option.
