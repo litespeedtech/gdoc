@@ -695,26 +695,35 @@ END_TIPS
 
 [ITEM]
 ID: extraHeaders
-NAME: Extra Headers
+NAME: Header Operations
+NS: LEO
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies extra response headers to be added. Multiple headers can be added, one header per line.
-Put "NONE" to disable headers inherited from parent content.
+DESCR: Specifies additional response headers to be added. Multiple header directives can be added with one directive per
+line. "NONE" can be used to disable parent header inheritance.
 END_DESCR
 
-SYNTAX: "[HeaderName]: [HeaderValue]" in each line.
+SYNTAX: [Header] [condition] set|append|merge|add|unset header [value] [early|env=[!]variable]
 END_SYNTAX
 
 EXAMPLE: 
-Cache-control: no-cache, no-store 
+set Cache-control no-cache
 
-My-header: Custom header value
+append Cache-control no-store
+
+set My-header custom_header_value
 END_EXAMPLE
 
 TIPS: 
+[I] Syntax and usage are similar to
+{ext-href}https://httpd.apache.org/docs/2.2/mod/mod_headers.html#header{ext-href-end}Apache's mod_headers directives{ext-href-end-a}
+for supported operations.
+
+
+[I] The 'Header' directive is is optional and can be excluded or left in when copying rules from elsewhere without issue.
 END_TIPS
 
 [END_ITEM]
