@@ -95,7 +95,7 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: <b>[Only Available For Unlimited-CPU Licenses]</b>
+DESCR: <b>[Only Available For Web ADC Ultimate Licenses]</b>
 <br />
 Specifies the number of lslbd workers. Enter 0 to have this number be decided automatically. 
 
@@ -107,7 +107,37 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: [P] Set an appropriate number to suit your needs. Adding more processes may not necessarily mean better performance.
+TIPS: [P] Set an appropriate number to suit your needs. Adding more processes may not necessarily mean better
+performance.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: lswsProcesses
+NAME: Number of Processes
+NS: E
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: <b>[Only Available For Web Host Elite Licenses]</b>
+<br />
+Specifies the number of lshttpd workers. Enter 0 to have this number be decided automatically. 
+
+END_DESCR
+
+SYNTAX: Integer value between 0 and 128.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [P] Set an appropriate number to suit your needs. Adding more processes may not necessarily mean better
+performance.
 END_TIPS
 
 [END_ITEM]
@@ -1738,7 +1768,7 @@ NS: E
 DESCR: 
 END_DESCR
 
-CONT: serverName runningAs serverPriority cpuAffinity servChrootPath enableChroot
+CONT: serverName lswsProcesses runningAs serverPriority cpuAffinity servChrootPath enableChroot
 enableLVE inMemBufSize swappingDir autoFix503 enableh2c gracefulRestartTimeout
 END_CONT
 
