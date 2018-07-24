@@ -702,19 +702,21 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies additional response headers to be added. Multiple header directives can be added with one directive per
-line. "NONE" can be used to disable parent header inheritance.
+DESCR: Specifies additional response/request headers to be added. Multiple header directives can be added with one
+directive per line. "NONE" can be used to disable parent header inheritance. If no directive is provided 'Header' is assumed.
 END_DESCR
 
-SYNTAX: [Header] [condition] set|append|merge|add|unset header [value] [early|env=[!]variable]
+SYNTAX: [Header]|RequestHeader [condition] set|append|merge|add|unset header [value] [early|env=[!]variable]
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 set Cache-control no-cache
 
 append Cache-control no-store
 
-set My-header custom_header_value
+Header set My-header cust_header_val
+
+RequestHeader set My-req-header cust_req_header_val
 END_EXAMPLE
 
 TIPS: 
@@ -725,6 +727,11 @@ for supported operations.
 
 [I] The 'Header' directive is is optional and can be excluded or left in when copying rules from elsewhere without issue.
 END_TIPS
+
+EDITTIP:
+The Header Operations setting is backwards compatible with the old 'header_name: value1,value2,...' syntax, which is
+equivalent to setting the header + values using the 'Header' directive. 
+END_EDITTIP
 
 [END_ITEM]
 
