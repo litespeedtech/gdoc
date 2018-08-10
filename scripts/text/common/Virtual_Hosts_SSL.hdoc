@@ -47,6 +47,20 @@ END_CONT
 SEE_ALSO: 
 [END_TBL]
 
+[TBL]
+ID: vhSslFeature
+NAME: Security
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: renegProtection sslSessionCache sslSessionTickets
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
 
 
 
@@ -77,7 +91,7 @@ NS: O
 DESCR: 
 END_DESCR
 
-CONT: sslCert sslProtocolSetting sslFeature sslOCSP sslClientVerify
+CONT: sslCert sslProtocolSetting vhSslFeature sslOCSP sslClientVerify
 END_CONT
 
 SEE_ALSO: 

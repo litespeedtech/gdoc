@@ -1083,18 +1083,54 @@ END_TIPS
 [ITEM]
 ID: sslSessionCache
 NAME: Enable Session Cache
-NS: LEO
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-EDITTIP: Session caching allows a client to resume a session within a set amount of time without having to re-perform an SSL handshake. You can do this by assigning clients a 
-session ID using  <b>Enable Session Cache</b>, or by creating and using session tickets.
+EDITTIP: Session caching allows a client to resume a session within a set amount of time without having to re-perform an
+SSL handshake. You can do this by assigning clients a session ID using  <b>Enable Session Cache</b>, or by creating
+and using session tickets.
 END_EDITTIP
 
-DESCR: Enables session id caching. If "Not Set", defaults to  "No". (Openssl Default)
+DESCR: Enables session id caching using OpenSSL's default setting. Default value is "No".
+END_DESCR
 
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslSessionCache
+NAME: Enable Session Cache
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+EDITTIP: Session caching allows a client to resume a session within a set amount of time without having to re-perform an
+SSL handshake. You can do this by assigning clients a session ID using  <b>Enable Session Cache</b>, or by creating
+and using session tickets.
+END_EDITTIP
+
+DESCR: Enables session ID caching using OpenSSL's default setting. Server-level setting must be set to "Yes" for
+Virtual Host setting to take effect. Default values:
+
+
+<b>Server-level:</b> Yes
+
+<b>VH-Level:</b> Yes
 END_DESCR
 
 SYNTAX: bool
@@ -1169,8 +1205,13 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Enables session tickets. If "Not Set", the server will use openSSL's default ticket.
+DESCR: Enables session tickets using OpenSSL's default session ticket setting. Server-level setting must be set to "Yes"
+for Virtual Host setting to take effect. Default values:
 
+
+<b>Server-level:</b> Yes
+
+<b>VH-Level:</b> Yes
 END_DESCR
 
 SYNTAX: bool
