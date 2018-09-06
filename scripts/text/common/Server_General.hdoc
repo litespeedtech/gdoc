@@ -1147,6 +1147,46 @@ END_TIPS
 
 
 
+########## Rewrite Control ##########
+
+
+[ITEM]
+ID: autoLoadHtaccess
+NAME: Auto Load from .htaccess
+NS: O
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Autoload rewrite rules contained in a directory's .htaccess file when first accessing that directory if an HttpContext
+for that directory using the <b>rewritefile</b> directive does not already exist. Once initially loaded, a graceful restart must
+be performed for any further changes to that .htaccess file to take effect.
+
+
+Virtual Host-level setting overrides Server-level setting. Default values:
+
+
+<b>Server-level:</b> No
+
+
+<b>VH-Level:</b> Inherit Server-level setting
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ########## File Upload ##########
 
 
@@ -1931,13 +1971,29 @@ SEE_ALSO:
 ID: expire
 NAME: Expires Settings
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: enableExpires expiresDefault expiresByType 
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: rewriteControl
+NAME: Rewrite Control
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: autoLoadHtaccess
+END_CONT
+
+SEE_ALSO:
 [END_TBL]
 
 
@@ -2084,7 +2140,7 @@ location where LiteSpeed web server has been installed (your_home_dir/lsws or
 /opt/lsws, for example). The server executable is under $SERVER_ROOT/bin. 
 END_DESCR
 
-CONT: servProcess servGeneral servIndex expire fileUpload geolocationDB ip2locDB
+CONT: servProcess servGeneral servIndex expire rewriteControl fileUpload geolocationDB ip2locDB
 END_CONT
 
 SEE_ALSO: 

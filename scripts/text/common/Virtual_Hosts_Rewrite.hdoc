@@ -272,16 +272,33 @@ END_EDITTIP
 
 
 [TBL]
-ID: rewriteControl
+ID: vhRewriteControl
 NAME: Rewrite Control
+NS: LE
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: enableRewrite rewriteLogLevel
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: vhRewriteControl
+NAME: Rewrite Control
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: enableRewrite autoLoadHtaccess rewriteLogLevel
+END_CONT
+
+SEE_ALSO:
 [END_TBL]
 
 
@@ -328,7 +345,7 @@ NS: LEO
 DESCR: 
 END_DESCR
 
-CONT: rewriteControl rewriteMap RewriteRules
+CONT: vhRewriteControl rewriteMap RewriteRules
 END_CONT
 
 SEE_ALSO: 
