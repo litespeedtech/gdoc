@@ -1,8 +1,8 @@
 <section class="ls-index">
 <header>
-    <h1>LiteSpeed Web ADC Version 2.1</h1>
+    <h1>LiteSpeed Web ADC Version 2.3</h1>
     <h1>Users' Manual</h1>
-    <h1>&#8212;&nbsp;Rev. 17</h1>
+    <h1>&#8212;&nbsp;Rev. 1</h1>
 </header>
 <hr />
 
