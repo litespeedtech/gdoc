@@ -666,13 +666,15 @@ END_TIPS
 
 [ITEM]
 ID: extUser
-NAME: suEXEC User
+NAME: Run As User
+NS: EO
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: extGroup
 
-DESCR: Specifies username that the external application will run as. If not set, the external application will run as the user of the web server.   
+DESCR: Specifies username that the external application will run as. If not set, the external application will run as the user
+of the web server.
 END_DESCR
 
 SYNTAX: Valid username.
@@ -689,7 +691,8 @@ END_TIPS
 
 [ITEM]
 ID: extGroup
-NAME: suEXEC Group
+NAME: Run As Group
+NS: EO
 REQUIRED: 
 APPLY: 3
 SINCE: 
