@@ -45,7 +45,7 @@
       <li>Asynchronous I/O support</li>
       <li>LiteSpeed's exclusive server API (LSAPI) delivers the best dynamic content performance</li>
       <li>Unrivaled PHP suEXEC performance for shared hosting</li>
-      <li>Three different PHP suEXEC setups for different needs and abilities</li>
+      <li>Three different PHP process modes for different needs and abilities</li>
       <li>Static content up to 5x faster than Apache</li>
       <li>Dynamic content up to 40x faster than Apache</li>
       <li>HTTPS 3x faster than Apache</li>

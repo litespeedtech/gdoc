@@ -522,7 +522,7 @@ END_TIPS
 
 [ITEM]
 ID: autoStart
-NAME: Auto Start
+NAME: Start By Server
 NS: E
 REQUIRED: 
 APPLY: 3
@@ -552,7 +552,7 @@ END_TIPS
 
 [ITEM]
 ID: autoStart
-NAME: Auto Start
+NAME: Start By Server
 NS: LO
 REQUIRED: 
 APPLY: 3
@@ -749,7 +749,11 @@ SEE_ALSO:
 DESCR: Specifies whether to start the external application at server start
 up. Only applicable to external applications that can manage their own child processes and where 
 {ITEM=instances} value is set to "1".
-If enabled, external processes will be created at server startup instead of run-time.   
+If enabled, external processes will be created at server startup instead of run-time.
+
+
+Default value: No
+
 END_DESCR
 
 SYNTAX: bool
@@ -855,13 +859,13 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: 
-To control how many processes LSWS will make for users in suEXEC mode, use the suEXEC Max Conn setting. PHP scripts can call for forking processes 
+To control how many processes LSWS will make for users in mod_suEXEC mode, use the suEXEC Max Conn setting. PHP scripts can call for forking processes
 and the number of processes needed for normal functioning can be above the suEXEC Max Conn setting. The main purpose of this limit is as a last line of 
 defense to prevent fork bombs and other attacks caused by PHP processes creating other processes. 
 
 Setting this setting too low can severely hurt functionality. The setting will thus be ignored below certain levels.
 
-When using suEXEC Daemon mode, the actual process limit will be higher than this setting to make sure parent processes are not limited.
+When <b>Run On Start Up</b> is set to "Yes (Daemon mode)", the actual process limit will be higher than this setting to make sure parent processes are not limited.
 
 END_TIPS
 
@@ -906,7 +910,7 @@ other attacks caused by PHP processes creating other processes.
 
 Setting this setting too low can severely hurt functionality. The setting will thus be ignored below certain levels.
 
-When using suEXEC Daemon mode, the actual process limit will be higher than this setting to make sure parent processes are not limited.
+When <b>Run On Start Up</b> is set to "Yes (Daemon mode)", the actual process limit will be higher than this setting to make sure parent processes are not limited.
 END_TIPS
 
 [END_ITEM]

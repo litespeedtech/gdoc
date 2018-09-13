@@ -15,7 +15,8 @@ SEE_ALSO:
 DESCR: 
 Specifies the action to be taken when the specified Allowed Login Attempts limit is reached within 5 minutes.
 
-{val}Throttle{/} gradually slows down the speed of the server response, {val}drop{/} severs the connection without any reply, and {val}deny{/} returns a 403 response.
+{val}Throttle{/} gradually slows down the speed of the server response, {val}drop{/} severs the connection without any reply,
+and {val}deny{/} returns a 403 response.
 
 Default value is {val}Throttle{/}.
 END_DESCR
@@ -30,14 +31,16 @@ END_EXAMPLE
 TIPS:
 [S] Trusted IPs or sub-networks are not affected.
 
-[I] This feature is enabled by default (Throttle) and does not need any further configuration in the WebAdmin GUI or in Apache configurations.
+[I] This feature is enabled by default (Throttle) and does not need any further configuration in the WebAdmin GUI or in
+Apache configurations.
 
 [I] This setting will override Apache conf {val}WordPressProtect{/} setting for LSWS only. Apache will be unaffected.
 
 
 [I] This can be set at the Server level and overwritten at the Virtual Host level. If not overridden at the Virtual Host level, this 
 setting can also be overridden in a user's docroot .htaccess file using Apache configuration directive 
-{val}WordPressProtect{/} with value {val}0{/} (disabled), {val}1{/} (use server level setting), {val}throttle{/}, {val}deny{/}, or {val}drop{/}.
+{val}WordPressProtect{/} with value {val}0{/} (disabled), {val}1{/} (use server level setting), {val}throttle{/}, {val}deny{/}, or
+{val}drop{/}.
 END_TIPS
 
 [END_ITEM]
@@ -54,7 +57,8 @@ SEE_ALSO:
 DESCR: 
 Specifies the action to be taken when the specified Allowed Login Attempts limit is reached within 5 minutes.
 
-{val}Throttle{/} gradually slows down the speed of the server response, {val}drop{/} severs the connection without any reply, and {val}deny{/} returns a 403 response.
+{val}Throttle{/} gradually slows down the speed of the server response, {val}drop{/} severs the connection without any reply,
+and {val}deny{/} returns a 403 response.
 
 Default value is {val}Disable{/}.
 END_DESCR
@@ -71,7 +75,8 @@ TIPS:
 
 [I] This can be set at the Server level and overwritten at the Virtual Host level. If not overridden at the Virtual Host level, this 
 setting can also be overridden in a user's docroot .htaccess file using Apache configuration directive 
-{val}WordPressProtect{/} with value {val}0{/} (disabled), {val}1{/} (use server level setting), {val}throttle{/}, {val}deny{/}, or {val}drop{/}.
+{val}WordPressProtect{/} with value {val}0{/} (disabled), {val}1{/} (use server level setting), {val}throttle{/}, {val}deny{/}, or
+{val}drop{/}.
 END_TIPS
 
 [END_ITEM]
@@ -87,7 +92,8 @@ SINCE:
 SEE_ALSO:
 
 DESCR: 
-Specifies the maximum number of wp-login.php and xmlrpc.php POST attempts allowed within 5 minutes before the action specified in Protection Mode is taken.
+Specifies the maximum number of wp-login.php and xmlrpc.php POST attempts allowed within 5 minutes before the action
+specified in Protection Mode is taken.
 
 
 This limit is handled using a quota system where limit = quota. Each POST attempt will decrease the quota by 1 with the 
@@ -348,8 +354,8 @@ END_DESCR
 EDITTIP: Set IP level throttle limit here. The number will be rounded up to 4K units. Set to "0" to disable throttling.
 END_EDITTIP
 
-EDITTIP: Number of connections can temporarily exceed Soft Limit during Grace Period as long as under Hard Limit. After Grace Period, if it is 
-still above Soft Limit, then no more connections will be allowed from that IP for time of Banned Period.
+EDITTIP: Number of connections can temporarily exceed Soft Limit during Grace Period as long as under Hard Limit. After
+Grace Period, if it is still above Soft Limit, then no more connections will be allowed from that IP for time of Banned Period.
 END_EDITTIP
 
 SYNTAX: uint
@@ -782,10 +788,8 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the minimum user ID of external applications.  
-Execution of an external script with a user ID lower than the value specified here will be denied.  
-If LiteSpeed web server is started by "root" user, it can run external applications in the "suEXEC"
-mode like Apache (to change to a user/group ID other than the web server's).
+DESCR: Specifies the minimum user ID allowed to run external applications when running as a specified user.
+Execution of an external script with a user ID lower than the value specified here will be denied.
 END_DESCR
 
 SYNTAX: uint
@@ -809,10 +813,8 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the minimum group ID of external applications. 
-Execution of an external with a group ID lower than the value specified here will be denied. 
-If LiteSpeed web server is started by the "root" user, it can run external applications in the "suEXEC"
-mode found in Apache (to change to a user/group ID other than the web server's). 
+DESCR: Specifies the minimum group ID allowed to run external applications when running as a specified group.
+Execution of an external script with a group ID lower than the value specified here will be denied.
 END_DESCR
 
 SYNTAX: uint
@@ -1133,7 +1135,8 @@ EDITTIP: You can set up access control at server, virtual host and context level
 at server level, the virtual host rules will be applied after the server rules are satisfied.
 END_EDITTIP
 
-EDITTIP: Input format can be an IP like 192.168.0.2, a sub-network like 192.168.*, or a subnet/netmask like 192.168.128.5/255.255.128.0.
+EDITTIP: Input format can be an IP like 192.168.0.2, a sub-network like 192.168.*, or a subnet/netmask like
+192.168.128.5/255.255.128.0.
 END_EDITTIP
 
 EDITTIP: If you have trusted IP or sub-network, then you must specify them in allowed list by adding a trailing "T" such as 
