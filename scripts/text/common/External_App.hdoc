@@ -553,7 +553,7 @@ END_TIPS
 [ITEM]
 ID: autoStart
 NAME: Start By Server
-NS: LO
+NS: O
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -741,6 +741,7 @@ END_TIPS
 [ITEM]
 ID: runOnStartUp
 NAME: Run On Start Up
+NS: EO
 REQUIRED: 
 APPLY: 3
 SINCE: 
