@@ -39,7 +39,7 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specify whether the module is an internal module, which is staticaly linked, instead of being an external .so library.
+DESCR: Specify whether the module is an internal module, which is statically linked, instead of being an external .so library.
 
 END_DESCR
 
@@ -145,12 +145,12 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Enables or disables the module hooks at the Virtual Host or Context level. Only if the module has HTTP level hooks, 
-this setting will take effect.
+DESCR: Enables or disables the module hooks at the Virtual Host level. Only if the module has HTTP level hooks, this
+setting will take effect.
 
 
-If the 'Not Set' radio button is selected, the Virtual Host level default settings will be inherited from the Server configuration. Context level settings will be  
-inherited from the Virtual Host level. The user only needs to set it here to override the default settings. 
+If the 'Not Set' radio button is selected, the Virtual Host level default settings will be inherited from the Server configuration.
+The user only needs to set it here to override the default settings.
 END_DESCR
 
 SYNTAX: bool 
@@ -925,7 +925,7 @@ DESCR: It's a centralized place to customize module settings for virtual host co
 Settings for a context URI will override the virtual host or the server level settings.
 END_DESCR
 
-CONT: expuri modParams moduleEnabled_vh 
+CONT: expuri modParams
 END_CONT
 
 SEE_ALSO: 
@@ -950,7 +950,7 @@ Modules can be configured globally under the Server Module configuration tab.  T
 then available to the Listener and Virtual Host Module Configurations to inherit or modify.
 END_DESCR
 
-CONT: servModules listenerModules vhModules vhModuleUrlFilters moduleContext
+CONT: servModules listenerModules vhModules vhModuleUrlFilters
 END_CONT
 
 SEE_ALSO: 
