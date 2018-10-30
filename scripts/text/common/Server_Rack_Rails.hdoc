@@ -12,11 +12,66 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies path to Ruby executable. Generally, it is /usr/bin/ruby
+DESCR: Path to Ruby executable. Generally, it is /usr/bin/ruby
 or /usr/local/bin/ruby depending on where Ruby has been installed to.
 END_DESCR
 
 EDITTIP: <b>Ruby Path</b> is the absolute path of a ruby executable. For e.g., /usr/local/bin/ruby.
+END_EDITTIP
+
+SYNTAX: path1
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: wsgiBin
+NAME: WSGI Path
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Path to Python Web Server Gateway Interface executable.
+END_DESCR
+
+EDITTIP: 
+END_EDITTIP
+
+SYNTAX: path1
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+
+
+[END_ITEM]
+
+
+[ITEM]
+ID: nodeBin
+NAME: Node Path
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Path to Node.js executable. 
+END_DESCR
+
+EDITTIP: 
 END_EDITTIP
 
 SYNTAX: path1
@@ -41,6 +96,32 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies which mode Rack/Rails will be running as: "Development", 
+"Production", or "Staging". The default is "Production".
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: envType
+NAME: Run-time Mode
+NS: O
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies which mode the app server will be running as: "Development", 
 "Production", or "Staging". The default is "Production".
 END_DESCR
 
@@ -152,7 +233,7 @@ END_TIPS
 [TBL]
 ID: railsDefault
 NAME: Ruby Rack/Rails Settings
-NS: EO
+NS: E
 
 DESCR: Default configurations for Ruby Rack/Rails applications.
 END_DESCR
@@ -167,6 +248,24 @@ END_CONT
 SEE_ALSO: 
 [END_TBL]
 
+
+[TBL]
+ID: railsDefault
+NAME: App Server Settings
+NS: O
+
+DESCR: Default configurations for App Server applications.
+END_DESCR
+
+CONT: rubyBin wsgiBin nodeBin envType maxConns env initTimeout 
+retryTimeout pcKeepAliveTimeout respBuffer 
+extMaxIdleTime backlog runOnStartUp extAppPriority 
+memSoftLimit memHardLimit procSoftLimit procHardLimit
+ 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
 
 
 [TBL]
