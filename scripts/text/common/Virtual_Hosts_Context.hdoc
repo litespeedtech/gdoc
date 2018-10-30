@@ -393,12 +393,16 @@ END_TIPS
 [ITEM]
 ID: location
 NAME: Location
+NS: EO
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=expuri}
 
-DESCR: Specifies the corresponding location of this context in the file system. 
+DESCR: Specifies the corresponding location of this context in the file system.
+
+
+Default value: $DOC_ROOT + {ITEM=expuri}
 END_DESCR
 
 SYNTAX: It can be an absolute path or path relative to $SERVER_ROOT, $VH_ROOT, or $DOC_ROOT. 
@@ -433,12 +437,16 @@ END_TIPS
 [ITEM]
 ID: rails_location
 NAME: Location
+NS: E
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=expuri}
 
-DESCR: Specifies the corresponding location of this context in the file system. 
+DESCR: Specifies the corresponding location of this context in the file system.
+
+
+Default value: $DOC_ROOT + {ITEM=expuri}
 END_DESCR
 
 EDITTIP: Rack/Rails context is for easy configuration of running Rack/Rails application. You 
@@ -483,7 +491,10 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: {ITEM=expuri}
 
-DESCR: Specifies the corresponding location of this context in the file system. 
+DESCR: Specifies the corresponding location of this context in the file system.
+
+
+Default value: $DOC_ROOT + {ITEM=expuri}
 END_DESCR
 
 EDITTIP: The App Server context is for easy configuration of running Rack/Rails, WSGI, or Node.js applications. You 
@@ -527,12 +538,15 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the directory that contains the files for this web application. 
-This is the directory containing "WEB-INF/web.xml".
+DESCR: Specifies the directory that contains the files for this web application. This is the directory containing
+"WEB-INF/web.xml".
+
+
+Default value: $DOC_ROOT + {ITEM=uri}
 END_DESCR
 
-EDITTIP: Java web app context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine, the 
-servlet engine should be set up in external app section (either server or virtual host level). 
+EDITTIP: Java web app context is used to automatically import a predefined Java Application in an AJPv13 compilant Java
+servlet engine, the servlet engine should be set up in external app section (either server or virtual host level).
 END_EDITTIP
 
 EDITTIP: Location is the directory that contains web application files, which includes WEB-INF/ sub directory.
