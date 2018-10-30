@@ -57,7 +57,7 @@ ServTuning_Help
 ServSecurity_Help
 ExtApp_Help
 ScriptHandler_Help 
-Rails_Help
+App_Server_Help
 Module_Help
 Listeners_General_Help
 Listeners_SSL_Help
@@ -107,7 +107,7 @@ Proxy_Context
 CGI_Context
 LB_Context
 Redirect_Context
-Rails_Context
+App_Server_Context
 Module_Context
 
 END_NAV_SEQ

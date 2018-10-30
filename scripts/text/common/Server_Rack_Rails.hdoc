@@ -250,7 +250,7 @@ SEE_ALSO:
 
 
 [TBL]
-ID: railsDefault
+ID: appServerDefault
 NAME: App Server Settings
 NS: O
 
@@ -335,17 +335,17 @@ SEE_ALSO:
 
 
 [PAGE]
-ID: Rails_Help
-NAME: Rack/Rails Settings
+ID: App_Server_Help
+NAME: App Server Settings
 NS: O
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT:  railsDefault 
+CONT: appServerDefault
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 

@@ -1913,27 +1913,25 @@ SEE_ALSO:
 
 
 [TBL]
-ID: railsContext
-NAME: Rack/Rails Context
+ID: appServerContext
+NAME: App Server Context
 NS: O
 
-DESCR: A Rack/Rails Context provides an easy way to configure a Ruby Rack/Rails
-application. To add a Rack/Rails application through a Rack/Rails Context, 
-only mounting the URL and the application's root directory is required. There is 
-no need to go through all the troubles to define an external application, add a 404 handler, 
-and rewrite rules, etc.
+DESCR: An App Server Context provides an easy way to configure a Ruby Rack/Rails, WSGI, or Node.js application. To add
+a an application through an App Server Context, only mounting the URL and the application's root directory is required.
+There is no need to go through all the trouble to define an external application, add a 404 handler, and rewrite rules, etc.
 END_DESCR
 
-CONT: expuri as_location binPath appType as_startupfile railsEnv maxConns env enableExpires 
+CONT: expuri as_location binPath appType as_startupfile envType maxConns env enableExpires
 expiresDefault expiresByType extraHeaders
-indexFiles autoIndex  
+indexFiles autoIndex
 realm authName required accessAllowed accessDenied extAuthorizer
-addDefaultCharset defaultCharsetCustomized 
-enableRewrite rewriteInherit rewriteBase rewriteRules 
+enableRewrite rewriteInherit rewriteBase rewriteRules
+addDefaultCharset defaultCharsetCustomized
 enableIpGeo
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -2196,7 +2194,7 @@ END_CONT
 [PAGE]
 ID: Rails_Context 
 NAME: Rack/Rails Context
-NS:EO
+NS:E
 
 DESCR:
 END_DESCR
@@ -2205,6 +2203,22 @@ CONT: railsContext
 END_CONT
 
 [END_PAGE]
+
+
+
+[PAGE]
+ID: App_Server_Context
+NAME: App Server Context
+NS:O
+
+DESCR:
+END_DESCR
+
+CONT: appServerContext
+END_CONT
+
+[END_PAGE]
+
 
 
 [PAGE]
