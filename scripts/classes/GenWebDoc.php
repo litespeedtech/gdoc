@@ -34,7 +34,7 @@ class GenWebDoc
                 'External_LB' => 'config/extapps/load-balancer',
                 'ScriptHandler_Help' => 'config/scripthandler',
                 'PHP_Help' => 'config/php',
-                'Rails_Help' => 'config/rails',
+                'App_Server_Help' => 'config/app-server',
                 'Listeners_General_Help' => 'config/listener-general',
                 'Listeners_SSL_Help' => 'config/listener-ssl',
                 'Templates_Help' => 'config/templates',

@@ -113,6 +113,32 @@ END_TIPS
 
 
 [ITEM]
+ID: appserverEnv
+NAME: Run-Time Mode
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies which mode the application will be running as: "Development",
+"Production", or "Staging". The default is "Production".
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: envType
 NAME: Run-time Mode
 NS: O
@@ -231,14 +257,14 @@ END_TIPS
 
 
 [TBL]
-ID: railsDefault
-NAME: Ruby Rack/Rails Settings
-NS: E
+ID: railsDefaults
+NAME: Rack/Rails Default Settings
+NS: EO
 
-DESCR: Default configurations for Ruby Rack/Rails applications.
+DESCR: Default configurations for Rack/Rails applications.
 END_DESCR
 
-CONT: rubyBin railsEnv maxConns env initTimeout 
+CONT: rubyBin appserverEnv maxConns env initTimeout
 retryTimeout pcKeepAliveTimeout respBuffer 
 extMaxIdleTime backlog runOnStartUp extAppPriority 
 memSoftLimit memHardLimit procSoftLimit procHardLimit
@@ -248,24 +274,6 @@ END_CONT
 SEE_ALSO: 
 [END_TBL]
 
-
-[TBL]
-ID: appServerDefault
-NAME: App Server Settings
-NS: O
-
-DESCR: Default configurations for App Server applications.
-END_DESCR
-
-CONT: rubyBin wsgiBin nodeBin envType maxConns env initTimeout 
-retryTimeout pcKeepAliveTimeout respBuffer 
-extMaxIdleTime backlog runOnStartUp extAppPriority 
-memSoftLimit memHardLimit procSoftLimit procHardLimit
- 
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
 
 
 [TBL]
@@ -315,23 +323,82 @@ SEE_ALSO:
 
 
 
+[TBL]
+ID: wsgiDefaults
+NAME: Python WSGI Default Settings
+NS: EO
+
+DESCR: Default configurations for Python WSGI applications.
+END_DESCR
+
+CONT: wsgiBin appserverEnv maxConns env initTimeout
+retryTimeout pcKeepAliveTimeout respBuffer
+extMaxIdleTime backlog runOnStartUp extAppPriority
+memSoftLimit memHardLimit procSoftLimit procHardLimit
+
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: nodeDefaults
+NAME: Node.js App Default Settings
+NS: EO
+
+DESCR: Default configurations for Node.js applications.
+END_DESCR
+
+CONT: nodeBin appserverEnv maxConns env initTimeout
+retryTimeout pcKeepAliveTimeout respBuffer
+extMaxIdleTime backlog runOnStartUp extAppPriority
+memSoftLimit memHardLimit procSoftLimit procHardLimit
+
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: appServerDefault
+NAME: App Server Settings
+NS: O
+
+DESCR: Default configurations for App Server applications.
+END_DESCR
+
+CONT: rubyBin wsgiBin nodeBin envType maxConns env initTimeout
+retryTimeout pcKeepAliveTimeout respBuffer
+extMaxIdleTime backlog runOnStartUp extAppPriority
+memSoftLimit memHardLimit procSoftLimit procHardLimit
+
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
 ################ Pages ################
 
 
 [PAGE]
-ID: Rails_Help 
-NAME: Rack/Rails Settings
+ID: App_Server_Help
+NAME: App Server Settings
 NS: E
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT:  railsDefault railsHosting
+CONT: railsDefaults railsHosting wsgiDefaults nodeDefaults
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
-
 
 
 [PAGE]
@@ -342,7 +409,7 @@ NS: O
 DESCR:
 END_DESCR
 
-CONT: appServerDefault
+CONT: railsDefaults wsgiDefaults nodeDefaults
 END_CONT
 
 SEE_ALSO:

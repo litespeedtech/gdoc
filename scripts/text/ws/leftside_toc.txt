@@ -33,7 +33,7 @@
           </ul>
           <li><a href="ScriptHandler_Help.html">Script Handler</a></li>
           <li><a href="PHP_Help.html">PHP</a></li>
-          <li><a href="Rails_Help.html">Rack/Rails Settings</a></li>
+          <li><a href="App_Server_Help.html">App Server Settings</a></li>
           <li><a href="Listeners_General_Help.html">Listener General</a></li>
           <li><a href="Listeners_SSL_Help.html">Listener SSL</a></li>
           <li><a href="Templates_Help.html">Virtual Host Templates</a></li>
