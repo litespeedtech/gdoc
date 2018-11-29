@@ -170,20 +170,25 @@ END_EXAMPLE
 
 [ITEM]
 ID: respectCacheable
-NAME: Respect Cacheable 
+NAME: Respect Cacheable
 NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE:
-SEE_ALSO: 
+SEE_ALSO:
 
-DESCR: Respect "Cache-Control: public/private" response header values.
+DESCR: Respect the value of regular "Cache-Control" response headers when LiteSpeed-specific cache control has not
+been provided.
+
+
+LiteSpeed-specific cache control includes the X-litespeed-cache-control response header and the cache-control environment
+variable set via rewrite rule.
 END_DESCR
 
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: This setting is enabled by default.
