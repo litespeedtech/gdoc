@@ -138,32 +138,6 @@ END_TIPS
 
 
 
-[ITEM]
-ID: envType
-NAME: Run-time Mode
-NS: O
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies which mode the app server will be running as: "Development", 
-"Production", or "Staging". The default is "Production".
-END_DESCR
-
-SYNTAX: select
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
 ########## Rack/Rails Shared Hosting ##########
 
 
@@ -371,7 +345,7 @@ NS: O
 DESCR: Default configurations for App Server applications.
 END_DESCR
 
-CONT: rubyBin wsgiBin nodeBin envType maxConns env initTimeout
+CONT: rubyBin wsgiBin nodeBin appserverEnv maxConns env initTimeout
 retryTimeout pcKeepAliveTimeout respBuffer
 extMaxIdleTime backlog runOnStartUp extAppPriority
 memSoftLimit memHardLimit procSoftLimit procHardLimit

@@ -53,6 +53,7 @@ class GenWebDoc
                 'CGI_Context' => 'config/context/cgi',
                 'LB_Context' => 'config/context/load-balancer',
                 'Redirect_Context' => 'config/context/redirect',
+                'App_Server_Context' => 'config/context/app-server',
                 'Rails_Context' => 'config/context/rails',
                 'VHPageSpeed_Config' => 'config/vhost-pagespeed',
                 'VHAddOns_Help' => 'config/addons',

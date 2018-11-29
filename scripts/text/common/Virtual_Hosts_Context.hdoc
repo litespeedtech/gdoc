@@ -48,7 +48,8 @@ DESCR: The type of context created determines it's usage.:<br><br><b>Static</b> 
 <b>CGI</b> context can be used to specify a directory only contains CGI scripts.<br>
 <b>Load Balancer</b> context can be used to assign a different cluster for that context.<br>
 <b>Redirect</b> context can set up an internal or external redirect URI.<br>
-<b>Rack/Rails</b> context is specifically used for Rack/Rails applications.<br>
+<b>App Server</b> context is used for Rack/Rails, WSGI, or Node.js applications.<br>
+<b>Rack/Rails</b> context is specifically used for Rack/Rails applications. It is recommended to configure Rack/Rails applications as an <b>App Server</b> context instead.<br>
 END_DESCR
 
 EDITTIP: <b>Static</b> context can be used to map a URI to a directory either outside document root or within it.
@@ -78,7 +79,10 @@ END_EDITTIP
 EDITTIP: <b>Redirect</b> context can set up an internal or external redirect URI.
 END_EDITTIP
 
-EDITTIP: <b>Rack/Rails</b> context is specifically used for Rack/Rails applications.
+EDITTIP: <b>App Server</b> context is used for Rack/Rails, WSGI, or Node.js applications.
+END_EDITTIP
+
+EDITTIP: <b>Rack/Rails</b> context is specifically used for Rack/Rails applications. It is recommended to configure Rack/Rails applications as an <b>App Server</b> context instead.
 END_EDITTIP
 
 [END_ITEM]
@@ -514,7 +518,7 @@ END_TIPS
 [ITEM]
 ID: as_location
 NAME: Location
-NS: O
+NS: EO
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -637,7 +641,7 @@ END_TIPS
 [ITEM]
 ID: binPath
 NAME: Binary Path
-NS: O
+NS: EO
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -668,7 +672,7 @@ END_TIPS
 [ITEM]
 ID: appType
 NAME: Application Type
-NS: O
+NS: EO
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -699,7 +703,7 @@ END_TIPS
 [ITEM]
 ID: as_startupfile
 NAME: Startup File
-NS: O
+NS: EO
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -1960,14 +1964,14 @@ SEE_ALSO:
 [TBL]
 ID: appServerContext
 NAME: App Server Context
-NS: O
+NS: EO
 
 DESCR: An App Server Context provides an easy way to configure a Ruby Rack/Rails, WSGI, or Node.js application. To add
 a an application through an App Server Context, only mounting the URL and the application's root directory is required.
 There is no need to go through all the trouble to define an external application, add a 404 handler, and rewrite rules, etc.
 END_DESCR
 
-CONT: expuri as_location binPath appType as_startupfile envType maxConns env enableExpires
+CONT: expuri as_location binPath appType as_startupfile appserverEnv maxConns env enableExpires
 expiresDefault expiresByType extraHeaders
 indexFiles autoIndex
 realm authName required accessAllowed accessDenied extAuthorizer
@@ -2254,7 +2258,7 @@ END_CONT
 [PAGE]
 ID: App_Server_Context
 NAME: App Server Context
-NS:O
+NS:EO
 
 DESCR:
 END_DESCR
