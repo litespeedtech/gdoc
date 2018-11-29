@@ -235,7 +235,7 @@ ID: railsDefaults
 NAME: Rack/Rails Default Settings
 NS: EO
 
-DESCR: Default configurations for Rack/Rails applications.
+DESCR: Default configurations for Rack/Rails applications. These settings can be overriden at the context level.
 END_DESCR
 
 CONT: rubyBin appserverEnv maxConns env initTimeout
@@ -302,7 +302,7 @@ ID: wsgiDefaults
 NAME: Python WSGI Default Settings
 NS: EO
 
-DESCR: Default configurations for Python WSGI applications.
+DESCR: Default configurations for Python WSGI applications. These settings can be overriden at the context level.
 END_DESCR
 
 CONT: wsgiBin appserverEnv maxConns env initTimeout
@@ -322,30 +322,10 @@ ID: nodeDefaults
 NAME: Node.js App Default Settings
 NS: EO
 
-DESCR: Default configurations for Node.js applications.
+DESCR: Default configurations for Node.js applications. These settings can be overriden at the context level. 
 END_DESCR
 
 CONT: nodeBin appserverEnv maxConns env initTimeout
-retryTimeout pcKeepAliveTimeout respBuffer
-extMaxIdleTime backlog runOnStartUp extAppPriority
-memSoftLimit memHardLimit procSoftLimit procHardLimit
-
-END_CONT
-
-SEE_ALSO:
-[END_TBL]
-
-
-
-[TBL]
-ID: appServerDefault
-NAME: App Server Settings
-NS: O
-
-DESCR: Default configurations for App Server applications.
-END_DESCR
-
-CONT: rubyBin wsgiBin nodeBin appserverEnv maxConns env initTimeout
 retryTimeout pcKeepAliveTimeout respBuffer
 extMaxIdleTime backlog runOnStartUp extAppPriority
 memSoftLimit memHardLimit procSoftLimit procHardLimit
