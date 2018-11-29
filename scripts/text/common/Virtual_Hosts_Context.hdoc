@@ -175,16 +175,17 @@ END_TIPS
 [ITEM]
 ID: expuri
 NAME: URI
-REQUIRED: 
+NS: L
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: {ITEM=location}
+SINCE:
+SEE_ALSO
 
-DESCR: Specifies the URI for this context. 
+DESCR: Specifies the URI for this context.
 END_DESCR
 
-SYNTAX:  The URI can be a plain URI (starting with "/") or 
-a Perl compatible regular expression URI (starting with "exp:"). If a plain URI ends 
+SYNTAX:  The URI can be a plain URI (starting with "/") or
+a Perl compatible regular expression URI (starting with "exp:"). If a plain URI ends
 with a "/", then this context will include all sub-URIs under this
 URI. If the context maps to a directory on the file system, a trailing "/" must be added.
 END_SYNTAX
@@ -192,7 +193,35 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: expuri
+NAME: URI
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=location}
+
+DESCR: Specifies the URI for this context.
+END_DESCR
+
+SYNTAX:  The URI can be a plain URI (starting with "/") or
+a Perl compatible regular expression URI (starting with "exp:"). If a plain URI ends
+with a "/", then this context will include all sub-URIs under this
+URI. If the context maps to a directory on the file system, a trailing "/" must be added.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -570,6 +599,7 @@ END_TIPS
 
 [ITEM]
 ID: cgi_path
+NS: EO
 NAME: Path
 REQUIRED: 
 APPLY: 3
@@ -820,6 +850,7 @@ END_TIPS
 [ITEM]
 ID: destinationuri
 NAME: Destination URI
+NS: LEO
 REQUIRED: 
 APPLY: 3
 SINCE: 
