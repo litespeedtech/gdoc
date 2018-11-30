@@ -35,15 +35,19 @@ END_TIPS
 [ITEM]
 ID: wsgiBin
 NAME: WSGI Path
+NS: EO
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Path to Python Web Server Gateway Interface executable.
+DESCR: Path to LiteSpeed Python Web Server Gateway Interface executable (lswsgi).
+
+
+This executable is created by compiling Python with LiteSpeed's WSGI LSAPI module.
 END_DESCR
 
-EDITTIP: 
+EDITTIP:
 END_EDITTIP
 
 SYNTAX: path1
