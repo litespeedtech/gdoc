@@ -82,13 +82,13 @@ DESCR:
 Specifies the action to be taken when the specified Allowed Login Attempts limit is reached within 5 minutes.
 
 {val}Throttle{/} gradually slows down the speed of the server response, {val}drop{/} severs the connection without any reply,
-and {val}deny{/} returns a 403 response.
+{val}deny{/} returns a 403 response, and {val}captcha or drop{/} redirects to a captcha if LS reCAPTCHA is enabled and 
+drops otherwise.
 
 Default value is {val}Throttle{/}.
 END_DESCR
 
-SYNTAX:
-select
+SYNTAX: select
 END_SYNTAX
 
 EXAMPLE:
@@ -124,13 +124,13 @@ DESCR:
 Specifies the action to be taken when the specified Allowed Login Attempts limit is reached within 5 minutes.
 
 {val}Throttle{/} gradually slows down the speed of the server response, {val}drop{/} severs the connection without any reply,
-and {val}deny{/} returns a 403 response.
+{val}deny{/} returns a 403 response, and {val}captcha or drop{/} redirects to a captcha if LS reCAPTCHA is enabled and 
+drops otherwise.
 
 Default value is {val}Disable{/}.
 END_DESCR
 
-SYNTAX:
-select
+SYNTAX: select
 END_SYNTAX
 
 EXAMPLE:
