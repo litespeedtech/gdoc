@@ -857,15 +857,15 @@ SEE_ALSO:
 
 [TBL]
 ID: VHlsrecaptcha
-NAME: LS reCAPTCHA
+NAME: reCaptcha Protection
 NS: LO
 
-DESCR: LS reCAPTCHA is a service provided as a way to mitigate heavy server load. LS reCAPTCHA will activate after one
-of the below situations is hit. Once active, all requests by NON TRUSTED(as configured) clients will be redirected to a
-reCAPTCHA validation page. After validation, the client will be redirected to their desired page.
+DESCR: reCaptcha Protection is a service provided as a way to mitigate heavy server load. reCaptcha Protection will
+activate after one of the below situations is hit. Once active, all requests by NON TRUSTED(as configured) clients will be
+redirected to a reCAPTCHA validation page. After validation, the client will be redirected to their desired page.
 
 
-The following situations will activate LS reCAPTCHA:
+The following situations will activate reCaptcha Protection:
 
 1. The server or vhost concurrent requests count passes the configured connection limit.
 
@@ -891,15 +891,15 @@ SEE_ALSO:
 
 [TBL]
 ID: VHlsrecaptcha
-NAME: LS reCAPTCHA
+NAME: reCaptcha Protection
 NS: E
 
-DESCR: LS reCAPTCHA is a service provided as a way to mitigate heavy server load. LS reCAPTCHA will activate after one
-of the below situations is hit. Once active, all requests by NON TRUSTED(as configured) clients will be redirected to a
-reCAPTCHA validation page. After validation, the client will be redirected to their desired page.
+DESCR: reCaptcha Protection is a service provided as a way to mitigate heavy server load. reCaptcha Protection will
+activate after one of the below situations is hit. Once active, all requests by NON TRUSTED(as configured) clients will be
+redirected to a reCAPTCHA validation page. After validation, the client will be redirected to their desired page.
 
 
-The following situations will activate LS reCAPTCHA:
+The following situations will activate reCaptcha Protection:
 
 1. The server or vhost concurrent requests count passes the configured connection limit.
 

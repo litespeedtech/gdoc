@@ -82,7 +82,7 @@ DESCR:
 Specifies the action to be taken when the specified Allowed Login Attempts limit is reached within 5 minutes.
 
 {val}Throttle{/} gradually slows down the speed of the server response, {val}drop{/} severs the connection without any reply,
-{val}deny{/} returns a 403 response, and {val}captcha or drop{/} redirects to a captcha if LS reCAPTCHA is enabled and 
+{val}deny{/} returns a 403 response, and {val}captcha or drop{/} redirects to a captcha if reCaptcha Protection is enabled and
 drops otherwise.
 
 Default value is {val}Throttle{/}.
@@ -124,7 +124,7 @@ DESCR:
 Specifies the action to be taken when the specified Allowed Login Attempts limit is reached within 5 minutes.
 
 {val}Throttle{/} gradually slows down the speed of the server response, {val}drop{/} severs the connection without any reply,
-{val}deny{/} returns a 403 response, and {val}captcha or drop{/} redirects to a captcha if LS reCAPTCHA is enabled and 
+{val}deny{/} returns a 403 response, and {val}captcha or drop{/} redirects to a captcha if reCaptcha Protection is enabled and
 drops otherwise.
 
 Default value is {val}Disable{/}.
@@ -1181,7 +1181,7 @@ END_TIPS
 
 
 
-############# LS reCAPTCHA #############
+############# reCaptcha Protection #############
 
 
 [ITEM]
@@ -1193,19 +1193,19 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Enable the LS reCAPTCHA feature at the current level. This setting must be set to {val}Yes{/} the the Server level
-before the LS reCAPTCHA feature can be used.
+DESCR: Enable the reCaptcha Protection feature at the current level. This setting must be set to {val}Yes{/} the the Server
+level before the reCaptcha Protection feature can be used.
 
 
 Default values:
 
-<b>Server-level:</b> No
+<b>Server-level:</b> Yes
 
 <b>VH-Level:</b> Inherit Server level setting
 END_DESCR
 
-EDITTIP: When this setting is set to {val}Yes{/} at the Server level, LS reCAPTCHA can still be disabled at the Virtual Host
-level.
+EDITTIP: When this setting is set to {val}Yes{/} at the Server level, reCaptcha Protection can still be disabled at the Virtual
+Host level.
 END_EDITTIP
 
 SYNTAX: bool
@@ -1230,15 +1230,15 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Enable the LS reCAPTCHA feature at the current level. This setting must be set to {val}Yes{/} the the Server level
-before the LS reCAPTCHA feature can be used.
+DESCR: Enable the reCaptcha Protection feature at the current level. This setting must be set to {val}Yes{/} the the Server
+level before the reCaptcha Protection feature can be used.
 
 
 Default value is {val}No{/}.
 END_DESCR
 
-EDITTIP: When this setting is set to {val}Yes{/} at the Server level, LS reCAPTCHA can still be disabled at the Virtual Host
-level using the Trigger Sensitivity setting.
+EDITTIP: When this setting is set to {val}Yes{/} at the Server level, reCaptcha Protection can still be disabled at the Virtual
+Host level using the Trigger Sensitivity setting.
 END_EDITTIP
 
 SYNTAX: bool
@@ -1353,8 +1353,8 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Automatic reCAPTCHA sensitivity. The higher the value, the more likely LS reCAPTCHA will be used. A value of
-{val}0{/} is equivalent to "Off" while a value of {val}100{/} is equivalent to "Always On".
+DESCR: Automatic reCAPTCHA sensitivity. The higher the value, the more likely reCaptcha Protection will be used. A value
+of {val}0{/} is equivalent to "Off" while a value of {val}100{/} is equivalent to "Always On".
 
 
 Default values:
@@ -1775,15 +1775,15 @@ SEE_ALSO:
 
 [TBL]
 ID: lsrecaptcha
-NAME: LS reCAPTCHA
+NAME: reCaptcha Protection
 NS: LO
 
-DESCR: LS reCAPTCHA is a service provided as a way to mitigate heavy server load. LS reCAPTCHA will activate after one
-of the below situations is hit. Once active, all requests by NON TRUSTED(as configured) clients will be redirected to a
-reCAPTCHA validation page. After validation, the client will be redirected to their desired page.
+DESCR: reCaptcha Protection is a service provided as a way to mitigate heavy server load. reCaptcha Protection will activate
+after one of the below situations is hit. Once active, all requests by NON TRUSTED(as configured) clients will be redirected
+to a reCAPTCHA validation page. After validation, the client will be redirected to their desired page.
 
 
-The following situations will activate LS reCAPTCHA:
+The following situations will activate reCaptcha Protection:
 
 1. The server or vhost concurrent requests count passes the configured connection limit.
 
@@ -1810,15 +1810,15 @@ SEE_ALSO:
 
 [TBL]
 ID: lsrecaptcha
-NAME: LS reCAPTCHA
+NAME: reCaptcha Protection
 NS: E
 
-DESCR: LS reCAPTCHA is a service provided as a way to mitigate heavy server load. LS reCAPTCHA will activate after one
-of the below situations is hit. Once active, all requests by NON TRUSTED(as configured) clients will be redirected to a
-reCAPTCHA validation page. After validation, the client will be redirected to their desired page.
+DESCR: reCaptcha Protection is a service provided as a way to mitigate heavy server load. reCaptcha Protection will
+activate after one of the below situations is hit. Once active, all requests by NON TRUSTED(as configured) clients will be
+redirected to a reCAPTCHA validation page. After validation, the client will be redirected to their desired page.
 
 
-The following situations will activate LS reCAPTCHA:
+The following situations will activate reCaptcha Protection:
 
 1. The server or vhost concurrent requests count passes the configured connection limit.
 
