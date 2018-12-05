@@ -430,6 +430,9 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
+TIPS: [P] Enabling this setting is useful for avoiding bad requests but can also act as some added DDoS protection.
+END_TIPS
+
 [END_ITEM]
 
 
