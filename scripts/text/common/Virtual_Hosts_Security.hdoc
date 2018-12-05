@@ -855,6 +855,74 @@ SEE_ALSO:
 
 
 
+[TBL]
+ID: VHlsrecaptcha
+NAME: LS reCAPTCHA
+NS: LO
+
+DESCR: LS reCAPTCHA is a service provided as a way to mitigate heavy server load. LS reCAPTCHA will activate after one
+of the below situations is hit. Once active, all requests by NON TRUSTED(as configured) clients will be redirected to a
+reCAPTCHA validation page. After validation, the client will be redirected to their desired page.
+
+
+The following situations will activate LS reCAPTCHA:
+
+1. The server or vhost concurrent requests count passes the configured connection limit.
+
+2. Anti-DDoS is enabled and a client is hitting a url in a suspicious manner. The client will redirect to reCAPTCHA first
+instead of getting denied when triggered.
+
+3. WP Brute Force protection is enabled and action is set to 'Captcha or Drop’. When a brute force attack is detected, the
+client will redirect to reCAPTCHA first. After max tries is reached, the connection will be dropped, as per the ‘drop’ option.
+
+4. A new rewrite rule environment is provided to activate reCAPTCHA via RewriteRules. 'verifycaptcha' can be set to redirect
+clients to reCAPTCHA. A special value ': deny' can be set to deny the client if it failed too many times.
+For example, [E=verifycaptcha] will always redirect to reCAPTCHA until verified. [E=verifycaptcha: deny] will redirect to
+reCAPTCHA until Max Tries is hit, after which the client will be denied.
+END_DESCR
+
+CONT: enableRecaptcha recaptchaSiteKey recaptchaSecretKey recaptchaType recaptchaMaxTries recaptchaRegConnLimit
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: VHlsrecaptcha
+NAME: LS reCAPTCHA
+NS: E
+
+DESCR: LS reCAPTCHA is a service provided as a way to mitigate heavy server load. LS reCAPTCHA will activate after one
+of the below situations is hit. Once active, all requests by NON TRUSTED(as configured) clients will be redirected to a
+reCAPTCHA validation page. After validation, the client will be redirected to their desired page.
+
+
+The following situations will activate LS reCAPTCHA:
+
+1. The server or vhost concurrent requests count passes the configured connection limit.
+
+2. Anti-DDoS is enabled and a client is hitting a url in a suspicious manner. The client will redirect to reCAPTCHA first
+instead of getting denied when triggered.
+
+3. WP Brute Force protection is enabled and action is set to 'Captcha or Drop’. When a brute force attack is detected, the
+client will redirect to reCAPTCHA first. After max tries is reached, the connection will be dropped, as per the ‘drop’ option.
+
+4. A new rewrite rule environment is provided to activate reCAPTCHA via RewriteRules. 'verifycaptcha' can be set to redirect
+clients to reCAPTCHA. A special value ': deny' can be set to deny the client if it failed too many times.
+For example, [E=verifycaptcha] will always redirect to reCAPTCHA until verified. [E=verifycaptcha: deny] will redirect to
+reCAPTCHA until Max Tries is hit, after which the client will be denied.
+END_DESCR
+
+CONT: recaptchaSensitivity
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
 ################ Pages ################
 
 
@@ -866,7 +934,8 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: vhBandwidthThrottlingControl tpSecThrottle accessControl realms VHreqCensorship reqCensorshipRule
+CONT: vhBandwidthThrottlingControl tpSecThrottle VHlsrecaptcha accessControl realms VHreqCensorship
+reqCensorshipRule
 END_CONT
 
 SEE_ALSO: 
@@ -882,7 +951,7 @@ NS: E
 DESCR: 
 END_DESCR
 
-CONT: vh_webAppProtection VHreqCensorship VHreqCensorship reqCensorshipRule vhHotlink accessControl realms
+CONT: vh_webAppProtection VHreqCensorship VHreqCensorship reqCensorshipRule VHlsrecaptcha vhHotlink accessControl realms
 END_CONT
 
 SEE_ALSO: 
@@ -898,7 +967,7 @@ NS: O
 DESCR: 
 END_DESCR
 
-CONT: accessControl realms 
+CONT: VHlsrecaptcha accessControl realms
 END_CONT
 
 SEE_ALSO: 
