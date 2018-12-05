@@ -1964,7 +1964,34 @@ SEE_ALSO:
 [TBL]
 ID: appServerContext
 NAME: App Server Context
-NS: EO
+NS: E
+
+DESCR: An App Server Context provides an easy way to configure a Ruby Rack/Rails, WSGI, or Node.js application. To add
+a an application through an App Server Context, only mounting the URL and the application's root directory is required.
+There is no need to go through all the trouble to define an external application, add a 404 handler, and rewrite rules, etc.
+END_DESCR
+
+CONT: expuri as_location binPath appType as_startupfile appserverEnv maxConns env enableExpires
+expiresDefault expiresByType extraHeaders
+indexFiles autoIndex
+allowOverrideContext realm authName required accessAllowed accessDenied extAuthorizer
+enableRewrite rewriteInherit rewriteBase rewriteRules
+checkPublicCache checkPrivateCache respectCacheable cachePolicy:maxCacheObjSize cachePolicy:maxStaleAge
+cachePolicy:cacheKeyMod cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:enablePrivateCache
+cachePolicy:privateExpireInSeconds
+addDefaultCharset defaultCharsetCustomized
+enableIpGeo
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: appServerContext
+NAME: App Server Context
+NS: O
 
 DESCR: An App Server Context provides an easy way to configure a Ruby Rack/Rails, WSGI, or Node.js application. To add
 a an application through an App Server Context, only mounting the URL and the application's root directory is required.
