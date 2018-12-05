@@ -402,6 +402,37 @@ END_TIPS
 
 
 
+[ITEM]
+ID: cachePolicy:microCache5xx
+NAME: Micro Cache 5XX Response
+NS: LE
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Cache pages responding with HTTP status code 5xx (500, 503, etc) for 10 seconds when the cache response
+header indicates that the page is cacheable.
+
+
+Default values:
+
+<b>Server level:</b> Yes
+
+<b>VH level:</b> Inherit Server level setting
+
+<b>Context-level</b> Inherit VH level setting
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+[END_ITEM]
+
+
 
 ########## Do-Not-Cache URL ##########
 
@@ -493,7 +524,7 @@ END_DESCR
 
 CONT: checkPublicCache checkPrivateCache respectCacheable cachePolicy:maxCacheObjSize cachePolicy:maxStaleAge cachePolicy:cacheKeyMod 
 cachePolicy:enableCache  cachePolicy:expireInSeconds 
-cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
 END_CONT
 
 SEE_ALSO: 

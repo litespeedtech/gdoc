@@ -1432,7 +1432,7 @@ realm authName required accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized 
 enableRewrite rewriteInherit rewriteBase rewriteRules
 cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds 
-cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
 enableIpGeo pagespeedEnabled pagespeedParams apacheConf
 END_CONT
 
@@ -1509,7 +1509,7 @@ allowOverrideContext realm
 authName required accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized 
 cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds 
-cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
 enableIpGeo pagespeedEnabled pagespeedParams
 END_CONT
 
@@ -1583,7 +1583,7 @@ CONT: expuri servletEngine extraHeaders allowOverrideContext realm authName requ
 accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds 
-cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
 enableIpGeo pagespeedEnabled pagespeedParams
 END_CONT
 
@@ -1629,7 +1629,7 @@ CONT: expuri fcgiapp extraHeaders allowOverrideContext
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds 
-cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
 enableIpGeo pagespeedEnabled pagespeedParams
 END_CONT
 
@@ -1675,7 +1675,7 @@ CONT: expuri lsapiapp extraHeaders allowOverrideContext
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds 
-cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
 enableIpGeo pagespeedEnabled pagespeedParams
 END_CONT
 
@@ -1723,7 +1723,7 @@ CONT: expuri proxyWebServer extraHeaders
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds 
-cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
 enableIpGeo pagespeedEnabled pagespeedParams
 END_CONT
 
@@ -1773,7 +1773,7 @@ CONT: expuri cgi_path extraHeaders allowSetUID allowOverrideContext
 realm authName required accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 enableRewrite rewriteInherit rewriteBase rewriteRules 
-cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds 
+cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:microCache5xx
 cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
 enableIpGeo pagespeedEnabled pagespeedParams apacheConf 
 END_CONT
@@ -1820,7 +1820,7 @@ END_DESCR
 
 CONT: expuri extCluster extraHeaders realm authName required accessAllowed accessDenied 
 cachePolicy:maxCacheObjSize cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds 
-cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds 
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
 enableRewrite rewriteInherit rewriteBase rewriteRules addDefaultCharset defaultCharsetCustomized 
 enableIpGeo pagespeedEnabled pagespeedParams
 END_CONT
@@ -1845,7 +1845,7 @@ CONT: expuri lbapp extraHeaders allowOverrideContext realm authName required
 accessAllowed accessDenied extAuthorizer 
 addDefaultCharset defaultCharsetCustomized 
 cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds 
-cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
 enableIpGeo pagespeedEnabled pagespeedParams
 END_CONT
 
@@ -1952,7 +1952,7 @@ realm authName required accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized 
 enableRewrite rewriteInherit rewriteBase rewriteRules 
 cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds
-cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
 enableIpGeo pagespeedEnabled pagespeedParams
 END_CONT
 
@@ -1978,7 +1978,7 @@ allowOverrideContext realm authName required accessAllowed accessDenied extAutho
 enableRewrite rewriteInherit rewriteBase rewriteRules
 checkPublicCache checkPrivateCache respectCacheable cachePolicy:maxCacheObjSize cachePolicy:maxStaleAge
 cachePolicy:cacheKeyMod cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:enablePrivateCache
-cachePolicy:privateExpireInSeconds
+cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
 addDefaultCharset defaultCharsetCustomized
 enableIpGeo
 END_CONT
