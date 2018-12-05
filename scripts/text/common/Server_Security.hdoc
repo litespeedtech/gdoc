@@ -1,5 +1,71 @@
 [HELPDOC]
 
+############# Anti-DDoS Protection #############
+
+
+[ITEM]
+ID: enableAntiddos
+NAME: Enable Anti-DDoS Protection
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: This will enable bot detection and address them by denying or redirecting the client
+to reCAPTCHA. If firewall is enabled, the client IP will be denied at the firewall level.
+
+
+Default value is {val}Yes{/}.
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: firewallEnable
+NAME: Enable Firewall Modifications
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Enable firewall modifications via ifconfig and ipset.
+
+
+Default value is {val}Yes{/}.
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# Web Application Protection #############
 
 
@@ -107,8 +173,7 @@ Resetting the server will clear blocked IPs.
 Default value is {val}10{/}.
 END_DESCR
 
-SYNTAX:
-Valid Range: 5 - 1000.
+SYNTAX: Valid Range: 5 - 1000.
 END_SYNTAX
 
 EXAMPLE:
@@ -1338,6 +1403,22 @@ SEE_ALSO:
 
 
 
+[TBL]
+ID: sec:dos
+NAME: Anti-DDoS Protection
+NS: L
+
+DESCR:
+END_DESCR
+
+CONT: enableAntiddos firewallEnable
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
 ################ Pages ################
 
 [PAGE]
@@ -1348,7 +1429,7 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: wpProtect reqCensorship reqCensorshipRule perClientConnLimit accessControl 
+CONT: sec:dos wpProtect reqCensorship reqCensorshipRule perClientConnLimit accessControl
 END_CONT
 
 SEE_ALSO: 
