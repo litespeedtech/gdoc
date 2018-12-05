@@ -1263,7 +1263,8 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: The site key is the public key provided by Google via its reCAPTCHA service.
+DESCR: The site key is the public key provided by Google via its reCAPTCHA service. A default Site Key will be used if not
+set.
 END_DESCR
 
 EDITTIP: The server level site/secret key pair must be configured to skip domain checking if the server manages multiple
@@ -1292,7 +1293,8 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: The secret key is the private key provided by Google via its reCAPTCHA service.
+DESCR: The secret key is the private key provided by Google via its reCAPTCHA service. A default Secret Key will be used
+if not set.
 END_DESCR
 
 EDITTIP:
@@ -1320,12 +1322,15 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specify the reCAPTCHA type to use with the key pairs. {val}Unknown{/} can be used if the reCAPTCHA type for the
-key pair is unknown. {val}Checkbox{/} will display a checkbox reCAPTCHA for the visitor to validate. {val}Invisible{/} will
-attempt to validate the reCAPTCHA automatically and if successful, will redirect to the desired page.
+DESCR: Specify the reCAPTCHA type to use with the key pairs. If a key pair has not been provided and this setting is set to
+{val}Not Set{/}, a default key pair of type {val}Invisible{/} will be used.
+
+{val}Checkbox{/} will display a checkbox reCAPTCHA for the visitor to validate.
+
+{val}Invisible{/} will attempt to validate the reCAPTCHA automatically and if successful, will redirect to the desired page.
 
 
-Default value is {val}Unknown{/}.
+Default value is {val}Invisible{/}.
 END_DESCR
 
 EDITTIP:
