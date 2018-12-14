@@ -5,6 +5,35 @@
 
 
 [ITEM]
+ID: cacheEngine
+NAME: Cache Features
+NS: E
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies which cache features to enable. {val}On{/} enables the cache engine while {val}Crawler{/} and {val}ESI{/}
+enables those respective features. Features enabled globally at the Server level can be overriden at the Virtual Host level.
+
+
+Setting Enable LiteMage to {val}On{/} at the Virtual Host level will override this setting, enabling all features.
+
+
+Default value: Everything enabled
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: cacheStorePath
 NAME: Storage Path
 NS: LE
@@ -504,12 +533,28 @@ END_TIPS
 [TBL]
 ID: cacheStorage
 NAME: Cache Storage Settings
-NS: LE
+NS: L
 
 DESCR: 
 END_DESCR
 
 CONT: cacheStorePath litemage cacheMgrStorePath pubStoreExpireMinutes
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: cacheStorage
+NAME: Cache Storage Settings
+NS: E
+
+DESCR: 
+END_DESCR
+
+CONT: cacheEngine cacheStorePath litemage cacheMgrStorePath pubStoreExpireMinutes
 END_CONT
 
 SEE_ALSO: 
