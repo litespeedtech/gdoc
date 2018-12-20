@@ -399,7 +399,7 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies the maximum size of a request URL. URL is the full text address used to access
-a server resource including the query string. {val}8192{/} bytes is the hard limit.
+a server resource including the query string. {val}16K{/} bytes is the hard limit.
 END_DESCR
 
 SYNTAX: uint
