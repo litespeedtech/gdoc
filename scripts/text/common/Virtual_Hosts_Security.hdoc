@@ -278,6 +278,40 @@ END_TIPS
 
 
 
+############# reCaptcha Protection #############
+
+
+[ITEM]
+ID: recaptchaVhReqLimit
+NAME: Concurrent Request Limit
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: The number of concurrent requests needed to activate reCAPTCHA. reCAPTCHA will be used until
+concurrent requests drop below this number.
+
+
+Default value is {val}15000{/}.
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
 ############# Access Control #############
 
 
@@ -881,7 +915,7 @@ For example, [E=verifycaptcha] will always redirect to reCAPTCHA until verified.
 reCAPTCHA until Max Tries is hit, after which the client will be denied.
 END_DESCR
 
-CONT: enableRecaptcha recaptchaSiteKey recaptchaSecretKey recaptchaType recaptchaMaxTries recaptchaRegConnLimit
+CONT: enableRecaptcha recaptchaSiteKey recaptchaSecretKey recaptchaType recaptchaMaxTries recaptchaVhReqLimit
 END_CONT
 
 SEE_ALSO:

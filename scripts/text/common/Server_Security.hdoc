@@ -1478,15 +1478,15 @@ END_TIPS
 
 [ITEM]
 ID: recaptchaRegConnLimit
-NAME: Non-SSL Connection Limit
+NAME: Connection Limit
 NS: L
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: The number of concurrent regular(non-ssl) connections to activate reCAPTCHA. reCAPTCHA will be used until the
-concurrent connections drop below this number.
+DESCR: The number of concurrent connections (SSL & non-SSL) needed to activate reCAPTCHA. reCAPTCHA will be used
+until concurrent connections drop below this number.
 
 
 Default value is {val}15000{/}.
@@ -1517,8 +1517,8 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: The number of concurrent SSL connections to activate reCAPTCHA. reCAPTCHA will be used until the concurrent
-connections drop below this number.
+DESCR: The number of concurrent SSL connections needed to activate reCAPTCHA. reCAPTCHA will be used until
+concurrent connections drop below this number.
 
 
 Default value is {val}10000{/}.
