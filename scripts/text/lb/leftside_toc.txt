@@ -3,7 +3,7 @@
         <img src="img/web-adc_logo.svg" alt="lightspeed web adc logo" width="200px"/>
       </figure>
  <h3 class="ls-text-thin">LiteSpeed Web ADC <br /> <a href="index.html"> Users' Manual</a></h3>
-<h5 class="ls-text-muted">Version 2.3 &nbsp;&#8212;&nbsp;Rev. 5</h5>
+<h5 class="ls-text-muted">Version 2.3 &nbsp;&#8212;&nbsp;Rev. 6</h5>
   <hr/>
   <div>
     <ul>
