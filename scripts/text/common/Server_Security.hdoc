@@ -1187,7 +1187,7 @@ END_TIPS
 [ITEM]
 ID: enableRecaptcha
 NAME: Enable reCAPTCHA
-NS: LO
+NS: L
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1257,7 +1257,7 @@ END_TIPS
 [ITEM]
 ID: recaptchaSiteKey
 NAME: Site Key
-NS: LEO
+NS: LE
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1287,7 +1287,7 @@ END_TIPS
 [ITEM]
 ID: recaptchaSecretKey
 NAME: Secret Key
-NS: LEO
+NS: LE
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1316,7 +1316,7 @@ END_TIPS
 [ITEM]
 ID: recaptchaType
 NAME: reCAPTCHA Type
-NS: LEO
+NS: LE
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1388,7 +1388,7 @@ END_TIPS
 [ITEM]
 ID: recaptchaMaxTries
 NAME: Max Tries
-NS: LEO
+NS: LE
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1419,7 +1419,7 @@ END_TIPS
 [ITEM]
 ID: recaptchaAllowedRobotHits
 NAME: Allowed Robot Hits
-NS: LEO
+NS: LE
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1450,7 +1450,7 @@ END_TIPS
 [ITEM]
 ID: recaptchaBotWhiteList
 NAME: Bot White List
-NS: LEO
+NS: LE
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1479,7 +1479,7 @@ END_TIPS
 [ITEM]
 ID: recaptchaRegConnLimit
 NAME: Non-SSL Connection Limit
-NS: LO
+NS: L
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1511,7 +1511,7 @@ END_TIPS
 [ITEM]
 ID: recaptchaSslConnLimit
 NAME: SSL Connection Limit
-NS: LO
+NS: L
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1781,7 +1781,7 @@ SEE_ALSO:
 [TBL]
 ID: lsrecaptcha
 NAME: reCaptcha Protection
-NS: LO
+NS: L
 
 DESCR: reCaptcha Protection is a service provided as a way to mitigate heavy server load. reCaptcha Protection will activate
 after one of the below situations is hit. Once active, all requests by NON TRUSTED(as configured) clients will be redirected
@@ -1891,7 +1891,7 @@ NS: O
 DESCR: 
 END_DESCR
 
-CONT: fileAccessControl perClientConnLimit cgiResource lsrecaptcha
+CONT: fileAccessControl perClientConnLimit cgiResource
 accessDeny accessControl
 END_CONT
 

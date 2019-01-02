@@ -286,7 +286,7 @@ END_TIPS
 
 
 
-########## New Realm ##########
+############# New Realm #############
 
 
 [ITEM]
@@ -858,7 +858,7 @@ SEE_ALSO:
 [TBL]
 ID: VHlsrecaptcha
 NAME: reCaptcha Protection
-NS: LO
+NS: L
 
 DESCR: reCaptcha Protection is a service provided as a way to mitigate heavy server load. reCaptcha Protection will
 activate after one of the below situations is hit. Once active, all requests by NON TRUSTED(as configured) clients will be
@@ -967,7 +967,7 @@ NS: O
 DESCR: 
 END_DESCR
 
-CONT: VHlsrecaptcha accessControl realms
+CONT: accessControl realms
 END_CONT
 
 SEE_ALSO: 
