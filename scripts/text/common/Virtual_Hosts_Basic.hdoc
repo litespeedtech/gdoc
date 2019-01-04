@@ -484,9 +484,8 @@ NS: E
 DESCR: 
 END_DESCR
 
-CONT: allowSymbolLink enableScript
-restrained setUidMode
-chrootMode chrootPath totalBandwidth
+CONT: allowSymbolLink enableScript restrained setUidMode chrootMode chrootPath
+totalBandwidth
 END_CONT
 
 [END_TBL]
@@ -501,9 +500,7 @@ NS: O
 DESCR: 
 END_DESCR
 
-CONT: allowSymbolLink enableScript
-restrained setUidMode
-chrootMode chrootPath
+CONT: allowSymbolLink enableScript restrained setUidMode
 END_CONT
 
 [END_TBL]
