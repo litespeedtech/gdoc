@@ -54,7 +54,7 @@ SEE_ALSO:
 
 [TBL]
 ID: tpSecCGI
-NAME: External Application Resource Control
+NAME: External Application Security
 NS: E
 
 DESCR:
@@ -70,7 +70,7 @@ SEE_ALSO:
 
 [TBL]
 ID: tpSecCGI
-NAME: External Application Resource Control
+NAME: External Application Security
 NS: O
 
 DESCR:
