@@ -60,7 +60,7 @@ NS: E
 DESCR:
 END_DESCR
 
-CONT: setUidMode chrootMode chrootPath
+CONT: setUidMode suexecUser suexecGroup chrootMode chrootPath
 END_CONT
 
 SEE_ALSO:
@@ -76,7 +76,7 @@ NS: O
 DESCR:
 END_DESCR
 
-CONT: setUidMode
+CONT: setUidMode suexecUser suexecGroup
 END_CONT
 
 SEE_ALSO:

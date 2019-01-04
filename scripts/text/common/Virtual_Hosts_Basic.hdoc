@@ -362,6 +362,74 @@ END_TIPS
 
 
 [ITEM]
+ID: suexecUser
+NAME: Run As User
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: The user to run as at the current context level using either the user name or uid of the user.
+This setting will override the Virtual Host level <b>ExtApp Set UID Mode</b> setting if set.
+
+
+Default values:
+
+<b>Virtual Host level:</b> Not Set
+
+<b>External Application level:</b> Inherit Virtual Host level setting
+END_DESCR
+
+SYNTAX: Valid user name or uid.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: suexecGroup
+NAME: Run As Group
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: The group to run as at the current context level using either the group name or gid of the group.
+This setting will not take effect if the <b>Run As User</b> setting has not been set at the Virtual Host or
+External Application levels.
+
+
+Default values:
+
+<b>Virtual Host level:</b> Virtual Host level <b>Run As User</b> setting value
+
+<b>External Application level:</b> External application level <b>Run As User</b> setting value if set, else inherit
+Virtual Host level setting
+END_DESCR
+
+SYNTAX: Valid group name or uid
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: chrootMode
 NAME: ExtApp Chroot Mode
 REQUIRED: 
@@ -488,7 +556,7 @@ NS: E
 DESCR: 
 END_DESCR
 
-CONT: allowSymbolLink enableScript restrained setUidMode chrootMode chrootPath
+CONT: allowSymbolLink enableScript restrained setUidMode suexecUser suexecGroup chrootMode chrootPath
 totalBandwidth
 END_CONT
 
@@ -504,7 +572,7 @@ NS: O
 DESCR: 
 END_DESCR
 
-CONT: allowSymbolLink enableScript restrained setUidMode
+CONT: allowSymbolLink enableScript restrained setUidMode suexecUser suexecGroup
 END_CONT
 
 [END_TBL]
