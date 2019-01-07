@@ -324,7 +324,7 @@ END_TIPS
 
 [ITEM]
 ID: setUidMode
-NAME: External Application Set UID Mode
+NAME: External App Set UID Mode
 NS: EO
 REQUIRED: 
 APPLY: 3
@@ -431,7 +431,7 @@ END_TIPS
 
 [ITEM]
 ID: chrootMode
-NAME: ExtApp Chroot Mode
+NAME: External App Chroot Mode
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -471,7 +471,7 @@ END_TIPS
 
 [ITEM]
 ID: chrootPath
-NAME: ExtApp Chroot Path
+NAME: External App Chroot Path
 REQUIRED: 
 APPLY: 3
 SINCE: 

@@ -874,7 +874,7 @@ END_TIPS
 
 [TBL]
 ID: extapp
-NAME: External Application Settings
+NAME: External App Settings
 NS: EO
 
 DESCR: 
@@ -1021,7 +1021,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: ExtApp_Help 
-NAME: External Application
+NAME: External Apps
 NS: EO
 
 DESCR: LiteSpeed web server can forward requests to external applications to 
