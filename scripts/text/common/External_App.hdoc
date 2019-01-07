@@ -874,7 +874,7 @@ END_TIPS
 
 [TBL]
 ID: extapp
-NAME: External App Settings
+NAME: New External App
 NS: EO
 
 DESCR: 
