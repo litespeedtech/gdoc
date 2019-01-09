@@ -101,6 +101,33 @@ END_TIPS
 
 
 
+########## Zconf Listeners ##########
+
+
+[ITEM]
+ID: zconf_laddr
+NAME: Address
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Address of listener that will only accept Zconf configuration and control messages.
+END_DESCR
+
+SYNTAX: IP:port
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ########## Access Control ##########
 
 
@@ -180,33 +207,6 @@ END_TIPS
 
 
 
-########## Zconf Listeners ##########
-
-
-[ITEM]
-ID: zconf_laddr
-NAME: Address
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Address of listener that will only accept Zconf configuration and control messages.
-END_DESCR
-
-SYNTAX: IP:port
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS:
-END_TIPS
-
-[END_ITEM]
-
-
-
 ############# Tables #############
 
 
@@ -214,13 +214,28 @@ END_TIPS
 ID: zconf_general
 NAME: General
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: zconf_enabled zconf_passwdFile zconf_groupFile zconfShmDir
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: zconf_listeners
+NAME: Zconf Listeners
+
+DESCR: Secure SSL listeners that will listen for zero config messages only.
+END_DESCR
+
+CONT: listenerName zconf_laddr keyFile certFile CACertFile
+END_CONT
+
+SEE_ALSO:
 [END_TBL]
 
 
@@ -272,21 +287,6 @@ SEE_ALSO:
 
 
 
-[TBL]
-ID: zconf_listeners
-NAME: Zconf Listeners
-
-DESCR: Secure SSL listeners that will listen for zero config messages only.
-END_DESCR
-
-CONT: listenerName zconf_laddr keyFile certFile CACertFile
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
-
-
 ################ Pages ################
 
 
@@ -300,10 +300,10 @@ balancing dynamically rather than working with the webadmin interface. The ZeroC
 accepted by the ZeroConfig feature. This section provides the interface to enable and configure the ZeroConfig feature.
 END_DESCR
 
-CONT: zconf_general zconfLog zconfAcLog zconf_accessControl zconf_listeners
+CONT: zconf_general zconf_listeners zconfLog zconfAcLog zconf_accessControl
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
