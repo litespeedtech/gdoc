@@ -1364,9 +1364,9 @@ of {val}0{/} is equivalent to "Off" while a value of {val}100{/} is equivalent t
 
 Default values:
 
-<b>Server-level:</b> 0
+<b>Server level:</b> 0
 
-<b>VH-Level:</b> Inherit Server level setting
+<b>Virtual Host level:</b> Inherit Server level setting
 END_DESCR
 
 EDITTIP: Server level setting can be overridden at the Virtual Host level.

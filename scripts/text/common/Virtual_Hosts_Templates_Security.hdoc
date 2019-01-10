@@ -54,16 +54,32 @@ SEE_ALSO:
 
 [TBL]
 ID: tpSecCGI
-NAME: External Application Resource Control
-NS: EO
+NAME: External Application Security
+NS: E
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: setUidMode chrootMode chrootPath
+CONT: setUidMode suexecUser suexecGroup chrootMode chrootPath
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: tpSecCGI
+NAME: External Application Security
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: setUidMode suexecUser suexecGroup
+END_CONT
+
+SEE_ALSO:
 [END_TBL]
 
 
