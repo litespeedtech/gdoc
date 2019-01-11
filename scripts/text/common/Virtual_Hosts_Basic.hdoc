@@ -32,10 +32,10 @@ END_TIPS
 ID: vhRoot
 NAME: Virtual Host Root
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies the root directory of the virtual host. Note: This is <b>NOT</b> 
 the document root. It is recommended to place all files related to the virtual host 
@@ -43,18 +43,19 @@ the document root. It is recommended to place all files related to the virtual h
 under this directory. Virtual Host Root can be referred to using the variable $VH_ROOT.
 END_DESCR
 
-EDITTIP: All directories must pre-exist. This web interface will not create the directory for you. If you are creating a new virtual host, you 
-can create an empty root directory and set it up from the beginning; or you can copy the DEFAULT virtual root that shipped with the package to this virtual 
-host root and modify it.
+EDITTIP: All directories must pre-exist. This web interface will not create the directory for you. If you are creating a new
+virtual host, you can create an empty root directory and set it up from the beginning; or you can copy the DEFAULT virtual
+root that shipped with the package to this virtual host root and modify it.
 END_EDITTIP
 
-EDITTIP: Virtual host root ($VH_ROOT) can be absolute path or relative to $SERVER_ROOT. Config File can be relative to $VH_ROOT.
+EDITTIP: Virtual host root ($VH_ROOT) can be absolute path or relative to $SERVER_ROOT. Config File can be relative to
+$VH_ROOT.
 END_EDITTIP
 
 SYNTAX: path2
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [P] Place different virtual hosts on different hard drives.
@@ -68,20 +69,20 @@ END_TIPS
 ID: vhRoot
 NAME: Virtual Host Root
 NS: O
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the root directory of the virtual host. Note: This is <b>NOT</b> 
-the document root. It is recommended to place all files related to the virtual host 
+DESCR: Specifies the root directory of the virtual host. Note: This is <b>NOT</b>
+the document root. It is recommended to place all files related to the virtual host
 (like log files, html files, CGI scripts, etc.)
 under this directory. Virtual Host Root can be referred to using the variable $VH_ROOT.
 END_DESCR
 
-EDITTIP: All directories must pre-exist. This web interface will not create the directory for you. If you are creating a new virtual host, you 
-can create an empty root directory and set it up from the beginning; or you can copy the "Example" virtual root that shipped with the package to this virtual 
-host root and modify it.
+EDITTIP: All directories must pre-exist. This web interface will not create the directory for you. If you are creating a new
+virtual host, you can create an empty root directory and set it up from the beginning; or you can copy the "Example" virtual
+root that shipped with the package to this virtual host root and modify it.
 END_EDITTIP
 
 EDITTIP: Virtual host root ($VH_ROOT) can be absolute path or relative to $SERVER_ROOT.
@@ -90,7 +91,7 @@ END_EDITTIP
 SYNTAX: path2
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [P] Place different virtual hosts on different hard drives.
@@ -363,7 +364,7 @@ END_TIPS
 
 [ITEM]
 ID: suexecUser
-NAME: Run As User
+NAME: suEXEC User
 NS: EO
 REQUIRED:
 APPLY: 3
@@ -396,7 +397,7 @@ END_TIPS
 
 [ITEM]
 ID: suexecGroup
-NAME: Run As Group
+NAME: suEXEC Group
 NS: EO
 REQUIRED:
 APPLY: 3
