@@ -19,5 +19,5 @@
 <li><span><a href="security.html">Security</a></span></li>
 <li><span><a href="config.html">Configurations</a></span></li>
 </ol>
-<p>For more information, visit our <a href="http://open.litespeedtech.com/mediawiki/">OpenLiteSpeed Wiki</a></p>
+<p>For more information, visit our <a href="https://openlitespeed.org/kb/">OpenLiteSpeed Knowledge Base</a></p>
 </section>
