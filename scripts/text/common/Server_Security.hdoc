@@ -1193,7 +1193,7 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Enable the reCaptcha Protection feature at the current level. This setting must be set to {val}Yes{/} the the Server
+DESCR: Enable the reCaptcha Protection feature at the current level. This setting must be set to {val}Yes{/} at the Server
 level before the reCaptcha Protection feature can be used.
 
 
@@ -1230,7 +1230,7 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Enable the reCaptcha Protection feature at the current level. This setting must be set to {val}Yes{/} the the Server
+DESCR: Enable the reCaptcha Protection feature at the current level. This setting must be set to {val}Yes{/} at the Server
 level before the reCaptcha Protection feature can be used.
 
 
