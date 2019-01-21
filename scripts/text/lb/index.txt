@@ -2,7 +2,7 @@
 <header>
     <h1>LiteSpeed Web ADC Version 2.3</h1>
     <h1>Users' Manual</h1>
-    <h1>&#8212;&nbsp;Rev. 6</h1>
+    <h1>&#8212;&nbsp;Rev. 7</h1>
 </header>
 <hr />
 
