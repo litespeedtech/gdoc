@@ -148,22 +148,83 @@ END_TIPS
 [END_ITEM]
 
 
+
 [ITEM]
 ID: wpProtectLimit
 NAME: Allowed Login Attempts
-NS: EL
-REQUIRED: 
+NS: L
+REQUIRED:
 APPLY: 3
-SINCE: 
+SINCE:
 SEE_ALSO:
 
-DESCR: 
+DESCR:
 Specifies the maximum number of wp-login.php and xmlrpc.php POST attempts allowed within 5 minutes before the action
 specified in Protection Mode is taken.
 
 
-This limit is handled using a quota system where limit = quota. Each POST attempt will decrease the quota by 1 with the 
-quota increasing back to the set limit over time. The IP will be throttled starting at 1/2 the set limit, slowing more as the 
+This limit is handled using a quota system where limit = quota. Each POST attempt will decrease the quota by 1 with the
+quota increasing back to the set limit over time. The IP will be throttled starting at 1/2 the set limit, slowing more as the
+quota drops further. When the quota reaches 0, the specified action is taken toward the IP.
+
+
+Resetting the server will clear blocked IPs.
+
+
+Default value is {val}10{/}.
+END_DESCR
+
+SYNTAX: Valid Range: 5 - 1000.
+END_SYNTAX
+
+EXAMPLE:
+With an Attempt limit of 10, and a Mode of drop:
+
+
+After the first POST attempt, the quota is decreased to 9.
+
+
+Quota decreases by 1 for each POST attempt.
+
+
+After Quota reaches half of the limit (5), the IP will be throttled.
+
+
+Throttling will get worse with each POST attempt.
+
+
+Once the quota reaches 0, the connection will be dropped.
+END_EXAMPLE
+
+TIPS:
+[S] Trusted IPs or sub-networks are not affected.
+
+
+[I] This can be set at the Server level and overwritten at the Virtual Host level. If not overridden at the Virtual Host level, this
+setting can also be overridden in a user's docroot .htaccess file using Apache configuration directive
+{val}WordPressProtect{/} with integer value between 5 and 1000.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: wpProtectLimit
+NAME: Allowed Login Attempts
+NS: E
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR:
+Specifies the maximum number of wp-login.php and xmlrpc.php POST attempts allowed within 5 minutes before the action
+specified in Protection Mode is taken.
+
+
+This limit is handled using a quota system where limit = quota. Each POST attempt will decrease the quota by 1 with the
+quota increasing back to the set limit over time. The IP will be throttled starting at 1/2 the set limit, slowing more as the
 quota drops further. When the quota reaches 0, the specified action is taken toward the IP.
 
 
@@ -202,8 +263,8 @@ TIPS:
 [I] This setting will override Apache conf {val}WordPressProtect{/} setting for LSWS only. Apache will be unaffected.
 
 
-[I] This can be set at the Server level and overwritten at the Virtual Host level. If not overridden at the Virtual Host level, this 
-setting can also be overridden in a user's docroot .htaccess file using Apache configuration directive 
+[I] This can be set at the Server level and overwritten at the Virtual Host level. If not overridden at the Virtual Host level, this
+setting can also be overridden in a user's docroot .htaccess file using Apache configuration directive
 {val}WordPressProtect{/} with integer value between 5 and 1000.
 END_TIPS
 

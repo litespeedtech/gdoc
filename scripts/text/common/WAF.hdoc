@@ -389,10 +389,6 @@ SEE_ALSO:
 
 
 DESCR: Specifies a list of censorship rules.
-
-
-If you are using an Apache config file, you have to set up rules in httpd.conf. 
-Rules defined here will have no effect.
 END_DESCR
 
 SYNTAX: String. Syntax of censoring rules follows that of Apache's mod_security
