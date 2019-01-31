@@ -1197,6 +1197,44 @@ END_TIPS
 
 
 
+[ITEM]
+ID: cgroups
+NAME: cgroups
+NS: O
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Apply cgroup settings to this CGI process if supported by the current OS. At this time, RedHat/Centos Linux v7.5+
+and Ubuntu 18.04+ are supported.
+The currently executing user will be used to determine which cgroup configuration to apply.
+
+
+Setting this to {val}Disabled{/} at the Server level will disable this setting server-wide. In all other cases, the Server level
+setting can be overridden at the Virtual Host level.
+
+
+Default values:
+
+<b>Server level:</b> Off
+
+<b>VH level:</b> Inherit Server level setting
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# Access Denied Directories #############
 
 
@@ -1759,17 +1797,35 @@ SEE_ALSO:
 [TBL]
 ID: cgiResource
 NAME: CGI Settings
-NS: EO
+NS: E
 
-DESCR: The following settings control CGI processes. Memory and process limits also serve as the default for 
+DESCR: The following settings control CGI processes. Memory and process limits also serve as the default for
+other external applications if limits have not been set explicitly for those applications.
+END_DESCR
+
+CONT: cgidSock maxCGIInstances minUID minGID forceGID umask CGIPriority CPUSoftLimit CPUHardLimit
+memSoftLimit memHardLimit procSoftLimit procHardLimit
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: cgiResource
+NAME: CGI Settings
+NS: O
+
+DESCR: The following settings control CGI processes. Memory and process limits also serve as the default for
 other external applications if limits have not been set explicitly for those applications. 
 END_DESCR
 
-CONT: cgidSock maxCGIInstances minUID minGID forceGID umask CGIPriority CPUSoftLimit CPUHardLimit 
-memSoftLimit memHardLimit procSoftLimit procHardLimit 
+CONT: cgidSock maxCGIInstances minUID minGID forceGID umask CGIPriority CPUSoftLimit CPUHardLimit
+memSoftLimit memHardLimit procSoftLimit procHardLimit cgroups
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 

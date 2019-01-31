@@ -387,15 +387,31 @@ SEE_ALSO:
 [TBL]
 ID: vhGeneral
 NAME: General
-NS: EO
+NS: E
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: docRoot vhadminEmails vhEnableGzip enableIpGeo
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: vhGeneral
+NAME: General
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: docRoot vhadminEmails vhEnableGzip enableIpGeo cgroups
+END_CONT
+
+SEE_ALSO:
 [END_TBL]
 
 
