@@ -284,7 +284,7 @@ END_TIPS
 [ITEM]
 ID: recaptchaVhReqLimit
 NAME: Concurrent Request Limit
-NS: L
+NS: LO
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -892,7 +892,7 @@ SEE_ALSO:
 [TBL]
 ID: VHlsrecaptcha
 NAME: reCaptcha Protection
-NS: L
+NS: LO
 
 DESCR: reCaptcha Protection is a service provided as a way to mitigate heavy server load. reCaptcha Protection will
 activate after one of the below situations is hit. Once active, all requests by NON TRUSTED(as configured) clients will be
@@ -1001,7 +1001,7 @@ NS: O
 DESCR: 
 END_DESCR
 
-CONT: accessControl realms
+CONT: VHlsrecaptcha accessControl realms
 END_CONT
 
 SEE_ALSO: 
