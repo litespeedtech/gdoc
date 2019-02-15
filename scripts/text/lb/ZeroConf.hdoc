@@ -217,7 +217,7 @@ NAME: General
 DESCR:
 END_DESCR
 
-CONT: zconf_enabled zconf_passwdFile zconf_groupFile zconfShmDir
+CONT: zconf_enabled zconf_passwdFile zconf_groupFile strategy zconfShmDir
 END_CONT
 
 SEE_ALSO:
