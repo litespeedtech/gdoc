@@ -77,24 +77,59 @@ END_TIPS
 
 
 [ITEM]
+ID: zconf_workerMaxConns
+NAME: Worker Max Connections
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Maximum number of connections per ZConf worker. There is one worker created per backend listener per ADC
+worker process.
+
+
+Default value: 100
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE: Suppose the ADC has four worker processes. Three backend servers send their configurations to the ADC and
+each of them have an HTTP (:80) and HTTPS (:443) listener. Using the default value of Worker Max Connections value of
+100, the maximum number of connections made between the ADC and backend nodes will be:
+
+
+100 (default per worker) x 4 (ADC workers with a "Web ADC Large" license),  x 3 (backend zconf servers)
+x 2 (HTTP and HTTPS ports) = 2,400
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: zconfShmDir
 NAME: Zconf SHM Directory
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: The location where zero config shared memory files are stored. 
+DESCR: The location where zero config shared memory files are stored.
 The default directory is <b>$SERVER_ROOT/zconf</b>.
 END_DESCR
 
 SYNTAX: path
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -217,7 +252,7 @@ NAME: General
 DESCR:
 END_DESCR
 
-CONT: zconf_enabled zconf_passwdFile zconf_groupFile strategy zconfShmDir
+CONT: zconf_enabled zconf_passwdFile zconf_groupFile strategy zconf_workerMaxConns zconfShmDir
 END_CONT
 
 SEE_ALSO:
