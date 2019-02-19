@@ -92,7 +92,7 @@ worker process.
 Default value: 100
 END_DESCR
 
-SYNTAX: path
+SYNTAX: uint
 END_SYNTAX
 
 EXAMPLE: Suppose the ADC has four worker processes. Three backend servers send their configurations to the ADC and
