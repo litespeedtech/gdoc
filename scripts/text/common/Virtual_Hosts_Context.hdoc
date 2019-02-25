@@ -709,7 +709,11 @@ APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The location of file used to start the application. 
+DESCR: The location of file used to start the application, relative to the application root directory.
+
+
+Default startup file names include 'config.ru' for Rack/Rails, 'wsgi.py' and 'passenger_wsgi.py' for WSGI, and 'app.js' for
+NodeJS.
 END_DESCR
 
 EDITTIP:
@@ -718,7 +722,7 @@ END_EDITTIP
 EDITTIP:
 END_EDITTIP
 
-SYNTAX:
+SYNTAX: Path relative to application root directory
 END_SYNTAX
 
 EXAMPLE: 
