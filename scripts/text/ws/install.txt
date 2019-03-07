@@ -22,9 +22,18 @@
 
 <h3>Installation</h3>
 
-<p>Installation must be performed in a command line terminal. For testing purposes, LiteSpeed Web Server can be installed into a home directory by a non-privileged user. For production use, it should be installed into a system directory.</p>
+<p>
+  Installation must be performed in a command line terminal. For testing purposes, LiteSpeed Web Server can be installed
+  into a home directory by a non-privileged user. For production use, it should be installed into a system directory.
+</p>
 
-<p>In Mac OS X, root user is disabled by default. It can be enabled using a series of actions detailed on the <a href="http://support.apple.com/kb/PH11331">Apple</a> website. You can also use the sudo command to install LSWS into a system directory without enabling the root user, but system folders will still only be manipulable by the root user. This means that every time you want to control LSWS from the command line terminal (like when you want to start or stop LSWS), you will have to use the sudo command.</p>
+<p>
+  In Mac OS X, root user is disabled by default. It can be enabled using a series of actions detailed on the
+  <a href="https://support.apple.com/en-us/HT204012">Apple</a> website. You can also use the sudo command to install
+  LSWS into a system directory without enabling the root user, but system folders will still only be manipulable by the root
+  user. This means that every time you want to control LSWS from the command line terminal
+  (like when you want to start or stop LSWS), you will have to use the sudo command.
+</p>
 
 <h4>Installation Steps:</h4>
 <ol>
@@ -50,8 +59,10 @@
             Licenses can be leased or purchased at the LiteSpeed 
             <a href="https://store.litespeedtech.com/store/cart.php">store</a>.
           </li>
-          <li> A serial number will be sent to you in the confirmation email after you order has been successfully processed. Each serial number
-            allows for one server installation.</li>
+          <li>
+            A serial number will be sent to you in the confirmation email after you order has been successfully processed.
+            Each serial number allows for one server installation.
+          </li>
           <li> Save the serial number as "serial.no"; in the installation directory (where
             install.sh is located).  The LiteSpeed products registration server will use this 
             file to retrieve your license key during the installation process.</li>
@@ -197,12 +208,17 @@ to an old version using the command line tool lsup.sh. See detailed usage inform
 
 <p>Since release 1.5.6, multiple versions of LiteSpeed Web Server can be installed. 
     You can easily switch from one to another by using the version management utility: 
-    <span class="cmd">[your_install_dir]/admin/misc/mgr_ver.sh</span>.</p> 
-<ul><li>To switch to a version already installed, for example 1.5.6, just run <span class="cmd">[your_install_dir_current_version]/admin/misc/mgr_ver.sh 
-        1.5.6</span></li>
- 	<li>To remove previously installed files for a certain version, for example 1.5.6, 
-        just run <span class="cmd">[your_install_dir_current_version]/admin/misc/mgr_ver.sh 
-        -d 1.5.6</span> </li>
+    <span class="cmd">[your_install_dir]/admin/misc/mgr_ver.sh</span>.
+</p>
+<ul>
+  <li>
+    To switch to a version already installed, for example 1.5.6, just run
+    <span class="cmd">[your_install_dir_current_version]/admin/misc/mgr_ver.sh 1.5.6</span>
+  </li>
+  <li>
+    To remove previously installed files for a certain version, for example 1.5.6, just run
+    <span class="cmd">[your_install_dir_current_version]/admin/misc/mgr_ver.sh -d 1.5.6</span>
+  </li>
 </ul>
 
 <p>When upgrading your license (from trial to production license, for example), you can manually 
