@@ -665,6 +665,54 @@ END_TIPS
 
 
 [ITEM]
+ID: extUser
+NAME: Run As User
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: extGroup
+
+DESCR: Specifies username that the external application will run as.
+END_DESCR
+
+SYNTAX: Valid username.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: extGroup
+NAME: Run As Group
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: extUser
+
+DESCR: Specifies group name that the external application will run as.
+END_DESCR
+
+SYNTAX: Valid group name.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
 ID: extUmask
 NAME: umask
 REQUIRED: 
@@ -898,7 +946,7 @@ END_DESCR
 
 CONT: extAppName extAppAddress maxConns env initTimeout 
 retryTimeout persistConn pcKeepAliveTimeout respBuffer autoStart
-extAppPath backlog instances suexecUser suexecGroup extUmask
+extAppPath backlog instances extUser extGroup extUmask
 runOnStartUp extMaxIdleTime extAppPriority 
 memSoftLimit memHardLimit procSoftLimit procHardLimit
 END_CONT
@@ -918,7 +966,7 @@ END_DESCR
 
 CONT: extAppName extAppAddress maxConns env initTimeout 
 retryTimeout persistConn pcKeepAliveTimeout respBuffer autoStart
-extAppPath backlog instances suexecUser suexecGroup extUmask
+extAppPath backlog instances extUser extGroup extUmask
 runOnStartUp extMaxIdleTime extAppPriority 
 memSoftLimit memHardLimit procSoftLimit procHardLimit
 END_CONT
@@ -938,7 +986,7 @@ END_DESCR
 
 CONT: extAppName extAppAddress maxConns env initTimeout 
 retryTimeout persistConn pcKeepAliveTimeout respBuffer autoStart
-extAppPath backlog instances suexecUser suexecGroup extUmask
+extAppPath backlog instances extUser extGroup extUmask
 runOnStartUp extMaxIdleTime extAppPriority 
 memSoftLimit memHardLimit procSoftLimit procHardLimit
 END_CONT
@@ -991,7 +1039,7 @@ DESCR:
 END_DESCR
 
 CONT: extAppName extAppAddress maxConns env 
-extAppPath instances suexecUser suexecGroup extUmask
+extAppPath instances extUser extGroup extUmask
 extAppPriority
 END_CONT
 
