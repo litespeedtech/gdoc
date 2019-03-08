@@ -371,15 +371,14 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: The user to run as at the current context level using either the user name or uid of the user.
-This setting will override the Virtual Host level <b>ExtApp Set UID Mode</b> setting if set.
+DESCR: At the current context level, run as this user.
+If set, this value will override the Virtual Host level <b>ExtApp Set UID Mode</b> setting.
 
 
-Default values:
+This configuration may be overridden at the External Application level using the <b>Run As User</b> setting.
 
-<b>Virtual Host level:</b> Not Set
 
-<b>External Application level:</b> Inherit Virtual Host level setting
+Default value: Not Set
 END_DESCR
 
 SYNTAX: Valid user name or uid.
@@ -404,17 +403,15 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: The group to run as at the current context level using either the group name or gid of the group.
-This setting will not take effect if the <b>Run As User</b> setting has not been set at the Virtual Host or
-External Application levels.
+DESCR: At the current context level, run as this group.
+Either <b>suEXEC User</b> at the Virtual Host level, or <b>Run As User</b> at the External Application level, must be set
+for <b>suEXEC Group</b> to take effect.
 
 
-Default values:
+This configuration can be overridden at the External Application level using the <b>Run As Group</b> setting.
 
-<b>Virtual Host level:</b> Virtual Host level <b>Run As User</b> setting value
 
-<b>External Application level:</b> External application level <b>Run As User</b> setting value if set, else inherit
-Virtual Host level setting
+Default value: <b>suExec User</b> setting value
 END_DESCR
 
 SYNTAX: Valid group name or uid

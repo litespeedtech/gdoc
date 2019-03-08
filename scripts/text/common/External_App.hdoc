@@ -673,7 +673,10 @@ APPLY: 3
 SINCE:
 SEE_ALSO: extGroup
 
-DESCR: Specifies username that the external application will run as.
+DESCR: The external application will run as this specified user name. If not set, Virtual Host level settings will be inherited.
+
+
+Default value: Not Set
 END_DESCR
 
 SYNTAX: Valid username.
@@ -697,7 +700,10 @@ APPLY: 3
 SINCE:
 SEE_ALSO: extUser
 
-DESCR: Specifies group name that the external application will run as.
+DESCR: The external application will run as this specified group name. If not set, Virtual Host level settings will be inherited.
+
+
+Default value: Not Set
 END_DESCR
 
 SYNTAX: Valid group name.
