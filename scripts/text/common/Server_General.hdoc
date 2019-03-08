@@ -260,26 +260,30 @@ END_TIPS
 [ITEM]
 ID: cpuAffinity
 NAME: CPU Affinity
-NS: E
-REQUIRED: 
+NS: EO
+REQUIRED:
 APPLY: 1
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: CPU affinity binds a process to one or more CPUs (cores). It is beneficial for a process to always use 
-the same CPU because then the process can make use of data left in CPU cache. If the process moves to a different CPU, 
+DESCR: CPU affinity binds a process to one or more CPUs (cores). It is beneficial for a process to always use
+the same CPU because then the process can make use of data left in CPU cache. If the process moves to a different CPU,
 there is no use of CPU cache and unnecessary overhead is required.
 
 
-The CPU Affinity setting controls how many CPUs (cores) one LiteSpeed Web Server process will be associated with. 
-The minimum value is {val}0{/}, which is the default value and will disable this feature. The maximum value is the number of cores the server has. Generally, {val}1{/} is the best 
-setting because because it creates the strictest use of CPU affinity and thus makes the most use of CPU cache.
+The CPU Affinity setting controls how many CPUs (cores) one server process will be associated with.
+The minimum value is {val}0{/}, which will disable this feature. The maximum value is the number of
+cores the server has. Generally, {val}1{/} is the best setting because because it creates the strictest use of CPU affinity and
+thus makes the most use of CPU cache.
+
+
+Default value: 0
 END_DESCR
 
-SYNTAX: Integer value from 1 to the number of cores the server has. 0 will disable it.
+SYNTAX: Integer value from 0 to 64. (0 will disable this feature)
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS:
@@ -354,11 +358,12 @@ END_TIPS
 
 [ITEM]
 ID: enableLVE
-NAME: Cloud-Linux 
-REQUIRED: 
+NAME: Cloud-Linux
+NS: EO
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies whether to enable CloudLinux's Lightweight Virtual Environment (LVE)
  when it exists. You can use LiteSpeed with LVE to achieve better resource management.
@@ -368,10 +373,10 @@ END_DESCR
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1828,7 +1833,7 @@ NS: O
 DESCR: 
 END_DESCR
 
-CONT: serverName httpdWorkers runningAs serverPriority 
+CONT: serverName httpdWorkers runningAs serverPriority cpuAffinity enableLVE
  inMemBufSize swappingDir autoFix503 enableh2c gracefulRestartTimeout statDir
 END_CONT
 
