@@ -1303,7 +1303,7 @@ Default values:
 <b>VH-Level:</b> Inherit Server level setting
 END_DESCR
 
-EDITTIP: When this setting is set to {val}Yes{/} at the Server level, reCaptcha Protection can still be disabled at the Virtual
+EDITTIP: When this setting is set to <b>Yes</b> at the Server level, reCaptcha Protection can still be disabled at the Virtual
 Host level.
 END_EDITTIP
 
@@ -1336,7 +1336,7 @@ level before the reCaptcha Protection feature can be used.
 Default value is {val}No{/}.
 END_DESCR
 
-EDITTIP: When this setting is set to {val}Yes{/} at the Server level, reCaptcha Protection can still be disabled at the Virtual
+EDITTIP: When this setting is set to <b>Yes</b> at the Server level, reCaptcha Protection can still be disabled at the Virtual
 Host level using the Trigger Sensitivity setting.
 END_EDITTIP
 
