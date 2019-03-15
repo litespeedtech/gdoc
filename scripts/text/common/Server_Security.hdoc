@@ -174,7 +174,7 @@ Resetting the server will clear blocked IPs.
 Default value is {val}10{/}.
 END_DESCR
 
-SYNTAX: Valid Range: 5 - 1000.
+SYNTAX: Valid Range: 3 - 1000.
 END_SYNTAX
 
 EXAMPLE:
@@ -202,7 +202,7 @@ TIPS:
 
 [I] This can be set at the Server level and overwritten at the Virtual Host level. If not overridden at the Virtual Host level, this
 setting can also be overridden in a user's docroot .htaccess file using Apache configuration directive
-{val}WordPressProtect{/} with integer value between 5 and 1000.
+{val}WordPressProtect{/} with integer value between 3 and 1000.
 END_TIPS
 
 [END_ITEM]
@@ -234,7 +234,7 @@ Resetting the server will clear blocked IPs.
 Default value is {val}10{/}.
 END_DESCR
 
-SYNTAX: Valid Range: 5 - 1000.
+SYNTAX: Valid Range: 3 - 1000.
 END_SYNTAX
 
 EXAMPLE:
@@ -265,7 +265,7 @@ TIPS:
 
 [I] This can be set at the Server level and overwritten at the Virtual Host level. If not overridden at the Virtual Host level, this
 setting can also be overridden in a user's docroot .htaccess file using Apache configuration directive
-{val}WordPressProtect{/} with integer value between 5 and 1000.
+{val}WordPressProtect{/} with integer value between 3 and 1000.
 END_TIPS
 
 [END_ITEM]
