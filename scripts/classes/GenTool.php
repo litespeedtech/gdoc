@@ -5,14 +5,7 @@ class GenTool
 
     public static function writePage( $docname, $content )
     {
-        $fd = fopen($docname, 'w') ;
-        if ( ! $fd )
-            return false ;
-
-        fwrite($fd, $content) ;
-
-        fclose($fd) ;
-
+        file_put_contents($docname, $content);
         echo "\t ... finish Page $docname \n" ;
     }
 

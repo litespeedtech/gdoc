@@ -131,8 +131,8 @@ class GenWebDoc
 
         foreach ( $map as $id => $link ) {
             $url_convert['file'][] = $id . '.html';
-            $url_convert['search'][] = $id . '.html';
-            $url_convert['replace'][] = $urlPrefix . $link;
+            $url_convert['search'][] = 'href="' . $id . '.html';
+            $url_convert['replace'][] = 'href="' . $urlPrefix . $link;
         }
 
         return $url_convert;
@@ -159,7 +159,6 @@ class GenWebDoc
 
             $bufnew = str_replace($search, $replace, $buf);
             GenTool::writePage($tofile, $bufnew);
-            unlink($fromfile);
         }
     }
 
