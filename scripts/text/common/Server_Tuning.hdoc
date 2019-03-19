@@ -886,13 +886,17 @@ END_TIPS
 [ITEM]
 ID: gzipCompressLevel
 NAME: Compression Level (Dynamic Content)
-REQUIRED: 
+NS: LEO
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the level of compression for dynamic content. Ranges 
-from {val}1{/} (lowest) to {val}9{/} (highest). The default is {val}2{/}.
+DESCR: Specifies the level of compression for dynamic content. Ranges
+from {val}1{/} (lowest) to {val}9{/} (highest).
+
+
+Default value: 6
 END_DESCR
 
 EDITTIP: GZIP Compression level ranges from 1 (Minimum) to 9 (Maximum).
@@ -901,10 +905,10 @@ END_EDITTIP
 SYNTAX: Number between 1 and 9.
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: [P] Higher compression level will use more memory and CPU cycles. 
+TIPS: [P] Higher compression level will use more memory and CPU cycles.
 You can set it to a higher level if your machine has additional power. There is not much difference
 between 6 and 9, except 9 uses many more CPU cycles.
 END_TIPS
@@ -1003,22 +1007,26 @@ END_TIPS
 [ITEM]
 ID: gzipStaticCompressLevel
 NAME: Compression Level (Static Content)
-REQUIRED: 
+NS: EO
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the level of compression for static content. Ranges 
-from {val}1{/} (lowest) to {val}9{/} (highest). The default is {val}6{/}.
+DESCR: Specifies the level of compression for static content. Ranges
+from {val}1{/} (lowest) to {val}9{/} (highest).
+
+
+Default value: 6
 END_DESCR
 
 SYNTAX: Number between 1 and 9.
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1114,19 +1122,22 @@ END_TIPS
 ID: brStaticCompressLevel
 NAME: Compression Level (Static File)
 NS: EO
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the level of compression for static content. Ranges 
-from {val}1{/} (lowest) to {val}9{/} (highest). The default is {val}5{/}.
+DESCR: Specifies the level of compression for static content. Ranges
+from {val}1{/} (lowest) to {val}9{/} (highest).
+
+
+Default value: 5
 END_DESCR
 
 SYNTAX: Number between 1 and 9.
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS:
@@ -1937,17 +1948,15 @@ SEE_ALSO:
 [TBL]
 ID: gzipTuning
 NAME: GZIP Compression Tuning
-NS: EO
+NS: L
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: enableGzipCompress enableDynGzipCompress gzipCompressLevel 
-compressibleTypes gzipAutoUpdateStatic gzipCacheDir gzipStaticCompressLevel 
-gzipMaxFileSize gzipMinFileSize
+CONT: enableGzipCompress gzipCompressLevel compressibleTypes
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -1955,15 +1964,17 @@ SEE_ALSO:
 [TBL]
 ID: gzipTuning
 NAME: GZIP Compression Tuning
-NS: L
+NS: EO
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: enableGzipCompress gzipCompressLevel compressibleTypes
+CONT: enableGzipCompress enableDynGzipCompress gzipCompressLevel
+compressibleTypes gzipAutoUpdateStatic gzipCacheDir gzipStaticCompressLevel
+gzipMaxFileSize gzipMinFileSize
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
