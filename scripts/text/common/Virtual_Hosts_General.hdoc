@@ -69,7 +69,7 @@ NS: L
 REQUIRED: 
 APPLY: 3
 SINCE: 
-SEE_ALSO: {ITEM=ServTuning_Help#enableGzipCompress}, {ITEM=ServTuning_Help#gzipStaticCompressLevel}, {ITEM=ServTuning_Help#enableDynGzipCompress}, {ITEM=ServTuning_Help#gzipCompressLevel}
+SEE_ALSO: {ITEM=ServTuning_Help#enableGzipCompress}, {ITEM=ServTuning_Help#enableDynGzipCompress}, {ITEM=ServTuning_Help#gzipCompressLevel}
 
 DESCR: Specifies whether to enable GZIP compression for this virtual host. 
 This setting is only effective when GZIP compression is enabled at the server level. 
