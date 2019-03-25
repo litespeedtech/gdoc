@@ -1265,7 +1265,10 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: MaxMind GeoIP database name.
+DESCR: MaxMind GeoIP database name. As of GeoIP2, this setting is required.
+
+
+Use "COUNTRY_DB" for a country database or "CITY_DB" for a city database.
 END_DESCR
 
 SYNTAX: text
