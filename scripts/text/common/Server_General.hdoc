@@ -1260,15 +1260,27 @@ END_TIPS
 ID: geoipDBName
 NAME: DB Name
 NS: LEO
-REQUIRED: 
+REQUIRED:
 APPLY:
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: MaxMind GeoIP database name. As of GeoIP2, this setting is required.
 
 
-Use "COUNTRY_DB" for a country database or "CITY_DB" for a city database.
+When upgrading from a GeoIP to a GeoIP2, using values "COUNTRY_DB", "CITY_DB", or "ASN_DB" for this setting
+will automatically populate PHP's $_SERVER variable with some GeoIP compatible entries (listed by DB Name value below)
+to help ease this transition.
+
+
+<b>CITY_DB:</b> 'GEOIP_COUNTRY_CODE', 'GEOIP_COUNTRY_NAME', 'GEOIP_CONTINENT_CODE',
+'GEOIP_COUNTRY_CONTINENT', 'GEOIP_DMA_CODE', 'GEOIP_METRO_CODE', 'GEOIP_LATITUDE',
+'GEOIP_LONGITUDE', 'GEOIP_POSTAL_CODE', and 'GEOIP_CITY'.
+
+<b>COUNTRY_DB:</b> 'GEOIP_COUNTRY_CODE', 'GEOIP_COUNTRY_NAME', 'GEOIP_CONTINENT_CODE',
+and 'GEOIP_COUNTRY_CONTINENT'.
+
+<b>ASN_DB:</b> 'GEOIP_ORGANIZATION' and 'GEOIP_ISP'.
 END_DESCR
 
 SYNTAX: text
@@ -1277,7 +1289,7 @@ END_SYNTAX
 EXAMPLE: COUNTRY_DB
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
