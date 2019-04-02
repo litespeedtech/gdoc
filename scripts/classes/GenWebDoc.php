@@ -18,6 +18,7 @@ class GenWebDoc
 
         if ( $docType == 'ws' ) {
             $dyn_map = array(
+                'ServerStat_Help' => 'admin/service',
                 'ServGeneral_Help' => 'config/general',
                 'ServLog_Help' => 'config/slog',
                 'ServTuning_Help' => 'config/tuning',
@@ -42,6 +43,7 @@ class GenWebDoc
                 'VHGeneral_Help' => 'config/vhostgeneral',
                 'VHSecurity_Help' => 'config/vhostsecurity',
                 'VHSSL_Help' => 'config/vhost-ssl',
+                'VHPageSpeed_Config' => 'config/vhost-pagespeed',
                 'Rewrite_Help' => 'config/rewrite',
                 'Context_Help' => 'config/context',
                 'Static_Context' => 'config/context/static',
@@ -55,13 +57,11 @@ class GenWebDoc
                 'Redirect_Context' => 'config/context/redirect',
                 'App_Server_Context' => 'config/context/app-server',
                 'Rails_Context' => 'config/context/rails',
-                'VHPageSpeed_Config' => 'config/vhost-pagespeed',
                 'VHAddOns_Help' => 'config/addons',
                 'AdminGeneral_Help' => 'config/admingeneral',
                 'AdminSecurity_Help' => 'config/adminsecurity',
                 'AdminListeners_General_Help' => 'config/adminlistenergen',
-                'AdminListeners_SSL_Help' => 'config/adminlistenerssl',
-                'ServerStat_Help' => 'admin/service',
+                'AdminListeners_SSL_Help' => 'config/adminlistenerssl'
             );
 
             $static_map = array(
@@ -79,6 +79,7 @@ class GenWebDoc
         }
         elseif ( $docType == 'lb' ) {
             $dyn_map = array(
+                'ServerStat_Help' => 'admin/service',
                 'ServGeneral_Help' => 'config/general',
                 'ServLog_Help' => 'config/slog',
                 'ServTuning_Help' => 'config/tuning',
@@ -100,12 +101,11 @@ class GenWebDoc
                 'Context_Help' => 'config/context',
                 'LB_Context' => 'config/context/load-balancer',
                 'Redirect_Context' => 'config/context/redirect',
+                'HA_Config' => 'config/ha',
                 'AdminGeneral_Help' => 'config/admingeneral',
                 'AdminSecurity_Help' => 'config/adminsecurity',
                 'AdminListeners_General_Help' => 'config/adminlistenergen',
-                'AdminListeners_SSL_Help' => 'config/adminlistenerssl',
-                'HA_Config' => 'config/ha',
-                'ServerStat_Help' => 'admin/service',
+                'AdminListeners_SSL_Help' => 'config/adminlistenerssl'
             );
 
             $static_map = array(
