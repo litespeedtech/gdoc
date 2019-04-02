@@ -234,10 +234,10 @@ END_TIPS
 ID: serverPriority
 NAME: Priority
 NS: L
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: External App {ITEM=ExtApp_Help#extAppPriority}, {ITEM=ServSecurity_Help#CGIPriority}
+SINCE:
+SEE_ALSO: {ITEM=ServSecurity_Help#CGIPriority}
 
 DESCR: Specifies priority of the server processes. Value ranges from
 {val}-20{/} to {val}20{/}. A lower number equates to a higher priority.
@@ -246,7 +246,7 @@ END_DESCR
 SYNTAX: Integer number
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [P] Usually a higher priority leads to slightly higher

@@ -807,13 +807,14 @@ END_TIPS
 [ITEM]
 ID: extAppPriority
 NAME: Priority
-REQUIRED: 
+NS: EO
+REQUIRED:
 APPLY: 2
-SINCE: 
+SINCE:
 SEE_ALSO: Server {ITEM=ServGeneral_Help#serverPriority}
 
 DESCR: Specifies priority of the external application process. Value ranges from
-{val}-20{/} to {val}20{/}. A lower number means a higher priority. 
+{val}-20{/} to {val}20{/}. A lower number means a higher priority.
 An external application process cannot have a higher priority than the web server. If this
 priority is set to a lower number than the server's, the server's priority will be used for this value.
 END_DESCR
@@ -821,10 +822,10 @@ END_DESCR
 SYNTAX: int
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
