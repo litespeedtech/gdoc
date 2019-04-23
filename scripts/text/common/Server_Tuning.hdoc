@@ -4,52 +4,6 @@
 ############# OS Optimization #############
 
 
-[ITEM]
-ID: eventDispatcher
-NAME: I/O Event Dispatcher
-NS: LEO
-REQUIRED: 
-APPLY: 2
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies which I/O event dispatcher to use. Different
-operating systems support different types of event dispatcher:
-
-<ul>
-  <li>Linux kernel 2.4.x supports:
-     <ul><li>poll</li></ul>
-  </li>
-  <li>Linux kernel 2.6.x supports:
-     <ul><li>poll</li><li>epoll</li></ul>
-  </li>
-  <li>FreeBSD supports:
-     <ul><li>poll</li><li>kqueue</li></ul>
-  </li>
-  <li>Solaris supports:
-     <ul><li>poll</li><li>devpoll</li></ul>
-  </li>
-  <li>Mac OS X 10.3 and above supports:
-     <ul><li>poll</li><li>kqueue</li></ul>
-  </li>
-</ul>
-
-{val}poll{/} is supported by all platforms. For high traffic web sites, an alternative event dispatcher can be used to improve 
-the scalability of the server. The default value is 'best'.
-END_DESCR
-
-SYNTAX: select
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
 
 [ITEM]
 ID: ramDiskPath
@@ -1836,7 +1790,7 @@ NS: LE
 DESCR: 
 END_DESCR
 
-CONT: eventDispatcher ramDiskPath shmDefaultDir
+CONT: ramDiskPath shmDefaultDir
 END_CONT
 
 SEE_ALSO: 
@@ -1852,7 +1806,7 @@ NS: O
 DESCR: 
 END_DESCR
 
-CONT: eventDispatcher shmDefaultDir
+CONT: shmDefaultDir
 END_CONT
 
 SEE_ALSO: 
