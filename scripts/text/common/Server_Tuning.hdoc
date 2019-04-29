@@ -1149,8 +1149,10 @@ and using session tickets.
 END_EDITTIP
 
 DESCR: Enables session ID caching using OpenSSL's default setting. Server-level setting must be set to "Yes" for
-Virtual Host setting to take effect. Default values:
+Virtual Host setting to take effect.
 
+
+Default values:
 
 <b>Server-level:</b> Yes
 
@@ -1160,7 +1162,7 @@ END_DESCR
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS:
@@ -1224,14 +1226,16 @@ END_TIPS
 ID: sslSessionTickets
 NAME: Enable Session Tickets
 NS: LEO
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Enables session tickets using OpenSSL's default session ticket setting. Server-level setting must be set to "Yes"
-for Virtual Host setting to take effect. Default values:
+for Virtual Host setting to take effect.
 
+
+Default values:
 
 <b>Server-level:</b> Yes
 
@@ -1241,7 +1245,7 @@ END_DESCR
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS:

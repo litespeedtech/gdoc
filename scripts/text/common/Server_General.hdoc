@@ -8,12 +8,12 @@
 ID: serverName
 NAME: Server Name
 NS: LE
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: A unique name for this server. You can use $HOSTNAME as value. 
+DESCR: A unique name for this server. You can use $HOSTNAME as value.
 END_DESCR
 
 EDITTIP: The user and group setting of the server process cannot be modified. This was set up during installation. You have to reinstall to change this option.
@@ -22,10 +22,10 @@ END_EDITTIP
 SYNTAX: text
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -36,12 +36,12 @@ END_TIPS
 ID: serverName
 NAME: Server Name
 NS: O
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: A unique name for this server. If empty, server hostname will be used by default. 
+DESCR: A unique name for this server. If empty, server hostname will be used by default.
 END_DESCR
 
 EDITTIP: The user and group setting of the server process cannot be modified. This was set up during installation. You have to reinstall to change this option.
@@ -50,10 +50,10 @@ END_EDITTIP
 SYNTAX: text
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -64,19 +64,19 @@ END_TIPS
 ID: httpdWorkers
 NAME: Number of Workers
 NS: O
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the number of httpd workers. 
+DESCR: Specifies the number of httpd workers.
 
 END_DESCR
 
 SYNTAX: Integer value between 1 and 16.
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [P] Set an appropriate number to suit your needs. Adding more workers may not necessarily mean better performance.
@@ -90,21 +90,20 @@ END_TIPS
 ID: lslbdProcesses
 NAME: Number of Processes
 NS: L
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: <b>[Only Available For Web ADC Ultimate Licenses]</b>
 <br />
-Specifies the number of lslbd workers. Enter 0 to have this number be decided automatically. 
-
+Specifies the number of lslbd workers. Enter 0 to have this number be decided automatically.
 END_DESCR
 
 SYNTAX: Integer value between 0 and 128.
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [P] Set an appropriate number to suit your needs. Adding more processes may not necessarily mean better
@@ -119,21 +118,20 @@ END_TIPS
 ID: lswsProcesses
 NAME: Number of Processes
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: <b>[Only Available For Web Host Elite Licenses]</b>
 <br />
-Specifies the number of lshttpd workers. Enter 0 to have this number be decided automatically. 
-
+Specifies the number of lshttpd workers. Enter 0 to have this number be decided automatically.
 END_DESCR
 
 SYNTAX: Integer value between 0 and 128.
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [P] Set an appropriate number to suit your needs. Adding more processes may not necessarily mean better
@@ -148,24 +146,24 @@ END_TIPS
 ID: runningAs
 NAME: Running As
 NS: LE
-REQUIRED: 
+REQUIRED:
 APPLY: 1
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the user/group that the server process runs as. 
-This value is set during installation. In order to change it, 
+DESCR: Specifies the user/group that the server process runs as.
+This value is set during installation. In order to change it,
 you must download the installation package and perform an upgrade via the command line.
 END_DESCR
 
-SYNTAX: 
+SYNTAX:
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: [S] Server should not be run as a privileged user, such as "root". 
-It is critical that the server is configured to run as an un-privileged user/group combination 
+TIPS: [S] Server should not be run as a privileged user, such as "root".
+It is critical that the server is configured to run as an un-privileged user/group combination
 that does not have login/shell access. A user and group of {val}nobody{/} is generally a good choice.
 END_TIPS
 
@@ -177,25 +175,25 @@ END_TIPS
 ID: runningAs
 NAME: Running As
 NS: O
-REQUIRED: 
+REQUIRED:
 APPLY: 1
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the user/group that the server process runs as. This is set 
-using the parameters "--with-user" and "--with-group" when running the configure 
-command before installation. To reset these values, you must rerun the configure 
+DESCR: Specifies the user/group that the server process runs as. This is set
+using the parameters "--with-user" and "--with-group" when running the configure
+command before installation. To reset these values, you must rerun the configure
 command and reinstall.
 END_DESCR
 
-SYNTAX: 
+SYNTAX:
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: [S] Server should not run as a privileged user such as "root". 
-It is critical that the server is configured to run with a un-privileged user/group combination 
+TIPS: [S] Server should not run as a privileged user such as "root".
+It is critical that the server is configured to run with a un-privileged user/group combination
 that does not have login/shell access. A user/group of {val}nobody{/} is generally a good choice.
 END_TIPS
 
@@ -207,9 +205,9 @@ END_TIPS
 ID: serverPriority
 NAME: Priority
 NS: EO
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
+SINCE:
 SEE_ALSO: External App {ITEM=ExtApp_Help#extAppPriority}, {ITEM=ServSecurity_Help#CGIPriority}
 
 DESCR: Specifies priority of the server processes. Value ranges from
@@ -219,7 +217,7 @@ END_DESCR
 SYNTAX: Integer number
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [P] Usually a higher priority leads to slightly higher
@@ -296,32 +294,32 @@ END_TIPS
 [ITEM]
 ID: servChrootPath
 NAME: Chroot Path
-REQUIRED: 
+REQUIRED:
 APPLY: 1
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: {ent_version} Specifies the directory where the chroot environment is rooted. 
-Only "root" user can run the server in chroot mode. Whether to run in chroot mode is controlled by 
-{ITEM=enableChroot} option. The installer program will set up the initial chroot environment automatically. 
-This entry is read-only, and if you want to change it, please run the installer again from the command line. 
+DESCR: {ent_version} Specifies the directory where the chroot environment is rooted.
+Only "root" user can run the server in chroot mode. Whether to run in chroot mode is controlled by
+{ITEM=enableChroot} option. The installer program will set up the initial chroot environment automatically.
+This entry is read-only, and if you want to change it, please run the installer again from the command line.
 
 
-In the chroot environment, the server and its child processes cannot access file systems outside of 
-the chroot jail. Chroot is an advanced security feature and additional administration may be required to 
-make it work properly. All required executables, libraries, configuration files, and device files should be 
+In the chroot environment, the server and its child processes cannot access file systems outside of
+the chroot jail. Chroot is an advanced security feature and additional administration may be required to
+make it work properly. All required executables, libraries, configuration files, and device files should be
 recreated within the chroot jail.
 
 
-As the root directory is changed, you need to pay special attention to path configuration 
-when an absolute path is used. A Unix domain socket or swapping directory is always relative 
-to the new root directory. All other path configurations are always relative to the real root. 
+As the root directory is changed, you need to pay special attention to path configuration
+when an absolute path is used. A Unix domain socket or swapping directory is always relative
+to the new root directory. All other path configurations are always relative to the real root.
 END_DESCR
 
-SYNTAX: 
+SYNTAX:
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [S] Use chroot for better security.
@@ -334,22 +332,22 @@ END_TIPS
 [ITEM]
 ID: enableChroot
 NAME: Enable chroot
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: {ent_version} Specifies whether to start the server in chroot mode. 
+DESCR: {ent_version} Specifies whether to start the server in chroot mode.
 The new root directory is set by {ITEM=servChrootPath} during installation.
 END_DESCR
 
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -386,9 +384,9 @@ END_TIPS
 [ITEM]
 ID: inMemBufSize
 NAME: Max I/O Buffer Size
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
+SINCE:
 SEE_ALSO: {ITEM=swappingDir}
 
 DESCR: Specifies the maximum buffer size that is used to store a request
@@ -399,13 +397,13 @@ END_DESCR
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [P] Set the buffer size large enough to accommodate all concurrent
 requests/replies to avoid memory to disk swapping. If there is frequent I/O
 activity to the swap directoy, by default /tmp/lshttpd/swap/, this buffer size is too low and
-LiteSpeed is swapping to disk. 
+LiteSpeed is swapping to disk.
 END_TIPS
 
 [END_ITEM]
@@ -415,31 +413,31 @@ END_TIPS
 [ITEM]
 ID: swappingDir
 NAME: Swapping Directory
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: {ITEM=inMemBufSize} 
+SINCE:
+SEE_ALSO: {ITEM=inMemBufSize}
 
-DESCR: Specifies the directory where the swapping files should be placed. 
-When the server is started in chroot mode, this directory is relative to the new root directory, 
+DESCR: Specifies the directory where the swapping files should be placed.
+When the server is started in chroot mode, this directory is relative to the new root directory,
 otherwise it is relative to the real root directory.
 
-The server uses its own virtual memory 
-to reduce system memory usage. Virtual memory and disk swapping are used to store large request bodies and 
+The server uses its own virtual memory
+to reduce system memory usage. Virtual memory and disk swapping are used to store large request bodies and
 dynamically generated responses. The swapping directory should be placed on a disk with enough space.
 END_DESCR
 
-EDITTIP: Swapping directory is recommended to be placed on a local disk such as /tmp. Network drive should be avoided at all cost. Swap
- will be when configured memory i/o buffer is exhausted.
+EDITTIP: Swapping directory is recommended to be placed on a local disk such as /tmp. Network drive should be avoided at
+all cost. Swap will be when configured memory i/o buffer is exhausted.
 END_EDITTIP
 
 SYNTAX: path1
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: [P] Place the swapping directory on a separate disk or increase Max I/O Buffer Size to eliminate swapping. 
+TIPS: [P] Place the swapping directory on a separate disk or increase Max I/O Buffer Size to eliminate swapping.
 END_TIPS
 
 [END_ITEM]
@@ -448,11 +446,11 @@ END_TIPS
 
 [ITEM]
 ID: autoFix503
-NAME: Auto Fix 503 Error 
-REQUIRED: 
+NAME: Auto Fix 503 Error
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies whether to try to fix the "503 Service Unavailable" error by
 restarting the server gracefully. A "503" error is usually caused by
@@ -462,16 +460,17 @@ automatically whenever there are more than 30 "503" errors within a 30
 seconds span. This feature is enabled by default.
 END_DESCR
 
-EDITTIP: When you enable <b>Auto Fix 503 Error</b>, the monitor process will automatically launch a new server process and service will resume instantly if a crash is detected.
+EDITTIP: When you enable <b>Auto Fix 503 Error</b>, the monitor process will automatically launch a new server process
+and service will resume instantly if a crash is detected.
 END_EDITTIP
 
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -481,22 +480,21 @@ END_TIPS
 [ITEM]
 ID: enableh2c
 NAME: Enable HTTP/2 Over Cleartext TCP
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies whether to enable HTTP/2 over non-encrypted TCP connections. Default is disabled. 
-
+DESCR: Specifies whether to enable HTTP/2 over non-encrypted TCP connections. Default is disabled.
 END_DESCR
 
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -506,24 +504,23 @@ END_TIPS
 [ITEM]
 ID: gracefulRestartTimeout
 NAME: Graceful Restart Timeout (secs)
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: During a graceful restart, even after the new server instance is up, the old instance will continue 
-to handle existing requests. This timeout defines how long the previous instance shall wait before exit. 
+DESCR: During a graceful restart, even after the new server instance is up, the old instance will continue
+to handle existing requests. This timeout defines how long the previous instance shall wait before exit.
 Default value is 300 seconds. -1 means wait forever. 0 means no wait and abort immediately.
-
 END_DESCR
 
 SYNTAX: int
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -534,22 +531,21 @@ END_TIPS
 ID: statDir
 NAME: Statistics Output Directory
 NS: O
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: The directory where the Real-Time Stats report file will be written. The default directory is <b>/tmp/lshttpd/</b> .
-
 END_DESCR
 
 SYNTAX: path1
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS:  During server operation, the .rtreport file will be written to every second. 
+TIPS:  During server operation, the .rtreport file will be written to every second.
 To avoid unnecessary disk writes, set this to a RAM Disk.
 
 The .rtreport file can be used with 3rd party monitoring software to track server health.
@@ -565,24 +561,24 @@ END_TIPS
 [ITEM]
 ID: mime
 NAME: MIME Settings
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the file that contains the MIME settings for this server. 
+DESCR: Specifies the file that contains the MIME settings for this server.
 It is always relative to the real root when an absolute path is given in chroot mode.
 Click on the filename to view/edit the detailed MIME entries.
 END_DESCR
 
-EDITTIP: MIME settings can be edited from the previous page. You can specify the mime configuration file location which can be either be an absolute path or relative 
-to $SERVER_ROOT.
+EDITTIP: MIME settings can be edited from the previous page. You can specify the mime configuration file location which
+can be either be an absolute path or relative to $SERVER_ROOT.
 END_EDITTIP
 
 SYNTAX: file2
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: Click the filename to edit the MIME settings.
@@ -596,22 +592,22 @@ END_TIPS
 ID: disableInitLogRotation
 NAME: Disable Initial Log Rotation
 NS: LO
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies whether to enable/disable rotation of server error log
-file at startup. Initial log rotation is enabled by default when using value "Not Set". 
+file at startup. Initial log rotation is enabled by default when using value "Not Set".
 END_DESCR
 
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -622,13 +618,13 @@ END_TIPS
 ID: disableInitLogRotation
 NAME: Disable Initial Log Rotation
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies whether to disable rotation of server error log
-file at startup. Initial log rotation is enabled by default for standard installations. 
+file at startup. Initial log rotation is enabled by default for standard installations.
 Servers using cPanel, however, always write to the Apache error log and thus ignore this setting.
 
 END_DESCR
@@ -636,10 +632,10 @@ END_DESCR
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -649,23 +645,23 @@ END_TIPS
 [ITEM]
 ID: showVersionNumber
 NAME: Server Signature
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies whether to show the server signature and version number in
 the response header's "Server" value. There are three options: when set
-to {val}Hide Version{/}, only {val}LiteSpeed{/} is shown. When set to 
+to {val}Hide Version{/}, only {val}LiteSpeed{/} is shown. When set to
 {val}Show Version{/}, LiteSpeed and the version number are shown.
 {ent_version} When set to {val}Hide Full Header{/}, the entire Server header will not be
 shown in the response header.
 END_DESCR
 
-SYNTAX: select 
+SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [S] Set to {val}Hide Version{/} if you do not wish to expose the server version number.
@@ -678,10 +674,10 @@ END_TIPS
 [ITEM]
 ID: hideSigInErrorPage
 NAME: Hide Error Page Signature
-REQUIRED: 
+REQUIRED:
 APPLY: 3
 SINCE: 4.2.3
-SEE_ALSO: 
+SEE_ALSO:
 
 DESCR: Specifies whether or not to show the lines
 <blockquote>Powered By LiteSpeed Web Server.
@@ -690,13 +686,13 @@ LiteSpeed Technologies is not responsible for administration and contents of thi
 on your default error pages.
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -707,23 +703,23 @@ END_TIPS
 ID: enableIpGeo
 NAME: Enable GeoLocation Lookup
 NS: LEO
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: {ITEM=ServGeneral_Help#useIpInProxyHeader}, {ITEM=ServGeneral_Help#geoipDBFile}, 
+SINCE:
+SEE_ALSO: {ITEM=ServGeneral_Help#useIpInProxyHeader}, {ITEM=ServGeneral_Help#geoipDBFile},
 {ITEM=ServGeneral_Help#geoipDBName}, {ITEM=ServGeneral_Help#maxMindDBEnv}
 
-DESCR: {ent_version} Specifies whether to enable/disable IP Geolocation lookup. 
-Can be set at server, virtual host, or context level. IP Geolocation is disabled by default when using value "Not Set". 
+DESCR: {ent_version} Specifies whether to enable/disable IP Geolocation lookup.
+Can be set at server, virtual host, or context level. IP Geolocation is disabled by default when using value "Not Set".
 END_DESCR
 
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -732,32 +728,32 @@ END_TIPS
 [ITEM]
 ID: useIpInProxyHeader
 NAME: Use Client IP in Header
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies whether to use the IP address listed in the "X-Forwarded-For" HTTP 
-request header for all IP address-related features, including 
+DESCR: Specifies whether to use the IP address listed in the "X-Forwarded-For" HTTP
+request header for all IP address-related features, including
 connection/bandwidth throttling, access control, and IP geolocation.
 
 
-This feature is useful if your web server is behind a load balancer or a proxy server. 
+This feature is useful if your web server is behind a load balancer or a proxy server.
 If you select "Trusted IP Only", then X-Forwarded-For IP will be used only when the request
  is coming from trusted IPs defined in the server-level {ITEM=ServSecurity_Help#accessControl_allow}.
 
 
-"Keep Header from Trusted IP" is the same as "Trusted IP Only", but the 
+"Keep Header from Trusted IP" is the same as "Trusted IP Only", but the
 X-Forwarded-For header used for the backend will not be modified to include the connecting peer address.
 END_DESCR
 
-SYNTAX: select 
+SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -768,10 +764,10 @@ END_TIPS
 ID: extAppAbort
 NAME: External Application Abort
 NS: E
-REQUIRED: 
-APPLY: 
+REQUIRED:
+APPLY:
 SINCE: 4.2.3
-SEE_ALSO: 
+SEE_ALSO:
 
 DESCR: When a client breaks a connection with the server, LiteSpeed Web Server can automatically abort external application processes generating responses for that client. Some users, however, may have (long-running) processes that they wish to continue running whether or not the client is still connected.
 
@@ -787,10 +783,10 @@ END_DESCR
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -800,21 +796,21 @@ END_TIPS
 [ITEM]
 ID: autoUpdateInterval
 NAME: Check For Update
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies how often the update agent will check for a new product release. Options are "Daily", "Weekly", "Monthly" and "Disable".
 END_DESCR
 
-SYNTAX: select 
+SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -824,24 +820,24 @@ END_TIPS
 [ITEM]
 ID: autoUpdateDownloadPkg
 NAME: Download Updates
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies whether to auto-download a new product release package file
 when available. If a new package has been successfully downloaded, an online one-click
 upgrade can be performed via the WebAdmin console under
-Service Manager - {ITEM=ServerStat_Help#vermgr}. 
+Service Manager - {ITEM=ServerStat_Help#vermgr}.
 END_DESCR
 
-SYNTAX: select 
+SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -851,14 +847,14 @@ END_TIPS
 [ITEM]
 ID: adminEmails
 NAME: Administrator Email
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the server administrator's email address(es). 
-If specified, administrators will be notified by email of important events (for example,  
-when the LiteSpeed service is restarted automatically due to crash detection or when license is expiring). 
+DESCR: Specifies the server administrator's email address(es).
+If specified, administrators will be notified by email of important events (for example,
+when the LiteSpeed service is restarted automatically due to crash detection or when license is expiring).
 END_DESCR
 
 EDITTIP: You can enter multiple admin emails: use comma to separate.
@@ -867,7 +863,7 @@ END_EDITTIP
 SYNTAX: Comma delimited list of email address.
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: Email alert feature will only work if the server has an active MX server such as postfix, exim, or sendmail.
@@ -883,18 +879,18 @@ END_TIPS
 [ITEM]
 ID: mimesuffix
 NAME: Suffixes
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: You can list multiple suffixes for the same MIME type, using comma to separate.
 END_DESCR
 
-SYNTAX: 
+SYNTAX:
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS:
@@ -910,20 +906,20 @@ END_TIPS
 [ITEM]
 ID: indexFiles
 NAME: Index Files
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies names of index files that will be searched sequentially when a
-URL is mapped to a directory. 
+URL is mapped to a directory.
 You can customize it at the server, virtual host, and context level.
 END_DESCR
 
 SYNTAX: Comma-delimited list of index filenames.
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [P] Only set index files that you need.
@@ -940,71 +936,62 @@ END_TIPS
 ID: allowOverride
 NAME: Allow Override
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies what directives in an access control file are allowed. 
-An access control file can be placed in a directory to control the accessibility 
-of files under that directory. 
+DESCR: Specifies what directives in an access control file are allowed. An access control file can be placed in a directory to
+control the accessibility of files under that directory.
 
 <ul>
-	<li>When nothing is checked, inherited default settings will be
-	used. </li>
-	<li>When {val}None{/} is checked, access control files will be
-	ignored.
-	</li>
-	<li>When {val}Limit{/} is checked, directives "Order",
-	"Allow from" and "Deny from" are allowed. </li>
-	<li>When {val}Auth{/} is checked, directives
-	"AuthGroupFile",  "AuthName", "AuthType", 
-	"AuthUserFile", and "Require" are allowed.</li>
-	<li>When {val}FileInfo{/} is checked, directives
-	"Satisfy", AddDefaultCharset", "AddType",
-	"DefaultType", "ForceType", "ExpiresActive", "ExpiresDefault",
-	"ExpiresByType", "Redirect", "RedirectTemp", "RedirectPermanent",
-	"RewriteEngine", "RewriteOptions", "RewriteBase", "RewriteCond"
-	and "RewriteRule" are allowed</li>
-	<li>When {val}Indexes{/} is checked, directive
-	"DirectoryIndex" is allowed</li>
-	<li>When {val}Options{/} is checked, directive
-	"Options" is allowed</li>
+  <li>When nothing is checked, inherited default settings will be used.</li>
+  <li>When {val}None{/} is checked, access control files will be ignored.</li>
+  <li>When {val}Limit{/} is checked, directives "Allow", "Deny", and "Order" are allowed.</li>
+  <li>
+    When {val}Auth{/} is checked, directives "AuthGroupFile",  "AuthName", "AuthType", "AuthUserFile", "Require", and
+    "Satisfy" are allowed.
+  </li>
+  <li>
+    When {val}FileInfo{/} is checked, directives "AddDefaultCharset", "AddType", "DefaultType", "ForceType", "Redirect",
+    "RedirectPermanent", "RedirectTemp", "RewriteBase", "RewriteCond", "RewriteEngine", "RewriteOptions", and
+    "RewriteRule" are allowed.
+  </li>
+  <li>
+    When {val}Indexes{/} is checked, directives "DirectoryIndex", "ExpiresActive", "ExpiresByType", and "ExpiresDefault" are
+    allowed.
+  </li>
+  <li>When {val}Options{/} is checked, directive "Options" is allowed.</li>
 </ul>
 
-Allow Override configuration is available at three levels: server, 
-virtual host and context. If a configuration is not checked at the server level, 
-the controlled directives will be disabled for the whole server whether or not 
-it is enabled at lower levels. If something is enabled at the server level, virtual hosts will 
-inherit same settings by default. Similarly context level settings will be inherited from virtual host settings. 
-Lower levels can disable a setting that is enabled at an upper level, but cannot 
-enable a setting that is disabled at an upper level.
+Allow Override configuration is available at the Server, Virtual Host, and Context levels. If a configuration is unchecked at the
+Server level, those controlled directives will be disabled for the entire server regardless of settings at lower levels. Lower
+levels can disable a setting that is enabled at a higher level, but cannot enable a setting that is disabled at an upper level.
+
+
+Default values:
+
+<b>Server level:</b> "None" (ignore access control file)
+
+<b>VH level:</b> Inherit Server level setting
+
+<b>Context level</b> Inherit VH level setting
 END_DESCR
 
-EDITTIP: Allow Override configuration is available in three levels: server level, virtual host level and context level. Server level is 
-the overall control, i.e. lower level can disable a setting which is enabled by upper level, but cannot enable a setting which is disabled by upper level.
+EDITTIP: Allow Override configuration is available at the Server, Virtual Host, and Context levels. Lower levels can disable a
+setting that is enabled at a higher level, but cannot enable a setting that is disabled at a higher level.
 END_EDITTIP
 
-EDITTIP: When all checkboxes are unchecked, default setting will be used.
-END_EDITTIP
-
-EDITTIP: When nothing but "None" is checked, access control file will be ignored.
-END_EDITTIP
-
-EDITTIP: When "Limit" is checked, directives "Order", "Allow" and "Deny" are allowed.
-END_EDITTIP
-
-EDITTIP: When "Auth" is checked, directives "AuthGroupFile", "AuthName", "AuthType", "AuthUserFile", "Require" are allowed. 
+EDITTIP: When all checkboxes are unchecked, default settings will be used.
 END_EDITTIP
 
 SYNTAX: checkbox
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: [P] If there is no need for directory level
-configuration customization, check {val}None{/}.
+TIPS: [P] If there is no need for directory level configuration customization, check {val}None{/}.
 END_TIPS
 
 [END_ITEM]
@@ -1015,14 +1002,14 @@ END_TIPS
 ID: accessFileName
 NAME: Access File Name
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
+SINCE:
 SEE_ALSO: {ITEM=allowOverride}
 
-DESCR: Specifies the name of access control files. These files will be used only if 
-{ITEM=allowOverride} is enabled. Default name is {val}.htaccess{/}. 
-You can configure this at server level and virtual host level. Server level is the default setting, and you 
+DESCR: Specifies the name of access control files. These files will be used only if
+{ITEM=allowOverride} is enabled. Default name is {val}.htaccess{/}.
+You can configure this at server level and virtual host level. Server level is the default setting, and you
  can override it at virtual host level.
 END_DESCR
 
@@ -1032,10 +1019,10 @@ END_EDITTIP
 SYNTAX: Filename starting with "."
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1048,21 +1035,21 @@ END_TIPS
 [ITEM]
 ID: enableExpires
 NAME: Enable Expires
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies whether to generate an Expires header for static files. If enabled, an Expires 
-header will be generated based on {ITEM=expiresDefault} and {ITEM=expiresByType}. 
+DESCR: Specifies whether to generate an Expires header for static files. If enabled, an Expires
+header will be generated based on {ITEM=expiresDefault} and {ITEM=expiresByType}.
 
 
-This can be set at server, virtual host and context level. Lower level settings will 
-override higher level ones, i.e. context settings will override virtual host settings 
+This can be set at server, virtual host and context level. Lower level settings will
+override higher level ones, i.e. context settings will override virtual host settings
 and virtual host settings will override server settings.
 END_DESCR
 
-EDITTIP: Expires can be set at the Server/Virtual Host/Context level. Lower level settings will override higher 
+EDITTIP: Expires can be set at the Server/Virtual Host/Context level. Lower level settings will override higher
 level settings. In terms of overwrite priority:
 <br><br>
 Context Level > Virtual Host Level > Server Level
@@ -1072,10 +1059,10 @@ END_EDITTIP
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1085,21 +1072,21 @@ END_TIPS
 [ITEM]
 ID: expiresDefault
 NAME: Expires Default
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies default settings for Expires header generation. This setting takes effect 
-when {ITEM=enableExpires} is set to "Yes". It can be overridden by {ITEM=expiresByType}. 
-Do not set this default at the server or virtual host level unless you have to, 
-since it will generate Expires headers for all pages. Most of time this should be 
+DESCR: Specifies default settings for Expires header generation. This setting takes effect
+when {ITEM=enableExpires} is set to "Yes". It can be overridden by {ITEM=expiresByType}.
+Do not set this default at the server or virtual host level unless you have to,
+since it will generate Expires headers for all pages. Most of time this should be
 set at the context level for certain directories that do not change
 often. If there is no default setting, no Expires header will be
 generated for types not specified in {ITEM=expiresByType}.
 END_DESCR
 
-EDITTIP: Expires syntax, "A|Mseconds" means after base time (A or M) plus the specified time in seconds, the file will expire. "A" means client access time, "M" means file 
+EDITTIP: Expires syntax, "A|Mseconds" means after base time (A or M) plus the specified time in seconds, the file will expire. "A" means client access time, "M" means file
 modified time. You can override this default setting by different MIME types: A86400 means the file will expire after 1 day based on client access time.
 END_EDITTIP
 
@@ -1108,14 +1095,14 @@ END_EDITTIP
 
 SYNTAX: A|Mseconds
 
-The file will expire after base time(A|M) plus specified seconds. 
+The file will expire after base time(A|M) plus specified seconds.
 Base time "A" sets the value to the client's access time and "M" to the file's last modified time.
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1125,30 +1112,30 @@ END_TIPS
 [ITEM]
 ID: expiresByType
 NAME: Expires By Type
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies Expires header settings for individual MIME types.
 END_DESCR
 
-EDITTIP: Expires By Type will override default settings. Each entry is in the format of "MIME-type=A|Mseconds" with no space in between. You can input multiple entries 
+EDITTIP: Expires By Type will override default settings. Each entry is in the format of "MIME-type=A|Mseconds" with no space in between. You can input multiple entries
 separated by comma.
 END_EDITTIP
 
-SYNTAX: Comma delimited list of "MIME-type=A|Mseconds". 
-The file will expire after base time (A|M) plus specified seconds. 
+SYNTAX: Comma delimited list of "MIME-type=A|Mseconds".
+The file will expire after base time (A|M) plus specified seconds.
 
 
-Base time "A" sets the value to the client's access time and "M" to the file's last modified time. 
+Base time "A" sets the value to the client's access time and "M" to the file's last modified time.
 MIME-type accepts wildcard "*", like image/*.
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1202,15 +1189,15 @@ END_TIPS
 ID: uploadPassByPath
 NAME: Pass Upload Data by File Path
 NS: O
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specify whether or not to pass upload file data by path. If enabled, file path along with 
-some other information is sent to backend handler instead of file itself when uploading. 
-This saves on CPU resources and file transfer time but requires some updates to 
-backend to implement. If disabled, file content will be transferred to backend handler, 
+DESCR: Specify whether or not to pass upload file data by path. If enabled, file path along with
+some other information is sent to backend handler instead of file itself when uploading.
+This saves on CPU resources and file transfer time but requires some updates to
+backend to implement. If disabled, file content will be transferred to backend handler,
 request body is still parsed to files.
 
 END_DESCR
@@ -1218,7 +1205,7 @@ END_DESCR
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [P] Enable this to speed up file upload processing if backward compatibility is not an issue.
@@ -1235,10 +1222,10 @@ END_TIPS
 ID: geoipDBFile
 NAME: DB File Path
 NS: LEO
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies the path to MaxMind GeoIP database.
 END_DESCR
@@ -1249,7 +1236,7 @@ END_SYNTAX
 EXAMPLE: /usr/local/share/GeoIP/GeoLite2-Country.mmdb
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1300,10 +1287,10 @@ END_TIPS
 ID: maxMindDBEnv
 NAME: Environment Variables
 NS: LEO
-REQUIRED: 
+REQUIRED:
 APPLY:
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Assign the results of database lookups to environment variables.
 END_DESCR
@@ -1319,7 +1306,7 @@ EXAMPLE: COUNTRY_CODE COUNTRY_DB/country/iso_code
 REGION_CODE  CITY_DB/subdivisions/0/iso_code
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1333,24 +1320,24 @@ END_TIPS
 ID: loadApacheConf
 NAME: Load Apache Configuration
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies whether LiteSpeed will read and use a Apache configuration file to configure
-the web server. Native configurations will have higher priority when 
-there is conflict between LiteSpeed internal and Apache-based configurations. 
+the web server. Native configurations will have higher priority when
+there is conflict between LiteSpeed internal and Apache-based configurations.
 
 END_DESCR
 
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1361,9 +1348,9 @@ END_TIPS
 ID: autoReloadApacheConf
 NAME: Auto Reload On Changes
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
+SINCE:
 SEE_ALSO: {ITEM=apacheBinPath}
 
 DESCR: Specifies how to apply Apache configuration changes. When set to "Yes",
@@ -1372,22 +1359,22 @@ has been modified. This may cause LSWS to restart multiple times when
 updating Apache configurations. A better solution (introduced in version 3.3.8)
  is "Use Apache binary wrapper". This will replace Apache httpd binary
 with a wrapper script. Whenever Apache is requested to start/stop/restart, the
-script will tell LSWS to take corresponding action. 
-{ITEM=apacheBinPath} must be set to use this setting. Default is "No" for 
-standard installations. For cPanel servers, the default is "Use Apache binary wrapper". 
-("Override cPanel restart HTTPD script" is an optional workaround that should only 
-be used if the option "Use Apache binary wrapper" is having problems.) 
-For other control panels default is "Yes". 
+script will tell LSWS to take corresponding action.
+{ITEM=apacheBinPath} must be set to use this setting. Default is "No" for
+standard installations. For cPanel servers, the default is "Use Apache binary wrapper".
+("Override cPanel restart HTTPD script" is an optional workaround that should only
+be used if the option "Use Apache binary wrapper" is having problems.)
+For other control panels default is "Yes".
 
 END_DESCR
 
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1398,9 +1385,9 @@ END_TIPS
 ID: apacheBinPath
 NAME: Apache Binary Path
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
+SINCE:
 SEE_ALSO: {ITEM=autoReloadApacheConf}
 
 DESCR: Specifies the location of the Apache binary. Usually, it is located at
@@ -1409,13 +1396,13 @@ must be set when "Use Apache binary wrapper" is used for {ITEM=autoReloadApacheC
 
 END_DESCR
 
-SYNTAX: 
+SYNTAX:
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1426,23 +1413,23 @@ END_TIPS
 ID: apacheConfFile
 NAME: Apache Configuration File
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the location of Apache configuration 
+DESCR: Specifies the location of Apache configuration
 file. Usually, it is located at
 /usr/local/apache/conf/httpd.conf or /etc/httpd/conf/httpd.conf.
 END_DESCR
 
-SYNTAX: 
+SYNTAX:
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1453,31 +1440,31 @@ END_TIPS
 ID: apachePortOffset
 NAME: Apache Port Offset
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies an offset to be added to listening TCP ports specified
-in the Apache configuration file. In the testing phase, this allows LiteSpeed to run alongside 
-Apache on a different port instead of switching back and forth between LiteSpeed and Apache 
-on a production server. 
+in the Apache configuration file. In the testing phase, this allows LiteSpeed to run alongside
+Apache on a different port instead of switching back and forth between LiteSpeed and Apache
+on a production server.
 
-If set to {val}0{/} or not set, LiteSpeed will use the ports specified in the Apache configuration file. 
-When testing, make this setting a non-zero value. LiteSpeed will then add this offset value to 
+If set to {val}0{/} or not set, LiteSpeed will use the ports specified in the Apache configuration file.
+When testing, make this setting a non-zero value. LiteSpeed will then add this offset value to
 the port specified in the Apache configuration and use this port.
 After confirming that everything works properly, you can stop
 Apache, set this option back to {val}0{/}, and restart LiteSpeed.
 
 END_DESCR
 
-SYNTAX: 
+SYNTAX:
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1488,28 +1475,28 @@ END_TIPS
 ID: apacheIpOffset
 NAME: Apache IP Offset
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies an offset to be added to listening IP address specified
 in the Apache configuration file. This allows LiteSpeed to run alongside
 Apache in the testing phase instead of switching back and forth between LiteSpeed and Apache
-on a production server. The calculated IP address has to be available on this server. 
+on a production server. The calculated IP address has to be available on this server.
 
 END_DESCR
 
-SYNTAX: The offset should be set as an integer (allow negative number), not an IP address. 
+SYNTAX: The offset should be set as an integer (allow negative number), not an IP address.
 Adding "256" will add 1 to the value of the C class subnet. This option
-only works with IPv4 address. 
+only works with IPv4 address.
 
 END_SYNTAX
 
-EXAMPLE:  
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1520,30 +1507,30 @@ END_TIPS
 ID: apacheHandledContent
 NAME: Apache Handled Content
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies resources to be passed to and processed by 
-Apache on the backend. 
+DESCR: Specifies resources to be passed to and processed by
+Apache on the backend.
 This feature requires running Apache parallel to LiteSpeed on either another
-IP or a different port, so either "Apache Port Offset" or "Apache IP Offset" 
-should be set to a non-zero value. 
+IP or a different port, so either "Apache Port Offset" or "Apache IP Offset"
+should be set to a non-zero value.
 
 END_DESCR
 
 SYNTAX: Resources are specified by a comma delimited list of URI, file suffixes, or regular
-expressions. A URI starts with "/"; a suffix starts with ".", a regular expression starts with "exp:". 
+expressions. A URI starts with "/"; a suffix starts with ".", a regular expression starts with "exp:".
 For example: "/svn/, .shtml" lets Apache handle requests with a URI
 starting with "/svn/" or ending with ".shtml". The same effect can be achieved
 with the regular expression "exp:^/svn/, exp:\.shtml$".
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1554,24 +1541,24 @@ END_TIPS
 ID: apacheIgnoredModules
 NAME: Ignore Apache Modules
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies a list of names of Apache modules that should be ignored by LiteSpeed 
-while parsing the Apache configuration file. LiteSpeed will treat the listed modules as 
-unsupported. This will cause configuration directives related to these modules enclosed 
+DESCR: Specifies a list of names of Apache modules that should be ignored by LiteSpeed
+while parsing the Apache configuration file. LiteSpeed will treat the listed modules as
+unsupported. This will cause configuration directives related to these modules enclosed
 in matching &lt;IfModule&gt; or &lt;IfDefined&gt; tags to be ignored.
 END_DESCR
 
 SYNTAX: comma delimited list of module names
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1582,23 +1569,23 @@ END_TIPS
 ID: jitConfig
 NAME: Just In Time Configuration
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: With just in time configuration, the web server only finalizes vhost configurations when that virtual host 
-is accessed for the first time, instead of loading all configurations at start up. This allows the web server to save 
+DESCR: With just in time configuration, the web server only finalizes vhost configurations when that virtual host
+is accessed for the first time, instead of loading all configurations at start up. This allows the web server to save
 memory and speed up server start up.
 END_DESCR
 
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1609,15 +1596,15 @@ END_TIPS
 ID: phpSuExec
 NAME: PHP suEXEC
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
+SINCE:
 SEE_ALSO: {ITEM=ServSecurity_Help#forceGID}
 
 DESCR: Specifies whether to run PHP script in suEXEC mode when "user"
 and "group" are specified for a virtual host. When set to {val}Yes{/}, PHP
 scripts will be executed under the user (and group unless {ITEM=ServSecurity_Help#forceGID} is set) specified.
-When set to {val}User's Home Directory Only{/}, scripts outside a user's 
+When set to {val}User's Home Directory Only{/}, scripts outside a user's
 home directory will run as the global user/group that the web server
 run as. When using DirectAdmin, {val}User's Home Directory Only{/} is recommended.
 Default is {val}No{/}.
@@ -1627,10 +1614,10 @@ END_DESCR
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1641,10 +1628,10 @@ END_TIPS
 ID: phpSuExecMaxConn
 NAME: PHP suEXEC Max Conn
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies the maximum number of concurrent PHP processes that can be created by LSWS for each user when running PHP scripts in suEXEC mode. Default value is {val}5{/}.
 
@@ -1653,7 +1640,7 @@ END_DESCR
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: This limit is per user per lshttpd process. Thus, if you have a 2-CPU license, this limit will be doubled. The limit will be 4x for a 4-CPU license, and so on.
@@ -1667,10 +1654,10 @@ END_TIPS
 ID: apacheEnableFP
 NAME: Enable FrontPage Extension
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies whether to explicitly enable Microsoft Front Page Server
 Extension or not. Usually, LSWS will enable it when module "frontpage" has
@@ -1683,10 +1670,10 @@ END_DESCR
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1697,22 +1684,22 @@ END_TIPS
 ID: apacheEnvVars
 NAME: Apache Environment Variables
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 2
 SINCE: 4.1.8
-SEE_ALSO: Apache Env Syntax <a href="http://httpd.apache.org/docs/current/configuring.html#syntax">reference</a> 
+SEE_ALSO: Apache Env Syntax <a href="http://httpd.apache.org/docs/current/configuring.html#syntax">reference</a>
 
-DESCR: For shell environment variables used inside the Apache configuration file, LSWS will replace "${ENVVAR}" 
+DESCR: For shell environment variables used inside the Apache configuration file, LSWS will replace "${ENVVAR}"
 with the values set here. If the ENVVAR variable is not set here, "${ENVVAR}" occurrences are left unchanged.
 END_DESCR
 
 SYNTAX: Name and value pairs, one pair per line in the form of ENV=VALUE
 END_SYNTAX
 
-EXAMPLE:  
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1726,10 +1713,10 @@ END_TIPS
 ID: ip2locDBFile
 NAME: IP2Location DB File Path
 NS: LEO
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: The location of a valid database file.
 END_DESCR
@@ -1737,10 +1724,10 @@ END_DESCR
 SYNTAX: file2
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1751,9 +1738,9 @@ END_TIPS
 ID: ip2locDBCache
 NAME: DB Cache Type
 NS: LEO
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
+SINCE:
 
 DESCR: The caching method used. The default value is {val}Memory{/}.
 END_DESCR
@@ -1761,10 +1748,10 @@ END_DESCR
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE:  
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1778,25 +1765,25 @@ END_TIPS
 ID: apacheConf
 NAME: Apache Style Configurations
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies Apache configuration directives (supported by LiteSpeed) that 
-you want to use in LiteSpeed native configuration file. 
-For example, to override the default PHP configurations (php.ini entries) 
-the server will need four directives: "php_value", "php_flag", 
+DESCR: Specifies Apache configuration directives (supported by LiteSpeed) that
+you want to use in LiteSpeed native configuration file.
+For example, to override the default PHP configurations (php.ini entries)
+the server will need four directives: "php_value", "php_flag",
 "php_admin_value" and "php_admin_flag".
 END_DESCR
 
 SYNTAX: Same as Apache configuration file.
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1811,14 +1798,14 @@ ID: servProcess
 NAME: Server Process
 NS: L
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: serverName lslbdProcesses runningAs serverPriority 
-servChrootPath enableChroot inMemBufSize swappingDir  
+CONT: serverName lslbdProcesses runningAs serverPriority
+servChrootPath enableChroot inMemBufSize swappingDir
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -1828,14 +1815,14 @@ ID: servProcess
 NAME: Server Process
 NS: E
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: serverName lswsProcesses runningAs serverPriority cpuAffinity servChrootPath enableChroot
 enableLVE inMemBufSize swappingDir autoFix503 enableh2c gracefulRestartTimeout
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -1845,14 +1832,14 @@ ID: servProcess
 NAME: Server Process
 NS: O
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: serverName httpdWorkers runningAs serverPriority cpuAffinity enableLVE
  inMemBufSize swappingDir autoFix503 enableh2c gracefulRestartTimeout statDir
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -1862,15 +1849,15 @@ ID: servGeneral
 NAME: General Settings
 NS: L
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: disableInitLogRotation showVersionNumber 
-enableIpGeo useIpInProxyHeader autoUpdateInterval 
-autoUpdateDownloadPkg adminEmails 
+CONT: disableInitLogRotation showVersionNumber
+enableIpGeo useIpInProxyHeader autoUpdateInterval
+autoUpdateDownloadPkg adminEmails
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -1880,15 +1867,15 @@ ID: servGeneral
 NAME: General Settings
 NS: E
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: mime mimesuffix mimetype disableInitLogRotation showVersionNumber 
-hideSigInErrorPage enableIpGeo useIpInProxyHeader extAppAbort  
-autoUpdateInterval autoUpdateDownloadPkg adminEmails 
+CONT: mime mimesuffix mimetype disableInitLogRotation showVersionNumber
+hideSigInErrorPage enableIpGeo useIpInProxyHeader extAppAbort
+autoUpdateInterval autoUpdateDownloadPkg adminEmails
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -1898,14 +1885,14 @@ ID: servGeneral
 NAME: General Settings
 NS: O
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: mime mimesuffix mimetype disableInitLogRotation showVersionNumber 
- enableIpGeo useIpInProxyHeader adminEmails 
+CONT: mime mimesuffix mimetype disableInitLogRotation showVersionNumber
+ enableIpGeo useIpInProxyHeader adminEmails
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -1914,13 +1901,13 @@ SEE_ALSO:
 ID: servIndex
 NAME: Index Files
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: indexFiles autoIndex autoIndexURI
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -1930,7 +1917,7 @@ ID: htaccess
 NAME: HT Access
 NS: E
 
-DESCR: 
+DESCR:
 The following directives are supported in a directory level
 access control file (.htaccess file).
 <ul>
@@ -1982,10 +1969,10 @@ access control file (.htaccess file).
 
 END_DESCR
 
-CONT: allowOverride accessFileName 
+CONT: allowOverride accessFileName
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -1997,7 +1984,7 @@ NAME: Expires Settings
 DESCR:
 END_DESCR
 
-CONT: enableExpires expiresDefault expiresByType 
+CONT: enableExpires expiresDefault expiresByType
 END_CONT
 
 SEE_ALSO:
@@ -2026,10 +2013,10 @@ ID: fileUpload
 NAME: File Upload
 NS: O
 
-DESCR: Provides additional security functionality when uploading files by using a Request Body 
-Parser to parse files to a server local directory where they can be easily scanned for malicious 
-intent by third party modules. Request Body Parser is used when {ITEM=uploadPassByPath} is 
-enabled or a module calls LSIAPI’s set_parse_req_body in the LSI_HKPT_HTTP_BEGIN level. 
+DESCR: Provides additional security functionality when uploading files by using a Request Body
+Parser to parse files to a server local directory where they can be easily scanned for malicious
+intent by third party modules. Request Body Parser is used when {ITEM=uploadPassByPath} is
+enabled or a module calls LSIAPI’s set_parse_req_body in the LSI_HKPT_HTTP_BEGIN level.
 API examples provided in source package.
 END_DESCR
 
@@ -2047,7 +2034,7 @@ NAME: IP to Geolocation DB
 NS: LEO
 
 DESCR: Multiple MaxMind geolocation databases can be specified here. MaxMind
-has the following type of DBs: Country, Region, City, Organization, ISP and Netspeed. 
+has the following type of DBs: Country, Region, City, Organization, ISP and Netspeed.
 If multiple databases of types "Country", "Region", and "City" are configured, the
 last configuration will be effective.
 END_DESCR
@@ -2055,7 +2042,7 @@ END_DESCR
 CONT: geoipDBFile geoipDBName maxMindDBEnv
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -2065,13 +2052,13 @@ ID: ip2locDB
 NAME: IP2Location DB
 NS: LEO
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: ip2locDBFile ip2locDBCache
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -2081,7 +2068,7 @@ ID: apacheConfigFile
 NAME: Using Apache Configuration File
 NS: E
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: loadApacheConf autoReloadApacheConf apacheBinPath apacheConfFile
@@ -2089,7 +2076,7 @@ apachePortOffset apacheIpOffset apacheHandledContent apacheIgnoredModules jitCon
 phpSuExecMaxConn apacheEnableFP apacheEnvVars
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -2099,13 +2086,13 @@ ID: apacheConfig
 NAME: Apache Style Configuration
 NS: E
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: apacheConf 
+CONT: apacheConf
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -2114,59 +2101,59 @@ SEE_ALSO:
 
 
 [PAGE]
-ID: ServGeneral_Help 
+ID: ServGeneral_Help
 NAME: Server General
 NS: L
 
-DESCR: General settings for the load balancer. When a path information is required, 
-it can be either absolute or relative to $SERVER_ROOT. $SERVER_ROOT is the 
-location where LiteSpeed load balancer is installed. For examples, it can be 
-your_home_dir/lslb, /opt/lslb, or etc. The load balancer executable is under $SERVER_ROOT/bin. 
+DESCR: General settings for the load balancer. When a path information is required,
+it can be either absolute or relative to $SERVER_ROOT. $SERVER_ROOT is the
+location where LiteSpeed load balancer is installed. For examples, it can be
+your_home_dir/lslb, /opt/lslb, or etc. The load balancer executable is under $SERVER_ROOT/bin.
 END_DESCR
 
 CONT: servProcess servGeneral geolocationDB ip2locDB
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
 
 [PAGE]
-ID: ServGeneral_Help 
+ID: ServGeneral_Help
 NAME: Server General
 NS: E
 
-DESCR: General settings for the whole server. When path information is required in a setting, 
-it can be either absolute or relative to $SERVER_ROOT. $SERVER_ROOT is the 
-location where LiteSpeed web server has been installed (your_home_dir/lsws or 
-/opt/lsws, for example). The server executable is under $SERVER_ROOT/bin. 
+DESCR: General settings for the whole server. When path information is required in a setting,
+it can be either absolute or relative to $SERVER_ROOT. $SERVER_ROOT is the
+location where LiteSpeed web server has been installed (your_home_dir/lsws or
+/opt/lsws, for example). The server executable is under $SERVER_ROOT/bin.
 END_DESCR
 
-CONT: servProcess servGeneral servIndex htaccess 
+CONT: servProcess servGeneral servIndex htaccess
 expire geolocationDB ip2locDB apacheConfigFile apacheConfig
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
 
 [PAGE]
-ID: ServGeneral_Help 
+ID: ServGeneral_Help
 NAME: Server General
 NS: O
 
-DESCR: General settings for the whole server. When path information is required in a setting, 
-it can be either absolute or relative to $SERVER_ROOT. $SERVER_ROOT is the 
-location where LiteSpeed web server has been installed (your_home_dir/lsws or 
-/opt/lsws, for example). The server executable is under $SERVER_ROOT/bin. 
+DESCR: General settings for the whole server. When path information is required in a setting,
+it can be either absolute or relative to $SERVER_ROOT. $SERVER_ROOT is the
+location where LiteSpeed web server has been installed (your_home_dir/lsws or
+/opt/lsws, for example). The server executable is under $SERVER_ROOT/bin.
 END_DESCR
 
 CONT: servProcess servGeneral servIndex expire rewriteControl fileUpload geolocationDB ip2locDB
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 

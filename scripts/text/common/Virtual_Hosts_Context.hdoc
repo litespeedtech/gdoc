@@ -8,10 +8,10 @@
 ID: ctxType
 NAME: Context Type
 NS: L
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: The type of context created determines it's usage.
 
@@ -34,10 +34,10 @@ END_EDITTIP
 ID: ctxType
 NAME: Context Type
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: The type of context created determines it's usage.:<br><br><b>Static</b> context can be used to map a URI to a directory either outside document root or within it.<br>
 <b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine.<br>
@@ -93,10 +93,10 @@ END_EDITTIP
 ID: ctxType
 NAME: Context Type
 NS: O
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: The type of context created determines it's usage.<br><br><b>Static</b> context can be used to map a URI to a directory either outside document root or within it.<br>
 <b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine.<br>
@@ -154,22 +154,22 @@ END_EDITTIP
 [ITEM]
 ID: uri
 NAME: URI
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the URI for this context. The URI should start with a "/". 
+DESCR: Specifies the URI for this context. The URI should start with a "/".
 If a URI ends with a "/", then this context will include all sub-URIs under this URI.
 END_DESCR
 
 SYNTAX: URI
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -235,26 +235,26 @@ END_TIPS
 [ITEM]
 ID: servletEngine
 NAME: Servlet Engine
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies the name of the servlet engine that serves this web application.
 Servlet engines must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
 END_DESCR
 
-EDITTIP: If the servlet engine runs on a different machine, it is recommended to make a copy of webapps directory locally. Otherwise you must put the 
+EDITTIP: If the servlet engine runs on a different machine, it is recommended to make a copy of webapps directory locally. Otherwise you must put the
 files in a common accessible network drive, which may affect performance.
 END_EDITTIP
 
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -264,26 +264,26 @@ END_TIPS
 [ITEM]
 ID: javaServletEngine
 NAME: Servlet Engine
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies the name of the servlet engine that serves this web application.
 Servlet engines must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
 END_DESCR
 
-EDITTIP: If the servlet engine runs on a different machine, it is recommended to make a copy of webapps directory locally. Otherwise you must put the 
+EDITTIP: If the servlet engine runs on a different machine, it is recommended to make a copy of webapps directory locally. Otherwise you must put the
 files in a common accessible network drive, which may affect performance.
 END_EDITTIP
 
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -293,12 +293,12 @@ END_TIPS
 [ITEM]
 ID: fcgiapp
 NAME: FastCGI App
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the name of the FastCGI application. 
+DESCR: Specifies the name of the FastCGI application.
 This application must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
 END_DESCR
 
@@ -308,10 +308,10 @@ END_EDITTIP
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -321,10 +321,10 @@ END_TIPS
 [ITEM]
 ID: lsapiapp
 NAME: LiteSpeed SAPI App
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies the name of the LiteSpeed SAPI application to be connected to this context.
 This application must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
@@ -333,10 +333,10 @@ END_DESCR
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -346,10 +346,10 @@ END_TIPS
 [ITEM]
 ID: lbapp
 NAME: Load Balancer
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies the name of the load balancer to be associated to this context.
 This load balancer is a virtual application, and must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
@@ -358,10 +358,10 @@ END_DESCR
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -371,21 +371,21 @@ END_TIPS
 [ITEM]
 ID: extCluster
 NAME: Cluster
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the cluster that handles requests to this context. 
+DESCR: Specifies the cluster that handles requests to this context.
 END_DESCR
 
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -395,10 +395,10 @@ END_TIPS
 [ITEM]
 ID: proxyWebServer
 NAME: Web Server
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies the name of the external web server.
 This external web server must be defined in the {PAGE=ExtApp_Help} section at the server or virtual host level.
@@ -413,10 +413,10 @@ END_EDITTIP
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -427,9 +427,9 @@ END_TIPS
 ID: location
 NAME: Location
 NS: EO
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
+SINCE:
 SEE_ALSO: {ITEM=expuri}
 
 DESCR: Specifies the corresponding location of this context in the file system.
@@ -438,29 +438,29 @@ DESCR: Specifies the corresponding location of this context in the file system.
 Default value: $DOC_ROOT + {ITEM=expuri}
 END_DESCR
 
-SYNTAX: It can be an absolute path or path relative to $SERVER_ROOT, $VH_ROOT, or $DOC_ROOT. 
+SYNTAX: It can be an absolute path or path relative to $SERVER_ROOT, $VH_ROOT, or $DOC_ROOT.
 $DOC_ROOT is the default relative path, and can be omitted.
 
 
-If the {ITEM=expuri} is a regular expression, then the matched sub-string 
-can be used to form the "Root" string. The matched sub-string can be 
-referenced with the values "$1" - "$9". "$0" and "&" can be used to reference the 
-whole matched string. Additionally, a query string can be set by 
+If the {ITEM=expuri} is a regular expression, then the matched sub-string
+can be used to form the "Root" string. The matched sub-string can be
+referenced with the values "$1" - "$9". "$0" and "&" can be used to reference the
+whole matched string. Additionally, a query string can be set by
 appending a "?" followed by the query string. Be careful. "&" should
 be escaped as "\&" in the query string.
 END_SYNTAX
 
-EXAMPLE:  A plain URI like {val}/examples/{/} with {ITEM=location} 
-set to {val}/home/john/web_examples{/} will map the request "/examples/foo/bar.html" 
-to file "/home/john/web_examples/foo/bar.html". 
+EXAMPLE:  A plain URI like {val}/examples/{/} with {ITEM=location}
+set to {val}/home/john/web_examples{/} will map the request "/examples/foo/bar.html"
+to file "/home/john/web_examples/foo/bar.html".
 
-To simulate Apache's mod_userdir, 
-set URI to {val}exp: ^/~([A-Za-z0-9]+)(.*){/}, 
-set {ITEM=location} to {val}/home/$1/public_html$2{/}. With these settings, a request of URI /~john/foo/bar.html will 
+To simulate Apache's mod_userdir,
+set URI to {val}exp: ^/~([A-Za-z0-9]+)(.*){/},
+set {ITEM=location} to {val}/home/$1/public_html$2{/}. With these settings, a request of URI /~john/foo/bar.html will
 map to file /home/john/public_html/foo/bar.html.
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -471,9 +471,9 @@ END_TIPS
 ID: rails_location
 NAME: Location
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
+SINCE:
 SEE_ALSO: {ITEM=expuri}
 
 DESCR: Specifies the corresponding location of this context in the file system.
@@ -482,33 +482,33 @@ DESCR: Specifies the corresponding location of this context in the file system.
 Default value: $DOC_ROOT + {ITEM=expuri}
 END_DESCR
 
-EDITTIP: Rack/Rails context is for easy configuration of running Rack/Rails application. You 
+EDITTIP: Rack/Rails context is for easy configuration of running Rack/Rails application. You
 only need to specify the root location of your rack/rails application in the "Location" field.
 END_EDITTIP
 
-SYNTAX: It can be an absolute path or path relative to $SERVER_ROOT, $VH_ROOT, or $DOC_ROOT. 
+SYNTAX: It can be an absolute path or path relative to $SERVER_ROOT, $VH_ROOT, or $DOC_ROOT.
 $DOC_ROOT is the default relative path, and can be omitted.
 
 
-If the {ITEM=expuri} is a regular expression, then the matched sub-string 
-can be used to form the "Root" string. The matched sub-string can be 
-referenced with the values "$1" - "$9". "$0" and "&" can be used to reference the 
-whole matched string. Additionally, a query string can be set by 
+If the {ITEM=expuri} is a regular expression, then the matched sub-string
+can be used to form the "Root" string. The matched sub-string can be
+referenced with the values "$1" - "$9". "$0" and "&" can be used to reference the
+whole matched string. Additionally, a query string can be set by
 appending a "?" followed by the query string. Be careful. "&" should
 be escaped as "\&" in the query string.
 END_SYNTAX
 
-EXAMPLE:  A plain URI like {val}/examples/{/} with {ITEM=location} 
-set to {val}/home/john/web_examples{/} will map the request "/examples/foo/bar.html" 
-to file "/home/john/web_examples/foo/bar.html". 
+EXAMPLE:  A plain URI like {val}/examples/{/} with {ITEM=location}
+set to {val}/home/john/web_examples{/} will map the request "/examples/foo/bar.html"
+to file "/home/john/web_examples/foo/bar.html".
 
-To simulate Apache's mod_userdir, 
-set URI to {val}exp: ^/~([A-Za-z0-9]+)(.*){/}, 
-set {ITEM=location} to {val}/home/$1/public_html$2{/}. With these settings, a request of URI /~john/foo/bar.html will 
+To simulate Apache's mod_userdir,
+set URI to {val}exp: ^/~([A-Za-z0-9]+)(.*){/},
+set {ITEM=location} to {val}/home/$1/public_html$2{/}. With these settings, a request of URI /~john/foo/bar.html will
 map to file /home/john/public_html/foo/bar.html.
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -519,9 +519,9 @@ END_TIPS
 ID: as_location
 NAME: Location
 NS: EO
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
+SINCE:
 SEE_ALSO: {ITEM=expuri}
 
 DESCR: Specifies the corresponding location of this context in the file system.
@@ -530,33 +530,33 @@ DESCR: Specifies the corresponding location of this context in the file system.
 Default value: $DOC_ROOT + {ITEM=expuri}
 END_DESCR
 
-EDITTIP: The App Server context is for easy configuration of running Rack/Rails, WSGI, or Node.js applications. You 
+EDITTIP: The App Server context is for easy configuration of running Rack/Rails, WSGI, or Node.js applications. You
 only need to specify the root location of your application in the "Location" field.
 END_EDITTIP
 
-SYNTAX: It can be an absolute path or path relative to $SERVER_ROOT, $VH_ROOT, or $DOC_ROOT. 
+SYNTAX: It can be an absolute path or path relative to $SERVER_ROOT, $VH_ROOT, or $DOC_ROOT.
 $DOC_ROOT is the default relative path, and can be omitted.
 
 
-If the {ITEM=expuri} is a regular expression, then the matched sub-string 
-can be used to form the "Root" string. The matched sub-string can be 
-referenced with the values "$1" - "$9". "$0" and "&" can be used to reference the 
-whole matched string. Additionally, a query string can be set by 
+If the {ITEM=expuri} is a regular expression, then the matched sub-string
+can be used to form the "Root" string. The matched sub-string can be
+referenced with the values "$1" - "$9". "$0" and "&" can be used to reference the
+whole matched string. Additionally, a query string can be set by
 appending a "?" followed by the query string. Be careful. "&" should
 be escaped as "\&" in the query string.
 END_SYNTAX
 
-EXAMPLE:  A plain URI like {val}/examples/{/} with {ITEM=location} 
-set to {val}/home/john/web_examples{/} will map the request "/examples/foo/bar.html" 
-to file "/home/john/web_examples/foo/bar.html". 
+EXAMPLE:  A plain URI like {val}/examples/{/} with {ITEM=location}
+set to {val}/home/john/web_examples{/} will map the request "/examples/foo/bar.html"
+to file "/home/john/web_examples/foo/bar.html".
 
-To simulate Apache's mod_userdir, 
-set URI to {val}exp: ^/~([A-Za-z0-9]+)(.*){/}, 
-set {ITEM=location} to {val}/home/$1/public_html$2{/}. With these settings, a request of URI /~john/foo/bar.html will 
+To simulate Apache's mod_userdir,
+set URI to {val}exp: ^/~([A-Za-z0-9]+)(.*){/},
+set {ITEM=location} to {val}/home/$1/public_html$2{/}. With these settings, a request of URI /~john/foo/bar.html will
 map to file /home/john/public_html/foo/bar.html.
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -566,10 +566,10 @@ END_TIPS
 [ITEM]
 ID: javaWebApp_location
 NAME: Location
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies the directory that contains the files for this web application. This is the directory containing
 "WEB-INF/web.xml".
@@ -591,10 +591,10 @@ END_EDITTIP
 SYNTAX: path
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -605,33 +605,33 @@ END_TIPS
 ID: cgi_path
 NS: EO
 NAME: Path
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the location of CGI scripts. 
+DESCR: Specifies the location of CGI scripts.
 END_DESCR
 
-EDITTIP: A CGI context can be used to specify a directory only contains CGI scripts. Path can be absolute path or relative to $SERVER_ROOT, $VH_ROOT 
+EDITTIP: A CGI context can be used to specify a directory only contains CGI scripts. Path can be absolute path or relative to $SERVER_ROOT, $VH_ROOT
 or $DOC_ROOT(default). Path and URI must be ended with "/" for a cgi-bin directory.
 END_EDITTIP
 
-EDITTIP: If only a specific script is needed in that directory, it is recommended to create a CGI context for that script only. In this case, path and 
+EDITTIP: If only a specific script is needed in that directory, it is recommended to create a CGI context for that script only. In this case, path and
 URI need not be a directory. For e.g., path can be ~/myapp/myscript.pl, URI can be /myapp/myscript.pl. All other files will not be served as CGI.
 END_EDITTIP
 
-SYNTAX: The path can be a directory that contains a group of CGI scripts, 
-like {val}$VH_ROOT/myapp/cgi-bin/{/}. 
-In this case, the context {ITEM=expuri} must end with "/", like {val}/app1/cgi/{/}.  
-The Path can also specify only one CGI script, like {val}$VH_ROOT/myapp/myscript.pl{/}. 
+SYNTAX: The path can be a directory that contains a group of CGI scripts,
+like {val}$VH_ROOT/myapp/cgi-bin/{/}.
+In this case, the context {ITEM=expuri} must end with "/", like {val}/app1/cgi/{/}.
+The Path can also specify only one CGI script, like {val}$VH_ROOT/myapp/myscript.pl{/}.
 This script should have the corresponding {ITEM=expuri} {val}/myapp/myscript.pl{/}.
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -642,43 +642,12 @@ END_TIPS
 ID: binPath
 NAME: Binary Path
 NS: EO
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: The location of the App Server application binary. 
-END_DESCR
-
-EDITTIP: 
-END_EDITTIP
-
-EDITTIP: 
-END_EDITTIP
-
-SYNTAX: 
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
-ID: appType
-NAME: Application Type
-NS: EO
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: The type of application used for this context. Rack/Rails, WSGI, or Node.js are supported. 
+DESCR: The location of the App Server application binary.
 END_DESCR
 
 EDITTIP:
@@ -690,10 +659,41 @@ END_EDITTIP
 SYNTAX:
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: appType
+NAME: Application Type
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: The type of application used for this context. Rack/Rails, WSGI, or Node.js are supported.
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX:
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -704,10 +704,10 @@ END_TIPS
 ID: as_startupfile
 NAME: Startup File
 NS: EO
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: The location of file used to start the application, relative to the application root directory.
 
@@ -725,10 +725,10 @@ END_EDITTIP
 SYNTAX: Path relative to application root directory
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -738,31 +738,31 @@ END_TIPS
 [ITEM]
 ID: allowBrowse
 NAME: Accessible
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies whether this context can be accessed. Set to {val}No{/} to deny access. 
-You can use this feature to protect the specified directory from being visited. 
+DESCR: Specifies whether this context can be accessed. Set to {val}No{/} to deny access.
+You can use this feature to protect the specified directory from being visited.
 You may use it when you are updating contents for this context or you have special data in this directory.
 END_DESCR
 
-EDITTIP: Static context can be used to map a URI to a directory either outside document root or within it. The directory 
+EDITTIP: Static context can be used to map a URI to a directory either outside document root or within it. The directory
 can be absolute path or relative to document root(default), $VH_ROOT or $SERVER_ROOT.
 END_EDITTIP
 
-EDITTIP: Check "Accessible" will allow browsing static files in this context. You may want to disable it to prevent viewing static 
+EDITTIP: Check "Accessible" will allow browsing static files in this context. You may want to disable it to prevent viewing static
 files, for e.g. when you update the content.
 END_EDITTIP
 
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -772,15 +772,15 @@ END_TIPS
 [ITEM]
 ID: allowSetUID
 NAME: Allow Set UID
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies whether the set UID bit is allowed for CGI scripts. If the 
-set UID bit is allowed and the set UID bit is enabled for a CGI script, 
+DESCR: Specifies whether the set UID bit is allowed for CGI scripts. If the
+set UID bit is allowed and the set UID bit is enabled for a CGI script,
 no matter which user the CGI script was started on behalf of, the user ID of the CGI process will
-switch to the user ID of the owner of the CGI script. 
+switch to the user ID of the owner of the CGI script.
 
 The default is "Off".
 END_DESCR
@@ -788,7 +788,7 @@ END_DESCR
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [S] Do not allow Set UID CGI scripts whenever possible, as it
@@ -802,28 +802,28 @@ END_TIPS
 [ITEM]
 ID: externalredirect
 NAME: External Redirect
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies whether this redirect is external. 
-For external redirection, {ITEM=statuscode} may be specified and 
-{ITEM=destinationuri} can start either with "/" or "http(s)://". 
+DESCR: Specifies whether this redirect is external.
+For external redirection, {ITEM=statuscode} may be specified and
+{ITEM=destinationuri} can start either with "/" or "http(s)://".
 For internal redirection, {ITEM=destinationuri} must start with "/".
 END_DESCR
 
-EDITTIP: Set up redirect URI here. If it is an external redirect, you can specify the status code. Internal 
+EDITTIP: Set up redirect URI here. If it is an external redirect, you can specify the status code. Internal
 redirect has to start with "/", external redirect can either start with "/" or with "http(s)://".
 END_EDITTIP
 
-SYNTAX: 
+SYNTAX:
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -833,22 +833,22 @@ END_TIPS
 [ITEM]
 ID: statuscode
 NAME: Status Code
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the response status code of the external redirection. 
+DESCR: Specifies the response status code of the external redirection.
 If the status code is between 300 and 399, {ITEM=destinationuri} can be specified.
 END_DESCR
 
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -859,25 +859,25 @@ END_TIPS
 ID: destinationuri
 NAME: Destination URI
 NS: LEO
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the target location of the redirect. 
-If this redirected URI maps to a URI in another redirect context, it will be redirected again. 
+DESCR: Specifies the target location of the redirect.
+If this redirected URI maps to a URI in another redirect context, it will be redirected again.
 END_DESCR
 
-SYNTAX: This URI can either be a relative URI on the same web site starting with "/", 
-or an absolute URI pointing to different web site starting with "http(s)://".  
-If the {ITEM=expuri} contains regular expressions, the destination can reference 
+SYNTAX: This URI can either be a relative URI on the same web site starting with "/",
+or an absolute URI pointing to different web site starting with "http(s)://".
+If the {ITEM=expuri} contains regular expressions, the destination can reference
 the matched variables, such as $1 or $2.
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -888,10 +888,10 @@ END_TIPS
 ID: extraHeaders
 NAME: Header Operations
 NS: LEO
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies additional response/request headers to be added. Multiple header directives can be added with one
 directive per line. "NONE" can be used to disable parent header inheritance. If no directive is provided 'Header' is assumed.
@@ -910,7 +910,7 @@ Header set My-header cust_header_val
 RequestHeader set My-req-header cust_req_header_val
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 [I] Syntax and usage are similar to
 {ext-href}https://httpd.apache.org/docs/2.2/mod/mod_headers.html#header{ext-href-end}Apache's mod_headers directives{ext-href-end-a}
 for supported operations.
@@ -996,10 +996,10 @@ END_TIPS
 [ITEM]
 ID: addMIMEType
 NAME: MIME Type
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies additional MIME types and mappings for this
 	   context. New mappings will override existing mappings under this
@@ -1007,7 +1007,7 @@ DESCR: Specifies additional MIME types and mappings for this
 
 	   If you want to show PHP scripts as text files instead of being
 	   executed as scripts, just override the .php mapping to MIME type
-	   "text/plain". 
+	   "text/plain".
 END_DESCR
 
 SYNTAX: MIME-type1 extension extension ..., MIME-type2 extension ...
@@ -1018,7 +1018,7 @@ END_SYNTAX
 EXAMPLE: {val}image/jpg jpeg jpg, image/gif gif{/}
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1028,18 +1028,18 @@ END_TIPS
 [ITEM]
 ID: mimetype
 NAME: MIME Type
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: A MIME type consists of a type and subtype in the format of "type/subtype". 
+DESCR: A MIME type consists of a type and subtype in the format of "type/subtype".
 END_DESCR
 
-SYNTAX: 
+SYNTAX:
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS:
@@ -1052,13 +1052,13 @@ END_TIPS
 [ITEM]
 ID: forceType
 NAME: Force MIME Type
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: When specified, all files under this context will be served as
-	   static files with the MIME type specified regardless of file suffix. 
+	   static files with the MIME type specified regardless of file suffix.
 	   When set to {val}NONE{/}, inherited force type setting will be
 	   disabled.
 END_DESCR
@@ -1066,10 +1066,10 @@ END_DESCR
 SYNTAX: MIME type or NONE.
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1079,24 +1079,24 @@ END_TIPS
 [ITEM]
 ID: defaultType
 NAME: Default MIME Type
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: When specified, this type will be used when MIME type mapping
 	   cannot be determined by the suffix of a document or if there is no suffix.
-	   If not specified, the default value 
+	   If not specified, the default value
 	   {val}application/octet-stream{/} will be used.
 END_DESCR
 
 SYNTAX: MIME-type
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1106,28 +1106,28 @@ END_TIPS
 [ITEM]
 ID: realm
 NAME: Realm
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the authorization realm for this context. When specified, 
-a valid username and password must be provided in order to access this context. 
-{TBL=VHSecurity_Help#realms} are set up in the {PAGE=VHSecurity_Help} section. 
+DESCR: Specifies the authorization realm for this context. When specified,
+a valid username and password must be provided in order to access this context.
+{TBL=VHSecurity_Help#realms} are set up in the {PAGE=VHSecurity_Help} section.
 This setting uses each realm's {ITEM=VHSecurity_Help#realmName}.
 END_DESCR
 
-EDITTIP: A Context can be protected with a predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and 
+EDITTIP: A Context can be protected with a predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and
 additional requirements can be specified.
 END_EDITTIP
 
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1137,23 +1137,23 @@ END_TIPS
 [ITEM]
 ID: authName
 NAME: Authentication Name
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies an alternative name for the authorization realm for the current context. 
-If not specified, the original realm name will be used. The authentication name is 
+DESCR: Specifies an alternative name for the authorization realm for the current context.
+If not specified, the original realm name will be used. The authentication name is
 displayed on the browser's login pop-up.
 END_DESCR
 
 SYNTAX: text
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1163,19 +1163,19 @@ END_TIPS
 [ITEM]
 ID: required
 NAME: Require (Authorized Users/Groups)
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies which user/group can access this context. This allows you to use 
-one user/group database (specified in {ITEM=realm}) across a number of contexts, but 
+DESCR: Specifies which user/group can access this context. This allows you to use
+one user/group database (specified in {ITEM=realm}) across a number of contexts, but
 only allow certain users/groups from that database to access this context.
 END_DESCR
 
-SYNTAX: Syntax is compatible with Apache's Require directive. For example: 
+SYNTAX: Syntax is compatible with Apache's Require directive. For example:
 <ul>
-<li>{val}user username [username ...]{/} 
+<li>{val}user username [username ...]{/}
 
 Only listed users can access this context.</li>
 <li> {val}group groupid [groupid ...]{/}
@@ -1185,7 +1185,7 @@ Only users belonging to the listed groups can access this context.</li>
 If this setting is not specified, all valid users will be allowed to access this resource.
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS:
@@ -1198,23 +1198,23 @@ END_TIPS
 [ITEM]
 ID: accessAllowed
 NAME: Access Allowed
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies which IPs or sub-networks are allowed to access resources under this context. Together with 
-{ITEM=accessDenied} and server/virtual host level access control, accessibility is determined by 
-the smallest scope that a client's IP address falls into. 
+DESCR: Specifies which IPs or sub-networks are allowed to access resources under this context. Together with
+{ITEM=accessDenied} and server/virtual host level access control, accessibility is determined by
+the smallest scope that a client's IP address falls into.
 END_DESCR
 
-SYNTAX: Comma-delimited list of IPs/sub-networks. 
+SYNTAX: Comma-delimited list of IPs/sub-networks.
 END_SYNTAX
 
 EXAMPLE: Sub-networks can be written as {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/}, or {val}192.168.1.*{/}.
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1224,23 +1224,23 @@ END_TIPS
 [ITEM]
 ID: accessDenied
 NAME: Access Denied
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies which IPs or sub-networks are NOT allowed to access resources under this context. 
-Together with {ITEM=accessAllowed} and server/virtual host-level access control, accessibility is 
-determined by the smallest scope that a client's IP address falls into. 
+DESCR: Specifies which IPs or sub-networks are NOT allowed to access resources under this context.
+Together with {ITEM=accessAllowed} and server/virtual host-level access control, accessibility is
+determined by the smallest scope that a client's IP address falls into.
 END_DESCR
 
-SYNTAX: Comma-delimited list of IPs/sub-networks. 
+SYNTAX: Comma-delimited list of IPs/sub-networks.
 END_SYNTAX
 
 EXAMPLE: Sub-networks can be written as {val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/}, or {val}192.168.1.*{/}.
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1250,24 +1250,24 @@ END_TIPS
 [ITEM]
 ID: extAuthorizer
 NAME: Authorizer
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies an external application that can be used to
 generate authorized/unauthorized decisions. Currently, only the FastCGI
-Authorizer is available. For more details about the FastCGI Authorizer role, 
+Authorizer is available. For more details about the FastCGI Authorizer role,
 please visit {ext-href}http://www.fastcgi.com{ext-href-end}http://www.fastcgi.com{ext-href-end-a}.
 END_DESCR
 
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1277,10 +1277,10 @@ END_TIPS
 [ITEM]
 ID: rewriteInherit
 NAME: Rewrite Inherit
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies whether to inherit rewrite rules from parent
 contexts. If rewrite is enabled and not inherited, rewrite base and
@@ -1290,10 +1290,10 @@ END_DESCR
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1303,10 +1303,10 @@ END_TIPS
 [ITEM]
 ID: rewriteBase
 NAME: Rewrite Base
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies the base URL for rewrite rules.
 END_DESCR
@@ -1314,10 +1314,10 @@ END_DESCR
 SYNTAX: URL
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1327,10 +1327,10 @@ END_TIPS
 [ITEM]
 ID: addDefaultCharset
 NAME: Add Default Charset
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies whether to add a character set tag to the
 	   "Content-Type" response header, when content type is either
@@ -1343,10 +1343,10 @@ END_DESCR
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1356,10 +1356,10 @@ END_TIPS
 [ITEM]
 ID: defaultCharsetCustomized
 NAME: Customized Default Charset
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies a character set to be used when {ITEM=addDefaultCharset}
 	   is {val}On{/}. This is optional. The default value is {val}iso-8859-1{/}.
@@ -1373,7 +1373,7 @@ END_SYNTAX
 EXAMPLE: utf-8
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1383,12 +1383,12 @@ END_TIPS
 [ITEM]
 ID: moduleNameSel
 NAME: Module
-REQUIRED: 
-APPLY: 
-SINCE: 
-SEE_ALSO: 
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
 
-DESCR: Name of the module. The module must be registered under the Server Module Configuration tab.  
+DESCR: Name of the module. The module must be registered under the Server Module Configuration tab.
 Once it is registered, the module name will be available in the drop down box for the Listener and Virtual Host configurations.
 END_DESCR
 
