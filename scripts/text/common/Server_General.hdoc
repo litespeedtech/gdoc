@@ -237,10 +237,10 @@ NS: L
 REQUIRED:
 APPLY: 2
 SINCE:
-SEE_ALSO: {ITEM=ServSecurity_Help#CGIPriority}
+SEE_ALSO:
 
-DESCR: Specifies priority of the server processes. Value ranges from
-{val}-20{/} to {val}20{/}. A lower number equates to a higher priority.
+DESCR: Specifies priority of the server processes. Value ranges from {val}-20{/} to {val}20{/}. A lower number equates to a
+higher priority.
 END_DESCR
 
 SYNTAX: Integer number
@@ -249,8 +249,8 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: [P] Usually a higher priority leads to slightly higher
-web performance on a busy server. Do not set priority higher than that of database processes.
+TIPS: [P] Usually a higher priority leads to slightly higher web performance on a busy server. Do not set priority higher than
+that of database processes.
 END_TIPS
 
 [END_ITEM]
