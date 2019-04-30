@@ -16,7 +16,8 @@ SEE_ALSO:
 DESCR: A unique name for this server. You can use $HOSTNAME as value.
 END_DESCR
 
-EDITTIP: The user and group setting of the server process cannot be modified. This was set up during installation. You have to reinstall to change this option.
+EDITTIP: The user and group setting of the server process cannot be modified. This was set up during installation. You have
+to reinstall to change this option.
 END_EDITTIP
 
 SYNTAX: text
@@ -44,7 +45,8 @@ SEE_ALSO:
 DESCR: A unique name for this server. If empty, server hostname will be used by default.
 END_DESCR
 
-EDITTIP: The user and group setting of the server process cannot be modified. This was set up during installation. You have to reinstall to change this option.
+EDITTIP: The user and group setting of the server process cannot be modified. This was set up during installation. You have
+to reinstall to change this option.
 END_EDITTIP
 
 SYNTAX: text
@@ -769,14 +771,24 @@ APPLY:
 SINCE: 4.2.3
 SEE_ALSO:
 
-DESCR: When a client breaks a connection with the server, LiteSpeed Web Server can automatically abort external application processes generating responses for that client. Some users, however, may have (long-running) processes that they wish to continue running whether or not the client is still connected.
+DESCR: When a client breaks a connection with the server, LiteSpeed Web Server can automatically abort external
+application processes generating responses for that client. Some users, however, may have (long-running) processes that
+they wish to continue running whether or not the client is still connected.
 
 
 There are three options for this:
+
 <ul>
-<li>No Abort: Never abort external applications because of a broken connection.</li>
-<li>Enable Abort for Requests from External IPs: Only processes started by requests from external IPs will be automatically aborted because of a broken connection. This is the default setting. It is a good setting if you have some internal long-running processes, like some cron jobs.</li>
-<li>Enable Abort for All Requests: External application processes will be automatically aborted if the connection is broken, regardless of the source of the request.</li>
+  <li>No Abort: Never abort external applications because of a broken connection.</li>
+  <li>
+    Enable Abort for Requests from External IPs: Only processes started by requests from external IPs will be automatically
+    aborted because of a broken connection. This is the default setting. It is a good setting if you have some internal
+    long-running processes, like some cron jobs.
+  </li>
+  <li>
+    Enable Abort for All Requests: External application processes will be automatically aborted if the connection is broken,
+    regardless of the source of the request.
+  </li>
 </ul>
 END_DESCR
 
@@ -947,10 +959,14 @@ control the accessibility of files under that directory.
 <ul>
   <li>When nothing is checked, inherited default settings will be used.</li>
   <li>When {val}None{/} is checked, access control files will be ignored.</li>
-  <li>When {val}Limit{/} is checked, directives "Allow", "Deny", and "Order" are allowed.</li>
+  <li>
+    When {val}Limit{/} is checked, directives "Allow", "Deny", and "Order" are allowed. &lt;Limit&gt; and &lt;LimitExcept&gt;
+    directives are also allowed with limited support for GET, HEAD, and POST requests.
+  </li>
   <li>
     When {val}Auth{/} is checked, directives "AuthGroupFile",  "AuthName", "AuthType", "AuthUserFile", "Require", and
-    "Satisfy" are allowed.
+    "Satisfy" are allowed. &lt;Limit&gt; and &lt;LimitExcept&gt; directives are also allowed with limited support for GET,
+    HEAD, and POST requests.
   </li>
   <li>
     When {val}FileInfo{/} is checked, directives "AddDefaultCharset", "AddType", "DefaultType", "ForceType", "Redirect",
@@ -1013,7 +1029,8 @@ You can configure this at server level and virtual host level. Server level is t
  can override it at virtual host level.
 END_DESCR
 
-EDITTIP: It is recommended to use a hidden access file. To do this simply start the filename with ".", similar to ".htaccess". LiteSpeed Web Server does not serve hidden files.
+EDITTIP: It is recommended to use a hidden access file. To do this simply start the filename with ".", similar to ".htaccess".
+LiteSpeed Web Server does not serve hidden files.
 END_EDITTIP
 
 SYNTAX: Filename starting with "."
@@ -1086,11 +1103,13 @@ often. If there is no default setting, no Expires header will be
 generated for types not specified in {ITEM=expiresByType}.
 END_DESCR
 
-EDITTIP: Expires syntax, "A|Mseconds" means after base time (A or M) plus the specified time in seconds, the file will expire. "A" means client access time, "M" means file
-modified time. You can override this default setting by different MIME types: A86400 means the file will expire after 1 day based on client access time.
+EDITTIP: Expires syntax, "A|Mseconds" means after base time (A or M) plus the specified time in seconds, the file will
+expire. "A" means client access time, "M" means file modified time. You can override this default setting by different MIME
+types: A86400 means the file will expire after 1 day based on client access time.
 END_EDITTIP
 
-EDITTIP: Here are some common numbers: 1 hour = 3600 sec, 1 day = 86400 sec, 1 week = 604800 sec, 1 month = 2592000 sec, 1 year = 31536000 sec.
+EDITTIP: Here are some common numbers: 1 hour = 3600 sec, 1 day = 86400 sec, 1 week = 604800 sec,
+1 month = 2592000 sec, 1 year = 31536000 sec.
 END_EDITTIP
 
 SYNTAX: A|Mseconds
@@ -1120,8 +1139,8 @@ SEE_ALSO:
 DESCR: Specifies Expires header settings for individual MIME types.
 END_DESCR
 
-EDITTIP: Expires By Type will override default settings. Each entry is in the format of "MIME-type=A|Mseconds" with no space in between. You can input multiple entries
-separated by comma.
+EDITTIP: Expires By Type will override default settings. Each entry is in the format of "MIME-type=A|Mseconds" with no
+space in between. You can input multiple entries separated by comma.
 END_EDITTIP
 
 SYNTAX: Comma delimited list of "MIME-type=A|Mseconds".
@@ -1633,7 +1652,8 @@ APPLY: 2
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the maximum number of concurrent PHP processes that can be created by LSWS for each user when running PHP scripts in suEXEC mode. Default value is {val}5{/}.
+DESCR: Specifies the maximum number of concurrent PHP processes that can be created by LSWS for each user when
+running PHP scripts in suEXEC mode. Default value is {val}5{/}.
 
 END_DESCR
 
@@ -1643,7 +1663,8 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: This limit is per user per lshttpd process. Thus, if you have a 2-CPU license, this limit will be doubled. The limit will be 4x for a 4-CPU license, and so on.
+TIPS: This limit is per user per lshttpd process. Thus, if you have a 2-CPU license, this limit will be doubled. The limit will be
+4x for a 4-CPU license, and so on.
 END_TIPS
 
 [END_ITEM]
@@ -1918,55 +1939,60 @@ NAME: HT Access
 NS: E
 
 DESCR:
-The following directives are supported in a directory level
-access control file (.htaccess file).
+The following directives are supported in a directory level access control file (.htaccess file).
+
 <ul>
-  <li>Authentication
+  <li>
+    Authentication
     <ul>
-    <li>AuthType</li>
-    <li>AuthName</li>
-    <li>AuthUserFile</li>
-    <li>AuthGroupFile</li>
-    <li>Require</li>
+      <li>AuthGroupFile</li>
+      <li>AuthName</li>
+      <li>AuthType</li>
+      <li>AuthUserFile</li>
+      <li>Require</li>
+      <li>Satisfy</li>
+      <li>&lt;Limit&gt; (GET, HEAD, POST only)</li>
+      <li>&lt;LimitExcept&gt; (GET, HEAD, POST only)</li>
     </ul>
   </li>
-  <li>Access Control
+  <li>
+    Access Control
     <ul>
-    <li>Allow from</li>
-    <li>Deny from</li>
-    <li>Order</li>
+      <li>Allow</li>
+      <li>Deny</li>
+      <li>Order</li>
+      <li>&lt;Limit&gt; (GET, HEAD, POST only)</li>
+      <li>&lt;LimitExcept&gt; (GET, HEAD, POST only)</li>
     </ul>
   </li>
-  <li>File Info
+  <li>
+    File Info
     <ul>
-    <li>AddDefaultCharset</li>
-    <li>AddType</li>
-    <li>DefaultType</li>
-    <li>ExpiresActive</li>
-    <li>ExpiresDefault</li>
-    <li>ExpiresByType</li>
-    <li>ForceType</li>
-    <li>Redirect</li>
-    <li>RedirectTemp</li>
-    <li>RedirectPermanent</li>
-    <li>RewriteEngine</li>
-    <li>RewriteOptions</li>
-    <li>RewriteBase</li>
-    <li>RewriteCond</li>
-    <li>RewriteRule</li>
-    <li>Satisfy</li>
+      <li>AddDefaultCharset</li>
+      <li>AddType</li>
+      <li>DefaultType</li>
+      <li>ForceType</li>
+      <li>Redirect</li>
+      <li>RedirectPermanent</li>
+      <li>RedirectTemp</li>
+      <li>RewriteBase</li>
+      <li>RewriteCond</li>
+      <li>RewriteEngine</li>
+      <li>RewriteOptions</li>
+      <li>RewriteRule</li>
     </ul>
   </li>
-  <li>Other
+  <li>
+    Other
     <ul>
-	<li>&lt;Limit&gt;</li>
-	<li>&lt;LimitExcept&gt;</li>
-    <li>DirectoryIndex</li>
-    <li>Options</li>
+      <li>DirectoryIndex</li>
+      <li>ExpiresActive</li>
+      <li>ExpiresByType</li>
+      <li>ExpiresDefault</li>
+      <li>Options</li>
     </ul>
   </li>
 </ul>
-
 END_DESCR
 
 CONT: allowOverride accessFileName
