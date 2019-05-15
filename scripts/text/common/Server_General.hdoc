@@ -2056,7 +2056,7 @@ SEE_ALSO: {ITEM=HTTP_BEGIN}
 
 [TBL]
 ID: geolocationDB
-NAME: IP to Geolocation DB
+NAME: MaxMind GeoIP DB
 NS: LEO
 
 DESCR: Multiple MaxMind geolocation databases can be specified here. MaxMind

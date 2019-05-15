@@ -38,7 +38,7 @@ END_TIPS
 
 
 [ITEM]
-ID: SSLStrongDhKey
+ID: sslStrongDhKey
 NAME: SSL Strong DH Key
 NS: LEO
 REQUIRED:
