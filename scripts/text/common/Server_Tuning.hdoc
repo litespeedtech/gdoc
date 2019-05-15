@@ -1499,13 +1499,69 @@ ID: sslEnableMultiCerts
 NAME: Enable Multiple SSL Certificates
 REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Allows listeners/vhosts to set multiple SSL certificates.  If multiple certificates are enabled, the certificates/keys 
-are expected to follow a naming scheme.  If the cert is named server.crt, other possible cert names are server.crt.rsa, server.crt.dsa, server.crt.ecc. If 
-"Not Set", defaults to "No".
+DESCR: Allows listeners/vhosts to set multiple SSL certificates.  If multiple certificates are enabled, the certificates/keys
+are expected to follow a naming scheme.  If the cert is named server.crt, other possible cert names are server.crt.rsa,
+server.crt.dsa, server.crt.ecc. If "Not Set", defaults to "No".
 
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslCertCompress
+NAME: Enable Certificate Compression
+NS: E
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Use SSL certificate compression.
+
+
+Default value: On
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslHsOffload
+NAME: Enable Handshake Offload
+NS: E
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR:  Offload SSL handshake to a separate thread.
+
+
+Default value: On
 END_DESCR
 
 SYNTAX: bool
@@ -1963,16 +2019,33 @@ SEE_ALSO:
 [TBL]
 ID: sslGlobal
 NAME: SSL Global Setting
-NS: LEO
+NS: LO
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: SSLStrongDhKey sslEnableMultiCerts sslSessionCache sslSessionCacheSize sslSessionCacheTimeout 
-sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile 
+CONT: SSLStrongDhKey sslEnableMultiCerts sslSessionCache sslSessionCacheSize sslSessionCacheTimeout
+sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: sslGlobal
+NAME: SSL Global Setting
+NS: E
+
+DESCR:
+END_DESCR
+
+CONT: SSLStrongDhKey sslEnableMultiCerts sslCertCompress sslHsOffload sslSessionCache sslSessionCacheSize
+sslSessionCacheTimeout sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile
+END_CONT
+
+SEE_ALSO:
 [END_TBL]
 
 
@@ -1982,14 +2055,14 @@ ID: sslDynSNI
 NAME: SSL Dynamic SNI
 NS: L
 
-DESCR: SSL Dynamic SNI enables you to avoid using the load balancer's generic certificates by specifying a directory that the load balancer can then use to serve 
-clients site specific certificates when handling requests.
+DESCR: SSL Dynamic SNI enables you to avoid using the load balancer's generic certificates by specifying a directory that
+the load balancer can then use to serve clients site specific certificates when handling requests.
 END_DESCR
 
-CONT: sslDynCertsBaseDir sslDynCertsNumLevels sslDynCertsExpire sslDynCertsRefresh 
+CONT: sslDynCertsBaseDir sslDynCertsNumLevels sslDynCertsExpire sslDynCertsRefresh
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 

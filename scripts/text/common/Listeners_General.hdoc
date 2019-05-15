@@ -204,7 +204,40 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: reusePort
+NAME: Enable REUSEPORT
+NS: E
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Use SO_REUSEPORT socket option to distribute incoming traffic to multiple workers. This setting is only effective
+for multi-worker licenses. When enabled, all workers are automatically bound to this listener and "Binding" configuration is
+ignored.
+
+
+Default value: On
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -382,7 +415,7 @@ END_DESCR
 CONT: listenerName listenerType listenerIP listenerPort listenerBinding listenerSecure zconfEnabled mapped_L4_clusters
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -390,7 +423,23 @@ SEE_ALSO:
 [TBL]
 ID: listenerGeneral
 NAME: Address Settings
-NS: EO
+NS: E
+
+DESCR:
+END_DESCR
+
+CONT: listenerName listenerIP listenerPort listenerBinding reusePort listenerSecure
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: listenerGeneral
+NAME: Address Settings
+NS: O
 
 DESCR:
 END_DESCR
