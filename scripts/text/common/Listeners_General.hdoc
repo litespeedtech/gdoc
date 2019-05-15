@@ -7,10 +7,10 @@
 [ITEM]
 ID: listenerName
 NAME: Listener Name
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: A unique name for this listener.
 END_DESCR
@@ -21,10 +21,10 @@ END_EDITTIP
 SYNTAX: text
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -35,15 +35,15 @@ END_TIPS
 ID: listenerType
 NAME: Type
 NS: L
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: The Layer 7 listener type.
 
 
-An “http” listener treats requests as an HTTP Request, so it will parse the request data to use for load balancing.  
+An “http” listener treats requests as an HTTP Request, so it will parse the request data to use for load balancing.
 
 
 A “tcp” listener will not parse request data. Only the client’s IP address and port are parsed for load balancing.
@@ -52,10 +52,10 @@ END_DESCR
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -65,29 +65,30 @@ END_TIPS
 [ITEM]
 ID: listenerIP
 NAME: IP Address
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the IP of this listener. All available IP addresses are listed. 
-IPv6 addresses are enclosed in "[ ]". To listen on all IPv4 IP addresses, select 
+DESCR: Specifies the IP of this listener. All available IP addresses are listed.
+IPv6 addresses are enclosed in "[ ]". To listen on all IPv4 IP addresses, select
 {val}ANY{/}. To listen on all IPv4 and IPv6 IP addresses,
 select {val}[ANY]{/}. In order to serve both IPv4 and IPv6
 clients, an IPv4-mapped IPv6 address should be used instead of a
 plain IPv4 address. An IPv4-mapped IPv6 address is written as [::FFFF:x.x.x.x].
 END_DESCR
 
-EDITTIP: Select an IP address from the list, if you don't specify a particular address, the system will bind to all the available IP address on this machine.
+EDITTIP: Select an IP address from the list, if you don't specify a particular address, the system will bind to all the available
+IP address on this machine.
 END_EDITTIP
 
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: [S] If your machine has multiple IPs on different sub-networks, 
+TIPS: [S] If your machine has multiple IPs on different sub-networks,
 you can select a specific IP to only allow traffic from the corresponding sub-network.
 END_TIPS
 
@@ -98,27 +99,27 @@ END_TIPS
 [ITEM]
 ID: listenerPort
 NAME: Port
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the TCP port of the listener. Only the super user ("root") can use ports  
-lower than {val}1024{/}. Port {val}80{/} is the default HTTP port. Port {val}443{/} 
-is the default HTTPS port. 
+DESCR: Specifies the TCP port of the listener. Only the super user ("root") can use ports
+lower than {val}1024{/}. Port {val}80{/} is the default HTTP port. Port {val}443{/}
+is the default HTTPS port.
 END_DESCR
 
-EDITTIP: Input a unique port number on this IP for this listener. Only super user (root) can use ports lower than 1024. Port 80 is the default HTTP port; port 
-443 is the default HTTPS port.
+EDITTIP: Input a unique port number on this IP for this listener. Only super user (root) can use ports lower than 1024. Port
+80 is the default HTTP port; port 443 is the default HTTPS port.
 END_EDITTIP
 
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -129,10 +130,10 @@ END_TIPS
 ID: listenerBinding
 NAME: Binding
 NS: L
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies which lslbd child process the listener is assigned to. Multiple child processes are spawned
 to take advantage of the multiple CPUs in an SMP system. Different child processes can be used to handle requests to
@@ -142,10 +143,10 @@ END_DESCR
 SYNTAX: checkbox
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -156,10 +157,10 @@ END_TIPS
 ID: listenerBinding
 NAME: Binding
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: {ent_version} Specifies which lshttpd child
 process the listener is assigned to. Enterprise Edition spawns
@@ -172,10 +173,10 @@ END_DESCR
 SYNTAX: checkbox
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -186,12 +187,12 @@ END_TIPS
 ID: listenerBinding
 NAME: Binding
 NS: O
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies which lshttpd child process the listener is assigned to. 
+DESCR: Specifies which lshttpd child process the listener is assigned to.
 Different child processes can be used to handle requests to
 different listeners by manually associating a listener with a
 process. By default, a listener is assigned to all child processes.
@@ -200,7 +201,7 @@ END_DESCR
 SYNTAX: checkbox
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: 
@@ -213,25 +214,26 @@ END_TIPS
 [ITEM]
 ID: listenerSecure
 NAME: Secure
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies whether this is a secure (SSL) listener. 
+DESCR: Specifies whether this is a secure (SSL) listener.
 For secure listeners, additional SSL settings need to be set properly.
 END_DESCR
 
-EDITTIP: Selecting "Yes" for <b>Secure</b> will make this listener use https. You must then configure this further in SSL settings.
+EDITTIP: Selecting "Yes" for <b>Secure</b> will make this listener use https. You must then configure this further in SSL
+settings.
 END_EDITTIP
 
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -242,21 +244,21 @@ END_TIPS
 ID: zconfEnabled
 NAME: Enable Zero Config
 NS: L
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Use zero config managed load balancing and accept traffic bound for zero config enabled backends.
 END_DESCR
 
-EDITTIP: 
+EDITTIP:
 END_EDITTIP
 
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: In order for this setting to take effect, Zero Config must also be enabled at the server level.
@@ -270,22 +272,22 @@ END_TIPS
 ID: mapped_L4_clusters
 NAME: Mapped Cluster
 NS: L
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the cluster that the Layer 4 listener will use for load balancing. The mapped cluster must be a Layer 4 cluster, which is predefined in "Clusters" tab. 
-
+DESCR: Specifies the cluster that the Layer 4 listener will use for load balancing. The mapped cluster must be a Layer 4
+cluster, which is predefined in "Clusters" tab.
 END_DESCR
 
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -298,12 +300,12 @@ END_TIPS
 [ITEM]
 ID: virtualHostName
 NAME: Virtual Host
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the name of a virtual host. 
+DESCR: Specifies the name of a virtual host.
 END_DESCR
 
 EDITTIP: Select the virtual hosts that you want to map to this listener.
@@ -315,10 +317,10 @@ END_EDITTIP
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -328,16 +330,16 @@ END_TIPS
 [ITEM]
 ID: domainName
 NAME: Domains
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the mapping domain names. Domain names are case 
-insensitive and the leading "www." will be removed. The wildcard 
-characters "*" and "?" are allowed. "?" only represents one character. 
-"*" represents any numbers of characters. 
-Duplicated domain names are not allowed. 
+DESCR: Specifies the mapping domain names. Domain names are case
+insensitive and the leading "www." will be removed. The wildcard
+characters "*" and "?" are allowed. "?" only represents one character.
+"*" represents any numbers of characters.
+Duplicated domain names are not allowed.
 END_DESCR
 
 EDITTIP: Enter all the domains that you want this listener to respond to. Use comma "," to separate individual domain.
@@ -356,9 +358,9 @@ EXAMPLE: www?.example.com
 "*" by itself is the catchall domain and will match any unmatched domain names.
 END_EXAMPLE
 
-TIPS: [P] If a listener is dedicated to one virtual host, 
+TIPS: [P] If a listener is dedicated to one virtual host,
 always use {val}*{/} for the domain name to avoid unnecessary
-checking. Domain names with wildcard characters  (other than the catchall domain) 
+checking. Domain names with wildcard characters  (other than the catchall domain)
 should be avoided whenever possible.
 END_TIPS
 
@@ -374,7 +376,7 @@ ID: listenerGeneral
 NAME: Address Settings
 NS: L
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: listenerName listenerType listenerIP listenerPort listenerBinding listenerSecure zconfEnabled mapped_L4_clusters
@@ -390,13 +392,13 @@ ID: listenerGeneral
 NAME: Address Settings
 NS: EO
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: listenerName listenerIP listenerPort listenerBinding listenerSecure 
+CONT: listenerName listenerIP listenerPort listenerBinding listenerSecure
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -405,24 +407,24 @@ SEE_ALSO:
 ID: virtualHostMapping
 NAME: Virtual Host Mappings
 
-DESCR: Specifies the relationship between the listener and virtual hosts. 
-Listeners and virtual hosts are associated by domain names.  
-An HTTP request will be routed to a virtual host with a matching domain name.  
-One listener can map to multiple virtual hosts for different domain names.  
-One virtual host can also be mapped from different listeners. 
-One listener can allow one catchall virtual host with the domain name value "*".  
-When there is no explicitly matched domain name in the listener's mapping, 
+DESCR: Specifies the relationship between the listener and virtual hosts.
+Listeners and virtual hosts are associated by domain names.
+An HTTP request will be routed to a virtual host with a matching domain name.
+One listener can map to multiple virtual hosts for different domain names.
+One virtual host can also be mapped from different listeners.
+One listener can allow one catchall virtual host with the domain name value "*".
+When there is no explicitly matched domain name in the listener's mapping,
 the listener will forward the request to that catchall virtual host.
 END_DESCR
 
-TIPS: [P] Only add necessary mappings. If the listener is mapped  
+TIPS: [P] Only add necessary mappings. If the listener is mapped
 to only one virtual host, then only set up a catchall mapping "*".
 END_TIPS
 
-CONT: virtualHostName domainName 
+CONT: virtualHostName domainName
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -431,17 +433,17 @@ SEE_ALSO:
 
 
 [PAGE]
-ID: Listeners_General_Help 
+ID: Listeners_General_Help
 NAME: Listeners General
 NS: LEO
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: listenerGeneral virtualHostMapping
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
