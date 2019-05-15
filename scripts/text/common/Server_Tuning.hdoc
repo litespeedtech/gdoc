@@ -1084,13 +1084,13 @@ SINCE:
 SEE_ALSO:
 
 DESCR: Specifies the level of compression for static content. Ranges
-from {val}1{/} (lowest) to {val}9{/} (highest).
+from {val}1{/} (lowest) to {val}11{/} (highest).
 
 
 Default value: 5
 END_DESCR
 
-SYNTAX: Number between 1 and 9.
+SYNTAX: Number between 1 and 11.
 END_SYNTAX
 
 EXAMPLE:
