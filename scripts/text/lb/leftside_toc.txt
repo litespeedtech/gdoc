@@ -24,7 +24,7 @@
           <li><a href="ServSecurity_Help.html">Server Security</a></li>
           <li><a href="Cache_Help.html">Page Cache</a></li>
           <li><a href="PageSpeed_Config.html">PageSpeed Config</a></li>
-          <li><a href="ZConf_Help.html">ZConf Settings</a></li>
+          <li><a href="ZConf_Help.html">ZeroConf Settings</a></li>
           <li><a href="Listeners_General_Help.html">Listener General</a></li>
           <li><a href="Listeners_SSL_Help.html">Listener SSL</a></li>
           <li><a href="Clusters_General_Help.html">Cluster General</a></li>

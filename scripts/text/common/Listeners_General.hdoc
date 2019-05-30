@@ -275,14 +275,14 @@ END_TIPS
 
 [ITEM]
 ID: zconfEnabled
-NAME: Enable Zero Config
+NAME: Enable ZeroConf
 NS: L
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Use zero config managed load balancing and accept traffic bound for zero config enabled backends.
+DESCR: Use ZeroConf managed load balancing and accept traffic bound for ZeroConf enabled backends.
 END_DESCR
 
 EDITTIP:
@@ -294,7 +294,7 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: In order for this setting to take effect, Zero Config must also be enabled at the server level.
+TIPS: In order for this setting to take effect, ZeroConf must also be enabled at the server level.
 END_TIPS
 
 [END_ITEM]
