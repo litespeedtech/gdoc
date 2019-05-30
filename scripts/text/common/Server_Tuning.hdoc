@@ -2024,7 +2024,7 @@ NS: LO
 DESCR:
 END_DESCR
 
-CONT: SSLStrongDhKey sslEnableMultiCerts sslSessionCache sslSessionCacheSize sslSessionCacheTimeout
+CONT: sslStrongDhKey sslEnableMultiCerts sslSessionCache sslSessionCacheSize sslSessionCacheTimeout
 sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile
 END_CONT
 
@@ -2041,7 +2041,7 @@ NS: E
 DESCR:
 END_DESCR
 
-CONT: SSLStrongDhKey sslEnableMultiCerts sslCertCompress sslHsOffload sslSessionCache sslSessionCacheSize
+CONT: sslStrongDhKey sslEnableMultiCerts sslCertCompress sslHsOffload sslSessionCache sslSessionCacheSize
 sslSessionCacheTimeout sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile
 END_CONT
 
