@@ -1583,7 +1583,7 @@ END_TIPS
 [ITEM]
 ID: quicEnable
 NAME: Enable QUIC
-NS: LE
+NS: LEO
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1610,7 +1610,7 @@ END_TIPS
 [ITEM]
 ID: quicShmDir
 NAME: QUIC SHM Directory
-NS: LE
+NS: LEO
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1638,7 +1638,7 @@ END_TIPS
 [ITEM]
 ID: quicVersions
 NAME: QUIC Versions
-NS: LE
+NS: LEO
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1664,7 +1664,7 @@ END_TIPS
 [ITEM]
 ID: quicCfcw
 NAME: Connection Flow Control Window
-NS: LE
+NS: LEO
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1689,7 +1689,7 @@ END_TIPS
 [ITEM]
 ID: quicMaxCfcw
 NAME: Max Connection Flow Control Window
-NS: LE
+NS: LEO
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1719,7 +1719,7 @@ END_TIPS
 [ITEM]
 ID: quicSfcw
 NAME: Stream Flow Control Window
-NS: LE
+NS: LEO
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1744,7 +1744,7 @@ END_TIPS
 [ITEM]
 ID: quicMaxSfcw
 NAME: Max Stream Flow Control Window
-NS: LE
+NS: LEO
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1773,7 +1773,7 @@ END_TIPS
 [ITEM]
 ID: quicMaxStreams
 NAME: Max Concurrent Streams Per Connection
-NS: LE
+NS: LEO
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1798,7 +1798,7 @@ END_TIPS
 [ITEM]
 ID: quicHandshakeTimeout
 NAME: Handshake Timeout
-NS: LE
+NS: LEO
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1824,7 +1824,7 @@ END_TIPS
 [ITEM]
 ID: quicIdleTimeout
 NAME: Idle Timeout
-NS: LE
+NS: LEO
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -2070,7 +2070,7 @@ SEE_ALSO:
 [TBL]
 ID: quicTbl
 NAME: QUIC
-NS: LE
+NS: LEO
 
 DESCR:
 END_DESCR
@@ -2106,28 +2106,12 @@ SEE_ALSO:
 [PAGE]
 ID: ServTuning_Help
 NAME: Server Tuning
-NS: E
+NS: EO
 
 DESCR:
 END_DESCR
 
 CONT: osTuning connTuning reqTuning staticTuning gzipTuning brotliTuning sslGlobal quicTbl
-END_CONT
-
-SEE_ALSO:
-[END_PAGE]
-
-
-
-[PAGE]
-ID: ServTuning_Help
-NAME: Server Tuning
-NS: O
-
-DESCR:
-END_DESCR
-
-CONT: osTuning connTuning reqTuning staticTuning gzipTuning brotliTuning sslGlobal
 END_CONT
 
 SEE_ALSO:

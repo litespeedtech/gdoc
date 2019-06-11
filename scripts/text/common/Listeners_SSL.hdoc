@@ -7,10 +7,10 @@
 [ITEM]
 ID: keyFile
 NAME: Private Key File
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: The filename of the SSL private key file. The key file should not be encrypted.
 END_DESCR
@@ -18,10 +18,10 @@ END_DESCR
 SYNTAX: file2
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: [S] The private key file should be placed in a secured directory that 
+TIPS: [S] The private key file should be placed in a secured directory that
 allows read-only access to the user the server runs as.
 END_TIPS
 
@@ -32,10 +32,10 @@ END_TIPS
 [ITEM]
 ID: certFile
 NAME: Certificate File
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: The filename of the SSL certificate file.
 END_DESCR
@@ -43,10 +43,10 @@ END_DESCR
 SYNTAX: file2
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: [S] The certificate file should be placed in a secured directory, 
+TIPS: [S] The certificate file should be placed in a secured directory,
 which allows read-only access to the user that the server runs as.
 END_TIPS
 
@@ -57,10 +57,10 @@ END_TIPS
 [ITEM]
 ID: certChain
 NAME: Chained Certificate
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies whether the certificate is a chained certificate or
 not. The file that stores a certificate chain must be in PEM format,
@@ -71,10 +71,10 @@ END_DESCR
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -84,24 +84,24 @@ END_TIPS
 [ITEM]
 ID: CACertPath
 NAME: CA Certificate Path
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the directory where the certificates of certification 
-authorities (CAs) are kept. Those certificates are used for client certificate authentication  
+DESCR: Specifies the directory where the certificates of certification
+authorities (CAs) are kept. Those certificates are used for client certificate authentication
 and constructing the server certificate chain, which will be sent to browsers in
-addition to the server certificate. 
+addition to the server certificate.
 END_DESCR
 
 SYNTAX: path
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -111,14 +111,14 @@ END_TIPS
 [ITEM]
 ID: CACertFile
 NAME: CA Certificate File
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies the file that contains all certificates of certification
-authorities (CAs) for chained certificates. 
-This file is simply the concatenation of PEM-encoded certificate 
+authorities (CAs) for chained certificates.
+This file is simply the concatenation of PEM-encoded certificate
 files, in order of preference. This can be used as an alternative or
 in addition to {ITEM=CACertPath}. Those certificates are used for client certificate authentication
 and constructing the server certificate chain, which will be sent to browsers in
@@ -128,10 +128,10 @@ END_DESCR
 SYNTAX: file2
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -145,13 +145,13 @@ END_TIPS
 ID: sslProtocol
 NAME: Protocol Version
 NS: LEO
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies which version of the SSL protocol will be used. You can choose from 
-{val}SSL v3.0{/} and {val}TLS v1.0{/}. Since OpenSSL 1.0.1, {val}TLS v1.1{/}, {val}TLS v1.2{/} are also supported. {val}TLS v1.3{/} 
+DESCR: Specifies which version of the SSL protocol will be used. You can choose from
+{val}SSL v3.0{/} and {val}TLS v1.0{/}. Since OpenSSL 1.0.1, {val}TLS v1.1{/}, {val}TLS v1.2{/} are also supported. {val}TLS v1.3{/}
 is also supported via BoringSSL.
 END_DESCR
 
@@ -167,7 +167,7 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: Leaving this field blank will enable TLS v1.0, TLS v1.1, and TLS v1.2 by default. TLS v1.3 requires BoringSSL and will 
+TIPS: Leaving this field blank will enable TLS v1.0, TLS v1.1, and TLS v1.2 by default. TLS v1.3 requires BoringSSL and will
 also be enabled if the underlying SSL library supports it.
 END_TIPS
 
@@ -179,12 +179,12 @@ END_TIPS
 ID: ciphers
 NAME: Ciphers
 NS: LEO
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the cipher suite to be used when negotiating the SSL handshake. 
+DESCR: Specifies the cipher suite to be used when negotiating the SSL handshake.
 LSWS supports cipher suites implemented in SSL v3.0, TLS v1.0, TLS v1.2, and TLS v1.3.
 END_DESCR
 
@@ -194,7 +194,7 @@ END_SYNTAX
 EXAMPLE: ECDHE-RSA-AES128-SHA256:RC4:HIGH:!MD5:!aNULL:!EDH
 END_EXAMPLE
 
-TIPS: [S] We recommend leaving this field blank to use our default cipher which follows SSL cipher best practices. 
+TIPS: [S] We recommend leaving this field blank to use our default cipher which follows SSL cipher best practices.
 END_TIPS
 
 [END_ITEM]
@@ -204,10 +204,10 @@ END_TIPS
 [ITEM]
 ID: enableECDHE
 NAME: Enable ECDH Key Exchange
-REQUIRED: 
+REQUIRED:
 APPLY: 3
 SINCE: 4.2.5
-SEE_ALSO: 
+SEE_ALSO:
 
 DESCR: Allows use of Elliptic Curve Diffie-Hellman key exchange for further SSL encryption.
 END_DESCR
@@ -215,7 +215,7 @@ END_DESCR
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [S] ECDH key exchange is more secure than using just an RSA key. ECDH and DH key exchange are equally secure.
@@ -231,18 +231,18 @@ END_TIPS
 [ITEM]
 ID: enableDHE
 NAME: Enable DH Key Exchange
-REQUIRED: 
+REQUIRED:
 APPLY: 3
 SINCE: 4.2.5
-SEE_ALSO: 
+SEE_ALSO:
 
-DESCR: Allows use of Diffie-Hellman key exchange for further SSL encryption. 
+DESCR: Allows use of Diffie-Hellman key exchange for further SSL encryption.
 END_DESCR
 
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [S] DH key exchange is more secure than using just an RSA key. ECDH and DH key exchange are equally secure.
@@ -258,10 +258,10 @@ END_TIPS
 [ITEM]
 ID: DHParam
 NAME: DH Parameter
-REQUIRED: 
+REQUIRED:
 APPLY: 3
 SINCE: 4.2.5
-SEE_ALSO: 
+SEE_ALSO:
 
 DESCR: Specifies the location of the Diffie-Hellman parameter file necessary for DH key exchange.
 END_DESCR
@@ -269,10 +269,10 @@ END_DESCR
 SYNTAX: file2
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -286,22 +286,22 @@ END_TIPS
 ID: renegProtection
 NAME: SSL Renegotiation Protection
 NS: LEO
-REQUIRED: 
+REQUIRED:
 APPLY: 3
 SINCE: 4.1.13
-SEE_ALSO: 
+SEE_ALSO:
 
-DESCR: Specifies whether to enable SSL Renegotiation Protection to 
+DESCR: Specifies whether to enable SSL Renegotiation Protection to
 defend against SSL handshake-based attacks. The default value is "Yes".
 END_DESCR
 
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: This setting can be enabled at the listener and virtual host levels. 
+TIPS: This setting can be enabled at the listener and virtual host levels.
 END_TIPS
 
 [END_ITEM]
@@ -311,24 +311,24 @@ END_TIPS
 [ITEM]
 ID: enableSpdy
 NAME: Enable SPDY/HTTP2
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: HTTP/2 and SPDY are new versions of the HTTP network protocol with the goal of reducing page load times. 
+DESCR: HTTP/2 and SPDY are new versions of the HTTP network protocol with the goal of reducing page load times.
 More information can be found at <a href="http://en.wikipedia.org/wiki/HTTP/2">http://en.wikipedia.org/wiki/HTTP/2</a>.
 END_DESCR
 
-SYNTAX: Check the protocol(s) you wish to enable. Leaving all boxes unchecked will enable SPDY and HTTP/2 support (the default). 
+SYNTAX: Check the protocol(s) you wish to enable. Leaving all boxes unchecked will enable SPDY and HTTP/2 support (the default).
 If you wish to disable SPDY and HTTP/2, check "None" only and leave all other boxes unchecked.
 END_SYNTAX
 
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: This setting can be set at the listener and virtual host levels. 
+TIPS: This setting can be set at the listener and virtual host levels.
 END_TIPS
 
 [END_ITEM]
@@ -338,14 +338,14 @@ END_TIPS
 [ITEM]
 ID: allowQuic
 NAME: Allow QUIC
-NS: LE
-REQUIRED: 
+NS: LEO
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Allows the use of the QUIC network protocol for virtual hosts mapped to this listener. 
-For this setting to take effect, {ITEM=ServTuning_Help#quicEnable} must also be set to {val}Yes{/} at the server level. 
+DESCR: Allows the use of the QUIC network protocol for virtual hosts mapped to this listener.
+For this setting to take effect, {ITEM=ServTuning_Help#quicEnable} must also be set to {val}Yes{/} at the server level.
 Default value is {val}Yes{/}.
 END_DESCR
 
@@ -353,10 +353,10 @@ SYNTAX:
 END_SYNTAX
 
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: When this setting is set to {val}Yes{/}, QUIC can still be disabled at the virtual host level through the 
+TIPS: When this setting is set to {val}Yes{/}, QUIC can still be disabled at the virtual host level through the
 {ITEM=VHSSL_Help#vhEnableQuic} setting.
 END_TIPS
 
@@ -370,10 +370,10 @@ END_TIPS
 [ITEM]
 ID: enableStapling
 NAME: Enable OCSP Stapling
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Determines whether to enable OCSP stapling, a more efficient way of verifying public key certificates.
 END_DESCR
@@ -381,10 +381,10 @@ END_DESCR
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -394,10 +394,10 @@ END_TIPS
 [ITEM]
 ID: ocspRespMaxAge
 NAME: OCSP Response Max Age (secs)
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: This option sets the maximum allowable age for an OCSP response. If an OCSP response is older than this maximum age, the server will contact the OCSP responder for a new response. The default value is {val}86400{/}. Maximum age can be turned off by setting this value to {val}-1{/}.
 END_DESCR
@@ -405,10 +405,10 @@ END_DESCR
 SYNTAX: Integer of seconds
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -418,14 +418,14 @@ END_TIPS
 [ITEM]
 ID: ocspResponder
 NAME: OCSP Responder
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the URL of the OCSP responder to be used. 
-If not set, the server will attempt to contact the OCSP responder 
-detailed in the certificate authority's issuer certificate. 
+DESCR: Specifies the URL of the OCSP responder to be used.
+If not set, the server will attempt to contact the OCSP responder
+detailed in the certificate authority's issuer certificate.
 Some issuer certificates may not have an OCSP responder URL specified.
 END_DESCR
 
@@ -435,7 +435,7 @@ END_SYNTAX
 EXAMPLE: {val}http://rapidssl-ocsp.geotrust.com {/}
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -445,30 +445,30 @@ END_TIPS
 [ITEM]
 ID: ocspCACerts
 NAME: OCSP CA Certificates
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the location of the file where OCSP certificate authority (CA) 
-certificates are stored. These certificates are used to check responses 
-from the OCSP responder (and make sure those responses are not spoofed or 
-otherwise compromised). This file should contain the whole certificate chain. 
-If this file does not contain the root certificate, LSWS should be able to find 
-the root certificate in your system directory without you adding it to the file, 
-but, if this validation fails, you should try adding your root certificate to this file. 
+DESCR: Specifies the location of the file where OCSP certificate authority (CA)
+certificates are stored. These certificates are used to check responses
+from the OCSP responder (and make sure those responses are not spoofed or
+otherwise compromised). This file should contain the whole certificate chain.
+If this file does not contain the root certificate, LSWS should be able to find
+the root certificate in your system directory without you adding it to the file,
+but, if this validation fails, you should try adding your root certificate to this file.
 
 
-This setting is optional. If this setting is not set, the server will automatically check {ITEM= CACertFile}. 
+This setting is optional. If this setting is not set, the server will automatically check {ITEM= CACertFile}.
 END_DESCR
 
 SYNTAX: file2
 END_SYNTAX1
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -481,10 +481,10 @@ END_TIPS
 [ITEM]
 ID: clientVerify
 NAME: Client Verification
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR:{ent_version} Specifies the type of client certifcate authentication.
 Available types are:
@@ -494,13 +494,13 @@ Available types are:
 <li><b>Require:</b> The client must has valid certificate.</li>
 <li><b>Optional_no_ca:</b> Same as optional.</li>
 </ul>
-The default is "None". 
+The default is "None".
 END_DESCR
 
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS:  "None" or "Require" are recommended.
@@ -513,12 +513,12 @@ END_TIPS
 [ITEM]
 ID: verifyDepth
 NAME: Verify Depth
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR:{ent_version} Specifies how deeply a certificate should be verified before 
+DESCR:{ent_version} Specifies how deeply a certificate should be verified before
 determining that the client does not have a valid certificate.
 The default is "1".
 END_DESCR
@@ -526,10 +526,10 @@ END_DESCR
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -539,24 +539,24 @@ END_TIPS
 [ITEM]
 ID: crlPath
 NAME: Client Revocation Path
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR:{ent_version} Specifies the directory containing PEM-encoded CA CRL files for revoked 
-client certificates. The files in this directory have to be PEM-encoded. 
+DESCR:{ent_version} Specifies the directory containing PEM-encoded CA CRL files for revoked
+client certificates. The files in this directory have to be PEM-encoded.
 These files are accessed through hash filenames, hash-value.rN.
 Please refer to openSSL or Apache mod_ssl documentation regarding creating the hash filename.
 END_DESCR
 
-SYNTAX: path 
+SYNTAX: path
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -566,23 +566,23 @@ END_TIPS
 [ITEM]
 ID: crlFile
 NAME: Client Revocation File
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR:{ent_version} Specifies the file containing PEM-encoded CA CRL files enumerating revoked 
-client certificates. This can be used as an alternative or in addition to 
-{ITEM=crlPath}. 
+DESCR:{ent_version} Specifies the file containing PEM-encoded CA CRL files enumerating revoked
+client certificates. This can be used as an alternative or in addition to
+{ITEM=crlPath}.
 END_DESCR
 
 SYNTAX: file2
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -597,22 +597,22 @@ ID: sslCert
 NAME: SSL Private Key & Certificate
 NS: LEO
 
-DESCR: Every SSL listener requires a paired SSL private key and SSL certificate. 
-Multiple SSL listeners can share the same key and certificate. 
+DESCR: Every SSL listener requires a paired SSL private key and SSL certificate.
+Multiple SSL listeners can share the same key and certificate.
 
 
-You can generate SSL private keys yourself using an SSL software package, 
-such as OpenSSL. SSL certificates can also be purchased from an authorized certificate 
-issuer like VeriSign or Thawte. You can also sign the certificate yourself. 
-Self-signed certificates will not be trusted by web browsers and should not be used on public websites 
-containing critical data. However, a self-signed certificate is good 
+You can generate SSL private keys yourself using an SSL software package,
+such as OpenSSL. SSL certificates can also be purchased from an authorized certificate
+issuer like VeriSign or Thawte. You can also sign the certificate yourself.
+Self-signed certificates will not be trusted by web browsers and should not be used on public websites
+containing critical data. However, a self-signed certificate is good
 enough for internal use, e.g. for encrypting traffic to LiteSpeed Web Server's WebAdmin Console.
 END_DESCR
 
 CONT: keyFile certFile certChain CACertPath CACertFile
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -628,7 +628,7 @@ END_DESCR
 CONT: sslProtocol ciphers enableECDHE enableDHE DHParam
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -638,21 +638,21 @@ ID: sslOCSP
 NAME: OCSP Stapling
 NS: LEO
 
-DESCR: Online Certificate Status Protocol (OCSP) is a more efficient method 
-of checking whether a digital certificate is valid. It works by communicating 
-with another server — the OCSP responder — to get verification that the certificate 
+DESCR: Online Certificate Status Protocol (OCSP) is a more efficient method
+of checking whether a digital certificate is valid. It works by communicating
+with another server — the OCSP responder — to get verification that the certificate
 is valid instead of checking through certificate revocation lists (CRL).
 
 
-OCSP stapling is a further improvement on this protocol, allowing the server to 
-check with the OCSP responder at regular intervals instead of every time a certificate 
+OCSP stapling is a further improvement on this protocol, allowing the server to
+check with the OCSP responder at regular intervals instead of every time a certificate
 is requested. See the <a href="http://en.wikipedia.org/wiki/OCSP_Stapling">OCSP Wikipedia page</a> for more details.
 END_DESCR
 
 CONT: enableStapling ocspRespMaxAge ocspResponder ocspCACerts
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -662,13 +662,13 @@ ID: sslClientVerify
 NAME: Client Verification
 NS: LEO
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: clientVerify verifyDepth crlPath crlFile 
+CONT: clientVerify verifyDepth crlPath crlFile
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -681,13 +681,13 @@ ID: Listeners_SSL_Help
 NAME: Listeners SSL
 NS: LEO
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: sslCert sslProtocolSetting sslFeature sslOCSP sslClientVerify
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
