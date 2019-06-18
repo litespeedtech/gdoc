@@ -332,30 +332,6 @@ END_TIPS
 
 
 [ITEM]
-ID: haRep_isIncSync
-NAME: Enable Incremental Sync
-REQUIRED:
-APPLY: 3
-SINCE: 2.0
-SEE_ALSO:
-
-DESCR: Enable incremental replication sync check.
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE:
-END_EXAMPLE
-
-TIPS:
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
 ID: haRep_isFileCached
 NAME: Is File Cache Enabled
 REQUIRED:
@@ -453,7 +429,7 @@ DESCR:
 END_DESCR
 
 CONT: haRep_serverAddr haRep_replCluster haRep_heartBeatInterval haRep_heartBeatTimeout haRep_isGzipStream
-haRep_isIncSync haRep_isFileCached haRep_fileCacheLstnr haRep_fileCacheExpireSec
+haRep_isFileCached haRep_fileCacheLstnr haRep_fileCacheExpireSec
 END_CONT
 
 SEE_ALSO:
@@ -495,7 +471,7 @@ END_DESCR
 CONT:
 END_CONT
 
-TIPS: Configuration changes made to a high availability interface in the config section will not be applied until clicking 
+TIPS: Configuration changes made to a high availability interface in the config section will not be applied until clicking
 "Apply Changes" next to the affected interface. The same applies to adding new interfaces and deleting existing interfaces,
 changes will not be applied until clicking "Add/Delete" respectively.
 END_TIPS
