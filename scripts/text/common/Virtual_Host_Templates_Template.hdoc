@@ -7,10 +7,10 @@
 [ITEM]
 ID: templateName
 NAME: Template Name
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: A unique name for the template.
 END_DESCR
@@ -18,10 +18,10 @@ END_DESCR
 SYNTAX: text
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -30,27 +30,58 @@ END_TIPS
 
 [ITEM]
 ID: templateFile
-NAME: Template File 
-REQUIRED: 
+NAME: Template File
+NS: LE
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the path to the configuration file of this template. 
-The file must be located within $SERVER_ROOT/conf/templates/ with a ".conf" filename.
-If the file you designate does not exist, after trying to save the template 
-an error will appear with the link "CLICK TO CREATE". This link will generate 
-a new empty template file. When you delete the template, the entry will be 
+DESCR: Specifies the path to the configuration file of this template.
+The file must be located within $SERVER_ROOT/conf/templates/ with a ".xml" filename.
+If the file you designate does not exist, after trying to save the template
+an error will appear with the link "CLICK TO CREATE". This link will generate
+a new empty template file. When you delete the template, the entry will be
 removed from your configurations, but the actual template config file will not be deleted.
 END_DESCR
 
 SYNTAX: path
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: templateFile
+NAME: Template File
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the path to the configuration file of this template.
+The file must be located within $SERVER_ROOT/conf/templates/ with a ".conf" filename.
+If the file you designate does not exist, after trying to save the template
+an error will appear with the link "CLICK TO CREATE". This link will generate
+a new empty template file. When you delete the template, the entry will be
+removed from your configurations, but the actual template config file will not be deleted.
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -59,27 +90,27 @@ END_TIPS
 
 [ITEM]
 ID: mappedListeners
-NAME: Mapped Listeners 
-REQUIRED: 
+NAME: Mapped Listeners
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 
 DESCR: Specifies the names of all listeners that this template maps
 to. A listener-to-virtual host mapping for this template's
-member virtual hosts will be added to the listeners specified in this field. 
-This mapping will map listeners to virtual hosts based on the domain names 
-and aliases set in the member virtual hosts' individual configurations. 
+member virtual hosts will be added to the listeners specified in this field.
+This mapping will map listeners to virtual hosts based on the domain names
+and aliases set in the member virtual hosts' individual configurations.
 END_DESCR
 
 SYNTAX: comma-separated list
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -92,13 +123,13 @@ END_TIPS
 [ITEM]
 ID: templateVHName
 NAME: Virtual Host Name
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: A unique name for this virtual host. This name must be unique among all 
-template member virtual hosts and standalone virtual hosts. Inside a directory 
+DESCR: A unique name for this virtual host. This name must be unique among all
+template member virtual hosts and standalone virtual hosts. Inside a directory
 path configuration, this name can be referenced by the variable {val}$VH_NAME{/}.
 
 
@@ -109,10 +140,10 @@ END_DESCR
 SYNTAX: text
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -122,24 +153,24 @@ END_TIPS
 [ITEM]
 ID: templateVHDomain
 NAME: Domain
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the main domain name for this member virtual host. 
+DESCR: Specifies the main domain name for this member virtual host.
 If left blank, the virtual host name will be used. This should
-be a fully qualified domain name, but you can use an IP address as well. 
-It is recommended to append {val}:<port>{/} for web sites not on port 80. 
-For configurations containing domain names, this domain can be referenced 
-with variable {val}$VH_DOMAIN{/}. 
+be a fully qualified domain name, but you can use an IP address as well.
+It is recommended to append {val}:<port>{/} for web sites not on port 80.
+For configurations containing domain names, this domain can be referenced
+with variable {val}$VH_DOMAIN{/}.
 
 
 This domain name will be used in the following situations:
 <ol>
   <li>To match the hostname in the Host header when processing a
   request.</li>
-  <li>To populate domain name configurations for add-ons 
+  <li>To populate domain name configurations for add-ons
   like FrontPage or AWstats.</li>
  <li>To configure listener-to-virtual host mappings based on the virtual host template.</li>
 </ol>
@@ -148,10 +179,10 @@ END_DESCR
 SYNTAX: domain name
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -161,22 +192,22 @@ END_TIPS
 [ITEM]
 ID: templateVHAliases
 NAME: Aliases
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies alternate names for the virtual host. All possible
 hostnames and IP addresses should be added to this list. The wildcard characters
 {val}*{/} and {val}?{/} are allowed in the name.
-Append {val}:<port>{/} for web sites not on port 80. 
+Append {val}:<port>{/} for web sites not on port 80.
 
 
 Aliases will be used in the following situations:
 <ol>
   <li>To match the hostname in the Host header when processing a
   request.</li>
-  <li>To populate domain name/alias configurations for add-ons 
+  <li>To populate domain name/alias configurations for add-ons
   like FrontPage or AWstats.</li>
   <li>To configure listener-to-virtual host mappings based on the virtual host template.</li>
 </ol>
@@ -187,10 +218,10 @@ END_DESCR
 SYNTAX: Comma-separated list of domain names.
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -199,29 +230,29 @@ END_TIPS
 
 [ITEM]
 ID: memberVHRoot
-NAME: Member Virtual Host Root 
-REQUIRED: 
+NAME: Member Virtual Host Root
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies the root directory of this virtual host. If left
 blank, the default virtual host root for this template will be used.
 
 
-Note: This is <b>NOT</b> the document root. It is recommended to place 
-all files related to the virtual host (like virtual host configuration, 
-log files, html files, CGI scripts, etc.) under this directory.  
-Virtual host root can be referred to as $VH_ROOT. 
+Note: This is <b>NOT</b> the document root. It is recommended to place
+all files related to the virtual host (like virtual host configuration,
+log files, html files, CGI scripts, etc.) under this directory.
+Virtual host root can be referred to as $VH_ROOT.
 END_DESCR
 
 SYNTAX: path
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -234,14 +265,15 @@ END_TIPS
 [TBL]
 ID: templateGeneral
 NAME: Template Location
+NS: LEO
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: templateName templateFile mappedListeners  
+CONT: templateName templateFile mappedListeners
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -250,13 +282,13 @@ SEE_ALSO:
 ID: templateMembers
 NAME: Member Virtual Hosts
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: templateVHName templateVHDomain templateVHAliases memberVHRoot  
+CONT: templateVHName templateVHDomain templateVHAliases memberVHRoot
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -265,7 +297,7 @@ SEE_ALSO:
 
 
 [PAGE]
-ID: Templates_Help 
+ID: Templates_Help
 NAME: Virtual Host Templates
 NS: L
 
@@ -273,21 +305,21 @@ DESCR: Virtual host template can be used to simplify the
 administration of virtual hosts with similar configuration,
 especially, for mass hosting environment. Once a template is configured
 properly, only minimum configuration is required when adding a new virtual
-host. 
+host.
 
 
 Each template contains a template configuration file, a list of mapped listeners
-and a list of member virtual hosts. 
+and a list of member virtual hosts.
 
 
 The template configuration file contains all configuration entries for a virtual host, with some
-fields requiring special values. 
+fields requiring special values.
 
 
 To add a template-based virtual host, administrator only needs to
 add a member to the template member list with a unique virtual host name and a
 qualified domain name of that virtual host.
-Listener-to-virtual host mapping will be added automatically for 
+Listener-to-virtual host mapping will be added automatically for
 all listeners in the mapped listener list.
 
 
@@ -301,18 +333,18 @@ END_DESCR
 CONT: templateGeneral templateMembers templateSettings
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
 
 [PAGE]
-ID: Templates_Help 
+ID: Templates_Help
 NAME: Virtual Host Templates
 NS: EO
 
 DESCR: Virtual host templates make it easy to create many new virtual
-hosts with similar configurations. 
+hosts with similar configurations.
 
 
 Each template contains a template configuration file, a list of mapped listeners,
@@ -322,8 +354,8 @@ and a list of member virtual hosts.
 To add a template-based virtual host, the administrator only needs to
 add a member with a unique virtual host name and a
 qualified domain name to the template member list.
-Listener-to-virtual host mapping will be added automatically for 
-all listeners in the template's mapped listener list. 
+Listener-to-virtual host mapping will be added automatically for
+all listeners in the template's mapped listener list.
 
 
 Later on, if you need to customize the configuration for a particular
@@ -336,7 +368,7 @@ END_DESCR
 CONT: templateGeneral templateMembers templateSettings
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
