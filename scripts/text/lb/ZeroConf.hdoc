@@ -29,6 +29,37 @@ END_TIPS
 
 
 [ITEM]
+ID: zconf_vhostPerDomain
+NAME: Separate VHost Per Domain
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Create a VHost for each domain configured through ZeroConf. If set to "No", all domains that share the same
+list of backends will share a VHost.
+
+
+Warning: This could be very memory expensive if there are many domains.
+
+
+Default value: No
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: zconf_passwdFile
 NAME: User Password File
 REQUIRED:
@@ -252,7 +283,8 @@ NAME: General
 DESCR:
 END_DESCR
 
-CONT: zconf_enabled zconf_passwdFile zconf_groupFile strategy zconf_workerMaxConns zconfShmDir
+CONT: zconf_enabled zconf_vhostPerDomain zconf_passwdFile zconf_groupFile strategy zconf_workerMaxConns
+zconfShmDir
 END_CONT
 
 SEE_ALSO:

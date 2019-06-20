@@ -116,6 +116,71 @@ END_TIPS
 [END_ITEM]
 
 
+########## ZeroConf ##########
+
+
+[ITEM]
+ID: tpzconf_enabled
+NAME: Used by ZeroConf
+NS: L
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Allow ZeroConf configurations to specify this template for use as a base for created VHosts.
+
+
+Default value: Yes
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: tpzconf_vhostPerDomain
+NAME: Separate VHost Per Domain
+NS: L
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Create a VHost for each domain configured through ZeroConf. If set to "No", all domains that share the same
+list of backends will share a VHost.
+
+
+The server level <b>Separate VHost Per Domain</b> setting is ignored for VHosts created with this template.
+
+
+Warning: This could be very memory expensive if there are many domains.
+
+
+Default value: No
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
 
 ########## Member Virtual Hosts ##########
 
@@ -279,6 +344,22 @@ SEE_ALSO:
 
 
 [TBL]
+ID: templateZconf
+NAME: ZeroConf
+NS: L
+
+DESCR:
+END_DESCR
+
+CONT: tpzconf_enabled tpzconf_vhostPerDomain
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
 ID: templateMembers
 NAME: Member Virtual Hosts
 
@@ -330,7 +411,7 @@ Even when setting up a virtual host with different configuration,
 it is still convenient to use a template as a starting point, and then customize it after instantiation.
 END_DESCR
 
-CONT: templateGeneral templateMembers templateSettings
+CONT: templateGeneral templateZconf templateMembers templateSettings
 END_CONT
 
 SEE_ALSO:
