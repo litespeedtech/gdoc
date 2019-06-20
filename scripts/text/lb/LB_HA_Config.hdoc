@@ -333,7 +333,7 @@ END_TIPS
 
 [ITEM]
 ID: haRep_isFileCached
-NAME: Is File Cache Enabled
+NAME: Enable Replication for Cached Data
 REQUIRED:
 APPLY: 3
 SINCE: 2.0
