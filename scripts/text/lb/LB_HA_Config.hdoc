@@ -379,6 +379,97 @@ END_TIPS
 
 
 
+[ITEM]
+ID: haRep_maxAckDiff
+NAME: Max Sequence Number Difference
+REQUIRED:
+APPLY:
+SINCE: 2.5
+SEE_ALSO:
+
+DESCR: Compares to the difference between the last sequence number sent and the last sequence number
+acknowledged by the master. If the difference is larger than maxAckDiff, individual SHM updates are paused until the next
+bulk update is complete.
+
+
+This difference indicates the busy-ness level of the master. If multiple nodes are syncing a significant amount of data with the
+master, this value ensures that the data sync is still manageable and performs at an optimal level.
+
+
+Default value: 100
+END_DESCR
+
+SYNTAX: Number between 1 and 65535.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haRep_syncInterval
+NAME: Sync Interval
+REQUIRED:
+APPLY:
+SINCE: 2.5
+SEE_ALSO:
+
+DESCR: The time in seconds that a node will remain in the upgrading state before transitioning to master. This interval is
+used to allow the group to communicate with one another to ensure that the correct node is selected as master. It is
+strongly recommended that this is set to a longer interval than the Heart Beat Interval.
+
+
+Default value: 30
+END_DESCR
+
+SYNTAX: Number between 1 and 255.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haRep_priority
+NAME: Data Master Priority
+REQUIRED:
+APPLY:
+SINCE: 2.5
+SEE_ALSO:
+
+DESCR: Indicates the *data sync priority*. The node with the highest priority is selected to be the data sync 'master', when
+there are no masters selected yet. If a master is already selected, that node will remain master. Note that this is for data
+sync ONLY. The priority value in the HA Interfaces configuration group is for Virtual IP priority.
+
+
+Default value: 0
+END_DESCR
+
+SYNTAX: Number between -32766 and 32767.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ########### Tables ############
 
 
@@ -405,7 +496,7 @@ DESCR:
 END_DESCR
 
 CONT: haRep_serverAddr haRep_replCluster haRep_heartBeatInterval haRep_heartBeatTimeout haRep_isGzipStream
-haRep_isFileCached haRep_fileCacheLstnr
+haRep_maxAckDiff haRep_syncInterval haRep_priority haRep_isFileCached haRep_fileCacheLstnr
 END_CONT
 
 SEE_ALSO:
