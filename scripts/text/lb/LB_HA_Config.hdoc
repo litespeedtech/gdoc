@@ -379,30 +379,6 @@ END_TIPS
 
 
 
-[ITEM]
-ID: haRep_fileCacheExpireSec
-NAME: File Cache Expiration (secs)
-REQUIRED:
-APPLY: 3
-SINCE: 2.0
-SEE_ALSO:
-
-DESCR: Configure file cache expiration time.
-END_DESCR
-
-SYNTAX: uint
-END_SYNTAX
-
-EXAMPLE:
-END_EXAMPLE
-
-TIPS:
-END_TIPS
-
-[END_ITEM]
-
-
-
 ########### Tables ############
 
 
@@ -429,7 +405,7 @@ DESCR:
 END_DESCR
 
 CONT: haRep_serverAddr haRep_replCluster haRep_heartBeatInterval haRep_heartBeatTimeout haRep_isGzipStream
-haRep_isFileCached haRep_fileCacheLstnr haRep_fileCacheExpireSec
+haRep_isFileCached haRep_fileCacheLstnr
 END_CONT
 
 SEE_ALSO:
