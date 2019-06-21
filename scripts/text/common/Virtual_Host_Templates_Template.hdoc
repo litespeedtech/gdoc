@@ -163,7 +163,7 @@ list of backends will share a VHost.
 The server level <b>Separate VHost Per Domain</b> setting is ignored for VHosts created with this template.
 
 
-Warning: This could be very memory expensive if there are many domains.
+Warning: When set to "Yes", this could be very memory expensive if there are many domains.
 
 
 Default value: No

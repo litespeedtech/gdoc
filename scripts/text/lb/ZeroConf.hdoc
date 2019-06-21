@@ -40,7 +40,7 @@ DESCR: Create a VHost for each domain configured through ZeroConf. If set to "No
 list of backends will share a VHost.
 
 
-Warning: This could be very memory expensive if there are many domains.
+Warning: When set to "Yes", this could be very memory expensive if there are many domains.
 
 
 Default value: No
