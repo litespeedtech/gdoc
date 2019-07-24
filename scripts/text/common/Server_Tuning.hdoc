@@ -1846,6 +1846,119 @@ END_TIPS
 
 
 
+[ITEM]
+ID: quicDosMitigationDuration
+NAME: QUIC DoS Mitigation Duration (secs)
+NS: L
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: How long, once triggered, the server will stay in DoS mitigation mode. After this many seconds have passed, the
+server will revert to it's normal mode. Set this to {val}0{/} to disable DoS Mitigation mode.
+
+
+Default value: 120
+END_DESCR
+
+SYNTAX: Integer number between 0 and 86400
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicBadPacketRate
+NAME: Bad Packet Rate
+NS: L
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: The number of bad packets X needed in an interval of Y seconds to trigger QUIC DoS Mitigation.
+
+
+Default value: 100/4
+END_DESCR
+
+SYNTAX: X/Y where X is the number of events, Y is the interval in seconds (0 - 30)
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicHskNewRate
+NAME: New Handshake Rate
+NS: L
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: The number of new handshakes X needed in an interval of Y seconds to trigger QUIC DoS Mitigation.
+
+
+Default value: 30/3
+END_DESCR
+
+SYNTAX: X/Y where X is the number of events, Y is the interval in seconds (0 - 30)
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicHskTimeoutRate
+NAME: Timed Out Handshake Rate
+NS: L
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: The number of handshake timeouts X needed in an interval of Y seconds to trigger QUIC DoS Mitigation.
+
+
+Default value: 10/4
+END_DESCR
+
+SYNTAX: X/Y where X is the number of events, Y is the interval in seconds (0 - 30)
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# Tables #############
 
 
@@ -2070,7 +2183,25 @@ SEE_ALSO:
 [TBL]
 ID: quicTbl
 NAME: QUIC
-NS: LEO
+NS: L
+
+DESCR:
+END_DESCR
+
+CONT: quicEnable quicShmDir quicVersions quicCfcw quicMaxCfcw quicSfcw quicMaxSfcw
+quicMaxStreams quicHandshakeTimeout quicIdleTimeout quicDosMitigationDuration quicBadPacketRate quicHskNewRate
+quicHskTimeoutRate
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: quicTbl
+NAME: QUIC
+NS: EO
 
 DESCR:
 END_DESCR
