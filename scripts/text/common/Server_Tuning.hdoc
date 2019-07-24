@@ -1884,7 +1884,8 @@ APPLY:
 SINCE:
 SEE_ALSO:
 
-DESCR: The number of bad packets X needed in an interval of Y seconds to trigger QUIC DoS Mitigation.
+DESCR: The number of bad packets X needed in an interval of Y seconds to trigger QUIC DoS Mitigation. Supplying
+a value of {val}0{/} for either X or Y will disable this feature.
 
 
 Default value: 100/4
@@ -1912,7 +1913,8 @@ APPLY:
 SINCE:
 SEE_ALSO:
 
-DESCR: The number of new handshakes X needed in an interval of Y seconds to trigger QUIC DoS Mitigation.
+DESCR: The number of new handshakes X needed in an interval of Y seconds to trigger QUIC DoS Mitigation. Supplying
+a value of {val}0{/} for either X or Y will disable this feature.
 
 
 Default value: 30/3
@@ -1940,7 +1942,8 @@ APPLY:
 SINCE:
 SEE_ALSO:
 
-DESCR: The number of handshake timeouts X needed in an interval of Y seconds to trigger QUIC DoS Mitigation.
+DESCR: The number of handshake timeouts X needed in an interval of Y seconds to trigger QUIC DoS Mitigation. Supplying
+a value of {val}0{/} for either X or Y will disable this feature.
 
 
 Default value: 10/4
