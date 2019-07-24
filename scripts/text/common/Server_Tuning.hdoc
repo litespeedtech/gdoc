@@ -1888,7 +1888,7 @@ DESCR: The number of bad packets X needed in an interval of Y seconds to trigger
 a value of {val}0{/} for either X or Y will disable this feature.
 
 
-Default value: 100/4
+Default value: 4000/4
 END_DESCR
 
 SYNTAX: X/Y where X is the number of events, Y is the interval in seconds (0 - 30)
@@ -1917,7 +1917,7 @@ DESCR: The number of new handshakes X needed in an interval of Y seconds to trig
 a value of {val}0{/} for either X or Y will disable this feature.
 
 
-Default value: 30/3
+Default value: 90/3
 END_DESCR
 
 SYNTAX: X/Y where X is the number of events, Y is the interval in seconds (0 - 30)
@@ -1946,7 +1946,7 @@ DESCR: The number of handshake timeouts X needed in an interval of Y seconds to 
 a value of {val}0{/} for either X or Y will disable this feature.
 
 
-Default value: 10/4
+Default value: 40/4
 END_DESCR
 
 SYNTAX: X/Y where X is the number of events, Y is the interval in seconds (0 - 30)
