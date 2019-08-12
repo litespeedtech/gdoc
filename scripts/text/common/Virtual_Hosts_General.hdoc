@@ -7,13 +7,13 @@
 [ITEM]
 ID: docRoot
 NAME: Document Root
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the document root for this virtual host. {val}$VH_ROOT/html{/} 
-is recommended. This directory is referred to as $DOC_ROOT in contexts. 
+DESCR: Specifies the document root for this virtual host. {val}$VH_ROOT/html{/}
+is recommended. This directory is referred to as $DOC_ROOT in contexts.
 END_DESCR
 
 EDITTIP: Set up your document root here, which can be absolute path or relative to $SERV_ROOT or $VH_ROOT
@@ -25,10 +25,10 @@ END_EDITTIP
 SYNTAX: path3
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -38,10 +38,10 @@ END_TIPS
 [ITEM]
 ID: vhadminEmails
 NAME: Administrator Email
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies email address(es) of the administrator(s) of this virtual host.
 END_DESCR
@@ -52,37 +52,10 @@ END_EDITTIP
 SYNTAX: Comma separated list of email addresses
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
-ID: vhEnableGzip
-NAME: Enable GZIP
-NS: L
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: {ITEM=ServTuning_Help#enableGzipCompress}, {ITEM=ServTuning_Help#enableDynGzipCompress}, {ITEM=ServTuning_Help#gzipCompressLevel}
-
-DESCR: Specifies whether to enable GZIP compression for this virtual host. 
-This setting is only effective when GZIP compression is enabled at the server level. 
-Compression settings are configured at the server level (Tuning > GZIP).
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -92,24 +65,24 @@ END_TIPS
 [ITEM]
 ID: vhEnableGzip
 NAME: Enable Compression
-NS: EO
-REQUIRED: 
+NS: LEO
+REQUIRED:
 APPLY: 3
-SINCE: 
+SINCE:
 SEE_ALSO: {ITEM=ServTuning_Help#enableGzipCompress}, {ITEM=ServTuning_Help#enableBrCompress}
 
-DESCR: Specifies whether to enable GZIP compression for this virtual host. 
-This setting is only effective when GZIP compression is enabled at the server level. 
-Compression settings are configured at the server level (Tuning > GZIP).
+DESCR: Specifies whether to enable GZIP/Brotli compression for this virtual host.
+This setting is only effective when compression is enabled at the server level. Compression settings are configured at the
+server level (Tuning > GZIP/Brotli Compression).
 END_DESCR
 
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -122,16 +95,16 @@ END_TIPS
 [ITEM]
 ID: indexUseServer
 NAME: Use Server Index Files
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies whether to use the server's index file settings. 
-If set to {val}Yes{/}, only the server's settings will be used. 
-If set to {val}No{/}, the server's settings will not be used. 
-If set to {val}Addition{/}, additional index files can be added to server's 
-index file list for this virtual host. If you want to disable index files for 
+DESCR: Specifies whether to use the server's index file settings.
+If set to {val}Yes{/}, only the server's settings will be used.
+If set to {val}No{/}, the server's settings will not be used.
+If set to {val}Addition{/}, additional index files can be added to server's
+index file list for this virtual host. If you want to disable index files for
 this virtual host, you can set the value to {val}No{/} and leave the index files
 field empty.
 END_DESCR
@@ -151,10 +124,10 @@ END_EDITTIP
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -164,9 +137,9 @@ END_TIPS
 [ITEM]
 ID: autoIndex
 NAME: Auto Index
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
+SINCE:
 SEE_ALSO: {ITEM=indexFiles}, {ITEM=autoIndexURI}
 
 DESCR: Specifies whether to generate a directory index on the fly when
@@ -180,7 +153,7 @@ END_DESCR
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [S] It is recommended to turn off Auto Index wherever
@@ -194,9 +167,9 @@ END_TIPS
 [ITEM]
 ID: autoIndexURI
 NAME: Auto Index URI
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
+SINCE:
 SEE_ALSO: {ITEM=indexFiles}, {ITEM=autoIndex}
 
 DESCR: Specifies the URI that will be used to generate the index page when
@@ -212,10 +185,10 @@ END_DESCR
 SYNTAX: URI
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -228,22 +201,22 @@ END_TIPS
 [ITEM]
 ID: errCode
 NAME: Error Code
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the HTTP status code for the error page. 
-Only the selected HTTP status code will have this customized error page. 
+DESCR: Specifies the HTTP status code for the error page.
+Only the selected HTTP status code will have this customized error page.
 END_DESCR
 
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -254,10 +227,10 @@ END_TIPS
 ID: errMessage
 NAME: Custom Error Message
 NS: L
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specify a custom error message.
 END_DESCR
@@ -265,10 +238,10 @@ END_DESCR
 SYNTAX: text
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -278,17 +251,17 @@ END_TIPS
 [ITEM]
 ID: errURL
 NAME: URL
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the URL of the customized error page.  
-The server will forward the request to this URL when the corresponding HTTP status code has returned. 
-If this URL refers to a non-existing resource, the built-in error page will be used. 
-The URL can be a static file, a dynamically generated page, or a page on another web site 
-(a URL starting with "http(s)://"). 
-When referring to a page on another web site, the client will receive a redirect status 
+DESCR: Specifies the URL of the customized error page.
+The server will forward the request to this URL when the corresponding HTTP status code has returned.
+If this URL refers to a non-existing resource, the built-in error page will be used.
+The URL can be a static file, a dynamically generated page, or a page on another web site
+(a URL starting with "http(s)://").
+When referring to a page on another web site, the client will receive a redirect status
 code instead of the original status code.
 END_DESCR
 
@@ -298,10 +271,10 @@ END_EDITTIP
 SYNTAX: URL
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -322,10 +295,10 @@ END_TIPS
 ID: phpIniOverride
 NAME: php.ini Override
 NS: O
-REQUIRED: 
+REQUIRED:
 APPLY:
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Used to overwrite php.ini settings in the current context (Virtual Host level or Context level).
 
@@ -347,8 +320,8 @@ END_DESCR
 EDITTIP:
 END_EDITTIP
 
-SYNTAX: Override syntax is similar to Apache, a newline separated list of directives and their values with each directive 
-being prepended by php_value, php_flag, php_admin_value, or php_admin_flag appropriately. 
+SYNTAX: Override syntax is similar to Apache, a newline separated list of directives and their values with each directive
+being prepended by php_value, php_flag, php_admin_value, or php_admin_flag appropriately.
 END_SYNTAX
 
 EXAMPLE: php_value include_path ".:/usr/local/lib/php"
@@ -358,7 +331,7 @@ php_admin_flag engine on
 php_admin_value open_basedir "/home"
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -373,13 +346,13 @@ ID: vhGeneral
 NAME: General
 NS: L
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: vhMaxKeepAliveReq vhSmartKeepAlive vhEnableGzip enableIpGeo
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -420,13 +393,13 @@ SEE_ALSO:
 ID: vhIndex
 NAME: Index Files
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: indexUseServer indexFiles autoIndex autoIndexURI
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -436,18 +409,18 @@ ID: errPage
 NAME: Customized Error Pages
 NS: EO
 
-DESCR: Whenever the server has a problem processing a request, 
-the server will return an error code and an html page as an error message 
-to the web client. Error codes are defined in the HTTP protocol (see RFC 2616). 
-LiteSpeed web server has a built-in default error page for each error code, but 
-a customized page can be configured for each error code as well.  
-These error pages can be even further customized to be unique for each virtual host. 
+DESCR: Whenever the server has a problem processing a request,
+the server will return an error code and an html page as an error message
+to the web client. Error codes are defined in the HTTP protocol (see RFC 2616).
+LiteSpeed web server has a built-in default error page for each error code, but
+a customized page can be configured for each error code as well.
+These error pages can be even further customized to be unique for each virtual host.
 END_DESCR
 
 CONT: errCode errURL
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -457,18 +430,18 @@ ID: errPage
 NAME: Customized Error Pages
 NS: L
 
-DESCR: Whenever the server has a problem processing a request, 
-the server will return an error code and an html page as an error message 
-to the web client. Error codes are defined in the HTTP protocol (see RFC 2616). 
-LiteSpeed Web Server has a built-in default error page for each error code, but a customized page can be configured 
-for each error code as well. These error pages can be even further customized to be unique 
-for each virtual host. 
+DESCR: Whenever the server has a problem processing a request,
+the server will return an error code and an html page as an error message
+to the web client. Error codes are defined in the HTTP protocol (see RFC 2616).
+LiteSpeed Web Server has a built-in default error page for each error code, but a customized page can be configured
+for each error code as well. These error pages can be even further customized to be unique
+for each virtual host.
 END_DESCR
 
 CONT: errCode errMessage
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -477,13 +450,13 @@ SEE_ALSO:
 ID: vhExpire
 NAME: Expire Settings
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: enableExpires expiresDefault expiresByType
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 [TBL]
@@ -491,13 +464,13 @@ ID: phpIniOverrideTbl
 NAME: php.ini Override
 NS: O
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: phpIniOverride
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -506,51 +479,51 @@ SEE_ALSO:
 
 
 [PAGE]
-ID: VHGeneral_Help 
+ID: VHGeneral_Help
 NAME: Virtual Host General
 NS: L
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: vhGeneral vhAcLog errPage
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
 
 [PAGE]
-ID: VHGeneral_Help 
+ID: VHGeneral_Help
 NAME: Virtual Host General
 NS: E
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: vhGeneral vhLog vhAcLog vhIndex errPage scriptHandler htaccess
 vhExpire apacheConfig websocketproxy
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
 
 [PAGE]
-ID: VHGeneral_Help 
+ID: VHGeneral_Help
 NAME: Virtual Host General
 NS: O
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: vhGeneral vhLog vhAcLog vhIndex errPage expire fileUpload scriptHandler 
+CONT: vhGeneral vhLog vhAcLog vhIndex errPage expire fileUpload scriptHandler
 vhExpire  phpIniOverrideTbl
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 

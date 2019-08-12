@@ -415,18 +415,60 @@ END_TIPS
 [ITEM]
 ID: swappingDir
 NAME: Swapping Directory
+NS: L
 REQUIRED:
 APPLY: 2
 SINCE:
 SEE_ALSO: {ITEM=inMemBufSize}
 
-DESCR: Specifies the directory where the swapping files should be placed.
-When the server is started in chroot mode, this directory is relative to the new root directory,
-otherwise it is relative to the real root directory.
+DESCR: Specifies the directory where the swapping files should be placed. When the server is started in chroot mode, this
+directory is relative to the new root directory, otherwise it is relative to the real root directory.
 
-The server uses its own virtual memory
-to reduce system memory usage. Virtual memory and disk swapping are used to store large request bodies and
-dynamically generated responses. The swapping directory should be placed on a disk with enough space.
+
+The server uses its own virtual memory to reduce system memory usage. Virtual memory and disk swapping are used to
+store large request bodies and dynamically generated responses. The swapping directory should be placed on a disk with
+enough space.
+
+
+Default value: /tmp/lslbd/swap
+END_DESCR
+
+EDITTIP: Swapping directory is recommended to be placed on a local disk such as /tmp. Network drive should be avoided at
+all cost. Swap will be when configured memory i/o buffer is exhausted.
+END_EDITTIP
+
+SYNTAX: path1
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [P] Place the swapping directory on a separate disk or increase Max I/O Buffer Size to eliminate swapping.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: swappingDir
+NAME: Swapping Directory
+NS: EO
+REQUIRED:
+APPLY: 2
+SINCE:
+SEE_ALSO: {ITEM=inMemBufSize}
+
+DESCR: Specifies the directory where the swapping files should be placed. When the server is started in chroot mode, this
+directory is relative to the new root directory, otherwise it is relative to the real root directory.
+
+
+The server uses its own virtual memory to reduce system memory usage. Virtual memory and disk swapping are used to
+store large request bodies and dynamically generated responses. The swapping directory should be placed on a disk with
+enough space.
+
+
+Default value: /tmp/lshttpd/swap
 END_DESCR
 
 EDITTIP: Swapping directory is recommended to be placed on a local disk such as /tmp. Network drive should be avoided at

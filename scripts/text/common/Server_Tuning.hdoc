@@ -790,12 +790,44 @@ END_TIPS
 [ITEM]
 ID: enableGzipCompress
 NAME: Enable Compression
+NS: L
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Controls GZIP compression for both static and dynamic HTTP responses.
+DESCR: Enables GZIP/Brotli compression.
+
+
+Default value: Yes
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [P] Enable to save network bandwidth. On average, responses can be compressed down to half of their original size.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableGzipCompress
+NAME: Enable Compression
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Enables GZIP/Brotli compression for both static and dynamic responses.
+
+
+Default value: Yes
 END_DESCR
 
 SYNTAX: bool
@@ -815,14 +847,20 @@ END_TIPS
 
 [ITEM]
 ID: enableDynGzipCompress
-NAME: Enable Dynamic Compression
+NAME: Enable GZIP Dynamic Compression
+NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Controls GZIP compression for dynamically generated HTTP response.
-{ITEM=enableGzipCompress} must be set to {val}Yes{/} in order to enable dynamic GZIP compression.
+DESCR: Controls GZIP compression for dynamically generated responses.
+
+
+For this setting to have an effect, {ITEM=enableGzipCompress} must be set to {val}Yes{/}.
+
+
+Default value: Yes
 END_DESCR
 
 EDITTIP: Dynamic GZIP compression control will be effective only if GZIP Compression is enabled.
@@ -845,15 +883,17 @@ END_TIPS
 
 [ITEM]
 ID: gzipCompressLevel
-NAME: Compression Level (Dynamic Content)
-NS: LEO
+NAME: GZIP Compression Level
+NS: L
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the level of compression for dynamic content. Ranges
-from {val}1{/} (lowest) to {val}9{/} (highest).
+DESCR: Specifies the level of GZIP compression applied. Ranges from {val}1{/} (lowest) to {val}9{/} (highest).
+
+
+This setting will only take effect when {ITEM=enableGzipCompress} is enabled.
 
 
 Default value: 6
@@ -868,9 +908,44 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: [P] Higher compression level will use more memory and CPU cycles.
-You can set it to a higher level if your machine has additional power. There is not much difference
-between 6 and 9, except 9 uses many more CPU cycles.
+TIPS: [P] Higher compression level will use more memory and CPU cycles. You can set it to a higher level if your machine
+has additional power. There is not much difference between 6 and 9, except that 9 uses many more CPU cycles.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gzipCompressLevel
+NAME: GZIP Compression Level (Dynamic Content)
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the level of GZIP compression applied to dynamic content. Ranges from {val}1{/} (lowest) to
+{val}9{/} (highest).
+
+
+This setting will only take effect when {ITEM=enableGzipCompress} and {ITEM=enableDynGzipCompress} are enabled.
+
+
+Default value: 6
+END_DESCR
+
+EDITTIP: GZIP Compression level ranges from 1 (Minimum) to 9 (Maximum).
+END_EDITTIP
+
+SYNTAX: Number between 1 and 9.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [P] Higher compression level will use more memory and CPU cycles. You can set it to a higher level if your machine
+has additional power. There is not much difference between 6 and 9, except that 9 uses many more CPU cycles.
 END_TIPS
 
 [END_ITEM]
@@ -880,6 +955,7 @@ END_TIPS
 [ITEM]
 ID: compressibleTypes
 NAME: Compressible Types
+NS: LEO
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -901,7 +977,7 @@ EXAMPLE: If you want to compress text/* but not text/css, you can have a rule li
 {val}text/*, !text/css{/}. "!" will exclude that MIME type.
 END_EXAMPLE
 
-TIPS: [P] Only allow types that will benefit from GZIP compression. Binary
+TIPS: [P] Only allow types that will benefit from GZIP/Brotli compression. Binary
 files such as gif/png/jpeg images and flash files do not benefit from compression.
 END_TIPS
 
@@ -918,13 +994,14 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies whether to let the server automatically create/update
-GZIP-compressed versions of compressible static files or not. If set to {val}Yes{/},
-when a file with a MIME type listed in {ITEM=compressibleTypes} is requested,
-the server may create or update the corresponding compressed version of
-the file depending on the compressed file's timestamp. This compressed file
-is created under the {ITEM=gzipCacheDir}. The filename is based on a MD5
-hash of the path of the original file.
+DESCR: Specifies whether to let the server automatically create/update GZIP/Brotli-compressed versions of compressible
+static files or not. If set to {val}Yes{/}, when a file with a MIME type listed in {ITEM=compressibleTypes} is requested,
+the server may create or update the corresponding compressed version of the file depending on the compressed file's
+timestamp. This compressed file is created under the {ITEM=gzipCacheDir}. The filename is based on a MD5 hash of the
+path of the original file.
+
+
+Default value: Yes
 END_DESCR
 
 SYNTAX: bool
@@ -942,14 +1019,17 @@ END_TIPS
 
 [ITEM]
 ID: gzipCacheDir
-NAME: Static GZIP Cache Directory
+NAME: Static Cache Directory
+NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the path of the directory used to store compressed
-files for static content. The default is {ITEM=swappingDir}.
+DESCR: Specifies the path of the directory used to store compressed files for static content.
+
+
+Default value: {ITEM=swappingDir}.
 END_DESCR
 
 SYNTAX: Directory Path
@@ -967,15 +1047,17 @@ END_TIPS
 
 [ITEM]
 ID: gzipStaticCompressLevel
-NAME: Compression Level (Static Content)
+NAME: GZIP Compression Level (Static File)
 NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the level of compression for static content. Ranges
-from {val}1{/} (lowest) to {val}9{/} (highest).
+DESCR: Specifies the level of GZIP compression applied to static files. Ranges from {val}1{/} (lowest) to {val}9{/} (highest).
+
+
+This setting will only take effect when {ITEM=enableGzipCompress} and {ITEM=gzipAutoUpdateStatic} are enabled.
 
 
 Default value: 6
@@ -997,16 +1079,16 @@ END_TIPS
 [ITEM]
 ID: gzipMaxFileSize
 NAME: Max Static File Size (bytes)
+NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the maximum size of a static file for which the
-server will create a compressed file automatically.
+DESCR: Specifies the maximum size of a static file for which the server will create a compressed file automatically.
 
 
-Default value is 10M
+Default value: 10M
 END_DESCR
 
 SYNTAX: Number in bytes not less than 1K.
@@ -1015,9 +1097,8 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: [P] It is not recommended to have the server create/update
-compressed files for large files. Compressing blocks an entire server process and
-no further requests can be processed until the compression is completed.
+TIPS: [P] It is not recommended to have the server create/update compressed files for large files. Compressing blocks an
+entire server process and no further requests can be processed until the compression is completed.
 END_TIPS
 
 [END_ITEM]
@@ -1027,13 +1108,16 @@ END_TIPS
 [ITEM]
 ID: gzipMinFileSize
 NAME: Min Static File Size (bytes)
+NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the minimum size of a static file for which the
-server will create a corresponding compressed file.
+DESCR: Specifies the minimum size of a static file for which the server will create a corresponding compressed file.
+
+
+Default value: 200
 END_DESCR
 
 SYNTAX: Number in bytes not less than 200.
@@ -1054,15 +1138,49 @@ END_TIPS
 
 [ITEM]
 ID: enableBrCompress
-NAME: Compression Level (Dynamic Content)
+NAME: Brotli Compression Level
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Controls the level of Brotli compression applied. Ranges from {val}0{/} (OFF) to {val}6{/} (highest).
+
+
+This setting will only take effect when {ITEM=enableGzipCompress} is enabled.
+
+
+Default value: 2
+END_DESCR
+
+SYNTAX: Number between 0 and 6.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableBrCompress
+NAME: Brotli Compression Level (Dynamic Content)
 NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Controls the level of Brotli compression for dynamic HTTP responses. Ranges from {val}0{/} (OFF) to
+DESCR: Controls the level of Brotli compression applied to dynamic responses. Ranges from {val}0{/} (OFF) to
 {val}6{/} (highest).
+
+
+This setting will only take effect when {ITEM=enableGzipCompress} is enabled.
 
 
 Default value: 2
@@ -1083,18 +1201,17 @@ END_TIPS
 
 [ITEM]
 ID: brStaticCompressLevel
-NAME: Compression Level (Static File)
+NAME: Brotli Compression Level (Static File)
 NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the level of compression for static content. Ranges
-from {val}1{/} (lowest) to {val}11{/} (highest).
+DESCR: Specifies the level of Brotli compression applied to static files. Ranges from {val}1{/} (lowest) to {val}11{/} (highest).
 
 
-This setting will only take effect when {ITEM=gzipAutoUpdateStatic} is enabled.
+This setting will only take effect when {ITEM=enableGzipCompress} and {ITEM=gzipAutoUpdateStatic} are enabled.
 
 
 Default value: 5
@@ -1106,9 +1223,8 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: [P] Save network bandwidth. Text-based responses such as
-html, css, and javascript files benefit the most and on average can be compressed to half
-of their original size.
+TIPS: [P] Save network bandwidth. Text-based responses such as html, css, and javascript files benefit the most and on
+average can be compressed to half of their original size.
 END_TIPS
 
 [END_ITEM]
@@ -2096,13 +2212,13 @@ SEE_ALSO:
 
 [TBL]
 ID: gzipTuning
-NAME: GZIP Compression Tuning
+NAME: GZIP/Brotli Compression
 NS: L
 
 DESCR:
 END_DESCR
 
-CONT: enableGzipCompress gzipCompressLevel compressibleTypes
+CONT: enableGzipCompress compressibleTypes gzipCompressLevel enableBrCompress
 END_CONT
 
 SEE_ALSO:
@@ -2112,31 +2228,14 @@ SEE_ALSO:
 
 [TBL]
 ID: gzipTuning
-NAME: GZIP Compression Tuning
+NAME: GZIP/Brotli Compression
 NS: EO
 
 DESCR:
 END_DESCR
 
-CONT: enableGzipCompress enableDynGzipCompress gzipCompressLevel
-compressibleTypes gzipAutoUpdateStatic gzipCacheDir gzipStaticCompressLevel
-gzipMaxFileSize gzipMinFileSize
-END_CONT
-
-SEE_ALSO:
-[END_TBL]
-
-
-
-[TBL]
-ID: brotliTuning
-NAME: Brotli Compression
-NS: EO
-
-DESCR:
-END_DESCR
-
-CONT: enableBrCompress brStaticCompressLevel
+CONT: enableGzipCompress compressibleTypes enableDynGzipCompress gzipCompressLevel enableBrCompress
+gzipAutoUpdateStatic gzipStaticCompressLevel brStaticCompressLevel gzipCacheDir gzipMaxFileSize gzipMinFileSize
 END_CONT
 
 SEE_ALSO:
@@ -2257,7 +2356,7 @@ NS: EO
 DESCR:
 END_DESCR
 
-CONT: osTuning connTuning reqTuning staticTuning gzipTuning brotliTuning sslGlobal quicTbl
+CONT: osTuning connTuning reqTuning staticTuning gzipTuning sslGlobal quicTbl
 END_CONT
 
 SEE_ALSO:
