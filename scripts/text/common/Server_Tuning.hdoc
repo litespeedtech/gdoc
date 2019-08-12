@@ -912,6 +912,7 @@ END_TIPS
 [ITEM]
 ID: gzipAutoUpdateStatic
 NAME: Auto Update Static File
+NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1053,25 +1054,27 @@ END_TIPS
 
 [ITEM]
 ID: enableBrCompress
-NAME: Enable Brotli Compression
+NAME: Compression Level (Dynamic Content)
 NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Controls Brotli compression for static HTTP responses. The default value is enabled.
+DESCR: Controls the level of Brotli compression for dynamic HTTP responses. Ranges from {val}0{/} (OFF) to
+{val}6{/} (highest).
+
+
+Default value: 2
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: Number between 0 and 6.
 END_SYNTAX
 
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: [P] Enable it to save network bandwidth. Text-based responses such as
-html, css, and javascript files benefit the most and on average can be compressed to half
-of their original size.
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1091,6 +1094,9 @@ DESCR: Specifies the level of compression for static content. Ranges
 from {val}1{/} (lowest) to {val}11{/} (highest).
 
 
+This setting will only take effect when {ITEM=gzipAutoUpdateStatic} is enabled.
+
+
 Default value: 5
 END_DESCR
 
@@ -1100,7 +1106,9 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS:
+TIPS: [P] Save network bandwidth. Text-based responses such as
+html, css, and javascript files benefit the most and on average can be compressed to half
+of their original size.
 END_TIPS
 
 [END_ITEM]
