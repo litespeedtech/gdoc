@@ -42,7 +42,7 @@ SEE_ALSO:
 [TBL]
 ID: sslFeature
 NAME: Security & Features
-NS: LEO
+NS: LE
 
 DESCR:
 END_DESCR
@@ -52,6 +52,23 @@ END_CONT
 
 SEE_ALSO:
 [END_TBL]
+
+
+
+[TBL]
+ID: sslFeature
+NAME: Security & Features
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: renegProtection sslSessionCache sslSessionTickets enableSpdy
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
 
 
 

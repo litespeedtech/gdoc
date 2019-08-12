@@ -4,7 +4,7 @@
 [ITEM]
 ID: vhEnableQuic
 NAME: Enable QUIC
-NS: LEO
+NS: LE
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -36,12 +36,28 @@ END_TIPS
 [TBL]
 ID: vhSslFeature
 NAME: Security & Features
-NS: LEO
+NS: LE
 
 DESCR:
 END_DESCR
 
 CONT: renegProtection sslSessionCache sslSessionTickets enableSpdy vhEnableQuic
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: vhSslFeature
+NAME: Security & Features
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: renegProtection sslSessionCache sslSessionTickets enableSpdy
 END_CONT
 
 SEE_ALSO:
