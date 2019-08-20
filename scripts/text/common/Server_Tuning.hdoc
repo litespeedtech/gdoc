@@ -1807,7 +1807,7 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: A larger a window size will use more memory.
+TIPS: A larger window size will use more memory.
 END_TIPS
 
 [END_ITEM]
@@ -1837,7 +1837,7 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: A larger a window size will use more memory.
+TIPS: A larger window size will use more memory.
 END_TIPS
 
 [END_ITEM]
@@ -1862,7 +1862,7 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: A larger a window size will use more memory.
+TIPS: A larger window size will use more memory.
 END_TIPS
 
 [END_ITEM]
@@ -1891,7 +1891,7 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: A larger a window size will use more memory.
+TIPS: A larger window size will use more memory.
 END_TIPS
 
 [END_ITEM]
