@@ -8,33 +8,28 @@
 ID: extAppType
 NAME: Type
 NS: L
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies the type of external application. Choose from
 <ul>
-<li>{val}FastCGI{/}: a FastCGI application with {val}Responder{/}
-role.</li>
-<li>{val}Servlet Engine{/}: a Servlet engine with AJPv13 connector,
-such as tomcat.</li>
-<li>{val}HTTP Proxy{/}: a web server or application server that
-supports the HTTP protocol.</li>
-<li>{val}HTTPS Proxy{/}: a web server or application server that
-supports the HTTPS protocol.</li>
-<li>{val}LSAPI App{/}: an application that communicates with the web server
-using the LSAPI protocol.</li>
+  <li>{val}FastCGI{/}: a FastCGI application with {val}Responder{/} role.</li>
+  <li>{val}Servlet Engine{/}: a Servlet engine with AJPv13 connector, such as tomcat.</li>
+  <li>{val}HTTP Proxy{/}: a web server or application server that supports the HTTP protocol.</li>
+  <li>{val}HTTPS Proxy{/}: a web server or application server that supports the HTTPS protocol.</li>
+  <li>{val}LSAPI App{/}: an application that communicates with the web server using the LSAPI protocol.</li>
 </ul>
 END_DESCR
 
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -45,29 +40,21 @@ END_TIPS
 ID: extAppType
 NAME: Type
 NS: EO
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the type of external application. Application types 
-are differentiated by the service they provide or the protocol they 
-use to communicate with the server. Choose from
+DESCR: Specifies the type of external application. Application types are differentiated by the service they provide or the
+protocol they use to communicate with the server. Choose from
 <ul>
-<li>{val}FastCGI{/}: a FastCGI application with a {val}Responder{/}
-role.</li>
-<li>{val}FastCGI Authorizer{/}: a FastCGI application with an
-{val}Authorizer{/} role</li>
-<li>{val}Servlet Engine{/}: a servlet engine with an AJPv13 connector,
-such as Tomcat.</li>
-<li>{val}Web Server{/}: a web server or application server that
-supports HTTP protocol.</li>
-<li>{val}LiteSpeed SAPI App{/}: an application that communicates with the web server
-using LSAPI protocol.</li>
-<li>{val}Load Balancer{/}: a virtual application that can balance load
-among worker applications.</li>
-<li>{val}Piped Logger{/}: an application that can process access log
-entries received on its STDIN stream.</li>
+  <li>{val}FastCGI{/}: a FastCGI application with a {val}Responder{/} role.</li>
+  <li>{val}FastCGI Authorizer{/}: a FastCGI application with an {val}Authorizer{/} role</li>
+  <li>{val}Servlet Engine{/}: a servlet engine with an AJPv13 connector, such as Tomcat.</li>
+  <li>{val}Web Server{/}: a web server or application server that supports HTTP protocol.</li>
+  <li>{val}LiteSpeed SAPI App{/}: an application that communicates with the web server using LSAPI protocol.</li>
+  <li>{val}Load Balancer{/}: a virtual application that can balance load among worker applications.</li>
+  <li>{val}Piped Logger{/}: an application that can process access log entries received on its STDIN stream.</li>
 </ul>
 END_DESCR
 
@@ -77,13 +64,12 @@ END_EDITTIP
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: Most applications will use either LSAPI or FastCGI protocol. 
-LSAPI supports PHP, Ruby, and Python. Perl can be used with FastCGI. 
-(PHP, Ruby, and Python can also be set up to run using FastCGI, but 
-they run faster using LSAPI.) Java uses servlet engines.
+TIPS: Most applications will use either LSAPI or FastCGI protocol. LSAPI supports PHP, Ruby, and Python. Perl can be
+used with FastCGI. (PHP, Ruby, and Python can also be set up to run using FastCGI, but they run faster using LSAPI.)
+Java uses servlet engines.
 END_TIPS
 
 [END_ITEM]
@@ -96,13 +82,13 @@ END_TIPS
 [ITEM]
 ID: extAppName
 NAME: Name
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: A unique name for this external application. 
-You will refer to it by this name when you use it in other parts of the configuration.
+DESCR: A unique name for this external application. You will refer to it by this name when you use it in other parts of the
+configuration.
 END_DESCR
 
 EDITTIP: Give a name that easy to remember, other places will refer to this app by its name.
@@ -111,10 +97,10 @@ END_EDITTIP
 SYNTAX: text
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -124,10 +110,10 @@ END_TIPS
 [ITEM]
 ID: extWorkers
 NAME: Workers
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: List of worker groups previously defined in the external load balancer.
 END_DESCR
@@ -147,7 +133,7 @@ END_SYNTAX
 EXAMPLE: fcgi::localPHP, proxy::backend1
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -157,10 +143,10 @@ END_TIPS
 [ITEM]
 ID: workerName
 NAME: Name
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: A unique name for a group of workers.
 END_DESCR
@@ -168,10 +154,10 @@ END_DESCR
 SYNTAX: text
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -181,10 +167,10 @@ END_TIPS
 [ITEM]
 ID: workerGroupEnabled
 NAME: Enabled
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies whether to enable this worker group.
 END_DESCR
@@ -192,10 +178,10 @@ END_DESCR
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -205,22 +191,21 @@ END_TIPS
 [ITEM]
 ID: sourceIP
 NAME: Source IP
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies a Source IP for connecting to the backend
-worker. It can be overriden in worker configuration.
+DESCR: Specifies a Source IP for connecting to the backend worker. It can be overridden in worker configuration.
 END_DESCR
 
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -230,25 +215,25 @@ END_TIPS
 [ITEM]
 ID: extAppAddress
 NAME: Address
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: A unique socket address used by the external application. 
-IPv4/IPv6 sockets and Unix Domain Sockets (UDS) are supported. 
-IPv4/IPv6 sockets can be used for communication over the network.  
-UDS can only be used when the external application resides on the same machine as the server.
+DESCR: A unique socket address used by the external application. IPv4/IPv6 sockets and Unix Domain Sockets (UDS) are
+supported. IPv4/IPv6 sockets can be used for communication over the network. UDS can only be used when the external
+application resides on the same machine as the server.
 END_DESCR
 
-EDITTIP: Address can be IPv4 socket address "IP:PORT", like 192.168.1.3:7777 and localhost:7777 or Unix domain socket address "UDS://path" like UDS://tmp/lshttpd/myfcgi.sock.
+EDITTIP: Address can be IPv4 socket address "IP:PORT", like 192.168.1.3:7777 and localhost:7777 or Unix domain socket
+address "UDS://path" like UDS://tmp/lshttpd/myfcgi.sock.
 END_EDITTIP
 
 EDITTIP: UDS is chrooted in chroot environment.
 END_EDITTIP
 
-EDITTIP: For local applications, Unix domain socket is preferred due to security and better performance. If you have to use IPv4 socket, set the IP part 
-to localhost or 127.0.0.1, thus the application is inaccessible from other machines.
+EDITTIP: For local applications, Unix domain socket is preferred due to security and better performance. If you have to use
+IPv4 socket, set the IP part to localhost or 127.0.0.1, thus the application is inaccessible from other machines.
 END_EDITTIP
 
 SYNTAX: IPv4 or IPV6 address:port or UDS://path
@@ -259,10 +244,8 @@ EXAMPLE: 127.0.0.1:5434
 UDS://tmp/lshttpd/php.sock.
 END_EXAMPLE
 
-TIPS: [S] If the external application runs on the same machine, 
-UDS is preferred. If you have to use an IPv4|IPV6 socket, 
-set the IP address to {val}localhost{/} or {val}127.0.0.1{/}, 
-so the external application is inaccessible from other machines. 
+TIPS: [S] If the external application runs on the same machine, UDS is preferred. If you have to use an IPv4|IPV6 socket,
+set the IP address to {val}localhost{/} or {val}127.0.0.1{/}, so the external application is inaccessible from other machines.
 
 [P] Unix Domain Sockets generally provide higher performance than IPv4 sockets.
 END_TIPS
@@ -274,18 +257,19 @@ END_TIPS
 [ITEM]
 ID: expWSAddress
 NAME: Address
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: HTTP or HTTPS address used by the external web server. 
+DESCR: HTTP or HTTPS address used by the external web server.
 END_DESCR
 
-SYNTAX: IPv4 or IPV6 address(:port). Add "https://" in front if the external web server uses https. Port is optional if the external web server uses the standard ports 80 or 443. 
+SYNTAX: IPv4 or IPV6 address(:port). Add "https://" in front if the external web server uses HTTPS. Port is optional if the
+external web server uses the standard ports 80 or 443.
 END_SYNTAX
 
-EXAMPLE: 192.168.0.10 
+EXAMPLE: 192.168.0.10
 
 127.0.0.1:5434
 
@@ -294,9 +278,8 @@ https://10.0.8.9
 https://127.0.0.1:5438
 END_EXAMPLE
 
-TIPS: [S] If you proxy to another web server running on the same machine,  
-set the IP address to {val}localhost{/} or {val}127.0.0.1{/}, 
-so the external application is inaccessible from other machines. 
+TIPS: [S] If you proxy to another web server running on the same machine, set the IP address to {val}localhost{/} or
+{val}127.0.0.1{/}, so the external application is inaccessible from other machines.
 
 END_TIPS
 
@@ -307,10 +290,10 @@ END_TIPS
 [ITEM]
 ID: extSrcIP
 NAME: Type
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Select from available IPs.
 END_DESCR
@@ -318,10 +301,10 @@ END_DESCR
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -331,28 +314,25 @@ END_TIPS
 [ITEM]
 ID: maxConns
 NAME: Max Connections
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the maximum number of concurrent connections that can be established 
-between the server and an external application. This setting controls how 
-many requests can be processed concurrently by an external application,  
-however, the real limit also depends on the external application itself. 
-Setting this value higher will not help if the external application is not fast enough
-or cannot scale to a large number of concurrent requests.
+DESCR: Specifies the maximum number of concurrent connections that can be established between the server and an
+external application. This setting controls how many requests can be processed concurrently by an external application,
+however, the real limit also depends on the external application itself. Setting this value higher will not help if the external
+application is not fast enough or cannot scale to a large number of concurrent requests.
 END_DESCR
 
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: [P] Setting a high value does not directly translate to higher performance. 
-Setting the limit to a value that will not overload the external 
-application will provide the best performance/throughput.
+TIPS: [P] Setting a high value does not directly translate to higher performance. Setting the limit to a value that will not
+overload the external application will provide the best performance/throughput.
 END_TIPS
 
 [END_ITEM]
@@ -362,10 +342,10 @@ END_TIPS
 [ITEM]
 ID: env
 NAME: Environment
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies extra environment variables for the external application.
 END_DESCR
@@ -373,10 +353,10 @@ END_DESCR
 SYNTAX: Key=value. Multiple variables can be separated by "ENTER"
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -386,27 +366,24 @@ END_TIPS
 [ITEM]
 ID: initTimeout
 NAME: Initial Request Timeout (secs)
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the maximum time in seconds the server will wait for the external 
-application to respond to the first request over a new established connection. 
-If the server does not receive any data from the external application
-within this timeout limit, it will mark this connection as bad. This
-helps to identify communication problems with external applications as
-quickly as possible. If some requests take longer to 
-process, increase this limit to avoid 503 error messages.
+DESCR: Specifies the maximum time in seconds the server will wait for the external application to respond to the first
+request over a new established connection. If the server does not receive any data from the external application within this
+timeout limit, it will mark this connection as bad. This helps to identify communication problems with external applications
+as quickly as possible. If some requests take longer to process, increase this limit to avoid 503 error messages.
 END_DESCR
 
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -416,22 +393,22 @@ END_TIPS
 [ITEM]
 ID: retryTimeout
 NAME: Retry Timeout (secs)
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the period of time that the server waits before
-retrying an external application that had a prior communication problem.
+DESCR: Specifies the period of time that the server waits before retrying an external application that had a prior
+communication problem.
 END_DESCR
 
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -441,24 +418,23 @@ END_TIPS
 [ITEM]
 ID: persistConn
 NAME: Persistent Connection
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies whether to keep the connection open after a request
-has been processed. Persistent connections can increase performance, 
-but some FastCGI external applications do not support persistent connections 
-fully. The default is "On". 
+DESCR: Specifies whether to keep the connection open after a request has been processed. Persistent connections can
+increase performance, but some FastCGI external applications do not support persistent connections fully. The default is
+"On".
 END_DESCR
 
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -468,26 +444,25 @@ END_TIPS
 [ITEM]
 ID: pcKeepAliveTimeout
 NAME: Connection Keepalive Timeout
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the maximum time in seconds to keep an idle persistent connection
-open. 
+DESCR: Specifies the maximum time in seconds to keep an idle persistent connection open.
 
 
-When set to "-1", the connection will never timeout. When set to 0 or greater,
-the connection will be closed after this time in seconds has passed.
+When set to "-1", the connection will never timeout. When set to 0 or greater, the connection will be closed after this time in
+seconds has passed.
 END_DESCR
 
 SYNTAX: int
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -497,20 +472,19 @@ END_TIPS
 [ITEM]
 ID: respBuffer
 NAME: Response Buffering
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies whether to buffer responses received from external
-applications. If a "nph-" (Non-Parsed-Header) script is detected, 
-buffering is turned off for responses with full HTTP headers.
+DESCR: Specifies whether to buffer responses received from external applications. If a "nph-" (Non-Parsed-Header) script is
+detected, buffering is turned off for responses with full HTTP headers.
 END_DESCR
 
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS:
@@ -524,26 +498,27 @@ END_TIPS
 ID: autoStart
 NAME: Start By Server
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies whether you want the web server to start the
-application automatically. Only FastCGI and LSAPI applications
-running on the same machine can be started automatically. The IP in the
-{ITEM=extAppAddress} must be a local IP. Starting through the LiteSpeed 
-CGI Daemon instead of a main server process will help reduce system overhead.  
+DESCR: Specifies whether you want the web server to start the application automatically. Only FastCGI and LSAPI
+applications running on the same machine can be started automatically. The IP in the {ITEM=extAppAddress} must be a
+local IP. Starting through the LiteSpeed CGI Daemon instead of a main server process will help reduce system overhead.
 CGI Daemon Async mode (non-blocking event-driven method) is recommended for servers with high I/O wait.
+
+
+Default value: Yes (Through CGI Daemon Async)
 END_DESCR
 
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -554,25 +529,26 @@ END_TIPS
 ID: autoStart
 NAME: Start By Server
 NS: O
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies whether you want the web server to start the
-application automatically. Only FastCGI and LSAPI applications
-running on the same machine can be started automatically. The IP in the
-{ITEM=extAppAddress} must be a local IP. Starting through the LiteSpeed 
-CGI Daemon instead of a main server process will help reduce system overhead.  
+DESCR: Specifies whether you want the web server to start the application automatically. Only FastCGI and LSAPI
+applications running on the same machine can be started automatically. The IP in the {ITEM=extAppAddress} must be a
+local IP. Starting through the LiteSpeed CGI Daemon instead of a main server process will help reduce system overhead.
+
+
+Default value: Yes (Through CGI Daemon)
 END_DESCR
 
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -582,24 +558,23 @@ END_TIPS
 [ITEM]
 ID: extAppPath
 NAME: Command
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: {ITEM=autoStart} 
+SINCE:
+SEE_ALSO: {ITEM=autoStart}
 
-DESCR: Specifies the full command line including parameters to execute
-the external application. Required value if 
-{ITEM=autoStart} is enabled. A parameter should be quoted with a
-double or single quote if the parameter contains space or tab characters.
+DESCR: Specifies the full command line including parameters to execute the external application. Required value if
+{ITEM=autoStart} is enabled. A parameter should be quoted with a double or single quote if the parameter contains space or
+tab characters.
 END_DESCR
 
 SYNTAX: Full path to the executable with optional parameters.
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -609,24 +584,25 @@ END_TIPS
 [ITEM]
 ID: backlog
 NAME: Back Log
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies the backlog of the listening socket.  Required if {ITEM=autoStart} is enabled.
 END_DESCR
 
-EDITTIP: Local applications can be started by the web server. In this case, you need to specify the path, backlog and number of instances.
+EDITTIP: Local applications can be started by the web server. In this case, you need to specify the path, backlog and
+number of instances.
 END_EDITTIP
 
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -636,28 +612,25 @@ END_TIPS
 [ITEM]
 ID: instances
 NAME: Instances
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the maximum instances of the external application the server will
-create. It is required if {ITEM=autoStart} is
-enabled. Most FastCGI/LSAPI applications can only process one request
-per process instance and for those types of applications, instances should
-be set to match the value of {ITEM=maxConns}. Some FastCGI/LSAPI applications can 
-spawn multiple child processes to handle multiple requests concurrently. 
-For these types of applications, instances should be set to "1" and  
-environment variables used to control how many child processes the application can spawn.
+DESCR: Specifies the maximum instances of the external application the server will create. It is required if {ITEM=autoStart}
+is enabled. Most FastCGI/LSAPI applications can only process one request per process instance and for those types of
+applications, instances should be set to match the value of {ITEM=maxConns}. Some FastCGI/LSAPI applications can
+spawn multiple child processes to handle multiple requests concurrently. For these types of applications, instances should
+be set to "1" and environment variables used to control how many child processes the application can spawn.
 END_DESCR
 
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -721,23 +694,22 @@ END_TIPS
 [ITEM]
 ID: extUmask
 NAME: umask
-REQUIRED: 
+REQUIRED:
 APPLY: 3
 SINCE: 5.0
-SEE_ALSO: CGI {ITEM=ServSecurity_Help#umask} 
+SEE_ALSO: CGI {ITEM=ServSecurity_Help#umask}
 
-DESCR: Sets default umask for this external application's processes.  
-See {cmd} man 2 umask {/} for details. The default value taken from the server-level  
-{ITEM=ServSecurity_Help#umask} setting. 
+DESCR: Sets default umask for this external application's processes. See {cmd} man 2 umask {/} for details. The default
+value taken from the server-level {ITEM=ServSecurity_Help#umask} setting.
 END_DESCR
 
 SYNTAX: value valid range [000]-[777].
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 [END_ITEM]
 
@@ -747,29 +719,33 @@ END_TIPS
 ID: runOnStartUp
 NAME: Run On Start Up
 NS: EO
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies whether to start the external application at server start
-up. Only applicable to external applications that can manage their own child processes and where 
-{ITEM=instances} value is set to "1".
+DESCR: Specifies whether to start the external application at server start up. Only applicable to external applications that
+can manage their own child processes and where {ITEM=instances} value is set to "1".
+
+
 If enabled, external processes will be created at server startup instead of run-time.
 
 
-Default value: No
+When selecting "Yes (Detached mode)", all detached process can be restarted at the Server level or Virtual Host level by
+touching the '.lsphp_restart.txt' file under the $SERVER_ROOT/admin/tmp/ or $VH_ROOT/ directory respectively.
 
+
+Default value: Yes (Detached mode)
 END_DESCR
 
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS:[P] If the configured external process has significant startup overhead, like a Rails app, then 
-this option should be enabled to decrease first page response time. 
+TIPS:[P] If the configured external process has significant startup overhead, like a Rails app, then this option should be
+enabled to decrease first page response time.
 END_TIPS
 [END_ITEM]
 
@@ -779,10 +755,10 @@ END_TIPS
 ID: extMaxIdleTime
 NAME: Max Idle Time
 NS: EO
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies the maximum idle time before an external application is stopped by the server, freeing idle resources.
 When set to "-1", the external application will not be stopped by the server unless running in ProcessGroup mode where
@@ -792,7 +768,7 @@ END_DESCR
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [P] This feature is especially useful in the mass hosting environment where, in order to prevent files owned by one
@@ -813,10 +789,9 @@ APPLY: 2
 SINCE:
 SEE_ALSO: Server {ITEM=ServGeneral_Help#serverPriority}
 
-DESCR: Specifies priority of the external application process. Value ranges from
-{val}-20{/} to {val}20{/}. A lower number means a higher priority.
-An external application process cannot have a higher priority than the web server. If this
-priority is set to a lower number than the server's, the server's priority will be used for this value.
+DESCR: Specifies priority of the external application process. Value ranges from {val}-20{/} to {val}20{/}. A lower number
+means a higher priority. An external application process cannot have a higher priority than the web server. If this priority is
+set to a lower number than the server's, the server's priority will be used for this value.
 END_DESCR
 
 SYNTAX: int
@@ -836,44 +811,49 @@ END_TIPS
 ID: procSoftLimit
 NAME: Process Soft Limit
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Limits the total number of processes that can be created on behalf of a user. All existing processes will be counted against this limit, not just new 
-processes to be started.
+DESCR: Limits the total number of processes that can be created on behalf of a user. All existing processes will be
+counted against this limit, not just new processes to be started.
 
 
-The limit can be set at the server level or at an individual external application level. The server-level limit will be used if it is not set at an 
-individual application level. 
-The operating system's default setting will be used if this value is 0 or absent at both levels.
+The limit can be set at the server level or at an individual external application level. The server-level limit will be used if it is
+not set at an individual application level. The operating system's default setting will be used if this value is 0 or absent at
+both levels.
 END_DESCR
 
-EDITTIP: Process soft/hard limit controls how many processes are allowed for one user. This includes all the processes spawned by CGI application. OS level limit is used if not set.
+EDITTIP: Process soft/hard limit controls how many processes are allowed for one user. This includes all the processes
+spawned by CGI application. OS level limit is used if not set.
 END_EDITTIP
 
 EDITTIP: Set to 0 or empty will use operation system default value for all soft/hard limits.
 END_EDITTIP
 
-EDITTIP: The soft limit is the value that the kernel enforces for the corresponding resource. The hard limit acts as a ceiling for the soft limit
-END_EDITTIP 
+EDITTIP: The soft limit is the value that the kernel enforces for the corresponding resource. The hard limit acts as a ceiling
+for the soft limit
+END_EDITTIP
 
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
-To control how many processes LSWS will make for users in mod_suEXEC mode, use the suEXEC Max Conn setting. PHP scripts can call for forking processes
-and the number of processes needed for normal functioning can be above the suEXEC Max Conn setting. The main purpose of this limit is as a last line of 
-defense to prevent fork bombs and other attacks caused by PHP processes creating other processes. 
+TIPS:
+To control how many processes LSWS will make for users in mod_suEXEC mode, use the suEXEC Max Conn setting.
+PHP scripts can call for forking processes and the number of processes needed for normal functioning can be above the
+suEXEC Max Conn setting. The main purpose of this limit is as a last line of defense to prevent fork bombs and other
+attacks caused by PHP processes creating other processes.
+
 
 Setting this setting too low can severely hurt functionality. The setting will thus be ignored below certain levels.
 
-When <b>Run On Start Up</b> is set to "Yes (Daemon mode)", the actual process limit will be higher than this setting to make sure parent processes are not limited.
 
+When <b>Run On Start Up</b> is set to "Yes (Daemon mode)", the actual process limit will be higher than this setting to
+make sure parent processes are not limited.
 END_TIPS
 
 [END_ITEM]
@@ -884,40 +864,47 @@ END_TIPS
 ID: procSoftLimit
 NAME: Process Soft Limit
 NS: O
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Limits the total number of processes that can be created on behalf of a user. All existing processes will be counted against this limit, not just new 
-processes to be started.
+DESCR: Limits the total number of processes that can be created on behalf of a user. All existing processes will be
+counted against this limit, not just new processes to be started.
 
-The limit can be set at the server level or at an individual external application level. The server-level limit will be used if it is not set at an 
-individual application level. The operating system's default setting will be used if this value is 0 or absent at both levels.
+
+The limit can be set at the server level or at an individual external application level. The server-level limit will be used if it is
+not set at an individual application level. The operating system's default setting will be used if this value is 0 or absent at
+both levels.
 END_DESCR
 
-EDITTIP: Process soft/hard limit controls how many processes are allowed for one user. This includes all the processes spawned by CGI application. OS level limit is used if not set.
+EDITTIP: Process soft/hard limit controls how many processes are allowed for one user. This includes all the processes
+spawned by CGI application. OS level limit is used if not set.
 END_EDITTIP
 
 EDITTIP: Set to 0 or empty will use operation system default value for all soft/hard limits.
 END_EDITTIP
 
-EDITTIP: The soft limit is the value that the kernel enforces for the corresponding resource. The hard limit acts as a ceiling for the soft limit
-END_EDITTIP 
+EDITTIP: The soft limit is the value that the kernel enforces for the corresponding resource. The hard limit acts as a ceiling
+for the soft limit
+END_EDITTIP
 
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
-PHP scripts can call for forking processes. The main purpose of this limit is as a last line of defense to prevent fork bombs and 
-other attacks caused by PHP processes creating other processes. 
+TIPS:
+PHP scripts can call for forking processes. The main purpose of this limit is as a last line of defense to prevent fork bombs
+and other attacks caused by PHP processes creating other processes.
+
 
 Setting this setting too low can severely hurt functionality. The setting will thus be ignored below certain levels.
 
-When <b>Run On Start Up</b> is set to "Yes (Daemon mode)", the actual process limit will be higher than this setting to make sure parent processes are not limited.
+
+When <b>Run On Start Up</b> is set to "Yes (Daemon mode)", the actual process limit will be higher than this setting to
+make sure parent processes are not limited.
 END_TIPS
 
 [END_ITEM]
@@ -932,33 +919,33 @@ ID: extapp
 NAME: New External App
 NS: EO
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: extAppType
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
 
 [TBL]
 ID: extFCGI
-NAME: Fast CGI
+NAME:
 NS: EO
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: extAppName extAppAddress maxConns env initTimeout 
+CONT: extAppName extAppAddress maxConns env initTimeout
 retryTimeout persistConn pcKeepAliveTimeout respBuffer autoStart
 extAppPath backlog instances extUser extGroup extUmask
-runOnStartUp extMaxIdleTime extAppPriority 
+runOnStartUp extMaxIdleTime extAppPriority
 memSoftLimit memHardLimit procSoftLimit procHardLimit
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -968,17 +955,17 @@ ID: extFCGIAuth
 NAME: Fast CGI Authorizer
 NS: EO
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: extAppName extAppAddress maxConns env initTimeout 
+CONT: extAppName extAppAddress maxConns env initTimeout
 retryTimeout persistConn pcKeepAliveTimeout respBuffer autoStart
 extAppPath backlog instances extUser extGroup extUmask
-runOnStartUp extMaxIdleTime extAppPriority 
+runOnStartUp extMaxIdleTime extAppPriority
 memSoftLimit memHardLimit procSoftLimit procHardLimit
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -988,17 +975,17 @@ ID: extLSAPI
 NAME: LiteSpeed SAPI
 NS: EO
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: extAppName extAppAddress maxConns env initTimeout 
+CONT: extAppName extAppAddress maxConns env initTimeout
 retryTimeout persistConn pcKeepAliveTimeout respBuffer autoStart
 extAppPath backlog instances extUser extGroup extUmask
-runOnStartUp extMaxIdleTime extAppPriority 
+runOnStartUp extMaxIdleTime extAppPriority
 memSoftLimit memHardLimit procSoftLimit procHardLimit
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -1008,14 +995,14 @@ ID: extServlet
 NAME: Servlet Engine
 NS: EO
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: extAppName extAppAddress maxConns pcKeepAliveTimeout 
-env initTimeout retryTimeout respBuffer 
+CONT: extAppName extAppAddress maxConns pcKeepAliveTimeout
+env initTimeout retryTimeout respBuffer
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -1025,14 +1012,14 @@ ID: extWS
 NAME: Web Server
 NS: EO
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: extAppName expWSAddress maxConns 
+CONT: extAppName expWSAddress maxConns
 pcKeepAliveTimeout env initTimeout retryTimeout respBuffer
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -1042,15 +1029,15 @@ ID: extPL
 NAME: Piped Logger
 NS: EO
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: extAppName extAppAddress maxConns env 
+CONT: extAppName extAppAddress maxConns env
 extAppPath instances extUser extGroup extUmask
 extAppPriority
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -1060,13 +1047,13 @@ ID: extLB
 NAME: Load Balancer
 NS: EO
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: extAppName extWorkers
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -1075,99 +1062,102 @@ SEE_ALSO:
 
 
 [PAGE]
-ID: ExtApp_Help 
+ID: ExtApp_Help
 NAME: External Apps
 NS: EO
 
-DESCR: LiteSpeed web server can forward requests to external applications to 
-process and generate dynamic content. 
- 
-Since 2.0, LiteSpeed Web Server has supported seven types of external
-applications: CGI, FastCGI, web server, servlet engine, LiteSpeed SAPI
-application, load balancer, and piped logger.
+DESCR: LiteSpeed web server can forward requests to external applications to process and generate dynamic content.
+
+
+Since 2.0, LiteSpeed Web Server has supported seven types of external applications: CGI, FastCGI, web server, servlet
+engine, LiteSpeed SAPI application, load balancer, and piped logger.
 
 <ul>
-<li>CGI stands for Common Gateway Interface. The current standard is CGI/1.1. 
-   CGI applications run in standalone processes. A CGI process is started 
-   for each request and will exit after finishing the request. 
-</li>
-<li>FastCGI is a fast, open, and secure web server interface that solves the 
-  performance problems inherent in CGI without introducing the overhead and 
-  complexity of proprietary APIs (Application Programming
-  Interfaces).  For more information, please visit {ext-href}http://www.fastcgi.com{ext-href-end}http://www.fastcgi.com{ext-href-end-a}.
+  <li>
+    CGI stands for Common Gateway Interface. The current standard is CGI/1.1. CGI applications run in standalone
+    processes. A CGI process is started for each request and will exit after finishing the request.
+  </li>
+  <li>
+    FastCGI is a fast, open, and secure web server interface that solves the performance problems inherent in CGI without
+    introducing the overhead and complexity of proprietary APIs (Application Programming Interfaces).  For more information,
+    please visit <a href="http://www.fastcgi.com">http://www.fastcgi.com</a>.
 
-  On LiteSpeed Web Server, FastCGI applications can take two roles: 
-  generating dynamic responses (a responder role) or authorizing requests 
-  (an authorizer role). LiteSpeed Web Server further defines two types of 
-  FastCGI applications: local FastCGI and remote FastCGI. 
-  Local FastCGI applications are started automatically by the web server
-  on demand. Remote FastCGI applications are not started by the web server. 
-  (They can run on a remote machine or on the same machine.)
-</li>
-<li>a web server is a server application that supports HTTP 1.0/1.1
-protocols. LiteSpeed web server can serve as a transparent reverse proxy
-to accelerate and protect web servers and application servers. 
-When communicating with backend web servers, LiteSpeed will
-always try to utilize persistent connections in order to achieve the 
-highest performance.</li>
-<li>A servlet engine is an application, like Apache Tomcat and Jetty, 
-that implements Java servlets and Java Server Pages. LiteSpeed can communicate
-with servlet engines through AJPv1.3 (Apache JServ Protocol version 1.3).
-Servlet engine cannot be started by the web server and can be setup to run on a
-remote machine. </li>
-<li>A LiteSpeed SAPI (LiteSpeed Server Application Programming Interface) 
-application is an application that communicates with LiteSpeed Web Server through 
-LSAPI, a fast, scalable server interface specifically designed for LiteSpeed Web 
-Server to achieve maximum efficiency.
 
-LSAPI's mechanism of action are similar to FastCGI, but LSAPI applications can be
-up to 30% faster than comparable FastCGI applications. LSAPI is highly 
-recommended over FastCGI for supported applications. 
-(LSAPI currently supports applications written in PHP, Ruby, and Python.)
+    On LiteSpeed Web Server, FastCGI applications can take two roles: generating dynamic responses (a responder role) or
+    authorizing requests (an authorizer role). LiteSpeed Web Server further defines two types of FastCGI applications: local
+    FastCGI and remote FastCGI. Local FastCGI applications are started automatically by the web server on demand.
+    Remote FastCGI applications are not started by the web server. (They can run on a remote machine or on the same
+    machine.)
+  </li>
+  <li>
+    A web server is a server application that supports HTTP 1.0/1.1 protocols. LiteSpeed web server can serve as a
+    transparent reverse proxy to accelerate and protect web servers and application servers. When communicating with
+    backend web servers, LiteSpeed will always try to utilize persistent connections in order to achieve the highest
+    performance.
+  </li>
+  <li>
+    A servlet engine is an application, like Apache Tomcat and Jetty, that implements Java servlets and Java Server Pages.
+    LiteSpeed can communicate with servlet engines through AJPv1.3 (Apache JServ Protocol version 1.3). Servlet engine
+    cannot be started by the web server and can be setup to run on a remote machine.
+  </li>
+  <li>
+    A LiteSpeed SAPI (LiteSpeed Server Application Programming Interface) application is an application that communicates
+    with LiteSpeed Web Server through LSAPI, a fast, scalable server interface specifically designed for LiteSpeed Web
+    Server to achieve maximum efficiency.
 
-For more information about LSAPI, please visit
-{ext-href}https://www.litespeedtech.com/open-source/litespeed-sapi{ext-href-end}https://www.litespeedtech.com/open-source/litespeed-sapi{ext-href-end-a}.
-</li>
-<li>A load balancer is a virtual external application, which assigns
-requests to backend worker applications based on workload. Worker
-applications can be CGI, FastCGI, web server, servlet engine, or LSAPI
-applications. Different types of applications can
-be mixed together under one load balancer. Load balancers and piped
-loggers cannot be used as worker applications.</li>
-<li>A piped logger is an application that can process access
-logs in real-time, writing an access log into database or performing
-real-time statistics calculations, for example.</li>
+
+    LSAPI's mechanism of action are similar to FastCGI, but LSAPI applications can be up to 30% faster than comparable
+    FastCGI applications. LSAPI is highly recommended over FastCGI for supported applications. (LSAPI currently supports
+    applications written in PHP, Ruby, and Python.)
+
+
+    For more information about LSAPI, please visit
+    <a href="https://www.litespeedtech.com/open-source/litespeed-sapi">
+      https://www.litespeedtech.com/open-source/litespeed-sapi
+    </a>.
+  </li>
+  <li>
+    A load balancer is a virtual external application, which assigns requests to backend worker applications based on
+    workload. Worker applications can be CGI, FastCGI, web server, servlet engine, or LSAPI applications. Different types of
+    applications can be mixed together under one load balancer. Load balancers and piped loggers cannot be used as
+    worker applications.
+  </li>
+  <li>
+    A piped logger is an application that can process access logs in real-time, writing an access log into database or
+    performing real-time statistics calculations, for example.
+  </li>
 </ul>
 
-Unlike CGI applications, FastCGI applications, LSAPI applications, and 
-servlet engine do not exit after processing a request. The application process will stay/persist and serve 
-as many requests as it can. The socket connection can be reused for multiple requests as well. 
 
-External applications can be set up in the {PAGE=ExtApp_Help} section. 
-External applications cannot, however, function on their own. Additional settings must 
-be configured so that the web server knows which requests to send to which application. 
-There are two ways to to configure this in LiteSpeed Web Server: 
+Unlike CGI applications, FastCGI applications, LSAPI applications, and servlet engine do not exit after processing a
+request. The application process will stay/persist and serve as many requests as it can. The socket connection can be
+reused for multiple requests as well.
+
+
+External applications can be set up in the {PAGE=ExtApp_Help} section. External applications cannot, however, function
+on their own. Additional settings must be configured so that the web server knows which requests to send to which
+application. There are two ways to to configure this in LiteSpeed Web Server:
+
+
 <ol>
-  <li> Set the external application as a handler for a specific context.</li> 
+  <li> Set the external application as a handler for a specific context.</li>
   <li> Set the external application as a handler of a script language via file suffix binding.</li>
-</ol> 
-
-FastCGI applications, LSAPI applications, web servers, servlet engines,
-and load balancers have to be defined in the {PAGE=ExtApp_Help} 
-section before you can configure them to handle a context or script suffix . 
-It is not necessary to define CGI applications in the {PAGE=ExtApp_Help} section. 
+</ol>
 
 
-External applications can be configured at the server level or at the virtual host level. 
-When configured at the server level, the application can be used by all virtual hosts. When configured at the
-virtual host level, it can only be used by that virtual host.
+FastCGI applications, LSAPI applications, web servers, servlet engines, and load balancers have to be defined in the
+{PAGE=ExtApp_Help} section before you can configure them to handle a context or script suffix. It is not necessary to
+define CGI applications in the {PAGE=ExtApp_Help} section.
 
+
+External applications can be configured at the server level or at the virtual host level. When configured at the server level, the
+application can be used by all virtual hosts. When configured at the virtual host level, it can only be used by that virtual host.
 END_DESCR
 
 CONT: extapp
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
@@ -1183,7 +1173,7 @@ END_DESCR
 CONT: extFCGI
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
@@ -1199,7 +1189,7 @@ END_DESCR
 CONT: extFCGIAuth
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
@@ -1214,7 +1204,7 @@ END_DESCR
 CONT: extLSAPI
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
@@ -1230,7 +1220,7 @@ END_DESCR
 CONT: extServlet
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
@@ -1246,7 +1236,7 @@ END_DESCR
 CONT: extWS
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
@@ -1262,7 +1252,7 @@ END_DESCR
 CONT: extPL
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
@@ -1278,7 +1268,7 @@ END_DESCR
 CONT: extLB
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
