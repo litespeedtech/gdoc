@@ -1790,6 +1790,35 @@ END_TIPS
 
 
 [ITEM]
+ID: quicCongestionCtrl
+NAME: Congestion Control
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: The congestion control algorithm used. This can be set manually or left up to the QUIC library in use by selecting
+the "Default" option.
+
+
+Default value: Default
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: quicCfcw
 NAME: Connection Flow Control Window
 NS: LEO
@@ -2302,7 +2331,7 @@ NS: L
 DESCR:
 END_DESCR
 
-CONT: quicEnable quicShmDir quicVersions quicCfcw quicMaxCfcw quicSfcw quicMaxSfcw
+CONT: quicEnable quicShmDir quicVersions quicCongestionCtrl quicCfcw quicMaxCfcw quicSfcw quicMaxSfcw
 quicMaxStreams quicHandshakeTimeout quicIdleTimeout quicDosMitigationDuration quicBadPacketRate quicHskNewRate
 quicHskTimeoutRate
 END_CONT
@@ -2320,7 +2349,7 @@ NS: EO
 DESCR:
 END_DESCR
 
-CONT: quicEnable quicShmDir quicVersions quicCfcw quicMaxCfcw quicSfcw quicMaxSfcw
+CONT: quicEnable quicShmDir quicVersions quicCongestionCtrl quicCfcw quicMaxCfcw quicSfcw quicMaxSfcw
 quicMaxStreams quicHandshakeTimeout quicIdleTimeout
 END_CONT
 
