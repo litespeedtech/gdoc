@@ -2,7 +2,7 @@
 <header>
     <h1>LiteSpeed Web Server 5.4</h1>
     <h1>Users' Manual</h1>
-    <h1>&#8212;&nbsp;Rev. 4</h1>
+    <h1>&#8212;&nbsp;Rev. 5</h1>
 </header>
 <hr />
 
