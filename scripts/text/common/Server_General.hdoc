@@ -718,13 +718,14 @@ END_TIPS
 [ITEM]
 ID: hideSigInErrorPage
 NAME: Hide Error Page Signature
+NS: LE
 REQUIRED:
 APPLY: 3
 SINCE: 4.2.3
 SEE_ALSO:
 
 DESCR: Specifies whether or not to show the lines
-<blockquote>Powered By LiteSpeed Web Server.
+<blockquote>Powered By LiteSpeed.
 
 LiteSpeed Technologies is not responsible for administration and contents of this web site!"</blockquote>
 on your default error pages.
@@ -855,7 +856,8 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies how often the update agent will check for a new product release. Options are "Daily", "Weekly", "Monthly" and "Disable".
+DESCR: Specifies how often the update agent will check for a new product release. Options are "Daily", "Weekly",
+"Monthly" and "Disable".
 END_DESCR
 
 SYNTAX: select
@@ -1915,8 +1917,7 @@ NS: L
 DESCR:
 END_DESCR
 
-CONT: disableInitLogRotation showVersionNumber
-enableIpGeo useIpInProxyHeader autoUpdateInterval
+CONT: disableInitLogRotation showVersionNumber hideSigInErrorPage enableIpGeo useIpInProxyHeader autoUpdateInterval
 autoUpdateDownloadPkg adminEmails
 END_CONT
 
@@ -1933,9 +1934,8 @@ NS: E
 DESCR:
 END_DESCR
 
-CONT: mime mimesuffix mimetype disableInitLogRotation showVersionNumber
-hideSigInErrorPage enableIpGeo useIpInProxyHeader extAppAbort
-autoUpdateInterval autoUpdateDownloadPkg adminEmails
+CONT: mime mimesuffix mimetype disableInitLogRotation showVersionNumber hideSigInErrorPage enableIpGeo
+useIpInProxyHeader extAppAbort autoUpdateInterval autoUpdateDownloadPkg adminEmails
 END_CONT
 
 SEE_ALSO:
