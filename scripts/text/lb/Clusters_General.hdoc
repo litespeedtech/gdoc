@@ -7,10 +7,10 @@
 [ITEM]
 ID: lb_name
 NAME: Name
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: A unique name for a cluster.
 END_DESCR
@@ -18,10 +18,10 @@ END_DESCR
 SYNTAX: text
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -31,28 +31,28 @@ END_TIPS
 [ITEM]
 ID: lb_type
 NAME: Type
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR:
 Specifies the type of cluster.
 <br><br>
-"Layer7" HTTP load balancing, also known as application-level load balancing, parses HTTP requests 
+"Layer7" HTTP load balancing, also known as application-level load balancing, parses HTTP requests
 and distributes requests to servers based on different types of request contents.
 <br><br>
-"Layer4" load balancing is transport layer load balancing, such as TCP and UDP transport protocols. 
+"Layer4" load balancing is transport layer load balancing, such as TCP and UDP transport protocols.
 It does not look at the content when selecting a backend server. In theory, Layer 4 load balancing supports every application type.
 END_DESCR
 
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -62,16 +62,16 @@ END_TIPS
 [ITEM]
 ID: lb_mode
 NAME: Mode
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies which mode the load balancer operates in, "Stateless" or "Stateful". 
+DESCR: Specifies which mode the load balancer operates in, "Stateless" or "Stateful".
 <br><br>
-"Stateful" mode track sessions associated with each back-end server. It also called "Session Affinity". 
+"Stateful" mode track sessions associated with each back-end server. It also called "Session Affinity".
 <br><br>
-"Stateless" mode does not care about sessions. 
+"Stateless" mode does not care about sessions.
 <br><br>
 For the Layer 4 Load Balancer, if the Mode is “Stateful”, it will track the IP address of the client to extract previous sessions.
 END_DESCR
@@ -79,10 +79,10 @@ END_DESCR
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -92,12 +92,12 @@ END_TIPS
 [ITEM]
 ID: strategy
 NAME: Strategy
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Select load balancing strategy from the list. 
+DESCR: Select load balancing strategy from the list.
 
 <ul>
 <li>The round-robin algorithm cycles through a list of backend Server instances in order.</li>
@@ -115,10 +115,10 @@ END_DESCR
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -131,31 +131,31 @@ END_TIPS
 [ITEM]
 ID: sessionExMethod
 NAME: Session Extraction
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specify how to extract session ID from request. 
-
-
-<b>IP Address:</b> Uses Client IP as session ID. 
+DESCR: Specify how to extract session ID from request.
 
 
-<b>Basic Authentication:</b> Uses username in the basic authentication as session ID. 
+<b>IP Address:</b> Uses Client IP as session ID.
 
 
-<b>Query String:</b> Uses a Parameter in request query string as session ID. 
+<b>Basic Authentication:</b> Uses username in the basic authentication as session ID.
 
 
-<b>Cookies:</b> Uses a Parameter in cookie as session ID. 
+<b>Query String:</b> Uses a Parameter in request query string as session ID.
+
+
+<b>Cookies:</b> Uses a Parameter in cookie as session ID.
 
 
 <b>SSL Session:</b> Uses SSL Session ID as session ID.
 
 
 <b>JVM Route:</b> JVM Route is an extra section appended to a Servlet session ID, which used to identify servlet backend.
-<b>Example:</b> JSESSIONID=344BA8002DE6FBE2QDF25.tomcat1 
+<b>Example:</b> JSESSIONID=344BA8002DE6FBE2QDF25.tomcat1
 
 
 <b>URL Path Parameter:</b> Uses a URL Path Parameter as session ID.
@@ -164,7 +164,7 @@ END_DESCR
 SYNTAX: checkbox
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: For Layer 4 Load Balancers, only the IP Address extraction method will work.  For Layer 7 Load Balancers, any of the above methods will work.
@@ -177,23 +177,23 @@ END_TIPS
 [ITEM]
 ID: sessionId
 NAME: Session ID String
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies the Session ID string. The string is used to extract
 the session id value from cookie, query string and URL path parameter.
 
 END_DESCR
 
-SYNTAX: text 
+SYNTAX: text
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -203,10 +203,10 @@ END_TIPS
 [ITEM]
 ID: sessionTimeout
 NAME: Session Timeout
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specify for how long a session will be valid, in seconds.
 END_DESCR
@@ -214,7 +214,7 @@ END_DESCR
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS:
@@ -227,10 +227,10 @@ END_TIPS
 [ITEM]
 ID: insertCookie
 NAME: Insert Tracking Cookie
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specify whether to insert a tracking cookie. The tracking
 cookie can be used to reconstruct session cache in case load balancer
@@ -240,7 +240,7 @@ END_DESCR
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS:
@@ -253,10 +253,10 @@ END_TIPS
 [ITEM]
 ID: cookieName
 NAME: Tracking Cookie Name
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specify the tracking cookie name.
 END_DESCR
@@ -264,7 +264,35 @@ END_DESCR
 SYNTAX: string
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: showBackend
+NAME: Show Backend In Header
+REQUIRED:
+APPLY:
+SINCE: 2.5
+SEE_ALSO:
+
+DESCR: Add response header 'x-lsadc-backend' which indicates that backend server that served the request. The header's
+value is a concatenation of the cluster name and the backend IP and port.
+
+
+Default value: No
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: "x-lsadc-backend: clusterHTTP_10.10.15.11:443"
 END_EXAMPLE
 
 TIPS:
@@ -283,13 +311,13 @@ END_TIPS
 ID: ClusterDef
 NAME: Load Balancer
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: lb_name lb_type lb_mode strategy
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -298,14 +326,13 @@ SEE_ALSO:
 ID: ClusterSession
 NAME: Session Management
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: sessionExMethod sessionId sessionTimeout 
-	  insertCookie cookieName
+CONT: sessionExMethod sessionId sessionTimeout insertCookie cookieName showBackend
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -322,7 +349,7 @@ END_DESCR
 CONT:
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -331,16 +358,16 @@ SEE_ALSO:
 
 
 [PAGE]
-ID: Clusters_General_Help 
+ID: Clusters_General_Help
 NAME: Cluster General
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: ClusterDef ClusterSession ClusterErrMsg
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
