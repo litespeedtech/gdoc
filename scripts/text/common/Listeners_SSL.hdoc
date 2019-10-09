@@ -310,18 +310,55 @@ END_TIPS
 
 [ITEM]
 ID: enableSpdy
-NAME: Enable SPDY/HTTP2
+NAME: Enable SPDY/HTTP2/HTTP3
+NS: LE
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: HTTP/2 and SPDY are new versions of the HTTP network protocol with the goal of reducing page load times.
-More information can be found at <a href="http://en.wikipedia.org/wiki/HTTP/2">http://en.wikipedia.org/wiki/HTTP/2</a>.
+DESCR: Selectively enable HTTP/3, HTTP/2, and SPDY HTTP network protocols.
+
+
+If you wish to disable SPDY, HTTP/2, and HTTP3, check "None" and leave all other boxes unchecked.
+
+
+Default value: All enabled
 END_DESCR
 
-SYNTAX: Check the protocol(s) you wish to enable. Leaving all boxes unchecked will enable SPDY and HTTP/2 support (the default).
-If you wish to disable SPDY and HTTP/2, check "None" only and leave all other boxes unchecked.
+SYNTAX: checkbox
+END_SYNTAX
+
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: This setting can be set at the listener and virtual host levels.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableSpdy
+NAME: Enable SPDY/HTTP2
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Selectively enable HTTP/2 and SPDY HTTP network protocols.
+
+
+If you wish to disable SPDY and HTTP/2, check "None" and leave all other boxes unchecked.
+
+
+Default value: All enabled
+END_DESCR
+
+SYNTAX: checkbox
 END_SYNTAX
 
 
