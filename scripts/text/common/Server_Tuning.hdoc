@@ -2016,6 +2016,10 @@ DESCR: How long, once triggered, the server will stay in DoS mitigation mode. Af
 server will revert to it's normal mode. Set this to {val}0{/} to disable DoS Mitigation mode.
 
 
+In DoS Mitigation mode, new clients are required to verify their IP address with a special 'retry' packet. Once verified, the
+requests proceed as normal.
+
+
 Default value: 120
 END_DESCR
 
