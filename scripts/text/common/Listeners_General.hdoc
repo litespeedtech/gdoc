@@ -214,7 +214,7 @@ END_TIPS
 [ITEM]
 ID: reusePort
 NAME: Enable REUSEPORT
-NS: E
+NS: EO
 REQUIRED:
 APPLY:
 SINCE:
@@ -423,28 +423,12 @@ SEE_ALSO:
 [TBL]
 ID: listenerGeneral
 NAME: Address Settings
-NS: E
+NS: EO
 
 DESCR:
 END_DESCR
 
 CONT: listenerName listenerIP listenerPort listenerBinding reusePort listenerSecure
-END_CONT
-
-SEE_ALSO:
-[END_TBL]
-
-
-
-[TBL]
-ID: listenerGeneral
-NAME: Address Settings
-NS: O
-
-DESCR:
-END_DESCR
-
-CONT: listenerName listenerIP listenerPort listenerBinding listenerSecure
 END_CONT
 
 SEE_ALSO:
