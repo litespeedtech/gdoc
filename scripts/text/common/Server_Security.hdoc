@@ -70,16 +70,16 @@ END_TIPS
 
 
 [ITEM]
-ID: wpProtectAction 
+ID: wpProtectAction
 NAME: Protection Mode
 NS: E
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
+SINCE:
 SEE_ALSO:
 
-DESCR: 
-Specifies the action to be taken when the specified Allowed Login Attempts limit is reached within 5 minutes.
+DESCR: Specifies the action to be taken when the specified Allowed Login Attempts limit is reached within 5 minutes.
+
 
 {val}Throttle{/} gradually slows down the speed of the server response, {val}drop{/} severs the connection without any reply,
 {val}deny{/} returns a 403 response, and {val}captcha or drop{/} redirects to a captcha if reCaptcha Protection is enabled and
@@ -103,8 +103,8 @@ Apache configurations.
 [I] This setting will override Apache conf {val}WordPressProtect{/} setting for LSWS only. Apache will be unaffected.
 
 
-[I] This can be set at the Server level and overwritten at the Virtual Host level. If not overridden at the Virtual Host level, this 
-setting can also be overridden in a user's docroot .htaccess file using Apache configuration directive 
+[I] This can be set at the Server level and overwritten at the Virtual Host level. If not overridden at the Virtual Host level, this
+setting can also be overridden in a user's docroot .htaccess file using Apache configuration directive
 {val}WordPressProtect{/} with value {val}0{/} (disabled), {val}1{/} (use server level setting), {val}throttle{/}, {val}deny{/}, or
 {val}drop{/}.
 END_TIPS
@@ -112,16 +112,16 @@ END_TIPS
 [END_ITEM]
 
 [ITEM]
-ID: wpProtectAction 
+ID: wpProtectAction
 NAME: Protection Mode
 NS: L
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
+SINCE:
 SEE_ALSO:
 
-DESCR: 
-Specifies the action to be taken when the specified Allowed Login Attempts limit is reached within 5 minutes.
+DESCR: Specifies the action to be taken when the specified Allowed Login Attempts limit is reached within 5 minutes.
+
 
 {val}Throttle{/} gradually slows down the speed of the server response, {val}drop{/} severs the connection without any reply,
 {val}deny{/} returns a 403 response, and {val}captcha or drop{/} redirects to a captcha if reCaptcha Protection is enabled and
@@ -139,8 +139,8 @@ END_EXAMPLE
 TIPS:
 [S] Trusted IPs or sub-networks are not affected.
 
-[I] This can be set at the Server level and overwritten at the Virtual Host level. If not overridden at the Virtual Host level, this 
-setting can also be overridden in a user's docroot .htaccess file using Apache configuration directive 
+[I] This can be set at the Server level and overwritten at the Virtual Host level. If not overridden at the Virtual Host level, this
+setting can also be overridden in a user's docroot .htaccess file using Apache configuration directive
 {val}WordPressProtect{/} with value {val}0{/} (disabled), {val}1{/} (use server level setting), {val}throttle{/}, {val}deny{/}, or
 {val}drop{/}.
 END_TIPS
@@ -292,29 +292,29 @@ END_TIPS
 ID: staticReqPerSec
 NAME: Static Requests/Second
 NS: EO
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
+SINCE:
 SEE_ALSO: {ITEM=dynReqPerSec}
 
 DESCR: Specifies the maximum number of requests to static content coming from a single
 IP address that can be processed in a single second regardless of the number of
-connections established. 
+connections established.
 
 
-When this limit is reached, all future requests are tar-pitted until the next second. 
+When this limit is reached, all future requests are tar-pitted until the next second.
 Request limits for dynamically generated content are independent of this limit.
-Per-client request limits can be set at server- or virtual host-level. 
+Per-client request limits can be set at server- or virtual host-level.
 Virtual host-level settings override server-level settings.
 END_DESCR
 
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 [S] Trusted IPs or sub-networks are not affected.
 END_TIPS
 
@@ -326,30 +326,30 @@ END_TIPS
 ID: dynReqPerSec
 NAME: Dynamic Requests/Second
 NS: EO
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
+SINCE:
 SEE_ALSO: {ITEM=staticReqPerSec}
 
-DESCR: Specifies the maximum number of requests to dynamically generated content 
+DESCR: Specifies the maximum number of requests to dynamically generated content
 coming from a single IP address that can be processed in each second
-regardless of the number of connections established. 
-When this limit is reached, all future requests to dynamic content 
-are tar-pitted until the next second. 
+regardless of the number of connections established.
+When this limit is reached, all future requests to dynamic content
+are tar-pitted until the next second.
 
 
 The request limit for static content is independent of this limit.
-This per client request limit can be set at server or virtual host level. 
+This per client request limit can be set at server or virtual host level.
 Virtual host-level settings override server-level settings.
 END_DESCR
 
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 [S] Trusted IPs or sub-networks are not restrained by this limit.
 END_TIPS
 
@@ -361,27 +361,27 @@ END_TIPS
 ID: dynReqPerSec
 NAME: Requests/Second
 NS: L
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the maximum number of requests for dynamically generated content 
-coming from a single IP address that can be processed in each second, 
-regardless of the number of connections established. 
-When this limit is reached, all future requests for dynamic content 
-are tar-pitted until the next second. 
-The per client request limit can be set at the server or virtual host level where 
+DESCR: Specifies the maximum number of requests for dynamically generated content
+coming from a single IP address that can be processed in each second,
+regardless of the number of connections established.
+When this limit is reached, all future requests for dynamic content
+are tar-pitted until the next second.
+The per client request limit can be set at the server or virtual host level where
 virtual host level settings override server level settings.
 END_DESCR
 
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 [S] Trusted IPs or sub-networks are not effected
 END_TIPS
 
@@ -392,14 +392,14 @@ END_TIPS
 [ITEM]
 ID: outBandwidth
 NAME: Outbound Bandwidth (bytes/sec)
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
+SINCE:
 SEE_ALSO: {ITEM=inBandwidth}
 
 DESCR: The maximum allowed outgoing throughput to a single
 IP address, regardless of the number of connections established.
-The real bandwidth may end up being slightly higher than this setting for efficiency reasons. 
+The real bandwidth may end up being slightly higher than this setting for efficiency reasons.
 Bandwidth is allocated in 4KB units. Set to {val}0{/} to disable throttling.
 Per-client bandwidth limits (bytes/sec) can be set at the server or virtual host level where
 virtual host level settings override server level settings.
@@ -408,7 +408,7 @@ END_DESCR
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [P] Set the bandwidth in 8KB units for better performance.
@@ -424,14 +424,14 @@ END_TIPS
 [ITEM]
 ID: inBandwidth
 NAME: Inbound Bandwidth (bytes/sec)
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
+SINCE:
 SEE_ALSO: {ITEM=outBandwidth}
 
 DESCR: The maximum allowed incoming throughput from a single
 IP address, regardless of the number of connections established.
-The real bandwidth may end up being slightly higher than this setting for efficiency reasons. 
+The real bandwidth may end up being slightly higher than this setting for efficiency reasons.
 Bandwidth is allocated in 1KB units. Set to {val}0{/} to disable throttling.
 Per-client bandwidth limits (bytes/sec) can be set at the server or virtual host level where
 virtual host level settings override server level settings.
@@ -440,10 +440,10 @@ END_DESCR
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 [S] Trusted IPs or sub-networks are not affected.
 END_TIPS
 
@@ -454,26 +454,26 @@ END_TIPS
 [ITEM]
 ID: softLimit
 NAME: Connection Soft Limit
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the soft limit of concurrent connections allowed from one IP. 
-This soft limit can be exceeded temporarily during {ITEM=gracePeriod} as long as 
-the number is below the {ITEM=hardLimit}, but Keep-Alive connections 
-will be closed as soon as possible until the number of connections is lower 
-than the limit. If number of connections is still over the limit after the 
+DESCR: Specifies the soft limit of concurrent connections allowed from one IP.
+This soft limit can be exceeded temporarily during {ITEM=gracePeriod} as long as
+the number is below the {ITEM=hardLimit}, but Keep-Alive connections
+will be closed as soon as possible until the number of connections is lower
+than the limit. If number of connections is still over the limit after the
 {ITEM=gracePeriod}, that IP will be blocked for the {ITEM=banPeriod}.
 
 
-For example, if a page contains many small graphs, the browser may try to set up 
-many connections at same time, especially for HTTP/1.0 clients. You would want to allow 
+For example, if a page contains many small graphs, the browser may try to set up
+many connections at same time, especially for HTTP/1.0 clients. You would want to allow
 those connections for a short period.
 
 
-HTTP/1.1 clients may also set up multiple connections to speed up downloading and SSL 
- requires separate connections from non-SSL connections. Make sure the limit is set properly, 
+HTTP/1.1 clients may also set up multiple connections to speed up downloading and SSL
+ requires separate connections from non-SSL connections. Make sure the limit is set properly,
  as not to adversely affect normal service. The recommended limit is between {val}5{/} and {val}10{/}.
 END_DESCR
 
@@ -487,14 +487,14 @@ END_EDITTIP
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [S] A lower number will enable serving more distinct clients.
 
-[S] Trusted IPs or sub-networks are not affected. 
+[S] Trusted IPs or sub-networks are not affected.
 
-[P] Set to a high value when you are performing benchmark tests 
+[P] Set to a high value when you are performing benchmark tests
 with a large number of concurrent client machines.
 END_TIPS
 
@@ -505,20 +505,20 @@ END_TIPS
 [ITEM]
 ID: hardLimit
 NAME: Connection Hard Limit
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the maximum number of allowed concurrent connections from a single IP address. 
-This limit is always enforced and a client will never be able to exceed this limit.  
-HTTP/1.0 clients usually try to set up as many connections as they need to download embedded 
-content at the same time. This limit should be set high enough so that HTTP/1.0 clients can still 
-access the site.  
-Use {ITEM=softLimit} to set the desired connection limit. 
+DESCR: Specifies the maximum number of allowed concurrent connections from a single IP address.
+This limit is always enforced and a client will never be able to exceed this limit.
+HTTP/1.0 clients usually try to set up as many connections as they need to download embedded
+content at the same time. This limit should be set high enough so that HTTP/1.0 clients can still
+access the site.
+Use {ITEM=softLimit} to set the desired connection limit.
 
 
-The recommended limit is between {val}20{/} and {val}50{/} depending on the content of your web page and your traffic load. 
+The recommended limit is between {val}20{/} and {val}50{/} depending on the content of your web page and your traffic load.
 END_DESCR
 
 EDITTIP: Set concurrent connection Limits coming from one client (per IP address). This helps against DoS attack.
@@ -527,12 +527,12 @@ END_EDITTIP
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [S] A lower number will enable serving more distinct clients.
 
-[S] Trusted IPs or sub-networks are not affected. 
+[S] Trusted IPs or sub-networks are not affected.
 
 [P] Set to a high value when you are performing benchmark tests with a large number of concurrent client machines.
 END_TIPS
@@ -544,22 +544,22 @@ END_TIPS
 [ITEM]
 ID: blockBadReq
 NAME: Block Bad Request
-REQUIRED: 
+REQUIRED:
 APPLY: 3
 SINCE: 4.1.5
-SEE_ALSO: 
+SEE_ALSO:
 
-DESCR: Block IPs that keep sending badly-formated HTTP requests for the {ITEM=banPeriod}. Default 
-is {val}Yes{/}. This helps to block botnet attacks that repeatedly sending junk requests. 
+DESCR: Block IPs that keep sending badly-formated HTTP requests for the {ITEM=banPeriod}. Default
+is {val}Yes{/}. This helps to block botnet attacks that repeatedly sending junk requests.
 END_DESCR
 
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -569,25 +569,25 @@ END_TIPS
 [ITEM]
 ID: gracePeriod
 NAME: Grace Period (sec)
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies how long new connections can be accepted after the number of connections 
-established from one IP is over the {ITEM=softLimit}. Within this period, new connections 
-will be accepted if the total connections is still below the {ITEM=hardLimit}. After this 
-period has elapsed, if the number of connections still higher than the {ITEM=softLimit}, 
+DESCR: Specifies how long new connections can be accepted after the number of connections
+established from one IP is over the {ITEM=softLimit}. Within this period, new connections
+will be accepted if the total connections is still below the {ITEM=hardLimit}. After this
+period has elapsed, if the number of connections still higher than the {ITEM=softLimit},
 then the offending IP will be blocked for the {ITEM=banPeriod}.
 END_DESCR
 
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: [P][S] Set to a proper number big enough for downloading 
+TIPS: [P][S] Set to a proper number big enough for downloading
 a complete page but low enough to prevent deliberate attacks.
 END_TIPS
 
@@ -598,24 +598,24 @@ END_TIPS
 [ITEM]
 ID: banPeriod
 NAME: Banned Period (sec)
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies how long new connections will be rejected from an IP if, after the 
-{ITEM=gracePeriod} has elapsed, the number of connections is still more than 
-the {ITEM=softLimit}. If IPs are getting banned repeatedly, we suggest that you 
+DESCR: Specifies how long new connections will be rejected from an IP if, after the
+{ITEM=gracePeriod} has elapsed, the number of connections is still more than
+the {ITEM=softLimit}. If IPs are getting banned repeatedly, we suggest that you
 increase your banned period to stiffen the penalty for abuse.
 END_DESCR
 
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -626,21 +626,21 @@ END_TIPS
 [ITEM]
 ID: followSymbolLink
 NAME: Follow Symbolic Link
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
+SINCE:
 SEE_ALSO: {ITEM=checkSymbolLink}.
 
-DESCR: Specifies the server-level default setting of following symbolic links 
-when serving static files. 
+DESCR: Specifies the server-level default setting of following symbolic links
+when serving static files.
 
 
-Choices are {val}Yes{/}, {val}If Owner Match{/} and {val}No{/}. 
+Choices are {val}Yes{/}, {val}If Owner Match{/} and {val}No{/}.
 
 
-{val}Yes{/} sets the server to always follow symbolic links. 
-{val}If Owner Match{/} sets the server to follow a symbolic link only if the owner of the link and of the target are same. 
-{val}No{/} means the server will never follow a symbolic link. 
+{val}Yes{/} sets the server to always follow symbolic links.
+{val}If Owner Match{/} sets the server to follow a symbolic link only if the owner of the link and of the target are same.
+{val}No{/} means the server will never follow a symbolic link.
 This setting can be overridden in the virtual host configurations but cannot be overridden from an .htaccess file.
 END_DESCR
 
@@ -650,10 +650,10 @@ END_EDITTIP
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: [P][S] For best security select {val}No{/} or {val}If Owner Match{/}. 
+TIPS: [P][S] For best security select {val}No{/} or {val}If Owner Match{/}.
 For best performance, select {val}Yes{/}.
 END_TIPS
 
@@ -664,25 +664,25 @@ END_TIPS
 [ITEM]
 ID: checkSymbolLink
 NAME: Check Symbolic Link
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: {ITEM=followSymbolLink}, {ITEM=accessDenyDir} 
+SINCE:
+SEE_ALSO: {ITEM=followSymbolLink}, {ITEM=accessDenyDir}
 
-DESCR: Specifies whether to check symbolic links against {ITEM=accessDenyDir} 
-when {ITEM=followSymbolLink} is turned on. If enabled, the canonical real path of the resource 
-referred by a URL will be checked against the configurable access denied directories. 
+DESCR: Specifies whether to check symbolic links against {ITEM=accessDenyDir}
+when {ITEM=followSymbolLink} is turned on. If enabled, the canonical real path of the resource
+referred by a URL will be checked against the configurable access denied directories.
 Access will be denied if it falls inside an access denied directory.
 END_DESCR
 
-EDITTIP: Check-Symbolic-Link control will take effect only if Follow-Symbolic-Link is turned on. 
+EDITTIP: Check-Symbolic-Link control will take effect only if Follow-Symbolic-Link is turned on.
 This controls whether symbolic links are checked against Access Denied Directories.
 END_EDITTIP
 
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [P][S] For best security, enable this option. For best performance, disable it.
@@ -695,13 +695,13 @@ END_TIPS
 [ITEM]
 ID: forceStrictOwnership
 NAME: Force Strict Ownership Checking
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies whether to enforce strict file ownership checking. 
-If it is enabled, the web server will check if the owner of the file being served is the same as 
+DESCR: Specifies whether to enforce strict file ownership checking.
+If it is enabled, the web server will check if the owner of the file being served is the same as
 the owner of the virtual host. If it is different, a 403 Access Denied Error will be returned.
 This is turned off by default.
 END_DESCR
@@ -709,7 +709,7 @@ END_DESCR
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [S] For shared hosting, enable this check for better security.
@@ -722,7 +722,7 @@ END_TIPS
 [ITEM]
 ID: requiredPermissionMask
 NAME: Required Permission Mask
-REQUIRED: 
+REQUIRED:
 APPLY: 3
 SINCE: 1.3
 SEE_ALSO: {ITEM=restrictedPermissionMask}.
@@ -736,10 +736,10 @@ END_DESCR
 SYNTAX: octal numbers
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -749,7 +749,7 @@ END_TIPS
 [ITEM]
 ID: restrictedPermissionMask
 NAME: Restricted Permission Mask
-REQUIRED: 
+REQUIRED:
 APPLY: 3
 SINCE: 1.3
 SEE_ALSO: {ITEM=requiredPermissionMask}.
@@ -759,16 +759,16 @@ server will not serve. For example, to prohibit serving files that are
 executable, set the mask to {val}0111{/}.
 
 
-See {cmd}man 2 stat{/} for all values. 
+See {cmd}man 2 stat{/} for all values.
 END_DESCR
 
 SYNTAX: octal numbers
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -778,7 +778,7 @@ END_TIPS
 [ITEM]
 ID: restrictedScriptPermissionMask
 NAME: Script Restricted Permission Mask
-REQUIRED: 
+REQUIRED:
 APPLY: 3
 SINCE: 4.1.5
 SEE_ALSO: {ITEM=restrictedDirPermissionMask}.
@@ -788,17 +788,17 @@ server will not serve. For example, to prohibit serving PHP scripts that are
 group and world writable, set the mask to {val}022{/}. Default value is {val}000{/}.
 
 
-See {cmd}man 2 stat{/} for all values. 
+See {cmd}man 2 stat{/} for all values.
 
 END_DESCR
 
 SYNTAX: octal numbers
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -808,7 +808,7 @@ END_TIPS
 [ITEM]
 ID: restrictedDirPermissionMask
 NAME: Script Directory Restricted Permission Mask
-REQUIRED: 
+REQUIRED:
 APPLY: 3
 SINCE: 4.1.5
 SEE_ALSO: {ITEM=restrictedScriptPermissionMask}.
@@ -817,20 +817,20 @@ DESCR: Specifies the restricted permission mask of parent directories of script 
 server will not serve. For example, to prohibit serving PHP scripts in a directory that is
 group and world writable, set the mask to {val}022{/}. Default value is
 {val}000{/}. This option can be used to prevent serving scripts under a directory of
- uploaded files. 
+ uploaded files.
 
 
-See {cmd}man 2 stat{/} for all values. 
+See {cmd}man 2 stat{/} for all values.
 
 END_DESCR
 
 SYNTAX: octal numbers
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -843,25 +843,25 @@ END_TIPS
 [ITEM]
 ID: cgidSock
 NAME: CGI Daemon Socket
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: A unique socket address used to communicate with the CGI
-daemon. LiteSpeed server uses a standalone CGI daemon to 
+daemon. LiteSpeed server uses a standalone CGI daemon to
 spawn CGI scripts for best performance and security.
 Default socket is "uds://$SERVER_ROOT/admin/conf/.cgid.sock". If you need to put in
 another location, specify a Unix domain socket here.
 END_DESCR
 
-SYNTAX: UDS://path 
+SYNTAX: UDS://path
 END_SYNTAX
 
 EXAMPLE: UDS://tmp/lshttpd/cgid.sock
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -871,18 +871,18 @@ END_TIPS
 [ITEM]
 ID: maxCGIInstances
 NAME: Max CGI Instances
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the maximum number of concurrent CGI processes the server can start. 
-For each request to a CGI script, the server needs to start a standalone CGI process. 
-On a Unix system, the number of concurrent processes is limited. Excessive 
-concurrent processes will degrade the performance of the whole system and are one way to perform a DoS attack. 
-LiteSpeed server pipelines requests to CGI scripts 
-and limits concurrent CGI processes to ensure the optimal performance and reliability. 
-The hard limit is {val}2000{/}. 
+DESCR: Specifies the maximum number of concurrent CGI processes the server can start.
+For each request to a CGI script, the server needs to start a standalone CGI process.
+On a Unix system, the number of concurrent processes is limited. Excessive
+concurrent processes will degrade the performance of the whole system and are one way to perform a DoS attack.
+LiteSpeed server pipelines requests to CGI scripts
+and limits concurrent CGI processes to ensure the optimal performance and reliability.
+The hard limit is {val}2000{/}.
 END_DESCR
 
 EDITTIP: Limits resources that a CGI program can use. This helps against DoS attacks.
@@ -894,11 +894,11 @@ END_EDITTIP
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: [S][P] A higher limit does not necessarily translate to faster performance. 
-In most cases, a lower limit gives better performance and security. A higher limit will only help 
+TIPS: [S][P] A higher limit does not necessarily translate to faster performance.
+In most cases, a lower limit gives better performance and security. A higher limit will only help
 when I/O latency is excessive during CGI processing.
 END_TIPS
 
@@ -909,10 +909,10 @@ END_TIPS
 [ITEM]
 ID: minUID
 NAME: Minimum UID
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies the minimum user ID allowed to run external applications when running as a specified user.
 Execution of an external script with a user ID lower than the value specified here will be denied.
@@ -921,7 +921,7 @@ END_DESCR
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [S] Set it high enough to exclude all system/privileged users.
@@ -934,10 +934,10 @@ END_TIPS
 [ITEM]
 ID: minGID
 NAME: Minimum GID
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies the minimum group ID allowed to run external applications when running as a specified group.
 Execution of an external script with a group ID lower than the value specified here will be denied.
@@ -946,7 +946,7 @@ END_DESCR
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [S] Set it high enough to exclude all groups used by system users.
@@ -959,12 +959,12 @@ END_TIPS
 [ITEM]
 ID: forceGID
 NAME: Force GID
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies a group ID to be used for all external applications started in suEXEC mode. 
+DESCR: Specifies a group ID to be used for all external applications started in suEXEC mode.
 When set to non-zero value, all suEXEC external applications (CGI/FastCGI/LSAPI)
 will use this group ID. This can be used to prevent an external application
 from accessing files owned by other users.
@@ -974,8 +974,8 @@ For example, in a shared hosting environment, LiteSpeed runs as user
 "www-data", group "www-data". Each docroot is owned by a user account,
 with a group of "www-data" and permission mode 0750. If Force GID is set to
 "nogroup" (or any group other than 'www-data'), all suEXEC external applications will run
-as a particular user but in the group "nogroup". These external application processes 
-will still be able to access files owned by that particular user (because of their user ID), 
+as a particular user but in the group "nogroup". These external application processes
+will still be able to access files owned by that particular user (because of their user ID),
 but will not have group permission to access anyone else's files. The server, on the other hand, still
 can serve files under any user's docroot directory (because of its group ID).
 END_DESCR
@@ -983,7 +983,7 @@ END_DESCR
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [S] Set it high enough to exclude all groups used by system users.
@@ -996,23 +996,23 @@ END_TIPS
 [ITEM]
 ID: umask
 NAME: umask
-REQUIRED: 
+REQUIRED:
 APPLY: 3
 SINCE: 5.0
 SEE_ALSO: ExtApp {ITEM=ExtApp_Help#extUmask}
 
-DESCR: Sets default umask for CGI processes.  
-See {cmd} man 2 umask {/} for details. This also serves as the default value for external applications  
-{ITEM=ExtApp_Help#extUmask}.      
+DESCR: Sets default umask for CGI processes.
+See {cmd} man 2 umask {/} for details. This also serves as the default value for external applications
+{ITEM=ExtApp_Help#extUmask}.
 END_DESCR
 
 SYNTAX: value valid range [000]-[777].
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 [END_ITEM]
 
@@ -1051,23 +1051,23 @@ END_TIPS
 [ITEM]
 ID: CPUSoftLimit
 NAME: CPU Soft Limit (sec)
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies CPU consumption time limit in seconds for a CGI process. When the process 
-reaches the soft limit, it will be notified by a signal. The operating system's default setting will 
+DESCR: Specifies CPU consumption time limit in seconds for a CGI process. When the process
+reaches the soft limit, it will be notified by a signal. The operating system's default setting will
 be used if the value is absent or set to {val}0{/}.
 END_DESCR
 
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1077,23 +1077,23 @@ END_TIPS
 [ITEM]
 ID: CPUHardLimit
 NAME: CPU Hard Limit
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies maximum CPU consumption time limit in seconds for a CGI process. 
-If the process continues to consume CPU time and reach the hard limit, the process 
+DESCR: Specifies maximum CPU consumption time limit in seconds for a CGI process.
+If the process continues to consume CPU time and reach the hard limit, the process
 will be force killed. The operating system's default setting will be used if the value is absent or set to {val}0{/}.
 END_DESCR
 
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1103,13 +1103,13 @@ END_TIPS
 [ITEM]
 ID: memSoftLimit
 NAME: Memory Soft Limit (bytes)
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies the memory consumption limit in bytes for an external application process
-or an external application started by the server.  
+or an external application started by the server.
 
 
 The main purpose of this limit is to prevent excessive memory usage
@@ -1121,17 +1121,17 @@ it is not set at the individual application level.
 
 
 The operating system's default setting will be used if the value is absent at both levels or set to
-{val}0{/}. 
+{val}0{/}.
 END_DESCR
 
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [A] Do not over adjust this limit. This may result in 503 errors
-if your application needs more memory. 
+if your application needs more memory.
 END_TIPS
 
 [END_ITEM]
@@ -1141,25 +1141,25 @@ END_TIPS
 [ITEM]
 ID: memHardLimit
 NAME: Memory Hard Limit (bytes)
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Much the same as {ITEM=memSoftLimit}, except the soft limit can be raised up to the
 hard limit from within a user process. The hard limit can be set at server
-level or at an individual external application level. The server-level limit will be used if  
-it is not set at an individual application level. 
+level or at an individual external application level. The server-level limit will be used if
+it is not set at an individual application level.
 
 
 The operating system's default will be used if the value is absent at both levels or set to
-{val}0{/}. 
+{val}0{/}.
 END_DESCR
 
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [A] Do not over adjust this limit. This may result in 503 errors if your application need more memory.
@@ -1172,26 +1172,26 @@ END_TIPS
 [ITEM]
 ID: procHardLimit
 NAME: Process Hard Limit
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Much the same as {ITEM=procSoftLimit}, except the soft limit can be raised up to the
-hard limit from within a user process. The hard limit can be set at the server level or at an  
+hard limit from within a user process. The hard limit can be set at the server level or at an
 individual external application level. The server-level limit will be used if
-it is not set at an individual application level.   
+it is not set at an individual application level.
 The operating system's default value will be used if the value is absent at both levels or set to
-{val}0{/}. 
+{val}0{/}.
 END_DESCR
 
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1242,20 +1242,20 @@ END_TIPS
 [ITEM]
 ID: accessDenyDir
 NAME: Access Denied Directories
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies directories that should be blocked from access. 
-Add directories that contain sensitive data to this list to prevent accidentally 
-exposing sensitive files to clients. Append a "*" to the path to include all sub-directories. 
-If both {ITEM=followSymbolLink} and {ITEM=checkSymbolLink} are enabled, symbolic 
+DESCR: Specifies directories that should be blocked from access.
+Add directories that contain sensitive data to this list to prevent accidentally
+exposing sensitive files to clients. Append a "*" to the path to include all sub-directories.
+If both {ITEM=followSymbolLink} and {ITEM=checkSymbolLink} are enabled, symbolic
 links will be checked against the denied directories.
 END_DESCR
 
 EDITTIP:
-Enter a full path if you want to deny access for specific directory; entering a path followed by * will disable all the 
+Enter a full path if you want to deny access for specific directory; entering a path followed by * will disable all the
 sub directories.
 END_EDITTIP
 
@@ -1263,17 +1263,17 @@ EDITTIP: Path can be either absolute or relative to $SERVER_ROOT, use comma to s
 END_EDITTIP
 
 EDITTIP:
-If both <b>Follow Symbolic Link</b> and <b>Check Symbolic Link</b> are enabled, symbolic links will be checked 
+If both <b>Follow Symbolic Link</b> and <b>Check Symbolic Link</b> are enabled, symbolic links will be checked
 against the denied directories.
 END_EDITTIP
 
 SYNTAX: Comma-delimited list of directories
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: [S] Of critical importance: This setting only prevents serving static 
+TIPS: [S] Of critical importance: This setting only prevents serving static
 files from these directories. This does not prevent exposure by external scripts such as PHP/Ruby/CGI.
 END_TIPS
 
@@ -1646,16 +1646,16 @@ END_TIPS
 [ITEM]
 ID: accessControl_allow
 NAME: Allowed List
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies the list of IPs or sub-networks allowed.
 {val}*{/} or {val}ALL{/} are accepted.
 END_DESCR
 
-EDITTIP: You can set up access control at server, virtual host and context levels. If there is access control 
+EDITTIP: You can set up access control at server, virtual host and context levels. If there is access control
 at server level, the virtual host rules will be applied after the server rules are satisfied.
 END_EDITTIP
 
@@ -1663,11 +1663,11 @@ EDITTIP: Input format can be an IP like 192.168.0.2, a sub-network like 192.168.
 192.168.128.5/255.255.128.0.
 END_EDITTIP
 
-EDITTIP: If you have trusted IP or sub-network, then you must specify them in allowed list by adding a trailing "T" such as 
+EDITTIP: If you have trusted IP or sub-network, then you must specify them in allowed list by adding a trailing "T" such as
 192.168.1.*T. Trusted IP or sub-network is not limited by connection/throttling limit.
 END_EDITTIP
 
-SYNTAX: Comma delimited list of IP addresses or sub-networks. 
+SYNTAX: Comma delimited list of IP addresses or sub-networks.
 A trailing "T" can be used to indicate a trusted IP or sub-network, such as {val}192.168.1.*T{/}.
 END_SYNTAX
 
@@ -1675,13 +1675,13 @@ EXAMPLE:
 <b>Sub-networks:</b> 192.168.1.0/255.255.255.0, 192.168.1.0/24, 192.168.1, or
 192.168.1.*
 
-<b>IPv6 addresses:</b> ::1 or [::1] 
+<b>IPv6 addresses:</b> ::1 or [::1]
 
-<b>IPv6 subnets:</b> 3ffe:302:11:2:20f:1fff:fe29:717c/64 or 
-[3ffe:302:11:2:20f:1fff:fe29:717c]/64 
+<b>IPv6 subnets:</b> 3ffe:302:11:2:20f:1fff:fe29:717c/64 or
+[3ffe:302:11:2:20f:1fff:fe29:717c]/64
 END_EXAMPLE
 
-TIPS: [S] Trusted IPs or sub-networks set at the server level access 
+TIPS: [S] Trusted IPs or sub-networks set at the server level access
 control will be excluded from connection/throttling limits.
 END_TIPS
 
@@ -1692,33 +1692,33 @@ END_TIPS
 [ITEM]
 ID: accessControl_deny
 NAME: Denied List
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies the list of IPs or sub-networks disallowed.
 END_DESCR
 
-EDITTIP: To deny access from certain address, put "ALL" in allowed list, and put subnet or IP in denied 
+EDITTIP: To deny access from certain address, put "ALL" in allowed list, and put subnet or IP in denied
 list. To allow only certain IP or subnet to access the site, put "ALL" in denied list and specify the address in the allowed list.
 END_EDITTIP
 
-SYNTAX: Comma delimited list of IP addresses or sub-networks. 
-{val}*{/} or {val}ALL{/} are accepted. 
+SYNTAX: Comma delimited list of IP addresses or sub-networks.
+{val}*{/} or {val}ALL{/} are accepted.
 END_SYNTAX
 
 EXAMPLE:
 <b>Sub-networks:</b> 192.168.1.0/255.255.255.0, 192.168.1.0/24, 192.168.1, or
 192.168.1.*
 
-<b>IPv6 addresses:</b> ::1 or [::1] 
+<b>IPv6 addresses:</b> ::1 or [::1]
 
-<b>IPv6 subnets:</b> 3ffe:302:11:2:20f:1fff:fe29:717c/64 or 
-[3ffe:302:11:2:20f:1fff:fe29:717c]/64 
+<b>IPv6 subnets:</b> 3ffe:302:11:2:20f:1fff:fe29:717c/64 or
+[3ffe:302:11:2:20f:1fff:fe29:717c]/64
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -1739,7 +1739,7 @@ END_DESCR
 CONT: wpProtectAction wpProtectLimit
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -1749,14 +1749,14 @@ ID: perClientConnLimit
 NAME: Per Client Throttling
 NS: EO
 
-DESCR: These are connection control settings are based on client IP. 
+DESCR: These are connection control settings are based on client IP.
 These settings help to mitigate DoS (Denial of Service) and DDoS (Distributed Denial of Service) attacks.
 END_DESCR
 
-CONT: staticReqPerSec dynReqPerSec outBandwidth inBandwidth softLimit hardLimit blockBadReq gracePeriod banPeriod 
+CONT: staticReqPerSec dynReqPerSec outBandwidth inBandwidth softLimit hardLimit blockBadReq gracePeriod banPeriod
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -1766,14 +1766,14 @@ ID: perClientConnLimit
 NAME: Per Client Throttling
 NS: L
 
-DESCR: These are connection control setting on a per client/IP basis. 
+DESCR: These are connection control setting on a per client/IP basis.
 These settings help to mitigate DoS (Denied of Service) and DDoS (Distributed Denied of Service) attacks.
 END_DESCR
 
-CONT: dynReqPerSec outBandwidth inBandwidth softLimit hardLimit blockBadReq gracePeriod banPeriod 
+CONT: dynReqPerSec outBandwidth inBandwidth softLimit hardLimit blockBadReq gracePeriod banPeriod
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -1782,15 +1782,15 @@ SEE_ALSO:
 ID: fileAccessControl
 NAME: File Access
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: followSymbolLink checkSymbolLink forceStrictOwnership requiredPermissionMask
 restrictedPermissionMask restrictedScriptPermissionMask
-restrictedDirPermissionMask 
+restrictedDirPermissionMask
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -1819,7 +1819,7 @@ NAME: CGI Settings
 NS: O
 
 DESCR: The following settings control CGI processes. Memory and process limits also serve as the default for
-other external applications if limits have not been set explicitly for those applications. 
+other external applications if limits have not been set explicitly for those applications.
 END_DESCR
 
 CONT: cgidSock maxCGIInstances minUID minGID forceGID umask CGIPriority CPUSoftLimit CPUHardLimit
@@ -1835,13 +1835,13 @@ SEE_ALSO:
 ID: accessDeny
 NAME: Access Denied Directories
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: accessDenyDir 
+CONT: accessDenyDir
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -1850,32 +1850,32 @@ SEE_ALSO:
 ID: accessControl
 NAME: Access Control
 
-DESCR: Specifies what sub networks and/or IP addresses can access the server. 
-At the server level, this setting will affect all virtual hosts. You can also set up 
-access control unique to each virtual host at the virtual host level. Virtual host level settings will NOT 
-override server level settings. 
+DESCR: Specifies what sub networks and/or IP addresses can access the server.
+At the server level, this setting will affect all virtual hosts. You can also set up
+access control unique to each virtual host at the virtual host level. Virtual host level settings will NOT
+override server level settings.
 
 
-Blocking/Allowing an IP is determined by the combination of the allowed list and the denied list. 
-If you want to block only certain IPs or sub-networks, put {val}*{/} or {val}ALL{/} in 
-the {ITEM=accessControl_allow} and list the blocked IPs or sub-networks in the {ITEM=accessControl_deny}. 
-If you want to allow only certain IPs or sub-networks, put {val}*{/} or {val}ALL{/} 
-in the {ITEM=accessControl_deny} and list the allowed IPs or sub-networks in the {ITEM=accessControl_allow}. 
+Blocking/Allowing an IP is determined by the combination of the allowed list and the denied list.
+If you want to block only certain IPs or sub-networks, put {val}*{/} or {val}ALL{/} in
+the {ITEM=accessControl_allow} and list the blocked IPs or sub-networks in the {ITEM=accessControl_deny}.
+If you want to allow only certain IPs or sub-networks, put {val}*{/} or {val}ALL{/}
+in the {ITEM=accessControl_deny} and list the allowed IPs or sub-networks in the {ITEM=accessControl_allow}.
 The setting of the smallest scope that fits for an IP will be used to determine access.
 
 
-<b>Server Level:</b> Trusted IPs or sub-networks must be specified in the {ITEM=accessControl_allow} by adding a 
-trailing "T". Trusted IPs or sub-networks are not affected by connection/throttling limits. 
+<b>Server Level:</b> Trusted IPs or sub-networks must be specified in the {ITEM=accessControl_allow} by adding a
+trailing "T". Trusted IPs or sub-networks are not affected by connection/throttling limits.
 Only server level access control can set up trusted IPs/sub-networks.
 END_DESCR
 
 TIPS: [S] Use this at the server level for general restrictions that apply to all virtual hosts.
 END_TIPS
 
-CONT: accessControl_allow accessControl_deny 
+CONT: accessControl_allow accessControl_deny
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -1969,51 +1969,51 @@ SEE_ALSO:
 ################ Pages ################
 
 [PAGE]
-ID: ServSecurity_Help 
+ID: ServSecurity_Help
 NAME: Server Security
 NS: L
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: sec:dos wpProtect reqCensorship reqCensorshipRule perClientConnLimit lsrecaptcha accessControl
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
 
 [PAGE]
-ID: ServSecurity_Help 
+ID: ServSecurity_Help
 NAME: Server Security
 NS: E
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: wpProtect reqCensorship reqCensorshipRule perClientConnLimit fileAccessControl cgiResource lsrecaptcha
 accessDeny accessControl
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
 
 [PAGE]
-ID: ServSecurity_Help 
+ID: ServSecurity_Help
 NAME: Server Security
 NS: O
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: fileAccessControl perClientConnLimit cgiResource lsrecaptcha
 accessDeny accessControl
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 

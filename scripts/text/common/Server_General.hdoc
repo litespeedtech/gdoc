@@ -778,18 +778,17 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies whether to use the IP address listed in the "X-Forwarded-For" HTTP
-request header for all IP address-related features, including
-connection/bandwidth throttling, access control, and IP geolocation.
+DESCR: Specifies whether to use the IP address listed in the "X-Forwarded-For" HTTP request header for all IP
+address-related features, including connection/bandwidth throttling, access control, and IP geolocation.
 
 
 This feature is useful if your web server is behind a load balancer or a proxy server.
-If you select "Trusted IP Only", then X-Forwarded-For IP will be used only when the request
- is coming from trusted IPs defined in the server-level {ITEM=ServSecurity_Help#accessControl_allow}.
+If you select "Trusted IP Only", then X-Forwarded-For IP will be used only when the request is coming from trusted IPs
+defined in the server-level {ITEM=ServSecurity_Help#accessControl_allow}.
 
 
-"Keep Header from Trusted IP" is the same as "Trusted IP Only", but the
-X-Forwarded-For header used for the backend will not be modified to include the connecting peer address.
+"Keep Header from Trusted IP" is the same as "Trusted IP Only", but the X-Forwarded-For header used for the backend will
+not be modified to include the connecting peer address.
 END_DESCR
 
 SYNTAX: select

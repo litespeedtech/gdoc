@@ -4,63 +4,7 @@
 ############# Web Application Protection #############
 
 
-[ITEM]
-ID: vh_wpProtect
-NAME: WordPress Brute Force Protection
-NS: E
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO:
-
-DESCR: Specifies the maximum number of wp-login.php and xmlrpc.php POST attempts allowed within 5 minutes before 
-the IP is banned.
-
-
-This limit is handled using a quota system where limit = quota. Each POST attempt will decrease the quota by 1 with the 
-quota increasing back to the set limit over time. The IP will be throttled starting at 1/2 the set limit, slowing more as the 
-quota drops further. When the quota reaches 0, the IP is banned.
-
-
-Resetting the server will clear blocked IPs.
-
-
-Default value is {val}1{/}.
-END_DESCR
-
-SYNTAX:
-Valid Range: {val}5 - 1000{/}, use {val}1{/} to use Server level setting or {val}0{/} to disable.
-END_SYNTAX
-
-EXAMPLE:
-With a limit of 10:
-
-
-Starting quota: 10
-
-
-Throttling begins: 5
-
-
-Throttling worsens: 4-1
-
-
-IP is banned: 0
-END_EXAMPLE
-
-TIPS:
-[S] Trusted IPs or sub-networks are not affected.
-
-
-[I] This setting will override Apache conf {val}WordPressProtect{/} setting for LSWS only. Apache will be unaffected.
-
-
-[I] This setting will override the Server level setting. If not overridden here, this setting can also be overridden in a 
-user's docroot .htaccess file using Apache configuration directive {val}WordPressProtect{/} with value 
-{val}0{/} (disabled), {val}1{/} (use server level setting), or {val}5 - 1000{/}. (Values 2 - 4 will be treated as 5)
-END_TIPS
-
-[END_ITEM]
+# See Server_Security.hdoc #
 
 
 
@@ -86,8 +30,8 @@ ID: enableHotlinkCtrl
 NAME: Enable Hotlink Protection
 REQUIRED: 1
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies whether to activate hotlink protection.
 END_DESCR
@@ -95,10 +39,10 @@ END_DESCR
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -110,8 +54,8 @@ ID: suffixes
 NAME: Suffix
 REQUIRED: 1
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies what kinds of files will be protected from hotlinking
 by listing file suffixes.
@@ -120,10 +64,10 @@ END_DESCR
 SYNTAX: Comma delimited list. "." is prohibited
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -135,26 +79,26 @@ ID: redirectUri
 NAME: Redirect URL
 REQUIRED: 0
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies a URL that a user will be redirected to when a
 hotlinking action is detected. You can redirect users to an image or
-page saying hotlinking is not allowed. If it is not specified, 
-{val}403 Forbidden{/} will be returned. 
+page saying hotlinking is not allowed. If it is not specified,
+{val}403 Forbidden{/} will be returned.
 END_DESCR
 
-EDITTIP: If "Redirect URL" is set, a hotlink attempt will be redirected to the url specified; otherwise, access denied status 
+EDITTIP: If "Redirect URL" is set, a hotlink attempt will be redirected to the url specified; otherwise, access denied status
 code will be returned.
 END_EDITTIP
 
 SYNTAX: Absolute URL
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -166,27 +110,27 @@ ID: allowDirectAccess
 NAME: Allow Direct Access
 REQUIRED: 0
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies whether to allow direct access without a referrer. 
-A referrer header identifies the web page that linked to the current page. 
+DESCR: Specifies whether to allow direct access without a referrer.
+A referrer header identifies the web page that linked to the current page.
 There is no "referrer" header in HTTP requests when a user types
-in an address directly in the address box or uses a feature like "save target link as". 
+in an address directly in the address box or uses a feature like "save target link as".
 END_DESCR
 
-EDITTIP: Set "Allow Direct Access" to "Yes" if it is preferred to allow direct 
-access without a referrer. For e.g., there is no referrer when a user key in a url in a browser and some proxy will suppress 
+EDITTIP: Set "Allow Direct Access" to "Yes" if it is preferred to allow direct
+access without a referrer. For e.g., there is no referrer when a user key in a url in a browser and some proxy will suppress
 "Referrer" header.
 END_EDITTIP
 
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -198,16 +142,16 @@ ID: onlySelf
 NAME: Only Self Reference
 REQUIRED: 0
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies whether to only allow references from the current web site
 itself. When set to {val}Yes{/}, {ITEM=allowedHosts} has no effect and no
-other web site can link to protected files. This can be convenient if you wish to 
-park multiple domain names on the current web site. 
+other web site can link to protected files. This can be convenient if you wish to
+park multiple domain names on the current web site.
 END_DESCR
 
-EDITTIP: Set "Only Self Reference" to "Yes" will only allow links from same web site and there is no need to specify 
+EDITTIP: Set "Only Self Reference" to "Yes" will only allow links from same web site and there is no need to specify
 "Allowed Domains". It is more convenient when multiple domains are parked.
 END_EDITTIP
 
@@ -217,10 +161,10 @@ END_EDITTIP
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -232,8 +176,8 @@ ID: allowedHosts
 NAME: Allowed Domains
 REQUIRED: 1
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies which web sites can link to protected content.
 END_DESCR
@@ -241,10 +185,10 @@ END_DESCR
 SYNTAX: Comma delimited list of domain names.
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -256,8 +200,8 @@ ID: matchedHosts
 NAME: REGEX Matched Domains
 REQUIRED: 0
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies web sites that can link to protected content in
 regular expressions. The regular expression will match the domain
@@ -271,7 +215,7 @@ END_SYNTAX
 EXAMPLE: ^.*\.mydomain\.com$
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -326,13 +270,13 @@ END_TIPS
 [ITEM]
 ID: realmType
 NAME: DB Type
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies how user/group data is stored for an authorization realm. Currently,
-user/group data can be stored in flat files or on a LDAP server. 
+user/group data can be stored in flat files or on a LDAP server.
 END_DESCR
 
 EDITTIP: Currently password file and LDAP are supported for user DB and group DB.
@@ -341,10 +285,10 @@ END_EDITTIP
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -357,10 +301,10 @@ END_TIPS
 [ITEM]
 ID: realmName
 NAME: Realm Name
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies a unique name for the authorization realm.
 END_DESCR
@@ -371,10 +315,10 @@ END_EDITTIP
 SYNTAX: text
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -384,20 +328,20 @@ END_TIPS
 [ITEM]
 ID: userDBLocation
 NAME: User DB Location
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
+SINCE:
 SEE_ALSO:  {ITEM=GroupDBLocation}, {ITEM=userDB_attrPasswd}, {ITEM=userDB_attrMemberOf}
 
-DESCR: Specifies the location of the user database. 
+DESCR: Specifies the location of the user database.
 For DB type {val}Password File{/}, it is the path to the flat file
 containing user/password definitions.
 You can edit this file through the WebAdmin console by clicking on the filename.
 
 
-Each line of the user file contains a username followed by a colon, 
-followed by a crypt() encrypted password, optionally followed by a colon 
-and group names that user belongs to. Group names are delimitated by commas. 
+Each line of the user file contains a username followed by a colon,
+followed by a crypt() encrypted password, optionally followed by a colon
+and group names that user belongs to. Group names are delimitated by commas.
 If group information is specified in the user database, then the group
 database will not be checked.
 
@@ -419,7 +363,7 @@ optionally specified by the {ITEM=userDB_attrMemberOf}.
 
 Example: At minimum, a user can be defined in LDAP with object
 classes: uidObject, simpleSecurityObject and organizationalRole. The
-following URL could be used: 
+following URL could be used:
 
 
 <blockquote><code>ldap://localhost/ou=UserDB,dc=example,dc=com???(&(objectClass=*)(uid=$k))</code></blockquote>
@@ -430,12 +374,12 @@ END_DESCR
 SYNTAX: Path to user DB file or LDAP URL (RFC 2255).
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: [S] It is recommended to store user password files outside of the document tree. 
-If a user password file has to be placed inside document tree, simply name it with a leading ".ht" 
-like {val}.htuser{/} to prevent it being served as a static file.  LiteSpeed Web Server 
+TIPS: [S] It is recommended to store user password files outside of the document tree.
+If a user password file has to be placed inside document tree, simply name it with a leading ".ht"
+like {val}.htuser{/} to prevent it being served as a static file.  LiteSpeed Web Server
 does not serve files prefixed with ".ht".
 END_TIPS
 
@@ -446,24 +390,24 @@ END_TIPS
 [ITEM]
 ID: userDBMaxCacheSize
 NAME: User DB Max Cache Size
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the maximum cache size of the user database. 
-Recently accessed user authentication data will be cached in memory 
+DESCR: Specifies the maximum cache size of the user database.
+Recently accessed user authentication data will be cached in memory
 to provide maximum performance.
 END_DESCR
 
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: [P] As a larger cache will consume more memory, 
-a higher value may or may not provide better performance. Set it to an appropriate size according 
+TIPS: [P] As a larger cache will consume more memory,
+a higher value may or may not provide better performance. Set it to an appropriate size according
 to your user database size and site usage.
 END_TIPS
 
@@ -474,26 +418,26 @@ END_TIPS
 [ITEM]
 ID: userDBCacheTimeout
 NAME: User DB Cache Timeout (secs)
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies how often the backend user database will be checked for changes.  
-Every entry in the cache has a timestamp. 
-When cached data is older than the specified timeout, the backend database will be checked 
-for changes. If there is no change, the timestamp will be reset to the current time, otherwise 
+DESCR: Specifies how often the backend user database will be checked for changes.
+Every entry in the cache has a timestamp.
+When cached data is older than the specified timeout, the backend database will be checked
+for changes. If there is no change, the timestamp will be reset to the current time, otherwise
 the new data will be loaded. Sevrer reload and graceful restart will clear the cache immediately.
 END_DESCR
 
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: [P] If the backend database does not change very often, 
-set a longer timeout for better performance. 
+TIPS: [P] If the backend database does not change very often,
+set a longer timeout for better performance.
 END_TIPS
 
 [END_ITEM]
@@ -503,41 +447,41 @@ END_TIPS
 [ITEM]
 ID: GroupDBLocation
 NAME: Group DB Location
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
+SINCE:
 SEE_ALSO: {ITEM=userDBLocation}, Context {ITEM=Context_Help#required}, {ITEM=groupDB_attrGroupMember}
 
-DESCR: Specifies the location of the group database. 
+DESCR: Specifies the location of the group database.
 
 Group information can be set either in the user database or in this
 standalone group DB. For user authentication, the user DB will be checked
 first. If the user DB also contains group information, then the group DB will
-not be checked. 
+not be checked.
 
 
-For the DB type {val}Password File{/}, the group DB location should be the path to 
-the flat file containing group definitions. You can edit this file through the 
-WebAdmin console by clicking on the filename. 
+For the DB type {val}Password File{/}, the group DB location should be the path to
+the flat file containing group definitions. You can edit this file through the
+WebAdmin console by clicking on the filename.
 
 
-Each line of a group file should contain a groupname followed by a colon,  
+Each line of a group file should contain a groupname followed by a colon,
 followed by space delimited group of usernames. Example:
 
-<blockquote><code>testgroup: user1 user2 user3</code></blockquote> 
+<blockquote><code>testgroup: user1 user2 user3</code></blockquote>
 
-For the DB type {val}LDAP{/}, the group DB location should be the LDAP URL to query 
+For the DB type {val}LDAP{/}, the group DB location should be the LDAP URL to query
 for group information. For each valid group, one and only
-one record should be returned in the LDAP search request based on 
+one record should be returned in the LDAP search request based on
 this URL and the group name specified in {ITEM=Redirect_Context#required}. "$k"
 must be specified in the filter part of the URL and it will be
-replaced with the group name. The name of the attribute that 
+replaced with the group name. The name of the attribute that
 specifies members in this group
 is specified by the {ITEM=groupDB_attrGroupMember}.
 
 
 Example: If objectClass posixGroup is being used to store group
-information. The following URL could be used: 
+information. The following URL could be used:
 
 <blockquote><code>ldap://localhost/ou=GroupDB,dc=example,dc=com???(&(objectClass=*)(cn=$k))</code></blockquote>
 
@@ -546,12 +490,12 @@ END_DESCR
 SYNTAX: file3
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: [S] It is recommended to store a group file outside the document tree. 
-If it has to be placed inside document tree, simply name it with a leading ".ht" 
-like {val}.htgroup{/}, to prevent the file being served as a static file.  LiteSpeed Web Server 
+TIPS: [S] It is recommended to store a group file outside the document tree.
+If it has to be placed inside document tree, simply name it with a leading ".ht"
+like {val}.htgroup{/}, to prevent the file being served as a static file.  LiteSpeed Web Server
 does not serve files prefixed with ".ht".
 END_TIPS
 
@@ -562,22 +506,22 @@ END_TIPS
 [ITEM]
 ID: groupDBMaxCacheSize
 NAME: Group DB Max Cache Size
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
+SINCE:
 SEE_ALSO: {ITEM=userDBMaxCacheSize}
 
-DESCR: Specifies the maximum cache size of the group database. 
+DESCR: Specifies the maximum cache size of the group database.
 END_DESCR
 
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS:  [P] As a larger cache will consume more memory, 
-a higher value may or may not provide better performance. Set it to an appropriate size according 
+TIPS:  [P] As a larger cache will consume more memory,
+a higher value may or may not provide better performance. Set it to an appropriate size according
 to your user database size and site usage.
 END_TIPS
 
@@ -588,22 +532,22 @@ END_TIPS
 [ITEM]
 ID: groupDBCacheTimeout
 NAME: Group DB Cache Timeout (secs)
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
+SINCE:
 SEE_ALSO: {ITEM=userDBCacheTimeout}
 
-DESCR: Specifies how often the backend group database will be checked for changes. 
+DESCR: Specifies how often the backend group database will be checked for changes.
 For more detail please refer to {ITEM=userDBCacheTimeout}.
 END_DESCR
 
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -616,10 +560,10 @@ END_TIPS
 [ITEM]
 ID: userDB_attrPasswd
 NAME: Password Attribute
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies the name of the password attribute for a user record
 stored in an LDAP server. The default value is {val}userPassword{/}.
@@ -628,10 +572,10 @@ END_DESCR
 SYNTAX: string
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -641,23 +585,23 @@ END_TIPS
 [ITEM]
 ID: userDB_attrMemberOf
 NAME: Member-of Attribute
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the name of the "Member-of" attribute for a user record 
-stored in an LDAP server. The default value is {val}memberOf{/}. The "Member-of" 
+DESCR: Specifies the name of the "Member-of" attribute for a user record
+stored in an LDAP server. The default value is {val}memberOf{/}. The "Member-of"
 attribute can be used to specify the group name that the user belongs to.
 END_DESCR
 
 SYNTAX: string
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -667,22 +611,22 @@ END_TIPS
 [ITEM]
 ID: groupDB_attrGroupMember
 NAME: Group Member Attribute
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies the name of the "Member" attribute for a group record
-stored in an LDAP server. The default value is {val}memberUid{/}. 
+stored in an LDAP server. The default value is {val}memberUid{/}.
 END_DESCR
 
 SYNTAX: string
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -692,23 +636,23 @@ END_TIPS
 [ITEM]
 ID: LDAPBindDN
 NAME: LDAP Bind DN
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
+SINCE:
 SEE_ALSO: {ITEM=LDAPBindPasswd}
 
-DESCR: Specifies a DN used to bind to the server. If the LDAP server 
+DESCR: Specifies a DN used to bind to the server. If the LDAP server
 requires authentication, a bind DN and password must be specified. If
-not specified, anonymous bind will be used. 
+not specified, anonymous bind will be used.
 END_DESCR
 
 SYNTAX: string
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -718,22 +662,22 @@ END_TIPS
 [ITEM]
 ID: LDAPBindPasswd
 NAME: LDAP Bind Password
-REQUIRED: 
+REQUIRED:
 APPLY: 2
-SINCE: 
+SINCE:
 SEE_ALSO: {ITEM=LDAPBindDN}
 
-DESCR: Specifies a password used to bind to the server. If the LDAP Server 
-requires authentication, a bind DN and password must be specified.  
+DESCR: Specifies a password used to bind to the server. If the LDAP Server
+requires authentication, a bind DN and password must be specified.
 END_DESCR
 
 SYNTAX: string
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -746,11 +690,11 @@ END_TIPS
 [ITEM]
 ID: UDBgroup
 NAME: Groups
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
+SINCE:
 
-DESCR: 
+DESCR:
 END_DESCR
 
 EDITTIP: If you enter group information here, the group DB will not be checked.
@@ -766,11 +710,11 @@ END_EDITTIP
 [ITEM]
 ID: users
 NAME: Users
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
+SINCE:
 
-DESCR: 
+DESCR:
 END_DESCR
 
 EDITTIP: Group DB will be checked only if the user in the user DB does not contain group information..
@@ -784,22 +728,6 @@ END_EDITTIP
 
 
 ################ Tables ################
-
-
-[TBL]
-ID: vh_webAppProtection
-NAME: Web Application Protection
-NS: E
-
-DESCR:
-END_DESCR
-
-CONT: vh_wpProtect
-END_CONT
-
-SEE_ALSO: 
-[END_TBL]
-
 
 
 [TBL]
@@ -828,15 +756,15 @@ introduces additional bandwidth usage that you should not be responsible for.
 
 
 LiteSpeed web server can prevent others from hotlinking to content on
-your web site by checking the Referer header within an HTTP request. 
+your web site by checking the Referer header within an HTTP request.
 If the Referer header does not match your website, the request will be denied.
 END_DESCR
 
-CONT: enableHotlinkCtrl suffixes redirectUri allowDirectAccess 
+CONT: enableHotlinkCtrl suffixes redirectUri allowDirectAccess
 onlySelf allowedHosts matchedHosts
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -846,18 +774,18 @@ ID: realms
 NAME: Authorization Realms
 NS: LE
 
-DESCR: Lists all authorization realms for this virtual host. 
+DESCR: Lists all authorization realms for this virtual host.
 Authorization realms are used to block unauthorized users from accessing protected web pages.
-A realm is a user directory containing usernames and passwords with optional 
-group classifications. Authorization is performed at the context level. 
-Because different contexts can share the same realm (user database), realms are 
-defined separately from the contexts that use them. 
-You can refer to a realm by these names in a contexts configuration. 
+A realm is a user directory containing usernames and passwords with optional
+group classifications. Authorization is performed at the context level.
+Because different contexts can share the same realm (user database), realms are
+defined separately from the contexts that use them.
+You can refer to a realm by these names in a contexts configuration.
 END_DESCR
 
 CONT: realmName realmType userDBLocation userDB_attrPasswd
-userDB_attrMemberOf userDBMaxCacheSize userDBCacheTimeout 
-GroupDBLocation groupDB_attrGroupMember groupDBMaxCacheSize 
+userDB_attrMemberOf userDBMaxCacheSize userDBCacheTimeout
+GroupDBLocation groupDB_attrGroupMember groupDBMaxCacheSize
 groupDBCacheTimeout LDAPBindDN LDAPBindPasswd UDBgroup users
 END_CONT
 
@@ -870,21 +798,21 @@ ID: realms
 NAME: Authorization Realms
 NS: O
 
-DESCR: Lists all authorization realms for this virtual host. 
+DESCR: Lists all authorization realms for this virtual host.
 Authorization realms are used to block unauthorized users from accessing protected web pages.
-A realm is a user directory containing usernames and passwords with optional 
-group classifications. Authorization is performed at context level. 
-Since different contexts can share the same realm (user database), so realms are 
-defined separately from the contexts that use them. 
-You can refer to a realm by these names in context configuration. 
+A realm is a user directory containing usernames and passwords with optional
+group classifications. Authorization is performed at context level.
+Since different contexts can share the same realm (user database), so realms are
+defined separately from the contexts that use them.
+You can refer to a realm by these names in context configuration.
 END_DESCR
 
-CONT: realmName userDBLocation userDBMaxCacheSize userDBCacheTimeout 
-GroupDBLocation groupDBMaxCacheSize 
+CONT: realmName userDBLocation userDBMaxCacheSize userDBCacheTimeout
+GroupDBLocation groupDBMaxCacheSize
 groupDBCacheTimeout UDBgroup users
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -961,50 +889,50 @@ SEE_ALSO:
 
 
 [PAGE]
-ID: VHSecurity_Help 
+ID: VHSecurity_Help
 NAME: Virtual Host Security
 NS: L
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: vhBandwidthThrottlingControl tpSecThrottle VHlsrecaptcha accessControl realms VHreqCensorship
 reqCensorshipRule
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
 
 [PAGE]
-ID: VHSecurity_Help 
+ID: VHSecurity_Help
 NAME: Virtual Host Security
 NS: E
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: vh_webAppProtection VHreqCensorship VHreqCensorship reqCensorshipRule VHlsrecaptcha vhHotlink accessControl realms
+CONT: VHreqCensorship VHreqCensorship reqCensorshipRule VHlsrecaptcha vhHotlink accessControl realms
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
 
 [PAGE]
-ID: VHSecurity_Help 
+ID: VHSecurity_Help
 NAME: Virtual Host Security
 NS: O
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: VHlsrecaptcha accessControl realms
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
