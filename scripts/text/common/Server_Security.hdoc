@@ -85,7 +85,12 @@ DESCR: Specifies the action to be taken when the specified Allowed Login Attempt
 {val}deny{/} returns a 403 response, and {val}captcha or drop{/} redirects to a captcha if reCaptcha Protection is enabled and
 drops otherwise.
 
-Default value is {val}Throttle{/}.
+
+Default values:
+
+<b>Server level:</b> {val}Throttle{/}
+
+<b>VH level:</b> Inherit Server level setting. If Server level is set to {val}Disable{/}, {val}Throttle{/} will be used.
 END_DESCR
 
 SYNTAX: select
@@ -127,7 +132,12 @@ DESCR: Specifies the action to be taken when the specified Allowed Login Attempt
 {val}deny{/} returns a 403 response, and {val}captcha or drop{/} redirects to a captcha if reCaptcha Protection is enabled and
 drops otherwise.
 
-Default value is {val}Disable{/}.
+
+Default values:
+
+<b>Server level:</b> {val}Throttle{/}
+
+<b>VH level:</b> Inherit Server level setting. If Server level is set to {val}Disable{/}, {val}Throttle{/} will be used.
 END_DESCR
 
 SYNTAX: select
