@@ -1758,7 +1758,7 @@ END_TIPS
 
 [TBL]
 ID: wpProtect
-NAME: WordPress Brute Force Attacks Protection
+NAME: WordPress Brute Force Attack Protection
 NS: LE
 
 DESCR:
