@@ -168,20 +168,29 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR:
-Specifies the maximum number of wp-login.php and xmlrpc.php POST attempts allowed within 5 minutes before the action
-specified in Protection Mode is taken.
+DESCR: Specifies the maximum number of wp-login.php and xmlrpc.php POST attempts allowed by an IP within 5 minutes
+before the action specified in {ITEM=wpProtectAction} is taken.
 
 
-This limit is handled using a quota system where limit = quota. Each POST attempt will decrease the quota by 1 with the
-quota increasing back to the set limit over time. The IP will be throttled starting at 1/2 the set limit, slowing more as the
-quota drops further. When the quota reaches 0, the specified action is taken toward the IP.
+This limit is handled using a quota system where remaining attempts = limit. Each POST attempt will decrease the number
+of remaining attempts by 1, with the number of remaining attempts increasing back to the set limit over time. An IP will be
+throttled once the number of remaining attempts for that IP falls to 1/2 the set limit, throttling more as the remaining attempts
+drops further below the 1/2 mark. When remaining attempts reaches 0, the specified action is taken toward the IP.
+
+
+In addition to this, if {ITEM=enableRecaptcha} is also enabled, an additional per worker protection will be added. If
+wp-login.php and xmlrpc.php are are visited by the same worker at a rate of 4x the set limit in a 30 second time frame, those
+URLs will be put into reCAPTCHA mode until the number of visits to these files decreases.
 
 
 Resetting the server will clear blocked IPs.
 
 
-Default value is {val}10{/}.
+Default values:
+
+<b>Server-level:</b> {val}10{/}
+
+<b>VH-Level:</b> Inherit Server level setting
 END_DESCR
 
 SYNTAX: Valid Range: 3 - 1000.
@@ -228,20 +237,29 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR:
-Specifies the maximum number of wp-login.php and xmlrpc.php POST attempts allowed within 5 minutes before the action
-specified in Protection Mode is taken.
+DESCR: Specifies the maximum number of wp-login.php and xmlrpc.php POST attempts allowed by an IP within 5 minutes
+before the action specified in {ITEM=wpProtectAction} is taken.
 
 
-This limit is handled using a quota system where limit = quota. Each POST attempt will decrease the quota by 1 with the
-quota increasing back to the set limit over time. The IP will be throttled starting at 1/2 the set limit, slowing more as the
-quota drops further. When the quota reaches 0, the specified action is taken toward the IP.
+This limit is handled using a quota system where remaining attempts = limit. Each POST attempt will decrease the number
+of remaining attempts by 1, with the number of remaining attempts increasing back to the set limit over time. An IP will be
+throttled once the number of remaining attempts for that IP falls to 1/2 the set limit, throttling more as the remaining attempts
+drops further below the 1/2 mark. When remaining attempts reaches 0, the specified action is taken toward the IP.
+
+
+In addition to this, if {ITEM=enableRecaptcha} is also enabled, an additional per worker protection will be added. If
+wp-login.php and xmlrpc.php are are visited by the same worker at a rate of 4x the set limit in a 30 second time frame, those
+URLs will be put into reCAPTCHA mode until the number of visits to these files decreases.
 
 
 Resetting the server will clear blocked IPs.
 
 
-Default value is {val}10{/}.
+Default values:
+
+<b>Server-level:</b> {val}10{/}
+
+<b>VH-Level:</b> Inherit Server level setting
 END_DESCR
 
 SYNTAX: Valid Range: 3 - 1000.
