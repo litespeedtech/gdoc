@@ -1327,7 +1327,7 @@ level before the reCaptcha Protection feature can be used.
 
 Default values:
 
-<b>Server-level:</b> Yes
+<b>Server-level:</b> {val}Yes{/}
 
 <b>VH-Level:</b> Inherit Server level setting
 END_DESCR
@@ -1362,7 +1362,11 @@ DESCR: Enable the reCaptcha Protection feature at the current level. This settin
 level before the reCaptcha Protection feature can be used.
 
 
-Default value is {val}No{/}.
+Default values:
+
+<b>Server-level:</b> {val}No{/}
+
+<b>VH-Level:</b> Inherit Server level setting
 END_DESCR
 
 EDITTIP: When this setting is set to <b>Yes</b> at the Server level, reCaptcha Protection can still be disabled at the Virtual
