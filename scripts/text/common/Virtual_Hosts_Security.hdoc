@@ -1,7 +1,7 @@
 [HELPDOC]
 
 
-############# Web Application Protection #############
+############# WordPress Brute Force Attack Protection #############
 
 
 # See Server_Security.hdoc #
@@ -896,7 +896,7 @@ NS: L
 DESCR:
 END_DESCR
 
-CONT: vhBandwidthThrottlingControl tpSecThrottle VHlsrecaptcha accessControl realms VHreqCensorship
+CONT: wpProtect vhBandwidthThrottlingControl tpSecThrottle VHlsrecaptcha accessControl realms VHreqCensorship
 reqCensorshipRule
 END_CONT
 
@@ -913,7 +913,7 @@ NS: E
 DESCR:
 END_DESCR
 
-CONT: VHreqCensorship VHreqCensorship reqCensorshipRule VHlsrecaptcha vhHotlink accessControl realms
+CONT: wpProtect VHreqCensorship VHreqCensorship reqCensorshipRule VHlsrecaptcha vhHotlink accessControl realms
 END_CONT
 
 SEE_ALSO:
