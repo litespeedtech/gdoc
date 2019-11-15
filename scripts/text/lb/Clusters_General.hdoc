@@ -302,6 +302,63 @@ END_TIPS
 
 
 
+[ITEM]
+ID: forwardIpHeader
+NAME: Forward IP Header
+REQUIRED:
+APPLY:
+SINCE: 2.6
+SEE_ALSO:
+
+DESCR: An additional header to be added to all proxy requests made to the backend server. This header will use either the
+visiting IP or the value set in the 'X-Forwarded-For' header as it's value, depending on the value set for
+{ITEM=ServGeneral_Help#useIpInProxyHeader}.
+
+
+Default value: Not Set
+END_DESCR
+
+SYNTAX: String with allowed characters a-z, A-Z, 0-9, underscore(_), and hyphen(-)
+END_SYNTAX
+
+EXAMPLE: X-Client-Ip
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: forwardByHeader
+NAME: Forwarded By Header
+REQUIRED:
+APPLY:
+SINCE: 2.6
+SEE_ALSO:
+
+DESCR: An additional header to be added to all proxy requests made to the backend server. This header's value will be set
+to the serverName value.
+
+
+Default value: Not Set
+END_DESCR
+
+SYNTAX: String with allowed characters a-z, A-Z, 0-9, underscore(_), and hyphen(-)
+END_SYNTAX
+
+EXAMPLE: X-Forwarded-By
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ########## Custom Error Messages ##########
 
 ############# Tables #############
@@ -329,7 +386,8 @@ NAME: Session Management
 DESCR:
 END_DESCR
 
-CONT: sessionExMethod sessionId sessionTimeout insertCookie cookieName showBackend
+CONT: sessionExMethod sessionId sessionTimeout insertCookie cookieName showBackend forwardIpHeader
+forwardByHeader
 END_CONT
 
 SEE_ALSO:
