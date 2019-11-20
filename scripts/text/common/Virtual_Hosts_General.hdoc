@@ -349,7 +349,7 @@ NS: L
 DESCR:
 END_DESCR
 
-CONT: vhMaxKeepAliveReq vhSmartKeepAlive vhEnableGzip enableIpGeo
+CONT: vhMaxKeepAliveReq vhEnableGzip enableIpGeo
 END_CONT
 
 SEE_ALSO:

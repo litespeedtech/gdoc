@@ -211,39 +211,6 @@ END_TIPS
 
 
 [ITEM]
-ID: smartKeepAlive
-NAME: Smart Keep-Alive
-REQUIRED:
-APPLY: 3
-SINCE:
-SEE_ALSO: Virtual Host {ITEM=VirtualHosts_Help#vhSmartKeepAlive}
-DESCR: Specifies whether to turn on Smart Keep-Alive. This option is
-effective only if {ITEM=maxKeepAliveReq} is greater than 1. If enabled,
-you can also enable/disable it at the virtual host level. Smart keep-alive
-will only establish keep-alive connections for requests of JavaScript,
-CSS Style Sheet, and image files. For html pages, the connection will not be kept alive. This
-will help serve more users more efficiently. Normally a web page
-contains multiple images and scripts that will be cached by the browser after the initial request.
-It is more efficient to send those non-html static files through a single keep-alive
-connection and have the text/html file sent through another non-keep-alive connection. This
-method will reduce idle connections and in turn increase the capacity to handle more concurrent requests
-and users.
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE:
-END_EXAMPLE
-
-TIPS: [P] Enable this for high-load web sites.
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
 ID: keepAliveTimeout
 NAME: Keep-Alive Timeout (secs)
 REQUIRED:
@@ -2166,8 +2133,7 @@ NS: L
 DESCR:
 END_DESCR
 
-CONT: maxConnections maxSSLConnections connTimeout maxKeepAliveReq
-smartKeepAlive keepAliveTimeout sndBufSize rcvBufSize
+CONT: maxConnections maxSSLConnections connTimeout maxKeepAliveReq keepAliveTimeout sndBufSize rcvBufSize
 END_CONT
 
 SEE_ALSO:
@@ -2183,8 +2149,7 @@ NS: EO
 DESCR:
 END_DESCR
 
-CONT: maxConnections maxSSLConnections connTimeout maxKeepAliveReq
-smartKeepAlive keepAliveTimeout sndBufSize rcvBufSize
+CONT: maxConnections maxSSLConnections connTimeout maxKeepAliveReq keepAliveTimeout sndBufSize rcvBufSize
 END_CONT
 
 SEE_ALSO:

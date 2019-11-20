@@ -6,22 +6,22 @@
 [ITEM]
 ID: vhName
 NAME: Virtual Host Name
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: A unique name for a virtual host. It is recommended to use the virtual host's domain name as the Virtual Host Name. 
+DESCR: A unique name for a virtual host. It is recommended to use the virtual host's domain name as the Virtual Host Name.
 Virtual Host Name can be referred to using the variable $VH_NAME.
 END_DESCR
 
 SYNTAX: text
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -37,8 +37,8 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the root directory of the virtual host. Note: This is <b>NOT</b> 
-the document root. It is recommended to place all files related to the virtual host 
+DESCR: Specifies the root directory of the virtual host. Note: This is <b>NOT</b>
+the document root. It is recommended to place all files related to the virtual host
 (like log files, html files, CGI scripts, etc.)
 under this directory. Virtual Host Root can be referred to using the variable $VH_ROOT.
 END_DESCR
@@ -104,12 +104,12 @@ END_TIPS
 [ITEM]
 ID: defaultCluster
 NAME: Default Cluster
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies the default cluster used for handling requests to this vhost. 
+DESCR: Specifies the default cluster used for handling requests to this vhost.
 END_DESCR
 
 EDITTIP: Set up the default cluster here, all traffic will be served by this cluster unless contexts has been defined.
@@ -118,10 +118,10 @@ END_EDITTIP
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -132,10 +132,10 @@ END_TIPS
 ID: configFile
 NAME: Config File
 NS: LE
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: The configuration filename and directory for this virtual host.
 END_DESCR
@@ -143,7 +143,7 @@ END_DESCR
 SYNTAX: file3
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: {val}$SERVER_ROOT/conf/vhosts/$VH_NAME.xml{/} is recommended for easy management.
@@ -157,10 +157,10 @@ END_TIPS
 ID: configFile
 NAME: Config File
 NS: O
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: The configuration filename and directory for this virtual host.
 The configuration file must be under the $SERVER_ROOT/conf/vhosts/ directory.
@@ -169,7 +169,7 @@ END_DESCR
 SYNTAX: file2
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: $SERVER_ROOT/conf/vhosts/$VH_NAME/vhconf.conf is recommended
@@ -184,12 +184,12 @@ END_TIPS
 [ITEM]
 ID: vhMaxKeepAliveReq
 NAME: Max Keep-Alive Requests
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
+SINCE:
 SEE_ALSO: {ITEM=ServTuning_Help#maxKeepAliveReq}
 
-DESCR: Specifies the maximum requests that can be served through a keep-alive (persistent) 
+DESCR: Specifies the maximum requests that can be served through a keep-alive (persistent)
 connection. Connections will be closed once this limit is reached. You
 can specify a different limit for each virtual hosts. This number
 cannot exceed the server-level {ITEM=ServTuning_Help#maxKeepAliveReq} limit.
@@ -198,38 +198,11 @@ END_DESCR
 SYNTAX: uint
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: [P] Set to a reasonably high value. A value of "1" or less will 
-disable keep-alive connections. 
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
-ID: vhSmartKeepAlive
-NAME: Smart Keep-Alive
-REQUIRED: 
-APPLY: 3
-SINCE: 
-SEE_ALSO: 
-
-DESCR: Specifies whether to turn on Smart Keep-Alive for this virtual
-host. This option is only effective if 
-{ITEM=ServTuning_Help#smartKeepAlive} is enabled at the server level and
-{ITEM=vhMaxKeepAliveReq} is greater than 1.
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: [P] Enable this for busy web sites.
+TIPS: [P] Set to a reasonably high value. A value of "1" or less will
+disable keep-alive connections.
 END_TIPS
 
 [END_ITEM]
@@ -242,20 +215,20 @@ END_TIPS
 [ITEM]
 ID: allowSymbolLink
 NAME: Follow Symbolic Link
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies whether to follow symbolic links in this virtual host. 
-{val}IF OWNER MATCH{/} option will follow a symbolic link only if it has the same ownership. 
+DESCR: Specifies whether to follow symbolic links in this virtual host.
+{val}IF OWNER MATCH{/} option will follow a symbolic link only if it has the same ownership.
 This setting overrides the default server-level setting.
 END_DESCR
 
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [P][S] For better security, disable this feature. For better performance, enable it.
@@ -268,23 +241,23 @@ END_TIPS
 [ITEM]
 ID: enableScript
 NAME: Enable Script
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies whether scripting (non-static pages) is allowed in this virtual host. 
-If disabled, CGI, FastCGI, LSAPI, Servlet engines and other scripting languages will not be allowed in this virtual host. 
+DESCR: Specifies whether scripting (non-static pages) is allowed in this virtual host.
+If disabled, CGI, FastCGI, LSAPI, Servlet engines and other scripting languages will not be allowed in this virtual host.
 Therefore, if you want to use a script handler, you need to enable it here as well.
 END_DESCR
 
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -294,16 +267,16 @@ END_TIPS
 [ITEM]
 ID: restrained
 NAME: Restrained
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies whether files beyond this virtual host root($VH_ROOT) can be accessed 
-though this web site. If set to {val}Yes{/}, only files under $VH_ROOT can be accessed  
-and access to symbolic links or context pointing to files or directories beyond $VH_ROOT 
-will be denied. This, however, does not limit the accessibility of CGI scripts. This is useful 
-in the shared hosting environment. {ITEM=allowSymbolLink} can be set to {val}Yes{/} to allow 
+DESCR: Specifies whether files beyond this virtual host root($VH_ROOT) can be accessed
+though this web site. If set to {val}Yes{/}, only files under $VH_ROOT can be accessed
+and access to symbolic links or context pointing to files or directories beyond $VH_ROOT
+will be denied. This, however, does not limit the accessibility of CGI scripts. This is useful
+in the shared hosting environment. {ITEM=allowSymbolLink} can be set to {val}Yes{/} to allow
 users to use symbolic links under $VH_ROOT, but not anything beyond $VH_ROOT.
 END_DESCR
 
@@ -313,7 +286,7 @@ END_EDITTIP
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [S] Turn it on in the shared hosting environment.
@@ -327,18 +300,18 @@ END_TIPS
 ID: setUidMode
 NAME: External App Set UID Mode
 NS: EO
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies how user ID is set for an external application process. Three choices
-are available: 
+are available:
 <ul><li>{val}Server UID{/}: Set the user/group ID of external application processes  to the same as
 the server's user/group ID.</li>
-    <li>{val}CGI File UID{/}: Set the user/group ID of external CGI processes based 
+    <li>{val}CGI File UID{/}: Set the user/group ID of external CGI processes based
 	on the user/group ID of the executable. This option only applies to CGI, not FastCGI or LSPHP.</li>
-    <li>{val}Doc Root UID{/}: Set the user/group ID of external application processes based 
+    <li>{val}Doc Root UID{/}: Set the user/group ID of external application processes based
 	on the user/group ID of the document root of the current virtual host.</li>
 </ul>
 
@@ -349,7 +322,7 @@ END_DESCR
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: [S] In the shared hosting environment, it is recommended to
@@ -430,10 +403,10 @@ END_TIPS
 [ITEM]
 ID: chrootMode
 NAME: External App Chroot Mode
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: {ent_version} Specifies how the root directory is set for an external application
 process. In order to protect confidential system data files from being
@@ -442,7 +415,7 @@ set for the external application process so that files beyond the new root direc
 inaccessible. This is referred to as a "chroot jail".
 
 
-Three choices are available: 
+Three choices are available:
 <ul><li>{val}Same as Server{/}: External application processes will be run in the same jail as the server.</li>
     <li>{val}Virtual Host Root{/}: Set chroot jail to the
 root directory of the virtual host. The external application script will only be able to access files
@@ -455,7 +428,7 @@ END_DESCR
 SYNTAX: select
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
 TIPS: If used properly, chroot will greatly enhance the security
@@ -470,12 +443,12 @@ END_TIPS
 [ITEM]
 ID: chrootPath
 NAME: External App Chroot Path
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: {ent_version} Specifies a new root directory for the current host's external application scripts  
+DESCR: {ent_version} Specifies a new root directory for the current host's external application scripts
 when {ITEM=chrootMode} is set to {val}Customized Chroot Path{/}.
 
 END_DESCR
@@ -483,10 +456,10 @@ END_DESCR
 SYNTAX: path1
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -496,10 +469,10 @@ END_TIPS
 [ITEM]
 ID: totalBandwidth
 NAME: Total Output Bandwidth (KB/sec)
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Sets a limit for the total output bandwidth in KB/s for this virtual host. Once this limit is reached throttling will occur.
 END_DESCR
@@ -521,7 +494,7 @@ ID: vhBase
 NAME: Base
 NS: EO
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: vhName vhRoot configFile
@@ -536,10 +509,10 @@ ID: vhConnection
 NAME: Connection
 NS: EO
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: vhMaxKeepAliveReq vhSmartKeepAlive
+CONT: vhMaxKeepAliveReq
 END_CONT
 
 [END_TBL]
@@ -551,7 +524,7 @@ ID: vhSecurity
 NAME: Security
 NS: E
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: allowSymbolLink enableScript restrained setUidMode suexecUser suexecGroup chrootMode chrootPath
@@ -567,7 +540,7 @@ ID: vhSecurity
 NAME: Security
 NS: O
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: allowSymbolLink enableScript restrained setUidMode suexecUser suexecGroup
@@ -582,11 +555,11 @@ ID: vhPClientThrottling
 NAME: Virtual Host
 NS: EO
 
-DESCR: 
+DESCR:
 END_DESCR
 
 CONT: staticReqPerSec dynReqPerSec
-outBandwidth inBandwidth 
+outBandwidth inBandwidth
 END_CONT
 
 [END_TBL]
@@ -598,14 +571,14 @@ ID: vhTop
 NAME: Virtual Host
 NS: L
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: vhName defaultCluster configFile 
-dynReqPerSec outBandwidth inBandwidth 
+CONT: vhName defaultCluster configFile
+dynReqPerSec outBandwidth inBandwidth
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -615,16 +588,14 @@ ID: vhTop
 NAME: Virtual Host
 NS: EO
 
-DESCR: 
+DESCR:
 END_DESCR
 
-CONT: vhName vhRoot configFile allowSymbolLink enableScript
-restrained vhMaxKeepAliveReq vhSmartKeepAlive setUidMode
-chrootMode chrootPath staticReqPerSec dynReqPerSec
-outBandwidth inBandwidth 
+CONT: vhName vhRoot configFile allowSymbolLink enableScript restrained vhMaxKeepAliveReq setUidMode chrootMode
+chrootPath staticReqPerSec dynReqPerSec outBandwidth inBandwidth
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_TBL]
 
 
@@ -633,7 +604,7 @@ SEE_ALSO:
 
 
 [PAGE]
-ID: VirtualHosts_Help 
+ID: VirtualHosts_Help
 NAME: Virtual Hosts Basic
 NS: EO
 
@@ -644,24 +615,24 @@ END_DESCR
 CONT: vhBase vhConnection vhSecurity vhPClientThrottling
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
 
 [PAGE]
-ID: VirtualHosts_Help 
+ID: VirtualHosts_Help
 NAME: Virtual Host List
 NS: L
 
 DESCR: This page lists all defined virtual hosts. From here you can add/delete a virtual host or make
-changes to an existing one. 
+changes to an existing one.
 END_DESCR
 
-CONT: vhTop 
+CONT: vhTop
 END_CONT
 
-SEE_ALSO: 
+SEE_ALSO:
 [END_PAGE]
 
 
