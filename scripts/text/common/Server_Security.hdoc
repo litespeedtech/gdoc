@@ -44,7 +44,12 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Enable firewall modifications via ifconfig and ipset.
+DESCR: Enable firewall modifications via iptables. iptables must be enabled on
+this system for this setting to take effect.
+
+
+If ipset is also installed and enabled on this system, it will be used to
+more efficiently manage firewall rulesets for iptables.
 
 
 Default value is {val}Yes{/}.
@@ -59,7 +64,8 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS:
+TIPS: [P] ipset should be installed and enabled on the system to more
+efficiently manage firewall rulesets for iptables.
 END_TIPS
 
 [END_ITEM]
