@@ -1,274 +1,388 @@
 <h1>Installation/Uninstallation</h1>
 
 <h3>Minimum system requirements</h3>
-<ul><li><strong>Operating System:</strong>
-	<ul><li>Linux(i386): kernel 2.4 and up, glibc-2.2 and up</li>
-		<li>CentOS: 5 and up</li>
-		<li>Ubuntu: 8.04 and up</li>
-        <li>Debian: 4 and up</li>
-		<li>Solaris(x86): Sun0S 5.8 and up</li>
-		<li>FreeBSD(i386): 4.5 and up</li>
-		<li>MacOSX: 10.3 and up</li>
-	</ul></li>
-	<li><strong>CPU:</strong>
-		<ul><li>Intel: 80486 and up</li>
-			<li>PowerPC: PowerPC G4</li>
-		</ul>
-	</li>
-	<li><strong>Memory:</strong> 32MB and up</li>
-	<li><strong>Disk:</strong>
-		<ul><li>Installation: 200MB</li><li>Runtime: 300MB and up, swapping space depends on usage.</li></ul></li>
+<ul>
+  <li>
+    <strong>Operating System:</strong>
+	<ul>
+      <li>Linux(i386): kernel 2.4 and up, glibc-2.2 and up</li>
+      <li>CentOS: 5 and up</li>
+      <li>Ubuntu: 8.04 and up</li>
+      <li>Debian: 4 and up</li>
+      <li>Solaris(x86): Sun0S 5.8 and up</li>
+      <li>FreeBSD(i386): 4.5 and up</li>
+      <li>MacOSX: 10.3 and up</li>
+    </ul>
+  </li>
+  <li>
+    <strong>CPU:</strong>
+    <ul>
+      <li>Intel: 80486 and up</li>
+      <li>PowerPC: PowerPC G4</li>
+    </ul>
+  </li>
+  <li><strong>Memory:</strong> 32MB and up</li>
+  <li>
+    <strong>Disk:</strong>
+    <ul>
+      <li>Installation: 200MB</li>
+      <li>Runtime: 300MB and up, swapping space depends on usage.</li>
+    </ul>
+  </li>
 </ul>
 
 <h3>Installation</h3>
 
 <p>
-  Installation must be performed in a command line terminal. For testing purposes, LiteSpeed Web Server can be installed
-  into a home directory by a non-privileged user. For production use, it should be installed into a system directory.
+  Installation must be performed in a command line terminal. For testing
+  purposes, LiteSpeed Web Server can be installed into a home directory by a
+  non-privileged user. For production use, it should be installed into a system
+  directory.
 </p>
 
 <p>
-  In Mac OS X, root user is disabled by default. It can be enabled using a series of actions detailed on the
-  <a href="https://support.apple.com/en-us/HT204012">Apple</a> website. You can also use the sudo command to install
-  LSWS into a system directory without enabling the root user, but system folders will still only be manipulable by the root
-  user. This means that every time you want to control LSWS from the command line terminal
-  (like when you want to start or stop LSWS), you will have to use the sudo command.
+  In Mac OS X, root user is disabled by default. It can be enabled using a
+  series of actions detailed on the
+  <a href="https://support.apple.com/en-us/HT204012">Apple</a> website. You can
+  also use the sudo command to install LSWS into a system directory without
+  enabling the root user, but system folders will still only be manipulable by
+  the root user. This means that every time you want to control LSWS from the
+  command line terminal (like when you want to start or stop LSWS), you will
+  have to use the sudo command.
 </p>
 
 <h4>Installation Steps:</h4>
 <ol>
-
   <li> Decompress the package into a convenient location:<br>
-    <span class="cmd">tar xvfz lsws-xxxx.tar.gz</span> or <span class="cmd">gunzip 
-    -c lsws-xxxx.tar.gz | tar xvf -</span> <br>
+    <span class="cmd">tar xvfz lsws-xxxx.tar.gz</span> or
+    <span class="cmd">gunzip -c lsws-xxxx.tar.gz | tar xvf -</span>
+    <br />
   </li>
-  <li><span class="tag">[Enterprise Edition Only]</span> Install trial license key or serial number:
+  <li>
+    <span class="tag">[Enterprise Edition Only]</span> Install trial license
+    key or serial number:
     <ul>
-      <li> Trial License: 
-           <p>A trial license is for evaluation purposes and 
-           is only good for 15 days after download. A trial license can be requested from download page.</p>
-           <p>A trial license key will be sent to you as an attachment in a confirmation email. 
-           Please save the attachment as <span class="val">trial.key</span> and copy 
-           it to the installation directory. </p>
-           <p>When you switch from a trial license to a production license, you can simply run the 
-        install script again after following the steps below to update your license.</p>
+      <li>
+        Trial License:
+        <p>
+          A trial license is for evaluation purposes and is only good for 15
+          days after download. A trial license can be requested from download
+          page.
+        </p>
+        <p>
+          A trial license key will be sent to you as an attachment in a
+          confirmation email. Please save the attachment as
+          <span class="val">trial.key</span> and copy it to the installation
+          directory.
+        </p>
+        <p>
+          When you switch from a trial license to a production license, you can
+          simply run the install script again after following the steps below
+          to update your license.
+        </p>
       </li>
-      <li> Production license:
+      <li>
+        Production license:
         <ol>
           <li>
-            Licenses can be leased or purchased at the LiteSpeed 
+            Licenses can be leased or purchased at the LiteSpeed
             <a href="https://store.litespeedtech.com/store/cart.php">store</a>.
           </li>
           <li>
-            A serial number will be sent to you in the confirmation email after you order has been successfully processed.
-            Each serial number allows for one server installation.
+            A serial number will be sent to you in the confirmation email after
+            you order has been successfully processed. Each serial number
+            allows for one server installation.
           </li>
-          <li> Save the serial number as "serial.no"; in the installation directory (where
-            install.sh is located).  The LiteSpeed products registration server will use this 
-            file to retrieve your license key during the installation process.</li>
-        </ol>        
-		</li>
+          <li>
+            Save the serial number as "serial.no"; in the installation
+            directory (where install.sh is located). The LiteSpeed products
+            registration server will use this file to retrieve your license key
+            during the installation process.
+          </li>
+        </ol>
+      </li>
     </ul>
   </li>
-  <li> 
-   <p>Go to the installation directory <span class="cmd">cd lsws-xxxx</span> 
-    and run command <span class="cmd">./install.sh</span> This will start LiteSpeed's Installer.</p>
-    <p>Note that only by running this command as the &quot;root&quot; user can you install the server 
-    into a system directory. Other users 
-    should install it to somewhere under their home directory. </p>
-    <p>Mac OS X users can install the server into a system directory with command 
-  <span class="cmd">sudo ./install.sh</span></p>
+  <li>
+    <p>
+      Go to the installation directory <span class="cmd">cd lsws-xxxx</span>
+      and run command <span class="cmd">./install.sh</span> This will start
+      LiteSpeed's Installer.
+    </p>
+    <p>
+      Note that only by running this command as the &quot;root&quot; user can
+      you install the server into a system directory. Other users should
+      install it to somewhere under their home directory.
+    </p>
+    <p>
+      Mac OS X users can install the server into a system directory with
+      command <span class="cmd">sudo ./install.sh</span>
+    </p>
   </li>
-  
-  <li> Read the End User License Agreement and type "Yes" to confirm your agreement.</li>
-  
-  <li>Specify the directory where you would like to install LiteSpeed Web Server.
-   For the root user, the default is /usr/local/lsws. For non-privileged users, 
-   the default is their home directory. Remember, non-privileged users will not be 
-   able to install the server into a system directory.</li>
-   
-  <li><span class="tag">[Enterprise Edition Only]</span> <strong>Generate license request.</strong>
-    <p>If the Installer only finds serial number but no valid license key, it will 
-    prompt to generate a license request. The installer will talk to LiteSpeed products 
-    registration server and obtain a valid license key automatically. Upon getting the 
-    license key, it will go to next step. If failed, the installer will exit and leave 
-    a license request file. </p>
-    <p>If the automatic process failed, you can create a ticket with license department 
-    from online store client area.</p>  
-    <p>Note: Installation will continue only if there is a valid trial license or valid Enterprise license. </p>
-   </li>
-
-    <li>Follow the instructions on the screen. The Installer will ask you to set the following: 
+  <li>
+    Read the End User License Agreement and type "Yes" to confirm your
+    agreement.
+  </li>
+  <li>
+    Specify the directory where you would like to install LiteSpeed Web Server.
+    For the root user, the default is /usr/local/lsws. For non-privileged users,
+    the default is their home directory. Remember, non-privileged users will
+    not be able to install the server into a system directory.
+  </li>
+  <li>
+    <span class="tag">[Enterprise Edition Only]</span>
+    <strong>Generate license request.</strong>
+    <p>
+      If the Installer only finds serial number but no valid license key, it
+      will prompt to generate a license request. The installer will talk to
+      LiteSpeed products registration server and obtain a valid license key
+      automatically. Upon getting the license key, it will go to next step. If
+      failed, the installer will exit and leave a license request file.
+    </p>
+    <p>
+      If the automatic process failed, you can create a ticket with license
+      department from online store client area.
+    </p>
+    <p>
+      Note: Installation will continue only if there is a valid trial license
+      or valid Enterprise license.
+    </p>
+  </li>
+  <li>
+    Follow the instructions on the screen. The Installer will ask you to set
+    the following:
     <ol>
-      <li> If a previously installed copy exists, the Installer will ask you to choose either
-        upgrade, reinstall, or change directory. Upgrading will keep your current 
-        configurations.</li>
-      <li> Administrator's username and password for the WebAdmin interface.</li>
-      <li> What control panel, if any, you will use with LSWS.</li>
-      <li> User and group that the server process will run on behalf of.</li>
-      <li> TCP port for normal web service.</li>
-      <li> TCP port for WebAdmin interface. </li>
-      <li> Whether to set up LiteSpeed PHP.
-      <li> <span class="tag">[Enterprise Edition Only]</span> Root user has the 
-        option to enable chroot. The installer will setup the initial chroot 
-        environment automatically. Chroot is an advanced feature and your CGI 
-        may fail without configuration tuning. We strongly recommend not enabling 
-        chroot unless you are familiar with it. You can always enable it later 
-        by performing an upgrade installation. 
+      <li>
+        If a previously installed copy exists, the Installer will ask you to
+        choose either upgrade, reinstall, or change directory. Upgrading will
+        keep your current configurations.
+      </li>
+      <li>
+        Administrator's username and password for the WebAdmin interface.
+      </li>
+      <li>What control panel, if any, you will use with LSWS.</li>
+      <li>User and group that the server process will run on behalf of.</li>
+      <li>TCP port for normal web service.</li>
+      <li>TCP port for WebAdmin interface. </li>
+      <li>Whether to set up LiteSpeed PHP.</li>
+      <li>
+        <span class="tag">[Enterprise Edition Only]</span> Root user has the
+        option to enable chroot. The installer will setup the initial chroot
+        environment automatically. Chroot is an advanced feature and your CGI
+        may fail without configuration tuning. We strongly recommend not
+        enabling chroot unless you are familiar with it. You can always enable
+        it later by performing an upgrade installation.
+      </li>
     </ol>
     <p>
-    Finally, the Installer will ask you if you want to install the AWStats add-on module to 
-    keep track of your web statistics. Root user can also choose to run LiteSpeed web server 
-    automatically at system startup as a service. Then you're done! The installer can start up the 
-    server.</p>
+      Finally, the Installer will ask you if you want to install the AWStats
+      add-on module to keep track of your web statistics. Root user can also
+      choose to run LiteSpeed Web Server automatically at system startup as a
+      service. Then you're done! The installer can start up the server.
+    </p>
   </li>
 </ol>
+
 <h4>Testing Installation</h4>
 <ol>
-<li> For detailed information on controlling the server processes,  
-    please see the <a href="admin.html">Administration Guide</a>. To start the server, 
+  <li>
+    For detailed information on controlling the server processes, please see
+    the <a href="admin.html">Administration Guide</a>. To start the server,
     simply run <span class="cmd">[your_install_dir]/bin/lswsctrl start</span>.
   </li>
-  
-  <li> To access your site, 
-    point your browser to <span class="val">http://[address]:8088/</span>, 
-    [address] being the IP address or domain name of your web server machine. 
-    Use "localhost" if the server is on the machine you are using. 
-    "8088" is the default port. If you changed the port 
-    during installation, write the port you designated. A congratulations page 
-    should load into the browser. If not, try the WebAdmin interface.
+
+  <li>
+    To access your site, point your browser to
+    <span class="val">http://[address]:8088/</span>, [address] being the IP
+    address or domain name of your web server machine. Use "localhost" if the
+    server is on the machine you are using. "8088" is the default port. If you
+    changed the port during installation, write the port you designated. A
+    congratulations page should load into the browser. If not, try the WebAdmin
+    interface.
   </li>
-  
-  <li> The default port for the WebAdmin interface is 7080. Plug 
-    <span class="val">http://[address]:7080/</span>, 
-    into your browser to go to the WebAdmin interface. (If you changed 
-    the port for WebAdmin during installation, use that port instead.) 
-    Remember that for [address] you can use "localhost" if you're using the 
-    machine the server is on. The administration interface welcome page should 
-    load. Click the "Log on" link and use the administrator's username and 
-    password specified during installation to log on. For detailed information 
-    regarding configuration, please refer to our <a href="config.html">Configuration
-    Guide</a>, or click the "help" link on top of each page. 
+
+  <li>
+    The default port for the WebAdmin interface is 7080. Plug
+    <span class="val">http://[address]:7080/</span>, into your browser to go to
+    the WebAdmin interface. (If you changed the port for WebAdmin during
+    installation, use that port instead.) Remember that for [address] you can
+    use "localhost" if you're using the machine the server is on. The
+    administration interface welcome page should load. Click the "Log on" link
+    and use the administrator's username and password specified during
+    installation to log on. For detailed information regarding configuration,
+    please refer to our <a href="config.html">Configuration Guide</a>, or click
+    the "help" link on top of each page.
   </li>
-  
-  <li> If your server uses firewall, please make sure that localhost is trusted. 
-    For instance, Linux with IPTables should include a rule <span class="cmd">ALLOW 
-    INPUT from LO</span>.
-    <br>
+
+  <li>
+    If your server uses firewall, please make sure that localhost is trusted.
+    For instance, Linux with IPTables should include a rule
+    <span class="cmd">ALLOW INPUT from LO</span>.
+    <br />
   </li>
-  <li> If your web site and the WebAdmin interface are inaccessible, please take 
-    a look at the error log - <span class="cmd">[your_install_dir]/logs/error.log 
-    </span>
+
+  <li>
+    If your web site and the WebAdmin interface are inaccessible, please take a
+    look at the error log -
+    <span class="cmd">[your_install_dir]/logs/error.log</span>
     <ul>
-      <li> If there is a TCP port conflict with other server applications, 
-        the web server should be reinstalled with an available port.<br>
-        The following command can be used to find an available port:<br>
-        <span class="cmd">netstat -an | grep XXXX</span><br>
-        XXXX is a port number. If the port is available, the command will produce no 
-        output.
+      <li>
+        If there is a TCP port conflict with other server applications, the web
+        server should be reinstalled with an available port.
+        <br />
+        The following command can be used to find an available port:
+        <br />
+        <span class="cmd">netstat -an | grep XXXX</span>
+        <br />
+        XXXX is a port number. If the port is available, the command will
+        produce no output.
       </li>
-      <li> If the swapping directory is not writable, you can either 
-        grant writing permission for the swapping directory to the user whom the web 
-        server is running as, or change the swapping directory manually. The swapping 
-        directory is configured in the server's XML configuration 
-        file located at <span class="cmd">[your_install_dir]/conf/httpd_config.xml</span>, 
-        default value is <span class="cmd">/tmp/lshttpd/swap</span>. Search for 
+
+      <li>
+        If the swapping directory is not writable, you can either grant writing
+        permission for the swapping directory to the user whom the web server
+        is running as, or change the swapping directory manually. The swapping
+        directory is configured in the server's XML configuration file located
+        at <span class="cmd">[your_install_dir]/conf/httpd_config.xml</span>,
+        default value is <span class="cmd">/tmp/lshttpd/swap</span>. Search for
         <span class="cmd">&lt;swappingDir&gt;</span>.
       </li>
     </ul>
   </li>
 </ol>
-<p>If you still have problems with installation, please check out our 
-<a href="https://www.litespeedtech.com/support/wiki/doku.php">wiki</a> or post your problem 
-on our support <a href="https://www.litespeedtech.com/support/forum/">forum</a>. </p>
-
+<p>
+  If you still have problems with installation, please check out our
+  <a href="https://www.litespeedtech.com/support/wiki/doku.php">wiki</a> or
+  post your problem on our support
+  <a href="https://www.litespeedtech.com/support/forum/">forum</a>.
+</p>
 
 <h3>Upgrading</h3>
-
-<p>There are a few scenarios where you would need to update or upgrade the server:</p>
+<p>
+  There are a few scenarios where you would need to update or upgrade the
+  server:
+</p>
 
 <ul>
-<li>A new release is available</li>
-<li>Upgrade from a trial license to production license</li>
-<li>Upgrade/downgrade to a different production license.</li>
+  <li>A new release is available</li>
+  <li>Upgrade from a trial license to production license</li>
+  <li>Upgrade/downgrade to a different production license.</li>
 </ul>
 
-<p>There are a number of ways to upgrade. One way is to just run install.sh again and select 
-&quot;Upgrade&quot; when prompted. Your current configurations will be kept.</p>
-
-<p>Starting with release 2.0, version management can also be done from the WebAdmin interface, 
-under Actions - Version Management. All your installed versions and the available new releases 
-are listed here. You can install a new release or switch between different versions by 
-clicking the appropriate link. Since release 2.0, LSWS also features a built-in update agent 
-that will check for new releases periodically and send email notifications.</p>
-
-<p>Starting with release 4.1, you can upgrade to the latest release, force reinstall, or downgrade 
-to an old version using the command line tool lsup.sh. See detailed usage information in 
-<span class="cmd">[your_install_dir]/admin/misc/lsup.sh --help</span></p>
-
-<p>Since release 1.5.6, multiple versions of LiteSpeed Web Server can be installed. 
-    You can easily switch from one to another by using the version management utility: 
-    <span class="cmd">[your_install_dir]/admin/misc/mgr_ver.sh</span>.
+<p>
+  There are a number of ways to upgrade. One way is to just run install.sh
+  again and select &quot;Upgrade&quot; when prompted. Your current
+  configurations will be kept.
 </p>
+
+<p>
+  Starting with release 2.0, version management can also be done from the
+  WebAdmin Console interface, under Actions - Version Management. All your
+  installed versions and the available new releases are listed here. You can
+  install a new release or switch between different versions by clicking the
+  appropriate link. Since release 2.0, LSWS also features a built-in update
+  agent that will check for new releases periodically and send email
+  notifications.
+</p>
+
+<p>
+  Starting with release 4.1, you can upgrade to the latest release, force
+  reinstall, or downgrade to an old version using the command line tool
+  lsup.sh. See detailed usage information in
+  <span class="cmd">[your_install_dir]/admin/misc/lsup.sh --help</span>
+</p>
+
+<p>
+  Since release 1.5.6, multiple versions of LiteSpeed Web Server can be
+  installed. You can easily switch from one to another by using the version
+  management utility:
+  <span class="cmd">[your_install_dir]/admin/misc/mgr_ver.sh</span>.
+</p>
+
 <ul>
   <li>
     To switch to a version already installed, for example 1.5.6, just run
-    <span class="cmd">[your_install_dir_current_version]/admin/misc/mgr_ver.sh 1.5.6</span>
+    <span class="cmd">
+      [your_install_dir_current_version]/admin/misc/mgr_ver.sh 1.5.6
+    </span>
   </li>
+
   <li>
-    To remove previously installed files for a certain version, for example 1.5.6, just run
-    <span class="cmd">[your_install_dir_current_version]/admin/misc/mgr_ver.sh -d 1.5.6</span>
+    To remove previously installed files for a certain version, for example
+    1.5.6, just run
+    <span class="cmd">
+      [your_install_dir_current_version]/admin/misc/mgr_ver.sh -d 1.5.6
+    </span>
   </li>
 </ul>
 
-<p>When upgrading your license (from trial to production license, for example), you can manually 
-copy "serial.no" to the <span class="cmd">[your_install_dir]/conf/</span> 
-directory, then restart. Please backup your old serial number and license key before restart.
+<p>
+  When upgrading your license (from trial to production license, for example),
+  you can manually copy "serial.no" to the
+  <span class="cmd">[your_install_dir]/conf/</span> directory, then restart.
+  Please backup your old serial number and license key before restart.
 </p>
 
-
-<h3>License transfer procedure: </h3>
-
-<p>Please be aware that each license key is associated with a serial number 
-and the server's hardware signature. A new key is required if a change 
-in hardware signature is detected. So if you upgrade or change your hardware, 
-you need to transfer your current production license in order to continue using the product. </p>
+<h3>License transfer procedure:</h3>
+<p>
+  Please be aware that each license key is associated with a serial number and
+  the server's hardware signature. A new key is required if a change in
+  hardware signature is detected. So if you upgrade or change your hardware,
+  you need to transfer your current production license in order to continue
+  using the product.
+</p>
 
 <ol>
- <li> To migrate your current license, you can simply run the server binary 
-  <span class="cmd">./lshttpd -m</span>. It will talk to LiteSpeed' products 
-  registration server, unlock your serial number, and generate a temporary 
-  license key. This temporary key is good for 3 days. This allows you a smooth 
-  transition to the new server.</li>
-<li> If you wish, you can take this chance to download the latest version of 
-LiteSpeed Web Server to your new hardware. Then copy the serial number file "serial.no"
- to the installation directory and start up the Installer. You unlocked your serial 
- number in the previous step, so running the Installer will get you a new license key.</li>
- <li>If you wish to copy your old installation directory over to the new hardware, 
- then you just need to activate your license.
-   Run command <span class="cmd">./lshttpd -r</span> to retrieve a new license key.</li>  
- <li>If the process fails, you can create a ticket with the license 
-  department in the <a href="https://store.litespeedtech.com">client 
-  area</a> of the online store. </li>
-</ol>
+  <li>
+    To migrate your current license, you can simply run the server binary
+    <span class="cmd">./lshttpd -m</span>. It will talk to LiteSpeed' products
+    registration server, unlock your serial number, and generate a temporary
+    license key. This temporary key is good for 3 days. This allows you a
+    smooth transition to the new server.
+  </li>
 
+  <li>
+    If you wish, you can take this chance to download the latest version of
+    LiteSpeed Web Server to your new hardware. Then copy the serial number file
+    "serial.no" to the installation directory and start up the Installer. You
+    unlocked your serial number in the previous step, so running the Installer
+    will get you a new license key.
+  </li>
+
+  <li>
+    If you wish to copy your old installation directory over to the new
+    hardware, then you just need to activate your license. Run command
+    <span class="cmd">./lshttpd -r</span> to retrieve a new license key.
+  </li>
+
+  <li>
+    If the process fails, you can create a ticket with the license department
+    in the <a href="https://store.litespeedtech.com">client area</a> of the
+    online store.
+  </li>
+</ol>
 
 <h3>Uninstallation Steps</h3>
 <ol>
-  <li>Simply run <span class="cmd">[your_install_dir]/admin/misc/uninstall.sh</span> 
-    and follow the instructions on the screen.
+  <li>
+    Simply run
+    <span class="cmd">[your_install_dir]/admin/misc/uninstall.sh</span> and
+    follow the instructions on the screen.
   </li>
-  <li>The Uninstaller will ask the following questions: 
+
+  <li>
+    The Uninstaller will ask the following questions:
     <ul>
       <li>whether to keep the log directory</li>
       <li>whether to keep the configuration directory</li>
     </ul>
-    <br>
+    <br />
   </li>
-  <li>Directories that were not created by the Installer will not be touched, 
-    even if they are in [your_install_dir]. All the files created by the Installer 
-    will be removed.
-  </li>
-  <li>[your_install_dir] will be removed as well, if it is empty. </li>
-</ol>
 
+  <li>
+    Directories that were not created by the Installer will not be touched,
+    even if they are in [your_install_dir]. All the files created by the
+    installer will be removed.
+  </li>
+  <li>[your_install_dir] will be removed as well, if it is empty.</li>
+</ol>
