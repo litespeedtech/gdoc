@@ -1,13 +1,15 @@
 <section class="ls-index">
   <header>
-    <h1>LiteSpeed Web Server 5.4</h1>
-    <h1>Users' Manual</h1>
-    <h1>&#8212;&nbsp;Rev. 9</h1>
+    <h1>
+      LiteSpeed Web Server 5.4
+      <br /><br />
+      Users' Manual
+      <br /><br />
+      &#8212;&nbsp;Rev. 10
+    </h1>
   </header>
   <hr />
-  <header>
-    <h3>Table of Contents</h3>
-  </header>
+  <header><h2>Table of Contents</h2></header>
 
   <ol>
     <li><span><a href="license.html">License Enterprise</a></span></li>

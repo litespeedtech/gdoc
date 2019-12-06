@@ -1,6 +1,6 @@
 <h1>Installation/Uninstallation</h1>
 
-<h3>Minimum system requirements</h3>
+<h2>Minimum system requirements</h2>
 <ul>
   <li>
     <strong>Operating System:</strong>
@@ -30,7 +30,7 @@
   </li>
 </ul>
 
-<h3>Installation</h3>
+<h2>Installation</h2>
 <p>
   Installation must be performed in a command line terminal. For testing
   purposes, LiteSpeed Web Server can be installed into a home directory by a
@@ -48,7 +48,7 @@
   sudo command.
 </p>
 
-<h4>Installation Steps:</h4>
+<h3>Installation Steps:</h3>
 <p>
   Visit the
   <a href="https://openlitespeed.org/kb/" target="_blank" rel="noopener">
@@ -57,7 +57,7 @@
   for a list of installation methods.
 </p>
 
-<h3>Getting Started</h3>
+<h2>Getting Started</h2>
 <ol>
   <li>
     <p>
@@ -144,7 +144,7 @@
   </li>
 </ol>
 
-<h3>Notes</h3>
+<h2>Notes</h2>
 <ul>
   <li>
     OpenLiteSpeed supports both native LiteSpeed XML configuration files and
@@ -159,7 +159,7 @@
   </li>
 </ul>
 
-<h1>Uninstallation Steps</h1>
+<h2>Uninstallation Steps</h2>
 <ol>
   <li>
     Stop OpenLiteSpeed if it is running: [your_install_dir]/bin/lswsctrl stop

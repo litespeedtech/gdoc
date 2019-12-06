@@ -2,10 +2,10 @@
   <figure>
     <img src="img/ols_logo.svg" alt="openlitespeed logo" width="150px"/>
   </figure>
-  <h3 class="ls-text-thin">
+  <h2 class="ls-text-thin">
     OpenLiteSpeed Web Server <a href="index.html"> Users' Manual</a>
-  </h3>
-  <h5 class="ls-text-muted">Version 1.7 &nbsp;&#8212;&nbsp;Rev. 2</h5>
+  </h2>
+  <h3 class="ls-text-muted">Version 1.7 &nbsp;&#8212;&nbsp;Rev. 2</h3>
   <hr/>
   <div>
     <ul>
