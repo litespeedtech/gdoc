@@ -1,24 +1,34 @@
 <aside class="sidetree ls-col-1-5">
-      <figure>
-        <img src="img/lsws_logo.svg" alt="lightspeed web server logo" width="100px"/>
-      </figure>
-<h3 class="ls-text-thin">LiteSpeed Web Server <br /><span class="current"><a href="index.html"> Users' Manual</a></span></h3>
-<h5 class="ls-text-muted">Version 5.4 &nbsp;&#8212;&nbsp;Rev. 9</h5>
-<hr/>
-<div>
-<ul>
-<li><a href="license.html">License Enterprise</a></li>
-<li><a href="intro.html">Introduction</a></li>
-<li><a href="install.html">Installation</a></li>
-<li><a href="admin.html">Administration</a>
-<ul class=" menu level2"><li><a href="ServerStat_Help.html">Service Manager</a></li></ul></li>
-<li><a href="security.html">Security</a></li>
-<li><a href="config.html">Configuration</a>
-	<ul class="level2">
-	<li><a href="ServGeneral_Help.html">Server General</a></li>
-        <li><a href="ServLog_Help.html">Server Log</a></li>
-	<li><a href="ServTuning_Help.html">Server Tuning</a></li>
-	<li><a href="ServSecurity_Help.html">Server Security</a></li>
+  <figure>
+    <img src="img/lsws_logo.svg" alt="lightspeed web server logo"
+         width="100px"/>
+  </figure>
+  <h3 class="ls-text-thin">
+    LiteSpeed Web Server
+    <br />
+    <span class="current"><a href="index.html">Users' Manual</a></span>
+  </h3>
+  <h5 class="ls-text-muted">Version 5.4 &nbsp;&#8212;&nbsp;Rev. 9</h5>
+  <hr/>
+  <div>
+    <ul>
+      <li><a href="license.html">License Enterprise</a></li>
+      <li><a href="intro.html">Introduction</a></li>
+      <li><a href="install.html">Installation</a></li>
+      <li>
+        <a href="admin.html">Administration</a>
+        <ul class=" menu level2">
+          <li><a href="ServerStat_Help.html">Service Manager</a></li>
+        </ul>
+      </li>
+      <li><a href="security.html">Security</a></li>
+      <li>
+        <a href="config.html">Configuration</a>
+	    <ul class="level2">
+	      <li><a href="ServGeneral_Help.html">Server General</a></li>
+          <li><a href="ServLog_Help.html">Server Log</a></li>
+	      <li><a href="ServTuning_Help.html">Server Tuning</a></li>
+	      <li><a href="ServSecurity_Help.html">Server Security</a></li>
           <li><a href="Cache_Help.html">Page Cache</a></li>
           <li><a href="PageSpeed_Config.html">PageSpeed Config</a></li>
           <li><a href="ExtApp_Help.html">External Apps</a></li>
@@ -41,12 +51,16 @@
           <li><a href="VHGeneral_Help.html">Virtual Host General</a></li>
           <li><a href="VHSecurity_Help.html">Virtual Host Security</a></li>
           <li><a href="VHSSL_Help.html">Virtual Host SSL</a></li>
-          <li><a href="VHPageSpeed_Config.html">Virtual Host PageSpeed Config</a></li>
+          <li>
+            <a href="VHPageSpeed_Config.html">Virtual Host PageSpeed Config</a>
+          </li>
           <li><a href="Rewrite_Help.html">Rewrite</a></li>
           <li><a href="Context_Help.html">Context</a></li>
           <ul class="level3">
             <li><a href="Static_Context.html">Static Context</a></li>
-            <li><a href="Java_Web_App_Context.html">Java Web App Context</a></li>
+            <li>
+              <a href="Java_Web_App_Context.html">Java Web App Context</a>
+            </li>
             <li><a href="Servlet_Context.html">Servlet Context</a></li>
             <li><a href="FCGI_Context.html">Fast CGI Context</a></li>
             <li><a href="LSAPI_Context.html">LSAPI Context</a></li>
@@ -60,15 +74,21 @@
           <li><a href="VHAddOns_Help.html">Add-ons</a></li>
         </ul>
       </li>
-      <li><a href="webconsole.html">Web Console</a>
+      <li>
+        <a href="webconsole.html">Web Console</a>
         <ul class="level2">
           <li><a href="AdminGeneral_Help.html">Admin Console General</a></li>
           <li><a href="AdminSecurity_Help.html">Admin Console Security</a></li>
-          <li><a href="AdminListeners_General_Help.html">Admin Listener General</a></li>
-          <li><a href="AdminListeners_SSL_Help.html">Admin Listener SSL</a></li>
+          <li>
+            <a href="AdminListeners_General_Help.html">
+              Admin Listener General
+            </a>
+          </li>
+          <li>
+            <a href="AdminListeners_SSL_Help.html">Admin Listener SSL</a>
+          </li>
         </ul>
       </li>
     </ul>
-
-</div>
+  </div>
 </aside>

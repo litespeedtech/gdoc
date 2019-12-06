@@ -1,23 +1,26 @@
 <section class="ls-index">
-<header>
+  <header>
     <h1>OpenLiteSpeed Web Server 1.7</h1>
     <h1>Users' Manual</h1>
     <h1>&#8212;&nbsp;Rev. 2</h1>
-</header>
-<hr />
+  </header>
+  <hr />
+  <header>
+    <h3>Table of Contents</h3>
+  </header>
 
-<header>
-<h3>Table of Contents</h3>
-</header>
-
-
-<ol>
-<li><span><a href="license.html">License</a></span></li>
-<li><span><a href="intro.html">Introduction</a></span></li>
-<li><span><a href="install.html">Installation/Uninstallation</a></span></li>
-<li><span><a href="admin.html">Administration</a></span></li>
-<li><span><a href="security.html">Security</a></span></li>
-<li><span><a href="config.html">Configurations</a></span></li>
-</ol>
-<p>For more information, visit our <a href="https://openlitespeed.org/kb/">OpenLiteSpeed Knowledge Base</a></p>
+  <ol>
+    <li><span><a href="license.html">License</a></span></li>
+    <li><span><a href="intro.html">Introduction</a></span></li>
+    <li>
+      <span><a href="install.html">Installation/Uninstallation</a></span>
+    </li>
+    <li><span><a href="admin.html">Administration</a></span></li>
+    <li><span><a href="security.html">Security</a></span></li>
+    <li><span><a href="config.html">Configurations</a></span></li>
+  </ol>
+  <p>
+    For more information, visit our
+    <a href="https://openlitespeed.org/kb/">OpenLiteSpeed Knowledge Base</a>
+  </p>
 </section>

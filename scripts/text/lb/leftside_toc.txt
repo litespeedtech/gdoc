@@ -1,9 +1,14 @@
 <aside class="sidetree ls-col-1-5">
-      <figure>
-        <img src="img/web-adc_logo.svg" alt="lightspeed web adc logo" width="200px"/>
-      </figure>
- <h3 class="ls-text-thin">LiteSpeed Web ADC <br /> <a href="index.html"> Users' Manual</a></h3>
-<h5 class="ls-text-muted">Version 2.6 &nbsp;&#8212;&nbsp;Rev. 3</h5>
+  <figure>
+    <img src="img/web-adc_logo.svg" alt="lightspeed web adc logo"
+         width="200px"/>
+  </figure>
+  <h3 class="ls-text-thin">
+    LiteSpeed Web ADC
+    <br />
+    <a href="index.html">Users' Manual</a>
+  </h3>
+  <h5 class="ls-text-muted">Version 2.6 &nbsp;&#8212;&nbsp;Rev. 3</h5>
   <hr/>
   <div>
     <ul>
@@ -28,13 +33,17 @@
           <li><a href="Listeners_General_Help.html">Listener General</a></li>
           <li><a href="Listeners_SSL_Help.html">Listener SSL</a></li>
           <li><a href="Clusters_General_Help.html">Cluster General</a></li>
-          <li><a href="Clusters_WorkerGroup_Help.html">Cluster Worker Group</a></li>
+          <li>
+            <a href="Clusters_WorkerGroup_Help.html">Cluster Worker Group</a>
+          </li>
           <li><a href="Templates_Help.html">Virtual Host Templates</a></li>
           <li><a href="VirtualHosts_Help.html">Virtual Host Basic</a></li>
           <li><a href="VHGeneral_Help.html">Virtual Host General</a></li>
           <li><a href="VHSecurity_Help.html">Virtual Host Security</a></li>
           <li><a href="VHSSL_Help.html">Virtual Host SSL</a></li>
-          <li><a href="VHPageSpeed_Config.html">Virtual Host PageSpeed Config</a></li>
+          <li>
+            <a href="VHPageSpeed_Config.html">Virtual Host PageSpeed Config</a>
+          </li>
           <li><a href="Rewrite_Help.html">Rewrite</a></li>
           <li><a href="Context_Help.html">Context</a></li>
           <ul class="level3">
@@ -44,12 +53,19 @@
           <li><a href="HA_Config.html">High Availability Config</a></li>
         </ul>
       </li>
-      <li><a href="webconsole.html">Web Console</a>
+      <li>
+        <a href="webconsole.html">Web Console</a>
         <ul class="level2">
           <li><a href="AdminGeneral_Help.html">Admin Console General</a></li>
           <li><a href="AdminSecurity_Help.html">Admin Console Security</a></li>
-          <li><a href="AdminListeners_General_Help.html">Admin Listener General</a></li>
-          <li><a href="AdminListeners_SSL_Help.html">Admin Listener SSL</a></li>
+          <li>
+            <a href="AdminListeners_General_Help.html">
+              Admin Listener General
+            </a>
+          </li>
+          <li>
+            <a href="AdminListeners_SSL_Help.html">Admin Listener SSL</a>
+          </li>
         </ul>
       </li>
     </ul>

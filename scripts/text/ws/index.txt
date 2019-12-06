@@ -1,22 +1,34 @@
 <section class="ls-index">
-<header>
+  <header>
     <h1>LiteSpeed Web Server 5.4</h1>
     <h1>Users' Manual</h1>
     <h1>&#8212;&nbsp;Rev. 9</h1>
-</header>
-<hr />
+  </header>
+  <hr />
+  <header>
+    <h3>Table of Contents</h3>
+  </header>
 
-<header>
-<h3>Table of Contents</h3>
-</header>
-
-<ol>
-<li><span><a href="license.html">License Enterprise</a></span></li>
-<li><span><a href="intro.html">Introduction</a></span></li>
-<li><span><a href="install.html">Installation/Uninstallation</a></span></li>
-<li><span><a href="admin.html">Administration</a>/<a href="ServerStat_Help.html">Service Manager</a></span></li>
-<li><span><a href="security.html">Security</a></span></li>
-<li><span><a href="config.html">Configurations</a></span></li>
-</ol>
-<p>For more information, visit our <a href="https://www.litespeedtech.com/support/wiki/doku.php">LiteSpeed Wiki</a></p>
+  <ol>
+    <li><span><a href="license.html">License Enterprise</a></span></li>
+    <li><span><a href="intro.html">Introduction</a></span></li>
+    <li>
+      <span><a href="install.html">Installation/Uninstallation</a></span>
+    </li>
+    <li>
+      <span>
+        <a href="admin.html">
+          Administration
+        </a>/<a href="ServerStat_Help.html">Service Manager</a>
+      </span>
+    </li>
+    <li><span><a href="security.html">Security</a></span></li>
+    <li><span><a href="config.html">Configurations</a></span></li>
+  </ol>
+  <p>
+    For more information, visit our
+    <a href="https://www.litespeedtech.com/support/wiki/doku.php">
+      LiteSpeed Wiki
+    </a>
+  </p>
 </section>
