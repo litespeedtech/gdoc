@@ -12,14 +12,26 @@ APPLY:
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Name of the module. The module name will be the same as the module filename. 
-The module file must be located under $SERVER_ROOT/modules/modulename.so in order to be
-loaded by the server application. The server will load the registered modules at start up.
-This requires that the server is restarted after new modules are registered.
+DESCR: The name of an external or internal module to be loaded at server
+startup.
 
+
+<b>External</b>
+
+The value used for external modules must match the name of the module's ".so"
+file under $SERVER_ROOT/modules/modulename.so in order to be loaded by the
+server application. This requires that the server is restarted after a new
+module is registered.
+
+
+<b>Internal</b>
+
+The value used for internal modules must match the module name used when the
+module was built. For example, this must be set to "cache" for the internal
+cache module included with the server.
 END_DESCR
 
-SYNTAX: the library name of .so. 
+SYNTAX: string
 END_SYNTAX
 
 EXAMPLE:
