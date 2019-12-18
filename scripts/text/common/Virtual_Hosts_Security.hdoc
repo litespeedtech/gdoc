@@ -328,15 +328,16 @@ END_TIPS
 [ITEM]
 ID: userDBLocation
 NAME: User DB Location
+NS: LE
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:  {ITEM=GroupDBLocation}, {ITEM=userDB_attrPasswd}, {ITEM=userDB_attrMemberOf}
 
-DESCR: Specifies the location of the user database.
-For DB type {val}Password File{/}, it is the path to the flat file
-containing user/password definitions.
-You can edit this file through the WebAdmin console by clicking on the filename.
+DESCR: Specifies the location of the user database. For DB type
+{val}Password File{/}, it is the path to the flat file containing
+user/password definitions. You can edit this file through the WebAdmin console
+by clicking on the filename.
 
 
 Each line of the user file contains a username followed by a colon,
@@ -353,7 +354,7 @@ For DB type {val}LDAP{/}, it is the LDAP URL to query for the user
 information. For each valid user, the authentication data stored in the LDAP
 server should contain at least the user id and user password. One and only
 one record should be returned in the LDAP search request based on the
-this URL and username received in the HTTP Authentication header. "$k"
+URL and username received in the HTTP Authentication header. "$k"
 must be specified in the filter part of the URL and it will be
 replaced with the username. The user password attribute
 must be returned in the query result. The attribute name of the user password
@@ -367,9 +368,7 @@ following URL could be used:
 
 
 <blockquote><code>ldap://localhost/ou=UserDB,dc=example,dc=com???(&(objectClass=*)(uid=$k))</code></blockquote>
-
 END_DESCR
-
 
 SYNTAX: Path to user DB file or LDAP URL (RFC 2255).
 END_SYNTAX
@@ -377,10 +376,56 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: [S] It is recommended to store user password files outside of the document tree.
-If a user password file has to be placed inside document tree, simply name it with a leading ".ht"
-like {val}.htuser{/} to prevent it being served as a static file.  LiteSpeed Web Server
-does not serve files prefixed with ".ht".
+TIPS: [S] It is recommended to store user password files outside of the
+document tree. If a user password file has to be placed inside document tree,
+simply name it with a leading ".ht" like {val}.htuser{/} to prevent it being
+served as a static file.  LiteSpeed Web Server does not serve files prefixed
+with ".ht".
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: userDBLocation
+NAME: User DB Location
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:  {ITEM=GroupDBLocation}, {ITEM=userDB_attrPasswd}, {ITEM=userDB_attrMemberOf}
+
+DESCR: Specifies the location of the user database. It is recommended that the
+database be stored under the $SERVER_ROOT/conf/vhosts/$VH_NAME/ directory.
+
+
+For DB type {val}Password File{/}, it is the path to the flat file containing
+user/password definitions. You can edit this file through the WebAdmin console
+by clicking on the filename.
+
+
+Each line of the user file contains a username followed by a colon,
+followed by a crypt() encrypted password, optionally followed by a colon
+and group names that user belongs to. Group names are delimitated by commas.
+If group information is specified in the user database, then the group
+database will not be checked.
+
+
+Example:<blockquote><code>john:HZ.U8kgjnMOHo:admin,user</code></blockquote>
+END_DESCR
+
+EDITTIP: It is recommended that the database be stored under the
+$SERVER_ROOT/conf/vhosts/$VH_NAME/ directory.
+END_EDITTIP
+
+SYNTAX: Path to user DB file.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -447,12 +492,14 @@ END_TIPS
 [ITEM]
 ID: GroupDBLocation
 NAME: Group DB Location
+NS: LE
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO: {ITEM=userDBLocation}, Context {ITEM=Context_Help#required}, {ITEM=groupDB_attrGroupMember}
 
 DESCR: Specifies the location of the group database.
+
 
 Group information can be set either in the user database or in this
 standalone group DB. For user authentication, the user DB will be checked
@@ -470,6 +517,7 @@ followed by space delimited group of usernames. Example:
 
 <blockquote><code>testgroup: user1 user2 user3</code></blockquote>
 
+
 For the DB type {val}LDAP{/}, the group DB location should be the LDAP URL to query
 for group information. For each valid group, one and only
 one record should be returned in the LDAP search request based on
@@ -484,7 +532,6 @@ Example: If objectClass posixGroup is being used to store group
 information. The following URL could be used:
 
 <blockquote><code>ldap://localhost/ou=GroupDB,dc=example,dc=com???(&(objectClass=*)(cn=$k))</code></blockquote>
-
 END_DESCR
 
 SYNTAX: file3
@@ -494,9 +541,56 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: [S] It is recommended to store a group file outside the document tree.
-If it has to be placed inside document tree, simply name it with a leading ".ht"
-like {val}.htgroup{/}, to prevent the file being served as a static file.  LiteSpeed Web Server
-does not serve files prefixed with ".ht".
+If it has to be placed inside document tree, simply name it with a leading
+".ht" like {val}.htgroup{/}, to prevent the file being served as a static file.
+LiteSpeed Web Server does not serve files prefixed with ".ht".
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: GroupDBLocation
+NAME: Group DB Location
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=userDBLocation}, Context {ITEM=Context_Help#required}, {ITEM=groupDB_attrGroupMember}
+
+DESCR: Specifies the location of the group database. It is recommended that the
+database be stored under the $SERVER_ROOT/conf/vhosts/$VH_NAME/ directory.
+
+
+Group information can be set either in the user database or in this
+standalone group DB. For user authentication, the user DB will be checked
+first. If the user DB also contains group information, then the group DB will
+not be checked.
+
+
+For the DB type {val}Password File{/}, the group DB location should be the path
+to the flat file containing group definitions. You can edit this file through
+the WebAdmin console by clicking on the filename.
+
+
+Each line of a group file should contain a groupname followed by a colon,
+followed by space delimited group of usernames. Example:
+
+<blockquote><code>testgroup: user1 user2 user3</code></blockquote>
+END_DESCR
+
+EDITTIP: It is recommended that the database be stored under the
+$SERVER_ROOT/conf/vhosts/$VH_NAME/ directory.
+END_EDITTIP
+
+SYNTAX: file3
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
 END_TIPS
 
 [END_ITEM]
