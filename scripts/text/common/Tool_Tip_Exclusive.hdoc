@@ -4,6 +4,7 @@
 [ITEM]
 ID: note
 NAME: Notes
+NS: LEO
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -25,17 +26,146 @@ END_TIPS
 
 
 
+[ITEM]
+ID: UDBusername
+NAME: User Name
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: A group name containing only letters and numbers. (no special characters)
+END_DESCR
+
+SYNTAX:
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: UDBgroup
+NAME: Groups
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+
+DESCR: A comma seperated list of groups that this user belongs to. The user will
+only be able to access resources belonging to these groups.
+
+
+If group information is added here, this information will be used for resource
+authorization and any group database settings involving this user will be
+ignored.
+END_DESCR
+
+EDITTIP: If group information is added here, this information will be used for
+resource authorization and any group database settings involving this user will
+be ignored.
+END_EDITTIP
+
+EDITTIP: You can enter multiple groups, using a comma to separate them. Space
+characters will be treated as part of a group name.
+END_EDITTIP
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID:  UDBpass
+NAME: New Password
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+
+DESCR: Password can be any length and contain any characters.
+END_DESCR
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: UDBpass1
+NAME: Retype Password
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+
+DESCR: Password can be any length and contain any characters.
+END_DESCR
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gdb_groupname
+NAME: Group Name
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: A group name containing only letters and numbers (no special characters).
+END_DESCR
+
+EDITTIP: Group Name should comprise of letter and numbers only.
+END_EDITTIP
+
+SYNTAX: string
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gdb_users
+NAME: Users
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+
+DESCR: Space separated list of users belonging to this group.
+END_DESCR
+
+[END_ITEM]
+
+
+
 ############# Tables ############
 
 
 [TBL]
 ID: notesTBL
 NAME: Tool Tip Exclusives
+NS: LEO
 
 DESCR: 
 END_DESCR
 
-CONT: note
+CONT: note UDBusername UDBgroup UDBpass UDBpass1 gdb_groupname gdb_users
 END_CONT
 
 SEE_ALSO: 

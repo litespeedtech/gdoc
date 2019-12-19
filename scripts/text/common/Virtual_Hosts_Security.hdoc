@@ -778,49 +778,6 @@ END_TIPS
 
 
 
-####### User DB Entry #######
-
-
-[ITEM]
-ID: UDBgroup
-NAME: Groups
-REQUIRED:
-APPLY: 3
-SINCE:
-
-DESCR:
-END_DESCR
-
-EDITTIP: If you enter group information here, the group DB will not be checked.
-END_EDITTIP
-
-EDITTIP: You can enter multiple groups, use comma to separate. Space will be treated as part of a group name.
-END_EDITTIP
-
-[END_ITEM]
-
-
-
-[ITEM]
-ID: users
-NAME: Users
-REQUIRED:
-APPLY: 3
-SINCE:
-
-DESCR:
-END_DESCR
-
-EDITTIP: Group DB will be checked only if the user in the user DB does not contain group information..
-END_EDITTIP
-
-EDITTIP: Use comma to separate multiple users.
-END_EDITTIP
-
-[END_ITEM]
-
-
-
 ################ Tables ################
 
 
@@ -880,7 +837,7 @@ END_DESCR
 CONT: realmName realmType userDBLocation userDB_attrPasswd
 userDB_attrMemberOf userDBMaxCacheSize userDBCacheTimeout
 GroupDBLocation groupDB_attrGroupMember groupDBMaxCacheSize
-groupDBCacheTimeout LDAPBindDN LDAPBindPasswd UDBgroup users
+groupDBCacheTimeout LDAPBindDN LDAPBindPasswd
 END_CONT
 
 SEE_ALSO:
@@ -903,7 +860,7 @@ END_DESCR
 
 CONT: realmName userDBLocation userDBMaxCacheSize userDBCacheTimeout
 GroupDBLocation groupDBMaxCacheSize
-groupDBCacheTimeout UDBgroup users
+groupDBCacheTimeout
 END_CONT
 
 SEE_ALSO:
