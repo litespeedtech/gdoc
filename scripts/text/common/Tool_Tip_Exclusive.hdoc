@@ -35,7 +35,7 @@ APPLY:
 SINCE:
 SEE_ALSO:
 
-DESCR: A group name containing only letters and numbers. (no special characters)
+DESCR: A user name containing only letters and numbers. (no special characters)
 END_DESCR
 
 SYNTAX:
