@@ -213,55 +213,82 @@ END_TIPS
 ID: rewriteRules
 NAME: Rewrite Rules
 NS: LEO
-REQUIRED: 
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Specifies a list of rewrite rules at the virtual host level.
 
 
-Do NOT add any document root level rewrite rules here. If you have any document root level rewrite rules from .htaccess, 
-you should instead create a static context with uri "/" and add the rewrite rules there.
+Do NOT add any document root level rewrite rules here. If you have any document
+root level rewrite rules from .htaccess, you should instead create a static
+context with uri "/" and add the rewrite rules there.
 
 
 A rewrite rule is comprised of one {val}RewriteRule{/} directive and
-optionally preceded by multiple {val}RewriteCond{/} directives. 
+optionally preceded by multiple {val}RewriteCond{/} directives.
 <ul>
-<li>Each directive should take only one line. </li>
-<li>{val}RewriteCond{/} and {val}RewriteRule{/} follow Apache's rewrite directive
-syntax. Just copy and paste rewrite directives from your Apache configuration files.</li>
-<li>There are minor differences between LiteSpeed and Apache mod_rewrite
-implementation: 
-<ul><li>{val}%\{LA-U:variable\}{/} and {val}%\{LA-F:variable\}{/} are ignored
-by the LiteSpeed rewrite engine </li>
-  <li>two new server variables are added in the LiteSpeed rewrite engine: 
-  {val}%\{CURRENT_URI\}{/} represents the current
-URI being processed by the rewrite engine and {val}%\{SCRIPT_NAME\}{/} has the same 
-meaning as the corresponding CGI environment variable. </li>
-</ul></li>
+  <li>Each directive should take only one line.</li>
+  <li>
+    {val}RewriteCond{/} and {val}RewriteRule{/} follow Apache's rewrite
+    directive syntax. Just copy and paste rewrite directives from your Apache
+    configuration files.
+  </li>
+  <li>
+    There are minor differences between LiteSpeed and Apache mod_rewrite
+    implementation:
+    <ul>
+      <li>
+        {val}%\{LA-U:variable\}{/} and {val}%\{LA-F:variable\}{/} are ignored
+        by the LiteSpeed rewrite engine
+      </li>
+      <li>
+        Two new server variables are added in the LiteSpeed rewrite engine:
+        {val}%\{CURRENT_URI\}{/} represents the current URI being processed by
+        the rewrite engine and {val}%\{SCRIPT_NAME\}{/} has the same  meaning
+        as the corresponding CGI environment variable.
+      </li>
+      <li>
+        The LiteSpeed rewrite engine will stop processing rewrite rules after
+        encountering an {val}[L]{/} flag to avoid looping while Apache
+        mod_rewrite will stop processing rewrite rules for the current
+        iteration only. This behavior is similar to that of the {val}[END]{/}
+        flag in Apache mod_rewrite.
+      </li>
+    </ul>
+  </li>
 </ul>
-The implementation of LiteSpeed's rewrite engine follows the 
-Apache's rewrite engine specifications. For more details about rewrite
-rules, please refer to {ext-href}http://httpd.apache.org/docs/current/mod/mod_rewrite.html{ext-href-end}Apache's
-mod_rewrite document{ext-href-end-a} and {ext-href}http://httpd.apache.org/docs/current/rewrite/{ext-href-end}Apache's URL 
-rewriting guide{ext-href-end-a}.
 
-
+The implementation of LiteSpeed's rewrite engine follows Apache's rewrite
+engine specifications. For more details about rewrite rules, please refer to
+{ext-href}
+  http://httpd.apache.org/docs/current/mod/mod_rewrite.html
+{ext-href-end}
+  Apache's mod_rewrite document
+{ext-href-end-a}
+and
+{ext-href}
+  http://httpd.apache.org/docs/current/rewrite/
+{ext-href-end}
+  Apache's URL rewriting guide
+{ext-href-end-a}.
 END_DESCR
 
-SYNTAX: string 
+SYNTAX: string
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
-EDITTIP: Only virtual host level rewrite rules should be used here, such as those found in an Apache virtual host 
-config file. Do NOT add any document root level rewrite rules here. If you have any document root level rewrite rules from 
-.htaccess, you should instead create a static context with uri "/" and add the rewrite rules there.
+EDITTIP: Only virtual host level rewrite rules should be used here, such as
+those found in an Apache virtual host config file. Do NOT add any document root
+level rewrite rules here. If you have any document root level rewrite rules
+from .htaccess, you should instead create a static context with uri "/" and add
+the rewrite rules there.
 END_EDITTIP
 
 [END_ITEM]
