@@ -137,27 +137,39 @@ END_TIPS
 [ITEM]
 ID: log_enableStderrLog
 NAME: Enable stderr Log
-REQUIRED: 
+NS: LEO
+REQUIRED:
 APPLY: 3
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Specifies whether to write to log when receiving stderr output from any
-process started by the server. 
-If enabled, stderr messages will be logged in the same directory as the server log with 
-the fixed name "stderr.log". If disabled, all stderr output will be discarded.
+DESCR: Specifies whether to write to log when receiving stderr output from
+processes started by the server.
+
+
+If enabled, stderr messages will be logged in the same directory as the server
+log with the fixed name "stderr.log". If disabled, all stderr output will be
+discarded.
+
+
+Functions like PHP's error_log() which do not write directly to stderr
+(file handle 2) are not affected by this setting and will write to the file set
+in PHP ini directive 'error_log' or the server's "error.log" file with tag
+'[STDERR]' if that directive is not set.
 END_DESCR
 
-EDITTIP: Stderr Log is located in the same directory as the Server Log. If enabled, all External Application output to stderr will be logged in this file.
+EDITTIP: Stderr Log is located in the same directory as the Server Log. If
+enabled, all External Application output to stderr will be logged in this file.
 END_EDITTIP
 
 SYNTAX: bool
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: Turn it on if you need to debug configured external applications: i.e. PHP, Ruby, Java, Python, Perl.
+TIPS: Turn it on if you need to debug configured external applications: i.e.
+PHP, Ruby, Java, Python, Perl.
 END_TIPS
 
 [END_ITEM]
