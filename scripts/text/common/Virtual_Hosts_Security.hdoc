@@ -889,10 +889,10 @@ connection limit.
 The client will redirect to reCAPTCHA first instead of getting denied when
 triggered.
 
-3. WP Brute Force protection is enabled and action is set to 'Captcha or Drop’.
-When a brute force attack is detected, the client will redirect to reCAPTCHA
-first. After max tries is reached, the connection will be dropped, as per the
-‘drop’ option.
+3. WordPress Brute Force Attack Protection is enabled and action is set to
+'Captcha or Drop’. When a brute force attack is detected, the client will
+redirect to reCAPTCHA first. After max tries is reached, the connection will be
+dropped, as per the ‘drop’ option.
 
 4. A new rewrite rule environment is provided to activate reCAPTCHA via
 RewriteRules. 'verifycaptcha' can be set to redirect clients to reCAPTCHA. A
@@ -932,10 +932,10 @@ connection limit.
 The client will redirect to reCAPTCHA first instead of getting denied when
 triggered.
 
-3. WP Brute Force protection is enabled and action is set to 'Captcha or Drop’.
-When a brute force attack is detected, the client will redirect to reCAPTCHA
-first. After max tries is reached, the connection will be dropped, as per the
-‘drop’ option.
+3. WordPress Brute Force Attack Protection is enabled and action is set to
+'Captcha or Drop’. When a brute force attack is detected, the client will
+redirect to reCAPTCHA first. After max tries is reached, the connection will be
+dropped, as per the ‘drop’ option.
 
 4. A new rewrite rule environment is provided to activate reCAPTCHA via
 RewriteRules. 'verifycaptcha' can be set to redirect clients to reCAPTCHA. A
