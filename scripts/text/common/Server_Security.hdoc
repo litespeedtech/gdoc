@@ -95,6 +95,12 @@ Attempts limit is reached within 5 minutes.
 Protection is enabled and drops otherwise.
 
 
+{val}WP Login CAPTCHA Full Protection{/val} can also be selected. This setting
+will redirect to a CAPTCHA if ReCAPTCHA Protection is enabled regardless of
+Allowed Login Attempts limit and falls back to use {val}Throttle{/val}
+otherwise.
+
+
 Default values:
 
 <b>Server level:</b> {val}Throttle{/}
@@ -140,6 +146,12 @@ Attempts limit is reached within 5 minutes.
 {val}Drop{/} severs the connection without any reply, {val}Deny{/} returns a
 403 response, and {val}CAPTCHA or Drop{/} redirects to a CAPTCHA if reCAPTCHA
 Protection is enabled and drops otherwise.
+
+
+{val}WP Login CAPTCHA Full Protection{/val} can also be selected. This setting
+will redirect to a CAPTCHA if ReCAPTCHA Protection is enabled regardless of
+Allowed Login Attempts limit and falls back to use {val}Throttle{/val}
+otherwise.
 
 
 Default values:
@@ -1991,7 +2003,11 @@ triggered.
 redirect to reCAPTCHA first. After max tries is reached, the connection will be
 dropped, as per the ‘drop’ option.
 
-4. A new rewrite rule environment is provided to activate reCAPTCHA via
+4. WordPress Brute Force Attack Protection is enabled and action is set to
+'WP Login CAPTCHA Full Protection'. The client will always redirect to
+reCAPTCHA first.
+
+5. A new rewrite rule environment is provided to activate reCAPTCHA via
 RewriteRules. 'verifycaptcha' can be set to redirect clients to reCAPTCHA. A
 special value ': deny' can be set to deny the client if it failed too many
 times. For example, [E=verifycaptcha] will always redirect to reCAPTCHA until
@@ -2035,7 +2051,11 @@ triggered.
 redirect to reCAPTCHA first. After max tries is reached, the connection will be
 dropped, as per the ‘drop’ option.
 
-4. A new rewrite rule environment is provided to activate reCAPTCHA via
+4. WordPress Brute Force Attack Protection is enabled and action is set to
+'WP Login CAPTCHA Full Protection'. The client will always redirect to
+reCAPTCHA first.
+
+5. A new rewrite rule environment is provided to activate reCAPTCHA via
 RewriteRules. 'verifycaptcha' can be set to redirect clients to reCAPTCHA. A
 special value ': deny' can be set to deny the client if it failed too many
 times. For example, [E=verifycaptcha] will always redirect to reCAPTCHA until

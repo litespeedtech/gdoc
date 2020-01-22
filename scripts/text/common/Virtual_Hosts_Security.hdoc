@@ -894,7 +894,11 @@ triggered.
 redirect to reCAPTCHA first. After max tries is reached, the connection will be
 dropped, as per the ‘drop’ option.
 
-4. A new rewrite rule environment is provided to activate reCAPTCHA via
+4. WordPress Brute Force Attack Protection is enabled and action is set to
+'WP Login CAPTCHA Full Protection'. The client will always redirect to
+reCAPTCHA first.
+
+5. A new rewrite rule environment is provided to activate reCAPTCHA via
 RewriteRules. 'verifycaptcha' can be set to redirect clients to reCAPTCHA. A
 special value ': deny' can be set to deny the client if it failed too many
 times. For example, [E=verifycaptcha] will always redirect to reCAPTCHA until
@@ -937,7 +941,11 @@ triggered.
 redirect to reCAPTCHA first. After max tries is reached, the connection will be
 dropped, as per the ‘drop’ option.
 
-4. A new rewrite rule environment is provided to activate reCAPTCHA via
+4. WordPress Brute Force Attack Protection is enabled and action is set to
+'WP Login CAPTCHA Full Protection'. The client will always redirect to
+reCAPTCHA first.
+
+5. A new rewrite rule environment is provided to activate reCAPTCHA via
 RewriteRules. 'verifycaptcha' can be set to redirect clients to reCAPTCHA. A
 special value ': deny' can be set to deny the client if it failed too many
 times. For example, [E=verifycaptcha] will always redirect to reCAPTCHA until
