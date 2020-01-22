@@ -890,7 +890,7 @@ The client will redirect to reCAPTCHA first instead of getting denied when
 triggered.
 
 3. WordPress Brute Force Attack Protection is enabled and action is set to
-'Captcha or Drop’. When a brute force attack is detected, the client will
+'CAPTCHA or Drop’. When a brute force attack is detected, the client will
 redirect to reCAPTCHA first. After max tries is reached, the connection will be
 dropped, as per the ‘drop’ option.
 
@@ -933,7 +933,7 @@ The client will redirect to reCAPTCHA first instead of getting denied when
 triggered.
 
 3. WordPress Brute Force Attack Protection is enabled and action is set to
-'Captcha or Drop’. When a brute force attack is detected, the client will
+'CAPTCHA or Drop’. When a brute force attack is detected, the client will
 redirect to reCAPTCHA first. After max tries is reached, the connection will be
 dropped, as per the ‘drop’ option.
 
