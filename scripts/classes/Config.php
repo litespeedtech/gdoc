@@ -56,11 +56,11 @@ class Config
 	{
 		switch (self::DocType()) {
 			case self::DOC_TYPE_OLS:
-				return '2013-2018';
+				return '2013-2020';
 			case self::DOC_TYPE_WS:
-				return '2003-2018';
+				return '2003-2020';
 			case self::DOC_TYPE_LB:
-				return '2007-2018';
+				return '2007-2020';
 		}
 	}
 
