@@ -12,8 +12,9 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: This will enable bot detection and address them by denying or redirecting the client
-to reCAPTCHA. If firewall is enabled, the client IP will be denied at the firewall level.
+DESCR: This will enable bot detection and address them by denying or
+redirecting the client to reCAPTCHA. If firewall is enabled, the client IP will
+be denied at the firewall level.
 
 
 Default value is {val}Yes{/}.
@@ -78,25 +79,28 @@ END_TIPS
 [ITEM]
 ID: wpProtectAction
 NAME: Protection Mode
-NS: E
+NS: L
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the action to be taken when the specified Allowed Login Attempts limit is reached within 5 minutes.
+DESCR: Specifies the action to be taken when the specified Allowed Login
+Attempts limit is reached within 5 minutes.
 
 
-{val}Throttle{/} gradually slows down the speed of the server response, {val}drop{/} severs the connection without any reply,
-{val}deny{/} returns a 403 response, and {val}captcha or drop{/} redirects to a captcha if reCaptcha Protection is enabled and
-drops otherwise.
+{val}Throttle{/} gradually slows down the speed of the server response,
+{val}drop{/} severs the connection without any reply, {val}deny{/} returns a
+403 response, and {val}captcha or drop{/} redirects to a captcha if reCAPTCHA
+Protection is enabled and drops otherwise.
 
 
 Default values:
 
 <b>Server level:</b> {val}Throttle{/}
 
-<b>VH level:</b> Inherit Server level setting. If Server level is set to {val}Disable{/}, {val}Throttle{/} will be used.
+<b>VH level:</b> Inherit Server level setting. If Server level is set to
+{val}Disable{/}, {val}Throttle{/} will be used.
 END_DESCR
 
 SYNTAX: select
@@ -108,42 +112,42 @@ END_EXAMPLE
 TIPS:
 [S] Trusted IPs or sub-networks are not affected.
 
-[I] This feature is enabled by default (Throttle) and does not need any further configuration in the WebAdmin GUI or in
-Apache configurations.
-
-[I] This setting will override Apache conf {val}WordPressProtect{/} setting for LSWS only. Apache will be unaffected.
-
-
-[I] This can be set at the Server level and overwritten at the Virtual Host level. If not overridden at the Virtual Host level, this
-setting can also be overridden in a user's docroot .htaccess file using Apache configuration directive
-{val}WordPressProtect{/} with value {val}0{/} (disabled), {val}1{/} (use server level setting), {val}throttle{/}, {val}deny{/}, or
-{val}drop{/}.
+[I] This can be set at the Server level and overwritten at the Virtual Host
+level. If not overridden at the Virtual Host level, this setting can also be
+overridden in a user's docroot .htaccess file using Apache configuration
+directive {val}WordPressProtect{/} with value {val}0{/} (disabled), {val}1{/}
+(use server level setting), {val}throttle{/}, {val}deny{/}, or {val}drop{/}.
 END_TIPS
 
 [END_ITEM]
+
+
 
 [ITEM]
 ID: wpProtectAction
 NAME: Protection Mode
-NS: L
+NS: E
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the action to be taken when the specified Allowed Login Attempts limit is reached within 5 minutes.
+DESCR: Specifies the action to be taken when the specified Allowed Login
+Attempts limit is reached within 5 minutes.
 
 
-{val}Throttle{/} gradually slows down the speed of the server response, {val}drop{/} severs the connection without any reply,
-{val}deny{/} returns a 403 response, and {val}captcha or drop{/} redirects to a captcha if reCaptcha Protection is enabled and
-drops otherwise.
+{val}Throttle{/} gradually slows down the speed of the server response,
+{val}drop{/} severs the connection without any reply, {val}deny{/} returns a
+403 response, and {val}captcha or drop{/} redirects to a captcha if reCAPTCHA
+Protection is enabled and drops otherwise.
 
 
 Default values:
 
 <b>Server level:</b> {val}Throttle{/}
 
-<b>VH level:</b> Inherit Server level setting. If Server level is set to {val}Disable{/}, {val}Throttle{/} will be used.
+<b>VH level:</b> Inherit Server level setting. If Server level is set to
+{val}Disable{/}, {val}Throttle{/} will be used.
 END_DESCR
 
 SYNTAX: select
@@ -155,10 +159,18 @@ END_EXAMPLE
 TIPS:
 [S] Trusted IPs or sub-networks are not affected.
 
-[I] This can be set at the Server level and overwritten at the Virtual Host level. If not overridden at the Virtual Host level, this
-setting can also be overridden in a user's docroot .htaccess file using Apache configuration directive
-{val}WordPressProtect{/} with value {val}0{/} (disabled), {val}1{/} (use server level setting), {val}throttle{/}, {val}deny{/}, or
-{val}drop{/}.
+[I] This feature is enabled by default (Throttle) and does not need any further
+configuration in the WebAdmin GUI or in Apache configurations.
+
+[I] This setting will override Apache conf {val}WordPressProtect{/} setting for
+LSWS only. Apache will be unaffected.
+
+
+[I] This can be set at the Server level and overwritten at the Virtual Host
+level. If not overridden at the Virtual Host level, this setting can also be
+overridden in a user's docroot .htaccess file using Apache configuration
+directive {val}WordPressProtect{/} with value {val}0{/} (disabled), {val}1{/}
+(use server level setting), {val}throttle{/}, {val}deny{/}, or {val}drop{/}.
 END_TIPS
 
 [END_ITEM]
@@ -174,19 +186,25 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the maximum number of wp-login.php and xmlrpc.php POST attempts allowed by an IP within 5 minutes
-before the action specified in {ITEM=wpProtectAction} is taken.
+DESCR: Specifies the maximum number of wp-login.php and xmlrpc.php POST
+attempts allowed by an IP within 5 minutes before the action specified in
+{ITEM=wpProtectAction} is taken.
 
 
-This limit is handled using a quota system where remaining attempts = limit. Each POST attempt will decrease the number
-of remaining attempts by 1, with the number of remaining attempts increasing back to the set limit over time. An IP will be
-throttled once the number of remaining attempts for that IP falls to 1/2 the set limit, throttling more as the remaining attempts
-drops further below the 1/2 mark. When remaining attempts reaches 0, the specified action is taken toward the IP.
+This limit is handled using a quota system where remaining attempts = limit.
+Each POST attempt will decrease the number of remaining attempts by 1, with the
+number of remaining attempts increasing back to the set limit over time. An IP
+will be throttled once the number of remaining attempts for that IP falls to
+1/2 the set limit, throttling more as the remaining attempts drops further
+below the 1/2 mark. When remaining attempts reaches 0, the specified action is
+taken toward the IP.
 
 
-In addition to this, if {ITEM=enableRecaptcha} is also enabled, an additional per worker protection will be added. If
-wp-login.php and xmlrpc.php are are visited by the same worker at a rate of 4x the set limit in a 30 second time frame, those
-URLs will be put into reCAPTCHA mode until the number of visits to these files decreases.
+In addition to this, if {ITEM=enableRecaptcha} is also enabled, an additional
+per worker protection will be added. If wp-login.php and xmlrpc.php are visited
+by the same worker at a rate of 4x the set limit in a 30 second time frame,
+those URLs will be put into reCAPTCHA mode until the number of visits to these
+files decreases.
 
 
 Resetting the server will clear blocked IPs.
@@ -225,9 +243,10 @@ TIPS:
 [S] Trusted IPs or sub-networks are not affected.
 
 
-[I] This can be set at the Server level and overwritten at the Virtual Host level. If not overridden at the Virtual Host level, this
-setting can also be overridden in a user's docroot .htaccess file using Apache configuration directive
-{val}WordPressProtect{/} with integer value between 3 and 1000.
+[I] This can be set at the Server level and overwritten at the Virtual Host
+level. If not overridden at the Virtual Host level, this setting can also be
+overridden in a user's docroot .htaccess file using Apache configuration
+directive {val}WordPressProtect{/} with integer value between 3 and 1000.
 END_TIPS
 
 [END_ITEM]
@@ -243,19 +262,25 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the maximum number of wp-login.php and xmlrpc.php POST attempts allowed by an IP within 5 minutes
-before the action specified in {ITEM=wpProtectAction} is taken.
+DESCR: Specifies the maximum number of wp-login.php and xmlrpc.php POST
+attempts allowed by an IP within 5 minutes before the action specified in
+{ITEM=wpProtectAction} is taken.
 
 
-This limit is handled using a quota system where remaining attempts = limit. Each POST attempt will decrease the number
-of remaining attempts by 1, with the number of remaining attempts increasing back to the set limit over time. An IP will be
-throttled once the number of remaining attempts for that IP falls to 1/2 the set limit, throttling more as the remaining attempts
-drops further below the 1/2 mark. When remaining attempts reaches 0, the specified action is taken toward the IP.
+This limit is handled using a quota system where remaining attempts = limit.
+Each POST attempt will decrease the number of remaining attempts by 1, with the
+number of remaining attempts increasing back to the set limit over time. An IP
+will be throttled once the number of remaining attempts for that IP falls to
+1/2 the set limit, throttling more as the remaining attempts drops further
+below the 1/2 mark. When remaining attempts reaches 0, the specified action is
+taken toward the IP.
 
 
-In addition to this, if {ITEM=enableRecaptcha} is also enabled, an additional per worker protection will be added. If
-wp-login.php and xmlrpc.php are are visited by the same worker at a rate of 4x the set limit in a 30 second time frame, those
-URLs will be put into reCAPTCHA mode until the number of visits to these files decreases.
+In addition to this, if {ITEM=enableRecaptcha} is also enabled, an additional
+per worker protection will be added. If wp-login.php and xmlrpc.php are visited
+by the same worker at a rate of 4x the set limit in a 30 second time frame,
+those URLs will be put into reCAPTCHA mode until the number of visits to these
+files decreases.
 
 
 Resetting the server will clear blocked IPs.
@@ -294,12 +319,14 @@ TIPS:
 [S] Trusted IPs or sub-networks are not affected.
 
 
-[I] This setting will override Apache conf {val}WordPressProtect{/} setting for LSWS only. Apache will be unaffected.
+[I] This setting will override Apache conf {val}WordPressProtect{/} setting for
+LSWS only. Apache will be unaffected.
 
 
-[I] This can be set at the Server level and overwritten at the Virtual Host level. If not overridden at the Virtual Host level, this
-setting can also be overridden in a user's docroot .htaccess file using Apache configuration directive
-{val}WordPressProtect{/} with integer value between 3 and 1000.
+[I] This can be set at the Server level and overwritten at the Virtual Host
+level. If not overridden at the Virtual Host level, this setting can also be
+overridden in a user's docroot .htaccess file using Apache configuration
+directive {val}WordPressProtect{/} with integer value between 3 and 1000.
 END_TIPS
 
 [END_ITEM]
@@ -1315,7 +1342,7 @@ END_TIPS
 
 
 
-############# reCaptcha Protection #############
+############# reCAPTCHA Protection #############
 
 
 [ITEM]
@@ -1327,8 +1354,9 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Enable the reCaptcha Protection feature at the current level. This setting must be set to {val}Yes{/} at the Server
-level before the reCaptcha Protection feature can be used.
+DESCR: Enable the reCAPTCHA Protection feature at the current level. This
+setting must be set to {val}Yes{/} at the Server level before the reCAPTCHA
+Protection feature can be used.
 
 
 Default values:
@@ -1338,8 +1366,8 @@ Default values:
 <b>VH-Level:</b> Inherit Server level setting
 END_DESCR
 
-EDITTIP: When this setting is set to <b>Yes</b> at the Server level, reCaptcha Protection can still be disabled at the Virtual
-Host level.
+EDITTIP: When this setting is set to <b>Yes</b> at the Server level,
+reCAPTCHA Protection can still be disabled at the Virtual Host level.
 END_EDITTIP
 
 SYNTAX: bool
@@ -1364,8 +1392,9 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Enable the reCaptcha Protection feature at the current level. This setting must be set to {val}Yes{/} at the Server
-level before the reCaptcha Protection feature can be used.
+DESCR: Enable the reCAPTCHA Protection feature at the current level. This
+setting must be set to {val}Yes{/} at the Server level before the reCAPTCHA
+Protection feature can be used.
 
 
 Default values:
@@ -1375,8 +1404,9 @@ Default values:
 <b>VH-Level:</b> Inherit Server level setting
 END_DESCR
 
-EDITTIP: When this setting is set to <b>Yes</b> at the Server level, reCaptcha Protection can still be disabled at the Virtual
-Host level using the Trigger Sensitivity setting.
+EDITTIP: When this setting is set to <b>Yes</b> at the Server level,
+reCAPTCHA Protection can still be disabled at the Virtual Host level using the
+Trigger Sensitivity setting.
 END_EDITTIP
 
 SYNTAX: bool
@@ -1496,8 +1526,9 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Automatic reCAPTCHA sensitivity. The higher the value, the more likely reCaptcha Protection will be used. A value
-of {val}0{/} is equivalent to "Off" while a value of {val}100{/} is equivalent to "Always On".
+DESCR: Automatic reCAPTCHA sensitivity. The higher the value, the more likely
+reCAPTCHA Protection will be used. A value of {val}0{/} is equivalent to "Off"
+while a value of {val}100{/} is equivalent to "Always On".
 
 
 Default values:
@@ -1936,32 +1967,41 @@ SEE_ALSO:
 
 [TBL]
 ID: lsrecaptcha
-NAME: reCaptcha Protection
+NAME: reCAPTCHA Protection
 NS: LO
 
-DESCR: reCaptcha Protection is a service provided as a way to mitigate heavy server load. reCaptcha Protection will activate
-after one of the below situations is hit. Once active, all requests by NON TRUSTED(as configured) clients will be redirected
-to a reCAPTCHA validation page. After validation, the client will be redirected to their desired page.
+DESCR: reCAPTCHA Protection is a service provided as a way to mitigate heavy
+server load. reCAPTCHA Protection will activate after one of the below
+situations is hit. Once active, all requests by NON TRUSTED(as configured)
+clients will be redirected to a reCAPTCHA validation page. After validation,
+the client will be redirected to their desired page.
 
 
-The following situations will activate reCaptcha Protection:
+The following situations will activate reCAPTCHA Protection:
 
-1. The server or vhost concurrent requests count passes the configured connection limit.
+1. The server or vhost concurrent requests count passes the configured
+connection limit.
 
-2. Anti-DDoS is enabled and a client is hitting a url in a suspicious manner. The client will redirect to reCAPTCHA first
-instead of getting denied when triggered.
+2. Anti-DDoS is enabled and a client is hitting a url in a suspicious manner.
+The client will redirect to reCAPTCHA first instead of getting denied when
+triggered.
 
-3. WP Brute Force protection is enabled and action is set to 'Captcha or Drop’. When a brute force attack is detected, the
-client will redirect to reCAPTCHA first. After max tries is reached, the connection will be dropped, as per the ‘drop’ option.
+3. WP Brute Force protection is enabled and action is set to 'Captcha or Drop’.
+When a brute force attack is detected, the client will redirect to reCAPTCHA
+first. After max tries is reached, the connection will be dropped, as per the
+‘drop’ option.
 
-4. A new rewrite rule environment is provided to activate reCAPTCHA via RewriteRules. 'verifycaptcha' can be set to redirect
-clients to reCAPTCHA. A special value ': deny' can be set to deny the client if it failed too many times.
-For example, [E=verifycaptcha] will always redirect to reCAPTCHA until verified. [E=verifycaptcha: deny] will redirect to
-reCAPTCHA until Max Tries is hit, after which the client will be denied.
+4. A new rewrite rule environment is provided to activate reCAPTCHA via
+RewriteRules. 'verifycaptcha' can be set to redirect clients to reCAPTCHA. A
+special value ': deny' can be set to deny the client if it failed too many
+times. For example, [E=verifycaptcha] will always redirect to reCAPTCHA until
+verified. [E=verifycaptcha: deny] will redirect to reCAPTCHA until Max Tries is
+hit, after which the client will be denied.
 END_DESCR
 
-CONT: enableRecaptcha recaptchaSiteKey recaptchaSecretKey recaptchaType recaptchaMaxTries
-recaptchaAllowedRobotHits recaptchaBotWhiteList recaptchaRegConnLimit recaptchaSslConnLimit
+CONT: enableRecaptcha recaptchaSiteKey recaptchaSecretKey recaptchaType
+recaptchaMaxTries recaptchaAllowedRobotHits recaptchaBotWhiteList
+recaptchaRegConnLimit recaptchaSslConnLimit
 END_CONT
 
 SEE_ALSO:
@@ -1971,32 +2011,41 @@ SEE_ALSO:
 
 [TBL]
 ID: lsrecaptcha
-NAME: reCaptcha Protection
+NAME: reCAPTCHA Protection
 NS: E
 
-DESCR: reCaptcha Protection is a service provided as a way to mitigate heavy server load. reCaptcha Protection will
-activate after one of the below situations is hit. Once active, all requests by NON TRUSTED(as configured) clients will be
-redirected to a reCAPTCHA validation page. After validation, the client will be redirected to their desired page.
+DESCR: reCAPTCHA Protection is a service provided as a way to mitigate heavy
+server load. reCAPTCHA Protection will activate after one of the below
+situations is hit. Once active, all requests by NON TRUSTED(as configured)
+clients will be redirected to a reCAPTCHA validation page. After validation,
+the client will be redirected to their desired page.
 
 
-The following situations will activate reCaptcha Protection:
+The following situations will activate reCAPTCHA Protection:
 
-1. The server or vhost concurrent requests count passes the configured connection limit.
+1. The server or vhost concurrent requests count passes the configured
+connection limit.
 
-2. Anti-DDoS is enabled and a client is hitting a url in a suspicious manner. The client will redirect to reCAPTCHA first
-instead of getting denied when triggered.
+2. Anti-DDoS is enabled and a client is hitting a url in a suspicious manner.
+The client will redirect to reCAPTCHA first instead of getting denied when
+triggered.
 
-3. WP Brute Force protection is enabled and action is set to 'Captcha or Drop’. When a brute force attack is detected, the
-client will redirect to reCAPTCHA first. After max tries is reached, the connection will be dropped, as per the ‘drop’ option.
+3. WP Brute Force protection is enabled and action is set to 'Captcha or Drop’.
+When a brute force attack is detected, the client will redirect to reCAPTCHA
+first. After max tries is reached, the connection will be dropped, as per the
+‘drop’ option.
 
-4. A new rewrite rule environment is provided to activate reCAPTCHA via RewriteRules. 'verifycaptcha' can be set to redirect
-clients to reCAPTCHA. A special value ': deny' can be set to deny the client if it failed too many times.
-For example, [E=verifycaptcha] will always redirect to reCAPTCHA until verified. [E=verifycaptcha: deny] will redirect to
-reCAPTCHA until Max Tries is hit, after which the client will be denied.
+4. A new rewrite rule environment is provided to activate reCAPTCHA via
+RewriteRules. 'verifycaptcha' can be set to redirect clients to reCAPTCHA. A
+special value ': deny' can be set to deny the client if it failed too many
+times. For example, [E=verifycaptcha] will always redirect to reCAPTCHA until
+verified. [E=verifycaptcha: deny] will redirect to reCAPTCHA until Max Tries is
+hit, after which the client will be denied.
 END_DESCR
 
-CONT: enableRecaptcha recaptchaSiteKey recaptchaSecretKey recaptchaType recaptchaSensitivity recaptchaMaxTries
-recaptchaAllowedRobotHits recaptchaBotWhiteList
+CONT: enableRecaptcha recaptchaSiteKey recaptchaSecretKey recaptchaType
+recaptchaSensitivity recaptchaMaxTries recaptchaAllowedRobotHits
+recaptchaBotWhiteList
 END_CONT
 
 SEE_ALSO:
