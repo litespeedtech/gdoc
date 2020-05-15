@@ -177,6 +177,64 @@ END_TIPS
 
 
 
+[ITEM]
+ID: verifyGoogleBot
+NAME: Verify Google Bot
+NS: L
+REQUIRED:
+APPLY:
+SINCE: 3.0
+SEE_ALSO:
+
+DESCR: Perform a PTR lookup to ensure that the reverse DNS of an IP matches Google's crawler information and bypass
+reCAPTCHA verification if so.  Bad Google bot IPs are logged.
+
+
+Default value: Yes
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: verifyGoogleBot
+NAME: Verify Google Bot
+NS: E
+REQUIRED:
+APPLY:
+SINCE: 5.4
+SEE_ALSO:
+
+DESCR: Perform a PTR lookup to ensure that the reverse DNS of an IP matches Google's crawler information and bypass
+reCAPTCHA verification if so.  Bad Google bot IPs are logged.
+
+
+Default value: Yes
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# Connection #############
 
 
@@ -2332,7 +2390,7 @@ NS: LE
 DESCR:
 END_DESCR
 
-CONT: ramDiskPath shmDefaultDir bindIPv6Only reverseDnsLookup
+CONT: ramDiskPath shmDefaultDir bindIPv6Only reverseDnsLookup verifyGoogleBot
 END_CONT
 
 SEE_ALSO:
