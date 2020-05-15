@@ -1,5 +1,6 @@
 [HELPDOC]
 
+
 ########## Worker Group ##########
 
 
@@ -15,8 +16,8 @@ DESCR: Additional HTTP protocols used to communicate with the backend server whe
 take effect, {ITEM=Clusters_WorkerGroup_Help#extAppType} must be set to {val}HTTPS Proxy{/}.
 
 
-HTTP/1 will be used by default if no additional protocols are selected or if the selected protocols are not supported by the
-backend server.
+HTTP/1 will be used by default if no additional protocols are selected or if the selected protocols are not supported by
+the backend server.
 
 
 Default value: All Unchecked (HTTP/1)

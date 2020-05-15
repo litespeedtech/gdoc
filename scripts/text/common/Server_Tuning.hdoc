@@ -1195,6 +1195,92 @@ END_TIPS
 
 
 [ITEM]
+ID: sslDefaultCiphers
+NAME: Default Cipher Suite
+NS: L
+REQUIRED:
+APPLY:
+SINCE: 3.0
+SEE_ALSO:
+
+DESCR: Default cipher suite for SSL certificates.
+
+
+Default value: Server Internal Default (Based on current best practices)
+END_DESCR
+
+SYNTAX: Colon-separated string of cipher specifications.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslDefaultCiphers
+NAME: Default Cipher Suite
+NS: E
+REQUIRED:
+APPLY:
+SINCE: 5.4
+SEE_ALSO:
+
+DESCR: Default cipher suite for SSL certificates.
+
+
+Default value: Server Internal Default (Based on current best practices)
+END_DESCR
+
+SYNTAX: Colon-separated string of cipher specifications.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: sslDefaultCiphers
+NAME: Default Cipher Suite
+NS: O
+REQUIRED:
+APPLY:
+SINCE: ???
+SEE_ALSO:
+
+DESCR: Default cipher suite for SSL certificates.
+
+
+Default value: Server Internal Default (Based on current best practices)
+END_DESCR
+
+SYNTAX: Colon-separated string of cipher specifications.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
 ID: sslStrongDhKey
 NAME: SSL Strong DH Key
 NS: LEO
@@ -2263,8 +2349,8 @@ NS: LO
 DESCR:
 END_DESCR
 
-CONT: sslStrongDhKey sslEnableMultiCerts sslSessionCache sslSessionCacheSize sslSessionCacheTimeout
-sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile
+CONT: sslDefaultCiphers sslStrongDhKey sslEnableMultiCerts sslSessionCache sslSessionCacheSize
+sslSessionCacheTimeout sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile
 END_CONT
 
 SEE_ALSO:
@@ -2280,8 +2366,8 @@ NS: E
 DESCR:
 END_DESCR
 
-CONT: sslStrongDhKey sslEnableMultiCerts sslCertCompress sslHsOffload sslSessionCache sslSessionCacheSize
-sslSessionCacheTimeout sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile
+CONT: sslDefaultCiphers sslStrongDhKey sslEnableMultiCerts sslCertCompress sslHsOffload sslSessionCache
+sslSessionCacheSize sslSessionCacheTimeout sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile
 END_CONT
 
 SEE_ALSO:
