@@ -38,23 +38,20 @@ END_TIPS
 
 
 [ITEM]
-ID: sslStrongDhKey
-NAME: SSL Strong DH Key
+ID: shmDefaultDir
+NAME: Default SHM Directory
 NS: LEO
 REQUIRED:
-APPLY: 2
+APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies whether to use 2048 or 1024 bit DH keys for SSL handshakes. If set to "Yes", 2048 bit DH keys will be
-used for 2048 bit SSL keys and certificates. 1024 bit DH keys will still be used in other situations. Default is "Yes".
+DESCR: Changes shared memory's default directory to the specified path. If the directory does not exist, it will be created.
+All SHM data will be stored in this directory unless otherwise specified.
 
-
-Earlier versions of Java do not support DH key size higher than 1024 bits. If Java client compatibility is required, this should
-be set to "No".
 END_DESCR
 
-SYNTAX: radio
+SYNTAX: path
 END_SYNTAX
 
 EXAMPLE:
@@ -751,7 +748,7 @@ END_TIPS
 
 
 
-############# GZIP Compression #############
+############# GZIP/Brotli Compression #############
 
 
 [ITEM]
@@ -806,6 +803,39 @@ END_EXAMPLE
 TIPS: [P] Enable it to save network bandwidth. Text-based responses such as
 html, css, and javascript files benefit the most and on average can be compressed to half
 of their original size.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: compressibleTypes
+NAME: Compressible Types
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies what MIME types are allowed to be compressed.
+END_DESCR
+
+EDITTIP: Compressible Types is a list of MIME types that are compressible, separated by commas. You can use
+wildcard "*" for MIME types, like */*, text/*. You can put "!" in front to exclude certain types. The order of the list is important
+if you use "!". For e.g., a list like "text/*, !text/css, !text/js" will compress all text file except for css and js.
+END_EDITTIP
+
+SYNTAX: MIME type list separated by commas. Wild card "*" and
+negate sign "!" are allowed, such as text/*, !text/js.
+END_SYNTAX
+
+EXAMPLE: If you want to compress text/* but not text/css, you can have a rule like
+{val}text/*, !text/css{/}. "!" will exclude that MIME type.
+END_EXAMPLE
+
+TIPS: [P] Only allow types that will benefit from GZIP/Brotli compression. Binary
+files such as gif/png/jpeg images and flash files do not benefit from compression.
 END_TIPS
 
 [END_ITEM]
@@ -920,32 +950,62 @@ END_TIPS
 
 
 [ITEM]
-ID: compressibleTypes
-NAME: Compressible Types
-NS: LEO
+ID: enableBrCompress
+NAME: Brotli Compression Level
+NS: L
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies what MIME types are allowed to be compressed.
+DESCR: Controls the level of Brotli compression applied. Ranges from {val}0{/} (OFF) to {val}6{/} (highest).
+
+
+This setting will only take effect when {ITEM=enableGzipCompress} is enabled.
+
+
+Default value: 2
 END_DESCR
 
-EDITTIP: Compressible Types is a list of MIME types that are compressible, separated by commas. You can use
-wildcard "*" for MIME types, like */*, text/*. You can put "!" in front to exclude certain types. The order of the list is important
-if you use "!". For e.g., a list like "text/*, !text/css, !text/js" will compress all text file except for css and js.
-END_EDITTIP
-
-SYNTAX: MIME type list separated by commas. Wild card "*" and
-negate sign "!" are allowed, such as text/*, !text/js.
+SYNTAX: Number between 0 and 6.
 END_SYNTAX
 
-EXAMPLE: If you want to compress text/* but not text/css, you can have a rule like
-{val}text/*, !text/css{/}. "!" will exclude that MIME type.
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: [P] Only allow types that will benefit from GZIP/Brotli compression. Binary
-files such as gif/png/jpeg images and flash files do not benefit from compression.
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableBrCompress
+NAME: Brotli Compression Level (Dynamic Content)
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Controls the level of Brotli compression applied to dynamic responses. Ranges from {val}0{/} (OFF) to
+{val}6{/} (highest).
+
+
+This setting will only take effect when {ITEM=enableGzipCompress} is enabled.
+
+
+Default value: 2
+END_DESCR
+
+SYNTAX: Number between 0 and 6.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -985,34 +1045,6 @@ END_TIPS
 
 
 [ITEM]
-ID: gzipCacheDir
-NAME: Static Cache Directory
-NS: EO
-REQUIRED:
-APPLY: 3
-SINCE:
-SEE_ALSO:
-
-DESCR: Specifies the path of the directory used to store compressed files for static content.
-
-
-Default value: {ITEM=swappingDir}.
-END_DESCR
-
-SYNTAX: Directory Path
-END_SYNTAX
-
-EXAMPLE:
-END_EXAMPLE
-
-TIPS:
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
 ID: gzipStaticCompressLevel
 NAME: GZIP Compression Level (Static File)
 NS: EO
@@ -1031,6 +1063,66 @@ Default value: 6
 END_DESCR
 
 SYNTAX: Number between 1 and 9.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: brStaticCompressLevel
+NAME: Brotli Compression Level (Static File)
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the level of Brotli compression applied to static files. Ranges from {val}1{/} (lowest) to {val}11{/} (highest).
+
+
+This setting will only take effect when {ITEM=enableGzipCompress} and {ITEM=gzipAutoUpdateStatic} are enabled.
+
+
+Default value: 5
+END_DESCR
+
+SYNTAX: Number between 1 and 11.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [P] Save network bandwidth. Text-based responses such as html, css, and javascript files benefit the most and on
+average can be compressed to half of their original size.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gzipCacheDir
+NAME: Static Cache Directory
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the path of the directory used to store compressed files for static content.
+
+
+Default value: {ITEM=swappingDir}.
+END_DESCR
+
+SYNTAX: Directory Path
 END_SYNTAX
 
 EXAMPLE:
@@ -1100,28 +1192,27 @@ END_TIPS
 
 
 
-############# Brotli Compression #############
+########## SSL Global Settings ##########
 
 
 [ITEM]
-ID: enableBrCompress
-NAME: Brotli Compression Level
-NS: L
+ID: sslStrongDhKey
+NAME: SSL Strong DH Key
+NS: LEO
 REQUIRED:
-APPLY: 3
+APPLY: 2
 SINCE:
 SEE_ALSO:
 
-DESCR: Controls the level of Brotli compression applied. Ranges from {val}0{/} (OFF) to {val}6{/} (highest).
+DESCR: Specifies whether to use 2048 or 1024 bit DH keys for SSL handshakes. If set to "Yes", 2048 bit DH keys will be
+used for 2048 bit SSL keys and certificates. 1024 bit DH keys will still be used in other situations. Default is "Yes".
 
 
-This setting will only take effect when {ITEM=enableGzipCompress} is enabled.
-
-
-Default value: 2
+Earlier versions of Java do not support DH key size higher than 1024 bits. If Java client compatibility is required,
+this should be set to "No".
 END_DESCR
 
-SYNTAX: Number between 0 and 6.
+SYNTAX: radio
 END_SYNTAX
 
 EXAMPLE:
@@ -1135,25 +1226,20 @@ END_TIPS
 
 
 [ITEM]
-ID: enableBrCompress
-NAME: Brotli Compression Level (Dynamic Content)
-NS: EO
+ID: sslEnableMultiCerts
+NAME: Enable Multiple SSL Certificates
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Controls the level of Brotli compression applied to dynamic responses. Ranges from {val}0{/} (OFF) to
-{val}6{/} (highest).
+DESCR: Allows listeners/vhosts to set multiple SSL certificates.  If multiple certificates are enabled, the certificates/keys
+are expected to follow a naming scheme.  If the cert is named server.crt, other possible cert names are server.crt.rsa,
+server.crt.dsa, server.crt.ecc. If "Not Set", defaults to "No".
 
-
-This setting will only take effect when {ITEM=enableGzipCompress} is enabled.
-
-
-Default value: 2
 END_DESCR
 
-SYNTAX: Number between 0 and 6.
+SYNTAX: bool
 END_SYNTAX
 
 EXAMPLE:
@@ -1167,38 +1253,59 @@ END_TIPS
 
 
 [ITEM]
-ID: brStaticCompressLevel
-NAME: Brotli Compression Level (Static File)
-NS: EO
+ID: sslCertCompress
+NAME: Enable Certificate Compression
+NS: E
 REQUIRED:
-APPLY: 3
+APPLY:
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the level of Brotli compression applied to static files. Ranges from {val}1{/} (lowest) to {val}11{/} (highest).
+DESCR: Use SSL certificate compression.
 
 
-This setting will only take effect when {ITEM=enableGzipCompress} and {ITEM=gzipAutoUpdateStatic} are enabled.
-
-
-Default value: 5
+Default value: On
 END_DESCR
 
-SYNTAX: Number between 1 and 11.
+SYNTAX: bool
 END_SYNTAX
 
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: [P] Save network bandwidth. Text-based responses such as html, css, and javascript files benefit the most and on
-average can be compressed to half of their original size.
+TIPS:
 END_TIPS
 
 [END_ITEM]
 
 
 
-########## SSL Session ##########
+[ITEM]
+ID: sslHsOffload
+NAME: Enable Handshake Offload
+NS: E
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR:  Offload SSL handshake to a separate thread.
+
+
+Default value: On
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
 
 
 [ITEM]
@@ -1354,33 +1461,6 @@ END_TIPS
 
 
 [ITEM]
-ID: shmDefaultDir
-NAME: Default SHM Directory
-NS: LEO
-REQUIRED:
-APPLY: 3
-SINCE:
-SEE_ALSO:
-
-DESCR: Changes shared memory's default directory to the specified path. If the directory does not exist, it will be created.
-All SHM data will be stored in this directory unless otherwise specified.
-
-END_DESCR
-
-SYNTAX: Path
-END_SYNTAX
-
-EXAMPLE:
-END_EXAMPLE
-
-TIPS:
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
 ID: sslSessionTicketLifetime
 NAME: SSL Session Ticket Lifetime (secs)
 REQUIRED:
@@ -1482,6 +1562,9 @@ END_TIPS
 
 
 
+########## SSL Dynamic SNI  ##########
+
+
 [ITEM]
 ID: sslDynCertsCiphers
 NAME: SSL Dynamic Certificates Cipher Suite
@@ -1513,6 +1596,7 @@ END_TIPS
 [ITEM]
 ID: sslDynCertsBaseDir
 NAME: SSL Dynamic Certificates Base Dir
+NS: L
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1540,6 +1624,7 @@ END_TIPS
 [ITEM]
 ID: sslDynCertsNumLevels
 NAME: SSL Dynamic Certificates Levels
+NS: L
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1569,6 +1654,7 @@ END_TIPS
 [ITEM]
 ID: sslDynCertsExpire
 NAME: SSL Dynamic Certificates Expire Time (secs)
+NS: L
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1594,6 +1680,7 @@ END_TIPS
 [ITEM]
 ID: sslDynCertsRefresh
 NAME: SSL Dynamic Certificates Refresh Time (secs)
+NS: L
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1605,89 +1692,6 @@ the file is removed before refresh time, the cert will be invalidated. If the fi
 END_DESCR
 
 SYNTAX: Integer number
-END_SYNTAX
-
-EXAMPLE:
-END_EXAMPLE
-
-TIPS:
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
-ID: sslEnableMultiCerts
-NAME: Enable Multiple SSL Certificates
-REQUIRED:
-APPLY: 3
-SINCE:
-SEE_ALSO:
-
-DESCR: Allows listeners/vhosts to set multiple SSL certificates.  If multiple certificates are enabled, the certificates/keys
-are expected to follow a naming scheme.  If the cert is named server.crt, other possible cert names are server.crt.rsa,
-server.crt.dsa, server.crt.ecc. If "Not Set", defaults to "No".
-
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE:
-END_EXAMPLE
-
-TIPS:
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
-ID: sslCertCompress
-NAME: Enable Certificate Compression
-NS: E
-REQUIRED:
-APPLY:
-SINCE:
-SEE_ALSO:
-
-DESCR: Use SSL certificate compression.
-
-
-Default value: On
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE:
-END_EXAMPLE
-
-TIPS:
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
-ID: sslHsOffload
-NAME: Enable Handshake Offload
-NS: E
-REQUIRED:
-APPLY:
-SINCE:
-SEE_ALSO:
-
-DESCR:  Offload SSL handshake to a separate thread.
-
-
-Default value: On
-END_DESCR
-
-SYNTAX: bool
 END_SYNTAX
 
 EXAMPLE:
@@ -2156,23 +2160,7 @@ SEE_ALSO:
 [TBL]
 ID: connTuning
 NAME: Connection
-NS: L
-
-DESCR:
-END_DESCR
-
-CONT: maxConnections maxSSLConnections connTimeout maxKeepAliveReq keepAliveTimeout sndBufSize rcvBufSize
-END_CONT
-
-SEE_ALSO:
-[END_TBL]
-
-
-
-[TBL]
-ID: connTuning
-NAME: Connection Tuning
-NS: EO
+NS: LEO
 
 DESCR:
 END_DESCR
@@ -2193,8 +2181,7 @@ NS: LEO
 DESCR:
 END_DESCR
 
-CONT: maxReqURLLen maxReqHeaderSize maxReqBodySize
-      maxDynRespHeaderSize maxDynRespSize
+CONT: maxReqURLLen maxReqHeaderSize maxReqBodySize maxDynRespHeaderSize maxDynRespSize
 END_CONT
 
 SEE_ALSO:
