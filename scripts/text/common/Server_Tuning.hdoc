@@ -1483,6 +1483,34 @@ END_TIPS
 
 
 [ITEM]
+ID: sslDynCertsCiphers
+NAME: SSL Dynamic Certificates Cipher Suite
+NS: L
+REQUIRED:
+APPLY:
+SINCE: 2.7
+SEE_ALSO:
+
+DESCR: Specifies a custom cipher suite for the Dynamic SNI certificates.
+
+
+Default value: Use server default ciphers
+END_DESCR
+
+SYNTAX: Colon-separated string of cipher specifications.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: sslDynCertsBaseDir
 NAME: SSL Dynamic Certificates Base Dir
 REQUIRED:
@@ -2284,7 +2312,7 @@ DESCR: SSL Dynamic SNI enables you to avoid using the load balancer's generic ce
 the load balancer can then use to serve clients site specific certificates when handling requests.
 END_DESCR
 
-CONT: sslDynCertsBaseDir sslDynCertsNumLevels sslDynCertsExpire sslDynCertsRefresh
+CONT: sslDynCertsCiphers sslDynCertsBaseDir sslDynCertsNumLevels sslDynCertsExpire sslDynCertsRefresh
 END_CONT
 
 SEE_ALSO:

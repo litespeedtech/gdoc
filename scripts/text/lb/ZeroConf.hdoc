@@ -108,6 +108,33 @@ END_TIPS
 
 
 [ITEM]
+ID: zconf_domCiphers
+NAME: ZeroConf Domain Ciphers
+REQUIRED:
+APPLY:
+SINCE: 2.7
+SEE_ALSO:
+
+DESCR: Specifies a custom cipher suite for ZeroConf domains.
+
+
+Default value: Use server default ciphers
+END_DESCR
+
+SYNTAX: Colon-separated string of cipher specifications.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: zconf_workerMaxConns
 NAME: Worker Max Connections
 NS: L
@@ -283,7 +310,7 @@ NAME: General
 DESCR:
 END_DESCR
 
-CONT: zconf_enabled zconf_vhostPerDomain zconf_passwdFile zconf_groupFile strategy zconf_workerMaxConns
+CONT: zconf_enabled zconf_vhostPerDomain zconf_passwdFile zconf_groupFile zconf_domCiphers strategy zconf_workerMaxConns
 zconfShmDir
 END_CONT
 
