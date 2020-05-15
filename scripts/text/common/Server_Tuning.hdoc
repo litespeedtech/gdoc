@@ -63,6 +63,64 @@ END_TIPS
 
 
 
+[ITEM]
+ID: bindIPv6Only
+NAME: Bind IPv6 Only
+NS: L
+REQUIRED:
+APPLY:
+SINCE: 3.0
+SEE_ALSO:
+
+DESCR: Only bind IPv6 for IPv6 wildcard IP addresses. When set to "Yes", IPv4 IP addresses will not be bound and will
+need their own listeners.
+
+
+Default value: Yes
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: bindIPv6Only
+NAME: Bind IPv6 Only
+NS: E
+REQUIRED:
+APPLY:
+SINCE: 5.4
+SEE_ALSO:
+
+DESCR: Only bind IPv6 for IPv6 wildcard IP addresses. When set to "Yes", IPv4 IP addresses will not be bound and will
+need their own listeners.
+
+
+Default value: Yes
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# Connection #############
 
 
@@ -2218,7 +2276,7 @@ NS: LE
 DESCR:
 END_DESCR
 
-CONT: ramDiskPath shmDefaultDir
+CONT: ramDiskPath shmDefaultDir bindIPv6Only
 END_CONT
 
 SEE_ALSO:
