@@ -121,6 +121,62 @@ END_TIPS
 
 
 
+[ITEM]
+ID: reverseDnsLookup
+NAME: Reverse DNS Lookup
+NS: L
+REQUIRED:
+APPLY:
+SINCE: 3.0
+SEE_ALSO:
+
+DESCR: Perform an IP -> Domain Name lookup for each client. This can be used in access logging.
+
+
+Default value: No
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: reverseDnsLookup
+NAME: Reverse DNS Lookup
+NS: E
+REQUIRED:
+APPLY:
+SINCE: 5.4
+SEE_ALSO:
+
+DESCR: Perform an IP -> Domain Name lookup for each client. This can be used in access logging.
+
+
+Default value: No
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# Connection #############
 
 
@@ -2276,7 +2332,7 @@ NS: LE
 DESCR:
 END_DESCR
 
-CONT: ramDiskPath shmDefaultDir bindIPv6Only
+CONT: ramDiskPath shmDefaultDir bindIPv6Only reverseDnsLookup
 END_CONT
 
 SEE_ALSO:
