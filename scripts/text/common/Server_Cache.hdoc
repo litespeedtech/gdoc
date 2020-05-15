@@ -148,6 +148,64 @@ END_TIPS
 
 
 
+[ITEM]
+ID: purgeNoHitTimeout
+NAME: No Hit Expire (minutes)
+NS: L
+REQUIRED:
+APPLY:
+SINCE: 3.0
+SEE_ALSO:
+
+DESCR: The maximum number of minutes a cached file will remain in cache storage without a cache hit before being
+physically removed by the server. Set to 0 to disable this feature.
+
+
+Default value: 0
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: purgeNoHitTimeout
+NAME: No Hit Expire (minutes)
+NS: E
+REQUIRED:
+APPLY:
+SINCE: 5.4
+SEE_ALSO:
+
+DESCR: The maximum number of minutes a cached file will remain in cache storage without a cache hit before being
+physically removed by the server. Set to 0 to disable this feature.
+
+
+Default value: 0
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ########## Cache Policy ##########
 
 
@@ -567,7 +625,7 @@ NS: L
 DESCR:
 END_DESCR
 
-CONT: cacheStorePath litemage cacheMgrStorePath pubStoreExpireMinutes
+CONT: cacheStorePath litemage cacheMgrStorePath pubStoreExpireMinutes purgeNoHitTimeout
 END_CONT
 
 SEE_ALSO:
@@ -583,7 +641,7 @@ NS: E
 DESCR:
 END_DESCR
 
-CONT: cacheEngine cacheStorePath litemage cacheMgrStorePath pubStoreExpireMinutes
+CONT: cacheEngine cacheStorePath litemage cacheMgrStorePath pubStoreExpireMinutes purgeNoHitTimeout
 END_CONT
 
 SEE_ALSO:
