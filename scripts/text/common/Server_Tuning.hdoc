@@ -1,8 +1,7 @@
 [HELPDOC]
 
 
-############# OS Optimization #############
-
+############# General #############
 
 
 [ITEM]
@@ -2127,7 +2126,7 @@ END_TIPS
 
 [TBL]
 ID: osTuning
-NAME: OS Optimization
+NAME: General
 NS: LE
 
 DESCR:
@@ -2175,7 +2174,7 @@ SEE_ALSO:
 
 [TBL]
 ID: reqTuning
-NAME: Request/Response Tuning
+NAME: Request/Response
 NS: LEO
 
 DESCR:
@@ -2258,7 +2257,7 @@ SEE_ALSO:
 
 [TBL]
 ID: sslGlobal
-NAME: SSL Global Setting
+NAME: SSL Global Settings
 NS: LO
 
 DESCR:
@@ -2275,7 +2274,7 @@ SEE_ALSO:
 
 [TBL]
 ID: sslGlobal
-NAME: SSL Global Setting
+NAME: SSL Global Settings
 NS: E
 
 DESCR:
