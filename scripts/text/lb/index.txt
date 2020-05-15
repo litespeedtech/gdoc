@@ -1,7 +1,7 @@
 <section class="ls-index">
   <header>
     <h1>
-      LiteSpeed Web ADC Version 2.7
+      LiteSpeed Web ADC Version 3.0
       <br /><br />
       Users' Manual
       <br /><br />
