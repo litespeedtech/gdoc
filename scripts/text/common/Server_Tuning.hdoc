@@ -235,6 +235,70 @@ END_TIPS
 
 
 
+[ITEM]
+ID: forceSecureCookie
+NAME: Secure Cookie Control
+NS: L
+REQUIRED:
+APPLY:
+SINCE: 3.0
+SEE_ALSO:
+
+DESCR: Control whether to send cookies with the flag "secure", attribute "SameSite=Strict", and attribute
+"SameSite=Lax".
+
+
+If both "SameSite=Strict" and "SameSite=Lax" are selected, "SameSite=Strict" will be used.
+
+
+Default value: "secure"
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: forceSecureCookie
+NAME: Secure Cookie Control
+NS: E
+REQUIRED:
+APPLY:
+SINCE: 5.4
+SEE_ALSO:
+
+DESCR: Control whether to send cookies with the flag "secure", attribute "SameSite=Strict", and attribute
+"SameSite=Lax".
+
+
+If both "SameSite=Strict" and "SameSite=Lax" are selected, "SameSite=Strict" will be used.
+
+
+Default value: "secure"
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# Connection #############
 
 
@@ -2390,7 +2454,7 @@ NS: LE
 DESCR:
 END_DESCR
 
-CONT: ramDiskPath shmDefaultDir bindIPv6Only reverseDnsLookup verifyGoogleBot
+CONT: ramDiskPath shmDefaultDir bindIPv6Only reverseDnsLookup verifyGoogleBot forceSecureCookie
 END_CONT
 
 SEE_ALSO:
