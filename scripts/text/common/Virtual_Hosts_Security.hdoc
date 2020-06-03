@@ -22,6 +22,13 @@
 
 
 
+############# Bubblewrap Container #############
+
+
+# See Server_Security.hdoc #
+
+
+
 ############# Hotlink Protection #############
 
 
@@ -797,78 +804,6 @@ END_CONT
 
 
 [TBL]
-ID: vhHotlink
-NAME: Hotlink Protection
-NS: E
-
-DESCR: Hotlinks are requests made from an external website to
-files on your own website often referred to as "leeching". This practice
-introduces additional bandwidth usage that you should not be responsible for.
-
-
-LiteSpeed web server can prevent others from hotlinking to content on
-your web site by checking the Referer header within an HTTP request.
-If the Referer header does not match your website, the request will be denied.
-END_DESCR
-
-CONT: enableHotlinkCtrl suffixes redirectUri allowDirectAccess
-onlySelf allowedHosts matchedHosts
-END_CONT
-
-SEE_ALSO:
-[END_TBL]
-
-
-
-[TBL]
-ID: realms
-NAME: Authorization Realms
-NS: LE
-
-DESCR: Lists all authorization realms for this virtual host.
-Authorization realms are used to block unauthorized users from accessing protected web pages.
-A realm is a user directory containing usernames and passwords with optional
-group classifications. Authorization is performed at the context level.
-Because different contexts can share the same realm (user database), realms are
-defined separately from the contexts that use them.
-You can refer to a realm by these names in a contexts configuration.
-END_DESCR
-
-CONT: realmName realmType userDBLocation userDB_attrPasswd
-userDB_attrMemberOf userDBMaxCacheSize userDBCacheTimeout
-GroupDBLocation groupDB_attrGroupMember groupDBMaxCacheSize
-groupDBCacheTimeout LDAPBindDN LDAPBindPasswd
-END_CONT
-
-SEE_ALSO:
-[END_TBL]
-
-
-[TBL]
-ID: realms
-NAME: Authorization Realms
-NS: O
-
-DESCR: Lists all authorization realms for this virtual host.
-Authorization realms are used to block unauthorized users from accessing protected web pages.
-A realm is a user directory containing usernames and passwords with optional
-group classifications. Authorization is performed at context level.
-Since different contexts can share the same realm (user database), so realms are
-defined separately from the contexts that use them.
-You can refer to a realm by these names in context configuration.
-END_DESCR
-
-CONT: realmName userDBLocation userDBMaxCacheSize userDBCacheTimeout
-GroupDBLocation groupDBMaxCacheSize
-groupDBCacheTimeout
-END_CONT
-
-SEE_ALSO:
-[END_TBL]
-
-
-
-[TBL]
 ID: VHlsrecaptcha
 NAME: reCAPTCHA Protection
 NS: L
@@ -999,6 +934,112 @@ SEE_ALSO:
 
 
 
+[TBL]
+ID: bubbleWrapContainerTbl
+NAME: Bubblewrap Container
+NS: E
+SINCE: ???
+
+DESCR:
+END_DESCR
+
+CONT: bubbleWrap
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: bubbleWrapContainerTbl
+NAME: Bubblewrap Container
+NS: O
+SINCE: ???
+
+DESCR:
+END_DESCR
+
+CONT: bubbleWrap
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: vhHotlink
+NAME: Hotlink Protection
+NS: E
+
+DESCR: Hotlinks are requests made from an external website to
+files on your own website often referred to as "leeching". This practice
+introduces additional bandwidth usage that you should not be responsible for.
+
+
+LiteSpeed web server can prevent others from hotlinking to content on
+your web site by checking the Referer header within an HTTP request.
+If the Referer header does not match your website, the request will be denied.
+END_DESCR
+
+CONT: enableHotlinkCtrl suffixes redirectUri allowDirectAccess
+onlySelf allowedHosts matchedHosts
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: realms
+NAME: Authorization Realms
+NS: LE
+
+DESCR: Lists all authorization realms for this virtual host.
+Authorization realms are used to block unauthorized users from accessing protected web pages.
+A realm is a user directory containing usernames and passwords with optional
+group classifications. Authorization is performed at the context level.
+Because different contexts can share the same realm (user database), realms are
+defined separately from the contexts that use them.
+You can refer to a realm by these names in a contexts configuration.
+END_DESCR
+
+CONT: realmName realmType userDBLocation userDB_attrPasswd
+userDB_attrMemberOf userDBMaxCacheSize userDBCacheTimeout
+GroupDBLocation groupDB_attrGroupMember groupDBMaxCacheSize
+groupDBCacheTimeout LDAPBindDN LDAPBindPasswd
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+[TBL]
+ID: realms
+NAME: Authorization Realms
+NS: O
+
+DESCR: Lists all authorization realms for this virtual host.
+Authorization realms are used to block unauthorized users from accessing protected web pages.
+A realm is a user directory containing usernames and passwords with optional
+group classifications. Authorization is performed at context level.
+Since different contexts can share the same realm (user database), so realms are
+defined separately from the contexts that use them.
+You can refer to a realm by these names in context configuration.
+END_DESCR
+
+CONT: realmName userDBLocation userDBMaxCacheSize userDBCacheTimeout
+GroupDBLocation groupDBMaxCacheSize
+groupDBCacheTimeout
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
 ################ Pages ################
 
 
@@ -1027,7 +1068,8 @@ NS: E
 DESCR:
 END_DESCR
 
-CONT: wpProtect VHreqCensorship VHreqCensorship reqCensorshipRule VHlsrecaptcha vhHotlink accessControl realms
+CONT: wpProtect VHreqCensorship VHreqCensorship reqCensorshipRule VHlsrecaptcha bubbleWrapContainerTbl
+vhHotlink accessControl realms
 END_CONT
 
 SEE_ALSO:
@@ -1043,7 +1085,7 @@ NS: O
 DESCR:
 END_DESCR
 
-CONT: VHlsrecaptcha accessControl realms
+CONT: VHlsrecaptcha bubbleWrapContainerTbl accessControl realms
 END_CONT
 
 SEE_ALSO:
