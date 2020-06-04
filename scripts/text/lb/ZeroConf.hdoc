@@ -36,11 +36,11 @@ APPLY:
 SINCE:
 SEE_ALSO:
 
-DESCR: Create a VHost for each domain configured through ZeroConf. If set to "No", all domains that share the same
+DESCR: Create a VHost for each domain configured through ZeroConf. If set to {val}No{/}, all domains that share the same
 list of backends will share a VHost.
 
 
-Warning: When set to "Yes", this could be very memory expensive if there are many domains.
+Warning: When set to {val}Yes{/}, this could be very memory expensive if there are many domains.
 
 
 Default value: No
@@ -178,7 +178,7 @@ SINCE:
 SEE_ALSO:
 
 DESCR: The location where ZeroConf shared memory files are stored.
-The default directory is <b>$SERVER_ROOT/zconf</b>.
+The default directory is {val}$SERVER_ROOT/zconf{/}.
 END_DESCR
 
 SYNTAX: path
@@ -236,11 +236,12 @@ DESCR: Specifies the list of IPs or sub-networks allowed.
 {val}*{/} or {val}ALL{/} are accepted.
 END_DESCR
 
-EDITTIP: Input format can be an IP like 192.168.0.2, a sub-network like 192.168.*, or a subnet/netmask like 192.168.128.5/255.255.128.0.
+EDITTIP: Input format can be an IP like 192.168.0.2, a sub-network like 192.168.*, or a subnet/netmask like
+192.168.128.5/255.255.128.0.
 END_EDITTIP
 
-EDITTIP: If you have trusted IP or sub-network, then you must specify them in allowed list by adding a trailing "T" such as
-192.168.1.*T. Trusted IP or sub-network is not limited by connection/throttling limit.
+EDITTIP: If you have trusted IP or sub-network, then you must specify them in allowed list by adding a trailing "T" such
+as 192.168.1.*T. Trusted IP or sub-network is not limited by connection/throttling limit.
 END_EDITTIP
 
 SYNTAX: Comma delimited list of IP addresses or sub-networks.
@@ -275,8 +276,8 @@ SEE_ALSO:
 DESCR: Specifies the list of IPs or sub-networks disallowed.
 END_DESCR
 
-EDITTIP: To deny access from certain address, put "ALL" in allowed list, and put subnet or IP in denied
-list. To allow only certain IP or subnet to access the site, put "ALL" in denied list and specify the address in the allowed list.
+EDITTIP: To deny access from certain address, put "ALL" in allowed list, and put subnet or IP in denied list. To allow
+only certain IP or subnet to access the site, put "ALL" in denied list and specify the address in the allowed list.
 END_EDITTIP
 
 SYNTAX: Comma delimited list of IP addresses or sub-networks.
