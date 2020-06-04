@@ -60,61 +60,6 @@ END_TIPS
 
 
 [ITEM]
-ID: haUniSrcVip
-NAME: Unicast Source Virtual IP
-REQUIRED:
-APPLY:
-SINCE: 2.4
-SEE_ALSO:
-
-DESCR: The local machine's virtual IP used to send Unicast messages.
-
-
-<b>Unicast Peer Virtual IPs</b> must also be set for Unicast to be used. (Multicast is used by default)
-END_DESCR
-
-SYNTAX: text
-END_SYNTAX
-
-EXAMPLE:
-END_EXAMPLE
-
-TIPS: Unicast is generally slower and more resource intensive than Multicast.
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
-ID: haUniPeerVips
-NAME: Unicast Peer Virtual IPs
-REQUIRED:
-APPLY:
-SINCE: 2.4
-SEE_ALSO:
-
-DESCR: List of peer virtual IPs to send Unicast messages to. There should be one peer IP entry for each node expected to
-handle request processing.
-
-
-<b>Unicast Source Virtual IP</b> must also be set for Unicast to be used. (Multicast is used by default)
-END_DESCR
-
-SYNTAX: comma separated list
-END_SYNTAX
-
-EXAMPLE:
-END_EXAMPLE
-
-TIPS: Unicast is generally slower and more resource intensive than Multicast.
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
 ID: haVipId
 NAME: Virtual IP ID
 REQUIRED:
@@ -193,8 +138,8 @@ APPLY: 3
 SINCE: 2.0
 SEE_ALSO:
 
-DESCR: The priority for this load balancer server, where a higher number equals a higher priority. The highest priority load
-balancer will act as the master, with the others in the cluster acting as slaves.
+DESCR: The priority for this load balancer server, where a higher number equals a higher priority. The highest priority
+load balancer will act as the master, with the others in the cluster acting as slaves.
 
 
 <b>Note:</b> This is reversed for FreeBSD platforms where a lower number equals a higher priority.
@@ -202,6 +147,61 @@ END_DESCR
 
 SYNTAX: uint
 END_SYNTAX
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haUniSrcVip
+NAME: Unicast Source Virtual IP
+REQUIRED:
+APPLY:
+SINCE: 2.4
+SEE_ALSO:
+
+DESCR: The local machine's virtual IP used to send Unicast messages.
+
+
+{ITEM=haUniPeerVips} must also be set for Unicast to be used. (Multicast is used by default)
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: Unicast is generally slower and more resource intensive than Multicast.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: haUniPeerVips
+NAME: Unicast Peer Virtual IPs
+REQUIRED:
+APPLY:
+SINCE: 2.4
+SEE_ALSO:
+
+DESCR: List of peer virtual IPs to send Unicast messages to. There should be one peer IP entry for each node expected to
+handle request processing.
+
+
+{ITEM=haUniSrcVip} must also be set for Unicast to be used. (Multicast is used by default)
+END_DESCR
+
+SYNTAX: comma separated list
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: Unicast is generally slower and more resource intensive than Multicast.
+END_TIPS
 
 [END_ITEM]
 
