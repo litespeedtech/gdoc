@@ -398,7 +398,7 @@ SEE_ALSO:
 
 [TBL]
 ID: zconfLog
-NAME: ZeroConf Log
+NAME: ZeroConf Listener Log
 
 DESCR:
 END_DESCR
