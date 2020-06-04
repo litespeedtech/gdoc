@@ -153,6 +153,34 @@ END_SYNTAX
 
 
 [ITEM]
+ID: haInternalDev
+NAME: Internal Device
+REQUIRED:
+APPLY:
+SINCE: 2.7
+SEE_ALSO:
+
+DESCR: The Internal Device (such as eth0, eth1, etc..) to use for internal communication by unicast/multicast. If this
+is different than the NIC Name configuration, the Keepalived configuration will be adjusted accordingly.
+
+
+Default value: Configured {ITEM=haNic} value
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: haUniSrcVip
 NAME: Unicast Source Virtual IP
 REQUIRED:
@@ -480,7 +508,7 @@ NAME: HA Virtual Interface Configuration
 DESCR: Additions/Deletions/Changes made will not take effect until applied through HA -> Status page.
 END_DESCR
 
-CONT: haInterfaceId haVip haVipId haVipToken haNic haPriority haUniSrcVip haUniPeerVips
+CONT: haInterfaceId haVip haVipId haVipToken haNic haPriority haInternalDev haUniSrcVip haUniPeerVips
 END_CONT
 
 SEE_ALSO:
