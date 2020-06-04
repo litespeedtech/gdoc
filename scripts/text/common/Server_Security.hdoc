@@ -2012,7 +2012,7 @@ other external applications if limits have not been set explicitly for those app
 END_DESCR
 
 CONT: cgidSock maxCGIInstances minUID minGID forceGID umask CGIPriority CPUSoftLimit CPUHardLimit
-memSoftLimit memHardLimit procSoftLimit procHardLimit bubbleWrap bubbleWrapCmd
+memSoftLimit memHardLimit procSoftLimit procHardLimit
 END_CONT
 
 SEE_ALSO:
@@ -2030,7 +2030,7 @@ other external applications if limits have not been set explicitly for those app
 END_DESCR
 
 CONT: cgidSock maxCGIInstances minUID minGID forceGID umask CGIPriority CPUSoftLimit CPUHardLimit
-memSoftLimit memHardLimit procSoftLimit procHardLimit cgroups bubbleWrap bubbleWrapCmd
+memSoftLimit memHardLimit procSoftLimit procHardLimit cgroups
 END_CONT
 
 SEE_ALSO:
@@ -2238,6 +2238,22 @@ SEE_ALSO:
 
 
 
+[TBL]
+ID: bubbleWrapTbl
+NAME: Bubblewrap Container
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: bubbleWrap bubbleWrapCmd
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
 ################ Pages ################
 
 [PAGE]
@@ -2265,7 +2281,7 @@ DESCR:
 END_DESCR
 
 CONT: wpProtect reqCensorship reqCensorshipRule perClientConnLimit fileAccessControl cgiResource lsrecaptcha
-accessDeny accessControl
+bubbleWrapTbl accessDeny accessControl
 END_CONT
 
 SEE_ALSO:
@@ -2281,8 +2297,7 @@ NS: O
 DESCR:
 END_DESCR
 
-CONT: fileAccessControl perClientConnLimit cgiResource lsrecaptcha
-accessDeny accessControl
+CONT: fileAccessControl perClientConnLimit cgiResource lsrecaptcha bubbleWrapTbl accessDeny accessControl
 END_CONT
 
 SEE_ALSO:
