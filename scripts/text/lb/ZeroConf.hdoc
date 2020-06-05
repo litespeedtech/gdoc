@@ -110,7 +110,7 @@ Note: This directory must be writeable for the LSLBD runtime user set in {ITEM=r
 Default value: Not Set
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: path2
 END_SYNTAX
 
 EXAMPLE:
