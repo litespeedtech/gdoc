@@ -68,11 +68,14 @@ SINCE: 2.7
 SEE_ALSO: {ITEM=zconf_vhostPerDomain}, {ITEM=zconf_domLogDir}
 
 DESCR: Indicate whether to log ZeroConf configured VHosts separately. This configuration only takes effect when
-{ITEM=zconf_vhostPerDomain} is set for the domain and {ITEM=zconf_domLogDir} is also set.
+{ITEM=zconf_vhostPerDomain} is set for the domain.
 
 
 For example, if {ITEM=zconf_vhostPerDomain} is not set at the Server level but is set in a VHost Template, this will
 only take effect for the VHost Template's domains.
+
+
+Note: {ITEM=zconf_domLogDir} must also be set for this option to be saved.
 
 
 Default value: All unchecked
