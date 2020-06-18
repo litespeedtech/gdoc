@@ -773,22 +773,27 @@ END_TIPS
 [ITEM]
 ID: useIpInProxyHeader
 NAME: Use Client IP in Header
+NS: LEO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies whether to use the IP address listed in the "X-Forwarded-For" HTTP request header for all IP
-address-related features, including connection/bandwidth throttling, access control, and IP geolocation.
+DESCR: Specifies whether to use the first most valid IP IP address listed in the "X-Forwarded-For" HTTP request header
+for all IP address-related features, including connection/bandwidth throttling, access control, and IP geolocation.
 
 
 This feature is useful if your web server is behind a load balancer or a proxy server.
-If you select "Trusted IP Only", then X-Forwarded-For IP will be used only when the request is coming from trusted IPs
-defined in the server-level {ITEM=ServSecurity_Help#accessControl_allow}.
+If you select {val}Trusted IP Only{/}, then X-Forwarded-For IP will be used only when the request is coming from trusted
+IPs defined in the server-level {ITEM=ServSecurity_Help#accessControl_allow}.
 
 
-"Keep Header from Trusted IP" is the same as "Trusted IP Only", but the X-Forwarded-For header used for the backend will
-not be modified to include the connecting peer address.
+{val}Keep Header from Trusted IP{/} is the same as {val}Trusted IP Only{/}, but the X-Forwarded-For header used for the
+backend will not be modified to include the connecting peer address.
+
+
+{val}Use Last IP (for AWS ELB){/} will use the last IP address in the "X-Forwarded-For" list. Select this option if you
+are using AWS Elastic Load Balancer or expect the real IP to appended to the end of the "X-Forwarded-For" list.
 END_DESCR
 
 SYNTAX: select
