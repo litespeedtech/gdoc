@@ -210,6 +210,32 @@ END_TIPS
 
 
 [ITEM]
+ID: cachePolicy:allowPostCache
+NAME: Allow POST Cache
+NS: LE
+REQUIRED:
+APPLY:
+L_SINCE: 3.0
+E_SINCE: 6.0
+SEE_ALSO:
+
+DESCR: Specifies if POST requests can be cached using the "x-litespeed-cache-control" header.
+
+
+Default value: {val}No{/}
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: checkPublicCache
 NAME: Check Public Cache
 NS: LE
@@ -660,7 +686,7 @@ END_DESCR
 CONT: checkPublicCache checkPrivateCache respectCacheable cachePolicy:maxCacheObjSize
 cachePolicy:maxStaleAge cachePolicy:cacheKeyMod cachePolicy:enableCache  cachePolicy:expireInSeconds
 cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
-cachePolicy:cacheStaticFile
+cachePolicy:cacheStaticFile cachePolicy:allowPostCache
 END_CONT
 
 SEE_ALSO:
@@ -678,7 +704,7 @@ END_DESCR
 
 CONT: checkPublicCache checkPrivateCache respectCacheable cachePolicy:maxCacheObjSize
 cachePolicy:maxStaleAge cachePolicy:cacheKeyMod cachePolicy:enableCache  cachePolicy:expireInSeconds
-cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx cachePolicy:allowPostCache
 END_CONT
 
 SEE_ALSO:
