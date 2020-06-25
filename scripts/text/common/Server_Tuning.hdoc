@@ -640,10 +640,10 @@ SINCE:
 SEE_ALSO:
 
 DESCR: Specifies the maximum header size of a dynamically generated response. Static assets from a backend server are
-considered a dynamic response. Hard limit is {val}64KB{/}.
+considered a dynamic response. Hard limit is {val}64K{/}.
 
 
-Default value: 16KB
+Default value: 16K
 END_DESCR
 
 SYNTAX: uint
@@ -668,10 +668,10 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the maximum header size of a dynamically generated response. Hard limit is {val}64KB{/}.
+DESCR: Specifies the maximum header size of a dynamically generated response. Hard limit is {val}64K{/}.
 
 
-Default value: 16KB
+Default value: 16K
 END_DESCR
 
 SYNTAX: uint

@@ -173,7 +173,7 @@ searches the server log file in blocks for the specified log level.
 
 
 The default block size is 20KB. You can use the {val}Begin{/},
-  {val}End{/}, {val}Next{/}, and {val}Prev{/} buttons to navigate a large log file. 
+{val}End{/}, {val}Next{/}, and {val}Prev{/} buttons to navigate a large log file.
 END_DESCR
 
 SYNTAX: 
