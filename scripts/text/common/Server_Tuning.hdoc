@@ -1053,11 +1053,19 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies what MIME types are allowed to be compressed.
+DESCR: Specifies what MIME types are allowed to be compressed. Leave this setting unset or enter {val}default{/} to use
+the server built-in default list which should already cover most mime-types.
+
+
+Default value:
+{val}text/*,application/x-javascript,application/javascript,application/xml,image/svg+xml,application/rss+xml,
+application/json,application/vnd.ms-fontobject,application/x-font,application/x-font-opentype,
+application/x-font-truetype,application/x-font-ttf,font/eot,font/opentype,font/otf,font/ttf,image/x-icon,
+image/vnd.microsoft.icon,application/xhtml+xml{/}
 END_DESCR
 
-EDITTIP: Compressible Types is a list of MIME types that are compressible, separated by commas. You can use
-wildcard "*" for MIME types, like */*, text/*. You can put "!" in front to exclude certain types. The order of the list is important
+EDITTIP: Compressible Types is a list of MIME types that are compressible, separated by commas. You can use wildcard "*"
+for MIME types, like */*, text/*. You can put "!" in front to exclude certain types. The order of the list is important
 if you use "!". For e.g., a list like "text/*, !text/css, !text/js" will compress all text file except for css and js.
 END_EDITTIP
 
