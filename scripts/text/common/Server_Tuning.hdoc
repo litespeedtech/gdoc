@@ -190,7 +190,7 @@ DESCR: Perform a PTR lookup to ensure that the reverse DNS of an IP matches Goog
 reCAPTCHA verification if so.  Bad Google bot IPs are logged.
 
 
-Default value: Yes
+Default value: No
 END_DESCR
 
 SYNTAX: bool
@@ -219,7 +219,7 @@ DESCR: Perform a PTR lookup to ensure that the reverse DNS of an IP matches Goog
 reCAPTCHA verification if so.  Bad Google bot IPs are logged.
 
 
-Default value: Yes
+Default value: No
 END_DESCR
 
 SYNTAX: bool
