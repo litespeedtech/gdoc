@@ -49,10 +49,10 @@ END_DESCR
 SYNTAX: Comma separated list of phpXX versions where XX is the combined major and minor PHP version number.
 END_SYNTAX
 
-EXAMPLE: php72, php71, php70, php56
+EXAMPLE: php74, php73, php72, php71, php70, php56
 END_EXAMPLE
 
-TIPS: [I] All versions from php52 to php56 and php70 to php72 are available.
+TIPS: [I] All versions from php52 to php56 and php70 to php74 are available.
 END_TIPS
 
 [END_ITEM]
