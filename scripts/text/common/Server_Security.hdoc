@@ -95,9 +95,9 @@ Attempts limit is reached within 5 minutes.
 Protection is enabled and drops otherwise.
 
 
-{val}WP Login CAPTCHA Full Protection{/val} can also be selected. This setting
+{val}WP Login CAPTCHA Full Protection{/} can also be selected. This setting
 will redirect to a CAPTCHA if ReCAPTCHA Protection is enabled regardless of
-Allowed Login Attempts limit and falls back to use {val}Throttle{/val}
+Allowed Login Attempts limit and falls back to use {val}Throttle{/}
 otherwise.
 
 
@@ -148,9 +148,9 @@ Attempts limit is reached within 5 minutes.
 Protection is enabled and drops otherwise.
 
 
-{val}WP Login CAPTCHA Full Protection{/val} can also be selected. This setting
+{val}WP Login CAPTCHA Full Protection{/} can also be selected. This setting
 will redirect to a CAPTCHA if ReCAPTCHA Protection is enabled regardless of
-Allowed Login Attempts limit and falls back to use {val}Throttle{/val}
+Allowed Login Attempts limit and falls back to use {val}Throttle{/}
 otherwise.
 
 
