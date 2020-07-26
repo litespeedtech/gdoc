@@ -7,6 +7,7 @@
 [ITEM]
 ID: docRoot
 NAME: Document Root
+NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -15,6 +16,10 @@ SEE_ALSO:
 DESCR: Specifies the document root for this virtual host. {val}$VH_ROOT/html{/}
 is recommended. This directory is referred to as $DOC_ROOT in contexts.
 END_DESCR
+
+EDITTIP: Document root will not be created by the server automatically if it does not already exist. Please ensure that
+both the directory exists and it is owned by the correct user.
+END_EDITTIP
 
 EDITTIP: Set up your document root here, which can be absolute path or relative to $SERV_ROOT or $VH_ROOT
 END_EDITTIP
