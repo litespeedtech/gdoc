@@ -376,7 +376,24 @@ DESCR:
 END_DESCR
 
 CONT: zconf_enabled zconf_vhostPerDomain zconf_logPerDomain zconf_domLogDir zconf_passwdFile zconf_groupFile
-zconf_domCiphers strategy zconf_workerMaxConns zconfShmDir
+zconf_domCiphers strategy zconfShmDir
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: zconf_worker
+NAME: ZeroConf Worker
+NS: L
+SINCE: 3.0.1
+
+DESCR:
+END_DESCR
+
+CONT: workerProtocol zconf_workerMaxConns initTimeout retryTimeout persistConn pcKeepAliveTimeout respBuffer
 END_CONT
 
 SEE_ALSO:
@@ -459,7 +476,7 @@ balancing dynamically rather than working with the webadmin interface. The ZeroC
 accepted by the ZeroConf feature. This section provides the interface to enable and configure the ZeroConf feature.
 END_DESCR
 
-CONT: zconf_general zconf_listeners zconfLog zconfAcLog zconf_accessControl
+CONT: zconf_general zconf_worker zconf_listeners zconfLog zconfAcLog zconf_accessControl
 END_CONT
 
 SEE_ALSO:
