@@ -7,6 +7,7 @@
 [ITEM]
 ID: workerProtocol
 NAME: Additional HTTPS Protocols
+NS: L
 REQUIRED:
 APPLY:
 SINCE: 2.6
@@ -20,7 +21,7 @@ HTTP/1 will be used by default if no additional protocols are selected or if the
 the backend server.
 
 
-Default value: All Unchecked (HTTP/1)
+Default value: {val}All Unchecked (HTTP/1){/}
 END_DESCR
 
 SYNTAX: checkbox

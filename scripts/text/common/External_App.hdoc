@@ -366,15 +366,49 @@ END_TIPS
 [ITEM]
 ID: initTimeout
 NAME: Initial Request Timeout (secs)
+NS: L
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
 DESCR: Specifies the maximum time in seconds the server will wait for the external application to respond to the first
-request over a new established connection. If the server does not receive any data from the external application within this
-timeout limit, it will mark this connection as bad. This helps to identify communication problems with external applications
-as quickly as possible. If some requests take longer to process, increase this limit to avoid 503 error messages.
+request over a new established connection. If the server does not receive any data from the external application within
+this timeout limit, it will mark this connection as bad. This helps to identify communication problems with external
+applications as quickly as possible. If some requests take longer to process, increase this limit to avoid 503 error
+messages.
+
+
+Default value: {val}600{/}
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: initTimeout
+NAME: Initial Request Timeout (secs)
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the maximum time in seconds the server will wait for the external application to respond to the first
+request over a new established connection. If the server does not receive any data from the external application within
+this timeout limit, it will mark this connection as bad. This helps to identify communication problems with external
+applications as quickly as possible. If some requests take longer to process, increase this limit to avoid 503 error
+messages.
 END_DESCR
 
 SYNTAX: uint
@@ -393,6 +427,36 @@ END_TIPS
 [ITEM]
 ID: retryTimeout
 NAME: Retry Timeout (secs)
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the period of time that the server waits before retrying an external application that had a prior
+communication problem.
+
+
+Default value: {val}10{/}
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: retryTimeout
+NAME: Retry Timeout (secs)
+NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -418,6 +482,37 @@ END_TIPS
 [ITEM]
 ID: persistConn
 NAME: Persistent Connection
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies whether to keep the connection open after a request has been processed. Persistent connections can
+increase performance, but some FastCGI external applications do not support persistent connections fully. The default is
+"On".
+
+
+Default value: {val}Yes{/}
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: persistConn
+NAME: Persistent Connection
+NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -444,6 +539,39 @@ END_TIPS
 [ITEM]
 ID: pcKeepAliveTimeout
 NAME: Connection Keepalive Timeout
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the maximum time in seconds to keep an idle persistent connection open.
+
+
+When set to {val}-1{/}, the connection will never timeout. When set to 0 or greater, the connection will be closed after
+this time in seconds has passed.
+
+
+Default value: {val}30{/}
+END_DESCR
+
+SYNTAX: int
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: pcKeepAliveTimeout
+NAME: Connection Keepalive Timeout
+NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -472,6 +600,36 @@ END_TIPS
 [ITEM]
 ID: respBuffer
 NAME: Response Buffering
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies whether to buffer responses received from external applications. If a "nph-" (Non-Parsed-Header) script
+is detected, buffering is turned off for responses with full HTTP headers.
+
+
+Default value: {val}Yes{/}
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: respBuffer
+NAME: Response Buffering
+NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:

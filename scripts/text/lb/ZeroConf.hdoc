@@ -211,7 +211,7 @@ DESCR: Maximum number of connections per ZeroConf worker. There is one worker cr
 worker process.
 
 
-Default value: 100
+Default value: {val}100{/}
 END_DESCR
 
 SYNTAX: uint
