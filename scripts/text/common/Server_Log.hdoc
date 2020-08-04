@@ -410,7 +410,7 @@ END_TIPS
 
 
 [ITEM]
-ID: accessLog_keepDays
+ID: log_keepDays
 NAME: Keep Days
 NS: LEO
 REQUIRED: 
@@ -506,7 +506,7 @@ DESCR:
 END_DESCR
 
 CONT: accessLog_fileName accessLog_pipedLogger accessLog_logFormat accessLog_logHeader log_rollingSize 
-accessLog_keepDays accessLog_compressArchive
+log_keepDays accessLog_compressArchive
 END_CONT
 
 SEE_ALSO: 

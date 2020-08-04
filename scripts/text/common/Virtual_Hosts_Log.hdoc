@@ -236,7 +236,7 @@ END_DESCR
 
 CONT: aclogUseServer vhaccessLog_fileName accessLog_pipedLogger 
 accessLog_logFormat accessLog_logHeader 
-log_rollingSize accessLog_keepDays 
+log_rollingSize log_keepDays
 accessLog_bytesLog accessLog_compressArchive
 END_CONT
 
@@ -255,7 +255,7 @@ END_DESCR
 
 CONT: aclogUseServer vhaccessLog_fileName accessLog_pipedLogger 
 accessLog_logFormat accessLog_logHeader 
-log_rollingSize accessLog_keepDays 
+log_rollingSize log_keepDays
 accessLog_bytesLog accessLog_compressArchive
 END_CONT
 
