@@ -5,6 +5,7 @@
 [ITEM]
 ID: log_fileName
 NAME: File Name
+NS: LEO
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -411,6 +412,7 @@ END_TIPS
 [ITEM]
 ID: accessLog_keepDays
 NAME: Keep Days
+NS: LEO
 REQUIRED: 
 APPLY: 3
 SINCE: 

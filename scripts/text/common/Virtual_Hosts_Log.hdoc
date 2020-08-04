@@ -35,6 +35,7 @@ END_TIPS
 [ITEM]
 ID: vhlog_fileName
 NAME: File Name
+NS: LEO
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -213,6 +214,7 @@ END_TIPS
 [TBL]
 ID: vhLog
 NAME: Virtual Host Log
+NS: LEO
 
 DESCR: 
 END_DESCR

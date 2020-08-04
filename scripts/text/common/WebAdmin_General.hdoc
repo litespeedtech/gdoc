@@ -135,6 +135,7 @@ SEE_ALSO:
 [PAGE]
 ID: AdminGeneral_Help 
 NAME: Admin Console General
+NS: LEO
 
 DESCR: Admin Server is a special virtual host dedicated to the WebAdmin console.  
 It is very important to make sure Admin Server is securely protected either by only allowing  

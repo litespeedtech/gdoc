@@ -33,6 +33,7 @@ END_TIPS
 [ITEM]
 ID: censorLogLevel
 NAME: Log Level
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
