@@ -1,0 +1,432 @@
+[HELPDOC]
+
+
+########## Load Balancer Definition ##########
+
+
+[ITEM]
+ID: lb_name
+NAME: Name
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: A unique name for a cluster.
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: lb_type
+NAME: Type
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR:
+Specifies the type of cluster.
+<br><br>
+"Layer7" HTTP load balancing, also known as application-level load balancing, parses HTTP requests
+and distributes requests to servers based on different types of request contents.
+<br><br>
+"Layer4" load balancing is transport layer load balancing, such as TCP and UDP transport protocols.
+It does not look at the content when selecting a backend server. In theory, Layer 4 load balancing supports every application type.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: lb_mode
+NAME: Mode
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies which mode the load balancer operates in, "Stateless" or "Stateful".
+<br><br>
+"Stateful" mode track sessions associated with each back-end server. It also called "Session Affinity".
+<br><br>
+"Stateless" mode does not care about sessions.
+<br><br>
+For the Layer 4 Load Balancer, if the Mode is “Stateful”, it will track the IP address of the client to extract previous sessions.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: strategy
+NAME: Strategy
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Select load balancing strategy from the list.
+
+<ul>
+<li>The round-robin algorithm cycles through a list of backend Server instances in order.</li>
+<li>
+  The least-load algorithm improves on the round-robin algorithm by also taking into account the current work load of each
+  server.
+</li>
+<li>The least-session algorithm choose the server with fewest session associated.</li>
+<li>
+  The Fastest Response algorithm chooses the Worker Group node that responds the fastest to a backend worker ping.
+</li>
+</ul>
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## Session Management ##########
+
+
+[ITEM]
+ID: sessionExMethod
+NAME: Session Extraction
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specify how to extract session ID from request.
+
+
+<b>IP Address:</b> Uses Client IP as session ID.
+
+
+<b>Basic Authentication:</b> Uses username in the basic authentication as session ID.
+
+
+<b>Query String:</b> Uses a Parameter in request query string as session ID.
+
+
+<b>Cookies:</b> Uses a Parameter in cookie as session ID.
+
+
+<b>SSL Session:</b> Uses SSL Session ID as session ID.
+
+
+<b>JVM Route:</b> JVM Route is an extra section appended to a Servlet session ID, which used to identify servlet backend.
+<b>Example:</b> JSESSIONID=344BA8002DE6FBE2QDF25.tomcat1
+
+
+<b>URL Path Parameter:</b> Uses a URL Path Parameter as session ID.
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: For Layer 4 Load Balancers, only the IP Address extraction method will work.  For Layer 7 Load Balancers, any of the above methods will work.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sessionId
+NAME: Session ID String
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the Session ID string. The string is used to extract
+the session id value from cookie, query string and URL path parameter.
+
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sessionTimeout
+NAME: Session Timeout
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specify for how long a session will be valid, in seconds.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: insertCookie
+NAME: Insert Tracking Cookie
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specify whether to insert a tracking cookie. The tracking
+cookie can be used to reconstruct session cache in case load balancer
+lost it.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: cookieName
+NAME: Tracking Cookie Name
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specify the tracking cookie name.
+END_DESCR
+
+SYNTAX: string
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: showBackend
+NAME: Show Backend In Header
+REQUIRED:
+APPLY:
+SINCE: 2.5
+SEE_ALSO:
+
+DESCR: Add response header 'x-lsadc-backend' which indicates that backend server that served the request. The header's
+value is a concatenation of the cluster name and the backend IP and port.
+
+
+Default value: No
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: "x-lsadc-backend: clusterHTTP_10.10.15.11:443"
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: forwardIpHeader
+NAME: Forward IP Header
+REQUIRED:
+APPLY:
+SINCE: 2.6
+SEE_ALSO:
+
+DESCR: An additional header to be added to all proxy requests made to the backend server. This header will use either the
+visiting IP or the value set in the 'X-Forwarded-For' header as it's value, depending on the value set for
+{ITEM=ServGeneral_Help#useIpInProxyHeader}.
+
+
+Default value: Not Set
+END_DESCR
+
+SYNTAX: String with allowed characters a-z, A-Z, 0-9, underscore(_), and hyphen(-)
+END_SYNTAX
+
+EXAMPLE: X-Client-Ip
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: forwardByHeader
+NAME: Forwarded By Header
+REQUIRED:
+APPLY:
+SINCE: 2.6
+SEE_ALSO:
+
+DESCR: An additional header to be added to all proxy requests made to the backend server. This header's value will be set
+to the serverName value.
+
+
+Default value: Not Set
+END_DESCR
+
+SYNTAX: String with allowed characters a-z, A-Z, 0-9, underscore(_), and hyphen(-)
+END_SYNTAX
+
+EXAMPLE: X-Forwarded-By
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## Custom Error Messages ##########
+
+############# Tables #############
+
+
+[TBL]
+ID: ClusterDef
+NAME: Load Balancer
+
+DESCR:
+END_DESCR
+
+CONT: lb_name lb_type lb_mode strategy
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: ClusterSession
+NAME: Session Management
+
+DESCR:
+END_DESCR
+
+CONT: sessionExMethod sessionId sessionTimeout insertCookie cookieName showBackend forwardIpHeader
+forwardByHeader
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: ClusterErrMsg
+NAME: Custom Error Messages
+
+DESCR: Specify a custom error message in case error occured during
+distributing request to backend servers. Custom error messages
+configured at virtual host level will override this configuration.
+END_DESCR
+
+CONT:
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: Clusters_General_Help
+NAME: Cluster General
+
+DESCR:
+END_DESCR
+
+CONT: ClusterDef ClusterSession ClusterErrMsg
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+[END_HELPDOC]

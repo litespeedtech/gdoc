@@ -1,0 +1,486 @@
+[HELPDOC]
+
+
+########## General ##########
+
+
+[ITEM]
+ID: zconf_enabled
+NAME: Enable ZeroConf
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Choose whether or not to enable the ZeroConf feature.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: Once enabled at the server level, this feature can be enabled individually per listener.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: zconf_vhostPerDomain
+NAME: Separate VHost Per Domain
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Create a VHost for each domain configured through ZeroConf. If set to {val}No{/}, all domains that share the same
+list of backends will share a VHost.
+
+
+Warning: When set to {val}Yes{/}, this could be very memory expensive if there are many domains.
+
+
+Default value: No
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: zconf_logPerDomain
+NAME: Separate Log Per Domain
+REQUIRED:
+APPLY:
+SINCE: 2.7
+SEE_ALSO: {ITEM=zconf_vhostPerDomain}, {ITEM=zconf_domLogDir}
+
+DESCR: Indicate whether to log ZeroConf configured VHosts separately. This configuration only takes effect when
+{ITEM=zconf_vhostPerDomain} is set for the domain.
+
+
+For example, if {ITEM=zconf_vhostPerDomain} is not set at the Server level but is set in a VHost Template, this will
+only take effect for the VHost Template's domains.
+
+
+Note: {ITEM=zconf_domLogDir} must also be set for this option to be saved.
+
+
+Default value: All unchecked
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: zconf_domLogDir
+NAME: Domain Log Directory
+REQUIRED:
+APPLY:
+SINCE: 2.7
+SEE_ALSO: {ITEM=zconf_logPerDomain}
+
+DESCR: Directory in which to create logs for ZeroConf domains.
+
+Note: This directory must be writeable for the LSLBD runtime user set in {ITEM=runningAs} for logs to be written.
+
+
+Default value: Not Set
+END_DESCR
+
+SYNTAX: path2
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: zconf_passwdFile
+NAME: User Password File
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: The location of an HTTP basic authentication user password file.
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: zconf_groupFile
+NAME: Group Password File
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: The location of an HTTP basic authentication group password file.
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: zconf_domCiphers
+NAME: ZeroConf Domain Ciphers
+REQUIRED:
+APPLY:
+SINCE: 2.7
+SEE_ALSO:
+
+DESCR: Specifies a custom cipher suite for ZeroConf domains.
+
+
+Default value: Use server default ciphers
+END_DESCR
+
+SYNTAX: Colon-separated string of cipher specifications.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: zconf_workerMaxConns
+NAME: Worker Max Connections
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Maximum number of connections per ZeroConf worker. There is one worker created per backend listener per ADC
+worker process.
+
+
+Default value: {val}100{/}
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: Suppose the ADC has four worker processes. Three backend servers send their configurations to the ADC and
+each of them have an HTTP (:80) and HTTPS (:443) listener. Using the default value of Worker Max Connections value of
+100, the maximum number of connections made between the ADC and backend nodes will be:
+
+
+100 (default per worker) x 4 (ADC workers with a "Web ADC Large" license),  x 3 (backend ZeroConf servers)
+x 2 (HTTP and HTTPS ports) = 2,400
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: zconfShmDir
+NAME: ZeroConf SHM Directory
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: The location where ZeroConf shared memory files are stored.
+The default directory is {val}$SERVER_ROOT/zconf{/}.
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## ZeroConf Listeners ##########
+
+
+[ITEM]
+ID: zconf_laddr
+NAME: Address
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Address of listener that will only accept ZeroConf configuration and control messages.
+END_DESCR
+
+SYNTAX: IP:port
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## Access Control ##########
+
+
+[ITEM]
+ID: zconf_accessControl_allow
+NAME: Allowed List
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the list of IPs or sub-networks allowed.
+{val}*{/} or {val}ALL{/} are accepted.
+END_DESCR
+
+EDITTIP: Input format can be an IP like 192.168.0.2, a sub-network like 192.168.*, or a subnet/netmask like
+192.168.128.5/255.255.128.0.
+END_EDITTIP
+
+EDITTIP: If you have trusted IP or sub-network, then you must specify them in allowed list by adding a trailing "T" such
+as 192.168.1.*T. Trusted IP or sub-network is not limited by connection/throttling limit.
+END_EDITTIP
+
+SYNTAX: Comma delimited list of IP addresses or sub-networks.
+A trailing "T" can be used to indicate a trusted IP or sub-network, such as {val}192.168.1.*T{/}.
+END_SYNTAX
+
+EXAMPLE:
+<b>Sub-networks:</b> 192.168.1.0/255.255.255.0, 192.168.1.0/24, 192.168.1, or
+192.168.1.*
+
+<b>IPv6 addresses:</b> ::1 or [::1]
+
+<b>IPv6 subnets:</b> 3ffe:302:11:2:20f:1fff:fe29:717c/64 or
+[3ffe:302:11:2:20f:1fff:fe29:717c]/64
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: zconf_accessControl_deny
+NAME: Denied List
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the list of IPs or sub-networks disallowed.
+END_DESCR
+
+EDITTIP: To deny access from certain address, put "ALL" in allowed list, and put subnet or IP in denied list. To allow
+only certain IP or subnet to access the site, put "ALL" in denied list and specify the address in the allowed list.
+END_EDITTIP
+
+SYNTAX: Comma delimited list of IP addresses or sub-networks.
+{val}*{/} or {val}ALL{/} are accepted.
+END_SYNTAX
+
+EXAMPLE:
+<b>Sub-networks:</b> 192.168.1.0/255.255.255.0, 192.168.1.0/24, 192.168.1, or
+192.168.1.*
+
+<b>IPv6 addresses:</b> ::1 or [::1]
+
+<b>IPv6 subnets:</b> 3ffe:302:11:2:20f:1fff:fe29:717c/64 or
+[3ffe:302:11:2:20f:1fff:fe29:717c]/64
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Tables #############
+
+
+[TBL]
+ID: zconf_general
+NAME: General
+
+DESCR:
+END_DESCR
+
+CONT: zconf_enabled zconf_vhostPerDomain zconf_logPerDomain zconf_domLogDir zconf_passwdFile zconf_groupFile
+zconf_domCiphers strategy zconfShmDir
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: zconf_worker
+NAME: ZeroConf Worker
+NS: L
+SINCE: 3.0.1
+
+DESCR:
+END_DESCR
+
+CONT: workerProtocol zconf_workerMaxConns initTimeout retryTimeout persistConn pcKeepAliveTimeout respBuffer
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: zconf_listeners
+NAME: ZeroConf Listeners
+
+DESCR: Secure SSL listeners that will listen for ZeroConf messages only.
+END_DESCR
+
+CONT: listenerName zconf_laddr keyFile certFile CACertFile
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: zconfLog
+NAME: ZeroConf Listener Log
+
+DESCR:
+END_DESCR
+
+CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_keepDays
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: zconfAcLog
+NAME: ZeroConf Access Log
+
+DESCR:
+END_DESCR
+
+CONT: accessLog_fileName accessLog_pipedLogger accessLog_logFormat accessLog_logHeader log_rollingSize
+log_keepDays accessLog_compressArchive
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: zconf_accessControl
+NAME: Access Control
+
+DESCR: Specifies what sub networks and/or IP addresses can send ZeroConf messages to LiteSpeed Web ADC when
+ZeroConf is enabled.
+END_DESCR
+
+CONT: zconf_accessControl_allow zconf_accessControl_deny
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: ZConf_Help
+NAME: ZeroConf Settings
+
+DESCR: ZeroConf is a feature that allows authorized client servers to send their configuration
+(domains, ip addresses, ports, etc.) to LiteSpeed Web ADC. This feature provides an alternative way to set up load
+balancing dynamically rather than working with the webadmin interface. The ZeroConf API describes the messages
+accepted by the ZeroConf feature. This section provides the interface to enable and configure the ZeroConf feature.
+END_DESCR
+
+CONT: zconf_general zconf_worker zconf_listeners zconfLog zconfAcLog zconf_accessControl
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+[END_HELPDOC]

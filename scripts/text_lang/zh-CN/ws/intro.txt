@@ -1,0 +1,119 @@
+<h1>Introduction</h1>
+<h3>Overview</h3>
+<p>
+  LiteSpeed Web Server is an Apache-interchangeable, high performance, secure, easy-to-use web server. It can handle 
+  thousands of concurrent connections with a small memory footprint. Its security features also make it much less 
+  vulnerable to various attacks.
+</p>
+
+<h3>LiteSpeed Exclusive Features</h3>
+<ul>
+  <li>Apache Drop-In Replacement</li>
+  <li>HTTP/2 Support</li>
+  <li>QUIC Support</li>
+  <li>Zero Downtime</li>
+  <li>Anti-DDoS Advances</li>
+  <li>Event-Driven Architecture</li>
+</ul>
+
+<h3>Features</h3>
+<ul>
+  <li>
+    <p><strong>HTTP/1.1</strong></p>
+    <ul>
+      <li>HTTP/2</li>
+      <li>HTTP 1.0/1.1 compliant</li>
+      <li>Scripting Languages: PHP, Perl, Ruby, Python, Java, etc...</li>
+      <li>Server APIs: LiteSpeed SAPI (LSAPI), CGI, FCGI, AJPv13, Proxy</li>
+      <li>HTTPS</li>
+      <li>IPv4 and IPv6</li>
+      <li>Unlimited IP and name-based virtual hosting</li>
+      <li>Unlimited concurrent connections</li>
+      <li>GZIP compression</li>
+      <li>Support for SPDY/2, 3, and 3.1</li>
+      <li>WebSocket proxying</li>
+      <li>Runs on Linux, FreeBSD, MacOSX, Solaris</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Performance & Scalability</strong></p>
+    <ul>
+      <li>Event-driven architecture</li>
+      <li>Hundreds of thousands of concurrent connections</li>
+      <li>Tiny memory footprint</li>
+      <li>Sendfile()</li>
+      <li>Asynchronous I/O support</li>
+      <li>LiteSpeed's exclusive server API (LSAPI) delivers the best dynamic content performance</li>
+      <li>Unrivaled PHP suEXEC performance for shared hosting</li>
+      <li>Three different PHP process modes for different needs and abilities</li>
+      <li>Static content up to 5x faster than Apache</li>
+      <li>Dynamic content up to 40x faster than Apache</li>
+      <li>HTTPS 3x faster than Apache</li>
+      <li>OCSP stapling</li>
+      <li>Built-in page caching</li>
+      <li>Turbocharge Magento and other web applications with ESI support</li>
+      <li>Advanced .htaccess caching removes performance bottlenecks associated with .htaccess use in Apache</li>
+      <li>CloudLinux LVE compatibility</li>
+      <li>Increases scalability of web applications</li>
+      <li>
+        Separation of server and web applications allows for buffering of requests and responses, leading to better
+        handling of multiple connections
+      </li>
+      <li>Just in time configuration cuts restart time</li>
+      <li>CPU affinity allows for greater use of CPU cache</li>     
+    </ul>
+  </li>
+  <li>
+    <p><strong>Apache Compatibility</strong></p>
+    <ul>
+      <li>Reads Apache's configuration files directly</li>
+      <li>Drop-in Apache replacement for cPanel, Plesk, DirectAdmin, Interworx, etc.</li>
+      <li>Full .htaccess support</li>
+      <li>Compatible with Apache core modules</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Security</strong></p>
+    <ul>
+      <li>Built-in anti-DDoS connection and bandwidth throttling</li>
+      <li>mod_security compatibility</li>
+      <li>Compatibility with Atomic Secured Linux and Atomicorp Realtime ModSecurity Rules</li>
+      <li>Anti SSL BEAST and renegotiation attack capabilities</li>
+      <li>Strict HTTP request validation</li>
+      <li>Denies buffer-overrun attempts</li>
+      <li>PHP/Ruby/CGI/FCGI/LSAPI suEXEC</li>
+      <li>CloudLinux CageFS compatibility</li>
+      <li>External application and full server chroot ability</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>High Availability</strong></p>
+    <ul>
+      <li>Apply changes with zero downtime</li>
+      <li>Zero downtime server software upgrade</li>
+      <li>Recovers from service failure instantly</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Ease of Use</strong></p>
+    <ul>
+      <li>Control panel plugins (cPanel, DirectAdmin, and Plesk)</li>
+      <li>Officially supported by cPanel</li>
+      <li>Intuitive WebAdmin console GUI</li>
+      <li>Virtual host templates for easy configuration</li>
+      <li>Real-time service monitoring</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Advanced Features</strong></p>
+    <ul>
+      <li>Easily run multiple versions of PHP on one server</li>
+      <li>MS FrontPage Server Extensions</li>
+      <li>Geo-IP lookup</li>
+      <li>Stream logs to external logger</li>
+      <li>Custom log formatting</li>
+      <li>Backend load balancing</li>
+      <li>mp4/flv streaming</li>
+    </ul>
+  </li>
+</ul>

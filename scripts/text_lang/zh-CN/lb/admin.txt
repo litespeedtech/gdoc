@@ -1,0 +1,63 @@
+<h1>管理</h1>
+
+<p>可以通过三种方式控制LiteSpeed负载均衡器：通过WebAdmin控制台，从命令行或通过发送信号。</p> 
+
+<p class="label1"><b>1. 通过WebAdmin控制台.</b></p>
+<ul>
+  登录到Web管理控制台，并将鼠标悬停在顶部菜单中的 <span class="tag">操作</span> 。 下拉菜单包含常见任务的快捷操作。点击
+<span class="tag">操作</span> 将会带您去专门的控制页面.<br>
+单击专用控制面板页面上的快捷操作或相应的链接可以执行以下任务<ul>
+<li>正常重启服务器</li> 
+<li>查看日志</li>
+<li>实时监控</li>
+<li>重载虚拟主机</li>
+<li>启用/禁用虚拟主机</li>
+<li>版本管理。</li>
+</ul>
+<p><a href="ServerStat_Help.html">更多细节 ...</a></p>
+<p>要更改负载均衡器的WebAdmin控制台的用户名和密码组合，请从shell运行以下命令:<br>
+	<span class="cmd">[your install dir]/admin/misc/admpass.sh</span> </p>
+</ul>
+<p class="label1"><b>2. 通过命令行</b></p>
+<ul>
+Assuming the load balancer is installed in /opt/lslb.
+<br>
+Use the <span class="tag">lslbctrl</span> control script in the /opt/lslb/bin/ directory.<br>
+<p>
+To start the load balancer:<br>
+<span class="cmd">/opt/lslb/bin/lslbctrl start</span>
+</p>
+<p>
+To stop the load balancer:<br>
+<span class="cmd">/opt/lslb/bin/lslbctrl stop</span>
+</p>
+<p>
+To gracefully restart the load balancer:<br>
+<span class="cmd">/opt/lslb/bin/lslbctrl restart</span>
+</p>
+</ul>
+
+<p class="label1"><b>3. By sending signals.</b></p>
+<ul>
+You can stop the load balancer process by sending it signals.<br>
+<br>Firstly, you need to know the load balancer's process id, either through the "lslbd.pid" file or using the
+"ps" terminal command.<br>
+
+<p>Through the "lslbd.pid" file:<br>
+<span class="cmd">more /tmp/lslbd/lslbd.pid</span></p>
+
+<p>Using the "ps" command:<br>
+FreeBSD: <span class="cmd">ps -x | grep lslbd</span><br>
+Others: <span class="cmd">ps -ef | grep lslbd</span><br>
+<br>
+If multiple processes are listed, use the process whose PPID is equal to 1.
+</p>
+<p>
+To stop the load balancer, use the following terminal command:
+<span class="cmd">kill XXXX</span>
+   (where XXXX is the pid)<br>
+If the load balancer did not stop, use:
+<span class="cmd">kill -9 XXXX</span>
+</p>
+</ul>
+<br><br>
