@@ -9,7 +9,7 @@
 
 [TBL]
 ID: Admin_listenerGeneral
-NAME: 常规选项
+NAME: General
 NS: EO
 
 DESCR:
@@ -25,7 +25,7 @@ SEE_ALSO:
 
 [TBL]
 ID: Admin_listenerGeneral
-NAME: 常规选项
+NAME: General
 NS: L
 
 DESCR:
@@ -41,7 +41,7 @@ SEE_ALSO:
 
 [TBL]
 ID: sslFeature
-NAME: 安全与功能
+NAME: Security & Features
 NS: LEO
 
 DESCR:
@@ -60,7 +60,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: AdminListeners_General_Help
-NAME: 管理员侦听器设置
+NAME: Admin Listeners General
 NS: LEO
 
 DESCR: Admin Listeners are dedicated to the Admin Server. Secure (SSL) listeners
@@ -77,7 +77,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: AdminListeners_SSL_Help
-NAME: 管理员侦听器SSL
+NAME: Admin Listeners SSL
 NS: LEO
 
 DESCR: Admin Listeners are dedicated to the Admin Server. Secure (SSL) listeners

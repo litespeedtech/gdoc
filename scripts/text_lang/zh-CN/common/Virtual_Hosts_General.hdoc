@@ -6,7 +6,7 @@
 
 [ITEM]
 ID: docRoot
-NAME: 文档根
+NAME: 文档根目录
 NS: EO
 REQUIRED:
 APPLY: 3

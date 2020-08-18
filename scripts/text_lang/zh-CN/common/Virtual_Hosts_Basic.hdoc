@@ -30,7 +30,7 @@ END_TIPS
 
 [ITEM]
 ID: vhRoot
-NAME: 虚拟主机根
+NAME: 虚拟主机根目录
 NS: E
 REQUIRED:
 APPLY: 3

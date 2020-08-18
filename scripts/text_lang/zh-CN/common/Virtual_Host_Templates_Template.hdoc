@@ -288,7 +288,7 @@ END_TIPS
 
 [ITEM]
 ID: memberVHRoot
-NAME: 成员虚拟主机根
+NAME: 成员虚拟主机根目录
 REQUIRED:
 APPLY: 3
 SINCE:
