@@ -1,0 +1,175 @@
+[HELPDOC]
+
+
+########## Template Settings ##########
+
+
+[ITEM]
+ID: templateVHRoot
+NAME: 默认虚拟主机根 
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 指定使用此模板的成员虚拟主机的默认根目录。. 
+Variable {val}$VH_NAME{/} must appear in the path. This will allow each member template 
+to be automatically assigned a separate root directory based on its name. 
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: templateVHConfigFile
+NAME: Instantiated VHost Config File
+NS: LE
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the location of the config file generated when you instantiate a member virtual host. 
+Variable {val}$VH_NAME{/} must appear in the path so each virtual host will have its own file.
+Suggested location is {val}$SERVER_ROOT/conf/vhosts/$VH_NAME.xml{/}. This config file will 
+be created only after you move a member vhost out of the template through instantiation.
+END_DESCR
+
+SYNTAX: String with $VH_NAME variable and .xml suffix
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: templateVHConfigFile
+NAME: Instantiated VHost Config file
+NS: O 
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the location of the config file generated when you instantiate a member virtual host. 
+Variable {val}$VH_NAME{/} must appear in the path so each virtual host will have its own file. Must be located under 
+$SERVER_ROOT/conf/vhosts/. This config file will be created only after you move a member vhost out of the template 
+through instantiation.
+END_DESCR
+
+SYNTAX: String with $VH_NAME variable and .conf suffix
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: $VH_NAME/vhconf.conf is recommended for easy management.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: templateVHDocRoot
+NAME: 文件根目标
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the unique path for each member virtual host's document root.  
+Variable {val}$VH_NAME{/} or {val}$VH_ROOT{/} must appear in the path so 
+each member virtual host will have its own document root.
+END_DESCR
+
+SYNTAX: path with $VH_NAME or $VH_ROOT variable
+END_SYNTAX
+
+EXAMPLE: $VH_ROOT/public_html/ or $SERVER_ROOT/$VH_NAME/public_html.  
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: templateFileRef
+NAME: 模板中的文件名
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies a path for the file to be used for member virtual hosts.  
+Variable {val}$VH_NAME{/} or {val}$VH_ROOT{/} must appear in the path so 
+each member virtual host will have its own file.
+END_DESCR
+
+SYNTAX: string
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Tables #############
+
+
+[TBL]
+ID: templateSettings
+NAME: 模板设置
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: templateVHRoot templateVHConfigFile templateVHDocRoot templateFileRef 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: templateSettings
+NAME: Template Settings
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: templateVHRoot templateFileRef 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[END_HELPDOC]

@@ -6,13 +6,13 @@
 
 [ITEM]
 ID: templateName
-NAME: Template Name
+NAME: 模板名称
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: A unique name for the template.
+DESCR: 模板的唯一名称。
 END_DESCR
 
 SYNTAX: text
@@ -60,19 +60,17 @@ END_TIPS
 
 [ITEM]
 ID: templateFile
-NAME: Template File
+NAME: 模板文件
 NS: O
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the path to the configuration file of this template.
-The file must be located within $SERVER_ROOT/conf/templates/ with a ".conf" filename.
-If the file you designate does not exist, after trying to save the template
-an error will appear with the link "CLICK TO CREATE". This link will generate
-a new empty template file. When you delete the template, the entry will be
-removed from your configurations, but the actual template config file will not be deleted.
+DESCR: 指定此模板配置文件的路径。
+该文件必须位于$SERVER_ROOT/conf/templates/中，且文件名带有“ .conf”。
+如果您指定的文件不存在，则在尝试保存模板后，将出现错误，为“CLICK TO CREATE”。 
+点击该链接将生成一个新的空模板文件。 当您删除模板时，该条目将从您的配置中删除，但实际的模板配置文件不会被删除。
 END_DESCR
 
 SYNTAX: path
@@ -90,7 +88,7 @@ END_TIPS
 
 [ITEM]
 ID: mappedListeners
-NAME: Mapped Listeners
+NAME: 映射的侦听器
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -187,19 +185,16 @@ END_TIPS
 
 [ITEM]
 ID: templateVHName
-NAME: Virtual Host Name
+NAME: 虚拟主机名
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: A unique name for this virtual host. This name must be unique among all
-template member virtual hosts and standalone virtual hosts. Inside a directory
-path configuration, this name can be referenced by the variable {val}$VH_NAME{/}.
+DESCR: 此虚拟主机的唯一名称。 该名称在所有的虚拟主机模板和虚拟主机中不得重复。 在目录路径配置中，此名称可以由变量{val}$VH_NAME{/}引用。
 
 
-If a standalone virtual host with the same name is also configured, then
-the member virtual host configuration will be ignored.
+如果还配置了具有相同名称的虚拟主机，则虚拟主机的配置将被忽略。
 END_DESCR
 
 SYNTAX: text
@@ -217,18 +212,16 @@ END_TIPS
 
 [ITEM]
 ID: templateVHDomain
-NAME: Domain
+NAME: 域名
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the main domain name for this member virtual host.
-If left blank, the virtual host name will be used. This should
-be a fully qualified domain name, but you can use an IP address as well.
-It is recommended to append {val}:<port>{/} for web sites not on port 80.
-For configurations containing domain names, this domain can be referenced
-with variable {val}$VH_DOMAIN{/}.
+DESCR: 指定该成员虚拟主机的主域名。
+如果留白，将使用成员虚拟主机名, 这应该是符合标准的域名,但是您也可以使用IP地址。
+对于不在端口80上的网站，建议附加{val}:<port>{/}
+对于包含域名的配置，可以使用变量{val}$VH_DOMAIN{/}来引用此域。
 
 
 This domain name will be used in the following situations:
@@ -256,7 +249,7 @@ END_TIPS
 
 [ITEM]
 ID: templateVHAliases
-NAME: Aliases
+NAME: 别名
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -295,7 +288,7 @@ END_TIPS
 
 [ITEM]
 ID: memberVHRoot
-NAME: Member Virtual Host Root
+NAME: 成员虚拟主机根
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -329,7 +322,7 @@ END_TIPS
 
 [TBL]
 ID: templateGeneral
-NAME: Template Location
+NAME: 模板位置
 NS: LEO
 
 DESCR:
@@ -421,7 +414,7 @@ SEE_ALSO:
 
 [PAGE]
 ID: Templates_Help
-NAME: Virtual Host Templates
+NAME: 虚拟主机模板
 NS: EO
 
 DESCR: Virtual host templates make it easy to create many new virtual

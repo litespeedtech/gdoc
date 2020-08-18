@@ -1,0 +1,161 @@
+[HELPDOC]
+
+
+########## General ##########
+
+####### General #######
+
+
+[ITEM]
+ID: enableCoreDump
+NAME: 启用Core Dump
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 指定当服务由root用户启动时是否启用core dump。
+对大多数现代的Unix系统，会更改用户ID或组ID的进程出于安全考虑不被允许产生core文件。但是core dump文件对于排查故障非常有用。
+这个选项只能在Linux Kernel 2.4或更高版本中可用。
+Solaris用户应当使用{cmd}coreadm{/}命令来控制这个功能。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [安全建议] 仅在当你在服务器日志中看到{val}没有创建core文件{/}时启用。当产生core文件后立即关闭。Core文件产生后请提交bug报告。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: consoleSessionTimeout
+NAME: 会话超时时长（秒）
+REQUIRED: 
+APPLY: Immediately
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 自定义WebAdmin控制台会话超时时间。
+如果未设置任何值，则默认值60秒生效。
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [安全建议] 在生产环境中一般设置一个不超过300秒的合适值。
+END_TIPS
+
+[END_ITEM]
+
+
+
+####### Virtual Host Log #######
+
+####### Access Log #######
+
+
+
+########## Security ##########
+
+####### Web Admin Users #######
+
+#### Web Admin User ####
+
+
+[ITEM]
+ID: adminOldPass
+NAME: 旧密码
+REQUIRED: 
+APPLY: Immediately
+SINCE: 
+SEE_ALSO: 
+
+DESCR:
+END_DESCR
+
+EDITTIP: 出于安全原因，如果忘记了管理员密码，将无法从WebAdmin Console进行更改。 请改用以下shell命令：
+<br><br>
+/usr/local/lsws/admin/misc/admpass.sh. 
+<br><br>
+该脚本将删除所有输入的管理员用户ID，并用一个管理员用户覆盖它们。
+END_EDITTIP
+
+[END_ITEM]
+
+
+############# Tables #############
+
+
+[TBL]
+ID: coredump
+NAME: 常规选项
+
+DESCR: 
+END_DESCR
+
+CONT: enableCoreDump consoleSessionTimeout
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: adminUser
+NAME: 网络管理员用户
+
+DESCR: Change the username and password for the WebAdmin Console. 
+The old password must be entered and verified in order to save changes.  
+END_DESCR
+
+CONT: adminOldPass
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: AdminGeneral_Help 
+NAME: 管理控制台设置
+NS: LEO
+
+DESCR: A中控服务器是专门用于WebAdmin控制台的虚拟主机。确保中控服务器只允许管理员终端登入或者采用加密的SSL连接是十分必要的。
+END_DESCR
+
+CONT: coredump vhLog vhAcLog
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: AdminSecurity_Help 
+NAME: Admin Console Security
+
+DESCR:
+END_DESCR
+
+CONT: accessControl adminUser
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]

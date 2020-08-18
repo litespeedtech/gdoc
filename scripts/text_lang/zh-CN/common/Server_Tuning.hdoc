@@ -1,0 +1,2726 @@
+[HELPDOC]
+
+
+############# General #############
+
+
+[ITEM]
+ID: ramDiskPath
+NAME: 内存盘路径
+NS: LE
+REQUIRED:
+APPLY:
+SINCE: 4.2.4
+SEE_ALSO:
+
+DESCR: Setting the RAM Disk Path allows you to designate the location of a RAM disk. A RAM disk
+is a world-writable directory stored in memory. A server with excess RAM can reduce disk I/O by serving
+content from this RAM disk. Accessing content from RAM is much faster than reading data from the disk.
+LSWS will use this RAM disk to optimize performance when there is enough memory available.
+
+
+(The RAM disk must be designated in your OS setup before it can be used by the web server.
+Many Linux distributions assign /dev/shm as a RAM disk by default, but these settings depend on your OS.)
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: shmDefaultDir
+NAME: 默认SHM目录
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 将共享内存的默认目录更改为指定的路径。 如果该目录不存在，则将创建该目录。除非另有说明，否则所有SHM数据都将存储在此目录中。
+
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: bindIPv6Only
+NAME: 仅绑定IPV6
+NS: L
+REQUIRED:
+APPLY:
+SINCE: 3.0
+SEE_ALSO:
+
+DESCR: Only bind IPv6 for IPv6 wildcard IP addresses. When set to "Yes", IPv4 IP addresses will not be bound and will
+need their own listeners.
+
+
+Default value: Yes
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: bindIPv6Only
+NAME: Bind IPv6 Only
+NS: E
+REQUIRED:
+APPLY:
+SINCE: 5.4
+SEE_ALSO:
+
+DESCR: Only bind IPv6 for IPv6 wildcard IP addresses. When set to "Yes", IPv4 IP addresses will not be bound and will
+need their own listeners.
+
+
+Default value: Yes
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: reverseDnsLookup
+NAME: Reverse DNS Lookup
+NS: L
+REQUIRED:
+APPLY:
+SINCE: 3.0
+SEE_ALSO:
+
+DESCR: Perform an IP -> Domain Name lookup for each client. This can be used in access logging.
+
+
+Default value: No
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: reverseDnsLookup
+NAME: Reverse DNS Lookup
+NS: E
+REQUIRED:
+APPLY:
+SINCE: 5.4
+SEE_ALSO:
+
+DESCR: Perform an IP -> Domain Name lookup for each client. This can be used in access logging.
+
+
+Default value: No
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: verifyGoogleBot
+NAME: Verify Google Bot
+NS: L
+REQUIRED:
+APPLY:
+SINCE: 3.0
+SEE_ALSO:
+
+DESCR: Perform a PTR lookup to ensure that the reverse DNS of an IP matches Google's crawler information and bypass
+reCAPTCHA verification if so.  Bad Google bot IPs are logged.
+
+
+Default value: No
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: verifyGoogleBot
+NAME: Verify Google Bot
+NS: E
+REQUIRED:
+APPLY:
+SINCE: 5.4
+SEE_ALSO:
+
+DESCR: Perform a PTR lookup to ensure that the reverse DNS of an IP matches Google's crawler information and bypass
+reCAPTCHA verification if so.  Bad Google bot IPs are logged.
+
+
+Default value: No
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: forceSecureCookie
+NAME: Secure Cookie Control
+NS: L
+REQUIRED:
+APPLY:
+SINCE: 3.0
+SEE_ALSO:
+
+DESCR: Control whether to send cookies with the flag "secure", attribute "SameSite=Strict", and attribute
+"SameSite=Lax".
+
+
+If both "SameSite=Strict" and "SameSite=Lax" are selected, "SameSite=Strict" will be used.
+
+
+Default value: "secure"
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: forceSecureCookie
+NAME: Secure Cookie Control
+NS: E
+REQUIRED:
+APPLY:
+SINCE: 5.4
+SEE_ALSO:
+
+DESCR: Control whether to send cookies with the flag "secure", attribute "SameSite=Strict", and attribute
+"SameSite=Lax".
+
+
+If both "SameSite=Strict" and "SameSite=Lax" are selected, "SameSite=Strict" will be used.
+
+
+Default value: "secure"
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Connection #############
+
+
+[ITEM]
+ID: maxConnections
+NAME: 最大连接数
+NS: LO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定服务器可以接受的最大并发连接数。这包括纯TCP连接和SSL连接。 一旦达到此限制，服务器将在完成活动请求时关闭“Keep-Alive”的连接。
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 当服务器由"root"用户启动时，服务器会尝试自动调整每个进程的文件描述符限制，但是，如果自动调整失败，你可能需要手动增加此限制。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: maxConnections
+NAME: Max Connections
+NS: E
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the maximum number of concurrent connections that the server can accept.
+This includes both plain TCP connections and SSL connections. This setting should not be set to exceed
+the hard limit set by the server software edition or license: {val}500{/}
+for VPS license, {val}800{/} for Ultra VPS license. Once the maximum concurrent connections limit is reached,
+the server will close Keep-Alive connections when they complete active requests.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: When the server is started by "root" user, the server will try to
+adjust the per-process file descriptor limits automatically, however,
+if this fails, you may need to increase this limit manually.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: maxSSLConnections
+NAME: 最大SSL连接数
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定服务器将接受的最大并发SSL连接数。
+由于并发SSL和非SSL的连接总数不能超过{ITEM=maxConnections}的限制，因此允许的最大SSL连接的数量须低于此限制。
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: connTimeout
+NAME: 连接超时时间(secs)
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=keepAliveTimeout}
+
+DESCR: 指定一个请求允许的最大连接空闲时间。
+如果在这段时间内连接一直处于空闲状态(即没有I/O活动），则它将被关闭。
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [安全建议] 将值设置得尽可能低，在可能的拒绝服务攻击中，这可以帮助释放无效连接所占用的连接数。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: maxKeepAliveReq
+NAME: 最大持续连接请求数
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: Virtual Host {ITEM=VirtualHosts_Help#vhMaxKeepAliveReq}
+
+DESCR: 指定通过持续连接（持久）会话处理的请求的最大数量。一旦达
+到此限制，连接将被关闭。您也可以为每个虚拟主机单独设置限制。
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [性能建议] 设置为合理的较高的值。值为“1”或“0”时将禁用持续连接。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: keepAliveTimeout
+NAME: 持续连接超时时长
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定持续连接请求的最长闲置时间。
+如果在这段时间内没有接收到新的请求，该连接将被关闭。
+这个设置只适用于HTTP/1.1连接。HTTP/2连接有较长的闲置时间，不受此设置影响。
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [安全和性能建议] 我们建议您将值设置得刚好足够处理单个页面
+视图的所有请求。没有必要延长持续连接时间。较小的值可以减少闲置
+连接，提高能力，以服务更多的用户，并防范拒绝服务攻击。{val}2-5{/}秒
+对大多数应用是合理范围。Litespeed在非持续连接环境是非常高效的。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sndBufSize
+NAME: 发送缓冲区大小
+NS: LEO
+REQUIRED:
+APPLY: 2
+SINCE:
+SEE_ALSO:
+
+DESCR: 每个TCP套接字的发送缓冲区的大小。设定值为{val}0{/}使用
+操作系统默认的缓冲区大小。{val}65535{/}是允许的最大缓冲区大小。
+END_DESCR
+
+EDITTIP: 数值可以为10240、10K或1M。
+END_EDITTIP
+
+EDITTIP: 如果发送/接收缓冲区大小设置为0，则将使用操作系统默认的TCP缓冲区大小。
+END_EDITTIP
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [性能建议] 建议将此值保留为“未设置”或设置为0以使用操作系统的默认缓冲区大小。
+
+[性能建议] 如果您的网站服务大量的静态文件，增加发送缓冲区
+大小来提高性能。
+
+[性能建议] 将此值设置为较低的值将减少吞吐量和每个套接字的内存使用率，从而在内存成为瓶颈时允许服务器拥有更多并发套接字。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: rcvBufSize
+NAME: 接收缓冲区大小 (bytes)
+REQUIRED:
+APPLY: 2
+SINCE:
+SEE_ALSO:
+
+DESCR: 每个TCP套接字的接收缓冲区大小。 {val}512K{/}是允许的最大缓冲区大小。
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [性能建议] 建议将此值保留为“未设置”或设置为0以使用操作系统的默认缓冲区大小。
+
+[性能建议] 处理大载荷入站请求，如文件上传时，大的接收缓冲区会提高性能。
+
+[性能建议] 将此值设置为较低的值将减少吞吐量和每个套接字的内存使用率，从而在内存成为瓶颈时允许服务器拥有更多并发套接字。
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Request/Response #############
+
+
+[ITEM]
+ID: maxReqURLLen
+NAME: 最大请求URL长度(bytes)
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定请求URL的最大大小。 URL是一个纯文本的地址，包含查询字符串来请求服务器上的资源。
+硬限制为{val}65530{/}个字节。 大于此值的值，例如{val}64K{/}（大6个字节），将被视为{val}65530{/}。
+
+
+Default value: {val}8192{/} or {val}8K{/}.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [安全和性能建议] 将其设置合理的低值来以减少内存使用
+并帮助识别虚假请求和拒绝服务攻击。
+
+对大多数网站2000-3000已经足够大，除非使用HTTP GET而不是POST来提交大型的查询字符串。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: maxReqHeaderSize
+NAME: Max Request Header Size (bytes)
+NS: LE
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the maximum size of an HTTP request header including request URL. Hard limit is {val}65530{/} bytes.
+Values larger than this, such as {val}64K{/} (6 bytes larger), will be treated as if {val}65530{/} was used.
+
+
+Default value: {val}32768{/} or {val}32K{/}
+END_DESCR
+
+EDITTIP: Numbers can be represented as 10240 or 10K.
+END_EDITTIP
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [安全建议][性能建议] Set it reasonably low to reduce memory usage and
+help identify bogus requests and DoS attacks.
+
+4-8K is big enough for most web sites under normal circumstances.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: maxReqHeaderSize
+NAME: 最大请求头大小(bytes)
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定请求URL中包含的HTTP请求头最大值。 
+硬限制为{val}131072{/} 字节或128K.
+
+
+Default value: {val}32768{/} or {val}32K{/}
+END_DESCR
+
+EDITTIP: Numbers can be represented as 10240 or 10K.
+END_EDITTIP
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [安全和性能建议] 设置合理的低值来减少内存的使用并帮助识别虚假请求和拒绝服务攻击。
+
+对于大多数网站来说4000-8000已经足够大。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: maxReqBodySize
+NAME: 最大请求主内容大小(bytes)
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定HTTP请求主内容最大尺寸。对于32位操作系统，
+硬限制为{val}2GB{/}。对于64位操作系统，几乎是无限的。
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [安全建议] 为了防止拒绝服务攻击，尽量将限制值设定到实际需求的大小。
+交换空间的剩余空间必须比这个限制值大。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: maxDynRespHeaderSize
+NAME: Max Response Header Size (bytes)
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the maximum header size of a dynamically generated response. Static assets from a backend server are
+considered a dynamic response. Hard limit is {val}65530{/} bytes. Values larger than this, such as {val}64K{/}
+(6 bytes larger), will be treated as if {val}65530{/} was used.
+
+
+Default value: {val}32768{/} or {val}32K{/}
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [性能建议] Set it reasonably low to help recognize bad responses dynamically generated by external applications.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: maxDynRespHeaderSize
+NAME: Max Dynamic Response Header Size (bytes)
+NS: E
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the maximum header size of a dynamically generated response. Hard limit is {val}65530{/} bytes. Values
+larger than this, such as {val}64K{/} (6 bytes larger), will be treated as if {val}65530{/} was used.
+
+
+Default value: {val}32768{/} or {val}32K{/}
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [性能建议] Set it reasonably low to help recognize bad responses dynamically generated by external applications.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: maxDynRespHeaderSize
+NAME: 动态回应报头最大大小(bytes)
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定动态回应的最大报头大小。硬限制为{val}131072{/}字节或128K.
+
+
+Default value: {val}32768{/} or {val}32K{/}
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [可靠性和性能建议] 设置一个合理的低值以帮助识别外部应用程序产生的
+坏的动态回应。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: maxDynRespSize
+NAME: Max Response Body Size (bytes)
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the maximum body size of a dynamically generated response. Static assets from a backend server are
+considered a dynamic response. Hard limit is {val}2047MB{/}.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [可靠性和性能建议] 设置一个合理的低值以帮助识别坏的响应。恶意脚本经常包含
+无限循环而导致大尺寸回应。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: maxDynRespSize
+NAME:动态回应主内容最大大小(bytes)
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定动态回应的最大主内容尺寸。硬限制是{val}2047MB{/}。
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [可靠性和性能建议] 设置一个合理的低值以帮助识别坏的响应。恶意脚本经常包含
+无限循环而导致大尺寸回应。
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Static File Delivery Optimization #############
+
+
+[ITEM]
+ID: maxCachedFileSize
+NAME: 最大小文件缓存(bytes)
+REQUIRED:
+APPLY: 2
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定预分配内存缓冲区中缓存的静态文件最大尺寸。静态文件
+可以用四种不同的方式服务：内存缓存、内存映射缓存、直接读写和
+sendfile()。
+尺寸小于{ITEM=maxCachedFileSize}的文件将使用内存缓存服务。尺寸大于该限制、但小于
+{ITEM=maxMMapFileSize}的文件，将使用内存映射缓存服务。
+尺寸大于{ITEM=maxMMapFileSize}的文件将通过直接读写或sendfile()
+服务。使用内存缓存服务小于4K的文件是最佳做法。
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: totalInMemCacheSize
+NAME: 小文件缓存总大小 (bytes)
+REQUIRED:
+APPLY: 2
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定分配用于缓存/服务小静态文件的总内存。
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: maxMMapFileSize
+NAME: 最大MMAP文件大小(bytes)
+REQUIRED:
+APPLY: 2
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定使用内存映射（MMAP）的最大静态文件大小。
+静态文件可以用四种不同的方式服务：内存缓存、内存映射缓存、直接读写和
+sendfile()。
+尺寸小于{ITEM=maxCachedFileSize}的文件将使用内存缓存服务。尺寸大于该限制、但小于
+{ITEM=maxMMapFileSize}的文件，将使用内存映射缓存服务。
+尺寸大于{ITEM=maxMMapFileSize}的文件将通过直接读写或sendfile()
+服务。
+由于服务器有一个32位的地址空间（2GB），不建议使用内存映射非常大的文件。
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: totalMMapCacheSize
+NAME: 总MMAP缓存大小 (bytes)
+REQUIRED:
+APPLY: 2
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定分配用于缓存/服务中等大小静态文件的总内存。
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: useSendfile
+NAME: 使用sendfile()
+REQUIRED:
+APPLY: 2
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定是否使用sendfile()系统调用来服务静态文件。静态文件
+可以用四种不同的方式服务：内存缓存、内存映射缓存、直接读写和
+sendfile()。
+尺寸小于{ITEM=maxCachedFileSize}的文件将使用内存缓存服务。尺寸大于该限制、但小于
+{ITEM=maxMMapFileSize}的文件，将使用内存映射缓存服务。
+尺寸大于{ITEM=maxMMapFileSize}的文件将通过直接读写或sendfile()
+服务。Sendfile()是一个“零拷贝”系统调用，可在服务非常大的
+文件时大大减少CPU的使用率。Sendfile()需要一个优化的网卡内核驱动，
+因此可能不适合某些小厂商的网络适配器。
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: useAIO
+NAME: Use AIO
+NS: E
+REQUIRED:
+APPLY: 2
+SINCE:
+SEE_ALSO: {ITEM=AIOBlockSize}
+
+DESCR: Specifies whether to use AIO to serve static files. AIO will help if
+your server has a high I/O wait. For 64bit operation system, there is an option to keep
+files mapped in process address space to improve AIO performance.
+
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: AIOBlockSize
+NAME: AIO Block Size
+NS: E
+REQUIRED:
+APPLY: 2
+SINCE:
+SEE_ALSO: {ITEM=useAIO}
+
+DESCR: Specifies the sent block size for AIO.
+This block size multiplied by the total files being processed should be less than the physical
+memory of the server, otherwise, AIO will not help. If your server has enough memory,
+you can choose a bigger size. Default value is "1M".
+
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: fileETag
+NAME: 文件ETag
+REQUIRED:
+APPLY: 2
+SINCE: 4.2.2
+SEE_ALSO:
+
+DESCR: 指定是否使用一个文件的索引节点、最后修改时间和大小属性
+生成静态文件的ETag HTTP响应头。
+所有这三个属性是默认启用的。
+如果您打算使用镜像服务器服务相同的文件，您应该不勾选索引节点。
+否则，为同一个文件生成的ETag在不同的服务器上是不同的。
+
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# GZIP/Brotli Compression #############
+
+
+[ITEM]
+ID: enableGzipCompress
+NAME: Enable Compression
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Enables GZIP/Brotli compression.
+
+
+Default value: Yes
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [性能建议] Enable to save network bandwidth. On average, responses can be compressed down to half of their original size.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableGzipCompress
+NAME: 启用GZIP压缩
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 制静态或动态HTTP回应的GZIP压缩。
+
+
+Default value: Yes
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [性能建议] 开启该功能可以节省网络带宽。
+针对基于文本的回应如html、css和javascript文件最有效果，一般可以压缩到原文件大小的一半大小。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: compressibleTypes
+NAME: 压缩类型
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定允许压缩哪些MIME类型。 保留此设置不变，或输入{val}default{/}以使用服务器内置的默认列表，该列表已经涵盖了大多数mime类型。
+
+Default value:
+{val}text/*,application/x-javascript,application/javascript,application/xml,image/svg+xml,application/rss+xml,
+application/json,application/vnd.ms-fontobject,application/x-font,application/x-font-opentype,
+application/x-font-truetype,application/x-font-ttf,font/eot,font/opentype,font/otf,font/ttf,image/x-icon,
+image/vnd.microsoft.icon,application/xhtml+xml{/}
+END_DESCR
+
+EDITTIP: Compressible Types is a list of MIME types that are compressible, separated by commas. You can use wildcard "*"
+for MIME types, like */*, text/*. You can put "!" in front to exclude certain types. The order of the list is important
+if you use "!". For e.g., a list like "text/*, !text/css, !text/js" will compress all text file except for css and js.
+END_EDITTIP
+
+SYNTAX: MIME type list separated by commas. Wild card "*" and
+negate sign "!" are allowed, such as text/*, !text/js.
+END_SYNTAX
+
+EXAMPLE: If you want to compress text/* but not text/css, you can have a rule like
+{val}text/*, !text/css{/}. "!" will exclude that MIME type.
+END_EXAMPLE
+
+TIPS: [性能建议] 只允许特定类型进行GZIP压缩。
+二进制文件如gif/png/jpeg图片文件及flash文件无法从压缩中获益。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableDynGzipCompress
+NAME: 启用GZIP动态压缩
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 控制动态HTTP回应的GZIP压缩。
+{ITEM=enableGzipCompress}必须设置为{val}Yes{/}来开启动态GZIP压缩。
+
+Default value: Yes
+END_DESCR
+
+EDITTIP: 动态压缩仅在启用压缩后才有效。
+END_EDITTIP
+
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [性能建议] 压缩动态回应将增加CPU和内存的使用，但可以节省网络带宽。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gzipCompressLevel
+NAME: GZIP Compression Level
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the level of GZIP compression applied. Ranges from {val}1{/} (lowest) to {val}9{/} (highest).
+
+
+This setting will only take effect when {ITEM=enableGzipCompress} is enabled.
+
+
+Default value: 6
+END_DESCR
+
+EDITTIP: GZIP Compression level ranges from 1 (Minimum) to 9 (Maximum).
+END_EDITTIP
+
+SYNTAX: Number between 1 and 9.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [性能建议] Higher compression level will use more memory and CPU cycles. You can set it to a higher level if your machine
+has additional power. There is not much difference between 6 and 9, except that 9 uses many more CPU cycles.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gzipCompressLevel
+NAME: GZIP压缩级别（动态内容）
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定压缩动态态内容的级别。
+范围从{val}1{/} (最低)到{val}9{/} (最高)。
+
+改设置尽在{ITEM=enableGzipCompress}和{ITEM=enableDynGzipCompress}启用时生效
+
+
+默认值: 6
+END_DESCR
+
+EDITTIP: 压缩动态态内容的级别,范围从{val}1{/} (最低)到{val}9{/} (最高)
+END_EDITTIP
+
+SYNTAX: Number between 1 and 9.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [性能建议] 更高的压缩级别将消耗更多的内存和CPU资源。
+如果您的机器有额外的资源您可以设置更高的级别。
+级别9与级别6没有太大的区别，但是级别9会占用多得多的CPU资源。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableBrCompress
+NAME: Brotli Compression Level
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Controls the level of Brotli compression applied. Ranges from {val}0{/} (OFF) to {val}6{/} (highest).
+
+
+This setting will only take effect when {ITEM=enableGzipCompress} is enabled.
+
+
+Default value: 2
+END_DESCR
+
+SYNTAX: Number between 0 and 6.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableBrCompress
+NAME: Brotli压缩等级 (Dynamic Content)
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Controls the level of Brotli compression applied to dynamic responses. Ranges from {val}0{/} (OFF) to
+{val}6{/} (highest).
+
+
+This setting will only take effect when {ITEM=enableGzipCompress} is enabled.
+
+
+Default value: 2
+END_DESCR
+
+SYNTAX: Number between 0 and 6.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gzipAutoUpdateStatic
+NAME: 自动更新静态文件
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定是否由LiteSpeed自动创建/更新可压缩静态文件的GZIP压缩版本。
+如果设置为{val}Yes{/}，当请求文件MIME属于{ITEM=compressibleTypes}时，
+LiteSpeed会根据压缩的文件时间戳来创建/更新文件的压缩版本。
+压缩的文档会创建在{ITEM=gzipCacheDir}目录下。
+文件名称根据原文件的MD5散列创建。
+
+默认值: Yes
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gzipStaticCompressLevel
+NAME: GZIP压缩级别（静态内容）
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定GZIP压缩静态内容的级别。
+范围从{val}1{/} (最低)到{val}9{/} (最高)。。
+
+
+该选项仅在 {ITEM=enableGzipCompress}和{ITEM=gzipAutoUpdateStatic} 启用后才会生效
+
+
+默认值是{val}6{/}
+END_DESCR
+
+SYNTAX: Number between 1 and 9.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: brStaticCompressLevel
+NAME: Brotli 压缩级别（静态内容）
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定Brotli压缩静态内容的级别。
+范围从{val}1{/} (最低)到{val}9{/} (最高)。
+
+
+该选项仅在{ITEM=enableGzipCompress}和{ITEM=gzipAutoUpdateStatic}启用后才会生效
+
+
+默认值是{val}5{/}
+END_DESCR
+
+SYNTAX: Number between 1 and 11.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [性能建议] 压缩可以用来节省网络带宽。 基于文本的响应（例如html，css和javascript文件）效果最好，平均可以将其压缩为原始大小的一半。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gzipCacheDir
+NAME: 静态缓存目录
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定目录路径来存储静态内容的压缩文件。默认是{ITEM=swappingDir}。
+END_DESCR
+
+SYNTAX: Directory Path
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gzipMaxFileSize
+NAME: 静态文件最大尺寸(bytes)
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定LiteSpeed可以自动创建压缩文件的静态文件最大尺寸。
+
+
+默认值为 10M
+END_DESCR
+
+SYNTAX: Number in bytes not less than 1K.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [性能建议] 不建议使用LiteSpeed创建/更新较大文件的压缩文件。
+压缩操作会占用整个服务器进程并且在压缩结束前新请求都无法被处理。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gzipMinFileSize
+NAME: 静态文件最小尺寸 (bytes)
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定LiteSpeed创建相应压缩文件的静态文件最小尺寸。
+
+
+Default value: 200
+END_DESCR
+
+SYNTAX: Number in bytes not less than 200.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: It is not necessary to compress very small files as the bandwidth saving is negligible.
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## SSL Global Settings ##########
+
+
+[ITEM]
+ID: sslDefaultCiphers
+NAME: Default Cipher Suite
+NS: L
+REQUIRED:
+APPLY:
+SINCE: 3.0
+SEE_ALSO:
+
+DESCR: Default cipher suite for SSL certificates.
+
+
+Default value: Server Internal Default (Based on current best practices)
+END_DESCR
+
+SYNTAX: Colon-separated string of cipher specifications.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslDefaultCiphers
+NAME: Default Cipher Suite
+NS: E
+REQUIRED:
+APPLY:
+SINCE: 5.4
+SEE_ALSO:
+
+DESCR: Default cipher suite for SSL certificates.
+
+
+Default value: Server Internal Default (Based on current best practices)
+END_DESCR
+
+SYNTAX: Colon-separated string of cipher specifications.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: sslDefaultCiphers
+NAME: 默认密码套件
+NS: O
+REQUIRED:
+APPLY:
+SINCE: ???
+SEE_ALSO:
+
+DESCR: SSL证书的默认密码套件。
+
+
+Default value: Server Internal Default (Based on current best practices)
+END_DESCR
+
+SYNTAX: Colon-separated string of cipher specifications.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+
+[ITEM]
+ID: sslStrongDhKey
+NAME: SSL强DH密钥
+NS: LEO
+REQUIRED:
+APPLY: 2
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定是使用2048位还是1024位DH密钥进行SSL握手。 如果设置为“是”，则2048位DH密钥将用于2048位SSL密钥和证书。 在其他情况下，仍将使用1024位DH密钥。 默认值为“是”。
+Java的早期版本不支持大于1024位的DH密钥大小。 如果需要Java客户端兼容性，则应将其设置为“否”。
+END_DESCR
+
+SYNTAX: radio
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslEnableMultiCerts
+NAME: 启用多个SSL证书
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 允许侦听器/虚拟主机设置多个SSL证书。 如果启用了多个证书，则证书/密钥应遵循命名方案。 如果证书名为server.crt，则其他可能的证书名称为server.crt.rsa，
+server.crt.dsa，server.crt.ecc。 如果为“未设置”，则默认为“否”。
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslCertCompress
+NAME: Enable Certificate Compression
+NS: E
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Use SSL certificate compression.
+
+
+Default value: On
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslHsOffload
+NAME: Enable Handshake Offload
+NS: E
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR:  Offload SSL handshake to a separate thread.
+
+
+Default value: On
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslSessionCache
+NAME: Enable Session Cache
+NS: LE
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+EDITTIP: Session caching allows a client to resume a session within a set amount of time without having to re-perform an
+SSL handshake. You can do this by assigning clients a session ID using  <b>Enable Session Cache</b>, or by creating
+and using session tickets.
+END_EDITTIP
+
+DESCR: Enables session id caching using OpenSSL's default setting. Default value is "No".
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslSessionCache
+NAME: 启用SSL会话缓存
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+EDITTIP: 会话缓存使客户端可以在设置的时间内恢复会话，而不必重新执行SSL握手。 您可以使用<b>启用会话缓存</ b>为客户端分配会话ID，或者通过创建和使用会话记录单来做到这一点。
+END_EDITTIP
+
+DESCR: 使用OpenSSL的默认设置启用会话ID缓存。 服务器级别设置必须设置为“是”才能使虚拟主机设置生效。
+
+默认值:
+
+<b>服务器级别:</b> Yes
+
+<b>虚拟主机级别:</b> Yes
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslSessionCacheSize
+NAME: 会话缓存大小 (bytes)
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 设置要存储在缓存中的SSL会话ID的最大数量。 默认值为1,000,000。
+
+END_DESCR
+
+SYNTAX: Integer number
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslSessionCacheTimeout
+NAME: 会话缓存过期时间 (secs)
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 此值确定需要重新握手之前，会话ID在缓存中有效的时间。
+默认值为 3,600.
+
+END_DESCR
+
+SYNTAX: Integer number
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslSessionTickets
+NAME: 启用会话记录单
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 使用OpenSSL的默认会话票证设置启用会话记录单。 服务器级别设置必须设置为“是”才能使虚拟主机设置生效。
+
+默认值:
+
+<b>服务器级别:</b> Yes
+
+<b>虚拟主机级别:</b> Yes
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslSessionTicketLifetime
+NAME: SSL会话记录单生存时间(secs)
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 此值确定需要重新握手之前会话记录单有效的时间。 默认值为3600。
+
+
+END_DESCR
+
+SYNTAX: Integer number
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslSessionTicketKeyFile
+NAME: SSL Session Ticket Key File
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+EDITTIP: Session tickets will be rotated automatically if the tickets are being generated by the server. If using the
+<b>SSL Session Ticket Key File</b> option to create and manage your own session tickets, you must be rotate the tickets
+yourself using a cron job.
+END_EDITTIP
+
+EDITTIP: <b>SSL Session Ticket Key file</b> should be used for high availability setups to avoid re-issuing tickets when a
+client is handled by different load balancers.
+END_EDITTIP
+
+DESCR: Allows the SSL Ticket Key to be created/maintained by an administrator. The file must be 48 bytes long. If this
+option is left empty, the load balancer
+will generate and rotate its own set of keys.
+
+
+IMPORTANT: To maintain forward secrecy, it is strongly recommended to change the key every
+<b>SSL Session Ticket Lifetime</b> seconds. If this cannot be done, it is recommended to leave this field empty.
+
+END_DESCR
+
+SYNTAX: Path
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslSessionTicketKeyFile
+NAME: SSL会话记录单密钥文件
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+EDITTIP: Session tickets will be rotated automatically if the tickets are being generated by the server. If using the
+<b>SSL Session Ticket Key File</b> option to create and manage your own session tickets, you must be rotate the tickets
+yourself using a cron job.
+END_EDITTIP
+
+DESCR: Allows the SSL Ticket Key to be created/maintained by an administrator. The file must be 48 bytes long. If this
+option is left empty, the load balancer will generate and rotate its own set of keys.
+
+
+IMPORTANT: To maintain forward secrecy, it is strongly recommended to change the key every
+<b>SSL Session Ticket Lifetime</b> seconds. If this cannot be done, it is recommended to leave this field empty.
+END_DESCR
+
+SYNTAX: Path
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## SSL Dynamic SNI  ##########
+
+
+[ITEM]
+ID: sslDynCertsCiphers
+NAME: SSL Dynamic Certificates Cipher Suite
+NS: L
+REQUIRED:
+APPLY:
+SINCE: 2.7
+SEE_ALSO:
+
+DESCR: Specifies a custom cipher suite for the Dynamic SNI certificates.
+
+
+Default value: Use server default ciphers
+END_DESCR
+
+SYNTAX: Colon-separated string of cipher specifications.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslDynCertsBaseDir
+NAME: SSL Dynamic Certificates Base Dir
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Sets the base directory that dynamic ssl certificates will be stored in.
+Certificates, keys, and CA Bundles are expected to be named "cert", "key", and "ca", respectively.
+
+
+END_DESCR
+
+SYNTAX: Path
+END_SYNTAX
+
+EXAMPLE: $SERVER_ROOT/certStore/
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslDynCertsNumLevels
+NAME: SSL Dynamic Certificates Levels
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: The number of directory levels the certificate files will be in.
+
+
+This is similar to PHP's
+<b><a href="http://php.net/manual/en/session.configuration.php#ini.session.save-path">Session.save_path</a></b>
+
+END_DESCR
+
+SYNTAX: Integer number
+END_SYNTAX
+
+EXAMPLE: If set to 2, "example.com" would be in BaseDir/e/x/example.com/
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslDynCertsExpire
+NAME: SSL Dynamic Certificates Expire Time (secs)
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Sets the expire time of a dynamically loaded certificate before it is invalidated.
+
+END_DESCR
+
+SYNTAX: Integer number
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: sslDynCertsRefresh
+NAME: SSL Dynamic Certificates Refresh Time (secs)
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Sets the refresh time of a dynamically loaded certificate before it will check for file validity. If
+the file is removed before refresh time, the cert will be invalidated. If the file is updated before refresh time, the cert will be updated.
+
+END_DESCR
+
+SYNTAX: Integer number
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## QUIC ##########
+
+
+[ITEM]
+ID: quicEnable
+NAME: 启用QUIC
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 在整个服务器范围内启用QUIC网络协议。 默认值为{val}是{/}。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 当此设置设置为{val}是{/}时，仍然可以通过{ITEM=Listeners_SSL_Help#allowQuic}设置在侦听器级别
+或通过{ITEM=VHSSL_Help#vhEnableQuic}设置在虚拟主机级别禁用QUIC 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicShmDir
+NAME: QUIC SHM 目录
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定用于将QUIC数据保存到共享内存的目录。
+
+
+默认情况下，将使用服务器的默认SHM目录{val}/dev/shm{/}.
+END_DESCR
+
+SYNTAX: Path
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 建议使用基于RAM的分区(内存盘),例如 {val}/dev/shm{/}.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicVersions
+NAME: QUIC版本
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR:启用的QUIC版本的列表。 此设置仅应用于将QUIC支持限制为列出的版本，最好留空。
+END_DESCR
+
+SYNTAX: Comma-separated list
+END_SYNTAX
+
+EXAMPLE: Q035, Q039
+END_EXAMPLE
+
+TIPS: It is recommended to leave this setting blank to have the the best configuration applied automatically.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicCongestionCtrl
+NAME: 拥塞控制
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: 使用的拥塞控制算法。 可以手动设置，也可以选择“默认”选项，将其保留到的QUIC库中。
+
+
+默认值:: Default
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicCfcw
+NAME: 流连接窗口控制
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 为QUIC连接分配的缓冲区的初始大小。 默认值为{val} 1.5M {/}。
+END_DESCR
+
+SYNTAX: Number between 64K and 512M
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 更大的窗口大小将使用更多的内存。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicMaxCfcw
+NAME: 最大连接流量窗口值设置
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定由于连接流控制窗口缓冲区的最大大小
+auto-tuning.
+
+
+默认值为{val} 0 {/}，这意味着将使用{ITEM=ServTuning_Help#quicCfcw}的值，并且不会自动调整。
+END_DESCR
+
+SYNTAX: 0 or a number between 64K and 512M
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 更大的窗口大小将使用更多的内存。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicSfcw
+NAME: 连接流量窗口值
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: QUIC愿意为每个流接收的初始数据量。 默认值为{val}1M{/}。
+END_DESCR
+
+SYNTAX: Number between 64K and 128M
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 更大的窗口大小将使用更多的内存。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicMaxSfcw
+NAME: 最大流量窗口值设置
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定由于自动调整而允许流控制窗口达到的最大大小。
+
+
+默认值为{val}0{/}，这意味着将使用{ITEM=ServTuning_Help#quicSfcw}的值，并且不会自动调整
+END_DESCR
+
+SYNTAX: 0 or a number between 64K and 128M
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 更大的窗口大小将使用更多的内存。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicMaxStreams
+NAME: 每个连接的最大并发数
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 每个QUIC连接的最大并发数。 默认值为{val}100{/}。
+END_DESCR
+
+SYNTAX: Integer number between 10 and 1000
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicHandshakeTimeout
+NAME: 握手超时时间
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 给出新的QUIC连接完成其握手的时间（以秒为单位），超过限制时间后连接将中止。 默认值为{val}10{/}。
+END_DESCR
+
+SYNTAX: Integer number between 1 and 15
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicIdleTimeout
+NAME: 空闲超时时间（秒）
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 空闲的QUIC连接将被关闭的时间（以秒为单位）。 默认值为{val} 30 {/}。
+END_DESCR
+
+SYNTAX: Integer number between 10 and 30
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicDosMitigationDuration
+NAME: QUIC DoS Mitigation Duration (secs)
+NS: L
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: How long, once triggered, the server will stay in DoS mitigation mode. After this many seconds have passed, the
+server will revert to it's normal mode. Set this to {val}0{/} to disable DoS Mitigation mode.
+
+
+In DoS Mitigation mode, new clients are required to verify their IP address with a special 'retry' packet. Once verified, the
+requests proceed as normal.
+
+
+Default value: 120
+END_DESCR
+
+SYNTAX: Integer number between 0 and 86400
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicBadPacketRate
+NAME: Bad Packet Rate
+NS: L
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: The number of bad packets X needed in an interval of Y seconds to trigger QUIC DoS Mitigation. Supplying
+a value of {val}0{/} for either X or Y will disable this feature.
+
+
+Default value: 4000/4
+END_DESCR
+
+SYNTAX: X/Y where X is the number of events, Y is the interval in seconds (0 - 30)
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicHskNewRate
+NAME: New Handshake Rate
+NS: L
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: The number of new handshakes X needed in an interval of Y seconds to trigger QUIC DoS Mitigation. Supplying
+a value of {val}0{/} for either X or Y will disable this feature.
+
+
+Default value: 90/3
+END_DESCR
+
+SYNTAX: X/Y where X is the number of events, Y is the interval in seconds (0 - 30)
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicHskTimeoutRate
+NAME: Timed Out Handshake Rate
+NS: L
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: The number of handshake timeouts X needed in an interval of Y seconds to trigger QUIC DoS Mitigation. Supplying
+a value of {val}0{/} for either X or Y will disable this feature.
+
+
+Default value: 40/4
+END_DESCR
+
+SYNTAX: X/Y where X is the number of events, Y is the interval in seconds (0 - 30)
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Tables #############
+
+
+[TBL]
+ID: osTuning
+NAME: General
+NS: LE
+
+DESCR:
+END_DESCR
+
+CONT: ramDiskPath shmDefaultDir bindIPv6Only reverseDnsLookup verifyGoogleBot forceSecureCookie
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: osTuning
+NAME: 操作系统优化
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: shmDefaultDir
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: connTuning
+NAME: 连接
+NS: LEO
+
+DESCR:
+END_DESCR
+
+CONT: maxConnections maxSSLConnections connTimeout maxKeepAliveReq keepAliveTimeout sndBufSize rcvBufSize
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: reqTuning
+NAME: 请求/响应
+NS: LEO
+
+DESCR:
+END_DESCR
+
+CONT: maxReqURLLen maxReqHeaderSize maxReqBodySize maxDynRespHeaderSize maxDynRespSize
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: staticTuning
+NAME: Static File Delivery Optimization
+NS: E
+
+DESCR:
+END_DESCR
+
+CONT: maxCachedFileSize totalInMemCacheSize maxMMapFileSize totalMMapCacheSize
+useSendfile useAIO AIOBlockSize fileETag
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: staticTuning
+NAME: 静态文件传递优化
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: maxCachedFileSize totalInMemCacheSize maxMMapFileSize totalMMapCacheSize
+useSendfile fileETag
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: gzipTuning
+NAME: GZIP/Brotli Compression
+NS: L
+
+DESCR:
+END_DESCR
+
+CONT: enableGzipCompress compressibleTypes gzipCompressLevel enableBrCompress
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: gzipTuning
+NAME: GZIP/Brotli压缩
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: enableGzipCompress compressibleTypes enableDynGzipCompress gzipCompressLevel enableBrCompress
+gzipAutoUpdateStatic gzipStaticCompressLevel brStaticCompressLevel gzipCacheDir gzipMaxFileSize gzipMinFileSize
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: sslGlobal
+NAME: 全局SSL设置
+NS: LO
+
+DESCR:
+END_DESCR
+
+CONT: sslDefaultCiphers sslStrongDhKey sslEnableMultiCerts sslSessionCache sslSessionCacheSize
+sslSessionCacheTimeout sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: sslGlobal
+NAME: SSL Global Settings
+NS: E
+
+DESCR:
+END_DESCR
+
+CONT: sslDefaultCiphers sslStrongDhKey sslEnableMultiCerts sslCertCompress sslHsOffload sslSessionCache
+sslSessionCacheSize sslSessionCacheTimeout sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: sslDynSNI
+NAME: SSL Dynamic SNI
+NS: L
+
+DESCR: SSL Dynamic SNI enables you to avoid using the load balancer's generic certificates by specifying a directory that
+the load balancer can then use to serve clients site specific certificates when handling requests.
+END_DESCR
+
+CONT: sslDynCertsCiphers sslDynCertsBaseDir sslDynCertsNumLevels sslDynCertsExpire sslDynCertsRefresh
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: quicTbl
+NAME: QUIC
+NS: L
+
+DESCR:
+END_DESCR
+
+CONT: quicEnable quicShmDir quicVersions quicCongestionCtrl quicCfcw quicMaxCfcw quicSfcw quicMaxSfcw
+quicMaxStreams quicHandshakeTimeout quicIdleTimeout quicDosMitigationDuration quicBadPacketRate quicHskNewRate
+quicHskTimeoutRate
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: quicTbl
+NAME: QUIC
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: quicEnable quicShmDir quicVersions quicCongestionCtrl quicCfcw quicMaxCfcw quicSfcw quicMaxSfcw
+quicMaxStreams quicHandshakeTimeout quicIdleTimeout
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: ServTuning_Help
+NAME: Server Tuning
+NS: L
+
+DESCR:
+END_DESCR
+
+CONT:osTuning connTuning reqTuning gzipTuning sslGlobal sslDynSNI quicTbl
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+
+[PAGE]
+ID: ServTuning_Help
+NAME: 服务器调节
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: osTuning connTuning reqTuning staticTuning gzipTuning sslGlobal quicTbl
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+[END_HELPDOC]

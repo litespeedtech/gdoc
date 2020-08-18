@@ -1,0 +1,2307 @@
+[HELPDOC]
+
+############# Anti-DDoS Protection #############
+
+
+[ITEM]
+ID: enableAntiddos
+NAME: Enable Anti-DDoS Protection
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: This will enable bot detection and address them by denying or
+redirecting the client to reCAPTCHA. If firewall is enabled, the client IP will
+be denied at the firewall level.
+
+
+Default value is {val}Yes{/}.
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: firewallEnable
+NAME: Enable Firewall Modifications
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Enable firewall modifications via iptables. iptables must be enabled on
+this system for this setting to take effect.
+
+
+If ipset is also installed and enabled on this system, it will be used to
+more efficiently manage firewall rulesets for iptables.
+
+
+Default value is {val}Yes{/}.
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [P] ipset should be installed and enabled on the system to more
+efficiently manage firewall rulesets for iptables.
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# WordPress Brute Force Attack Protection #############
+
+
+[ITEM]
+ID: wpProtectAction
+NAME: Protection Mode
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the action to be taken when the specified Allowed Login
+Attempts limit is reached within 5 minutes.
+
+
+{val}Throttle{/} gradually slows down the speed of the server response,
+{val}Drop{/} severs the connection without any reply, {val}Deny{/} returns a
+403 response, and {val}CAPTCHA or Drop{/} redirects to a CAPTCHA if reCAPTCHA
+Protection is enabled and drops otherwise.
+
+
+{val}WP Login CAPTCHA Full Protection{/} can also be selected. This setting
+will redirect to a CAPTCHA if ReCAPTCHA Protection is enabled regardless of
+Allowed Login Attempts limit and falls back to use {val}Throttle{/}
+otherwise.
+
+
+Default values:
+
+<b>Server level:</b> {val}Throttle{/}
+
+<b>VH level:</b> Inherit Server level setting. If Server level is set to
+{val}Disable{/}, {val}Throttle{/} will be used.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+[S] Trusted IPs or sub-networks are not affected.
+
+[I] This can be set at the Server level and overwritten at the Virtual Host
+level. If not overridden at the Virtual Host level, this setting can also be
+overridden in a user's docroot .htaccess file using Apache configuration
+directive {val}WordPressProtect{/} with value {val}0{/} (disabled), {val}1{/}
+(use server level setting), {val}throttle{/}, {val}deny{/}, or {val}drop{/}.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: wpProtectAction
+NAME: Protection Mode
+NS: E
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the action to be taken when the specified Allowed Login
+Attempts limit is reached within 5 minutes.
+
+
+{val}Throttle{/} gradually slows down the speed of the server response,
+{val}Drop{/} severs the connection without any reply, {val}Deny{/} returns a
+403 response, and {val}CAPTCHA or Drop{/} redirects to a CAPTCHA if reCAPTCHA
+Protection is enabled and drops otherwise.
+
+
+{val}WP Login CAPTCHA Full Protection{/} can also be selected. This setting
+will redirect to a CAPTCHA if ReCAPTCHA Protection is enabled regardless of
+Allowed Login Attempts limit and falls back to use {val}Throttle{/}
+otherwise.
+
+
+Default values:
+
+<b>Server level:</b> {val}Throttle{/}
+
+<b>VH level:</b> Inherit Server level setting. If Server level is set to
+{val}Disable{/}, {val}Throttle{/} will be used.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+[S] Trusted IPs or sub-networks are not affected.
+
+[I] This feature is enabled by default (Throttle) and does not need any further
+configuration in the WebAdmin GUI or in Apache configurations.
+
+[I] This setting will override Apache conf {val}WordPressProtect{/} setting for
+LSWS only. Apache will be unaffected.
+
+
+[I] This can be set at the Server level and overwritten at the Virtual Host
+level. If not overridden at the Virtual Host level, this setting can also be
+overridden in a user's docroot .htaccess file using Apache configuration
+directive {val}WordPressProtect{/} with value {val}0{/} (disabled), {val}1{/}
+(use server level setting), {val}throttle{/}, {val}deny{/}, or {val}drop{/}.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: wpProtectLimit
+NAME: Allowed Login Attempts
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the maximum number of wp-login.php and xmlrpc.php POST
+attempts allowed by an IP within 5 minutes before the action specified in
+{ITEM=wpProtectAction} is taken.
+
+
+This limit is handled using a quota system where remaining attempts = limit.
+Each POST attempt will decrease the number of remaining attempts by 1, with the
+number of remaining attempts increasing back to the set limit over time. An IP
+will be throttled once the number of remaining attempts for that IP falls to
+1/2 the set limit, throttling more as the remaining attempts drops further
+below the 1/2 mark. When remaining attempts reaches 0, the specified action is
+taken toward the IP.
+
+
+In addition to this, if {ITEM=enableRecaptcha} is also enabled, an additional
+per worker protection will be added. If wp-login.php and xmlrpc.php are visited
+by the same worker at a rate of 4x the set limit in a 30 second time frame,
+those URLs will be put into reCAPTCHA mode until the number of visits to these
+files decreases.
+
+
+Resetting the server will clear blocked IPs.
+
+
+Default values:
+
+<b>Server-level:</b> {val}10{/}
+
+<b>VH-Level:</b> Inherit Server level setting
+END_DESCR
+
+SYNTAX: Valid Range: 3 - 1000.
+END_SYNTAX
+
+EXAMPLE:
+With an Attempt limit of 10, and a Mode of drop:
+
+
+After the first POST attempt, the quota is decreased to 9.
+
+
+Quota decreases by 1 for each POST attempt.
+
+
+After Quota reaches half of the limit (5), the IP will be throttled.
+
+
+Throttling will get worse with each POST attempt.
+
+
+Once the quota reaches 0, the connection will be dropped.
+END_EXAMPLE
+
+TIPS:
+[S] Trusted IPs or sub-networks are not affected.
+
+
+[I] This can be set at the Server level and overwritten at the Virtual Host
+level. If not overridden at the Virtual Host level, this setting can also be
+overridden in a user's docroot .htaccess file using Apache configuration
+directive {val}WordPressProtect{/} with integer value between 3 and 1000.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: wpProtectLimit
+NAME: Allowed Login Attempts
+NS: E
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the maximum number of wp-login.php and xmlrpc.php POST
+attempts allowed by an IP within 5 minutes before the action specified in
+{ITEM=wpProtectAction} is taken.
+
+
+This limit is handled using a quota system where remaining attempts = limit.
+Each POST attempt will decrease the number of remaining attempts by 1, with the
+number of remaining attempts increasing back to the set limit over time. An IP
+will be throttled once the number of remaining attempts for that IP falls to
+1/2 the set limit, throttling more as the remaining attempts drops further
+below the 1/2 mark. When remaining attempts reaches 0, the specified action is
+taken toward the IP.
+
+
+In addition to this, if {ITEM=enableRecaptcha} is also enabled, an additional
+per worker protection will be added. If wp-login.php and xmlrpc.php are visited
+by the same worker at a rate of 4x the set limit in a 30 second time frame,
+those URLs will be put into reCAPTCHA mode until the number of visits to these
+files decreases.
+
+
+Resetting the server will clear blocked IPs.
+
+
+Default values:
+
+<b>Server-level:</b> {val}10{/}
+
+<b>VH-Level:</b> Inherit Server level setting
+END_DESCR
+
+SYNTAX: Valid Range: 3 - 1000.
+END_SYNTAX
+
+EXAMPLE:
+With an Attempt limit of 10, and a Mode of drop:
+
+
+After the first POST attempt, the quota is decreased to 9.
+
+
+Quota decreases by 1 for each POST attempt.
+
+
+After Quota reaches half of the limit (5), the IP will be throttled.
+
+
+Throttling will get worse with each POST attempt.
+
+
+Once the quota reaches 0, the connection will be dropped.
+END_EXAMPLE
+
+TIPS:
+[S] Trusted IPs or sub-networks are not affected.
+
+
+[I] This setting will override Apache conf {val}WordPressProtect{/} setting for
+LSWS only. Apache will be unaffected.
+
+
+[I] This can be set at the Server level and overwritten at the Virtual Host
+level. If not overridden at the Virtual Host level, this setting can also be
+overridden in a user's docroot .htaccess file using Apache configuration
+directive {val}WordPressProtect{/} with integer value between 3 and 1000.
+END_TIPS
+
+[END_ITEM]
+
+
+############# Web Application Firewall (WAF) #############
+
+
+# See WAF.hdoc #
+
+
+
+############# WAF Rule Set #############
+
+
+# See WAF.hdoc #
+
+
+
+############# Per Client Throttling #############
+
+
+[ITEM]
+ID: staticReqPerSec
+NAME: Static Requests/Second
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=dynReqPerSec}
+
+DESCR: Specifies the maximum number of requests to static content coming from a single
+IP address that can be processed in a single second regardless of the number of
+connections established.
+
+
+When this limit is reached, all future requests are tar-pitted until the next second.
+Request limits for dynamically generated content are independent of this limit.
+Per-client request limits can be set at server- or virtual host-level.
+Virtual host-level settings override server-level settings.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+[S] Trusted IPs or sub-networks are not affected.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: dynReqPerSec
+NAME: Dynamic Requests/Second
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=staticReqPerSec}
+
+DESCR: Specifies the maximum number of requests to dynamically generated content
+coming from a single IP address that can be processed in each second
+regardless of the number of connections established.
+When this limit is reached, all future requests to dynamic content
+are tar-pitted until the next second.
+
+
+The request limit for static content is independent of this limit.
+This per client request limit can be set at server or virtual host level.
+Virtual host-level settings override server-level settings.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+[S] Trusted IPs or sub-networks are not restrained by this limit.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: dynReqPerSec
+NAME: Requests/Second
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the maximum number of requests for dynamically generated content
+coming from a single IP address that can be processed in each second,
+regardless of the number of connections established.
+When this limit is reached, all future requests for dynamic content
+are tar-pitted until the next second.
+The per client request limit can be set at the server or virtual host level where
+virtual host level settings override server level settings.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+[S] Trusted IPs or sub-networks are not effected
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: outBandwidth
+NAME: Outbound Bandwidth (bytes/sec)
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=inBandwidth}
+
+DESCR: The maximum allowed outgoing throughput to a single
+IP address, regardless of the number of connections established.
+The real bandwidth may end up being slightly higher than this setting for efficiency reasons.
+Bandwidth is allocated in 4KB units. Set to {val}0{/} to disable throttling.
+Per-client bandwidth limits (bytes/sec) can be set at the server or virtual host level where
+virtual host level settings override server level settings.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [P] Set the bandwidth in 8KB units for better performance.
+
+
+[S] Trusted IPs or sub-networks are not affected.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: inBandwidth
+NAME: Inbound Bandwidth (bytes/sec)
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=outBandwidth}
+
+DESCR: The maximum allowed incoming throughput from a single
+IP address, regardless of the number of connections established.
+The real bandwidth may end up being slightly higher than this setting for efficiency reasons.
+Bandwidth is allocated in 1KB units. Set to {val}0{/} to disable throttling.
+Per-client bandwidth limits (bytes/sec) can be set at the server or virtual host level where
+virtual host level settings override server level settings.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+[S] Trusted IPs or sub-networks are not affected.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: softLimit
+NAME: Connection Soft Limit
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the soft limit of concurrent connections allowed from one IP.
+This soft limit can be exceeded temporarily during {ITEM=gracePeriod} as long as
+the number is below the {ITEM=hardLimit}, but Keep-Alive connections
+will be closed as soon as possible until the number of connections is lower
+than the limit. If number of connections is still over the limit after the
+{ITEM=gracePeriod}, that IP will be blocked for the {ITEM=banPeriod}.
+
+
+For example, if a page contains many small graphs, the browser may try to set up
+many connections at same time, especially for HTTP/1.0 clients. You would want to allow
+those connections for a short period.
+
+
+HTTP/1.1 clients may also set up multiple connections to speed up downloading and SSL
+ requires separate connections from non-SSL connections. Make sure the limit is set properly,
+ as not to adversely affect normal service. The recommended limit is between {val}5{/} and {val}10{/}.
+END_DESCR
+
+EDITTIP: Set IP level throttle limit here. The number will be rounded up to 4K units. Set to "0" to disable throttling.
+END_EDITTIP
+
+EDITTIP: Number of connections can temporarily exceed Soft Limit during Grace Period as long as under Hard Limit. After
+Grace Period, if it is still above Soft Limit, then no more connections will be allowed from that IP for time of Banned Period.
+END_EDITTIP
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [S] A lower number will enable serving more distinct clients.
+
+[S] Trusted IPs or sub-networks are not affected.
+
+[P] Set to a high value when you are performing benchmark tests
+with a large number of concurrent client machines.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: hardLimit
+NAME: Connection Hard Limit
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the maximum number of allowed concurrent connections from a single IP address.
+This limit is always enforced and a client will never be able to exceed this limit.
+HTTP/1.0 clients usually try to set up as many connections as they need to download embedded
+content at the same time. This limit should be set high enough so that HTTP/1.0 clients can still
+access the site.
+Use {ITEM=softLimit} to set the desired connection limit.
+
+
+The recommended limit is between {val}20{/} and {val}50{/} depending on the content of your web page and your traffic load.
+END_DESCR
+
+EDITTIP: Set concurrent connection Limits coming from one client (per IP address). This helps against DoS attack.
+END_EDITTIP
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [S] A lower number will enable serving more distinct clients.
+
+[S] Trusted IPs or sub-networks are not affected.
+
+[P] Set to a high value when you are performing benchmark tests with a large number of concurrent client machines.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: blockBadReq
+NAME: Block Bad Request
+REQUIRED:
+APPLY: 3
+SINCE: 4.1.5
+SEE_ALSO:
+
+DESCR: Block IPs that keep sending badly-formated HTTP requests for the {ITEM=banPeriod}. Default
+is {val}Yes{/}. This helps to block botnet attacks that repeatedly sending junk requests.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gracePeriod
+NAME: Grace Period (sec)
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies how long new connections can be accepted after the number of connections
+established from one IP is over the {ITEM=softLimit}. Within this period, new connections
+will be accepted if the total connections is still below the {ITEM=hardLimit}. After this
+period has elapsed, if the number of connections still higher than the {ITEM=softLimit},
+then the offending IP will be blocked for the {ITEM=banPeriod}.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [P][S] Set to a proper number big enough for downloading
+a complete page but low enough to prevent deliberate attacks.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: banPeriod
+NAME: Banned Period (sec)
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies how long new connections will be rejected from an IP if, after the
+{ITEM=gracePeriod} has elapsed, the number of connections is still more than
+the {ITEM=softLimit}. If IPs are getting banned repeatedly, we suggest that you
+increase your banned period to stiffen the penalty for abuse.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+############# File Access #############
+
+
+[ITEM]
+ID: followSymbolLink
+NAME: Follow Symbolic Link
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=checkSymbolLink}.
+
+DESCR: Specifies the server-level default setting of following symbolic links
+when serving static files.
+
+
+Choices are {val}Yes{/}, {val}If Owner Match{/} and {val}No{/}.
+
+
+{val}Yes{/} sets the server to always follow symbolic links.
+{val}If Owner Match{/} sets the server to follow a symbolic link only if the owner of the link and of the target are same.
+{val}No{/} means the server will never follow a symbolic link.
+This setting can be overridden in the virtual host configurations but cannot be overridden from an .htaccess file.
+END_DESCR
+
+EDITTIP: If Follow-Symbolic-Link is enabled, you can still disable it at virtual host level.
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [P][S] For best security select {val}No{/} or {val}If Owner Match{/}.
+For best performance, select {val}Yes{/}.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: checkSymbolLink
+NAME: Check Symbolic Link
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=followSymbolLink}, {ITEM=accessDenyDir}
+
+DESCR: Specifies whether to check symbolic links against {ITEM=accessDenyDir}
+when {ITEM=followSymbolLink} is turned on. If enabled, the canonical real path of the resource
+referred by a URL will be checked against the configurable access denied directories.
+Access will be denied if it falls inside an access denied directory.
+END_DESCR
+
+EDITTIP: Check-Symbolic-Link control will take effect only if Follow-Symbolic-Link is turned on.
+This controls whether symbolic links are checked against Access Denied Directories.
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [P][S] For best security, enable this option. For best performance, disable it.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: forceStrictOwnership
+NAME: Force Strict Ownership Checking
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies whether to enforce strict file ownership checking.
+If it is enabled, the web server will check if the owner of the file being served is the same as
+the owner of the virtual host. If it is different, a 403 Access Denied Error will be returned.
+This is turned off by default.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [S] For shared hosting, enable this check for better security.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: requiredPermissionMask
+NAME: Required Permission Mask
+REQUIRED:
+APPLY: 3
+SINCE: 1.3
+SEE_ALSO: {ITEM=restrictedPermissionMask}.
+
+DESCR: Specifies the required permission mask for static files that the
+server will serve. For example, if only files that are readable
+by everyone can be served, set the value to {val}0004{/}.
+See {cmd}man 2 stat{/} for all values.
+END_DESCR
+
+SYNTAX: octal numbers
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: restrictedPermissionMask
+NAME: Restricted Permission Mask
+REQUIRED:
+APPLY: 3
+SINCE: 1.3
+SEE_ALSO: {ITEM=requiredPermissionMask}.
+
+DESCR: Specifies the restricted permission mask for static files that the
+server will not serve. For example, to prohibit serving files that are
+executable, set the mask to {val}0111{/}.
+
+
+See {cmd}man 2 stat{/} for all values.
+END_DESCR
+
+SYNTAX: octal numbers
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: restrictedScriptPermissionMask
+NAME: Script Restricted Permission Mask
+REQUIRED:
+APPLY: 3
+SINCE: 4.1.5
+SEE_ALSO: {ITEM=restrictedDirPermissionMask}.
+
+DESCR: Specifies the restricted permission mask for script files that the
+server will not serve. For example, to prohibit serving PHP scripts that are
+group and world writable, set the mask to {val}022{/}. Default value is {val}000{/}.
+
+
+See {cmd}man 2 stat{/} for all values.
+
+END_DESCR
+
+SYNTAX: octal numbers
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: restrictedDirPermissionMask
+NAME: Script Directory Restricted Permission Mask
+REQUIRED:
+APPLY: 3
+SINCE: 4.1.5
+SEE_ALSO: {ITEM=restrictedScriptPermissionMask}.
+
+DESCR: Specifies the restricted permission mask of parent directories of script files that the
+server will not serve. For example, to prohibit serving PHP scripts in a directory that is
+group and world writable, set the mask to {val}022{/}. Default value is
+{val}000{/}. This option can be used to prevent serving scripts under a directory of
+ uploaded files.
+
+
+See {cmd}man 2 stat{/} for all values.
+
+END_DESCR
+
+SYNTAX: octal numbers
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# CGI Settings #############
+
+
+[ITEM]
+ID: cgidSock
+NAME: CGI Daemon Socket
+REQUIRED:
+APPLY: 2
+SINCE:
+SEE_ALSO:
+
+DESCR: A unique socket address used to communicate with the CGI
+daemon. LiteSpeed server uses a standalone CGI daemon to
+spawn CGI scripts for best performance and security.
+Default socket is "uds://$SERVER_ROOT/admin/conf/.cgid.sock". If you need to put in
+another location, specify a Unix domain socket here.
+END_DESCR
+
+SYNTAX: UDS://path
+END_SYNTAX
+
+EXAMPLE: UDS://tmp/lshttpd/cgid.sock
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: maxCGIInstances
+NAME: Max CGI Instances
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the maximum number of concurrent CGI processes the server can start.
+For each request to a CGI script, the server needs to start a standalone CGI process.
+On a Unix system, the number of concurrent processes is limited. Excessive
+concurrent processes will degrade the performance of the whole system and are one way to perform a DoS attack.
+LiteSpeed server pipelines requests to CGI scripts
+and limits concurrent CGI processes to ensure the optimal performance and reliability.
+The hard limit is {val}2000{/}.
+END_DESCR
+
+EDITTIP: Limits resources that a CGI program can use. This helps against DoS attacks.
+END_EDITTIP
+
+EDITTIP: Max CGI Instances controls how many CGI processes the web server can launch.
+END_EDITTIP
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [S][P] A higher limit does not necessarily translate to faster performance.
+In most cases, a lower limit gives better performance and security. A higher limit will only help
+when I/O latency is excessive during CGI processing.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: minUID
+NAME: Minimum UID
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the minimum user ID allowed to run external applications when running as a specified user.
+Execution of an external script with a user ID lower than the value specified here will be denied.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [S] Set it high enough to exclude all system/privileged users.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: minGID
+NAME: Minimum GID
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the minimum group ID allowed to run external applications when running as a specified group.
+Execution of an external script with a group ID lower than the value specified here will be denied.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [S] Set it high enough to exclude all groups used by system users.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: forceGID
+NAME: Force GID
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies a group ID to be used for all external applications started in suEXEC mode.
+When set to non-zero value, all suEXEC external applications (CGI/FastCGI/LSAPI)
+will use this group ID. This can be used to prevent an external application
+from accessing files owned by other users.
+
+
+For example, in a shared hosting environment, LiteSpeed runs as user
+"www-data", group "www-data". Each docroot is owned by a user account,
+with a group of "www-data" and permission mode 0750. If Force GID is set to
+"nogroup" (or any group other than 'www-data'), all suEXEC external applications will run
+as a particular user but in the group "nogroup". These external application processes
+will still be able to access files owned by that particular user (because of their user ID),
+but will not have group permission to access anyone else's files. The server, on the other hand, still
+can serve files under any user's docroot directory (because of its group ID).
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [S] Set it high enough to exclude all groups used by system users.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: umask
+NAME: umask
+REQUIRED:
+APPLY: 3
+SINCE: 5.0
+SEE_ALSO: ExtApp {ITEM=ExtApp_Help#extUmask}
+
+DESCR: Sets default umask for CGI processes.
+See {cmd} man 2 umask {/} for details. This also serves as the default value for external applications
+{ITEM=ExtApp_Help#extUmask}.
+END_DESCR
+
+SYNTAX: value valid range [000]-[777].
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+[END_ITEM]
+
+
+
+[ITEM]
+ID: CGIPriority
+NAME: CGI Priority
+NS: EO
+REQUIRED:
+APPLY: 2
+SINCE:
+SEE_ALSO: Server {ITEM=ServGeneral_Help#serverPriority}
+
+DESCR: Specifies priority of the external application process. Value ranges from {val}-20{/} to {val}20{/}. A lower number
+means a higher priority.
+
+
+A CGI process cannot have a higher priority than the web server. If this priority is set to a lower number than the server's,
+the server's priority will be used for this value.
+END_DESCR
+
+SYNTAX: int
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: CPUSoftLimit
+NAME: CPU Soft Limit (sec)
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies CPU consumption time limit in seconds for a CGI process. When the process
+reaches the soft limit, it will be notified by a signal. The operating system's default setting will
+be used if the value is absent or set to {val}0{/}.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: CPUHardLimit
+NAME: CPU Hard Limit
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies maximum CPU consumption time limit in seconds for a CGI process.
+If the process continues to consume CPU time and reach the hard limit, the process
+will be force killed. The operating system's default setting will be used if the value is absent or set to {val}0{/}.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: memSoftLimit
+NAME: Memory Soft Limit (bytes)
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the memory consumption limit in bytes for an external application process
+or an external application started by the server.
+
+
+The main purpose of this limit is to prevent excessive memory usage
+because of software bugs or intentional attacks, not to impose a limit on
+normal usage. Make sure to leave enough head room, otherwise your
+application may fail and 503 error may be returned. It can be set at the server-
+level or at an individual external application level. The server-level limit will be used if
+it is not set at the individual application level.
+
+
+The operating system's default setting will be used if the value is absent at both levels or set to
+{val}0{/}.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [A] Do not over adjust this limit. This may result in 503 errors
+if your application needs more memory.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: memHardLimit
+NAME: Memory Hard Limit (bytes)
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Much the same as {ITEM=memSoftLimit}, except the soft limit can be raised up to the
+hard limit from within a user process. The hard limit can be set at server
+level or at an individual external application level. The server-level limit will be used if
+it is not set at an individual application level.
+
+
+The operating system's default will be used if the value is absent at both levels or set to
+{val}0{/}.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [A] Do not over adjust this limit. This may result in 503 errors if your application need more memory.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: procHardLimit
+NAME: Process Hard Limit
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Much the same as {ITEM=procSoftLimit}, except the soft limit can be raised up to the
+hard limit from within a user process. The hard limit can be set at the server level or at an
+individual external application level. The server-level limit will be used if
+it is not set at an individual application level.
+The operating system's default value will be used if the value is absent at both levels or set to
+{val}0{/}.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: cgroups
+NAME: cgroups
+NS: O
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Apply cgroup settings to this CGI process if supported by the current OS. At this time, RedHat/Centos Linux v7.5+
+and Ubuntu 18.04+ are supported.
+The currently executing user will be used to determine which cgroup configuration to apply.
+
+
+Setting this to {val}Disabled{/} at the Server level will disable this setting server-wide. In all other cases, the Server level
+setting can be overridden at the Virtual Host level.
+
+
+Default values:
+
+<b>Server level:</b> Off
+
+<b>VH level:</b> Inherit Server level setting
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: bubbleWrap
+NAME: Bubblewrap Container
+NS: EO
+REQUIRED:
+APPLY:
+SINCE: ???
+SEE_ALSO:
+
+DESCR: Set to {val}On{/} if you wish to start CGI processes (including PHP programs) in a bubblewrap sandbox. See
+<a href="https://wiki.archlinux.org/index.php/Bubblewrap">https://wiki.archlinux.org/index.php/Bubblewrap</a> for
+details on using bubblewrap. Bubblewrap must be installed on your system prior to using this setting.
+
+
+This setting cannot be turned on at the Virtual Host level if set to "Disabled" at the Server level.
+
+
+Default values:
+
+<b>Server level:</b> Disabled
+
+<b>VH level:</b> Inherit Server level setting
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: bubbleWrapCmd
+NAME: Bubblewrap Command
+NS: E
+REQUIRED:
+APPLY:
+SINCE: ???
+SEE_ALSO:
+
+DESCR: The full bubblewrap use command, including the bubblewrap program itself. More on configuring this command can
+be found here:
+<a href="https://docs.litespeedtech.com/products/lsws/bubblewrap">
+  https://docs.litespeedtech.com/products/lsws/bubblewrap
+</a>.
+If not specified, the default command listed below will be used.
+
+
+Default value:
+{cmd}/bin/bwrap --ro-bind /usr /usr --ro-bind /lib /lib --ro-bind-try /lib64 /lib64 --ro-bind /bin /bin --ro-bind /sbin
+/sbin --dir /var --dir /tmp --proc /proc --symlink../tmp var/tmp --dev /dev --ro-bind-try /etc/localtime
+/etc/localtime --ro-bind-try /etc/ld.so.cache /etc/ld.so.cache --ro-bind-try /etc/resolv.conf /etc/resolv.conf
+--ro-bind-try /etc/ssl /etc/ssl --ro-bind-try /etc/pki /etc/pki --ro-bind-try /etc/man_db.conf /etc/man_db.conf
+--ro-bind-try /home/$USER /home/$USER --bind-try /var/lib/mysql/mysql.sock /var/lib/mysql/mysql.sock
+--bind-try /home/mysql/mysql.sock /home/mysql/mysql.sock --bind-try /tmp/mysql.sock /tmp/mysql.sock  --unshare-all
+--share-net --die-with-parent --dir /run/user/$UID ‘$PASSWD 65534’ ‘$GROUP 65534’{/}
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: bubbleWrapCmd
+NAME: Bubblewrap Command
+NS: O
+REQUIRED:
+APPLY:
+SINCE: ???
+SEE_ALSO:
+
+DESCR: The full bubblewrap use command, including the bubblewrap program itself. More on configuring this command can
+be found here:
+<a href="https://openlitespeed.org/kb/bubblewrap-in-openlitespeed/">
+  https://openlitespeed.org/kb/bubblewrap-in-openlitespeed/
+</a>.
+If not specified, the default command listed below will be used.
+
+
+Default value:
+{cmd}/bin/bwrap --ro-bind /usr /usr --ro-bind /lib /lib --ro-bind-try /lib64 /lib64 --ro-bind /bin /bin --ro-bind /sbin
+/sbin --dir /var --dir /tmp --proc /proc --symlink../tmp var/tmp --dev /dev --ro-bind-try /etc/localtime
+/etc/localtime --ro-bind-try /etc/ld.so.cache /etc/ld.so.cache --ro-bind-try /etc/resolv.conf /etc/resolv.conf
+--ro-bind-try /etc/ssl /etc/ssl --ro-bind-try /etc/pki /etc/pki --ro-bind-try /etc/man_db.conf /etc/man_db.conf
+--ro-bind-try /home/$USER /home/$USER --bind-try /var/lib/mysql/mysql.sock /var/lib/mysql/mysql.sock
+--bind-try /home/mysql/mysql.sock /home/mysql/mysql.sock --bind-try /tmp/mysql.sock /tmp/mysql.sock  --unshare-all
+--share-net --die-with-parent --dir /run/user/$UID ‘$PASSWD 65534’ ‘$GROUP 65534’{/}
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Access Denied Directories #############
+
+
+[ITEM]
+ID: accessDenyDir
+NAME: Access Denied Directories
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies directories that should be blocked from access.
+Add directories that contain sensitive data to this list to prevent accidentally
+exposing sensitive files to clients. Append a "*" to the path to include all sub-directories.
+If both {ITEM=followSymbolLink} and {ITEM=checkSymbolLink} are enabled, symbolic
+links will be checked against the denied directories.
+END_DESCR
+
+EDITTIP:
+Enter a full path if you want to deny access for specific directory; entering a path followed by * will disable all the
+sub directories.
+END_EDITTIP
+
+EDITTIP: Path can be either absolute or relative to $SERVER_ROOT, use comma to separate.
+END_EDITTIP
+
+EDITTIP:
+If both <b>Follow Symbolic Link</b> and <b>Check Symbolic Link</b> are enabled, symbolic links will be checked
+against the denied directories.
+END_EDITTIP
+
+SYNTAX: Comma-delimited list of directories
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [S] Of critical importance: This setting only prevents serving static
+files from these directories. This does not prevent exposure by external scripts such as PHP/Ruby/CGI.
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# reCAPTCHA Protection #############
+
+
+[ITEM]
+ID: enableRecaptcha
+NAME: Enable reCAPTCHA
+NS: LO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Enable the reCAPTCHA Protection feature at the current level. This
+setting must be set to {val}Yes{/} at the Server level before the reCAPTCHA
+Protection feature can be used.
+
+
+Default values:
+
+<b>Server-level:</b> {val}Yes{/}
+
+<b>VH-Level:</b> Inherit Server level setting
+END_DESCR
+
+EDITTIP: When this setting is set to <b>Yes</b> at the Server level,
+reCAPTCHA Protection can still be disabled at the Virtual Host level.
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableRecaptcha
+NAME: Enable reCAPTCHA
+NS: E
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Enable the reCAPTCHA Protection feature at the current level. This
+setting must be set to {val}Yes{/} at the Server level before the reCAPTCHA
+Protection feature can be used.
+
+
+Default values:
+
+<b>Server-level:</b> {val}No{/}
+
+<b>VH-Level:</b> Inherit Server level setting
+END_DESCR
+
+EDITTIP: When this setting is set to <b>Yes</b> at the Server level,
+reCAPTCHA Protection can still be disabled at the Virtual Host level using the
+Trigger Sensitivity setting.
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: recaptchaSiteKey
+NAME: Site Key
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: The site key is the public key provided by Google via its reCAPTCHA service. A default Site Key will be used if not
+set.
+END_DESCR
+
+EDITTIP: The server level site/secret key pair must be configured to skip domain checking if the server manages multiple
+domains. Otherwise, the reCAPTCHA verification will not work properly.
+END_EDITTIP
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: recaptchaSecretKey
+NAME: Secret Key
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: The secret key is the private key provided by Google via its reCAPTCHA service. A default Secret Key will be used
+if not set.
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: recaptchaType
+NAME: reCAPTCHA Type
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specify the reCAPTCHA type to use with the key pairs. If a key pair has not been provided and this setting is set to
+{val}Not Set{/}, a default key pair of type {val}Invisible{/} will be used.
+
+{val}Checkbox{/} will display a checkbox reCAPTCHA for the visitor to validate.
+
+{val}Invisible{/} will attempt to validate the reCAPTCHA automatically and if successful, will redirect to the desired page.
+
+
+Default value is {val}Invisible{/}.
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: recaptchaSensitivity
+NAME: Trigger Sensitivity
+NS: E
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Automatic reCAPTCHA sensitivity. The higher the value, the more likely
+reCAPTCHA Protection will be used. A value of {val}0{/} is equivalent to "Off"
+while a value of {val}100{/} is equivalent to "Always On".
+
+
+Default values:
+
+<b>Server level:</b> 0
+
+<b>Virtual Host level:</b> Inherit Server level setting
+END_DESCR
+
+EDITTIP: Server level setting can be overridden at the Virtual Host level.
+END_EDITTIP
+
+SYNTAX: Integer value between 0 and 100.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: recaptchaMaxTries
+NAME: Max Tries
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Max Tries specifies the maximum number of reCAPTCHA attempts permitted before denying the visitor.
+
+
+Default value is {val}3{/}.
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: recaptchaAllowedRobotHits
+NAME: Allowed Robot Hits
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Number of hits per 10 seconds to allow ‘good bots’ to pass. Bots will still be throttled when the server is under load.
+
+
+Default value is {val}3{/}.
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: recaptchaBotWhiteList
+NAME: Bot White List
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: List of custom user agents to allow access. Will be subject to the ‘good bots’ limitations, including
+allowedRobotHits.
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: List of user agents, one per line. Regex is supported.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: recaptchaRegConnLimit
+NAME: Connection Limit
+NS: LO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: The number of concurrent connections (SSL & non-SSL) needed to activate reCAPTCHA. reCAPTCHA will be used
+until concurrent connections drop below this number.
+
+
+Default value is {val}15000{/}.
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: recaptchaSslConnLimit
+NAME: SSL Connection Limit
+NS: LO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: The number of concurrent SSL connections needed to activate reCAPTCHA. reCAPTCHA will be used until
+concurrent connections drop below this number.
+
+
+Default value is {val}10000{/}.
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Access Control #############
+
+
+[ITEM]
+ID: accessControl_allow
+NAME: Allowed List
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the list of IPs or sub-networks allowed.
+{val}*{/} or {val}ALL{/} are accepted.
+END_DESCR
+
+EDITTIP: You can set up access control at server, virtual host and context levels. If there is access control
+at server level, the virtual host rules will be applied after the server rules are satisfied.
+END_EDITTIP
+
+EDITTIP: Input format can be an IP like 192.168.0.2, a sub-network like 192.168.*, or a subnet/netmask like
+192.168.128.5/255.255.128.0.
+END_EDITTIP
+
+EDITTIP: If you have trusted IP or sub-network, then you must specify them in allowed list by adding a trailing "T" such as
+192.168.1.*T. Trusted IP or sub-network is not limited by connection/throttling limit.
+END_EDITTIP
+
+SYNTAX: Comma delimited list of IP addresses or sub-networks.
+A trailing "T" can be used to indicate a trusted IP or sub-network, such as {val}192.168.1.*T{/}.
+END_SYNTAX
+
+EXAMPLE:
+<b>Sub-networks:</b> 192.168.1.0/255.255.255.0, 192.168.1.0/24, 192.168.1, or
+192.168.1.*
+
+<b>IPv6 addresses:</b> ::1 or [::1]
+
+<b>IPv6 subnets:</b> 3ffe:302:11:2:20f:1fff:fe29:717c/64 or
+[3ffe:302:11:2:20f:1fff:fe29:717c]/64
+END_EXAMPLE
+
+TIPS: [S] Trusted IPs or sub-networks set at the server level access
+control will be excluded from connection/throttling limits.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessControl_deny
+NAME: Denied List
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the list of IPs or sub-networks disallowed.
+END_DESCR
+
+EDITTIP: To deny access from certain address, put "ALL" in allowed list, and put subnet or IP in denied
+list. To allow only certain IP or subnet to access the site, put "ALL" in denied list and specify the address in the allowed list.
+END_EDITTIP
+
+SYNTAX: Comma delimited list of IP addresses or sub-networks.
+{val}*{/} or {val}ALL{/} are accepted.
+END_SYNTAX
+
+EXAMPLE:
+<b>Sub-networks:</b> 192.168.1.0/255.255.255.0, 192.168.1.0/24, 192.168.1, or
+192.168.1.*
+
+<b>IPv6 addresses:</b> ::1 or [::1]
+
+<b>IPv6 subnets:</b> 3ffe:302:11:2:20f:1fff:fe29:717c/64 or
+[3ffe:302:11:2:20f:1fff:fe29:717c]/64
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+################ Tables ################
+
+
+[TBL]
+ID: wpProtect
+NAME: WordPress Brute Force Attack Protection
+NS: LE
+
+DESCR:
+END_DESCR
+
+CONT: wpProtectAction wpProtectLimit
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: perClientConnLimit
+NAME: Per Client Throttling
+NS: EO
+
+DESCR: These are connection control settings are based on client IP.
+These settings help to mitigate DoS (Denial of Service) and DDoS (Distributed Denial of Service) attacks.
+END_DESCR
+
+CONT: staticReqPerSec dynReqPerSec outBandwidth inBandwidth softLimit hardLimit blockBadReq gracePeriod banPeriod
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: perClientConnLimit
+NAME: Per Client Throttling
+NS: L
+
+DESCR: These are connection control setting on a per client/IP basis.
+These settings help to mitigate DoS (Denied of Service) and DDoS (Distributed Denied of Service) attacks.
+END_DESCR
+
+CONT: dynReqPerSec outBandwidth inBandwidth softLimit hardLimit blockBadReq gracePeriod banPeriod
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: fileAccessControl
+NAME: File Access
+
+DESCR:
+END_DESCR
+
+CONT: followSymbolLink checkSymbolLink forceStrictOwnership requiredPermissionMask
+restrictedPermissionMask restrictedScriptPermissionMask
+restrictedDirPermissionMask
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: cgiResource
+NAME: CGI Settings
+NS: E
+
+DESCR: The following settings control CGI processes. Memory and process limits also serve as the default for
+other external applications if limits have not been set explicitly for those applications.
+END_DESCR
+
+CONT: cgidSock maxCGIInstances minUID minGID forceGID umask CGIPriority CPUSoftLimit CPUHardLimit
+memSoftLimit memHardLimit procSoftLimit procHardLimit
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: cgiResource
+NAME: CGI Settings
+NS: O
+
+DESCR: The following settings control CGI processes. Memory and process limits also serve as the default for
+other external applications if limits have not been set explicitly for those applications.
+END_DESCR
+
+CONT: cgidSock maxCGIInstances minUID minGID forceGID umask CGIPriority CPUSoftLimit CPUHardLimit
+memSoftLimit memHardLimit procSoftLimit procHardLimit cgroups
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: accessDeny
+NAME: Access Denied Directories
+
+DESCR:
+END_DESCR
+
+CONT: accessDenyDir
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: accessControl
+NAME: Access Control
+
+DESCR: Specifies what sub networks and/or IP addresses can access the server.
+At the server level, this setting will affect all virtual hosts. You can also set up
+access control unique to each virtual host at the virtual host level. Virtual host level settings will NOT
+override server level settings.
+
+
+Blocking/Allowing an IP is determined by the combination of the allowed list and the denied list.
+If you want to block only certain IPs or sub-networks, put {val}*{/} or {val}ALL{/} in
+the {ITEM=accessControl_allow} and list the blocked IPs or sub-networks in the {ITEM=accessControl_deny}.
+If you want to allow only certain IPs or sub-networks, put {val}*{/} or {val}ALL{/}
+in the {ITEM=accessControl_deny} and list the allowed IPs or sub-networks in the {ITEM=accessControl_allow}.
+The setting of the smallest scope that fits for an IP will be used to determine access.
+
+
+<b>Server Level:</b> Trusted IPs or sub-networks must be specified in the {ITEM=accessControl_allow} by adding a
+trailing "T". Trusted IPs or sub-networks are not affected by connection/throttling limits.
+Only server level access control can set up trusted IPs/sub-networks.
+END_DESCR
+
+TIPS: [S] Use this at the server level for general restrictions that apply to all virtual hosts.
+END_TIPS
+
+CONT: accessControl_allow accessControl_deny
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: sec:dos
+NAME: Anti-DDoS Protection
+NS: L
+
+DESCR:
+END_DESCR
+
+CONT: enableAntiddos firewallEnable
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: lsrecaptcha
+NAME: reCAPTCHA Protection
+NS: L
+
+DESCR: reCAPTCHA Protection is a service provided as a way to mitigate heavy
+server load. reCAPTCHA Protection will activate after one of the below
+situations is hit. Once active, all requests by NON TRUSTED(as configured)
+clients will be redirected to a reCAPTCHA validation page. After validation,
+the client will be redirected to their desired page.
+
+
+The following situations will activate reCAPTCHA Protection:
+
+1. The server or vhost concurrent requests count passes the configured
+connection limit.
+
+2. Anti-DDoS is enabled and a client is hitting a url in a suspicious manner.
+The client will redirect to reCAPTCHA first instead of getting denied when
+triggered.
+
+3. WordPress Brute Force Attack Protection is enabled and action is set to
+'CAPTCHA or Drop’. When a brute force attack is detected, the client will
+redirect to reCAPTCHA first. After max tries is reached, the connection will be
+dropped, as per the ‘drop’ option.
+
+4. WordPress Brute Force Attack Protection is enabled and action is set to
+'WP Login CAPTCHA Full Protection'. The client will always redirect to
+reCAPTCHA first.
+
+5. A new rewrite rule environment is provided to activate reCAPTCHA via
+RewriteRules. 'verifycaptcha' can be set to redirect clients to reCAPTCHA. A
+special value ': deny' can be set to deny the client if it failed too many
+times. For example, [E=verifycaptcha] will always redirect to reCAPTCHA until
+verified. [E=verifycaptcha: deny] will redirect to reCAPTCHA until Max Tries is
+hit, after which the client will be denied.
+END_DESCR
+
+CONT: enableRecaptcha recaptchaSiteKey recaptchaSecretKey recaptchaType
+recaptchaMaxTries recaptchaAllowedRobotHits recaptchaBotWhiteList
+recaptchaRegConnLimit recaptchaSslConnLimit
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: lsrecaptcha
+NAME: reCAPTCHA Protection
+NS: E
+
+DESCR: reCAPTCHA Protection is a service provided as a way to mitigate heavy
+server load. reCAPTCHA Protection will activate after one of the below
+situations is hit. Once active, all requests by NON TRUSTED(as configured)
+clients will be redirected to a reCAPTCHA validation page. After validation,
+the client will be redirected to their desired page.
+
+
+The following situations will activate reCAPTCHA Protection:
+
+1. The server or vhost concurrent requests count passes the configured
+connection limit.
+
+2. Anti-DDoS is enabled and a client is hitting a url in a suspicious manner.
+The client will redirect to reCAPTCHA first instead of getting denied when
+triggered.
+
+3. WordPress Brute Force Attack Protection is enabled and action is set to
+'CAPTCHA or Drop’. When a brute force attack is detected, the client will
+redirect to reCAPTCHA first. After max tries is reached, the connection will be
+dropped, as per the ‘drop’ option.
+
+4. WordPress Brute Force Attack Protection is enabled and action is set to
+'WP Login CAPTCHA Full Protection'. The client will always redirect to
+reCAPTCHA first.
+
+5. A new rewrite rule environment is provided to activate reCAPTCHA via
+RewriteRules. 'verifycaptcha' can be set to redirect clients to reCAPTCHA. A
+special value ': deny' can be set to deny the client if it failed too many
+times. For example, [E=verifycaptcha] will always redirect to reCAPTCHA until
+verified. [E=verifycaptcha: deny] will redirect to reCAPTCHA until Max Tries is
+hit, after which the client will be denied.
+END_DESCR
+
+CONT: enableRecaptcha recaptchaSiteKey recaptchaSecretKey recaptchaType
+recaptchaSensitivity recaptchaMaxTries recaptchaAllowedRobotHits
+recaptchaBotWhiteList
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: lsrecaptcha
+NAME: reCAPTCHA Protection
+NS: O
+
+DESCR: reCAPTCHA Protection is a service provided as a way to mitigate heavy
+server load. reCAPTCHA Protection will activate after one of the below
+situations is hit. Once active, all requests by NON TRUSTED(as configured)
+clients will be redirected to a reCAPTCHA validation page. After validation,
+the client will be redirected to their desired page.
+
+
+The following situations will activate reCAPTCHA Protection:
+
+1. The server or vhost concurrent requests count passes the configured
+connection limit.
+
+2. Anti-DDoS is enabled and a client is hitting a url in a suspicious manner.
+The client will redirect to reCAPTCHA first instead of getting denied when
+triggered.
+
+3. A new rewrite rule environment is provided to activate reCAPTCHA via
+RewriteRules. 'verifycaptcha' can be set to redirect clients to reCAPTCHA. A
+special value ': deny' can be set to deny the client if it failed too many
+times. For example, [E=verifycaptcha] will always redirect to reCAPTCHA until
+verified. [E=verifycaptcha: deny] will redirect to reCAPTCHA until Max Tries is
+hit, after which the client will be denied.
+END_DESCR
+
+CONT: enableRecaptcha recaptchaSiteKey recaptchaSecretKey recaptchaType
+recaptchaMaxTries recaptchaAllowedRobotHits recaptchaBotWhiteList
+recaptchaRegConnLimit recaptchaSslConnLimit
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: bubbleWrapTbl
+NAME: Bubblewrap Container
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: bubbleWrap bubbleWrapCmd
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+################ Pages ################
+
+[PAGE]
+ID: ServSecurity_Help
+NAME: Server Security
+NS: L
+
+DESCR:
+END_DESCR
+
+CONT: sec:dos wpProtect reqCensorship reqCensorshipRule perClientConnLimit lsrecaptcha accessControl
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+
+[PAGE]
+ID: ServSecurity_Help
+NAME: Server Security
+NS: E
+
+DESCR:
+END_DESCR
+
+CONT: wpProtect reqCensorship reqCensorshipRule perClientConnLimit fileAccessControl cgiResource lsrecaptcha
+bubbleWrapTbl accessDeny accessControl
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+
+[PAGE]
+ID: ServSecurity_Help
+NAME: Server Security
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: fileAccessControl perClientConnLimit cgiResource lsrecaptcha bubbleWrapTbl accessDeny accessControl
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+[END_HELPDOC]

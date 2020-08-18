@@ -1,0 +1,182 @@
+[HELPDOC]
+
+
+############# Script Handler Definition #############
+
+
+[ITEM]
+ID: suffix
+NAME: Suffix
+NS: E
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR:  Specifies the script file suffixes that will be handled by this 
+script handler. Suffixes must be unique. 
+END_DESCR
+
+EDITTIP: If the web site supports php or jsp, please set up here.
+END_EDITTIP
+
+SYNTAX: Comma delimited list with period "." character prohibited.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: The server will automatically add a special MIME type ("application/x-httpd-[suffix]") for the first 
+suffix in the list. For example, MIME type "application/x-httpd-php53" will be added 
+for suffix "php53". Suffixes after the first need to set up in the {ITEM=mime} settings.
+
+Though we list suffixes in this field, the script handlers use MIME types, not suffixes, 
+to decide which scripts to handle. You can thus use the Apache configuration directives 
+"AddType" and "ForceType" (which control file MIME types) in .htaccess files to change 
+which script handler certain files will use. For example, with the directive 
+{cmd} AddType application/x-httpd-php53 .php{/} in a properly placed .htaccess file, 
+you can stipulate that php files in this directory have the MIME type "application/x-httpd-php53" and 
+thus will be handled by the script handler that uses MIME type "application/x-httpd-php53" 
+(suffix "php53"). This then allows you to assign different script handlers, not only for 
+different file suffixes, but also based on the locations of files.
+
+[P][S] Only specify the suffixes you really need.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: suffix
+NAME: 后缀
+NS: O
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR:  指定将由此脚本处理程序处理的脚本文件后缀。 后缀必须是唯一的。
+
+END_DESCR
+
+SYNTAX: Comma delimited list with period "." character prohibited.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 服务器将为列表中的第一个后缀自动添加特殊的MIME类型 ("application/x-httpd-[suffix]") 。 例如，将为后缀“ php53”添加MIME类型“ application/x-httpd-php53”。 首先需要在{ITEM=mime}设置中设置后缀。
+
+尽管我们在此字段中列出了后缀，但是脚本处理程序使用MIME类型而非后缀来确定要处理的脚本。
+
+[性能和安全建议] 仅指定您真正需要的后缀。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: shType
+NAME: 类型
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 指定处理这些脚本文件的外部程序类型。
+可用类型有：{val}CGI{/}, {val}FastCGI{/}, {val}Web服务器{/},
+{val}LSAPI应用程序{/}, {val}负载均衡器{/}, 或 {val}Servlet引擎{/}。
+对于FastCGI, Web服务器和Servlet引擎，需要指定{ITEM=shHandlerName}。
+这是在{PAGE=ExtApp_Help}部分预设定的外部程序名称。
+END_DESCR
+
+EDITTIP: 脚本处理程序可以是CGI，FCGI应用程序，模块处理程序，Servlet引擎或Web代理服务器。
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: shHandlerName
+NAME: 处理器名称
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 当处理器类型为FastCGI，Web服务器，LSAPI，负载均衡器或Servlet引擎时，
+指定处理脚本文件的外部程序名称。
+END_DESCR
+
+EDITTIP: 除CGI之外，还需要在“外部应用程序”中预定义其他处理程序。
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Tables #############
+
+
+[TBL]
+ID: scriptHandler
+NAME: 脚本处理程序定义
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: suffix shType shHandlerName 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: ScriptHandler_Help 
+NAME: 脚本处理程序
+NS: EO
+
+DESCR: LiteSpeed Web Server支持所有脚本语言，包括Perl，PHP，Ruby，Python，Java等。用这些不同语言编写的脚本必须使用适当的外部应用程序中进行处理。
+LiteSpeed Web Server使用脚本处理程序来确定脚本应使用哪个外部应用程序处理。 这些脚本处理程序通过使用文件后缀将文件转到外部应用程序。 （实际上，后缀用于确定MIME
+类型，然后将其转到相应的外部应用程序。）必须先在“外部应用程序”选项卡中设置外部应用程序，然后才能选择它们在合适的脚本处理程序中处理。
+<br/> <br/>
+您可以在服务器或虚拟主机级别设置脚本处理程序。服务器级脚本处理程序应用于所有虚拟主机，除非该设置在虚拟主机级别被覆盖。
+虚拟主机级别的脚本处理程序仅适用于该虚拟主机。
+END_DESCR
+
+
+CONT:  scriptHandler
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]

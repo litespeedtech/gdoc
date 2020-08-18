@@ -1,0 +1,261 @@
+[HELPDOC]
+
+
+############# Virtual Host Log #############
+
+
+[ITEM]
+ID: logUseServer
+NAME: 使用服务器日志
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 指定是否将虚拟主机的日志信息放置到服务器日志文件中，而不是创建独自的日志文件。
+END_DESCR
+
+EDITTIP: 如果<b>使用服务器日志</b>被设置为"是",日志将被写入服务器级别设置的服务器文件。
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhlog_fileName
+NAME: 文件路径
+NS: LEO
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 指定日志文件的路径。
+END_DESCR
+
+EDITTIP: 日志文件路径可以是绝对路径,也可以是相对于$SERVER_ROOT, $VH_ROOT的相对路径.
+END_EDITTIP
+
+EDITTIP: 如果要将日志级别设置为DEBUG，则还必须将服务器日志级别也设置为DEBUG。 调试级别由服务器调试级别控制。 请仅在必要时才使用DEBUG级别，因为它会对服务器性能产生很大影响，并且可以快速填满磁盘空间。
+END_EDITTIP
+
+SYNTAX: file3
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [性能建议] 将日志文件放在单独的磁盘上。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhlog_logLevel
+NAME: 日志级别
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=ServGeneral_Help#log_debugLevel}
+
+DESCR: 指定日志记录级别。可用级别（从高到低）为{val}ERROR{/}, 
+{val}WARNING{/}, {val}NOTICE{/}, {val}INFO{/}, 和 {val}DEBUG{/}。
+只有当消息等级高于或与当前设置相同时才被记录。
+如果您希望将此设置为{val}DEBUG{/}，您也需要设置服务器日志级别为{val}DEBUG{/}。
+调试的级别只能在服务器级别通过{ITEM=ServGeneral_Help#log_debugLevel}控制。
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [性能建议] 除非{ITEM=ServGeneral_Help#log_debugLevel}设置为{val}NONE{/}以外的日志级别, 否则{val}DEBUG{/}级别不会对性能产生任何影响，推荐采用。
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Access Log #############
+
+
+[ITEM]
+ID: aclogUseServer
+NAME: 日志管理
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 指定写入访问日志的地点。这里有三个选项：
+<ol>
+<li>写入到服务器的访问日志；</li>
+<li>为虚拟主机创建一个访问日志；</li>
+<li>禁用访问日志记录</li>
+</ol>
+END_DESCR
+
+EDITTIP: 如果需要，您可以禁用此虚拟主机的访问日志记录以降低磁盘I/O的占用。
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhaccessLog_fileName
+NAME: File Name
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: The access log filename. 
+END_DESCR
+
+SYNTAX: file3
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [P] Put the access log file on a separate disk.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhaccessLog_fileName
+NAME: 文件名
+NS: EO
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 访问日志的文件名
+END_DESCR
+
+EDITTIP: 日志文件路径可以是绝对路径,也可以是相对于$SERVER_ROOT, $VH_ROOT的相对路径.
+END_EDITTIP
+
+SYNTAX: file3
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [性能建议] 将访问日志文件放在单独的磁盘上。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessLog_bytesLog
+NAME: 字节记录
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 指定带宽字节日志文件的路径。设置后，将创建一份兼容cPanel面板的带宽日志。这将记录
+一个请求传输的总字节数，包括请求内容和响应内容。
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [性能建议] 将日志文件放置在一个单独的磁盘上。
+END_TIPS
+
+[END_ITEM]
+
+
+
+################ Tables ################
+
+
+[TBL]
+ID: vhLog
+NAME: 虚拟主机日志
+NS: LEO
+
+DESCR: 
+END_DESCR
+
+CONT: logUseServer vhlog_fileName vhlog_logLevel log_rollingSize log_keepDays
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[TBL]
+ID: vhAcLog
+NAME: 访问日志
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: aclogUseServer vhaccessLog_fileName accessLog_pipedLogger 
+accessLog_logFormat accessLog_logHeader 
+log_rollingSize log_keepDays
+accessLog_bytesLog accessLog_compressArchive
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: vhAcLog
+NAME: 访问日志
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: aclogUseServer vhaccessLog_fileName accessLog_pipedLogger 
+accessLog_logFormat accessLog_logHeader 
+log_rollingSize log_keepDays
+accessLog_bytesLog accessLog_compressArchive
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[END_HELPDOC]

@@ -1,0 +1,673 @@
+[HELPDOC]
+
+
+########## SSL Private Key & Certificate ##########
+
+
+[ITEM]
+ID: keyFile
+NAME: 私钥文件
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: SSL私钥文件的文件名。 密钥文件不应被加密。
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [安全建议] 私钥文件应放在一个安全的目录中，该目录应
+允许对运行服务器的用户具有只读的访问权限。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: certFile
+NAME: 证书文件
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: SSL证书文件的文件名。
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [安全建议] 私钥文件应放在一个安全的目录中，该目录应
+允许对运行服务器的用户具有只读的访问权限。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: certChain
+NAME: 证书链
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定证书是否为证书链。 存储证书链的文件必须为PEM格式，
+并且证书必须按照从最低级别（实际的客户端或服务器证书）到最高级别（Root）CA的链接顺序。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: CACertPath
+NAME: CA证书路径
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定证书颁发机构（CA）证书的目录。 这些证书用于客户端证书身份验证和构建服务器证书链，除了服务器证书之外，这些证书还将发送到浏览器。
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: CACertFile
+NAME: CA证书文件
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定包含证书颁发机构（CA）证书的证书链文件。
+按照优先顺序，此文件只是PEM编码的证书文件的串联。 这可以用作替代或
+除了{ITEM=CACertPath}。 这些证书用于客户端证书身份验证和构建服务器证书链，除了服务器证书之外，这些证书还将发送到浏览器。
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## SSL Protocol ##########
+
+
+[ITEM]
+ID: sslProtocol
+NAME: 协议版本
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定将使用哪个版本的SSL协议。 您可以选择
+{val}SSL v3.0 {/}和{val}TLS v1.0 {/}。 从OpenSSL 1.0.1开始，还支持{val}TLS v1.1 {/}，{val}TLS v1.2 {/}。 
+还可以通过BoringSSL。支持{val}TLS v1.3 {/}
+END_DESCR
+
+EDITTIP: 必须在“常规”>“地址设置”中<b>安全</b>中选择“是”。
+END_EDITTIP
+
+EDITTIP: 对于SSL版本和加密级别，请选择所有您要接受的协议。
+END_EDITTIP
+
+SYNTAX:
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:将此字段保留为空白将默认启用TLS v1.0，TLS v1.1和TLS v1.2。 TLS v1.3需要BoringSSL，并且在基础SSL库支持的情况下也会启用。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: ciphers
+NAME: 密码套件
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定SSL握手时要使用的密码套件。
+LSWS支持在SSL v3.0，TLS v1.0，TLS v1.2和TLS v1.3中实现的密码套件。
+
+SYNTAX: Colon-separated string of cipher specifications.
+END_SYNTAX
+
+EXAMPLE: ECDHE-RSA-AES128-SHA256:RC4:HIGH:!MD5:!aNULL:!EDH
+END_EXAMPLE
+
+TIPS: [安全建议]我们建议将此字段留空以使用我们的默认密码，该默认密码遵循SSL密码最佳实践。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableECDHE
+NAME: 启用ECDH密钥交换
+REQUIRED:
+APPLY: 3
+SINCE: 4.2.5
+SEE_ALSO:
+
+DESCR: 允许使用Diffie-Hellman密钥交换进行进一步的SSL加密。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [安全建议] ECDH密钥交换比仅使用RSA密钥更安全。 ECDH和DH密钥交换安全性相同。
+
+
+[性能] 启用ECDH密钥交换会增加CPU负载，并且比仅使用RSA密钥要慢。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableDHE
+NAME: 启用DH密钥交换
+REQUIRED:
+APPLY: 3
+SINCE: 4.2.5
+SEE_ALSO:
+
+DESCR: 允许使用Diffie-Hellman密钥交换进行进一步的SSL加密。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [安全建议] DH密钥交换比仅使用RSA密钥更安全。 ECDH和DH密钥安全性相同。
+
+
+[x性能] 启用DH密钥交换将增加CPU负载，并且比ECDH密钥交换和RSA都慢。 如果可用，则首选ECDH密钥交换。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: DHParam
+NAME: DH参数
+REQUIRED:
+APPLY: 3
+SINCE: 4.2.5
+SEE_ALSO:
+
+DESCR: 指定DH密钥交换所需的Diffie-Hellman参数文件的位置。
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## Security & features ##########
+
+
+[ITEM]
+ID: renegProtection
+NAME: SSL密钥重新协商保护
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE: 4.1.13
+SEE_ALSO:
+
+DESCR: 指定是否启用SSL密钥重新协商保护以
+防御基于SSL握手的攻击。 默认值为“是”。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 可以在侦听器和虚拟主机级别启用此设置。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableSpdy
+NAME: 启用 SPDY/HTTP2/HTTP3
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 有选择地启用HTTP/3，HTTP/2和SPDY HTTP网络协议。
+
+
+如果要禁用SPDY，HTTP/2和HTTP3，请选中“无”，并取消选中所有其他框。
+
+Default value: All enabled
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 可以在侦听器和虚拟主机级别上设置此设置。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: allowQuic
+NAME: 允许QUIC
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 允许对映射到此侦听器的虚拟主机使用QUIC网络协议。
+为了使此设置生效，还必须在服务器级别将{ITEM=ServTuning_Help#quicEnable}设置为{val}是{/}。
+默认值为{val}是{/}。
+END_DESCR
+
+SYNTAX:
+END_SYNTAX
+
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 当此设置设置为{val}是{/}时，仍可以通过{ITEM=VHSSL_Help#vhEnableQuic}设置在虚拟主机级别禁用QUIC。
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## OCSP Stapling ##########
+
+
+[ITEM]
+ID: enableStapling
+NAME: 启用 OCSP 装订 
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 确定是否启用OCSP装订，这是一种更有效的验证公钥证书的方式。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: ocspRespMaxAge
+NAME: OCSP响应最大有效时间（秒）
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 此选项设置OCSP响应的最大有效时间。 如果OCSP响应早于该最大使用期限，则服务器将与OCSP响应服务器联系以获取新的响应。 默认值为{val}86400 {/}。 通过将此值设置为{val}-1{/}，可以关闭最大有效时间。
+END_DESCR
+
+SYNTAX: Integer of seconds
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: ocspResponder
+NAME: OCSP响应服务器
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定要使用的OCSP响应服务器的URL。
+如果未设置，则服务器将尝试联系OCSP响应服务器
+在证书颁发机构的颁发者证书中有详细说明。
+某些颁发者证书可能未指定OCSP服务器URL。
+END_DESCR
+
+SYNTAX: URL starting with {val}http://{/}
+END_SYNTAX
+
+EXAMPLE: {val}http://rapidssl-ocsp.geotrust.com {/}
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: ocspCACerts
+NAME: OCSP CA证书
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定存储OCSP证书颁发机构（CA）证书的文件的位置。 这些证书用于检查OCSP响应服务器的响应（并确保这些响应不被欺骗或以其他方式被破坏）。 该文件应包含整个证书链。
+如果该文件不包含根证书，则LSWS无需将根证书添加到文件中就应该能够在系统目录中找到该根证书，
+但是，如果此验证失败，则应尝试将根证书添加到此文件中。
+
+
+This setting is optional. If this setting is not set, the server will automatically check {ITEM= CACertFile}.
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX1
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## Client Verification ##########
+
+
+[ITEM]
+ID: clientVerify
+NAME: Client Verification
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR:{ent_version} Specifies the type of client certifcate authentication.
+Available types are:
+<ul>
+<li><b>None:</b> No client certificate is required.</li>
+<li><b>Optional:</b> Client certificate is optional.</li>
+<li><b>Require:</b> The client must has valid certificate.</li>
+<li><b>Optional_no_ca:</b> Same as optional.</li>
+</ul>
+The default is "None".
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:  "None" or "Require" are recommended.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: verifyDepth
+NAME: 验证深度
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR:{ent_version} Specifies how deeply a certificate should be verified before
+determining that the client does not have a valid certificate.
+The default is "1".
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: crlPath
+NAME: 客户端吊销路径
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR:{ent_version} Specifies the directory containing PEM-encoded CA CRL files for revoked
+client certificates. The files in this directory have to be PEM-encoded.
+These files are accessed through hash filenames, hash-value.rN.
+Please refer to openSSL or Apache mod_ssl documentation regarding creating the hash filename.
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: crlFile
+NAME: 客户端吊销文件
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR:{ent_version} Specifies the file containing PEM-encoded CA CRL files enumerating revoked
+client certificates. This can be used as an alternative or in addition to
+{ITEM=crlPath}.
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Tables #############
+
+
+[TBL]
+ID: sslCert
+NAME: SSL私钥和证书
+NS: LEO
+
+DESCR: 每个SSL侦听器都需要成对的SSL私钥和SSL证书。
+多个SSL侦听器可以共享相同的密钥和证书。
+
+您可以使用SSL软件包自行生成SSL私钥，
+例如OpenSSL。 SSL证书也可以从授权证书颁发机构（如VeriSign或Thawte）购买。 您也可以自己签署证书。
+自签名证书将不受Web浏览器的信任，并且不应在公共网站上使用。 但是，自签名证书足以供内部使用，例如 用于加密到LiteSpeed Web服务器的WebAdmin控制台的流量。
+END_DESCR
+
+CONT: keyFile certFile certChain CACertPath CACertFile
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: sslProtocolSetting
+NAME: SSL协议
+NS: LEO
+
+DESCR: 自定义侦听器接受的SSL协议。
+END_DESCR
+
+CONT: sslProtocol ciphers enableECDHE enableDHE DHParam
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: sslOCSP
+NAME: OCSP装订
+NS: LEO
+
+DESCR: 在线证书状态协议（OCSP）是更加有效的检查数字证书是否有效的方式。 它通过与另一台服务器（OCSP响应服务器）通信，以获取证书有效的验证，而不是通过证书吊销列表（CRL）进行检查。
+
+
+OCSP装订是对该协议的进一步改进，允许服务器以固定的时间间隔而不是每次请求证书时与OCSP响应程序进行检查。 有关更多详细信息，请参见<a href="https://zh.wikipedia.org/wiki/%E5%9C%A8%E7%BA%BF%E8%AF%81%E4%B9%A6%E7%8A%B6%E6%80%81%E5%8D%8F%E8%AE%AE"> OCSP Wikipedia页面</a>。
+END_DESCR
+
+CONT: enableStapling ocspRespMaxAge ocspResponder ocspCACerts
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: sslClientVerify
+NAME: Client Verification
+NS: LEO
+
+DESCR:
+END_DESCR
+
+CONT: clientVerify verifyDepth crlPath crlFile
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+############# Pages #############
+
+
+[PAGE]
+ID: Listeners_SSL_Help
+NAME: 侦听器SSL
+NS: LEO
+
+DESCR:
+END_DESCR
+
+CONT: sslCert sslProtocolSetting sslFeature sslOCSP sslClientVerify
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+[END_HELPDOC]

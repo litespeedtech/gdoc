@@ -6,32 +6,29 @@
 
 [ITEM]
 ID: modulename
-NAME: Module
+NAME: 模块
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: The name of an external or internal module to be loaded at server
-startup.
+DESCR: 服务器启动时要加载的外部或内部模块的名称。
 
 
-<b>External</b>
+<b>外部模块</b>
 
-The value used for external modules must match the name of the module's ".so"
-file under $SERVER_ROOT/modules/modulename.so in order to be loaded by the
-server application. This requires that the server is restarted after a new
-module is registered.
+用于外部模块的值必须与 $SERVER_ROOT/modules/modulename.so 下的“.so”文件名匹配，
+以便服务器应用程序加载该文件。
+在注册新模块后需要重新启动服务器。
 
 
-<b>Internal</b>
+<b>内部模块</b>
 
-The value used for internal modules must match the module name used when the
-module was built. For example, this must be set to "cache" for the internal
-cache module included with the server.
+内部模块使用的值必须与构建模块时使用的名称匹配
+例如，对于服务器附带的内部缓存模块，必须将其设置为“缓存”。
 END_DESCR
 
-SYNTAX: string
+SYNTAX: 字符串
 END_SYNTAX
 
 EXAMPLE:
@@ -45,17 +42,17 @@ END_TIPS
 
 [ITEM]
 ID: internalmodule
-NAME: Is Internal
+NAME: 内部的
 REQUIRED: 
 APPLY: 
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specify whether the module is an internal module, which is statically linked, instead of being an external .so library.
+DESCR: 指定模块是否为内部模块（静态链接），而不是动态链接库。
 
 END_DESCR
 
-SYNTAX: bool 
+SYNTAX: 布尔值 
 END_SYNTAX
 
 EXAMPLE:
@@ -69,7 +66,7 @@ END_TIPS
 
 [ITEM]
 ID: modParams
-NAME: Module Parameters
+NAME: 模块参数
 REQUIRED: 
 APPLY: 
 SINCE: 
