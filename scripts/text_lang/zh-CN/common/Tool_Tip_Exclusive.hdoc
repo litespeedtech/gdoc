@@ -1,0 +1,223 @@
+[HELPDOC]
+
+
+[ITEM]
+ID: note
+NAME: 备注
+NS: LEO
+REQUIRED: 
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 为你自己添加备注
+END_DESCR
+
+SYNTAX:
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: UDBusername
+NAME: 用户名
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: 仅包含字母和数字的用户名。（无特殊字符）
+END_DESCR
+
+SYNTAX:
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: UDBgroup
+NAME: 组
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+
+DESCR: 该用户所属的组的逗号分隔列表。 用户将只能访问属于这些组的资源。
+如果在此处添加了组信息，则此信息将用于资源授权，并且涉及该用户的任何组数据库设置都将被忽略。
+END_DESCR
+
+EDITTIP: 如果在此处添加了组信息，则此信息将用于资源授权，并且涉及该用户的任何组数据库设置都将被忽略。
+END_EDITTIP
+
+EDITTIP: 您可以使用逗号分隔多个组。 空格字符将被视为组名的一部分。
+END_EDITTIP
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID:  UDBpass
+NAME: 新密码
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+
+DESCR: 密码可以是任意长度，可以包含任何字符。
+END_DESCR
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: UDBpass1
+NAME: 重新输入密码
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+
+DESCR: 密码可以是任意长度，可以包含任何字符。
+END_DESCR
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gdb_groupname
+NAME: 组名
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: 组名，仅包含字母和数字（无特殊字符）。
+END_DESCR
+
+EDITTIP: 组名应仅包含字母和数字。
+END_EDITTIP
+
+SYNTAX: string
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gdb_users
+NAME: 用户
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+
+DESCR: 属于该组的用户,用空格分隔。
+END_DESCR
+
+[END_ITEM]
+
+
+
+############# Tables ############
+
+
+[TBL]
+ID: notesTBL
+NAME: Tool Tip Exclusives
+NS: LEO
+
+DESCR: 
+END_DESCR
+
+CONT: note UDBusername UDBgroup UDBpass UDBpass1 gdb_groupname gdb_users
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[TBL]
+ID: phpHandlers
+NAME: PHP Handlers
+NS: E
+
+DESCR: List of custom PHP handlers.
+END_DESCR
+
+CONT:
+END_CONT
+
+TIPS: [I] External applications explicitly defined at the server level with the same "Handler ID" or "Command" will have a 
+higher priority.
+END_TIPS
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+############# Pages ############
+
+
+[PAGE]
+ID: Tool_Tips
+Name:
+NS: E
+
+DESCR:
+END_DESCR
+
+CONT: notesTBL phpHandlers
+END_CONT
+
+SEE_ALSO:
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: Tool_Tips
+Name:
+NS: LO
+
+DESCR:
+END_DESCR
+
+CONT: notesTBL
+END_CONT
+
+SEE_ALSO:
+
+[END_PAGE]
+
+
+[END_HELPDOC]

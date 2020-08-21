@@ -1,0 +1,94 @@
+[HELPDOC]
+
+########## General ##########
+
+########## SSL ##########
+
+############# Tables #############
+
+
+[TBL]
+ID: Admin_listenerGeneral
+NAME: General
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: listenerName listenerIP listenerPort listenerSecure
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: Admin_listenerGeneral
+NAME: General
+NS: L
+
+DESCR:
+END_DESCR
+
+CONT: listenerName listenerType listenerIP listenerPort listenerSecure
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: sslFeature
+NAME: Security & Features
+NS: LEO
+
+DESCR:
+END_DESCR
+
+CONT: renegProtection sslSessionCache sslSessionTickets enableSpdy allowQuic
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: AdminListeners_General_Help
+NAME: Admin Listeners General
+NS: LEO
+
+DESCR: Admin Listeners are dedicated to the Admin Server. Secure (SSL) listeners
+are recommended for the Admin Server.
+END_DESCR
+
+CONT: Admin_listenerGeneral
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+
+[PAGE]
+ID: AdminListeners_SSL_Help
+NAME: Admin Listeners SSL
+NS: LEO
+
+DESCR: Admin Listeners are dedicated to the Admin Server. Secure (SSL) listeners
+are recommended for the Admin Server.
+END_DESCR
+
+CONT: sslCert sslProtocolSetting sslFeature sslClientVerify
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+[END_HELPDOC]

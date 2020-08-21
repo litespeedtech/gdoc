@@ -1,0 +1,430 @@
+[HELPDOC]
+
+
+########## Template Location ##########
+
+
+[ITEM]
+ID: templateName
+NAME: 模板名称
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 模板的唯一名称。
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: templateFile
+NAME: Template File
+NS: LE
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the path to the configuration file of this template.
+The file must be located within $SERVER_ROOT/conf/templates/ with a ".xml" filename.
+If the file you designate does not exist, after trying to save the template
+an error will appear with the link "CLICK TO CREATE". This link will generate
+a new empty template file. When you delete the template, the entry will be
+removed from your configurations, but the actual template config file will not be deleted.
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: templateFile
+NAME: 模板文件
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定此模板配置文件的路径。
+该文件必须位于$SERVER_ROOT/conf/templates/中，且文件名带有“ .conf”。
+如果您指定的文件不存在，则在尝试保存模板后，将出现错误，为“CLICK TO CREATE”。 
+点击该链接将生成一个新的空模板文件。 当您删除模板时，该条目将从您的配置中删除，但实际的模板配置文件不会被删除。
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: mappedListeners
+NAME: 映射的侦听器
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+
+DESCR: Specifies the names of all listeners that this template maps
+to. A listener-to-virtual host mapping for this template's
+member virtual hosts will be added to the listeners specified in this field.
+This mapping will map listeners to virtual hosts based on the domain names
+and aliases set in the member virtual hosts' individual configurations.
+END_DESCR
+
+SYNTAX: comma-separated list
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+########## ZeroConf ##########
+
+
+[ITEM]
+ID: tpzconf_enabled
+NAME: Used by ZeroConf
+NS: L
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Allow ZeroConf configurations to specify this template for use as a base for created VHosts.
+
+
+Default value: Yes
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: tpzconf_vhostPerDomain
+NAME: Separate VHost Per Domain
+NS: L
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Create a VHost for each domain configured through ZeroConf. If set to "No", all domains that share the same
+list of backends will share a VHost.
+
+
+The server level <b>Separate VHost Per Domain</b> setting is ignored for VHosts created with this template.
+
+
+Warning: When set to "Yes", this could be very memory expensive if there are many domains.
+
+
+Default value: No
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## Member Virtual Hosts ##########
+
+
+[ITEM]
+ID: templateVHName
+NAME: 虚拟主机名
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 此虚拟主机的唯一名称。 该名称在所有的虚拟主机模板和虚拟主机中不得重复。 在目录路径配置中，此名称可以由变量{val}$VH_NAME{/}引用。
+
+
+如果还配置了具有相同名称的虚拟主机，则虚拟主机的配置将被忽略。
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: templateVHDomain
+NAME: 域名
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定该成员虚拟主机的主域名。
+如果留白，将使用成员虚拟主机名, 这应该是符合标准的域名,但是您也可以使用IP地址。
+对于不在端口80上的网站，建议附加{val}:<port>{/}
+对于包含域名的配置，可以使用变量{val}$VH_DOMAIN{/}来引用此域。
+
+
+该域名将在以下情况下使用：
+<ol>
+  <li>在处理请求时匹配主机标头中的主机名。</li>
+  <li>作为诸如FrontPage或AWstats之类的域名配置.</li>
+ <li>基于虚拟主机模板配置侦听器到虚拟主机的映射。</li>
+</ol>
+END_DESCR
+
+SYNTAX: domain name
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: templateVHAliases
+NAME: 别名
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定虚拟主机的备用名称。 所有可能的主机名和IP地址都应添加到此列表中。 名称中允许使用通配符 {val}*{/} 和 {val}?{/}。 为不在端口80上的网站附加{val}:<port>{/}。
+
+
+别名将在以下情况下使用：
+<ol>
+  <li>在处理请求时匹配主机标头中的主机名。</li>
+  <li>作为诸如FrontPage或AWstats之类的域名配置.</li>
+ <li>基于虚拟主机模板配置侦听器到虚拟主机的映射。</li>
+</ol>
+
+END_DESCR
+
+
+SYNTAX: Comma-separated list of domain names.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: memberVHRoot
+NAME: 成员虚拟主机根目录
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定此虚拟主机的根目录。 如果留空，将使用此模板的默认虚拟主机根目录.
+
+
+Note: 这<b>不是</b>文档根。 建议将与虚拟主机相关的所有文件（如虚拟主机配置，日志文件，html文件，CGI脚本等）放置在此目录下。
+虚拟主机根目录可以以变量$VH_ROOT来引用。
+END_DESCR
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Tables #############
+
+
+[TBL]
+ID: templateGeneral
+NAME: 模板位置
+NS: LEO
+
+DESCR:
+END_DESCR
+
+CONT: templateName templateFile mappedListeners
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: templateZconf
+NAME: ZeroConf
+NS: L
+
+DESCR:
+END_DESCR
+
+CONT: tpzconf_enabled tpzconf_vhostPerDomain
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: templateMembers
+NAME: Member Virtual Hosts
+
+DESCR:
+END_DESCR
+
+CONT: templateVHName templateVHDomain templateVHAliases memberVHRoot
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: Templates_Help
+NAME: Virtual Host Templates
+NS: L
+
+DESCR: Virtual host template can be used to simplify the
+administration of virtual hosts with similar configuration,
+especially, for mass hosting environment. Once a template is configured
+properly, only minimum configuration is required when adding a new virtual
+host.
+
+
+Each template contains a template configuration file, a list of mapped listeners
+and a list of member virtual hosts.
+
+
+The template configuration file contains all configuration entries for a virtual host, with some
+fields requiring special values.
+
+
+To add a template-based virtual host, administrator only needs to
+add a member to the template member list with a unique virtual host name and a
+qualified domain name of that virtual host.
+Listener-to-virtual host mapping will be added automatically for
+all listeners in the mapped listener list.
+
+
+Later on, if you need to customize the configuration for a particular
+virtual host, just "instantiate" that member virtual host, a
+standalone virtual host configuration will be created automatically.
+Even when setting up a virtual host with different configuration,
+it is still convenient to use a template as a starting point, and then customize it after instantiation.
+END_DESCR
+
+CONT: templateGeneral templateZconf templateMembers templateSettings
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+
+[PAGE]
+ID: Templates_Help
+NAME: 虚拟主机模板
+NS: EO
+
+DESCR: 虚拟主机模板使创建具有相似配置的新虚拟主机变得容易。
+
+
+每个模板都包含一个模板配置文件，一个映射的侦听器列表以及一个成员虚拟主机列表。
+
+
+要添加基于模板的虚拟主机，管理员只需将具有唯一的虚拟主机名和域名添加到模板成员列表。 模板映射的侦听器列表中的所有侦听器将自动添加到虚拟主机的映射。
+
+
+稍后，如果您需要为特定虚拟主机自定义配置，只需“实例化”该成员虚拟主机，然后将自动创建一个独立的虚拟主机配置。
+即使在设置自定义虚拟主机时，仍然可以用模板快速建立。
+END_DESCR
+
+CONT: templateGeneral templateMembers templateSettings
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+[END_HELPDOC]

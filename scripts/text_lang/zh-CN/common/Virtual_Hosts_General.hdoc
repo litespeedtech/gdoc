@@ -1,0 +1,530 @@
+[HELPDOC]
+
+
+############# General #############
+
+
+[ITEM]
+ID: docRoot
+NAME: 文档根目录
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定此虚拟主机的文档根目录。
+推荐使用{val}$VH_ROOT/html{/}。在context中，此目录可以用$DOC_ROOT来引用。
+END_DESCR
+
+EDITTIP: 如果文档根目录尚不存在，服务器不会自动创建它。 
+请确保该目录存在并且由正确的用户拥有。
+END_EDITTIP
+
+EDITTIP: 在此处设置文档根目录，它可以是绝对路径，也可以相对于$SERV_ROOT或$VH_ROOT
+END_EDITTIP
+
+EDITTIP: 在此虚拟主机中，文档根目录称为$DOC_ROOT，可在其他路径配置中使用。
+END_EDITTIP
+
+SYNTAX: path3
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhadminEmails
+NAME: 管理员邮箱
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定这个虚拟主机管理员的电子邮箱地址。
+END_DESCR
+
+EDITTIP: 您可以输入多个管理员电子邮件，以逗号分隔。
+END_EDITTIP
+
+SYNTAX: Comma separated list of email addresses
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhEnableGzip
+NAME: 启用压缩
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=ServTuning_Help#enableGzipCompress}, {ITEM=ServTuning_Help#enableBrCompress}
+
+DESCR: 指定是否为此虚拟主机启用GZIP/Brotli压缩
+此设置仅在服务器级别启用压缩时才有效.
+  压缩设置是在服务器级别配置的
+   (调节 > GZIP/Brotli 压缩).
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Index Files #############
+
+
+[ITEM]
+ID: indexUseServer
+NAME: 使用服务器索引文件
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定是否使用服务器的索引文件。
+如果设置为{val}Yes{/}，那么只有服务器的设置将被使用。
+如果设置为{val}No{/}，那么服务器的设置将不会被使用。
+如果设置为{val}Addition{/}，那么附加的索引文件可以被添加到此虚拟主机服务器的索引文件列表中。
+如果想要禁用此虚拟主机的索引文件，您可以将该值设置为{val}No{/}，并将索引文件栏留空。
+field empty.
+END_DESCR
+
+EDITTIP: 您可以将默认服务器级别设置用于索引文件，也可以使用自己的服务器级别设置。
+END_EDITTIP
+
+EDITTIP: 除了服务器级别的设置之外，您还可以使用其他设置。
+END_EDITTIP
+
+EDITTIP: 您可以通过选择不使用服务器级别设置并将虚拟主机级别设置留为空白来禁用索引文件。
+END_EDITTIP
+
+EDITTIP: 您可以在context级别启用/禁用“自动索引”。
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: autoIndex
+NAME: 自动索引
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=indexFiles}, {ITEM=autoIndexURI}
+
+DESCR: 在目录中，当{ITEM=indexFiles}中所列的索引文件不可用时，指定运行时是否即时生成目录索引。
+
+此选项可以在虚拟主机级别和context级别中设置，并可以顺着目录树继承，直到被覆盖。
+您可以自定义生成的索引页面。请访问在线百科了解如何操作。
+
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [安全建议] 建议关闭自动索引，从而尽可能防止泄露机密数据。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: autoIndexURI
+NAME: 自动索引URI
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=indexFiles}, {ITEM=autoIndex}
+
+DESCR: 在目录中，当{ITEM=indexFiles}中所列出的索引文件（index）不可用时，指定用来生成索引页面的URI。
+LiteSpeed Web服务器使用一个外部脚本来生成索引页面，从而为定制提供最大的灵活性。
+默认的脚本生成一个类似于Apache的索引页面。
+定制生成的索引页，请访问在线百科。
+被索引的目录通过一个环境变量 "LS_AI_PATH"来传递给脚本。
+END_DESCR
+
+SYNTAX: URI
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Customized Error Pages #############
+
+
+[ITEM]
+ID: errCode
+NAME: 错误代码
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定错误页面的HTTP状态码。
+只有特定的HTTP状态码才可以自定义错误页面。
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: errMessage
+NAME: 自定义错误消息
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定自定义错误消息。
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: errURL
+NAME: URL
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定自定义错误页的URL。
+当返回相应HTTP状态时服务器会将请求转发到该URL。
+如果此URL指向一个不存在的地址，自带的错误页面将被使用。
+该URL可以是一个静态文件，动态生成的页面，或者其他网站的页面
+（网址开头为"http(s): //"）。
+当转发到在其他网站上的页面时，客户端会收到一个重定向状态码
+来替代原本的状态码。
+END_DESCR
+
+EDITTIP: 您可以为不同的错误代码设置自定义的错误页面。
+END_EDITTIP
+
+SYNTAX: URL
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# HT Access #############
+############# Expires Settings #############
+############# File Upload #############
+############# Apache Style Configurations #############
+
+
+
+############# php.ini Override #############
+
+
+[ITEM]
+ID: phpIniOverride
+NAME: php.ini 重写
+NS: O
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: 用于覆盖当前context（虚拟主机级别或context级别）中的php.ini设置。
+
+
+支持的指令是：
+
+php_value
+
+php_flag
+
+php_admin_value
+
+php_admin_flag
+
+
+所有其他行/指令将被忽略。
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: Override syntax is similar to Apache, a newline separated list of directives and their values with each directive
+being prepended by php_value, php_flag, php_admin_value, or php_admin_flag appropriately.
+END_SYNTAX
+
+EXAMPLE: php_value include_path ".:/usr/local/lib/php"
+
+php_admin_flag engine on
+
+php_admin_value open_basedir "/home"
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Tables ##############
+
+
+[TBL]
+ID: vhGeneral
+NAME: 一般
+NS: L
+
+DESCR:
+END_DESCR
+
+CONT: vhMaxKeepAliveReq vhEnableGzip enableIpGeo
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: vhGeneral
+NAME: 一般
+NS: E
+
+DESCR:
+END_DESCR
+
+CONT: docRoot vhadminEmails vhEnableGzip enableIpGeo
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: vhGeneral
+NAME: 一般
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: docRoot vhadminEmails vhEnableGzip enableIpGeo cgroups
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: vhIndex
+NAME: 索引文件
+
+DESCR:
+END_DESCR
+
+CONT: indexUseServer indexFiles autoIndex autoIndexURI
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: errPage
+NAME: 自定义错误页面
+NS: EO
+
+DESCR: 当服务器在处理请求时遇到问题，
+服务器将向网络客户端返回错误代码和html页面作为错误消息。
+错误代码在HTTP协议中定义（请参阅RFC 2616）。
+LiteSpeed Web服务器为每个错误代码都有一个内置的默认错误页面，但是也可以为每个错误代码配置一个自定义页面。
+甚至可以进一步自定义这些错误页面，以使其对于每个虚拟主机都是唯独特的。
+END_DESCR
+
+CONT: errCode errURL
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: errPage
+NAME: Customized Error Pages
+NS: L
+
+DESCR: Whenever the server has a problem processing a request,
+the server will return an error code and an html page as an error message
+to the web client. Error codes are defined in the HTTP protocol (see RFC 2616).
+LiteSpeed Web Server has a built-in default error page for each error code, but a customized page can be configured
+for each error code as well. These error pages can be even further customized to be unique
+for each virtual host.
+END_DESCR
+
+CONT: errCode errMessage
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: vhExpire
+NAME: Expire Settings
+
+DESCR:
+END_DESCR
+
+CONT: enableExpires expiresDefault expiresByType
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+[TBL]
+ID: phpIniOverrideTbl
+NAME: php.ini Override
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: phpIniOverride
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+############# Pages ##############
+
+
+[PAGE]
+ID: VHGeneral_Help
+NAME: Virtual Host General
+NS: L
+
+DESCR:
+END_DESCR
+
+CONT: vhGeneral vhAcLog errPage
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+
+[PAGE]
+ID: VHGeneral_Help
+NAME: Virtual Host General
+NS: E
+
+DESCR:
+END_DESCR
+
+CONT: vhGeneral vhLog vhAcLog vhIndex errPage scriptHandler htaccess
+vhExpire apacheConfig websocketproxy
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+
+[PAGE]
+ID: VHGeneral_Help
+NAME: 虚拟主机一般设置
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: vhGeneral vhLog vhAcLog vhIndex errPage expire fileUpload scriptHandler
+vhExpire  phpIniOverrideTbl
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+[END_HELPDOC]

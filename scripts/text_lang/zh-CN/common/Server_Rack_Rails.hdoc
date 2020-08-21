@@ -1,0 +1,365 @@
+[HELPDOC]
+
+
+########## Rack//Rails Settings ##########
+
+
+[ITEM]
+ID: rubyBin
+NAME: Ruby路径
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR:Ruby可执行文件的路径。 通常是 /usr/bin/ruby
+或 /usr/local/bin/ruby (取决于Ruby的安装文章)
+END_DESCR
+
+EDITTIP: <b>Ruby路径</b>是ruby可执行文件的绝对路径. 例如, /usr/local/bin/ruby.
+END_EDITTIP
+
+SYNTAX: path1
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: wsgiBin
+NAME: WSGI路径
+NS: EO
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: LiteSpeed Python Web服务器的可执行文件（lswsgi）的路径。
+
+
+This 可执行文件是通过使用LiteSpeed的WSGI LSAPI模块编译Python生成的。
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: path1
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+
+
+[END_ITEM]
+
+
+[ITEM]
+ID: nodeBin
+NAME: Node路径
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Node.js执行文件的路径.
+END_DESCR
+
+EDITTIP: 
+END_EDITTIP
+
+SYNTAX: path1
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: railsEnv
+NAME: 运行模式
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 指定Rack/Rails的运行模式:"发展", 
+"生产"或者是"预发布". 默认为 "生产".
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: appserverEnv
+NAME: 运行模式
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定Rack/Rails的运行模式:"发展", 
+"生产"或者是"预发布". 默认为 "生产".
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## Rack/Rails Shared Hosting ##########
+
+
+[ITEM]
+ID: enableRailsHosting
+NAME: 启用共享主机
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 指定是否启用Rack/Rails共享主机。 默认值为“禁用”。
+
+END_DESCR
+
+SYNTAX: bool 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: railsAppLimit
+NAME: 每个帐户的最大程序数
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 指定每个帐户可以创建的Rack/Rails应用程序的最大数量。 默认值为“ 1”。
+
+END_DESCR
+
+SYNTAX: uint 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [性能建议]Rack/Rails可能会占用大量系统资源。 因此，不建议将此限制设置得太高，否则如果一个用户滥用此限制，则可能会影响整个服务器的性能。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: rubyProcLimit
+NAME: 每个帐户的最大Ruby进程数
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR:指定每个帐户可以创建的Ruby进程的最大数量。 默认值为“ 10”。 如果一个帐户运行多个Rack/Rails应用程序，则所有应用程序的Ruby进程总数不能超过此限制。 每个Ruby进程都会占用大量系统资源，不建议将此值设置的过高
+，否则，如果一个用户滥用，它将影响整个服务器的性能。
+
+END_DESCR
+
+SYNTAX: uint 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:  [性能建议]Ruby进程会占用大量系统资源。 因此，不建议将此限制数值设置得过高，否则如果一个用户滥用，则可能会影响整个服务器的性能。
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Tables #############
+
+
+[TBL]
+ID: railsDefaults
+NAME: Rack/Rails默认设置
+NS: EO
+
+DESCR: Rack/Rails的默认配置. 这些设置可以被context级别覆盖.
+END_DESCR
+
+CONT: rubyBin appserverEnv maxConns env initTimeout
+retryTimeout pcKeepAliveTimeout respBuffer 
+extMaxIdleTime backlog runOnStartUp extAppPriority 
+memSoftLimit memHardLimit procSoftLimit procHardLimit
+ 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: railsHosting
+NAME: Rack/Rails 共享主机
+NS: EO
+
+DESCR: LiteSpeed的 Rack/Rails 共享主机设置允许用户使用我们的高性能, 
+高度可扩展的Ruby LSAPI模块,轻松控制客户的Ruby使用情况。
+
+
+LiteSpeed Rack/Rails托管解决方案能够以最小的服务器资源k开销提供最佳性能。
+此外，它还与所有现有的Web托管控制面板兼容。
+
+
+用户可管理的Rack/Rails配置文件(".ls_rails_config") 
+位于用户的主目录或虚拟主机根目录中。 
+用法如下: 
+
+<blockquote>
+#RailsApp <name> <App Path> <Rails Evn> <Children Processes> <RunOnStart>
+
+RailsApp testApp "/lsws/testrails" "development" 4 1 
+
+
+#RailsAppMap <name> <domain> <URI> 
+
+RailsAppMap testApp "testrails.com" "/" 
+
+RailsAppMap testApp "test.testrails.com" "/" 
+</blockquote>
+
+The "App Path" is relative to the user's home directory or the virtual
+host root directory.
+
+
+Whenever this file is touched, Rack/Rails applications will be restarted.
+END_DESCR
+
+CONT: enableRailsHosting railsAppLimit rubyProcLimit 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: wsgiDefaults
+NAME: Python WSGI Default Settings
+NS: EO
+
+DESCR: Default configurations for Python WSGI applications. These settings can be overriden at the context level.
+END_DESCR
+
+CONT: wsgiBin appserverEnv maxConns env initTimeout
+retryTimeout pcKeepAliveTimeout respBuffer
+extMaxIdleTime backlog runOnStartUp extAppPriority
+memSoftLimit memHardLimit procSoftLimit procHardLimit
+
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: nodeDefaults
+NAME: Node.js App Default Settings
+NS: EO
+
+DESCR: Default configurations for Node.js applications. These settings can be overriden at the context level. 
+END_DESCR
+
+CONT: nodeBin appserverEnv maxConns env initTimeout
+retryTimeout pcKeepAliveTimeout respBuffer
+extMaxIdleTime backlog runOnStartUp extAppPriority
+memSoftLimit memHardLimit procSoftLimit procHardLimit
+
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: App_Server_Help
+NAME: App Server Settings
+NS: E
+
+DESCR:
+END_DESCR
+
+CONT: railsDefaults railsHosting wsgiDefaults nodeDefaults
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+[PAGE]
+ID: App_Server_Help
+NAME: App Server Settings
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: railsDefaults wsgiDefaults nodeDefaults
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+[END_HELPDOC]

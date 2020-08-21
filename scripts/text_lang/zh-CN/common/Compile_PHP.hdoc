@@ -1,0 +1,165 @@
+[HELPDOC]
+
+
+[ITEM]
+ID: extrapathenv
+NAME: 额外的PATH环境变量
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 将其他用于构建脚本的路径附加到当前PATH环境变量中。
+END_DESCR
+
+SYNTAX: 多个路径以“:”分隔
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: installpathprefix
+NAME: 安装路径前缀
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 设置“--prefix”配置选项的值。 默认安装位置在LiteSpeed Web服务器的安装目录。
+END_DESCR
+
+SYNTAX: 路径
+END_SYNTAX
+
+EXAMPLE: /usr/local/lsws/lsphp5
+END_EXAMPLE
+
+TIPS: LiteSpeed Web Server可以同时使用多个PHP版本。 如果要安装多个版本，则
+应该给他们不同的前缀。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: compilerflags
+NAME: 编译器标志
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 添加其他编译器标志，例如优化的编译器选项。
+END_DESCR
+
+SYNTAX: 支持的标志有CFLAGS, CXXFLAGS, CPPFLAGS, LDFLAGS.使用空格分隔不同的标志。
+对于标志值，请使用单引号（而不是双引号）  
+END_SYNTAX
+
+EXAMPLE: CFLAGS='-O3 -msse2 -msse3 -msse4.1 -msse4.2 -msse4 -mavx'
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: configureparams
+NAME: 配置参数
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 为PHP构建配置参数。当您单击下一步时，Apache特定的参数和“--prefix”值将被自动删除，并且“--with-litespeed”将自动追加。（前缀可以在上面的字段中设置）通过这种方式，您可以简单地复制并粘贴现有PHP的phpinfo()输出的配置参数。
+END_DESCR
+
+SYNTAX: 空格分隔多个选项(带或不带双引号）
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: addonmodules
+NAME: 附加模块
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR:  选择您想使用的附加模块。 如果你想使用一个没有在这里列出的版本，你可以手动更新源代码。(源代码的位置会在PHP构建的这一步中显示出来。) 
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Tables #############
+
+
+[TBL]
+ID: compilephp
+NAME: 编译PHP
+
+DESCR: 
+END_DESCR
+
+CONT: extrapathenv installpathprefix compilerflags configureparams addonmodules
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: CompilePHP_Help 
+NAME: 编译PHP
+
+DESCR: 
+END_DESCR
+
+CONT: compilephp
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]
+
+
+
+[HELPDOC]

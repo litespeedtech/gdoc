@@ -1,0 +1,107 @@
+[HELPDOC]
+
+
+########## Web Socket Definition ##########
+
+
+[ITEM]
+ID: wsuri
+NAME: URI
+NS: EO
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 指定将使用此WebSocket后端的URI。 仅当该URI包含WebSocke协议升级请求时，才会将其流量转发到WebSocket后端。
+
+
+没有议升级请求的流量将自动转发到此URI所属的Context。 如果此URI不存在任何Context，则LSWS会将该流量视为访问位置为{val}$DOC_ROOT/URI{/}的静态Context。
+END_DESCR
+
+SYNTAX: 普通URI（以“/”开头）。 如果URI以“/”结尾，则此WebSocket后端将包括此URI下的所有子URI。
+END_SYNTAX
+
+EXAMPLE: 将WebSocket代理与Context结合使用，可以使您以不同的方式在同一页面上提供不同类型的流量，从而优化性能。 您可以将WebSocket流量发送到WebSocket后端，同时设置静态Context以使LSWS为页面的静态内容服务，或者可以设置LSAPI Context以使LSWS可以为PHP内容服务（这两个LSWS都比WebSocket后端更高效）。
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: wsaddr
+NAME: 地址
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: WebSocket 后端使用的唯一网络套接字地址。
+支持 IPv4 套接字、IPv6 套接字和 Unix 域套接字 (UDS)。
+IPv4 和 IPv6 套接字可用于网络上的通信。
+只有当 WebSocket 后端与服务器在同一台机器上时，才能使用 UDS。
+END_DESCR
+
+SYNTAX: IPv4 or IPV6 address:port or UDS://path
+END_SYNTAX
+
+EXAMPLE: 127.0.0.1:5434 
+
+UDS://tmp/lshttpd/php.sock.
+END_EXAMPLE
+
+TIPS: [S] If the WebSocket backend runs on the same machine, 
+UDS is preferred. If you have to use an IPv4 or IPv6 socket, 
+set the IP address to localhost or 127.0.0.1, so the WebSocket backend 
+is inaccessible from other machines.
+
+[P] Unix Domain Sockets generally provide higher performance than IPv4 or IPv6 sockets.
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Tables #############
+
+
+[TBL]
+ID: websocketproxy
+NAME: Web Socket 
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: wsuri wsaddr
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: VHWebSocket_Help 
+NAME: 网络套接字代理
+NS: O
+
+DESCR: <a href="http://en.wikipedia.org/wiki/WebSocket">WebSocket</a>是可以代替HTTP通过Internet进行用来提供实时，双向通信的协议
+。 从版本1.1.1开始，OpenLiteSpeed通过使用WebSocket代理支持WebSocket后端。 这些代理会将WebSocket通信发送到{ITEM=wsaddr}字段中设定的后端。
+END_DESCR
+
+CONT: websocketproxy
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]
