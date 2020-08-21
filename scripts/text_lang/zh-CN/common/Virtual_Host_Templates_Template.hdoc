@@ -224,13 +224,11 @@ DESCR: 指定该成员虚拟主机的主域名。
 对于包含域名的配置，可以使用变量{val}$VH_DOMAIN{/}来引用此域。
 
 
-This domain name will be used in the following situations:
+该域名将在以下情况下使用：
 <ol>
-  <li>To match the hostname in the Host header when processing a
-  request.</li>
-  <li>To populate domain name configurations for add-ons
-  like FrontPage or AWstats.</li>
- <li>To configure listener-to-virtual host mappings based on the virtual host template.</li>
+  <li>在处理请求时匹配主机标头中的主机名。</li>
+  <li>作为诸如FrontPage或AWstats之类的域名配置.</li>
+ <li>基于虚拟主机模板配置侦听器到虚拟主机的映射。</li>
 </ol>
 END_DESCR
 
@@ -255,19 +253,14 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies alternate names for the virtual host. All possible
-hostnames and IP addresses should be added to this list. The wildcard characters
-{val}*{/} and {val}?{/} are allowed in the name.
-Append {val}:<port>{/} for web sites not on port 80.
+DESCR: 指定虚拟主机的备用名称。 所有可能的主机名和IP地址都应添加到此列表中。 名称中允许使用通配符 {val}*{/} 和 {val}?{/}。 为不在端口80上的网站附加{val}:<port>{/}。
 
 
-Aliases will be used in the following situations:
+别名将在以下情况下使用：
 <ol>
-  <li>To match the hostname in the Host header when processing a
-  request.</li>
-  <li>To populate domain name/alias configurations for add-ons
-  like FrontPage or AWstats.</li>
-  <li>To configure listener-to-virtual host mappings based on the virtual host template.</li>
+  <li>在处理请求时匹配主机标头中的主机名。</li>
+  <li>作为诸如FrontPage或AWstats之类的域名配置.</li>
+ <li>基于虚拟主机模板配置侦听器到虚拟主机的映射。</li>
 </ol>
 
 END_DESCR
@@ -294,14 +287,11 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the root directory of this virtual host. If left
-blank, the default virtual host root for this template will be used.
+DESCR: 指定此虚拟主机的根目录。 如果留空，将使用此模板的默认虚拟主机根目录.
 
 
-Note: This is <b>NOT</b> the document root. It is recommended to place
-all files related to the virtual host (like virtual host configuration,
-log files, html files, CGI scripts, etc.) under this directory.
-Virtual host root can be referred to as $VH_ROOT.
+Note: 这<b>不是</b>文档根。 建议将与虚拟主机相关的所有文件（如虚拟主机配置，日志文件，html文件，CGI脚本等）放置在此目录下。
+虚拟主机根目录可以以变量$VH_ROOT来引用。
 END_DESCR
 
 SYNTAX: path
@@ -417,26 +407,17 @@ ID: Templates_Help
 NAME: 虚拟主机模板
 NS: EO
 
-DESCR: Virtual host templates make it easy to create many new virtual
-hosts with similar configurations.
+DESCR: 虚拟主机模板使创建具有相似配置的新虚拟主机变得容易。
 
 
-Each template contains a template configuration file, a list of mapped listeners,
-and a list of member virtual hosts.
+每个模板都包含一个模板配置文件，一个映射的侦听器列表以及一个成员虚拟主机列表。
 
 
-To add a template-based virtual host, the administrator only needs to
-add a member with a unique virtual host name and a
-qualified domain name to the template member list.
-Listener-to-virtual host mapping will be added automatically for
-all listeners in the template's mapped listener list.
+要添加基于模板的虚拟主机，管理员只需将具有唯一的虚拟主机名和域名添加到模板成员列表。 模板映射的侦听器列表中的所有侦听器将自动添加到虚拟主机的映射。
 
 
-Later on, if you need to customize the configuration for a particular
-virtual host, just "instantiate" that member virtual host and a
-standalone virtual host configuration will be created automatically.
-Even when setting up a customized virtual host,
-a template can still be a convenient starting point.
+稍后，如果您需要为特定虚拟主机自定义配置，只需“实例化”该成员虚拟主机，然后将自动创建一个独立的虚拟主机配置。
+即使在设置自定义虚拟主机时，仍然可以用模板快速建立。
 END_DESCR
 
 CONT: templateGeneral templateMembers templateSettings
