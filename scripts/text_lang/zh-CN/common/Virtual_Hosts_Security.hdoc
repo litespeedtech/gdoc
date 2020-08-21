@@ -867,7 +867,7 @@ ID: VHlsrecaptcha
 NAME: reCAPTCHA 保护
 NS: O
 
-DESCR:reCAPTCHA 保护是一种减轻服务器负载的服务。在下列情况发生后，reCAPTCHA保护将激活
+DESCR: reCAPTCHA 保护是一种减轻服务器负载的服务。在下列情况发生后，reCAPTCHA保护将激活
 激活后,所以不受信任的客户端(可自定)发出的请求将被重定向到reCAPTCHA验证页面
 验证完成后客户端将被重定向到其所需的页面
 
