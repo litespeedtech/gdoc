@@ -1,0 +1,372 @@
+[HELPDOC]
+
+
+########## Rewrite Control ##########
+
+
+[ITEM]
+ID: enableRewrite
+NAME: 启用重写
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 指定是否启用LiteSpeed的URL重写.
+可以在虚拟主机或context级别上自定义此选项，
+并且沿目录树继承该选项，直到被其他选项覆。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: rewriteLogLevel
+NAME: 日志级别
+NS: EO
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: Server {ITEM=ServGeneral_Help#log_logLevel}, Virtual Host {ITEM=VHGeneral_Help#vhlog_logLevel}
+
+
+DESCR: 指定重写调试输出的详细程度。
+此值的范围是{val}0{/}-{val}9{/}。 设置为{val}0{/}将禁用日志记录。 设置为{val}9{/}将产生
+最详细的日志。 服务器和虚拟主机的错误日志{ITEM=ServGeneral_Help#log_logLevel}
+至少设置为{val}INFO{/}才能使此选项生效。
+这对测试重写规则很有帮助。
+END_DESCR
+
+SYNTAX: uint 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: rewriteLogLevel
+NAME: Log Level
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO:
+
+DESCR: Specifies the log level of the rewrite engine debug output.
+Value ranges from 0 - 9, 0 will disable logging and 9 will produce the
+most detailed log. The log level of the server error log
+must be set to at least {val}INFO{/} for this option to take effect.
+This is useful when testing rewrite rules.
+
+END_DESCR
+
+SYNTAX: uint 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## Rewrite Map ##########
+
+
+[ITEM]
+ID: rewriteMapName
+NAME: 名称
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies a unique name for the rewrite map at the virtual host 
+level. This name will be used by a mapping-reference in rewrite rules.
+When referencing this name, one of the following syntaxes should be used:
+<blockquote><code>
+$\{MapName:LookupKey\}
+
+$\{MapName:LookupKey|DefaultValue\}
+</code></blockquote>
+
+The implementation of LiteSpeed's rewrite engine follows the
+specifications of Apache's rewrite engine. For more details about rewrite
+maps, please refer to {ext-href}http://httpd.apache.org/docs/current/mod/mod_rewrite.html{ext-href-end}Apache's
+mod_rewrite document{ext-href-end-a}.
+
+
+END_DESCR
+
+SYNTAX: string 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: rewriteMapLocation
+NAME: Location
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies the location of the rewrite map using the syntax {val}MapType:MapSource{/}.
+
+LiteSpeed's rewrite engine supports three types of rewrite maps:
+<ul>
+	<li><b>Standard Plain Text</b>
+<blockquote>
+		<b>MapType:</b> txt; 
+
+		<b>MapSource:</b> file path to a valid plain ASCII file. 
+</blockquote>
+		Each line of this file should contain two elements separated 
+		by blank spaces. The first element is the key and the second
+		element is the value. Comments can be added with a leading "{val}#{/}"
+		sign. 
+	</li>
+	<li><b>Randomized Plain Text</b>
+<blockquote>
+		<b>MapType:</b> rnd;
+
+		<b>MapSource:</b> file path of a valid plain ASCII file.
+</blockquote>
+		File format is similar to the Standard Plain Text file, except that the
+		second element can contain multiple choices separated by a "{val}|{/}"
+		sign and chosen randomly by the rewrite engine.
+	</li>
+	<li><b>Internal Function</b>
+<blockquote>
+	    <b>MapType:</b> int;
+
+		<b>MapSource:</b> Internal string function 
+</blockquote>
+		4 functions are available:
+		<ul>
+			<li><b>toupper:</b> converts lookup key to upper cases.</li>
+			<li><b>tolower:</b> converts lookup key to lower cases.</li>
+			<li><b>escape:</b> perform URL encoding on lookup key.</li>
+			<li><b>unescape:</b> perform URL decoding on lookup key.</li>
+		</ul>
+	</li>
+	The following map types available in Apache
+	have not been implemented in LiteSpeed:
+
+Hash File and External Rewriting Program.
+</ul>
+The implementation of LiteSpeed's rewrite engine follows the
+specifications of Apache's rewrite engine. For more details about rewrite
+map, please refer to {ext-href}http://httpd.apache.org/docs/current/mod/mod_rewrite.html{ext-href-end}Apache's
+mod_rewrite document{ext-href-end-a}.
+
+END_DESCR
+
+EDITTIP: Enter URI for location. URI must start with "/".
+END_EDITTIP
+
+SYNTAX: String 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## Rewrite Rules ##########
+
+
+[ITEM]
+ID: rewriteRules
+NAME: 重写规则
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定虚拟主机级别的重写规则。
+
+
+请勿在此处添加任何目录级重写规则。
+如果您在.htaccess有任何目录级的重写规则，则应该使用uri"/"创建一个静态context，
+并在那里添加重写规则。 (注:我也不知道这里说的什么鬼意思)
+
+
+重写规则由一个{val}RewriteRule{/}组成，并可可以在多个{val}RewriteCond{/}之后。
+<ul>
+  <li>每行仅能有一条规则</li>
+  <li>
+    {val}RewriteCond{/} 和 {val}RewriteRule{/} 遵循Apache的rewrite语法。 只需从Apache配置文件中复制并粘贴重写规则即可。
+  </li>
+  <li>
+    LiteSpeed和Apache mod_rewrite之间有细微差别：
+    <ul>
+      <li>
+        {val}%\{LA-U:variable\}{/} and {val}%\{LA-F:variable\}{/} 在Litespeed 重写中将被忽略
+      </li>
+      <li>
+        Litespeed中加入了两个新变量:
+        {val}%\{CURRENT_URI\}{/}表示正在处理的URL
+        {val}%\{SCRIPT_NAME\}{/}表示为相应的CGI环境变量。
+      </li>
+      <li>
+        Litespeed在遇到{val}[L]{/}后为了避免循环将停止处理此及此后的重写规则
+        而Apache mod_rewrite将仅停止处理该条重写规则。此行为类似于apachemod_rewrite中的{val}[END]{/}标志。
+      </li>
+    </ul>
+  </li>
+</ul>
+
+LiteSpeed的重写规则遵循Apache的重写规范。 
+有关重写规则的更多详细信息，请参阅
+{ext-href}
+  http://httpd.apache.org/docs/current/mod/mod_rewrite.html
+{ext-href-end}
+  Apache's mod_rewrite document(英文文档)
+{ext-href-end-a}
+和
+{ext-href}
+  http://httpd.apache.org/docs/current/rewrite/
+{ext-href-end}
+  Apache's URL rewriting guide(英文文档)
+{ext-href-end-a}.
+END_DESCR
+
+SYNTAX: string
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+EDITTIP: 这里应使用虚拟主机级别的重写规则，例如在Apache虚拟主机配置文件中找到的规则。
+请勿在此处添加任何目录级重写规则。
+如果您在.htaccess有任何目录级的重写规则，则应该使用uri"/"创建一个静态context，
+并在那里添加重写规则。
+END_EDITTIP
+
+[END_ITEM]
+
+
+
+############# Tables #############
+
+
+[TBL]
+ID: vhRewriteControl
+NAME: 重写控制
+NS: LE
+
+DESCR:
+END_DESCR
+
+CONT: enableRewrite rewriteLogLevel
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: vhRewriteControl
+NAME: 重写控制
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: enableRewrite autoLoadHtaccess rewriteLogLevel
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: rewriteMap
+NAME: Rewrite Map
+
+DESCR: 
+END_DESCR
+
+CONT: rewriteMapName rewriteMapLocation
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: RewriteRules
+NAME: 重写规则
+NS: LEO
+
+DESCR: 
+END_DESCR
+
+CONT: rewriteRules
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: Rewrite_Help 
+NAME: 重写帮助
+NS: LEO
+
+DESCR: 
+END_DESCR
+
+CONT: vhRewriteControl rewriteMap RewriteRules
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]

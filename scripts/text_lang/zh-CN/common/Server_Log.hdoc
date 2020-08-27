@@ -1,0 +1,531 @@
+[HELPDOC]
+
+############# Server Log #############
+
+[ITEM]
+ID: log_fileName
+NAME: 文件名
+NS: LEO
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 指定日志文件的路径。 
+END_DESCR
+
+EDITTIP: 日志文件路径可以是绝对路径，也可以是相对于$SERVER_ROOT的相对路径。
+END_EDITTIP
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [性能建议] 将日志文件放置在一个单独的磁盘上。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: log_logLevel
+NAME: 日志级别
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=log_debugLevel}
+
+DESCR: 指定日志文件中记录的日志级别。
+可用级别（由高到低）为: {val}ERROR{/}、
+{val}WARNING{/}、{val}NOTICE{/}、{val}INFO{/}和{val}DEBUG{/}。
+只有级别与当前设置相同或更高的消息将被记录（级别越低记录越详细）。
+be logged.  
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [性能建议] 使用{val}DEBUG{/}日志级别对
+性能没有任何影响，除非{ITEM=log_debugLevel}没有被设置为{val}NONE{/}.。我们推荐将日志级别设置为{val}DEBUG{/}，将
+调试级别值设置为{val}NONE{/}。这样设置意味着你的磁盘不会被调试日志塞满，但是你可以使用{ITEM=ServerStat_Help#toggleDebugLog}
+控制调试输出。这个操作可以实时启用或关闭调试记录，
+对于调试繁忙的生产服务器非常有用。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: log_debugLevel
+NAME: 调试级别
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=log_logLevel}, {ITEM=ServerStat_Help#toggleDebugLog}
+
+DESCR: 指定调试日志级别。
+要使用此功能，{ITEM=log_logLevel}必须设置为{val}DEBUG{/}。
+在“调试级别”设置为{val}NONE{/}时，即使{ITEM=log_logLevel}
+设置为{val}DEBUG{/}，调试日志也是被禁用的。
+在正在运行的服务器上，{ITEM=ServerStat_Help#toggleDebugLog}可以被用于
+控制调试级别而无需重启。
+
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [性能建议] 重要！如果你不需要详细的调试日志记录，
+应始终将其设置为{val}NONE{/}。启用调试日志记录将严重降低服务性能
+，且可能在很短时间耗尽磁盘空间。
+调试日志记录包括每个请求和响应的详细信息。
+
+
+我们推荐将日志级别设置为{val}DEBUG{/}，调试级别设置为{val}NONE{/}。
+这些设置意味着你的磁盘不会被调试日志塞满，
+但是你可以使用{ITEM=ServerStat_Help#toggleDebugLog}
+控制调试输出。这个动作可以实时启用或关闭调试记录，
+对于调试繁忙的生产服务器非常有用。
+
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: log_rollingSize
+NAME: 回滚大小 (bytes)
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 指定何时日志文件需要回滚，也称为日志循环。
+当文件大小超过回滚限制后，在使用的日志文件将在同一目录中被重命名
+为log_name.mm_dd_yyyy(.sequence)，一个新的日志文件将被创建。
+回滚的日志文件的实际大小有时会比限制值稍微大一些。
+将值设置为{val}0{/}将禁用日志循环。
+END_DESCR
+
+EDITTIP: 如果当前日志文件超过回滚大小，将创建一个新的日志文件。 文件大小以字节为单位，可以有多种输入格式：10240、10K或1M。
+END_EDITTIP
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 请用“K”，“M”，“G”代表千字节，兆字节和千兆字节。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: log_enableStderrLog
+NAME: 启用标准错误日志（stderr）
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定在接受到服务器启动的进程输出的标准错误时，是否写入到日志。
+如果启用，标准错误信息将记录到服务器日志所在目录内的固定名为“stderr.log”的文件。如果禁用，所有的标准错误输出都将被丢弃。
+弃。
+
+诸如PHP的error_log()之类的函数不会直接写入标准错误日志(文件句柄2)，所以不会受到此设置的影响，它们会写入PHP ini指令'error_log'中设置的文件或带有标签“ error.log”的文件中
+如果未设置该指令，则为“[STDERR]”。
+END_DESCR
+
+EDITTIP: Stderr日志与服务器日志位于同一目录中。 如果启用，则所有输出到stderr的外部程序都将记录在此文件中。
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 如果您需要调试配置的外部应用程序，如PHP、Ruby、Java、Python、Perl，请开启该功能。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: log_enableAioLog
+NAME: 启用AIO记录
+REQUIRED: 
+APPLY: 3
+SINCE: 4.2.19
+SEE_ALSO: 
+
+DESCR: 指定是否为服务器日志和访问日志启用AIO记录
+如果启用, 则异步I/O将用于写入日志信息。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 当服务器I/O等待时间很长时，启用AIO日志记录可以帮助提高整体服务器性能。
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Access Log #############
+
+
+[ITEM]
+ID: accessLog_fileName
+NAME: 文件名
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 指定访问日志文件的文件名。
+END_DESCR
+
+EDITTIP: 日志文件路径可以是绝对路径，也可以是相对于$SERVER_ROOT的相对路径。
+END_EDITTIP
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [性能建议] 将访问日志文件放置在一个单独的磁盘上。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessLog_pipedLogger
+NAME: 管道日志记录
+NS: EO
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 指定外部应用程序，该应用程序将通过其STDIN流（文件句柄为0）上的pipe接收LiteSpeed发送的访问日志数据。
+指定此字段后，访问日志将仅发送到记录器应用程序，而不发送到上一个条目中指定的访问日志文件。
+
+
+首先必须在{PAGE=ExtApp_Help}中定义记录器应用程序。 服务器级别的访问日志记录只能使用在服务器级别定义的外部记录器应用程序。 虚拟主机级别的访问日志记录只能使用在虚拟主机级别定义的记录器应用程序。
+
+
+记录器进程的启动方式与其他外部进程相同
+(CGI/FastCGI/LSAPI)过程。这意味着它将作为
+在虚拟主机的{ITEM=VirtualHosts_Help#setUidMode}设置中指定的用户ID，并且永远不会以特权用户运行。
+
+
+如果配置了多个记录器的实例，LiteSpeed web server将在多个记录器之间执行简单的负载均衡。LiteSpeed服务器始终尝试将记录器应用程序的数量保持在尽可能低的水平。只有当一个记录器应用程序未能及时处理访问日志条目时，服务器才会尝试启动记录器的另一个实例。
+
+
+如果记录器崩溃，Web服务器将启动另一个实例，但是流缓冲区中的日志数据将丢失。 如果外部记录器无法跟上日志流的速度和数量，则可能会丢失日志数据。
+END_DESCR
+
+SYNTAX: select 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessLog_pipedLogger
+NAME: Piped Logger
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: Specifies an external application that will receive the access log
+data sent by LiteSpeed through a pipe on its STDIN stream (file
+handle 0). When specified, the access log will be sent to the logger application instead of the
+access log file specified in previous entry.
+
+
+LiteSpeed load balancer 
+performs simple load balancing among multiple logger applications if
+more than one instance of a logger application is configured. 
+LiteSpeed Web Server always attempts
+to keep the number of logger processes as low as possible. Only when 
+one logger application fails to process access log entries in time 
+will the server attempt to spawn another logger application instance.
+
+
+If a logger process crashes, the server will start another instance but
+the log data in the stream buffer will be lost. It is possible to lose
+log data if external loggers cannot keep up  
+with the speed and volume of the log stream.
+
+File path to the logger application should be given here, and
+optionally, the number of application instances can be set before the file
+path, followed by '|'. 
+END_DESCR
+
+SYNTAX: [&lt;intances&gt;|]&lt;path_to_logger_app&gt;
+END_SYNTAX
+
+EXAMPLE: 4|/path/to/logger/app 
+
+tells the server to start up to 4 logger processes.
+
+
+/path/to/logger/app
+
+tells the server to start only one logger process.
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessLog_logFormat
+NAME: 日志格式
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=accessLog_logHeader}
+
+DESCR: {ent_version} 指定访问日志的格式。
+设置之后，它将覆盖{ITEM=accessLog_logHeader}
+的设定。
+END_DESCR
+
+SYNTAX: 字符串。日志格式的语法与Apache 2.0自定义
+{ext-href}http://httpd.apache.org/docs/current/mod/mod_log_config.html#formats{ext-href-end}log format{ext-href-end-a}.
+END_SYNTAX
+
+EXAMPLE:
+<b>一般日志格式（CLF）</b>
+
+    "%h %l %u %t \"%r\" %>s %b"
+
+
+<b>支持虚拟主机的一般日志格式</b>
+
+    "%v %h %l %u %t \"%r\" %>s %b"
+
+
+<b>NCSA扩展/组合日志格式</b>
+
+    "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\" 
+
+
+<b>记录Foobar的cookie值</b>
+
+    "%{Foobar}C"
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessLog_logHeader
+NAME: 记录头部
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=accessLog_logFormat}
+
+DESCR: 指定是否记录HTTP请求头: {val}Referer{/}、
+{val}UserAgent{/}和{val}Host{/}。
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: [性能建议] 如果你不需要在访问日志中记录这些头部信息，关闭这个功能。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: log_keepDays
+NAME: 保留天数
+NS: LEO
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 指定访问日志文件将被保存在磁盘上多少天。
+只有超出指定天数的回滚日志文件会被删除。
+当前的日志文件不会被删除，无论它包含了多少天的数据。
+如果你不想自动删除过时的、很旧的日志文件，
+将该值设置为{val}0{/}。
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessLog_compressArchive
+NAME: 压缩存档
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 指定是否压缩回滚日志以节省磁盘空间。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS:日志文件是高度可压缩的，建议采取压缩以减少旧日志的磁盘占用量。
+END_TIPS
+
+[END_ITEM]
+
+
+
+################ Tables ################
+
+
+[TBL]
+ID: servLog
+NAME: 服务器日志
+NS: LE
+
+DESCR: 
+END_DESCR
+
+CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_keepDays log_enableStderrLog log_enableAioLog
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: servLog
+NAME: 服务器日志
+NS: O
+
+DESCR: 
+END_DESCR
+
+CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_keepDays log_enableStderrLog
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: servAcLog
+NAME: 访问日志
+NS: LEO
+
+DESCR: 
+END_DESCR
+
+CONT: accessLog_fileName accessLog_pipedLogger accessLog_logFormat accessLog_logHeader log_rollingSize 
+log_keepDays accessLog_compressArchive
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: ServLog_Help
+NAME: 服务器日志
+NS: L
+
+DESCR: Server log and access log settings for the load balancer. When a path information is required, 
+it can be either absolute or relative to $SERVER_ROOT. $SERVER_ROOT is the 
+location where LiteSpeed load balancer is installed. For examples, it can be 
+your_home_dir/lslb, /opt/lslb, or etc. The load balancer executable is under $SERVER_ROOT/bin. 
+END_DESCR
+
+CONT: servLog servAcLog 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: ServLog_Help
+NAME: 服务器日志
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: servLog servAcLog 
+END_CONT
+
+SEE_ALSO: 
+[END_PAGE]
+
+
+[END_HELPDOC]

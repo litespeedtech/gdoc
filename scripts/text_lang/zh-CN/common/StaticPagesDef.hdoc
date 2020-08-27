@@ -1,0 +1,85 @@
+[HELPDOC]
+
+
+[PAGE]
+ID: index 
+NAME: 主页
+NS: LEO
+STATIC: index.txt
+[END_PAGE]
+
+
+
+
+[PAGE]
+ID: license 
+NAME: 许可
+NS: LO
+STATIC: license.txt
+[END_PAGE]
+
+
+
+[PAGE]
+ID: license 
+NAME: EULA - Enterprise Edition
+NS: E
+STATIC: license.txt
+[END_PAGE]
+
+
+
+[PAGE]
+ID: intro 
+NAME: Introduction
+NS: LEO
+STATIC: intro.txt
+[END_PAGE]
+
+
+
+[PAGE]
+ID: security
+NAME: Security
+NS: LEO
+STATIC: security.txt
+[END_PAGE]
+
+
+
+[PAGE]
+ID: install 
+NAME: Installation
+NS: LEO
+STATIC: install.txt
+[END_PAGE]
+
+
+
+[PAGE]
+ID: admin 
+NAME: Administration
+NS: LEO
+STATIC: admin.txt
+[END_PAGE]
+
+
+
+[PAGE]
+ID: config 
+NAME: Configuration
+NS: LEO
+STATIC: config.txt
+[END_PAGE]
+
+
+
+[PAGE]
+ID: webconsole 
+NAME: Web Console
+NS: LEO
+STATIC: webconsole.txt
+[END_PAGE]
+
+
+[END_HELPDOC]

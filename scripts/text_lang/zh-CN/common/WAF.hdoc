@@ -1,0 +1,517 @@
+[HELPDOC]
+
+
+########## WAF ##########
+
+
+[ITEM]
+ID: enableCensorship
+NAME: 启用WAF
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 指定是否启用请求内容深度检查。 这个
+该功能等效于Apache的mod_security，可通过将请求与已知特征匹配来检测和阻止恶意请求。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: censorLogLevel
+NAME: 日志级别
+NS: LE
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 服务器{ITEM=ServGeneral_Help#log_logLevel}, 虚拟主机 {ITEM=VHGeneral_Help#vhlog_logLevel}
+
+DESCR: 指定WAF的调试输出的详细程度。
+此值的范围是{val}0{/} - {val}9{/}. {val}0{/}禁用日志记录。 {val}9{/} 会生成最详细的日志。 服务器和虚拟主机的错误日志{ITEM=ServGeneral_Help#log_logLevel}至少设置为 {val}INFO{/}，此选项才能生效。 这在测试请求过滤规则时很有用。
+END_DESCR
+
+SYNTAX: uint 
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: defaultAction
+NAME: 默认动作
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: {ITEM=ruleSetAction}
+
+DESCR: 指定在满足审查规则时应采取的默认操作。 默认值为{val}deny,log,status:403{/}，
+这表示拒绝访问,返回状态码403,并将事件记录在错误日志中。
+
+END_DESCR
+
+SYNTAX: String. This action string is compatible with the syntax of Apache
+mod_security. Please refer to the mod_security manual for more detail. 
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: scanPOST
+NAME: 扫描请求正文
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 指定是否检查HTTP POST请求的正文。
+默认为“否”。
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: disableSecHtaccess
+NAME: 禁用.htaccess重写
+NS: E
+REQUIRED: 
+APPLY: 2
+SINCE: 4.0.17
+SEE_ALSO: 
+
+DESCR: 在.htaccess中禁用mod_security 
+这是全局设置，仅在服务器级别可用。
+默认为“否”。
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: uploadTmpDir
+NAME: 临时文件路径
+NS: O 
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 在扫描请求正文工作时，上传到服务器的文件将存放在临时目录中
+ 默认值为{val}/tmp/lshttpd/{/}.
+
+END_DESCR
+
+SYNTAX: Absolute path or path starting with $SERVER_ROOT (for Server and VHost levels) or $VH_ROOT (for VHost levels).
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: uploadTmpDir
+NAME: 临时文件路径
+NS: LE
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 在扫描请求正文工作时，上传到服务器的文件将存放在临时目录中
+ 默认值为{val}/tmp/lshttpd/{/}.
+
+END_DESCR
+
+SYNTAX: Absolute path or path starting with $SERVER_ROOT (for Server and VHost levels).
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: uploadTmpFilePermission
+NAME: 临时文件权限
+NS: LE
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 全局设置，用于设置<b>临时文件路径</b>目录中的文件权限。
+
+END_DESCR
+
+SYNTAX: 3 digits octet number. Default value is 666.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: uploadTmpFilePermission
+NAME: 临时文件权限
+NS: O
+REQUIRED: 
+APPLY: 2
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 设置<b>临时文件路径</b>目录中的文件权限。
+服务器级别是全局设置，可以被虚拟主机级别的设置覆盖。
+
+END_DESCR
+
+SYNTAX: 3 digits octet number. Default value is 666.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: secAuditLogEngine
+NAME: 启用安全审核日志
+REQUIRED: 
+APPLY: 2
+SINCE: 4.1.9
+SEE_ALSO: {ITEM=secAuditLog}
+
+DESCR: 指定是否启用审核日志记录。 这个功能相当于Apache的mod_security
+如果启用并且设置了{ITEM=secAuditLog}，将保存详细的请求信息。
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: secAuditLog
+NAME: 安全审核日志
+REQUIRED: 
+APPLY: 3
+SINCE: 4.1.9
+SEE_ALSO: {ITEM=secAuditLogEngine}
+
+DESCR: 指定安全审计日志的路径，它提供了更详细的信息。
+ 在以下情况下，这些额外的信息可能很有用,
+ 例如, 你想追踪某个用户的行为. 使用{ITEM=secAuditLogEngine}来打开日志记录。
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## WAF Rule Set ##########
+
+
+[ITEM]
+ID: censorRuleSetName
+NAME: 名称
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 给一组审查规则取个名字。仅供区分.
+
+END_DESCR
+
+SYNTAX: String
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: ruleSetAction
+NAME: 规则集操作
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 指定在满足当前规则集中的审查规则时采取的操作。
+ 如果未设置，将使用{ITEM=defaultAction}。
+END_DESCR
+
+SYNTAX: String.  This action string uses the same syntax as Apache's 
+<a href="https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual#SecDefaultAction">mod_security SecDefaultAction directive</a>.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: censorRuleSetEnabled
+NAME: 启用 
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+DESCR: 指定是否启用此规则集。 
+使用此选项，可以快速启用和禁用规则集，
+而无需添加或删除规则集。 默认值为“是”。
+
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: censorRuleSet
+NAME: Rules Definition
+NS: L
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+
+DESCR: Specifies a list of censorship rules.
+END_DESCR
+
+SYNTAX: String. Syntax of censoring rules follows that of Apache's mod_security
+directives. "SecFilter", "SecFilterSelective", and "SecRule" can be 
+used here.  You can copy and paste security rules from an Apache configuration file.
+
+
+For more details about rule syntax, please refer to the 
+{ext-href}http://www.modsecurity.org/documentation/index.html{ext-href-end}Mod Security documentation{ext-href-end-a}.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: Rules configured here only work for vhosts configured in native LSWS
+configuration, not for vhosts from Apache httpd.conf.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: censorRuleSet
+NAME: Rules Definition
+NS: E
+REQUIRED: 
+APPLY: 3
+SINCE: 
+SEE_ALSO: 
+
+
+DESCR: Specifies a list of censorship rules.
+
+
+If you are using an Apache config file, you have to set up rules in httpd.conf. 
+Rules defined here will have no effect.
+END_DESCR
+
+EDITTIP: If you are using apache config file, you have to set up rules in httpd.conf and rules defined here have no effect.
+END_EDITTIP
+
+SYNTAX: String. Syntax of censoring rules follows that of Apache's mod_security
+directives. "SecFilter", "SecFilterSelective", and "SecRule" can be 
+used here.  You can copy and paste security rules from an Apache configuration file.
+
+
+For more details about rule syntax, please refer to the 
+{ext-href}http://www.modsecurity.org/documentation/index.html{ext-href-end}Mod Security
+documentation{ext-href-end-a}.
+END_SYNTAX
+
+EXAMPLE: 
+END_EXAMPLE
+
+TIPS: Rules configured here only work for vhosts configured in native LSWS
+configuration, not for vhosts from Apache httpd.conf.
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Tables #############
+
+
+[TBL]
+ID: reqCensorship
+NAME: Web Application Firewall (WAF)
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: enableCensorship censorLogLevel defaultAction scanPOST uploadTmpDir uploadTmpFilePermission secAuditLogEngine secAuditLog
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: reqCensorship
+NAME: Web Application Firewall (WAF)
+NS: E
+
+DESCR: 
+END_DESCR
+
+CONT: enableCensorship censorLogLevel defaultAction scanPOST uploadTmpDir uploadTmpFilePermission disableSecHtaccess secAuditLogEngine secAuditLog
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: VHreqCensorship
+NAME: Web Application Firewall (WAF)
+NS: LE
+
+DESCR: 
+END_DESCR
+
+CONT: enableCensorship censorLogLevel defaultAction scanPOST
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: reqCensorshipRule
+NAME: Web Application Firewall (WAF) Rule Set
+NS: LE
+
+DESCR: Rules configured here only work for virtual hosts configured with a native LSWS
+configuration, not for virtual hosts using Apache httpd.conf.
+END_DESCR
+
+CONT: censorRuleSetName ruleSetAction censorRuleSetEnabled censorRuleSet
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+[END_HELPDOC]

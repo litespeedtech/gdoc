@@ -1,0 +1,625 @@
+[HELPDOC]
+
+############# Base #############
+
+
+[ITEM]
+ID: vhName
+NAME: 虚拟主机名
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 为虚拟主机的唯一名称。建议使用虚拟主机的域名作为虚拟主机名。
+虚拟主机名参数可以使用$VH_NAME变量来引用。
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhRoot
+NAME: 虚拟主机根目录
+NS: E
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR:指定虚拟主机的根目录。
+注：这<b>不是</b>目录根。
+建议将所有与该虚拟主机相关的文件
+(像日志文件，html文件，CGI脚本等)都放置在这个目录下。
+虚拟主机根参数可以使用$VH_ROOT变量来引用。
+
+EDITTIP: 所有目录必须预先存在。这个设置不会为你创建目录。如果你要创建一个新的虚拟主机，
+你可以创建一个空的根目录，并从头开始设置；
+也可以将软件包中附带的DEFAULT虚拟根目录复制到这个虚拟主机根目录中，
+并修改为对应用户所有。
+END_EDITTIP
+
+EDITTIP: 虚拟主机根目录($VH_ROOT)可以是绝对路径，也可以是相对于$SERVER_ROOT的相对路径。 配置文件可以相对于$VH_ROOT。
+$VH_ROOT.
+END_EDITTIP
+
+SYNTAX: path2
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [性能建议] 将不同的虚拟主机放在不同的硬盘驱动器上。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhRoot
+NAME: 虚拟主机根
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定虚拟主机的根目录。
+注：这<b>不是</b>目录根。
+建议将所有与该虚拟主机相关的文件
+(像日志文件，html文件，CGI脚本等)都放置在这个目录下。
+虚拟主机根参数可以使用$VH_ROOT变量来引用。.
+END_DESCR
+
+EDITTIP: 所有目录必须预先存在。这个设置不会为你创建目录。如果你要创建一个新的虚拟主机，
+你可以创建一个空的根目录，并从头开始设置；
+也可以将软件包中附带的DEFAULT虚拟根目录复制到这个虚拟主机根目录中，
+并修改为对应用户所有。
+END_EDITTIP
+
+EDITTIP: 虚拟主机根目录($VH_ROOT)可以是绝对路径,也可以是相对于$SERVER_ROOT的相对路径.
+END_EDITTIP
+
+SYNTAX: path2
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [性能建议] 将不同的虚拟主机放在不同的硬盘驱动器上。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: defaultCluster
+NAME: 默认集群
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定用于处理对此虚拟主机的请求的默认集群。
+END_DESCR
+
+EDITTIP: 在此处设置默认群集，除非设置了contexts，否则所有流量都将由该集群处理。
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: configFile
+NAME: 配置文件
+NS: LE
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: The configuration filename and directory for this virtual host.
+END_DESCR
+
+SYNTAX: file3
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: {val}$SERVER_ROOT/conf/vhosts/$VH_NAME.xml{/} is recommended for easy management.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: configFile
+NAME: 配置文件
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定虚拟主机的配置文件名称。
+配置文件必须位于$SERVER_ROOT/conf/vhosts/目录下。
+END_DESCR
+
+SYNTAX: file2
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 推荐使用{val}$SERVER_ROOT/conf/vhosts/$VH_NAME/vhconf.conf{/}。
+END_TIPS
+
+[END_ITEM]
+
+
+############# Connection #############
+
+
+[ITEM]
+ID: vhMaxKeepAliveReq
+NAME: 最大Keep-Alive请求数
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=ServTuning_Help#maxKeepAliveReq}
+
+DESCR: 指定通过keep-alive(永久)连接服务的最大请求数量。当该限制值达到时连接将被断开。你可以为不同虚拟主机设置不同的数值。这个数值不能超过服务器级别的{ITEM=ServTuning_Help#maxKeepAliveReq}限制值。
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [性能建议] 设置为一个合理的高数值。设置为1或比1更小的值将禁用keep-alive连接。
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Security #############
+
+
+[ITEM]
+ID: allowSymbolLink
+NAME: 跟随符号链接
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定在这个虚拟主机内是否要跟随符号链接。
+{val}If Owner Match{/}选项启用后，只有在链接和目标属主一致时才跟踪符号链接。
+此设置将覆盖默认的服务器级设置。
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [性能和安全性建议] 为了更好的安全性，请禁用此功能。为了获得更好的性能，启用它。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableScript
+NAME: 启用脚本
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定在这个虚拟主机中是否允许运行脚本（非静态页面）。
+如果禁用，CGI, FastCGI, LSAPI, Servlet引擎
+和其他脚本语言都将在这个虚拟机中不被允许使用。
+因此如果你希望使用一个脚本处理程序，你需要启用本项。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: restrained
+NAME: 访问管制
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定虚拟机根($VH_ROOT)以外的文件是否可以通过这个网站访问。
+如果设置是{val}Yes{/}，只可以访问$VH_ROOT下的文件，
+访问指向$VH_ROOT以外文件或目录的符号链接或context指向都将被阻止。
+尽管如此，这里不会限制CGI脚本的访问。
+这个选项在共享主机下非常有用。
+{ITEM=allowSymbolLink}可以设置成{val}Yes{/}来允许用户使用在$VH_ROOT下的符号链接，
+$VH_ROOT以外的则不可以。
+END_DESCR
+
+EDITTIP: Turn on Restrained in a shared hosting enviroment.
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [安全建议] 在共享主机环境下打开该功能。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: setUidMode
+NAME: 外部应用程序设置UID模式
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 定如何为外部程序进程设置用户ID。可以选择下面三种方式：
+<ul><li>{val}Server UID{/}: 为外部应用程序设置与服务器用户/组ID相同的用户/组ID。</li>
+    <li>{val}CGI File UID{/}: 为外部应用CGI程序设置基于可执行文件的用户/组ID。该选项仅适用于CGI，不适用于FastCGI或LSPHP。</li>
+    <li>{val}Doc Root UID{/}: 为外部应用程序设置基于当前虚拟机根目录的用户/组ID。</li>
+</ul>
+
+
+Default value: {val}Server UID{/}
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [安全建议] 在共享主机环境中，建议使用{val}CGI File UID{/} 
+或 {val}Doc Root UID{/}模式来防止一个虚拟主机下的文件被另一个虚拟主机的外部应用程序访问。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: suexecUser
+NAME: suEXEC 用户
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 在当前context 级别，以该用户身份运行。
+如果设置了该项，则该值将覆盖虚拟主机级别<b>外部应用程序设置UID模式</b>的设置。
+
+
+此配置可被外部应用程序级别的<b>以用户身份运行</b>设置覆盖。
+
+
+Default value: Not Set
+END_DESCR
+
+SYNTAX: Valid user name or uid.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: suexecGroup
+NAME: suEXEC组
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 在当前context 级别，以该组身份运行。
+必须将虚拟主机级别的<b>suEXEC用户</b>或外部应用程序级别的<b>用户运行身份</b>设置为<b>suEXEC Group</b>才能生效。
+
+
+可以使用<b>运行方式组</b>设置在外部应用程序级别覆盖此配置。
+
+Default value: <b>suExec User</b> setting value
+END_DESCR
+
+SYNTAX: Valid group name or uid
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: chrootMode
+NAME: 外部应用程序Chroot模式
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: {ent_version}指定外部应用程序是如何设定根目录的。
+为了保护机密系统数据不被易受攻击的外部应用脚本访问，
+可以通过为外部应用程序设置替代的根路径来确保新根目录以外的数据不可访问。
+这种方法被称为"chroot监狱"。
+
+三个选项可供选择: <ul><li>{val}Same as Server{/}: 外部应用程序将在与服务器相同的监狱目录下运行。</li>
+    <li>{val}Virtual Host Root{/}: 为虚拟主机设根目录设置为chroot监狱。外部应用程序脚本只能访问虚拟主机根路径下的文件。</li>
+	<li>{val}Customized Chroot Path{/}: 自定义chroot路径 {ITEM=chrootPath}。 </li>
+</ul>
+
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: 如果使用得当，chroot环境将大大提高外部应用程序脚本安全性，但你必须确保外部程序脚本在chroot环境的限制下可以正常运作。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: chrootPath
+NAME: 外部应用程序Chroot路径
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: {ent_version}当{ITEM=chrootMode}被设置为{val}Customized Chroot Path{/}时，用来为当前虚拟主机外部应用程序脚本指定新的根目录。
+
+END_DESCR
+
+SYNTAX: path1
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: totalBandwidth
+NAME: 总上传带宽 (KB/sec)
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 设置此虚拟主机的总上传带宽限制（以KB/s为单位。)
+上传宽带将被限制到此值。
+END_DESCR
+
+[END_ITEM]
+
+
+
+############# Per Client Throttling #############
+
+
+
+############# Tables #############
+
+
+
+[TBL]
+ID: vhBase
+NAME: 基础
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: vhName vhRoot configFile
+END_CONT
+
+[END_TBL]
+
+
+
+[TBL]
+ID: vhConnection
+NAME: 连接
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: vhMaxKeepAliveReq
+END_CONT
+
+[END_TBL]
+
+
+
+[TBL]
+ID: vhSecurity
+NAME: 安全
+NS: E
+
+DESCR:
+END_DESCR
+
+CONT: allowSymbolLink enableScript restrained setUidMode suexecUser suexecGroup chrootMode chrootPath
+totalBandwidth
+END_CONT
+
+[END_TBL]
+
+
+
+[TBL]
+ID: vhSecurity
+NAME: 安全
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: allowSymbolLink enableScript restrained setUidMode suexecUser suexecGroup
+END_CONT
+
+[END_TBL]
+
+
+
+[TBL]
+ID: vhPClientThrottling
+NAME: 虚拟主机
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: staticReqPerSec dynReqPerSec
+outBandwidth inBandwidth
+END_CONT
+
+[END_TBL]
+
+
+
+[TBL]
+ID: vhTop
+NAME: 虚拟主机
+NS: L
+
+DESCR:
+END_DESCR
+
+CONT: vhName defaultCluster configFile
+dynReqPerSec outBandwidth inBandwidth
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: vhTop
+NAME: 虚拟主机
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: vhName vhRoot configFile allowSymbolLink enableScript restrained vhMaxKeepAliveReq setUidMode chrootMode
+chrootPath staticReqPerSec dynReqPerSec outBandwidth inBandwidth
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: VirtualHosts_Help
+NAME: 虚拟主机设置
+NS: EO
+
+DESCR: This page lists all defined virtual hosts. From here you can add/delete a virtual host or make
+changes to an existing one. Before you add a virtual host, make sure the virtual host root directory exists.
+END_DESCR
+
+CONT: vhBase vhConnection vhSecurity vhPClientThrottling
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+
+[PAGE]
+ID: VirtualHosts_Help
+NAME: 虚拟主机列表
+NS: L
+
+DESCR: This page lists all defined virtual hosts. From here you can add/delete a virtual host or make
+changes to an existing one.
+END_DESCR
+
+CONT: vhTop
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+[END_HELPDOC]

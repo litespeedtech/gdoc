@@ -1,0 +1,471 @@
+[HELPDOC]
+
+
+########## Address Settings ##########
+
+
+[ITEM]
+ID: listenerName
+NAME: 侦听器名称
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 此侦听器的唯一名称。
+END_DESCR
+
+EDITTIP: Give listener a name that is easy to understand and remember.
+END_EDITTIP
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: listenerType
+NAME: Type
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: The Layer 7 listener type.
+
+
+An “http” listener treats requests as an HTTP Request, so it will parse the request data to use for load balancing.
+
+
+A “tcp” listener will not parse request data. Only the client’s IP address and port are parsed for load balancing.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: listenerIP
+NAME: IP地址
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定此侦听器的IP。 列出了所有可用的IP地址。
+IPv6地址包含在“ []”中。 要监听所有IPv4 IP地址，请使用
+{val}ANY{/}. 要侦听所有IPv4和IPv6 IP地址,请使用{val}[ANY]{/}. 
+clients,  为了同时为IPv4和IPv6客户端提供服务，应使用IPv4映射的IPv6地址代替纯IPv4地址。 IPv4映射的IPv6地址写为[::FFFF:x.x.x.x]。
+END_DESCR
+
+EDITTIP: 从列表中选择一个IP地址，如果您未指定特定地址，则系统将绑定到该计算机上的所有可用IP地址。
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [S] If your machine has multiple IPs on different sub-networks,
+you can select a specific IP to only allow traffic from the corresponding sub-network.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: listenerPort
+NAME: 端口
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定侦听器的TCP端口。 只有超级用户（root）可以使用低于{val}1024{/}的端口。 端口{val}80{/}是默认的HTTP端口。 端口{val}443{/}是默认的HTTPS端口。
+END_DESCR
+
+EDITTIP: 在此IP上为此侦听器输入一个唯一的端口号。 只有超级用户（root）可以使用低于1024的端口。端口80是默认的HTTP端口;端口443是默认的HTTPS端口。
+END_EDITTIP
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: listenerBinding
+NAME: Binding
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies which lslbd child process the listener is assigned to. Multiple child processes are spawned
+to take advantage of the multiple CPUs in an SMP system. Different child processes can be used to handle requests to
+different listeners by manually associating a listener with a process. By default, a listener is assigned to all child processes.
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: listenerBinding
+NAME: Binding
+NS: E
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: {ent_version} Specifies which lshttpd child
+process the listener is assigned to. Enterprise Edition spawns
+multiple child processes to take advantage of the multiple CPUs in a
+SMP system. Different child processes can be used to handle requests to
+different listeners by manually associating a listener with a
+process. By default, a listener is assigned to all child processes.
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: listenerBinding
+NAME: 绑定
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定侦听器分配给哪个lshttpd子进程。
+通过手动将侦听器与进程相关联，可以使用不同的子进程来处理对不同侦听器的请求。 默认情况下，将侦听器分配给所有子进程。
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: reusePort
+NAME: 启用REUSEPORT
+NS: EO
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: 使用SO_REUSEPORT套接字选项将传入流量分配给多个工作进程。 此设置仅对multi-worker可证有效。 启用后，所有工作程序都将自动绑定到此侦听器，并且将忽略“绑定”配置。
+
+
+Default value: On
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: listenerSecure
+NAME: 安全
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定这是否是安全（SSL）侦听器。
+对于安全的侦听器，需要正确设置其他SSL设置。
+END_DESCR
+
+EDITTIP: 为<b>安全</b>选择“是”将使此侦听器使用https。 然后，您必须进一步进行配置SSL
+settings.
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: zconfEnabled
+NAME: Enable ZeroConf
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Use ZeroConf managed load balancing and accept traffic bound for ZeroConf enabled backends.
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: In order for this setting to take effect, ZeroConf must also be enabled at the server level.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: mapped_L4_clusters
+NAME: Mapped Cluster
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the cluster that the Layer 4 listener will use for load balancing. The mapped cluster must be a Layer 4
+cluster, which is predefined in "Clusters" tab.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## Virtual host Mappings ##########
+
+
+[ITEM]
+ID: virtualHostName
+NAME: 虚拟主机
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定虚拟主机的名称。
+END_DESCR
+
+EDITTIP: 选择要映射到此侦听器的虚拟主机。
+END_EDITTIP
+
+EDITTIP: 如果尚未设置要映射的虚拟主机，则可以跳过此步骤，稍后再进行
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: domainName
+NAME: 域名
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定映射域名。域名不区分大小写,如果带有"www.",
+"www."则会移除,允许使用通配符"*"和"?"
+"?"仅代表一个字符,"*"代表任意数量的字符,
+不允许出现重复域名
+END_DESCR
+
+EDITTIP: 输入您希望此侦听器响应的所有域。 使用逗号“”分隔域。
+END_EDITTIP
+
+EDITTIP: 您只能选择一个虚拟主机来处理所有未指定的域，并在域中添加“ *”。
+END_EDITTIP
+
+SYNTAX: Comma-separated list.
+END_SYNTAX
+
+EXAMPLE: www?.example.com
+
+"*.mydomain.com" will match all subdomains of mydomain.com.
+
+"*" by itself is the catchall domain and will match any unmatched domain names.
+END_EXAMPLE
+
+TIPS: [P] If a listener is dedicated to one virtual host,
+always use {val}*{/} for the domain name to avoid unnecessary
+checking. Domain names with wildcard characters  (other than the catchall domain)
+should be avoided whenever possible.
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# Tables #############
+
+
+[TBL]
+ID: listenerGeneral
+NAME: 地址设定
+NS: L
+
+DESCR:
+END_DESCR
+
+CONT: listenerName listenerType listenerIP listenerPort listenerBinding listenerSecure zconfEnabled mapped_L4_clusters
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: listenerGeneral
+NAME: 地址设定
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: listenerName listenerIP listenerPort listenerBinding reusePort listenerSecure
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: virtualHostMapping
+NAME: 虚拟主机映射
+
+DESCR: 指定侦听器和虚拟主机之间的关系。
+侦听器和虚拟主机通过域名关联。
+HTTP请求将被路由到具有匹配域名的虚拟主机。
+一个侦听器可以映射到多个虚拟主机以获取不同的域名。
+也可以从不同的侦听器映射一个虚拟主机。
+一个侦听器可以允许一个具有域名值“*”的虚拟主机。
+如果侦听器的映射中没有明确匹配的域名，
+侦听器会将请求转发到含有"*"域名的虚拟主机。
+END_DESCR
+
+TIPS: [性能] 仅添加必要的映射。 如果侦听器仅映射到一个虚拟主机，则仅设置一个通配符映射“*”。
+END_TIPS
+
+CONT: virtualHostName domainName
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+################ Pages ###############
+
+
+[PAGE]
+ID: Listeners_General_Help
+NAME: 侦听器设置
+NS: LEO
+
+DESCR:
+END_DESCR
+
+CONT: listenerGeneral virtualHostMapping
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+[END_HELPDOC]

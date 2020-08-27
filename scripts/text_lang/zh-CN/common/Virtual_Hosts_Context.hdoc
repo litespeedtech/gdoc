@@ -1,0 +1,2221 @@
+[HELPDOC]
+
+
+########## New Context ##########
+
+
+[ITEM]
+ID: ctxType
+NAME: Context Type
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: The type of context created determines it's usage.
+
+
+The <b>Redirect</b> context is used to set up an internal or external redirect URI.<br>
+The <b>Load Balancer</b> context is used to assign a different cluster for that context.
+END_DESCR
+
+EDITTIP: The <b>Load Balancer</b> context is used to assign a different cluster for that context.
+END_EDITTIP
+
+EDITTIP: The <b>Redirect</b> context is used to set up an internal or external redirect URI.
+END_EDITTIP
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: ctxType
+NAME: Context Type
+NS: E
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: The type of context created determines it's usage.:<br><br><b>Static</b> context can be used to map a URI to a directory either outside document root or within it.<br>
+<b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine.<br>
+<b>Servlet</b> context is used to import a specific servlet under a web application.<br>
+<b>Fast CGI</b> context is a mount point of Fast CGI application.<br>
+<b>LiteSpeed SAPI</b> context can be used to associate a URI with an LSAPI application.<br>
+<b>Proxy</b> context enables this virtual host to serve as a transparant reverse proxy server to an external web server or application server.<br>
+<b>CGI</b> context can be used to specify a directory only contains CGI scripts.<br>
+<b>Load Balancer</b> context can be used to assign a different cluster for that context.<br>
+<b>Redirect</b> context can set up an internal or external redirect URI.<br>
+<b>App Server</b> context is used for Rack/Rails, WSGI, or Node.js applications.<br>
+<b>Rack/Rails</b> context is specifically used for Rack/Rails applications. It is recommended to configure Rack/Rails applications as an <b>App Server</b> context instead.<br>
+END_DESCR
+
+EDITTIP: <b>Static</b> context can be used to map a URI to a directory either outside document root or within it.
+END_EDITTIP
+
+EDITTIP: <b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine.
+END_EDITTIP
+
+EDITTIP: <b>Servlet</b> context is used to import a specific servlet under a web application.
+END_EDITTIP
+
+EDITTIP: <b>Fast CGI</b> context is a mount point of Fast CGI application.
+END_EDITTIP
+
+EDITTIP: <b>LiteSpeed SAPI</b> context can be used to associate a URI with an LSAPI application.
+END_EDITTIP
+
+EDITTIP: <b>Proxy</b> context enables this virtual host to serve as a transparant reverse proxy server to an external web server or application server.
+END_EDITTIP
+
+EDITTIP: <b>CGI</b> context can be used to specify a directory only contains CGI scripts.
+END_EDITTIP
+
+EDITTIP: <b>Load Balancer</b> context can be used to assign a different cluster for that context.
+END_EDITTIP
+
+EDITTIP: <b>Redirect</b> context can set up an internal or external redirect URI.
+END_EDITTIP
+
+EDITTIP: <b>App Server</b> context is used for Rack/Rails, WSGI, or Node.js applications.
+END_EDITTIP
+
+EDITTIP: <b>Rack/Rails</b> context is specifically used for Rack/Rails applications. It is recommended to configure Rack/Rails applications as an <b>App Server</b> context instead.
+END_EDITTIP
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: ctxType
+NAME: Context类型
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: The type of context created determines it's usage.<br><br><b>Static</b> context can be used to map a URI to a directory either outside document root or within it.<br>
+<b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine.<br>
+<b>Servlet</b> context is used to import a specific servlet under a web application.<br>
+<b>Fast CGI</b> context is a mount point of Fast CGI application.<br>
+<b>LiteSpeed SAPI</b> context can be used to associate a URI with an LSAPI application.<br>
+<b>Proxy</b> context enables this virtual host to serve as a transparant reverse proxy server to an external web server or application server.<br>
+<b>CGI</b> context can be used to specify a directory only contains CGI scripts.<br>
+<b>Load Balancer</b> context can be used to assign a different cluster for that context.<br>
+<b>Redirect</b> context can set up an internal or external redirect URI.<br>
+<b>App Server</b> context is specifically used for Rack/Rails, WSGI, and Node.js applications.<br>
+<b>Module handler</b> context is a mount point of hander type modules.<br>
+END_DESCR
+
+EDITTIP: <b>Static</b> context can be used to map a URI to a directory either outside document root or within it.
+END_EDITTIP
+
+EDITTIP: <b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine.
+END_EDITTIP
+
+EDITTIP: <b>Servlet</b> context is used to import a specific servlet under a web application.
+END_EDITTIP
+
+EDITTIP: <b>Fast CGI</b> context is a mount point of Fast CGI application.
+END_EDITTIP
+
+EDITTIP: <b>LiteSpeed SAPI</b> context can be used to associate a URI with an LSAPI application.
+END_EDITTIP
+
+EDITTIP: <b>Proxy</b> context enables this virtual host to serve as a transparant reverse proxy server to an external web server or application server.
+END_EDITTIP
+
+EDITTIP: <b>CGI</b> context can be used to specify a directory only contains CGI scripts.
+END_EDITTIP
+
+EDITTIP: <b>Load Balancer</b> context can be used to assign a different cluster for that context.
+END_EDITTIP
+
+EDITTIP: <b>Redirect</b> context can set up an internal or external redirect URI.
+END_EDITTIP
+
+EDITTIP: <b>App Server</b> context is specifically used for Rack/Rails, WSGI, and Node.js applications.<br>
+END_EDITTIP
+
+EDITTIP: <b>Module handler</b> context is a mount point of hander type modules.
+END_EDITTIP
+
+[END_ITEM]
+
+
+
+########## Context Definition ##########
+
+
+[ITEM]
+ID: uri
+NAME: URI
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定此context下的URI。这个URI应该以"/"开始。
+如果一个URI以"/"结束，那么该context将包含这个URI下的所有下级URI。
+END_DESCR
+
+SYNTAX: URI
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: expuri
+NAME: URI
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO
+
+DESCR: Specifies the URI for this context.
+END_DESCR
+
+SYNTAX:  The URI can be a plain URI (starting with "/") or
+a Perl compatible regular expression URI (starting with "exp:"). If a plain URI ends
+with a "/", then this context will include all sub-URIs under this
+URI. If the context maps to a directory on the file system, a trailing "/" must be added.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: expuri
+NAME: URI
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=location}
+
+DESCR: Specifies the URI for this context.
+END_DESCR
+
+SYNTAX:  指定此context下的URI。这个URI应该以"/"开始。
+如果一个URI以"/"结束，那么该context将包含这个URI下的所有下级URI。如果context类型映射到系统目录上,则必须添加结尾的"/"
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: servletEngine
+NAME: Servlet Engine
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定为该Web应用程序提供服务的Servlet Engine的名称。
+Servlet引擎必须在服务器或虚拟主机级别的{PAGE=ExtApp_Help}中定义。
+END_DESCR
+
+EDITTIP: 如果Servlet Engine在其他计算机上运行，建议将webapps目录复制到本地。 否则，您必须将文件放在可访问的公用网络驱动器中，这可能会影响性能。
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: javaServletEngine
+NAME: Servlet Engine
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定为该Web应用程序提供服务的Servlet Engine的名称。
+Servlet引擎必须在服务器或虚拟主机级别的{PAGE=ExtApp_Help}中定义。
+END_DESCR
+
+EDITTIP: 如果Servlet Engine在其他计算机上运行，建议将webapps目录复制到本地。 否则，您必须将文件放在可访问的公用网络驱动器中，这可能会影响性能。
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: fcgiapp
+NAME: FastCGI 应用程序
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定FastCGI应用程序的名称。
+必须在服务器或虚拟主机级别的{PAGE=ExtApp_Help}中定义此应用程序。
+END_DESCR
+
+EDITTIP: Fast CGI context是Fast CGI应用的一个挂载点，Fast CGI应用程序必须在服务器级或虚拟主机级预先定义。
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: lsapiapp
+NAME: LiteSpeed SAPI App
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定要连接到此context的LiteSpeed SAPI应用程序。
+此应用程序必须在服务器或虚拟主机级别的 {PAGE=ExtApp_Help}中定义。
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: lbapp
+NAME: 负载均衡
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定要与此context关联的负载均衡器。
+此负载均衡是一个虚拟应用程序，必须在服务器或虚拟主机级别的{PAGE=ExtApp_Help}中定义。
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: extCluster
+NAME: 集群
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定用于处理对此context的请求的集群。
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: proxyWebServer
+NAME: Web服务器
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定外部Web服务器的名称。
+此外部Web服务器必须在服务器或虚拟主机级别的{PAGE=ExtApp_Help}中定义
+END_DESCR
+
+EDITTIP: 代理context使此虚拟主机可用作外部Web服务器或应用程序服务器的透明反向代理服务器。
+END_EDITTIP
+
+EDITTIP: External web server must be pre-defined under External App at server or virtual host level.
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: location
+NAME: 位置
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=expuri}
+
+DESCR: 指定此context在文件系统中的对应位置。
+
+
+Default value: $DOC_ROOT + {ITEM=expuri}
+END_DESCR
+
+SYNTAX: It can be an absolute path or path relative to $SERVER_ROOT, $VH_ROOT, or $DOC_ROOT.
+$DOC_ROOT is the default relative path, and can be omitted.
+
+
+If the {ITEM=expuri} is a regular expression, then the matched sub-string
+can be used to form the "Root" string. The matched sub-string can be
+referenced with the values "$1" - "$9". "$0" and "&" can be used to reference the
+whole matched string. Additionally, a query string can be set by
+appending a "?" followed by the query string. Be careful. "&" should
+be escaped as "\&" in the query string.
+END_SYNTAX
+
+EXAMPLE:  A plain URI like {val}/examples/{/} with {ITEM=location}
+set to {val}/home/john/web_examples{/} will map the request "/examples/foo/bar.html"
+to file "/home/john/web_examples/foo/bar.html".
+
+To simulate Apache's mod_userdir,
+set URI to {val}exp: ^/~([A-Za-z0-9]+)(.*){/},
+set {ITEM=location} to {val}/home/$1/public_html$2{/}. With these settings, a request of URI /~john/foo/bar.html will
+map to file /home/john/public_html/foo/bar.html.
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: rails_location
+NAME: Location
+NS: E
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=expuri}
+
+DESCR: Specifies the corresponding location of this context in the file system.
+
+
+Default value: $DOC_ROOT + {ITEM=expuri}
+END_DESCR
+
+EDITTIP: Rack/Rails context is for easy configuration of running Rack/Rails application. You
+only need to specify the root location of your rack/rails application in the "Location" field.
+END_EDITTIP
+
+SYNTAX: It can be an absolute path or path relative to $SERVER_ROOT, $VH_ROOT, or $DOC_ROOT.
+$DOC_ROOT is the default relative path, and can be omitted.
+
+
+If the {ITEM=expuri} is a regular expression, then the matched sub-string
+can be used to form the "Root" string. The matched sub-string can be
+referenced with the values "$1" - "$9". "$0" and "&" can be used to reference the
+whole matched string. Additionally, a query string can be set by
+appending a "?" followed by the query string. Be careful. "&" should
+be escaped as "\&" in the query string.
+END_SYNTAX
+
+EXAMPLE:  A plain URI like {val}/examples/{/} with {ITEM=location}
+set to {val}/home/john/web_examples{/} will map the request "/examples/foo/bar.html"
+to file "/home/john/web_examples/foo/bar.html".
+
+To simulate Apache's mod_userdir,
+set URI to {val}exp: ^/~([A-Za-z0-9]+)(.*){/},
+set {ITEM=location} to {val}/home/$1/public_html$2{/}. With these settings, a request of URI /~john/foo/bar.html will
+map to file /home/john/public_html/foo/bar.html.
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: as_location
+NAME: Location
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=expuri}
+
+DESCR: 指定此context在文件系统中的对应位置。
+
+
+Default value: $DOC_ROOT + {ITEM=expuri}
+END_DESCR
+
+EDITTIP: The App Server context is for easy configuration of running Rack/Rails, WSGI, or Node.js applications. You
+only need to specify the root location of your application in the "Location" field.
+END_EDITTIP
+
+SYNTAX: It can be an absolute path or path relative to $SERVER_ROOT, $VH_ROOT, or $DOC_ROOT.
+$DOC_ROOT is the default relative path, and can be omitted.
+
+
+If the {ITEM=expuri} is a regular expression, then the matched sub-string
+can be used to form the "Root" string. The matched sub-string can be
+referenced with the values "$1" - "$9". "$0" and "&" can be used to reference the
+whole matched string. Additionally, a query string can be set by
+appending a "?" followed by the query string. Be careful. "&" should
+be escaped as "\&" in the query string.
+END_SYNTAX
+
+EXAMPLE:  A plain URI like {val}/examples/{/} with {ITEM=location}
+set to {val}/home/john/web_examples{/} will map the request "/examples/foo/bar.html"
+to file "/home/john/web_examples/foo/bar.html".
+
+To simulate Apache's mod_userdir,
+set URI to {val}exp: ^/~([A-Za-z0-9]+)(.*){/},
+set {ITEM=location} to {val}/home/$1/public_html$2{/}. With these settings, a request of URI /~john/foo/bar.html will
+map to file /home/john/public_html/foo/bar.html.
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: javaWebApp_location
+NAME: 伪造
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定包含此Web应用程序的目录。 应包含以下文件
+"WEB-INF/web.xml".
+
+
+默认值：$DOC_ROOT + {ITEM=uri}
+END_DESCR
+
+EDITTIP: Java web app context is used to automatically import a predefined Java Application in an AJPv13 compilant Java
+servlet engine, the servlet engine should be set up in external app section (either server or virtual host level).
+END_EDITTIP
+
+EDITTIP: Location is the directory that contains web application files, which includes WEB-INF/ sub directory.
+END_EDITTIP
+
+EDITTIP: The web server will automatically import configuration file of web application, which usually is WEB-INF/web.xml under the driectory specified by "location".
+END_EDITTIP
+
+SYNTAX: path
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: cgi_path
+NS: EO
+NAME: 路径
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定CGI脚本的位置.
+END_DESCR
+
+EDITTIP:CGI context可用于指定仅包含CGI脚本的目录。 路径可以是绝对路径，也可以是相对于$SERVER_ROOT, $VH_ROOT的相对路径或$DOC_ROOT（默认）。 
+对于cgi-bin目录，路径和URI必须以“ /”结尾。
+END_EDITTIP
+
+EDITTIP: If only a specific script is needed in that directory, it is recommended to create a CGI context for that script only. In this case, path and
+URI need not be a directory. For e.g., path can be ~/myapp/myscript.pl, URI can be /myapp/myscript.pl. All other files will not be served as CGI.
+END_EDITTIP
+
+SYNTAX: The path can be a directory that contains a group of CGI scripts,
+like {val}$VH_ROOT/myapp/cgi-bin/{/}.
+In this case, the context {ITEM=expuri} must end with "/", like {val}/app1/cgi/{/}.
+The Path can also specify only one CGI script, like {val}$VH_ROOT/myapp/myscript.pl{/}.
+This script should have the corresponding {ITEM=expuri} {val}/myapp/myscript.pl{/}.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: binPath
+NAME: 二进制文件路径
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: App Server的二进制文件的位置。
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX:
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: appType
+NAME: 应用类型
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 用于此context的应用程序类型。 支持Rack/Rails, WSGI, 和 Node.js。
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX:
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: as_startupfile
+NAME: 启动文件
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 用于启动应用程序的文件,路径应相对于应用程序根目录。
+
+
+默认的启动文件包括Rack/Rails的'config.ru', WSGI的'wsgi.py'和'passenger_wsgi.py', NodeJS的'app.js'.
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: Path relative to application root directory
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: allowBrowse
+NAME: 访问权限
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定是否可以访问此context 。 设置为{val}否{/}以拒绝访问。
+您可以使用此功能来防止访问指定目录。
+您可以在更新此context内容或此目录中有特殊数据时使用它。
+END_DESCR
+
+EDITTIP: Static context can be used to map a URI to a directory either outside document root or within it. The directory
+can be absolute path or relative to document root(default), $VH_ROOT or $SERVER_ROOT.
+END_EDITTIP
+
+EDITTIP: Check "Accessible" will allow browsing static files in this context. You may want to disable it to prevent viewing static
+files, for e.g. when you update the content.
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: allowSetUID
+NAME: 允许设置UID
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定CGI脚本是否允许设置UID。如果允许，并且为CGI脚本启用了设置UID，那么无论CGI脚本是代表哪个用户启动的，CGI进程的用户ID都将切换为CGI脚本所有者的用户ID。<br/>默认值是 &quot;关&quot
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [安全建议] 尽可能不要允许CGI脚本设置UID,因为这存在着安全风险
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: externalredirect
+NAME: 外部重定向
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定此重定向是否为外部重定向。
+对于外部重定向,可以指定{ITEM=statuscode}，并且{ITEM=destinationuri}可以以“/”或“ http(s)://”开头。
+对于内部重定向, {ITEM=destinationuri}必须以"/"开始
+END_DESCR
+
+EDITTIP: 在此处设置重定向URI。 如果是外部重定向，则可以指定状态代码。
+内部重定向必须以"/"开始, 外部重定向可以以 "/"或"http(s)://"开始.
+END_EDITTIP
+
+SYNTAX:
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: statuscode
+NAME: 状态码
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定外部重定向响应状态码。
+如果状态码在300和399之间，可以指定{ITEM=destinationuri}。
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: destinationuri
+NAME: 目标URI
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定重定向的目标位置。
+如果被重定向的URI映射到另一个重定向URI时，将再次被重定向。
+END_DESCR
+
+SYNTAX: 这个URI可以是一个在同一个网站上以"/"开始的相对URI，
+或者是一个指向其他网站以"http(s): //"开始的绝对URI。
+如果{ITEM=expuri}包含正则表达式，目标地址可以匹配变量，如$1或$2。
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: extraHeaders
+NAME: 标头控制
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定要添加的附加响应/请求头。可以添加每行一个来添加多个头指令。"NONE "可以用来禁止父头继承。如果没有提供，则假定为 "Header"。
+END_DESCR
+
+SYNTAX: [Header]|RequestHeader [condition] set|append|merge|add|unset header [value] [early|env=[!]variable]
+END_SYNTAX
+
+EXAMPLE:
+set Cache-control no-cache
+
+append Cache-control no-store
+
+Header set My-header cust_header_val
+
+RequestHeader set My-req-header cust_req_header_val
+END_EXAMPLE
+
+TIPS:
+[I] 语法和用法类似于
+{ext-href}https://httpd.apache.org/docs/2.2/mod/mod_headers.html#header{ext-href-end}Apache's mod_headers directives{ext-href-end-a}
+
+
+[I] The 'Header' directive is is optional and can be excluded or left in when copying rules from elsewhere without issue.
+END_TIPS
+
+EDITTIP:
+The Header Operations setting is backwards compatible with the old 'header_name: value1,value2,...' syntax, which is
+equivalent to setting the header + values using the 'Header' directive.
+END_EDITTIP
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: addMIMEType
+NAME: MIME类型 
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 为此context指定的其他MIME类型的映射.  新映射将覆盖此context及其子context下的现有映射。
+
+	   如果要将PHP脚本显示为文本文件而不是作为脚本执行，则只需覆盖.php映射到MIME类型"text/plain"
+END_DESCR
+
+SYNTAX: MIME-type1 extension extension ..., MIME-type2 extension ...
+		Use comma to separate between MIME types, use space to
+		separate multiple extensions.
+END_SYNTAX
+
+EXAMPLE: {val}image/jpg jpeg jpg, image/gif gif{/}
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: mimetype
+NAME: MIME类型
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: MIME类型由类型和子类型组成，格式为“类型/子类型”.
+END_DESCR
+
+SYNTAX:
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: forceType
+NAME: 强制MIME类型
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定后，无论文件后缀如何，
+此context下的所有文件都将用作具有指定MIME类型的静态文件。 
+设置为{val}NONE{/}时，将禁用强制MIME类型。
+END_DESCR
+
+SYNTAX: MIME type or NONE.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: defaultType
+NAME: 默认MIME类型
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 定后，当MIME类型映射不能由文档的后缀确定或没有后缀时，将使用此类型。如果未指定，将使用默认值{val}application/octet-stream{/}。
+END_DESCR
+
+SYNTAX: MIME-type
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: realm
+NAME: 域
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定这个context下的realm授权。
+当指定时，必须提供有效的用户和用户名来访问这个context。
+{TBL=VHSecurity_Help#realms}需要在{PAGE=VHSecurity_Help}部分进行设置。
+此设置使用每个realm的{ITEM=VHSecurity_Help#realmName}。
+END_DESCR
+
+EDITTIP: A Context can be protected with a predefined realm, which is set up in the virtual host security section. Optionally, an alternative name and
+additional requirements can be specified.
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: authName
+NAME: 认证名称
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR:  为当前context下的realm认证指定一个替代的名称。
+如果没有指定，原realm名称将被使用。
+认证名称将显示在浏览器登陆弹出窗口。
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: required
+NAME: Require（授权的用户/组）
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定哪些用户/用户组可以访问此context。
+这里允许你使用一个用户/组数据库(在 {ITEM=realm}中指定)访问多个context，
+但只允许该数据库下特定的用户/组访问这个context。
+END_DESCR
+
+SYNTAX: Syntax is compatible with Apache's Require directive. For example:
+<ul>
+<li>{val}user username [username ...]{/}
+
+Only listed users can access this context.</li>
+<li> {val}group groupid [groupid ...]{/}
+
+Only users belonging to the listed groups can access this context.</li>
+</ul>
+If this setting is not specified, all valid users will be allowed to access this resource.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessAllowed
+NAME: 允许访问列表
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定允许访问这个context下资源的IP地址或子网。综合
+{ITEM=accessDenied}项的配置以及服务器/虚拟主机级别访问控制，
+可访问性将以客户端IP所符合的最小范围来确定。
+END_DESCR
+
+SYNTAX: Comma-delimited list of IPs/sub-networks.
+END_SYNTAX
+
+EXAMPLE: 网络可以写成{val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/}
+或{val}192.168.1.*{/}。
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: accessDenied
+NAME: 拒绝访问列表
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定哪个IP地址或子网不被允许访问这个context下的资源。
+综合{ITEM=accessAllowed}项的配置以及服务器/虚拟主机级别访问控制，
+可访问性将以客户端IP所符合的最小范围来确定。
+END_DESCR
+
+SYNTAX: Comma-delimited list of IPs/sub-networks.
+END_SYNTAX
+
+EXAMPLE: 子网络可以写成{val}192.168.1.0/255.255.255.0{/}, {val}192.168.1{/}
+或{val}192.168.1.*{/}。
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: extAuthorizer
+NAME: Authorizer
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定可用于生成授权/未授权 decisions的外部应用程序。 目前,仅FastCGI授权器可用。 有关FastCGI授权者角色的更多详细信息，
+请访问{ext-href}http://www.fastcgi.com{ext-href-end}http://www.fastcgi.com{ext-href-end-a}。
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: rewriteInherit
+NAME: 重写继承
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定是否从父级context继承重写规则。
+如果启用重写但不继承，将启用本context的重写基准及重写规则。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: rewriteBase
+NAME: 重写基准
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定重写规则的基准URL。
+END_DESCR
+
+SYNTAX: URL
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: addDefaultCharset
+NAME: 添加默认的字符集
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: S指定当内容类型是"text/html"或"text/plain"且没有参数时，是否添加字符集标记到"Content-Type"响应报头中。当设置为{val}Off{/}时，该功能禁用。当设置为{val}On{/}时，将添加{ITEM=defaultCharsetCustomized}中指定的字符集，如果没有指定，将添加默认的"iso-8859-1"字符集。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: defaultCharsetCustomized
+NAME: 自定义默认字符集
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定一个字符集当{ITEM=addDefaultCharset}是{val}On{/}时使用。这是可选的。默认值是{val}iso-8859-1{/}。当{ITEM=addDefaultCharset}是{val}Off{/}时本设置将不生效。
+END_DESCR
+
+SYNTAX: Name of a character set.
+END_SYNTAX
+
+EXAMPLE: utf-8
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: moduleNameSel
+NAME: 模块
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: 模块名称。 该模块必须在“服务器模块配置”选项卡下配置。
+配置后，模块名称将在侦听器和虚拟主机配置的下拉框中显示。
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+[END_ITEM]
+
+
+
+############# Tables #############
+
+
+[TBL]
+ID: newContext
+NAME: Context属性
+
+CONT: ctxType
+END_CONT
+
+[END_TBL]
+
+
+
+[TBL]
+ID: generalContext
+NAME: Static Context
+NS: E
+
+DESCR: Context settings are used to specify special settings for files in a
+certain location. These settings can be used to bring in files outside of
+the document root (like Apache's Alias or AliasMatch directives),
+to protect a particular directory using authorization realms, or to
+block or restrict access to a particular directory within the document root.
+END_DESCR
+
+CONT: expuri location allowBrowse enableExpires expiresDefault expiresByType
+extraHeaders addMIMEType forceType defaultType indexFiles autoIndex allowOverride
+realm authName required accessAllowed accessDenied extAuthorizer
+addDefaultCharset defaultCharsetCustomized
+enableRewrite rewriteInherit rewriteBase rewriteRules
+cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
+enableIpGeo pagespeedEnabled pagespeedParams apacheConf
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: generalContext
+NAME: 静态Context
+NS: O
+
+DESCR: Context settings are used to specify special settings for files in a
+certain location. These settings can be used to bring in files outside of
+the document root (like Apache's Alias or AliasMatch directives),
+to protect a particular directory using authorization realms, or to
+block or restrict access to a particular directory within the document root.
+END_DESCR
+
+CONT: expuri location allowBrowse enableExpires expiresDefault expiresByType
+extraHeaders addMIMEType forceType defaultType indexFiles autoIndex
+realm authName required accessAllowed accessDenied extAuthorizer
+addDefaultCharset defaultCharsetCustomized
+enableRewrite rewriteInherit rewriteBase rewriteRules
+enableIpGeo phpIniOverride
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: javaWebAppContext
+NAME: Java Web App Context
+NS: E
+
+DESCR: Many people running Java applications use the servlet engine to serve static
+content as well. But no servlet engine is nearly as efficient as LiteSpeed Web Server for these processes. In order to improve the overall performance,
+LiteSpeed Web Server can be configured as a gateway server, which serves static content
+and forwards dynamic Java page requests to the servlet engine.
+
+
+LiteSpeed Web Server requires certain contexts to be defined in order to run a
+Java application. A Java Web App Context automatically creates all required
+contexts based on the Java web application's configuration file (WEB-INF/web.xml).
+
+
+There are a few points you need to keep in mind when setting up a Java Web App Context:
+
+<ul>
+<li>A {val}Servlet Engine{/} external application must be set up in {PAGE=ExtApp_Help}
+before Java Web App Context can be set up.<li>
+<li>A {PAGE=ScriptHandler_Help} for .jsp files should be defined as well.</li>
+<li>If the web application is packed into a .war file, the .war file must be expanded.
+The server cannot access compressed archive files.</li>
+<li>For the same resources, the same URL should be used no matter whether it is accessed
+through LiteSpeed Web Server or through the servlet engine's built-in HTTP server.
+
+
+For example,
+  Tomcat 4.1 is installed under /opt/tomcat. Files for the "examples" web application are
+  located at /opt/tomcat/webapps/examples/. Through Tomcat's built-in HTTP server,
+  the "examples" web application is thus accessed with a URI like "/examples/***".
+  The corresponding Java Web App Context should thus be configured:
+  {ITEM=expuri} = {val}/examples/{/}, {ITEM=location} = {val}/opt/tomcat/webapps/examples/{/}.</li>
+  </ul>
+END_DESCR
+
+CONT: uri javaWebApp_location javaServletEngine enableExpires
+expiresDefault expiresByType extraHeaders autoIndex indexFiles
+allowOverride realm
+authName required accessAllowed accessDenied extAuthorizer
+addDefaultCharset defaultCharsetCustomized
+cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
+enableIpGeo pagespeedEnabled pagespeedParams
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: javaWebAppContext
+NAME: Java Web App Context
+NS: O
+
+DESCR: Many people running Java applications use the servlet engine to serve static
+content as well. But no servlet engine is nearly as efficient as LiteSpeed Web Server
+for these processes. In order to improve the overall performance,
+LiteSpeed Web Server can be configured as a gateway server, which serves static content
+and forwards dynamic Java page requests to the servlet engine.
+
+
+LiteSpeed Web Server requires certain contexts to be defined in order to run a
+Java application. A Java Web App Context automatically creates all required
+contexts based on the Java web application's configuration file (WEB-INF/web.xml).
+
+
+There are a few points you need to keep in mind when setting up a Java Web App Context:
+
+<ul>
+<li>A {val}Servlet Engine{/} external application must be set up in {PAGE=ExtApp_Help}
+before Java Web App Context can be set up.</li>
+<li>A {PAGE=ScriptHandler_Help} for .jsp files should be defined as well.</li>
+<li>If the web application is packed into a .war file, the .war file must be expanded.
+The server cannot access compressed archive files.</li>
+<li>For the same resources, the same URL should be used no matter whether it is accessed
+through LiteSpeed Web Server or through the servlet engine's built-in HTTP server.
+
+For example,
+  Tomcat 4.1 is installed under /opt/tomcat. Files for the "examples" web application are
+  located at /opt/tomcat/webapps/examples/. Through Tomcat's built-in HTTP server,
+  the "examples" web application is thus accessed with a URI like "/examples/***".
+  The corresponding Java Web App Context should thus be configured:
+  {ITEM=expuri} = {val}/examples/{/}, {ITEM=javaWebApp_location} = {val}/opt/tomcat/webapps/examples/{/}.</li>
+  </ul>
+END_DESCR
+
+CONT: uri javaWebApp_location javaServletEngine enableExpires
+expiresDefault expiresByType extraHeaders autoIndex indexFiles
+realm authName required accessAllowed accessDenied extAuthorizer
+addDefaultCharset defaultCharsetCustomized
+enableIpGeo
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: servletContext
+NAME: Servlet Context
+NS: E
+
+DESCR: Servlets can be imported individually through Servlet Contexts.
+A Servlet Context just specifies the URI for the servlet and the name of the servlet engine.
+You only need to use this when you do not want to import the whole web application
+or you want to protect different servlets with different authorization realms.
+This URI has the same requirements as for a {TBL=javaWebAppContext}.
+END_DESCR
+
+CONT: expuri servletEngine extraHeaders allowOverride realm authName required
+accessAllowed accessDenied extAuthorizer
+addDefaultCharset defaultCharsetCustomized
+cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
+enableIpGeo pagespeedEnabled pagespeedParams
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: servletContext
+NAME: Servlet Context
+NS: O
+
+DESCR: Servlets can be imported individually through Servlet Contexts.
+A Servlet Context just specifies the URI for the servlet and the name of the servlet engine.
+You only need to use this when you do not want to import the whole web application
+or you want to protect different servlets with different authorization realms.
+This URI has the same requirements as for a {TBL=javaWebAppContext}.
+END_DESCR
+
+CONT: expuri servletEngine extraHeaders realm authName required
+accessAllowed accessDenied extAuthorizer
+addDefaultCharset defaultCharsetCustomized
+enableIpGeo
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: fcgiContext
+NAME: FastCGI Context
+NS: E
+
+DESCR: FastCGI applications cannot be used directly. A FastCGI application must be either configured as
+a script handler or mapped to a URL through FastCGI context. A FastCGI context will
+associate a URI with a FastCGI application.
+END_DESCR
+
+CONT: expuri fcgiapp extraHeaders allowOverride
+realm authName required accessAllowed accessDenied extAuthorizer
+addDefaultCharset defaultCharsetCustomized
+cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
+enableIpGeo pagespeedEnabled pagespeedParams
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: fcgiContext
+NAME: FastCGI Context
+NS: O
+
+DESCR: FastCGI applications cannot be used directly. A FastCGI application must be either configured as
+a script handler or mapped to a URL through FastCGI context. A FastCGI context will
+associate a URI with a FastCGI application.
+END_DESCR
+
+CONT: expuri fcgiapp extraHeaders
+realm authName required accessAllowed accessDenied extAuthorizer
+addDefaultCharset defaultCharsetCustomized
+enableIpGeo
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: lsapiContext
+NAME: LiteSpeed SAPI Context
+NS: E
+
+DESCR: External applications cannot be used directly. They must be either configured as
+a script handler or mapped to a URL through a context. An LiteSpeed SAPI Context will
+associate a URI with an LSAPI (LiteSpeed Server Application Programming Interface) application.
+Currently PHP, Ruby and Python have LSAPI modules. LSAPI, as it is developed specifically for
+LiteSpeed web server, is the most efficient way to communicate with LiteSpeed web server.
+END_DESCR
+
+CONT: expuri lsapiapp extraHeaders allowOverride
+realm authName required accessAllowed accessDenied extAuthorizer
+addDefaultCharset defaultCharsetCustomized
+cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
+enableIpGeo pagespeedEnabled pagespeedParams
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: lsapiContext
+NAME: LiteSpeed SAPI Context
+NS: O
+
+DESCR: External applications cannot be used directly. They must be either configured as
+a script handler or mapped to a URL through a context. An LiteSpeed SAPI Context will
+associate a URI with an LSAPI (LiteSpeed Server Application Programming Interface) application.
+Currently PHP, Ruby and Python have LSAPI modules. LSAPI, as it is developed specifically for
+LiteSpeed web server, is the most efficient way to communicate with LiteSpeed web server.
+END_DESCR
+
+CONT: expuri lsapiapp extraHeaders
+realm authName required accessAllowed accessDenied extAuthorizer
+addDefaultCharset defaultCharsetCustomized
+enableIpGeo
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: proxyContext
+NAME: Proxy Context
+NS: E
+
+DESCR: A Proxy Context enables this virtual host as a transparent reverse
+proxy server. This proxy server can run in front of any web
+servers or application servers that support HTTP protocol. The External
+web server that this virtual host proxies for  has to be defined in {PAGE=ExtApp_Help}
+before you can set up a Proxy Context.
+END_DESCR
+
+CONT: expuri proxyWebServer extraHeaders
+realm authName required accessAllowed accessDenied extAuthorizer
+addDefaultCharset defaultCharsetCustomized
+cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
+enableIpGeo pagespeedEnabled pagespeedParams
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: proxyContext
+NAME: Proxy Context
+NS: O
+
+DESCR: A Proxy Context enables this virtual host as a transparent reverse
+proxy server. This proxy server can run in front of any web
+servers or application servers that support HTTP protocol. The External
+web server that this virtual host proxies for  has to be defined in {PAGE=ExtApp_Help}
+before you can set up a Proxy Context.
+END_DESCR
+
+CONT: expuri proxyWebServer extraHeaders
+realm authName required accessAllowed accessDenied extAuthorizer
+addDefaultCharset defaultCharsetCustomized
+enableIpGeo
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: cgiContext
+NAME: CGI Context
+NS: E
+
+DESCR: A CGI context defines scripts in a particular directory as CGI scripts.
+This directory can be inside or outside of the document root.
+When a file under this directory is requested, the server will always
+try to execute it as a CGI script, no matter if it's executable or not.
+In this way, file content under a CGI Context is always protected and cannot
+be read as static content. It is recommended that you put all your CGI
+scripts in a directory and set up a CGI Context to access them.
+END_DESCR
+
+CONT: expuri cgi_path extraHeaders allowSetUID allowOverride
+realm authName required accessAllowed accessDenied extAuthorizer
+addDefaultCharset defaultCharsetCustomized
+enableRewrite rewriteInherit rewriteBase rewriteRules
+cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:microCache5xx
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
+enableIpGeo pagespeedEnabled pagespeedParams apacheConf
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: cgiContext
+NAME: CGI Context
+NS: O
+
+DESCR: A CGI context defines scripts in a particular directory as CGI scripts.
+This directory can be inside or outside of the document root.
+When a file under this directory is requested, the server will always
+try to execute it as a CGI script, no matter if it's executable or not.
+In this way, file content under a CGI Context is always protected and cannot
+be read as static content. It is recommended that you put all your CGI
+scripts in a directory and set up a CGI Context to access them.
+END_DESCR
+
+CONT: expuri cgi_path extraHeaders allowSetUID
+realm authName required accessAllowed accessDenied extAuthorizer
+addDefaultCharset defaultCharsetCustomized
+enableRewrite rewriteInherit rewriteBase rewriteRules
+enableIpGeo
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: loadBalancerContext
+NAME: Load Balancer Context
+NS: L
+
+DESCR: A Load Balancer Context can be used to forward one URI or a group of URIs to another location.
+The destination URI can be either on the same web site or an absolute URI pointing to another web site.
+END_DESCR
+
+CONT: expuri extCluster extraHeaders realm authName required accessAllowed accessDenied
+cachePolicy:maxCacheObjSize cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
+enableRewrite rewriteInherit rewriteBase rewriteRules addDefaultCharset defaultCharsetCustomized
+enableIpGeo pagespeedEnabled pagespeedParams
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: lbContext
+NAME: Load Balancer Context
+NS: E
+
+DESCR: Like other external applications, load balancer worker applications
+cannot be used directly. They must be mapped to a URL through a context.
+A Load Balancer Context will associate a URI to be load balanced by the load balancer workers.
+END_DESCR
+
+
+CONT: expuri lbapp extraHeaders allowOverride realm authName required
+accessAllowed accessDenied extAuthorizer
+addDefaultCharset defaultCharsetCustomized
+cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
+enableIpGeo pagespeedEnabled pagespeedParams
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: lbContext
+NAME: 负载均衡 Context
+NS: O
+
+DESCR: Like other external applications, load balancer worker applications
+cannot be used directly. They must be mapped to a URL through a context.
+A Load Balancer Context will associate a URI to be load balanced by the load balancer workers.
+END_DESCR
+
+
+CONT: expuri lbapp extraHeaders realm authName required
+accessAllowed accessDenied extAuthorizer
+addDefaultCharset defaultCharsetCustomized
+enableIpGeo
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: redirectContext
+NAME: Redirect Context
+NS: L
+
+DESCR: A Redirect Context can be used to forward one URI or a group of URIs to another location.
+The destination URI can be either on the same web site (internal
+redirect) or an absolute URI pointing to another web site (external redirect).
+END_DESCR
+
+CONT: expuri externalredirect statuscode destinationuri extraHeaders realm authName
+required accessAllowed accessDenied
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: redirectContext
+NAME: Redirect Context
+NS: E
+
+DESCR: A Redirect Context can be used to forward one URI or a group of URIs to another location.
+The destination URI can be either on the same web site (an internal
+redirect) or an absolute URI pointing to another web site (an external redirect).
+END_DESCR
+
+CONT: expuri externalredirect statuscode destinationuri extraHeaders allowOverride realm
+authName required accessAllowed accessDenied extAuthorizer
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: redirectContext
+NAME: 重定向 Context
+NS: O
+
+DESCR: A Redirect Context can be used to forward one URI or a group of URIs to another location.
+The destination URI can be either on the same web site (an internal
+redirect) or an absolute URI pointing to another web site (an external redirect).
+END_DESCR
+
+CONT: expuri externalredirect statuscode destinationuri extraHeaders realm
+authName required accessAllowed accessDenied extAuthorizer
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: railsContext
+NAME: Rack/Rails Context
+NS: E
+
+DESCR: A Rack/Rails Context provides an easy way to configure a Ruby Rack/Rails
+application. To add a Rack/Rails application through a Rack/Rails Context,
+only mounting the URL and the application's root directory is required. There is
+no need to go through all the troubles to define an external application, add a 404 handler,
+and rewrite rules, etc.
+END_DESCR
+
+CONT: expuri rails_location railsEnv maxConns env enableExpires
+expiresDefault expiresByType extraHeaders
+indexFiles autoIndex allowOverride
+realm authName required accessAllowed accessDenied extAuthorizer
+addDefaultCharset defaultCharsetCustomized
+enableRewrite rewriteInherit rewriteBase rewriteRules
+cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
+enableIpGeo pagespeedEnabled pagespeedParams
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: appServerContext
+NAME: App Server Context
+NS: E
+
+DESCR: An App Server Context provides an easy way to configure a Ruby Rack/Rails, WSGI, or Node.js application. To add
+a an application through an App Server Context, only mounting the URL and the application's root directory is required.
+There is no need to go through all the trouble to define an external application, add a 404 handler, and rewrite rules, etc.
+END_DESCR
+
+CONT: expuri as_location binPath appType as_startupfile appserverEnv maxConns env enableExpires
+expiresDefault expiresByType extraHeaders
+indexFiles autoIndex
+allowOverride realm authName required accessAllowed accessDenied extAuthorizer
+enableRewrite rewriteInherit rewriteBase rewriteRules
+checkPublicCache checkPrivateCache respectCacheable cachePolicy:maxCacheObjSize cachePolicy:maxStaleAge
+cachePolicy:cacheKeyMod cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:enablePrivateCache
+cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
+addDefaultCharset defaultCharsetCustomized
+enableIpGeo
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: appServerContext
+NAME: App Server Context
+NS: O
+
+DESCR: An App Server Context provides an easy way to configure a Ruby Rack/Rails, WSGI, or Node.js application. To add
+a an application through an App Server Context, only mounting the URL and the application's root directory is required.
+There is no need to go through all the trouble to define an external application, add a 404 handler, and rewrite rules, etc.
+END_DESCR
+
+CONT: expuri as_location binPath appType as_startupfile appserverEnv maxConns env enableExpires
+expiresDefault expiresByType extraHeaders
+indexFiles autoIndex
+realm authName required accessAllowed accessDenied extAuthorizer
+enableRewrite rewriteInherit rewriteBase rewriteRules
+addDefaultCharset defaultCharsetCustomized
+enableIpGeo
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: moduleContext
+NAME: Module Handler Context
+NS: O
+
+DESCR: A module handler context will associate a URI with a registered module.
+Modules need to be registered at Server Module Configuration tab.
+END_DESCR
+
+CONT: expuri moduleNameSel extraHeaders
+realm authName required accessAllowed accessDenied extAuthorizer
+addDefaultCharset defaultCharsetCustomized
+enableIpGeo
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: Context_Help
+NAME: Context
+NS: L
+
+DESCR: A Context is a set of resources that can be located using
+URLs with a common parent URL. The common parent URL is the ID of the context.
+A web site is comprised of contexts, for example, "/" is the root Context mapped to the
+document root of a web site; "/cgi-bin/" is the context dedicated to CGI applications.
+If you think of your website as a URL tree, then every branch is a context which can be
+identified by the URL of the branching node. A context should be explicitly defined for the
+following purposes:
+<ul>
+  <li>To use another cluster other than the default one.</li>
+  <li>To redirect requests to another location.</li>
+</ul>
+END_DESCR
+
+CONT: newContext
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+[PAGE]
+ID: Context_Help
+NAME: Context
+NS: E
+
+DESCR: In LiteSpeed Web Server terminology, a "context" is a virtual location, a common parent URL,
+ that identifies a group of resources. Contexts can be thought of as different directories
+ in your website's directory tree. For example, "/" is the root context mapped to the
+document root of a website. "/cgi-bin/" is a context farther up on the tree, dedicated
+to the CGI applications for this site. A context can be explicitly defined in
+LiteSpeed's WebAdmin console for the following purposes:
+
+<ul>
+  <li>To make a file system outside of the document root accessible.</li>
+  <li>To block access to certain resources.</li>
+  <li>To setup user-level authentication for certain resources.</li>
+  <li>To create mount points for external applications.</li>
+  <li>To redirect requests to another location.</li>
+</ul>
+END_DESCR
+
+CONT: newContext
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+
+[PAGE]
+ID: Context_Help
+NAME: Context
+NS: O
+
+DESCR: In LiteSpeed Web Server terminology, a "context" is a virtual location, a common parent URL,
+ that identifies a group of resources. Contexts can be thought of as different directories
+ in your website's directory tree. For example, "/" is the root context mapped to the
+document root of a website. "/cgi-bin/" is a context farther up on the tree, dedicated
+to the CGI applications for this site. A context can be explicitly defined in
+LiteSpeed's WebAdmin console for the following purposes:
+
+<ul>
+  <li>To make a file system outside of the document root accessible.</li>
+  <li>To block access to certain resources.</li>
+  <li>To setup user-level authentication for certain resources.</li>
+  <li>To create mount points for external applications.</li>
+  <li>To redirect requests to another location.</li>
+</ul>
+END_DESCR
+
+CONT: newContext
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+[PAGE]
+ID: Static_Context
+NAME: Static Context
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: generalContext
+END_CONT
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: Java_Web_App_Context
+NAME: Java Web App Context
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: javaWebAppContext
+END_CONT
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: Servlet_Context
+NAME: Servlet Context
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: servletContext
+END_CONT
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: FCGI_Context
+NAME: Fast CGI Context
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: fcgiContext
+END_CONT
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: LSAPI_Context
+NAME: LiteSpeed SAPI Context
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: lsapiContext
+END_CONT
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: Proxy_Context
+NAME: Proxy Context
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: proxyContext
+END_CONT
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: CGI_Context
+NAME: CGI Context
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: cgiContext
+END_CONT
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: LB_Context
+NAME: Load Balancer Context
+NS: L
+
+DESCR:
+END_DESCR
+
+CONT: loadBalancerContext
+END_CONT
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: LB_Context
+NAME: Load Balancer Context
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: lbContext
+END_CONT
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: Redirect_Context
+NAME: Redirect Context
+NS: LEO
+
+DESCR:
+END_DESCR
+
+CONT: redirectContext
+END_CONT
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: Rails_Context
+NAME: Rack/Rails Context
+NS: E
+
+DESCR:
+END_DESCR
+
+CONT: railsContext
+END_CONT
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: App_Server_Context
+NAME: App Server Context
+NS:EO
+
+DESCR:
+END_DESCR
+
+CONT: appServerContext
+END_CONT
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: Module_Context
+NAME: Module Handler Context
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: moduleContext
+END_CONT
+
+[END_PAGE]
+
+
+[END_HELPDOC]

@@ -1,0 +1,191 @@
+[HELPDOC]
+
+
+########## PageSpeed Module Settings ##########
+
+
+[ITEM]
+ID: pagespeedActivate
+NAME: Activate PageSpeed
+NS: LE
+REQUIRED:
+APPLY: 3
+SINCE: 
+SEE_ALSO:
+
+DESCR: Choose whether or not to activate PageSpeed capabilites. 
+END_DESCR
+
+EDITTIP: 
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: pagespeedEnabled
+NAME: Enable PageSpeed Optimization
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE: 
+SEE_ALSO:
+
+DESCR: Choose whether or not to enable PageSpeed optimization.
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: This can be set at the Server Level and overridden at the Virtual Host Level.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: pagespeedEnabled
+NAME: Enable PageSpeed Optimization
+NS: E
+REQUIRED:
+APPLY: 3
+SINCE: 
+SEE_ALSO:
+
+DESCR: Choose whether or not to enable PageSpeed optimization.
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: This can be set at the Server Level and overridden at the Virtual Host and Context Levels. Context Level settings will 
+override Virtual Host Level settings.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: pagespeedParams
+NAME: PageSpeed Settings
+NS: LE
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Set parameters using Google default filter sets.
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE:<br />
+pagespeed FileCachePath /tmp/lshttpd/pagespeed;
+
+pagespeed RewriteLevel CoreFilters;
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+########### Tables ############
+
+
+[TBL]
+ID: Mod_PageSpeed
+NAME: PageSpeed Settings
+NS: LE
+
+DESCR: 
+END_DESCR
+
+CONT: pagespeedActivate pagespeedEnabled pagespeedParams
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: VHMod_PageSpeed
+NAME: PageSpeed Settings
+NS: LE
+
+DESCR:
+END_DESCR
+
+CONT: pagespeedEnabled pagespeedParams
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+########### Pages ############
+
+
+[PAGE]
+ID: PageSpeed_Config
+NAME: PageSpeed Config
+NS: LE
+
+DESCR:
+END_DESCR
+
+CONT: Mod_PageSpeed
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+
+[PAGE]
+ID: VHPageSpeed_Config
+NAME: Virtual Host PageSpeed Config
+NS: LE
+
+DESCR:
+END_DESCR
+
+CONT: VHMod_PageSpeed
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+[END_HELPDOC]

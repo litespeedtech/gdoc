@@ -1,0 +1,1047 @@
+[HELPDOC]
+
+
+############# WordPress Brute Force Attack Protection #############
+
+
+# See Server_Security.hdoc #
+
+
+
+############# Web Application Firewall (WAF) #############
+
+
+# See WAF.hdoc #
+
+
+
+############# WAF Rule Set #############
+
+
+# See WAF.hdoc #
+
+
+
+############# Bubblewrap Container #############
+
+
+# See Server_Security.hdoc #
+
+
+
+############# Hotlink Protection #############
+
+
+[ITEM]
+ID: enableHotlinkCtrl
+NAME: 启用盗链防护
+REQUIRED: 1
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定是否启用防盗链。
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: suffixes
+NAME: 后缀
+REQUIRED: 1
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 过列举文件后缀指定哪些类型的文件将启用防盗链保护
+END_DESCR
+
+SYNTAX: 用逗号分隔的列表。“.”符号是被禁止的
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: redirectUri
+NAME: 重定向URL
+REQUIRED: 0
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 当一个盗链行为被检测到时将这个用户重定向至一个特定的URL。
+你可以重定向用户到一个图片或者一个页面来告知盗链是禁止的。
+如果不指定这个地址，系统将自动返回{val}403禁止访问{/}
+
+EDITTIP: 如果设置了“重定向URL”，则尝试将其重定向到指定的URL； 否则，将返回拒绝访问状态码。
+END_EDITTIP
+
+SYNTAX: Absolute URL
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: allowDirectAccess
+NAME: 允许直接访问
+REQUIRED: 0
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定是否允许没有跳转的直接访问。
+来源地址标识了链接到当前页面的前一个网址。
+当用户在地址栏直接输入网址或使用类似“保存目标为”的功能时，HTTP请求中就不包含来源地址。
+
+EDITTIP: 如果希望在没有来源地址的情况下直接访问，请将 "允许直接访问 "设置为 "是"。例如，当用户在浏览器中输入url时或某些禁止传递Referer标头的代理服务器,
+在HTTP头中就不会有来源地址.(建议允许直接访问)
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: onlySelf
+NAME: 仅限自我跳转
+REQUIRED: 0
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR:  特定的网站可以只允许从自己跳转到自己。
+当设定为{val}Yes{/}时，
+{ITEM=allowedHosts}将不会生效，且不会有其他网站可以访问受保护的文件。
+如果你希望在当前网站停靠多个域名时将非常方便。
+END_DESCR
+
+EDITTIP: 将“仅限自我跳转”设置为“是”将仅允许来自同一网域的链接，而无需指定“允许的域”。 
+在停放多个域时更方便。
+END_EDITTIP
+
+EDITTIP: 如果“仅限自我跳转”设置为“否”，则必须指定“允许的域”。
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: allowedHosts
+NAME: 允许的域名
+REQUIRED: 1
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定哪些网站可以链接到受保护的内容。
+END_DESCR
+
+SYNTAX: 逗号分隔的域名列表。
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: matchedHosts
+NAME: 正则表达式匹配域名
+REQUIRED: 0
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 特定的网站可以通过正则表达式连接受保护的内容。
+正则表达式将仅匹配域名而不是完整的URL。
+
+END_DESCR
+
+SYNTAX: Regular expressions
+END_SYNTAX
+
+EXAMPLE: ^.*\.mydomain\.com$
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+############# reCAPTCHA Protection #############
+
+
+[ITEM]
+ID: recaptchaVhReqLimit
+NAME: 并发请求限制
+NS: LO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 激活reCAPTCHA所需的并发请求数。
+当并发请求数超过该值时将启用reCAPTCHA，
+默认值为{val}15000{/}.
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+############# Access Control #############
+
+
+
+############# Realms List #############
+
+
+
+############# New Realm #############
+
+
+[ITEM]
+ID: realmType
+NAME: 数据库类型
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定Realm认证是如何存储用户/组数据信息的。
+目前，用户/组数据可以存储在展平文件或LDAP服务器上。
+END_DESCR
+
+EDITTIP: Currently password file and LDAP are supported for user DB and group DB.
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## Password File Realm Definition ##########
+
+
+[ITEM]
+ID: realmName
+NAME: 域名称
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定授权域的唯一名称。
+END_DESCR
+
+EDITTIP: 在此处定义您的HT访问域，可将其用于contexts。
+END_EDITTIP
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: userDBLocation
+NAME: 用户数据库地址
+NS: LE
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:  {ITEM=GroupDBLocation}, {ITEM=userDB_attrPasswd}, {ITEM=userDB_attrMemberOf}
+
+DESCR: 指定用户数据库的地址。
+对于类型为{val}Password File{/}的数据库，应设置为包含用户名/密码的展平文件的路径。
+您可以在WebAdmin控制台中点击文件名来进行修改。
+
+
+用户文件的每一行包含一个用户名，后面加上冒号，在跟上加密的密码，后面可选择添加冒号和用户所属组名。
+多个组名通过逗号分隔。如果组信息在用户数据库中指定，那么组数据库将不被检查。
+
+
+
+Example:<blockquote><code>john:HZ.U8kgjnMOHo:admin,user</code></blockquote>
+
+
+For DB type {val}LDAP{/}, it is the LDAP URL to query for the user
+information. For each valid user, the authentication data stored in the LDAP
+server should contain at least the user id and user password. One and only
+one record should be returned in the LDAP search request based on the
+URL and username received in the HTTP Authentication header. "$k"
+must be specified in the filter part of the URL and it will be
+replaced with the username. The user password attribute
+must be returned in the query result. The attribute name of the user password
+is specified by {ITEM=userDB_attrPasswd}. Group information can be
+optionally specified by the {ITEM=userDB_attrMemberOf}.
+
+
+Example: At minimum, a user can be defined in LDAP with object
+classes: uidObject, simpleSecurityObject and organizationalRole. The
+following URL could be used:
+
+
+<blockquote><code>ldap://localhost/ou=UserDB,dc=example,dc=com???(&(objectClass=*)(uid=$k))</code></blockquote>
+END_DESCR
+
+SYNTAX: Path to user DB file or LDAP URL (RFC 2255).
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [S] It is recommended to store user password files outside of the
+document tree. If a user password file has to be placed inside document tree,
+simply name it with a leading ".ht" like {val}.htuser{/} to prevent it being
+served as a static file.  LiteSpeed Web Server does not serve files prefixed
+with ".ht".
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: userDBLocation
+NAME: 用户数据库地址
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:  {ITEM=GroupDBLocation}, {ITEM=userDB_attrPasswd}, {ITEM=userDB_attrMemberOf}
+
+DESCR: 指定用户数据库的位置。 建议将数据库存储在$ SERVER_ROOT / conf / vhosts / $ VH_NAME /目录下。
+
+
+对于类型为{val}Password File{/}的数据库，应设置为包含用户名/密码的展平文件的路径。
+您可以在WebAdmin控制台中点击文件名来进行修改。
+
+用户文件的每一行都包含一个用户名，后跟一个冒号，然后是一个crypt()加密的密码，后面还可以跟一个冒号和用户所属的组。多个组名用逗号隔开。
+
+
+Example:<blockquote><code>john:HZ.U8kgjnMOHo:admin,user</code></blockquote>
+END_DESCR
+
+EDITTIP: 建议将数据库存储在
+$SERVER_ROOT/conf/vhosts/$VH_NAME/目录.
+END_EDITTIP
+
+SYNTAX: Path to user DB file.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: userDBMaxCacheSize
+NAME: 用户数据库最大缓存大小
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定用户数据库的最大缓存大小。
+最近访问的用户认证信息会被缓存在内存中以提供最佳性能。
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [性能建议] 由于更大的缓存会消耗更多的内存，更高的值可能会也可能不会提供更好的性能。
+请根据您的用户数据库大小和网站使用情况来设定一个合适的大小。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: userDBCacheTimeout
+NAME: 用户数据库缓存超时 (secs)
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定多久检查一次后端用户数据库变更。
+在缓存中每个条目都有一个时间戳。
+当缓存日期超过指定的超时时间时，将检查后端数据库是否有变化。
+如果没有，时间戳将被重置为当前时间，否则会将新的数据载入。
+服务器重载和平滑重启会立即清除缓存。
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [性能建议] 如果后端数据库不经常发生变更，设置较长的缓存时间来获得更好的性能。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: GroupDBLocation
+NAME: 组数据库位置
+NS: LE
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=userDBLocation}, Context {ITEM=Context_Help#required}, {ITEM=groupDB_attrGroupMember}
+
+DESCR: Specifies the location of the group database.
+
+
+Group information can be set either in the user database or in this
+standalone group DB. For user authentication, the user DB will be checked
+first. If the user DB also contains group information, then the group DB will
+not be checked.
+
+
+For the DB type {val}Password File{/}, the group DB location should be the path to
+the flat file containing group definitions. You can edit this file through the
+WebAdmin console by clicking on the filename.
+
+
+Each line of a group file should contain a groupname followed by a colon,
+followed by space delimited group of usernames. Example:
+
+<blockquote><code>testgroup: user1 user2 user3</code></blockquote>
+
+
+For the DB type {val}LDAP{/}, the group DB location should be the LDAP URL to query
+for group information. For each valid group, one and only
+one record should be returned in the LDAP search request based on
+this URL and the group name specified in {ITEM=Redirect_Context#required}. "$k"
+must be specified in the filter part of the URL and it will be
+replaced with the group name. The name of the attribute that
+specifies members in this group
+is specified by the {ITEM=groupDB_attrGroupMember}.
+
+
+Example: If objectClass posixGroup is being used to store group
+information. The following URL could be used:
+
+<blockquote><code>ldap://localhost/ou=GroupDB,dc=example,dc=com???(&(objectClass=*)(cn=$k))</code></blockquote>
+END_DESCR
+
+SYNTAX: file3
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [S] It is recommended to store a group file outside the document tree.
+If it has to be placed inside document tree, simply name it with a leading
+".ht" like {val}.htgroup{/}, to prevent the file being served as a static file.
+LiteSpeed Web Server does not serve files prefixed with ".ht".
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: GroupDBLocation
+NAME: 组数据库位置
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=userDBLocation}, Context {ITEM=Context_Help#required}, {ITEM=groupDB_attrGroupMember}
+
+DESCR: 指定组数据库的位置。
+
+组信息可以在用户数据库或在这个独立的组数据库中设置。
+用于用户验证时，将首先检查用户数据库。
+如果用户数据库同样包含组信息，组数据库将不被检查。
+
+对于类型为{val}Password File{/}的数据库，
+组数据库地址应当是到达包含有组定义的平面文件的路径。
+你可以在WebAmin控制台中点击文件名来修改这个设置。
+
+每一行组文件应当包含一个组名，
+组名后面跟一个冒号，并在冒号后面使用空格来分割组中的用户名。
+例如: <blockquote><code>testgroup: user1 user2 user3</code></blockquote>
+END_DESCR
+
+EDITTIP: 建议将数据库存储在
+$SERVER_ROOT/conf/vhosts/$VH_NAME/目录。
+END_EDITTIP
+
+SYNTAX: file3
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: groupDBMaxCacheSize
+NAME: 组数据库最大缓存大小
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=userDBMaxCacheSize}
+
+DESCR: 指定组数据库的最大缓存大小。
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:  [性能建议] 由于更大的缓存会消耗更多的内存，
+更高的值可能会也可能不会提供更好的性能。
+请根据你的用户数据库大小和网站使用情况来设置合适的大小。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: groupDBCacheTimeout
+NAME: 组数据库缓存超时时长(secs)
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=userDBCacheTimeout}
+
+DESCR: 指定多长时间后台组数据库将检查一次变更。
+查看更多详细信息查看{ITEM=userDBCacheTimeout}。
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+########## LDAP Realm Definition ##########
+
+
+[ITEM]
+ID: userDB_attrPasswd
+NAME: 密码属性名
+REQUIRED:
+APPLY: 2
+SINCE:
+SEE_ALSO:
+
+DESCR: 在LDAP服务器中指定用户记录的密码属性名。默认值为{val}userPassword{/}。
+END_DESCR
+
+SYNTAX: string
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: userDB_attrMemberOf
+NAME: Member-of 属性
+REQUIRED:
+APPLY: 2
+SINCE:
+SEE_ALSO:
+
+DESCR: 为保存在LDAP服务器中的用户记录设定“Member-of”属性名称。
+默认值为{val}memberOf{/}。"Member-of"属性可以用于指定用户所属的组名。
+END_DESCR
+
+SYNTAX: string
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: groupDB_attrGroupMember
+NAME: 组成员属性名
+REQUIRED:
+APPLY: 2
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定保存在LDAP服务器中组记录的"成员"属性名称。默认值是{val}memberUid{/}。
+END_DESCR
+
+SYNTAX: string
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: LDAPBindDN
+NAME: LDAP绑定DN
+REQUIRED:
+APPLY: 2
+SINCE:
+SEE_ALSO: {ITEM=LDAPBindPasswd}
+
+DESCR: 指定一个DN用于绑定到服务器。如果LDAP服务器需要验证，则必须指定BN和密码。如果
+未指定，匿名绑定将被使用。
+END_DESCR
+
+SYNTAX: string
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: LDAPBindPasswd
+NAME: LDAP绑定密码
+REQUIRED:
+APPLY: 2
+SINCE:
+SEE_ALSO: {ITEM=LDAPBindDN}
+
+DESCR: 指定用于绑定到服务器的密码。如果LDAP服务器需要验证，则必须指定BN和密码。
+END_DESCR
+
+SYNTAX: string
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+################ Tables ################
+
+
+[TBL]
+ID: vhBandwidthThrottlingControl
+NAME: VHost Bandwidth Throttling Control
+NS: L
+
+DESCR:
+END_DESCR
+
+CONT: totalBandwidth
+END_CONT
+
+[END_TBL]
+
+
+
+[TBL]
+ID: VHlsrecaptcha
+NAME: reCAPTCHA Protection
+NS: L
+
+DESCR: reCAPTCHA Protection is a service provided as a way to mitigate heavy
+server load. reCAPTCHA Protection will activate after one of the below
+situations is hit. Once active, all requests by NON TRUSTED(as configured)
+clients will be redirected to a reCAPTCHA validation page. After validation,
+the client will be redirected to their desired page.
+
+
+The following situations will activate reCAPTCHA Protection:
+
+1. The server or vhost concurrent requests count passes the configured
+connection limit.
+
+2. Anti-DDoS is enabled and a client is hitting a url in a suspicious manner.
+The client will redirect to reCAPTCHA first instead of getting denied when
+triggered.
+
+3. WordPress Brute Force Attack Protection is enabled and action is set to
+'CAPTCHA or Drop’. When a brute force attack is detected, the client will
+redirect to reCAPTCHA first. After max tries is reached, the connection will be
+dropped, as per the ‘drop’ option.
+
+4. WordPress Brute Force Attack Protection is enabled and action is set to
+'WP Login CAPTCHA Full Protection'. The client will always redirect to
+reCAPTCHA first.
+
+5. A new rewrite rule environment is provided to activate reCAPTCHA via
+RewriteRules. 'verifycaptcha' can be set to redirect clients to reCAPTCHA. A
+special value ': deny' can be set to deny the client if it failed too many
+times. For example, [E=verifycaptcha] will always redirect to reCAPTCHA until
+verified. [E=verifycaptcha: deny] will redirect to reCAPTCHA until Max Tries is
+hit, after which the client will be denied.
+END_DESCR
+
+CONT: enableRecaptcha recaptchaSiteKey recaptchaSecretKey recaptchaType
+recaptchaMaxTries recaptchaVhReqLimit
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: VHlsrecaptcha
+NAME: reCAPTCHA Protection
+NS: E
+
+DESCR: reCAPTCHA Protection is a service provided as a way to mitigate heavy
+server load. reCAPTCHA Protection will activate after one of the below
+situations is hit. Once active, all requests by NON TRUSTED(as configured)
+clients will be redirected to a reCAPTCHA validation page. After validation,
+the client will be redirected to their desired page.
+
+
+The following situations will activate reCAPTCHA Protection:
+
+1. The server or vhost concurrent requests count passes the configured
+connection limit.
+
+2. Anti-DDoS is enabled and a client is hitting a url in a suspicious manner.
+The client will redirect to reCAPTCHA first instead of getting denied when
+triggered.
+
+3. WordPress Brute Force Attack Protection is enabled and action is set to
+'CAPTCHA or Drop’. When a brute force attack is detected, the client will
+redirect to reCAPTCHA first. After max tries is reached, the connection will be
+dropped, as per the ‘drop’ option.
+
+4. WordPress Brute Force Attack Protection is enabled and action is set to
+'WP Login CAPTCHA Full Protection'. The client will always redirect to
+reCAPTCHA first.
+
+5. A new rewrite rule environment is provided to activate reCAPTCHA via
+RewriteRules. 'verifycaptcha' can be set to redirect clients to reCAPTCHA. A
+special value ': deny' can be set to deny the client if it failed too many
+times. For example, [E=verifycaptcha] will always redirect to reCAPTCHA until
+verified. [E=verifycaptcha: deny] will redirect to reCAPTCHA until Max Tries is
+hit, after which the client will be denied.
+END_DESCR
+
+CONT: recaptchaSensitivity
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: VHlsrecaptcha
+NAME: reCAPTCHA 保护
+NS: O
+
+DESCR: reCAPTCHA 保护是一种减轻服务器负载的服务。在下列情况发生后，reCAPTCHA保护将激活
+激活后,所以不受信任的客户端(可自定)发出的请求将被重定向到reCAPTCHA验证页面
+验证完成后客户端将被重定向到其所需的页面
+
+
+下列情况将启用reCAPTCHA保护:
+1. 服务器或虚拟主机并发请求计数超过连接限制。
+
+2. 启用了Anti-DDoS，并且客户端以可疑的方式访问了URL。
+客户端将首先重定向到reCAPTCHA，而不是在触发时被拒绝。
+
+3. 提供了新的重写规则，以通过重写规则激活reCAPTCHA。可以设置“verifycaptcha”将客户端重定向到reCAPTCHA。可以设置一个特殊值':deny'以在客户端失败太多次时拒绝它。例如，[E=verifycaptcha]将始终重定向到reCAPTCHA，直到通过验证。 [E=verifycaptcha: deny]将重定向到reCAPTCHA，如果客户端达到最大尝试次数,将被拒绝。
+END_DESCR
+
+CONT: enableRecaptcha recaptchaSiteKey recaptchaSecretKey recaptchaType
+recaptchaMaxTries recaptchaVhReqLimit
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: bubbleWrapContainerTbl
+NAME: Bubblewrap Container
+NS: E
+SINCE: ???
+
+DESCR:
+END_DESCR
+
+CONT: bubbleWrap
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: bubbleWrapContainerTbl
+NAME: Bubblewrap Container
+NS: O
+SINCE: ???
+
+DESCR:
+END_DESCR
+
+CONT: bubbleWrap
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: vhHotlink
+NAME: Hotlink Protection
+NS: E
+
+DESCR: Hotlinks are requests made from an external website to
+files on your own website often referred to as "leeching". This practice
+introduces additional bandwidth usage that you should not be responsible for.
+
+
+LiteSpeed web server can prevent others from hotlinking to content on
+your web site by checking the Referer header within an HTTP request.
+If the Referer header does not match your website, the request will be denied.
+END_DESCR
+
+CONT: enableHotlinkCtrl suffixes redirectUri allowDirectAccess
+onlySelf allowedHosts matchedHosts
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: realms
+NAME: Authorization Realms
+NS: LE
+
+DESCR: Lists all authorization realms for this virtual host.
+Authorization realms are used to block unauthorized users from accessing protected web pages.
+A realm is a user directory containing usernames and passwords with optional
+group classifications. Authorization is performed at the context level.
+Because different contexts can share the same realm (user database), realms are
+defined separately from the contexts that use them.
+You can refer to a realm by these names in a contexts configuration.
+END_DESCR
+
+CONT: realmName realmType userDBLocation userDB_attrPasswd
+userDB_attrMemberOf userDBMaxCacheSize userDBCacheTimeout
+GroupDBLocation groupDB_attrGroupMember groupDBMaxCacheSize
+groupDBCacheTimeout LDAPBindDN LDAPBindPasswd
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+[TBL]
+ID: realms
+NAME: Realms授权
+NS: O
+
+DESCR: 列出这个虚拟主机的所有Realm。
+Realm授权可以阻止未授权用户访问受保护的网页。
+Realm是一个用户名录，其中包含了用户名、密码、分组（可选）。授权是在context级别执行的。不同的context可以共享相同的Realm（用户数据库），所以Realm是与调用它的context分开定义的。你可以通过context配置中的名称识别Realm。
+END_DESCR
+
+CONT: realmName userDBLocation userDBMaxCacheSize userDBCacheTimeout
+GroupDBLocation groupDBMaxCacheSize
+groupDBCacheTimeout
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: VHSecurity_Help
+NAME: Virtual Host Security
+NS: L
+
+DESCR:
+END_DESCR
+
+CONT: wpProtect vhBandwidthThrottlingControl tpSecThrottle VHlsrecaptcha accessControl realms VHreqCensorship
+reqCensorshipRule
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+
+[PAGE]
+ID: VHSecurity_Help
+NAME: Virtual Host Security
+NS: E
+
+DESCR:
+END_DESCR
+
+CONT: wpProtect VHreqCensorship VHreqCensorship reqCensorshipRule VHlsrecaptcha bubbleWrapContainerTbl
+vhHotlink accessControl realms
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+
+[PAGE]
+ID: VHSecurity_Help
+NAME: 虚拟主机安全
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: VHlsrecaptcha bubbleWrapContainerTbl accessControl realms
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+[END_HELPDOC]

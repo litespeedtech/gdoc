@@ -1,0 +1,86 @@
+[HELPDOC]
+
+
+
+############# Tables #############
+
+
+[TBL]
+ID: tpSecFile
+NAME: 文件访问控制
+
+DESCR: 
+END_DESCR
+
+CONT: allowSymbolLink enableScript restrained
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: tpSecThrottle
+NAME: 每个客户端的带宽限制
+NS: EO
+
+DESCR: 
+END_DESCR
+
+CONT: staticReqPerSec dynReqPerSec outBandwidth inBandwidth
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: tpSecThrottle
+NAME: Per Client Throttling Control
+NS: L
+
+DESCR: 
+END_DESCR
+
+CONT: dynReqPerSec outBandwidth inBandwidth 
+END_CONT
+
+SEE_ALSO: 
+[END_TBL]
+
+
+
+[TBL]
+ID: tpSecCGI
+NAME: External Application Security
+NS: E
+
+DESCR:
+END_DESCR
+
+CONT: setUidMode suexecUser suexecGroup chrootMode chrootPath
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: tpSecCGI
+NAME: 外部应用安全
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: setUidMode suexecUser suexecGroup
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+[HELPDOC]
