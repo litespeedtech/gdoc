@@ -1,6 +1,6 @@
 <h1>Web Console</h1>
 
-<p>The Web Console section controls the settings for the WebAdmin Console. 其中一些设置包括:</p>
+<p>Web控制台可以控制一些Web控制台的设置. 其中包括:</p>
 <ul>
 <li>会话超时</li>
 <li>日志设定</li>
