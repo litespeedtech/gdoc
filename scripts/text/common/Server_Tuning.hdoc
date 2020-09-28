@@ -2526,6 +2526,101 @@ END_TIPS
 
 
 
+[ITEM]
+ID: quicEnableDPLPMTUD
+NAME: Enable DPLPMTUD
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Enable Datagram Packetization Layer Path Maximum Transmission Unit Discovery (DPLPMTUD).
+
+
+<b><a href="https://tools.ietf.org/html/rfc8899">Background on DPLPMTUD (RFC 8899)</a></b>
+
+
+Default value: Yes
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicBasePLPMTU
+NAME: PLPMTU Base Value
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: The maximum value of PLPMTU (maximum packet size without headers) in bytes that QUIC will use by default.
+Setting this to {val}0{/} will allow QUIC to pick the size.
+
+
+This setting should be set lower than {ITEM=quicMaxPLPMTU}.
+
+
+Default value: 0
+END_DESCR
+
+SYNTAX: 0 or integer number between 1200 and 65527
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicMaxPLPMTU
+NAME: PLPMTU Max Value
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: The PLPMTU (maximum packet size without headers) probe upper limit in bytes. This setting is used to limit the
+"maximum packet size" in the DPLPMTUD search space.  Setting this to {val}0{/} will allow QUIC to pick the size
+(By default LSQUIC assumes that MTU is 1,500 bytes (Ethernet)).
+
+
+This setting should be set higher than {ITEM=quicBasePLPMTU}.
+
+Default value: 0
+END_DESCR
+
+SYNTAX: 0 or integer number between 1200 and 65527
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# Tables #############
 
 
@@ -2721,7 +2816,7 @@ END_DESCR
 
 CONT: quicEnable quicShmDir quicVersions quicCongestionCtrl quicCfcw quicMaxCfcw quicSfcw quicMaxSfcw
 quicMaxStreams quicHandshakeTimeout quicIdleTimeout quicDosMitigationDuration quicBadPacketRate quicHskNewRate
-quicHskTimeoutRate
+quicHskTimeoutRate quicEnableDPLPMTUD quicBasePLPMTU quicMaxPLPMTU
 END_CONT
 
 SEE_ALSO:
@@ -2738,7 +2833,7 @@ DESCR:
 END_DESCR
 
 CONT: quicEnable quicShmDir quicVersions quicCongestionCtrl quicCfcw quicMaxCfcw quicSfcw quicMaxSfcw
-quicMaxStreams quicHandshakeTimeout quicIdleTimeout
+quicMaxStreams quicHandshakeTimeout quicIdleTimeout quicEnableDPLPMTUD quicBasePLPMTU quicMaxPLPMTU
 END_CONT
 
 SEE_ALSO:
