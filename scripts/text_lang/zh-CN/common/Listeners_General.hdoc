@@ -65,15 +65,60 @@ END_TIPS
 [ITEM]
 ID: listenerIP
 NAME: IP地址
+NS: LE
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: 指定此侦听器的IP。 列出了所有可用的IP地址。
-IPv6地址包含在“ []”中。 要监听所有IPv4 IP地址，请使用
-{val}ANY{/}. 要侦听所有IPv4和IPv6 IP地址,请使用{val}[ANY]{/}. 
-clients,  为了同时为IPv4和IPv6客户端提供服务，应使用IPv4映射的IPv6地址代替纯IPv4地址。 IPv4映射的IPv6地址写为[::FFFF:x.x.x.x]。
+DESCR: Specifies the IP of this listener. All available IP addresses are listed. IPv6 addresses are enclosed in "[ ]".
+
+
+To listen on all IPv4 IP addresses, select {val}ANY{/}. To listen on all IPv6 IP addresses, select {val}[ANY] IPv6{/}.
+If {val}No{/} is selected for setting {ITEM=bindIPv6Only}, selecting {val}[ANY] IPv6{/} will listen on IPv4 addresses
+as well.
+
+
+By default, LiteSpeed uses separate listeners for IPv4 and IPv6 addresses. Should the need to serve both IPv4 and IPv6
+arise, separate listeners should be created for each.
+END_DESCR
+
+EDITTIP: Select an IP address from the list, if you don't specify a particular address, the system will bind to all the
+available IP address on this machine.
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [S] If your machine has multiple IPs on different sub-networks, you can select a specific IP to only allow
+traffic from the corresponding sub-network.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: listenerIP
+NAME: IP Address
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定此监听器的IP地址.所有可用的IP地址都列出了. IPv6地址应包含"[ ]".
+
+
+如果要监听所有IPV4地址, 选择 {val}ANY{/}. 要监听所有IPV4和IPV6地址,选择
+{val}[ANY]{/}.
+
+
+为了同时为IPv4和IPv6客户端提供服务，应使用IPv4映射的IPv6地址代替纯IPv4地址。 
+IPv4映射的IPv6地址应写为[::FFFF:x.x.x.x].
 END_DESCR
 
 EDITTIP: 从列表中选择一个IP地址，如果您未指定特定地址，则系统将绑定到该计算机上的所有可用IP地址。
@@ -85,8 +130,8 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: [S] If your machine has multiple IPs on different sub-networks,
-you can select a specific IP to only allow traffic from the corresponding sub-network.
+TIPS: [安全建议] 如果您的计算机在不同的子网中具有多个IP,
+您可以选择特定的IP以仅允许来自相应子网的流量。
 END_TIPS
 
 [END_ITEM]
