@@ -2467,6 +2467,99 @@ END_TIPS
 
 [END_ITEM]
 
+[ITEM]
+ID: quicEnableDPLPMTUD
+NAME: 启用 DPLPMTUD
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: 启用 Datagram Packetization Layer Path Maximum Transmission Unit Discovery (DPLPMTUD).
+
+
+<b><a href="https://tools.ietf.org/html/rfc8899">Background on DPLPMTUD (RFC 8899)</a></b>
+
+
+Default value: Yes
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicBasePLPMTU
+NAME: PLPMTU 默认值
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: QUIC默认使用的PLPMTU (无报头的最大数据包大小,以字节为单位)的默认值.
+设置为{val}0{/}将会允许QUIC设置大小.
+
+
+这个设置必须低于 {ITEM=quicMaxPLPMTU} 的值.
+
+
+Default value: 0
+END_DESCR
+
+SYNTAX: 0或1200至65527之间的整数
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicMaxPLPMTU
+NAME: PLPMTU的最大值
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: PLPMTU(无报头的最大数据包,以字节为单位)的上限. 此设置用于限制
+在DPLPMTUD search space中"最大数据包大小".  设置为{val}0{/}将会允许QUIC设置大小.
+(默认情况下LSQUIC暂定MTU为1,500 字节 (以太网)).
+
+
+这个设置应该比{ITEM=quicBasePLPMTU}的值高.
+
+Default value: 0
+END_DESCR
+
+SYNTAX: 0或1200至65527之间的整数
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
 
 
 ############# Tables #############
@@ -2664,7 +2757,7 @@ END_DESCR
 
 CONT: quicEnable quicShmDir quicVersions quicCongestionCtrl quicCfcw quicMaxCfcw quicSfcw quicMaxSfcw
 quicMaxStreams quicHandshakeTimeout quicIdleTimeout quicDosMitigationDuration quicBadPacketRate quicHskNewRate
-quicHskTimeoutRate
+quicHskTimeoutRate quicEnableDPLPMTUD quicBasePLPMTU quicMaxPLPMTU
 END_CONT
 
 SEE_ALSO:
@@ -2681,7 +2774,7 @@ DESCR:
 END_DESCR
 
 CONT: quicEnable quicShmDir quicVersions quicCongestionCtrl quicCfcw quicMaxCfcw quicSfcw quicMaxSfcw
-quicMaxStreams quicHandshakeTimeout quicIdleTimeout
+quicMaxStreams quicHandshakeTimeout quicIdleTimeout quicEnableDPLPMTUD quicBasePLPMTU quicMaxPLPMTU
 END_CONT
 
 SEE_ALSO:
