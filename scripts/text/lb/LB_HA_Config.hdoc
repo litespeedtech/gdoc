@@ -139,7 +139,7 @@ SINCE: 2.0
 SEE_ALSO:
 
 DESCR: The priority for this load balancer server, where a higher number equals a higher priority. The highest priority
-load balancer will act as the master, with the others in the cluster acting as slaves.
+load balancer will act as the master, with others in the cluster acting as slaves.
 
 
 <b>Note:</b> This is reversed for FreeBSD platforms where a lower number equals a higher priority.
@@ -147,6 +147,13 @@ END_DESCR
 
 SYNTAX: uint
 END_SYNTAX
+
+TIPS: [I] A difference in priority of 50 or greater between two nodes will cause Keepalived (linux) to switch the
+Virtual IP back to the higher priority node upon recovery. For example, two nodes with priorities of 110 and 100 will
+start with the 110 priority node as the master. If that node dies and recovers, the 100 node will retain the Virtual IP.
+If on the other hand we have two nodes with priorities 200 and 100, the 200 node will reclaim the Virtual IP upon
+recovery.
+END_TIPS
 
 [END_ITEM]
 
