@@ -6,48 +6,42 @@
 
 [QA]
 ID: qa_incfd
-Q: How to increase the operating system limit of file descriptors?
+Q: 如何增加系统最大文件描述符限制?
 
-A: <p>There are system level and process level file descriptor limits in UNIX 
-like operating systems. LiteSpeed server only uses a small number of server 
-processes to serve all clients and each request may need up to 4 file descriptors. 
-Therefore, the maximum number of concurrent requests that the server can handle 
-could be constrained by the process level file descriptor limit. It is important 
-to set this limit to a high value.</p>
-<p>If the server is started by root user, it will try to adjust this
-limit automatically based on server configuration when this limit is too low. 
-Otherwise, this limit has to be manually adjusted with
-root privilege.</p>
+A: <p>在类UNIX操作系统中存在系统级和进程级的文件描述符限制.
+LiteSpeed服务只能用少量的服务器进程来提供所有的请求, 并且每个可能需要多达4个文件描述符
+因此，服务器可以处理的最大并发数可能受到进程级文件描述符限制的限制.
+设置一个高的值是很重要的</p>
+<p>如果服务器是由root用户启动的, 当这个限制太低时，它会根据服务器配置自动调整
+否则，必须使用root权限手动调整此限制。</p>
 
-<p>Use {cmd}ulimit -a{/} to check current setting of per process file descriptor limit.
-You need root privilege to change this limit. You may want to put this setting in 
-your startup scripts in order to automatically set the limit after
-rebooting the machine.</p> 
+<p>使用{cmd}ulimit -a{/}来检查当前每个进程文件描述符的限制
+你需要root权限才能改变这个限制。 你可能要这个设置放在你的启动脚本中，以便在重启机器后自动设置。</p> 
 
 <ul>
-	<li><p><strong>Linux kernels:</strong></p></li>
-	Check the system level limit for open files:<br>
+	<li><p><strong>Linux内核:</strong></p></li>
+	检测系统的的最大文件句柄数限制:<br>
 	&nbsp;&nbsp;&nbsp;{cmd}more /proc/sys/fs/file-max{/}<br>
-	If it looks low, increase the limit by:<br>
+	如果看起来太低,使用:<br>
 	&nbsp;&nbsp;&nbsp;{cmd}echo 40000 > /proc/sys/fs/file-max{/}<br>
-	For kernel 2.2.x, you also need:<br>
+	来增加限制
+	对于2.2.x内核, 你也需要:<br>
 	&nbsp;&nbsp;&nbsp;{cmd}echo 65535 > /proc/sys/fs/inode-max{/}<br>
-	Then increases the current process limit by:<br>
+	然后通过:<br>
 	&nbsp;&nbsp;&nbsp;{cmd}ulimit -n 10000{/}<br>
-	Note: Normal user can use {cmd}ulimit -n xxxx{/} to change the limit 
-	of current process, at least in Kernel 2.4.x. But you need to add following 
-	lines in /etc/security/limits.conf:<br>
+	来增加限制
+	Note: 至少在2.4.x内核及以上,普通用户可以使用 {cmd}ulimit -n xxxx{/} 来改变当前进程的限制, 但是你需要在/etc/security/limits.conf中添加:<br>
 	
 	&nbsp;&nbsp;&nbsp;{cmd}soft nofile 2048{/}<br>
 	&nbsp;&nbsp;&nbsp;{cmd}hard nofile 8192{/}<br><br>
 
 	<li><p><strong>Solaris 2.4+:</strong></p></li>
 	The following lines need to be added in /etc/system:<br>
-	* set hard limit on file descriptors: {cmd}set rlim_fd_max = XXXX{/}<br>
-	* set soft limit on file descriptors: {cmd}set rlim_fd_cur = XXXX{/}<br><br>
+	* 设置文件描述符硬限制: {cmd}set rlim_fd_max = XXXX{/}<br>
+	* 设置文件描述符软限制: {cmd}set rlim_fd_cur = XXXX{/}<br><br>
 	
 	<li><p><strong>FreeBSD:</strong></p></li>
-	Add the following line in /boot/loader.conf,<br>
+	在/boot/loader.conf中添加,<br>
 	{cmd}set kern.maxfiles=XXXX{/}
 </ul>
 
@@ -61,32 +55,32 @@ SEE_ALSO:
 
 [QA]
 ID: qa_namevh
-Q: How to setup name based virtual hosting?
+Q: 如何设置基于域名称的虚拟主机?
 
-A: With name based virtual hosting, you can host more web sites than the number of 
-IP addresses you have. In this case, multiple domain names are pointed to same IP address.
+A: 使用基于域名称的虚拟主机，您可以托管比您拥有的IP地址数量更多的网站。
+在这种情况下，多个域名都指向同一个IP地址。
 
-Use the following guidelines to setup name based virtual hosting.
+使用以下内容来设置基于域名称的虚拟主机。
 
 <ol>
-<li>Setup DNS properly.
-	<br>Forward the domain names of your web sites to the IP address used by your web server. This is commonly done by adding an "A" name entry to the DNS zone for the website.
+<li>正确设置DNS.
+	<br>将您的网站的域名解析到您的网站服务器的IP地址. 
+	通常的做法是添加一个指向服务器IP的"A"解析.
 </li>
-<li>Set up in the web administration console:
-	<ol><li>Create a virtual host for each web site.</li>
-	    <li>Create listeners.<br>
-	        You can create one listener to listen on all local IP addresses. 
-	        Or you can create multiple listeners with one listener only listening 
-	        to one specific IP address.
+<li>在控制台中进行设置。
+	<ol><li>为每个网站创建一个虚拟主机.</li>
+	    <li>创建监听器.<br>
+	        你可以创建一个监听器，监听所有本地IP地址。
+	        或者创建多个监听器，每个监听器只监听一个特定的IP地址。
 	    </li>
-	    <li>Assign virtual host mappings.<br>
-	        Go to listener settings, 
-	        click "Edit" on {TBL=Listeners_General_Help#virtualHostMapping} table. 
-	        Check all virtual hosts that should be mapped, and specify 
-	        the corresponding {ITEM=Listeners_General_Help#domainName}.<br>
+	    <li>分配虚拟主机映射.<br>
+	        前往监听器设置, 
+	        点击在{TBL=Listeners_General_Help#virtualHostMapping}的"编辑" . 
+	        选择所有需要被映射的虚拟主机, and specify 
+	        然后设置相应的{ITEM=Listeners_General_Help#domainName}.<br>
 	        
-		Note: {val}your.domain{/} will match both {val}www.your.domain{/} 
-		     and {val}your.domain{/}. The leading "www." in the domain name will be ignored.
+		Note: {val}your.domain{/}会同时映射{val}www.your.domain{/} 
+		     和{val}your.domain{/}. 域名前面的"www."将被忽略。
 	    </li>
 	  </ol>
 </li>
@@ -101,26 +95,23 @@ SEE_ALSO:
 
 [QA]
 ID: qa_ipvh
-Q: How to setup IP based virtual hosting?
+Q: 如何设置基于IP的虚拟主机?
 
-A: IP based virtual hosting requires at least one unique IP address for each web site. 
-One IP address is dedicated to one virtual host. This allows you to visit a virtual 
-host with URL like "http://192.168.0.1/index.html", and the web server will process 
-this request using the corresponding virtual host context. If using SSL, a unique SSL 
-certificate needs to be assigned for each IP based virtual host as well.
+A: 基于IP的虚拟主机每个网站至少需要一个独立的IP.
+一个IP地址专用于一个虚拟主机。这使您可以访问一个虚拟主机像
+ "http://192.168.0.1/index.html",Web服务器将使用相应虚拟主机的context处理请求。
+ 如果要使用SSL，还需要为每个基于IP的虚拟主机分配唯一的SSL证书。
 
 <ol>
-  <li>Allocate at least one IP address for each web site you plan to host.<br>
-     TIP: You can create an IP alias to assign multiple IPs to one network adapter.</li>
-  <li>Configure DNS properly.<br> Assign the domain name to its corresponding IP address.</li>
-  <li>Create listeners. You have two choices:</li>
+  <li>为您计划托管的每个网站分配至少一个IP地址。<br>
+     TIP: 您可以创建一个IP别名，将多个IP分配给一个网络适配器。</li>
+  <li正确配置DNS.<br> 将域名指向对应的IP地址.</li>
+  <li>创建监听器. 你有两种选择:</li>
      <ul>
-        <li>Create one listener that listens on all IPs and configure virtual host 
-            mappings to share one listener as above.</li>
-	<li>Another choice is to create one listener for each IP. Assign listener 
-	    only to the corresponding virtual host with the wild card  domain name {val}*{/}.<br>
-	    Unique SSL private key and certificate can be assigned to each listener, 
-	    thus each web site can use its own certificate.
+        <li>创建一个侦听所有IP的侦听器，并配置虚拟主机映射到一个侦听器</li>
+	<li>另一个选择是为每个IP创建监听器. 
+	只将侦听器分配给具有通配符{val}*{/}的域名的相应虚拟主机.<br>
+	    每个侦听器可以设置唯一的SSL私钥和证书，因此每个网站都可以使用自己的证书。
 	</li>
     </ul>
 </ol>
@@ -135,71 +126,63 @@ SEE_ALSO:
 
 [QA]
 ID: qa_dos
-Q: How to be mitigate Denial of Service (DoS) and Distributed Denial of Service (DDoS) attacks?
+Q: 如何减轻拒绝服务(DoS)和分布式拒绝服务(DDoS)攻击?
 
-A: LiteSpeed server is capable of reducing and even eliminating the impact of DoS and DDoS 
-attacks at the HTTP protocol level. The following configuration will help against attacks.
+A: LiteSpeed服务器能够在HTTP协议级别减少甚至消除DoS和DDoS攻击的影响。
+以下配置将有助于抵御攻击。
 
 <ul>
-  <li>Under {PAGE=ServTuning_Help} configuration:</li>
+  <li>Under {PAGE=ServTuning_Help} 配置:</li>
      <ol>
-        <li>Set {ITEM=ServTuning_Help#maxReqURLLen}, 
+        <li>设置 {ITEM=ServTuning_Help#maxReqURLLen}, 
 				{ITEM=ServTuning_Help#maxReqHeaderSize},
 				{ITEM=ServTuning_Help#maxReqBodySize},  
 				{ITEM=ServTuning_Help#maxDynRespHeaderSize}
 				 and {ITEM=ServTuning_Help#maxDynRespSize}
-           to a value that just above what you really need. This will help to reduce 
-           memory usage and identify bad requests quickly.
+           的值设置为略微高于你真正需要的请求数
+           这将有助于减少内存使用并快速识别错误请求。
         </li>
-	<li>Set {ITEM=ServTuning_Help#connTimeout} around {val}30{/};<br>
-	   set {ITEM=ServTuning_Help#keepAliveTimeout} around {val}15{/} or less;<br>
-	   set {ITEM=ServTuning_Help#maxKeepAliveReq} to at least {val}100{/}.<br>
-	   This will help to close dead connections as soon as possible and make 
-	   connections available to other clients.
+	<li>设置{ITEM=ServTuning_Help#connTimeout}在{val}30{/}附近;<br>
+	   设置{ITEM=ServTuning_Help#keepAliveTimeout}为{val}15{/}附近或者更低;<br>
+	   设置 {ITEM=ServTuning_Help#maxKeepAliveReq}至少为{val}100{/}.<br>
+	   这将有助于尽快关闭死连接，并使其对其他客户端可用。
 	</li>
      </ol>
      <br>
      
-  <li>Under {PAGE=ServSecurity_Help} configuration:</li>
+  <li>Under {PAGE=ServSecurity_Help}配置:</li>
      <ol>
-        <li>Block the IPs that abuse your web server by listing them in the 
-            {TBL=ServSecurity_Help#accessControl} - {ITEM=ServSecurity_Help#accessControl_deny}.</li>
-	<li>Use {TBL=ServSecurity_Help#perClientConnLimit} to control how many concurrent 
-	    connections are allowed from one IP address. Once the limit is reached, 
-	    the web server will close newly accepted connections from that IP address 
-	    immediately and move on to next pending connection.<br>
+        <li>通过将其列入
+            {TBL=ServSecurity_Help#accessControl} - {ITEM=ServSecurity_Help#accessControl_deny}
+            来阻止滥用您的网络服务器的IP.</li>
+	<li>使用 {TBL=ServSecurity_Help#perClientConnLimit} 
+		来控制一个IP地址允许多少并发。一旦达到限制, 
+	    服务器将立即关闭来自该IP地址的新连接
+	    并转到下一个挂起的连接.<br>
 
-	    Nowadays, almost all web browsers support persistent connections (multiple 
-	    requests pipelined through one connection), so the number of connections 
-	    required is very small. Essentially, one connection is enough. However, 
-	    some web browsers try to establish additional connections to speed up downloading.<br>
+	    现在，几乎所有的浏览器都支持持久连接（通过一个连接传递多个请求），因此所需的连接数量非常少。一个连接基本就足够了。但有些浏览器仍试图建立额外的连接来加速下载。<br>
 
-	    Therefore, allowing 4 to 10 connections from one IP is recommended. 
-	    Less than that will probably affect normal web services.<br>
+	    因此，建议允许一个IP 4到10个连接数。低于此值可能会影响正常的web服务.<br>
 
-	    With this per IP limit, the web server can serve more unique clients. 
-	    The minimum number of unique clients can be derived from 
+	    有了这个的限制，服务器可以为更多的客户端提供服务。可以从
 		{ITEM=ServTuning_Help#maxConnections}
-	     divided by max connections per client.
+	     设置每个客户端的最大连接数
 	</li>
-	<li>Enable IP level throttling:<br>
-	    Set {ITEM=ServSecurity_Help#outBandwidth} greater than {val}0{/} 
-	    (0 will disable throttling). The limit is rounded up to the closest 
-	    boundary of 4KB/sec units.<br>
+	<li>启用IP级别的带宽限制:<br>
+	    设置 {ITEM=ServSecurity_Help#outBandwidth} 的值为大于 {val}0{/} 
+	    (设置为0将会关闭带宽限制). 限制向上舍入到以4KB/sec为单位的最近的值。<br>
 	
-	    In this way, your limited network bandwidth will not be used up by a 
-	    couple of clients with fast network connections; more clients will be served.
+	    这样，您有限的网络带宽将不会被几个具有快速网络连接的客户端占用;
+	    所以能为更多的客户端提供服务。
 	</li>
-	<li>If you server is flooded by hundreds of requests from different IPs but 
-	    with same URL, you can create a
-	    {TBL=Context_Help#generalContext} to 
-		block access to that URL. 
-	    The Context {ITEM=Context_Help#expuri} should match or include that URL and 
-	    {ITEM=Context_Help#allowBrowse} is set to {val}No{/}.<br>
+	<li>如果您的服务器被不同IP攻击但其访问相同URL，您可以创建一个
+	    {TBL=Context_Help#generalContext} 来阻止访问那个URL
+	    The Context {ITEM=Context_Help#expuri} 应匹配或包含该URL和
+	    {ITEM=Context_Help#allowBrowse}设置为{val}No{/}.<br>
 	    
-	   For example, if the server is pounded with "/foo/bar.html", then you can add 
-	   context with exact URI={val}/foo/bar.html{/}, or set URI={val}/foo/{/} to block 
-	   all URLs that start with "/foo/".
+	   例如, 如果"/foo/bar.html"被大量攻击,
+	   然后可以添加具有精确URI的context为{val}/foo/bar.html{/},
+	   或设置URI={val}/foo/{/}来封锁所有以"/foo/"开头的URL.
 	</li>
    </ol>
 </ul>
