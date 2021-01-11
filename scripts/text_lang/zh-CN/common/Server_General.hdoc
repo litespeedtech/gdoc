@@ -63,7 +63,7 @@ END_TIPS
 
 [ITEM]
 ID: httpdWorkers
-NAME: Workers的数量
+NAME: 工具人(Workers)的数量
 NS: O
 REQUIRED:
 APPLY: 3
@@ -98,7 +98,7 @@ SEE_ALSO:
 
 DESCR: <b>[仅适用于Web ADC Ultimate许可证]</b>
 <br />
-指定lslbd worker的数量。 输入0以自动确定此数字。
+指定lslbd 工具人(worker)的数量。 输入0以自动确定此数字。
 END_DESCR
 
 SYNTAX: Integer value between 0 and 128.

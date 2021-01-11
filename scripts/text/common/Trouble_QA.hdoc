@@ -6,17 +6,17 @@
 
 [QA]
 ID: start
-Q: The server would not start, what should I do?
+Q: 服务器未能启动,我该怎么做?
 
 A:
 <ul>
-  <li>Determine whether the server is running already. Stop the running server first.</li>
-  <li>If you get complaints when you start the server from command line, fix the complaints.</li>
-  <li>Take a look at the server log, which is located at $SERVER_ROOT/logs/error.log or the location you specified.</li>
-  <li>Make sure the user who tries to start the web server has write permission to /tmp/lshttpd/, remove the /tmp/lshttpd directory if it exists already.</li>
-  <li>Make sure all the files installed still exist. Reinstall server software if needed.</li>
-  <li>If the problem persists, post a message on our <a href="https://litespeedtech.com/support/forum/">forum</a>
-    or visit our <a href="https://litespeedtech.com/support">support page</a> for more options.</li>
+  <li>确定服务器是否已经在运行。首先停止正在运行的服务器。</li>
+  <li>如果你从命令行启动服务器时出现错误，请修复错误。.</li>
+  <li>查看服务器日志，它位于$SERVER_ROOT/logs/error.log或你指定的位置。</li>
+  <li>确保试图启动Web服务器的用户拥有/tmp/lshttpd/的写入权限，如果/tmp/lshttpd目录已经存在，则删除该目录。</li>
+  <li>确保所有安装的文件仍然存在。必要时重新安装服务器。</li>
+  <li>如果问题仍然存在，请在我们的。<a href="https://litespeedtech.com/support/forum/">论坛</a>留言
+    或者访问我们的 <a href="https://litespeedtech.com/support">支持页面</a> 获取更多信息.</li>
 </ul>
 
 END_A
@@ -28,11 +28,11 @@ SEE_ALSO:
 
 [QA]
 ID: crash
-Q: The server crashed, what should I do?
+Q: 服务器崩溃了，我该怎么办？
 
-A: Please submit a bug report by submitting an email to 
-<a href="mailto:bug@litespeedtech.com>bug@litespeedtech.com</a> or posting in our 
-<a href="https://www.litespeedtech.com/support/forum/forums/bug-reports.9/">forum</a>.
+A: 请通过提交电子邮件到提交错误报告
+<a href="mailto:bug@litespeedtech.com>bug@litespeedtech.com</a> 或者在我们的 
+<a href="https://www.litespeedtech.com/support/forum/forums/bug-reports.9/">论坛</a>发帖.
 END_A
 
 SEE_ALSO: 
@@ -42,9 +42,9 @@ SEE_ALSO:
 
 [QA]
 ID: pass
-Q: I forgot my password for the web administration interface, what should I do?
+Q: 我忘记了Web管理界面的密码，该怎么办？
 
-A: Please run <span class="cmd">$SERVER_ROOT/admin/misc/admpass.sh</span> to reset the username and password.
+A: 请运行 <span class="cmd">$SERVER_ROOT/admin/misc/admpass.sh</span> 来重置用户名和密码.
 END_A
 
 SEE_ALSO: 
@@ -54,19 +54,18 @@ SEE_ALSO:
 
 [QA]
 ID: e503
-Q: Using the default installation, I get "Error 503 Service Unavailable" errors when accessing any php page?
+Q: 使用默认安装，访问任何php页面时出现“错误503服务不可用(Error 503 Service Unavailable)”错误？
 
 A: <ol>
-	<li>If firewall software is running on the server, first check the firewall 
-	settings, local host should be trusted.
+	<li>如果服务器上正在运行防火墙软件，请检查防火墙设置，本地主机应该设置成可信的。
 	<br>
-	For example, Linux firewall IPTables should include a rule like 
+	例如, Linux IPTables防火墙应该包含类似的规则 
 	<span class="eg">ALLOW INPUT from LO</span>.
 	</li><br><br>
 	
-	<li>Rebuild the PHP binary, the pre-built binary may not work in your system.<br>
-	PHP 4.3.1 is recommended since PHP 4.3.2 is currently buggy using the FastCGI interface.<br>
-	Use the following commands to rebuild the binary:<br>
+	<li>重建PHP二进制文件，预构建的二进制文件可能无法在您的系统中工作.<br>
+	推荐使用 PHP 4.3.1，因为 PHP 4.3.2 目前在使用 FastCGI 接口时存在 bug。(注:这个应该好久没更新了)<br>
+	使用以下命令来编译二进制文件:<br>
 	<blockquote><code>
 	cd php-4.3.1<br>
 	./configure --enable-fastcgi --with-config-file-path=../conf <br>
@@ -76,9 +75,9 @@ A: <ol>
 	</code></blockquote>
 	</li><br>
 	
-	<li>If the problem still persists, enable debug logging and submit a bug report .<br>
-	Edit config file [lsws_home]/conf/httpd_config.xml, set debugLevel to 10.<br>
-	Reproduce the error and compress the log file, send the compressed file to <a href="mailto:bug@litespeedtech.com">bug@litespeedtech.com</a><br>
+	<li>如果问题仍然存在，请启用调试日志记录并提交错误报告 .<br>
+	编辑配置文件[lsws_home]/conf/httpd_config.xml, 设置debugLevel为10.<br>
+	重现错误并压缩日志文件，将压缩后的文件发送到 <a href="mailto:bug@litespeedtech.com">bug@litespeedtech.com</a><br>
 	</li>
 </ol><br>
 
@@ -91,42 +90,35 @@ SEE_ALSO:
 
 [QA]
 ID: chroot
-Q: When chroot is enabled, I cannot connect to MySQL, or my CGI scripts do not work anymore, what should I do?
+Q: 启用chroot后，我无法连接到MySQL，或者我的CGI脚本无法工作，我该怎么办？
 
-A: In a chrooted environment, all path settings should be relative to the new root directory 
-and all necessary dynamic libraries should be available in the chroot file system.<br>
+A: 在chroot环境下，所有的路径设置都应该是相对于新的根目录的 
+以及所有必要的动态库都应该在chroot文件系统中可用。<br>
 <ul>
-	<li>PHP usually connects to MySQL via a Unix Domain Socket mounted somewhere
-	 inside the file system. The mount point can be configured in MySQL's configuration file, 
-	 usually located at {cmd}/etc/my.cnf{/}, with configuration entry {cmd}socket=...{/} 
-	 under {cmd}[mysqld]{/} section.
+	<li>PHP通常通过安装在文件系统内的Unix域套接字连接到MySQL。
+	 可以在MySQL的配置文件中配置挂载点, 
+	 通常位于 {cmd}/etc/my.cnf{/}, 配置条目 {cmd}socket=...{/} 
+	 在 {cmd}[mysqld]{/} 部分.
 	 <br>
-	 The configuration for PHP is {cmd}mysql.default_socket{/} located in php.ini, 
-	 default to {cmd}/tmp/mysql.sock{/}.
+	 PHP的配置是位于php.ini中的{cmd}mysql.default_socket{/}, 
+	 默认是{cmd}/tmp/mysql.sock{/}.
 	 <br>
-	When the web server run in a chrooted environment, the PHP engine gets started by web server and 
-	will look for MySQL's socket relative to the new root, but MySQL is not chrooted 
-	and still uses the socket relative to the original root. So, PHP cannot connect to 
-	MySQL any more. 
+	当Web服务器在chroot环境下运行时，PHP引擎被Web服务器启动后，会寻找MySQL相对于新根目录的socket，
+	但MySQL没有chroot，仍然使用相对于原根目录的socket。所以，PHP无法连接到MySQL了。
 	<br>
-	The solution is to change MySQL's configuration to mount the socket relative 
-	to the new chroot.
+	解决办法是改变MySQL的配置，将套接字挂载到新的根目录。
 	</li><br><br>
 
-	<li>In order to run dynamically linked executables in a chrooted environment, 
-	all dynamic libraries must be available in chroot file system. Use the following 
-	command to make sure all required libraries are copied to the /lib directory relative 
-	to the new root,
+	<li>为了在chroot环境中运行动态链接的可执行文件，所有的动态库必须在chroot文件系统中可用。
+	使用下面的命令确保所有需要的库都被复制到相对于新根的/lib目录。
 	<br>
 	{cmd}lsws/admin/misc/chroot.sh [chroot_path] [path_to_executable] {/}
 	<br>
-	This command should run as the "root" user.
+	这个命令应该使用 "root"用户运行.
 	</li><br><br>
 
-	<li>Some system calls rely on certain system files like /etc/passwd. 
-	If needed, create the required directories and files under the chroot file system. 
-	However, it is not recommended to copy the real files as the idea of chroot is 
-	to protect those files. 
+	<li>有些系统调用依赖于某些系统文件，如/etc/passwd。如果需要，在chroot文件系统下创建所需的目录和文件。
+	但是，不建议复制真正的文件，因为chroot的理念是保护这些文件。
 	</li><br>
 </ul><br>
 <br>
@@ -154,11 +146,11 @@ SEE_ALSO:
 
 [QA]
 ID: ipbind
-Q: I can not access the web site with IP, have to use domain name, 
-what should I do?
+Q: 我无法使用IP访问该网站，必须使用域名，
+我该怎么办？
 
-A: Please add the IP address to the domain list of "Virtual Host
-Mappings" configuration for the listener that the web site binds with.
+A: 请将IP地址添加到“虚拟主机”的域列表中
+网站绑定到的侦听器的“映射”配置。
 END_A
 
 SEE_ALSO: 
