@@ -188,13 +188,13 @@ END_TIPS
 
 [ITEM]
 ID: sourceIP
-NAME: Source IP
+NAME: 源IP
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies a Source IP for connecting to the backend worker. It can be overridden in worker configuration.
+DESCR: 指定用于连接到后端工作器的源IP。 可以被工具人(worker)的配置覆盖。
 END_DESCR
 
 SYNTAX: select
@@ -212,29 +212,30 @@ END_TIPS
 
 [ITEM]
 ID: extAppAddress
-NAME: Address
+NAME: 地址
 REQUIRED:
 APPLY: 2
 SINCE:
 SEE_ALSO:
 
-DESCR: A unique socket address used by the external application. IPv4/IPv6 sockets and Unix Domain Sockets (UDS) are
-supported. IPv4/IPv6 sockets can be used for communication over the network. UDS can only be used when the external
-application resides on the same machine as the server.
+DESCR: 外部应用程序使用的唯一套接字地址。 支持IPv4/IPv6套接字和Unix域套接字（UDS）。
+IPv4/IPv6套接字可用于网络通信。
+只有当外部应用程序与服务器在同一台机器上时，才能使用UDS。
 END_DESCR
 
-EDITTIP: Address can be IPv4 socket address "IP:PORT", like 192.168.1.3:7777 and localhost:7777 or Unix domain socket
-address "UDS://path" like UDS://tmp/lshttpd/myfcgi.sock.
+EDITTIP: 地址可以是IPv4套接字地址 "IP:PORT", 像192.168.1.3:7777 和localhost:7777 或者 Unix域套接字
+地址 "UDS://path" 例如 UDS://tmp/lshttpd/myfcgi.sock.
 END_EDITTIP
 
-EDITTIP: UDS is chrooted in chroot environment.
+EDITTIP: UDS是在chroot环境下进行的。
 END_EDITTIP
 
-EDITTIP: For local applications, Unix domain socket is preferred due to security and better performance. If you have to use
-IPv4 socket, set the IP part to localhost or 127.0.0.1, thus the application is inaccessible from other machines.
+EDITTIP:对于本地应用程序，由于安全性和更好的性能，Unix域套接字是首选。
+如果你必须使用IPv4套接字，将IP部分设置为localhost或127.0.0.1，
+这样其他机器就无法访问应用程序。
 END_EDITTIP
 
-SYNTAX: IPv4 or IPV6 address:port or UDS://path
+SYNTAX: IPv4 或 IPV6 address:port 或者 UDS://path
 END_SYNTAX
 
 EXAMPLE: 127.0.0.1:5434
@@ -242,10 +243,9 @@ EXAMPLE: 127.0.0.1:5434
 UDS://tmp/lshttpd/php.sock.
 END_EXAMPLE
 
-TIPS: [S] If the external application runs on the same machine, UDS is preferred. If you have to use an IPv4|IPV6 socket,
-set the IP address to {val}localhost{/} or {val}127.0.0.1{/}, so the external application is inaccessible from other machines.
-
-[P] Unix Domain Sockets generally provide higher performance than IPv4 sockets.
+TIPS: [安全建议] 如果外部应用程序在同一台机器上运行，则首选UDS。如果必须使用IPv4|IPV6,
+将IP地址设置为{val}localhost{/}或{val}127.0.0.1{/}，这样外部应用就无法从其他机器上访问。
+[性能建议] Unix域套接字一般比IPv4套接字拥有更高的性能。
 END_TIPS
 
 [END_ITEM]
@@ -254,17 +254,17 @@ END_TIPS
 
 [ITEM]
 ID: expWSAddress
-NAME: Address
+NAME: 地址
 REQUIRED:
 APPLY: 2
 SINCE:
 SEE_ALSO:
 
-DESCR: HTTP or HTTPS address used by the external web server.
+DESCR: 外部网络服务器使用的HTTP或HTTPS地址。
 END_DESCR
 
-SYNTAX: IPv4 or IPV6 address(:port). Add "https://" in front if the external web server uses HTTPS. Port is optional if the
-external web server uses the standard ports 80 or 443.
+SYNTAX: IPv4 或 IPV6 地址(:端口). 如果外部Web服务器使用HTTPS，则在前面加上 "https://"。 
+如果外部Web服务器使用标准端口80或443，则端口是可选的。
 END_SYNTAX
 
 EXAMPLE: 192.168.0.10
@@ -276,8 +276,7 @@ https://10.0.8.9
 https://127.0.0.1:5438
 END_EXAMPLE
 
-TIPS: [S] If you proxy to another web server running on the same machine, set the IP address to {val}localhost{/} or
-{val}127.0.0.1{/}, so the external application is inaccessible from other machines.
+TIPS: [安全建议] 如果代理到同一台机器上运行的另一台Web服务器，请将IP地址设置为{val}localhost{/}或{val}127.0.0.1{/}，这样从其他机器上就无法访问外部应用程序。
 
 END_TIPS
 
@@ -311,16 +310,13 @@ END_TIPS
 
 [ITEM]
 ID: maxConns
-NAME: Max Connections
+NAME: 最大连接数
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the maximum number of concurrent connections that can be established between the server and an
-external application. This setting controls how many requests can be processed concurrently by an external application,
-however, the real limit also depends on the external application itself. Setting this value higher will not help if the external
-application is not fast enough or cannot scale to a large number of concurrent requests.
+DESCR: 指定服务器与外部应用之间可建立的最大并发连接数。该设置控制外部应用程序可同时处理多少个请求。 然而，真正的限制还取决于外部应用本身。如果外部的速度不够快，或者无法处理大量的并发请求，那么将这个值设置得更高也无济于事。
 END_DESCR
 
 SYNTAX: uint
@@ -329,8 +325,7 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: [P] Setting a high value does not directly translate to higher performance. Setting the limit to a value that will not
-overload the external application will provide the best performance/throughput.
+TIPS: [性能建议] 设置一个高值并不能直接变成高性能。设置为一个不会使外部应用程序过载的值，将提供最佳的性能/吞吐量。
 END_TIPS
 
 [END_ITEM]
@@ -339,13 +334,13 @@ END_TIPS
 
 [ITEM]
 ID: env
-NAME: Environment
+NAME: 环境
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies extra environment variables for the external application.
+DESCR: 为外部应用程序指定额外的环境变量。
 END_DESCR
 
 SYNTAX: Key=value. Multiple variables can be separated by "ENTER"
@@ -395,18 +390,16 @@ END_TIPS
 
 [ITEM]
 ID: initTimeout
-NAME: Initial Request Timeout (secs)
+NAME: 初次请求超时时间 (secs)
 NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the maximum time in seconds the server will wait for the external application to respond to the first
-request over a new established connection. If the server does not receive any data from the external application within
-this timeout limit, it will mark this connection as bad. This helps to identify communication problems with external
-applications as quickly as possible. If some requests take longer to process, increase this limit to avoid 503 error
-messages.
+DESCR: 指定服务器等待外部应用响应新建立的连接的第一个请求的最大时间 
+如果服务器在这个限制时间内没有收到外部应用的任何数据，它将把这个连接标记为坏(Bad)。这有助于识别与外部应用程序的通信问题。
+这有助于尽快发现与外部应用的通信问题。如果某些请求的处理时间较长，则增加这个限制以避免503错误信息。
 END_DESCR
 
 SYNTAX: uint
@@ -453,15 +446,14 @@ END_TIPS
 
 [ITEM]
 ID: retryTimeout
-NAME: Retry Timeout (secs)
+NAME: 重试超时时间 (secs)
 NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the period of time that the server waits before retrying an external application that had a prior
-communication problem.
+DESCR: 指定服务器在重试之前，等待出现通信问题的外部应用程序的时间。
 END_DESCR
 
 SYNTAX: uint
@@ -509,16 +501,15 @@ END_TIPS
 
 [ITEM]
 ID: persistConn
-NAME: Persistent Connection
+NAME: 持久连接
 NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies whether to keep the connection open after a request has been processed. Persistent connections can
-increase performance, but some FastCGI external applications do not support persistent connections fully. The default is
-"On".
+DESCR: 指定在处理完请求后是否要保持连接 持久连接可以提高性能，
+但某些FastCGI外部应用程序不完全支持持久连接。默认为 "On"。
 END_DESCR
 
 SYNTAX: bool
@@ -568,18 +559,17 @@ END_TIPS
 
 [ITEM]
 ID: pcKeepAliveTimeout
-NAME: Connection Keepalive Timeout
+NAME: 持久连接超时时间
 NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the maximum time in seconds to keep an idle persistent connection open.
+DESCR: 指定保持持久连接的最大时间，以秒为单位。
 
 
-When set to "-1", the connection will never timeout. When set to 0 or greater, the connection will be closed after this time in
-seconds has passed.
+如果设置成"-1",连接将不会超时. 当设置成0或者更大, 连接将在这些秒数后被关闭。
 END_DESCR
 
 SYNTAX: int
@@ -713,7 +703,7 @@ END_TIPS
 
 [ITEM]
 ID: extAppPath
-NAME: Command
+NAME: 命令
 REQUIRED:
 APPLY: 2
 SINCE:
