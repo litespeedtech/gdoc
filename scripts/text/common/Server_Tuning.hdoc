@@ -1301,7 +1301,7 @@ END_TIPS
 [ITEM]
 ID: enableBrCompress
 NAME: Brotli Compression Level (Dynamic Content)
-NS: EO
+NS: E
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -2741,12 +2741,29 @@ SEE_ALSO:
 [TBL]
 ID: gzipTuning
 NAME: GZIP/Brotli Compression
-NS: EO
+NS: E
 
 DESCR:
 END_DESCR
 
 CONT: enableGzipCompress compressibleTypes enableDynGzipCompress gzipCompressLevel enableBrCompress
+gzipAutoUpdateStatic gzipStaticCompressLevel brStaticCompressLevel gzipCacheDir gzipMaxFileSize gzipMinFileSize
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: gzipTuning
+NAME: GZIP/Brotli Compression
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: enableGzipCompress compressibleTypes enableDynGzipCompress gzipCompressLevel
 gzipAutoUpdateStatic gzipStaticCompressLevel brStaticCompressLevel gzipCacheDir gzipMaxFileSize gzipMinFileSize
 END_CONT
 
