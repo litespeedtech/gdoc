@@ -1333,13 +1333,45 @@ END_TIPS
 [ITEM]
 ID: gzipAutoUpdateStatic
 NAME: Auto Update Static File
-NS: EO
+NS: E
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
 DESCR: Specifies whether to let the server automatically create/update GZIP/Brotli-compressed versions of compressible
+static files or not. If set to {val}Yes{/}, when a file with a MIME type listed in {ITEM=compressibleTypes} is requested,
+the server may create or update the corresponding compressed version of the file depending on the compressed file's
+timestamp. This compressed file is created under the {ITEM=gzipCacheDir}. The filename is based on a MD5 hash of the
+path of the original file.
+
+
+Default value: Yes
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: gzipAutoUpdateStatic
+NAME: Auto Update Static File
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies whether to let the server automatically create/update GZIP-compressed versions of compressible
 static files or not. If set to {val}Yes{/}, when a file with a MIME type listed in {ITEM=compressibleTypes} is requested,
 the server may create or update the corresponding compressed version of the file depending on the compressed file's
 timestamp. This compressed file is created under the {ITEM=gzipCacheDir}. The filename is based on a MD5 hash of the
@@ -1396,7 +1428,7 @@ END_TIPS
 [ITEM]
 ID: brStaticCompressLevel
 NAME: Brotli Compression Level (Static File)
-NS: EO
+NS: E
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1412,6 +1444,39 @@ Default value: 5
 END_DESCR
 
 SYNTAX: Number between 1 and 11.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [P] Save network bandwidth. Text-based responses such as html, css, and javascript files benefit the most and on
+average can be compressed to half of their original size.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: brStaticCompressLevel
+NAME: Brotli Compression Level (Static File)
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the level of Brotli compression applied to static files. Ranges from {val}0{/} (disabled) to {val}11{/}
+(highest).
+
+
+When set to {val}0{/}, brotli compression will be disabled globally.
+
+
+Default value: 5
+END_DESCR
+
+SYNTAX: Number between 0 and 11.
 END_SYNTAX
 
 EXAMPLE:
