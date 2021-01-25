@@ -1092,7 +1092,37 @@ END_TIPS
 [ITEM]
 ID: enableGzipCompress
 NAME: Enable Compression
-NS: EO
+NS: E
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Enables GZIP/Brotli compression for both static and dynamic responses.
+
+
+Default value: Yes
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [P] Enable it to save network bandwidth. Text-based responses such as
+html, css, and javascript files benefit the most and on average can be compressed to half
+of their original size.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableGzipCompress
+NAME: Enable GZIP Compression
+NS: O
 REQUIRED:
 APPLY: 3
 SINCE:
