@@ -120,6 +120,32 @@ END_TIPS
 
 
 
+[ITEM]
+ID: vhEnableBr
+NAME: Enable Brotli Compression
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=ServTuning_Help#brStaticCompressLevel}
+
+DESCR: Specifies whether to enable Brotli compression for this virtual host.
+This setting is only effective when {ITEM=brStaticCompressLevel} is set to a non-zero value at the server level.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# Index Files #############
 
 
@@ -412,7 +438,7 @@ NS: O
 DESCR:
 END_DESCR
 
-CONT: docRoot vhadminEmails vhEnableGzip enableIpGeo cgroups
+CONT: docRoot vhadminEmails vhEnableGzip vhEnableBr enableIpGeo cgroups
 END_CONT
 
 SEE_ALSO:
