@@ -70,7 +70,7 @@ END_TIPS
 [ITEM]
 ID: vhEnableGzip
 NAME: Enable Compression
-NS: LEO
+NS: LE
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -79,6 +79,58 @@ SEE_ALSO: {ITEM=ServTuning_Help#enableGzipCompress}, {ITEM=ServTuning_Help#enabl
 DESCR: Specifies whether to enable GZIP/Brotli compression for this virtual host.
 This setting is only effective when compression is enabled at the server level. Compression settings are configured at the
 server level (Tuning > GZIP/Brotli Compression).
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhEnableGzip
+NAME: Enable GZIP Compression
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=ServTuning_Help#enableGzipCompress}
+
+DESCR: Specifies whether to enable GZIP compression for this virtual host.
+This setting is only effective when {ITEM=enableGzipCompress} is set to {val}Yes{/} at the server level.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhEnableBr
+NAME: Enable Brotli Compression
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=ServTuning_Help#brStaticCompressLevel}
+
+DESCR: Specifies whether to enable Brotli compression for this virtual host.
+This setting is only effective when {ITEM=brStaticCompressLevel} is set to a non-zero value at the server level.
 END_DESCR
 
 SYNTAX: bool
@@ -386,7 +438,7 @@ NS: O
 DESCR:
 END_DESCR
 
-CONT: docRoot vhadminEmails vhEnableGzip enableIpGeo cgroups
+CONT: docRoot vhadminEmails vhEnableGzip vhEnableBr enableIpGeo cgroups
 END_CONT
 
 SEE_ALSO:
