@@ -78,9 +78,9 @@ SEE_ALSO:
 DESCR: Set module parameters. The module parameters are defined by the module developer.
 
 
-Set the value in the Server configuration to globally assign the default value. 
-The user can override this setting at the Listener, Virtual Host or Context levels. If the 'Not Set' radio button is selected,
-it will be inherited from the upper level.
+The value set at the Server-level will globally be assigned as the default value.
+The user can override this setting at the Listener, Virtual Host, or Context levels.
+If unset at any of those levels, the value will be inherited from the next level up.
 END_DESCR
 
 SYNTAX: Specified by the module interface. 
