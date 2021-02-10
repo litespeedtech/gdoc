@@ -400,7 +400,7 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Publicly cache all URLs served under the current context (server, virtual host, or context level).
+DESCR: Publicly cache all URLs served under the current context (virtual host, or context level).
 
 
 Virtual hosts configured through Apache's httpd.conf can use the "CacheEnable" and
@@ -409,8 +409,6 @@ level or in .htaccess. "CacheEnable" and "CacheDisable" directives are compatibl
 with Apache mod_cache directives. However, when used at the context, file, or
 location level, or in .htaccess, "CacheEnable" and "CacheDisable" will only be applied
 to directories below the current level. URL parameters will be ignored.
-
-
 END_DESCR
 
 SYNTAX: bool
@@ -460,7 +458,7 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Privately cache all URLs served under the current context (server, virtual host, or context level).
+DESCR: Privately cache all URLs served under the current context (virtual host, or context level).
 
 
 A separate cached copy will be made per user based on their IP and set cookies.
@@ -468,12 +466,10 @@ A separate cached copy will be made per user based on their IP and set cookies.
 
 Virtual hosts configured through Apache's httpd.conf can use the "CacheEnable private /url" and
 "CacheDisable private /url" directives at server, virtual host, directory, file, and location
- levels or in a .htaccess file. "CacheEnable private" and
-"CacheDisable private" are compatible with Apache's mod_cache
-directives and will be applied to all directories below the current level.
-However, when used at the directory, file, or location level, or in
-a .htaccess file, "CacheEnable private" and "CacheDisable private" will only be applied to directories below
-the current level. URL parameters will be ignored.
+levels or in a .htaccess file. "CacheEnable private" and "CacheDisable private" are compatible with Apache's
+mod_cache directives and will be applied to all directories below the current level. However, when used at the
+directory, file, or location level, or in a .htaccess file, "CacheEnable private" and "CacheDisable private" will only
+be applied to directories below the current level. URL parameters will be ignored.
 
 END_DESCR
 
