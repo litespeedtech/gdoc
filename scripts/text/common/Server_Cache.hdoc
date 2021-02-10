@@ -684,8 +684,8 @@ DESCR:
 END_DESCR
 
 CONT: checkPublicCache checkPrivateCache respectCacheable cachePolicy:maxCacheObjSize
-cachePolicy:maxStaleAge cachePolicy:cacheKeyMod cachePolicy:enableCache  cachePolicy:expireInSeconds
-cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
+cachePolicy:maxStaleAge cachePolicy:cacheKeyMod cachePolicy:expireInSeconds
+cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
 cachePolicy:cacheStaticFile cachePolicy:enablePostCache
 END_CONT
 
@@ -703,8 +703,8 @@ DESCR:
 END_DESCR
 
 CONT: checkPublicCache checkPrivateCache respectCacheable cachePolicy:maxCacheObjSize
-cachePolicy:maxStaleAge cachePolicy:cacheKeyMod cachePolicy:enableCache  cachePolicy:expireInSeconds
-cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx cachePolicy:enablePostCache
+cachePolicy:maxStaleAge cachePolicy:cacheKeyMod cachePolicy:expireInSeconds
+cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx cachePolicy:enablePostCache
 END_CONT
 
 SEE_ALSO:
