@@ -210,7 +210,7 @@ END_TIPS
 
 
 [ITEM]
-ID: cachePolicy:allowPostCache
+ID: cachePolicy:enablePostCache
 NAME: Allow POST Cache
 NS: LE
 REQUIRED:
@@ -686,7 +686,7 @@ END_DESCR
 CONT: checkPublicCache checkPrivateCache respectCacheable cachePolicy:maxCacheObjSize
 cachePolicy:maxStaleAge cachePolicy:cacheKeyMod cachePolicy:enableCache  cachePolicy:expireInSeconds
 cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
-cachePolicy:cacheStaticFile cachePolicy:allowPostCache
+cachePolicy:cacheStaticFile cachePolicy:enablePostCache
 END_CONT
 
 SEE_ALSO:
@@ -704,7 +704,7 @@ END_DESCR
 
 CONT: checkPublicCache checkPrivateCache respectCacheable cachePolicy:maxCacheObjSize
 cachePolicy:maxStaleAge cachePolicy:cacheKeyMod cachePolicy:enableCache  cachePolicy:expireInSeconds
-cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx cachePolicy:allowPostCache
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx cachePolicy:enablePostCache
 END_CONT
 
 SEE_ALSO:
