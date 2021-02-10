@@ -211,7 +211,7 @@ END_TIPS
 
 [ITEM]
 ID: cachePolicy:enablePostCache
-NAME: Allow POST Cache
+NAME: Enable POST cache
 NS: LE
 REQUIRED:
 APPLY:
