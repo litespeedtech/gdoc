@@ -2235,7 +2235,7 @@ END_TIPS
 
 [ITEM]
 ID: quicEnable
-NAME: Enable Enable HTTP3/QUIC
+NAME: Enable HTTP3/QUIC
 NS: EO
 REQUIRED:
 APPLY: 3
