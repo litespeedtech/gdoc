@@ -33,7 +33,7 @@ END_TIPS
 
 [ITEM]
 ID: vhEnableQuic
-NAME: Open HTTP3/QUIC (UDP) Port
+NAME: Enable HTTP3/QUIC
 NS: EO
 REQUIRED:
 APPLY: 3
