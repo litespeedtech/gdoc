@@ -2209,7 +2209,7 @@ END_TIPS
 [ITEM]
 ID: quicEnable
 NAME: Enable QUIC
-NS: LEO
+NS: L
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -2225,6 +2225,33 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: When this setting is set to {val}Yes{/}, QUIC can still be disabled at the listener level through the
+{ITEM=Listeners_SSL_Help#allowQuic} setting, or at the virtual host level through the
+{ITEM=VHSSL_Help#vhEnableQuic} setting.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicEnable
+NAME: Enable Enable HTTP3/QUIC
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Enables the HTTP3/QUIC network protocol server wide. Default value is {val}Yes{/}.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: When this setting is set to {val}Yes{/}, HTTP3/QUIC can still be disabled at the listener level through the
 {ITEM=Listeners_SSL_Help#allowQuic} setting, or at the virtual host level through the
 {ITEM=VHSSL_Help#vhEnableQuic} setting.
 END_TIPS
@@ -2264,7 +2291,7 @@ END_TIPS
 [ITEM]
 ID: quicVersions
 NAME: QUIC Versions
-NS: LEO
+NS: L
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -2272,6 +2299,32 @@ SEE_ALSO:
 
 DESCR: A list of enabled QUIC versions. This setting should only be used to limit QUIC support to the versions listed and is
 best left blank.
+END_DESCR
+
+SYNTAX: Comma-separated list
+END_SYNTAX
+
+EXAMPLE: Q035, Q039
+END_EXAMPLE
+
+TIPS: It is recommended to leave this setting blank to have the the best configuration applied automatically.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: quicVersions
+NAME: HTTP3/QUIC Versions
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: A list of enabled HTTP3/QUIC versions. This setting should only be used to limit HTTP3/QUIC support to the
+versions listed and is best left blank.
 END_DESCR
 
 SYNTAX: Comma-separated list
@@ -2938,7 +2991,7 @@ SEE_ALSO:
 
 [TBL]
 ID: quicTbl
-NAME: QUIC
+NAME: HTTP3/QUIC
 NS: EO
 
 DESCR:

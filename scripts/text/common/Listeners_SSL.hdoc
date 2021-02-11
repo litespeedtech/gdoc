@@ -311,7 +311,39 @@ END_TIPS
 [ITEM]
 ID: enableSpdy
 NAME: Enable SPDY/HTTP2/HTTP3
-NS: LEO
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Selectively enable HTTP/3, HTTP/2, and SPDY HTTP network protocols.
+
+
+If you wish to disable SPDY, HTTP/2, and HTTP3, check "None" and leave all other boxes unchecked.
+
+
+Default value: All enabled
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: This setting can be set at the listener and virtual host levels.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableSpdy
+NAME: ALPN
+NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -343,7 +375,7 @@ END_TIPS
 [ITEM]
 ID: allowQuic
 NAME: Allow QUIC
-NS: LEO
+NS: L
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -362,6 +394,35 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: When this setting is set to {val}Yes{/}, QUIC can still be disabled at the virtual host level through the
+{ITEM=VHSSL_Help#vhEnableQuic} setting.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: allowQuic
+NAME: Open HTTP3/QUIC (UDP) port
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Allows the use of the HTTP3/QUIC network protocol for virtual hosts mapped to this listener.
+For this setting to take effect, {ITEM=ServTuning_Help#quicEnable} must also be set to {val}Yes{/} at the server level.
+Default value is {val}Yes{/}.
+END_DESCR
+
+SYNTAX:
+END_SYNTAX
+
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: When this setting is set to {val}Yes{/}, HTTP3/QUIC can still be disabled at the virtual host level through the
 {ITEM=VHSSL_Help#vhEnableQuic} setting.
 END_TIPS
 
