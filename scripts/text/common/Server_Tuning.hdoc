@@ -2330,7 +2330,7 @@ END_DESCR
 SYNTAX: Comma-separated list
 END_SYNTAX
 
-EXAMPLE: Q035, Q039
+EXAMPLE: h3-29, h3-Q050
 END_EXAMPLE
 
 TIPS: It is recommended to leave this setting blank to have the the best configuration applied automatically.
