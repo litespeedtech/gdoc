@@ -1,40 +1,11 @@
 [HELPDOC]
 
 
-[ITEM]
-ID: vhEnableQuic
-NAME: Enable QUIC
-NS: L
-REQUIRED:
-APPLY: 3
-SINCE:
-SEE_ALSO:
-
-DESCR: Enables the QUIC network protocol for this virtual host.
-For this setting to take effect, both {ITEM=ServTuning_Help#quicEnable} and
-{ITEM=Listeners_SSL_Help#allowQuic} must also be set to {val}Yes{/} at the server and listener levels respectively.
-Default value is {val}Yes{/}.
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE:
-END_EXAMPLE
-
-TIPS: When this setting is set to {val}No{/}, the QUIC advertisement will no longer be sent. If a browser still contains cached
-QUIC information and QUIC is still enabled at the server and listener levels, a QUIC connection will continue to be used
-until this information is no longer cached or a QUIC protocol error is encountered.
-END_TIPS
-
-[END_ITEM]
-
-
 
 [ITEM]
 ID: vhEnableQuic
 NAME: Enable HTTP3/QUIC
-NS: EO
+NS: LEO
 REQUIRED:
 APPLY: 3
 SINCE:
