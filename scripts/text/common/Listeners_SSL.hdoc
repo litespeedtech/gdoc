@@ -142,40 +142,6 @@ END_TIPS
 
 
 [ITEM]
-ID: sslProtocol
-NAME: Protocol Version
-NS: LEO
-REQUIRED:
-APPLY: 3
-SINCE:
-SEE_ALSO:
-
-DESCR: Specifies which version of the SSL protocol will be used. You can choose from
-{val}SSL v3.0{/} and {val}TLS v1.0{/}. Since OpenSSL 1.0.1, {val}TLS v1.1{/}, {val}TLS v1.2{/} are also supported. {val}TLS v1.3{/}
-is also supported via BoringSSL.
-END_DESCR
-
-EDITTIP: "Yes" must be selected for <b>Secure</b> in General > Address Settings.
-END_EDITTIP
-
-EDITTIP: For SSL versions and encryption levels, please select all you want to accept.
-END_EDITTIP
-
-SYNTAX:
-END_SYNTAX
-
-EXAMPLE:
-END_EXAMPLE
-
-TIPS: Leaving this field blank will enable TLS v1.0, TLS v1.1, and TLS v1.2 by default. TLS v1.3 requires BoringSSL and will
-also be enabled if the underlying SSL library supports it.
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
 ID: ciphers
 NAME: Ciphers
 NS: LEO
@@ -630,7 +596,7 @@ NS: LEO
 DESCR: Customizes SSL protocols accepted by the listener.
 END_DESCR
 
-CONT: sslProtocol ciphers enableECDHE enableDHE DHParam
+CONT: ciphers enableECDHE enableDHE DHParam
 END_CONT
 
 SEE_ALSO:
