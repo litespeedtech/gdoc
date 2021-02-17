@@ -210,8 +210,8 @@ END_TIPS
 
 
 [ITEM]
-ID: cachePolicy:allowPostCache
-NAME: Allow POST Cache
+ID: cachePolicy:enablePostCache
+NAME: Enable POST cache
 NS: LE
 REQUIRED:
 APPLY:
@@ -400,7 +400,7 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Publicly cache all URLs served under the current context (server, virtual host, or context level).
+DESCR: Publicly cache all URLs served under the current context (virtual host, or context level).
 
 
 Virtual hosts configured through Apache's httpd.conf can use the "CacheEnable" and
@@ -460,7 +460,7 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Privately cache all URLs served under the current context (server, virtual host, or context level).
+DESCR: Privately cache all URLs served under the current context (virtual host, or context level).
 
 
 A separate cached copy will be made per user based on their IP and set cookies.
@@ -469,11 +469,10 @@ A separate cached copy will be made per user based on their IP and set cookies.
 Virtual hosts configured through Apache's httpd.conf can use the "CacheEnable private /url" and
 "CacheDisable private /url" directives at server, virtual host, directory, file, and location
  levels or in a .htaccess file. "CacheEnable private" and
-"CacheDisable private" are compatible with Apache's mod_cache
-directives and will be applied to all directories below the current level.
-However, when used at the directory, file, or location level, or in
-a .htaccess file, "CacheEnable private" and "CacheDisable private" will only be applied to directories below
-the current level. URL parameters will be ignored.
+levels or in a .htaccess file. "CacheEnable private" and "CacheDisable private" are compatible with Apache's
+"CacheDisable private" are compatible with Apache's mod_cache	mod_cache directives and will be applied to all directories below the current level. However, when used at the
+directives and will be applied to all directories below the current level.	directory, file, or location level, or in a .htaccess file, "CacheEnable private" and "CacheDisable private" will only
+However, when used at the directory, file, or location level, or in	be applied to directories below the current level. URL parameters will be ignored.
 
 END_DESCR
 
@@ -684,9 +683,9 @@ DESCR:
 END_DESCR
 
 CONT: checkPublicCache checkPrivateCache respectCacheable cachePolicy:maxCacheObjSize
-cachePolicy:maxStaleAge cachePolicy:cacheKeyMod cachePolicy:enableCache  cachePolicy:expireInSeconds
-cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
-cachePolicy:cacheStaticFile cachePolicy:allowPostCache
+cachePolicy:maxStaleAge cachePolicy:cacheKeyMod cachePolicy:expireInSeconds
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx	cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
+cachePolicy:cacheStaticFile cachePolicy:allowPostCache	cachePolicy:cacheStaticFile cachePolicy:enablePostCache
 END_CONT
 
 SEE_ALSO:
@@ -703,8 +702,8 @@ DESCR:
 END_DESCR
 
 CONT: checkPublicCache checkPrivateCache respectCacheable cachePolicy:maxCacheObjSize
-cachePolicy:maxStaleAge cachePolicy:cacheKeyMod cachePolicy:enableCache  cachePolicy:expireInSeconds
-cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx cachePolicy:allowPostCache
+cachePolicy:maxStaleAge cachePolicy:cacheKeyMod cachePolicy:expireInSeconds
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx cachePolicy:allowPostCache	cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx cachePolicy:enablePostCache
 END_CONT
 
 SEE_ALSO:

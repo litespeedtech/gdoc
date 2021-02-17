@@ -418,7 +418,7 @@ NS: E
 DESCR:
 END_DESCR
 
-CONT: docRoot vhadminEmails vhEnableGzip enableIpGeo
+CONT: docRoot vhadminEmails vhEnableGzip enableIpGeo cgroups
 END_CONT
 
 SEE_ALSO:

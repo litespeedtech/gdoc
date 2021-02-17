@@ -1340,7 +1340,7 @@ addDefaultCharset defaultCharsetCustomized
 enableRewrite rewriteInherit rewriteBase rewriteRules
 cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds
 cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
-enableIpGeo pagespeedEnabled pagespeedParams apacheConf
+cachePolicy:enablePostCache enableIpGeo pagespeedEnabled pagespeedParams apacheConf
 END_CONT
 
 SEE_ALSO:
@@ -1417,7 +1417,7 @@ authName required accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized
 cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds
 cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
-enableIpGeo pagespeedEnabled pagespeedParams
+cachePolicy:enablePostCache enableIpGeo pagespeedEnabled pagespeedParams
 END_CONT
 
 SEE_ALSO:
@@ -1491,7 +1491,7 @@ accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized
 cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds
 cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
-enableIpGeo pagespeedEnabled pagespeedParams
+cachePolicy:enablePostCache enableIpGeo pagespeedEnabled pagespeedParams
 END_CONT
 
 SEE_ALSO:
@@ -1537,7 +1537,7 @@ realm authName required accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized
 cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds
 cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
-enableIpGeo pagespeedEnabled pagespeedParams
+cachePolicy:enablePostCache enableIpGeo pagespeedEnabled pagespeedParams
 END_CONT
 
 SEE_ALSO:
@@ -1583,7 +1583,7 @@ realm authName required accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized
 cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds
 cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
-enableIpGeo pagespeedEnabled pagespeedParams
+cachePolicy:enablePostCache enableIpGeo pagespeedEnabled pagespeedParams
 END_CONT
 
 SEE_ALSO:
@@ -1631,7 +1631,7 @@ realm authName required accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized
 cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds
 cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
-enableIpGeo pagespeedEnabled pagespeedParams
+cachePolicy:enablePostCache enableIpGeo pagespeedEnabled pagespeedParams
 END_CONT
 
 SEE_ALSO:
@@ -1682,7 +1682,7 @@ addDefaultCharset defaultCharsetCustomized
 enableRewrite rewriteInherit rewriteBase rewriteRules
 cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:microCache5xx
 cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds
-enableIpGeo pagespeedEnabled pagespeedParams apacheConf
+cachePolicy:enablePostCache enableIpGeo pagespeedEnabled pagespeedParams apacheConf
 END_CONT
 
 SEE_ALSO:
@@ -1728,8 +1728,8 @@ END_DESCR
 CONT: expuri extCluster extraHeaders realm authName required accessAllowed accessDenied
 cachePolicy:maxCacheObjSize cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds
 cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
-enableRewrite rewriteInherit rewriteBase rewriteRules addDefaultCharset defaultCharsetCustomized
-enableIpGeo pagespeedEnabled pagespeedParams
+cachePolicy:enablePostCache enableRewrite rewriteInherit rewriteBase rewriteRules addDefaultCharset
+enableIpGeo pagespeedEnabled pagespeedParams	defaultCharsetCustomized enableIpGeo pagespeedEnabled pagespeedParams
 END_CONT
 
 SEE_ALSO:
@@ -1753,7 +1753,7 @@ accessAllowed accessDenied extAuthorizer
 addDefaultCharset defaultCharsetCustomized
 cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds
 cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
-enableIpGeo pagespeedEnabled pagespeedParams
+cachePolicy:enablePostCache enableIpGeo pagespeedEnabled pagespeedParams
 END_CONT
 
 SEE_ALSO:
@@ -1860,7 +1860,7 @@ addDefaultCharset defaultCharsetCustomized
 enableRewrite rewriteInherit rewriteBase rewriteRules
 cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds
 cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
-enableIpGeo pagespeedEnabled pagespeedParams
+cachePolicy:enablePostCache enableIpGeo pagespeedEnabled pagespeedParams
 END_CONT
 
 SEE_ALSO:
@@ -1885,7 +1885,7 @@ allowOverride realm authName required accessAllowed accessDenied extAuthorizer
 enableRewrite rewriteInherit rewriteBase rewriteRules
 checkPublicCache checkPrivateCache respectCacheable cachePolicy:maxCacheObjSize cachePolicy:maxStaleAge
 cachePolicy:cacheKeyMod cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:enablePrivateCache
-cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
+cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx cachePolicy:enablePostCache
 addDefaultCharset defaultCharsetCustomized
 enableIpGeo
 END_CONT

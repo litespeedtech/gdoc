@@ -1244,7 +1244,7 @@ END_TIPS
 [ITEM]
 ID: cgroups
 NAME: cgroups
-NS: O
+NS: EO
 REQUIRED:
 APPLY:
 SINCE:
@@ -1958,25 +1958,7 @@ SEE_ALSO:
 [TBL]
 ID: cgiResource
 NAME: CGI Settings
-NS: E
-
-DESCR: The following settings control CGI processes. Memory and process limits also serve as the default for
-other external applications if limits have not been set explicitly for those applications.
-END_DESCR
-
-CONT: cgidSock maxCGIInstances minUID minGID forceGID umask CGIPriority CPUSoftLimit CPUHardLimit
-memSoftLimit memHardLimit procSoftLimit procHardLimit
-END_CONT
-
-SEE_ALSO:
-[END_TBL]
-
-
-
-[TBL]
-ID: cgiResource
-NAME: CGI设置
-NS: O
+NS: EO
 
 DESCR: The following settings control CGI processes. Memory and process limits also serve as the default for
 other external applications if limits have not been set explicitly for those applications.

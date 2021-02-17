@@ -2126,14 +2126,14 @@ END_TIPS
 
 [ITEM]
 ID: quicEnable
-NAME: 启用QUIC
+NAME: 启用HTTP3/QUIC
 NS: LEO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: 在整个服务器范围内启用QUIC网络协议。 默认值为{val}是{/}。
+DESCR: 在整个服务器范围内启用HTTP3/QUIC网络协议。 默认值为{val}是{/}。
 END_DESCR
 
 SYNTAX: bool
@@ -2143,7 +2143,7 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: 当此设置设置为{val}是{/}时，仍然可以通过{ITEM=Listeners_SSL_Help#allowQuic}设置在侦听器级别
-或通过{ITEM=VHSSL_Help#vhEnableQuic}设置在虚拟主机级别禁用QUIC 
+或通过{ITEM=VHSSL_Help#vhEnableQuic}设置在虚拟主机级别禁用HTTP3/QUIC 
 END_TIPS
 
 [END_ITEM]
@@ -2180,20 +2180,20 @@ END_TIPS
 
 [ITEM]
 ID: quicVersions
-NAME: QUIC版本
+NAME: HTTP3/QUIC版本
 NS: LEO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR:启用的QUIC版本的列表。 此设置仅应用于将QUIC支持限制为列出的版本，最好留空。
+DESCR:启用的HTTP3/QUIC版本的列表。 此设置仅应用于将HTTP3/QUIC支持限制为列出的版本，最好留空。
 END_DESCR
 
 SYNTAX: Comma-separated list
 END_SYNTAX
 
-EXAMPLE: Q035, Q039
+EXAMPLE: h3-29, h3-Q050
 END_EXAMPLE
 
 TIPS: It is recommended to leave this setting blank to have the the best configuration applied automatically.
@@ -2830,7 +2830,7 @@ SEE_ALSO:
 
 [TBL]
 ID: quicTbl
-NAME: QUIC
+NAME: HTTP3/QUIC
 NS: L
 
 DESCR:

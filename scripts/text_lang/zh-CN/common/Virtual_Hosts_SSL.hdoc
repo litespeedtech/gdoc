@@ -3,14 +3,14 @@
 
 [ITEM]
 ID: vhEnableQuic
-NAME: 启用QUIC
+NAME: 启用HTTP3/QUIC
 NS: LEO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Enables the QUIC network protocol for this virtual host.
+DESCR: Enables the HTTP3/QUIC network protocol for this virtual host.
 For this setting to take effect, both {ITEM=ServTuning_Help#quicEnable} and
 {ITEM=Listeners_SSL_Help#allowQuic} must also be set to {val}Yes{/} at the server and listener levels respectively.
 Default value is {val}Yes{/}.
@@ -22,10 +22,10 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: When this setting is set to {val}No{/}, the QUIC advertisement will no longer be sent. If a browser still contains cached
-QUIC information and QUIC is still enabled at the server and listener levels, a QUIC connection will continue to be used
-until this information is no longer cached or a QUIC protocol error is encountered.
-END_TIPS
+TIPS: When this setting is set to {val}No{/}, the HTTP3/QUIC advertisement will no longer be sent. If a browser still
+QUIC information and QUIC is still enabled at the server and listener levels, a QUIC connection will continue to be used	contains cached HTTP3/QUIC information and HTTP3/QUIC is still enabled at the server and listener levels, an HTTP3/QUIC
+until this information is no longer cached or a QUIC protocol error is encountered.	connection will continue to be used until this information is no longer cached or an HTTP3/QUIC protocol error is
+encountered.
 
 [END_ITEM]
 

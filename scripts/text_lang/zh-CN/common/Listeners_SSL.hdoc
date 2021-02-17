@@ -299,14 +299,14 @@ END_TIPS
 
 [ITEM]
 ID: allowQuic
-NAME: 允许QUIC
+NAME: 打开HTTP3/QUIC (UDP) 端口
 NS: LEO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: 允许对映射到此侦听器的虚拟主机使用QUIC网络协议。
+DESCR: 允许对映射到该监听器的虚拟主机使用HTTP3/QUIC网络协议.
 为了使此设置生效，还必须在服务器级别将{ITEM=ServTuning_Help#quicEnable}设置为{val}是{/}。
 默认值为{val}是{/}。
 END_DESCR
@@ -318,7 +318,7 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: 当此设置设置为{val}是{/}时，仍可以通过{ITEM=VHSSL_Help#vhEnableQuic}设置在虚拟主机级别禁用QUIC。
+TIPS: 当此设置设置为{val}是{/}时，仍可以通过{ITEM=VHSSL_Help#vhEnableQuic}设置在虚拟主机级别禁用HTTP3/QUIC。
 END_TIPS
 
 [END_ITEM]
