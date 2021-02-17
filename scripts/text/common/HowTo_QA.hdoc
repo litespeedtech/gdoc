@@ -994,9 +994,7 @@ A: After you get your certificate, you can configure
 		pop-up window. Click "Finish" button to save your changes.
    </li>
 
-   <li> You can specify {ITEM=Listeners_SSL_Help#sslProtocol} 
-		and {ITEM=Listeners_SSL_Help#ciphers}  on the same page.
-   </li>
+   <li> You can specify {ITEM=Listeners_SSL_Help#ciphers} on the same page.</li>
 
    <li> Set {TBL=Listeners_General_Help#virtualHostMapping} in listener
    	General tab. In the pop-up window, select the 
