@@ -616,15 +616,15 @@ END_TIPS
 
 [ITEM]
 ID: respBuffer
-NAME: Response Buffering
+NAME: 响应缓冲
 NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies whether to buffer responses received from external applications. If a "nph-" (Non-Parsed-Header) script is
-detected, buffering is turned off for responses with full HTTP headers.
+DESCR: 指定是否要从外部应用程序缓冲收到的响应。
+如果nph-(Non-Parsed-Header)脚本被检测到，则关闭具有完整HTTP头的缓冲响应。
 END_DESCR
 
 SYNTAX: select
@@ -673,16 +673,15 @@ END_TIPS
 
 [ITEM]
 ID: autoStart
-NAME: Start By Server
+NAME: 开机自启
 NS: O
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies whether you want the web server to start the application automatically. Only FastCGI and LSAPI
-applications running on the same machine can be started automatically. The IP in the {ITEM=extAppAddress} must be a
-local IP. Starting through the LiteSpeed CGI Daemon instead of a main server process will help reduce system overhead.
+DESCR: 指定是否要Web服务器自动启动应用程序。只有运行在同一台机器上的FastCGI和LSAPI应用程序才能自动启动。
+{ITEM=extAppAddress}中的IP必须是本地IP. 通过LiteSpeed CGI守护进程而不是主服务器进程启动,有助于减少系统开销。
 
 
 Default value: Yes (Through CGI Daemon)
@@ -709,9 +708,8 @@ APPLY: 2
 SINCE:
 SEE_ALSO: {ITEM=autoStart}
 
-DESCR: Specifies the full command line including parameters to execute the external application. Required value if
-{ITEM=autoStart} is enabled. A parameter should be quoted with a double or single quote if the parameter contains space or
-tab characters.
+DESCR: 指定包含外部应用程序的执行参数在内的完整命令行。 
+需要{ITEM=autoStart}的值为enable.如果参数中包含空格或制表符,应使用双引号或单引号将其引起。
 END_DESCR
 
 SYNTAX: Full path to the executable with optional parameters.
@@ -757,17 +755,15 @@ END_TIPS
 
 [ITEM]
 ID: instances
-NAME: Instances
+NAME: 实例数
 REQUIRED:
 APPLY: 2
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the maximum instances of the external application the server will create. It is required if {ITEM=autoStart}
-is enabled. Most FastCGI/LSAPI applications can only process one request per process instance and for those types of
-applications, instances should be set to match the value of {ITEM=maxConns}. Some FastCGI/LSAPI applications can
-spawn multiple child processes to handle multiple requests concurrently. For these types of applications, instances should
-be set to "1" and environment variables used to control how many child processes the application can spawn.
+DESCR: 指定服务器创建的外部应用的最大实例数。这个选项需要{ITEM=autoStart}的值为enable.
+大多数FastCGI/LSAPI应用程序每个进程实例只能处理一个请求，对于这种类型的应用，实例数应与{ITEM=maxConns}的值相匹配。 
+而有些FastCGI/LSAPI应用程序可以生成多个子进程以同时处理多个请求. 对于这种类型的应用，应将实例设置为 "1"，并使用环境变量来控制应用可以生成多少个子进程。
 END_DESCR
 
 SYNTAX: uint
@@ -812,14 +808,14 @@ END_TIPS
 
 [ITEM]
 ID: extGroup
-NAME: Run As Group
+NAME: 以特定组运行
 NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO: extUser
 
-DESCR: The external application will run as this specified group name. If not set, Virtual Host level settings will be inherited.
+DESCR: 外部应用程序将作为此指定的组名运行。如果未设置，将继承虚拟主机级别的设置。
 
 
 Default value: Not Set
@@ -863,18 +859,18 @@ END_TIPS
 
 [ITEM]
 ID: runOnStartUp
-NAME: Run On Start Up
+NAME: 开机自启
 NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies whether to start the external application at server start up. Only applicable to external applications that
-can manage their own child processes and where {ITEM=instances} value is set to "1".
+DESCR: 指定是否在服务器启动时启动外部应用程序. 
+只适用于可以管理自己子进程的外部应用程序，并且{ITEM=instances}值设置为"1"。
 
 
-If enabled, external processes will be created at server startup instead of run-time.
+如果启用，将在服务器启动时而不是运行时创建外部进程.
 
 
 When selecting "Yes (Detached mode)", all detached process can be restarted at the Server level or Virtual Host level by
@@ -890,8 +886,7 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS:[P] If the configured external process has significant startup overhead, like a Rails app, then this option should be
-enabled to decrease first page response time.
+TIPS:[性能建议] 如果配置的外部进程有很大的启动开销，比如Rails，那么应该启用这个选项来减少首页响应时间。
 END_TIPS
 [END_ITEM]
 
@@ -899,16 +894,16 @@ END_TIPS
 
 [ITEM]
 ID: extMaxIdleTime
-NAME: Max Idle Time
+NAME: 最大空闲时间
 NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the maximum idle time before an external application is stopped by the server, freeing idle resources.
-When set to "-1", the external application will not be stopped by the server unless running in ProcessGroup mode where
-idle external applications will be stopped after 30 seconds. The default value is "-1".
+DESCR: 指定服务器停止外部应用之前的最大空闲时间，以释放空闲资源。
+当设置为"-1"时，服务器将不会停止外部应用，除非在ProcessGroup模式下运行,
+而在ProcessGroup模式下,闲置的外部应用将在30秒后停止.默认值为"-1"。
 END_DESCR
 
 SYNTAX: bool
@@ -928,16 +923,16 @@ END_TIPS
 
 [ITEM]
 ID: extAppPriority
-NAME: Priority
+NAME: 优先级
 NS: EO
 REQUIRED:
 APPLY: 2
 SINCE:
 SEE_ALSO: Server {ITEM=ServGeneral_Help#serverPriority}
 
-DESCR: Specifies priority of the external application process. Value ranges from {val}-20{/} to {val}20{/}. A lower number
-means a higher priority. An external application process cannot have a higher priority than the web server. If this priority is
-set to a lower number than the server's, the server's priority will be used for this value.
+DESCR: 指定外部应用的优先级,值的范围是{val}-20{/}到{val}20{/}. 
+一个小的数字意味着高优先级.外部应用进程的优先级不能比Web服务器高.
+如果该优先级设置一个比服务器的优先级小的数字，则将使用服务器的优先级。
 END_DESCR
 
 SYNTAX: int
@@ -1008,20 +1003,18 @@ END_TIPS
 
 [ITEM]
 ID: procSoftLimit
-NAME: Process Soft Limit
+NAME: 进程软限制
 NS: O
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Limits the total number of processes that can be created on behalf of a user. All existing processes will be
-counted against this limit, not just new processes to be started.
+DESCR: 限制用户可以创建的进程总数.所有现有的进程都将被计算在这个限制之内,而不仅仅是要启动的新进程。
 
 
-The limit can be set at the server level or at an individual external application level. The server-level limit will be used if it is
-not set at an individual application level. The operating system's default setting will be used if this value is 0 or absent at
-both levels.
+该限制可以在服务器级别或单个外部应用级别进行设置.如果未在应用级别设置，则将使用服务器级别的限制.
+如果该值为0或服务器级和应用级都没有设置,将使用操作系统的默认设置
 END_DESCR
 
 EDITTIP: Process soft/hard limit controls how many processes are allowed for one user. This includes all the processes
@@ -1062,7 +1055,7 @@ END_TIPS
 
 [TBL]
 ID: extapp
-NAME: New External App
+NAME: 新外部应用
 NS: EO
 
 DESCR:
@@ -1209,31 +1202,29 @@ SEE_ALSO:
 
 [PAGE]
 ID: ExtApp_Help
-NAME: External Apps
+NAME: 外部应用
 NS: EO
 
-DESCR: LiteSpeed web server can forward requests to external applications to process and generate dynamic content.
+DESCR: LiteSpeed网络服务器可以转发外部应用程序的请求，以处理和生成动态内容。
 
 
-Since 2.0, LiteSpeed Web Server has supported seven types of external applications: CGI, FastCGI, web server, servlet
+从2.0版本起, LiteSpeed Web Server已经支持了7种外部应用: CGI, FastCGI, web server, servlet
 engine, LiteSpeed SAPI application, load balancer, and piped logger.
 
 <ul>
   <li>
-    CGI stands for Common Gateway Interface. The current standard is CGI/1.1. CGI applications run in standalone
-    processes. A CGI process is started for each request and will exit after finishing the request.
+    CGI是Common Gateway Interface的缩写. 目前的标准是 CGI/1.1.
+    CGI应用程序在独立的进程中运行. 一个CGI进程将为每个请求启动,并且在完成请求后退出.
   </li>
   <li>
-    FastCGI is a fast, open, and secure web server interface that solves the performance problems inherent in CGI without
-    introducing the overhead and complexity of proprietary APIs (Application Programming Interfaces).  For more information,
-    please visit <a href="http://www.fastcgi.com">http://www.fastcgi.com</a>.
+    FastCGI 是一个快速,开源,安全的web服务器接口,它解决了CGI固有的性能问题,而没有引入专有API(应用编程接口),
+    对于更多的信息,请访问 <a href="http://www.fastcgi.com">http://www.fastcgi.com</a>.
 
 
-    On LiteSpeed Web Server, FastCGI applications can take two roles: generating dynamic responses (a responder role) or
-    authorizing requests (an authorizer role). LiteSpeed Web Server further defines two types of FastCGI applications: local
-    FastCGI and remote FastCGI. Local FastCGI applications are started automatically by the web server on demand.
-    Remote FastCGI applications are not started by the web server. (They can run on a remote machine or on the same
-    machine.)
+    在 LiteSpeed Web Server, FastCGI 应用可以发挥两种作用: 创造动态响应 (响应者角色) 或者
+    授权请求 (授权者的角色). LiteSpeed Web Server进一步定义了两种类型的FastCGI应用程序:本地FastCGI和远程FastCGI.
+    Web服务器可根据需要自动启动本地FastCGI应用程序.
+    Web服务器不会启动远程FastCGI应用程序。 (它们可以在远程计算机或同一计算机上运行)
   </li>
   <li>
     A web server is a server application that supports HTTP 1.0/1.1 protocols. LiteSpeed web server can serve as a
