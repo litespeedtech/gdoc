@@ -68,12 +68,16 @@ SINCE:
 SEE_ALSO:
 
 DESCR: Specifies which mode the load balancer operates in, "Stateless" or "Stateful".
-<br><br>
+
+
 "Stateful" mode track sessions associated with each back-end server. It also called "Session Affinity".
-<br><br>
+
+
 "Stateless" mode does not care about sessions.
-<br><br>
-For the Layer 4 Load Balancer, if the Mode is “Stateful”, it will track the IP address of the client to extract previous sessions.
+
+
+For the Layer 4 Load Balancer, if the Mode is “Stateful”, it will track the IP address of the client to extract
+previous sessions.
 END_DESCR
 
 SYNTAX: select
