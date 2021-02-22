@@ -141,84 +141,6 @@ END_TIPS
 
 
 
-[ITEM]
-ID: criuEnabled
-NAME: Enable CRIU
-NS: E
-REQUIRED:
-APPLY:
-SINCE:
-SEE_ALSO:
-
-DESCR: Enable Checkpoint/Restore In Userspace (CRIU) functionality.
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE:
-END_EXAMPLE
-
-TIPS:
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
-ID: criuDumpReqs
-NAME: CRIU Dump Min Reqs
-NS: E
-REQUIRED:
-APPLY:
-SINCE:
-SEE_ALSO:
-
-DESCR: Minimum number of requests before triggering a CRIU dump.
-
-
-Default value is 15.
-END_DESCR
-
-SYNTAX: Positive integer number
-END_SYNTAX
-
-EXAMPLE:
-END_EXAMPLE
-
-TIPS:
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
-ID: criuDebug
-NAME: CRIU debug
-NS: E
-REQUIRED:
-APPLY:
-SINCE:
-SEE_ALSO:
-
-DESCR: Turn on CRIU debug logging.
-END_DESCR
-
-SYNTAX: bool
-END_SYNTAX
-
-EXAMPLE:
-END_EXAMPLE
-
-TIPS: [I] Logged messages will be written to stderr.log.
-END_TIPS
-
-[END_ITEM]
-
-
-
 ############# PHP Handlers ############
 
 
@@ -314,7 +236,6 @@ DESCR:
 END_DESCR
 
 CONT: detachedMode defaultPhpVer controlPanel clAltPhp phpSuexecSuffixes
-criuEnabled criuDumpReqs criuDebug
 END_CONT
 
 SEE_ALSO:
