@@ -199,6 +199,39 @@ END_TIPS
 
 
 [ITEM]
+ID: zconf_mode
+NAME: Mode
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies which mode the ZeroConf cluster operates in, "Stateless" or "Stateful".
+
+
+"Stateful" mode track sessions associated with each back-end server. It also called "Session Affinity".
+
+
+"Stateless" mode does not care about sessions.
+
+
+Default value: {val}Stateful{/}
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: zconf_workerMaxConns
 NAME: Worker Max Connections
 NS: L
@@ -376,7 +409,7 @@ DESCR:
 END_DESCR
 
 CONT: zconf_enabled zconf_vhostPerDomain zconf_logPerDomain zconf_domLogDir zconf_passwdFile zconf_groupFile
-zconf_domCiphers strategy showBackend forwardIpHeader forwardByHeader zconfShmDir
+zconf_domCiphers zconf_mode strategy showBackend forwardIpHeader forwardByHeader zconfShmDir
 END_CONT
 
 SEE_ALSO:
