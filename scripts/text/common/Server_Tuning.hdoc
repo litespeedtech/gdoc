@@ -2061,6 +2061,35 @@ END_TIPS
 
 
 
+[ITEM]
+ID: sslOcspProxy
+NAME: OCSP Proxy
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Socket address used as the proxy server address for OCSP verification. Leave this setting unset If not using a
+proxy.
+
+
+Default value: {val}not set{/}
+END_DESCR
+
+SYNTAX: Socket Address
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ########## SSL Dynamic SNI  ##########
 
 
@@ -2876,7 +2905,7 @@ DESCR:
 END_DESCR
 
 CONT: sslDefaultCiphers sslStrongDhKey sslEnableMultiCerts sslSessionCache sslSessionCacheSize
-sslSessionCacheTimeout sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile
+sslSessionCacheTimeout sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile sslOcspProxy
 END_CONT
 
 SEE_ALSO:
@@ -2894,6 +2923,7 @@ END_DESCR
 
 CONT: sslDefaultCiphers sslStrongDhKey sslEnableMultiCerts sslCertCompress sslHsOffload sslSessionCache
 sslSessionCacheSize sslSessionCacheTimeout sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile
+sslOcspProxy
 END_CONT
 
 SEE_ALSO:
