@@ -920,18 +920,22 @@ SEE_ALSO:
 
 DESCR: Specifies the maximum idle time before an external application is stopped by the server, freeing idle resources.
 When set to "-1", the external application will not be stopped by the server unless running in ProcessGroup mode where
-idle external applications will be stopped after 30 seconds. The default value is "-1".
+idle external applications will be stopped after 30 seconds.
+
+
+Default value: {val}-1{/val}
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: Integer number
 END_SYNTAX
 
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: [P] This feature is especially useful in the mass hosting environment where, in order to prevent files owned by one
-virtual host from being accessed by the external application scripts of another virtual host, many different applications are
-run at the same time in SetUID mode. Set this value low to prevent these external applications from idling unnecessarily.
+TIPS: [P] This feature is especially useful in the mass hosting environment where, in order to prevent files owned by
+one virtual host from being accessed by the external application scripts of another virtual host, many different
+applications are run at the same time in SetUID mode. Set this value low to prevent these external applications from
+idling unnecessarily.
 END_TIPS
 
 [END_ITEM]

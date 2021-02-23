@@ -5,7 +5,7 @@
       <br /><br />
       Users' Manual
       <br /><br />
-      &#8212;&nbsp;Rev. 16
+      &#8212;&nbsp;Rev. 17
     </h1>
   </header>
   <hr />
@@ -31,8 +31,8 @@
   </ol>
   <p>
     For more information, visit our
-    <a href="https://www.litespeedtech.com/support/wiki/doku.php">
-      LiteSpeed Wiki
+    <a href="https://docs.litespeedtech.com/">
+      Documentation Site
     </a>
   </p>
 </section>

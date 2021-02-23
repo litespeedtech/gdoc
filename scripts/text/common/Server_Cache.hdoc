@@ -320,7 +320,10 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the maximum size of an object that can be stored in the cache directory. The default value is "10MB".
+DESCR: Specifies the maximum size of an object, up to 100M, that can be stored in the cache directory.
+
+
+Default value: 10M
 END_DESCR
 
 SYNTAX: uint
