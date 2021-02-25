@@ -903,19 +903,22 @@ SEE_ALSO:
 
 DESCR: 指定服务器停止外部应用之前的最大空闲时间，以释放空闲资源。
 当设置为"-1"时，服务器将不会停止外部应用，除非在ProcessGroup模式下运行,
-而在ProcessGroup模式下,闲置的外部应用将在30秒后停止.默认值为"-1"。
+而在ProcessGroup模式下,闲置的外部应用将在30秒后停止.
+
+
+默认值为: {val}-1{/val}
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: Integer number
 END_SYNTAX
 
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: [P] This feature is especially useful in the mass hosting environment where, in order to prevent files owned by one
-virtual host from being accessed by the external application scripts of another virtual host, many different applications are
-run at the same time in SetUID mode. Set this value low to prevent these external applications from idling unnecessarily.
-END_TIPS
+TIPS: [P] This feature is especially useful in the mass hosting environment where, in order to prevent files owned by
+virtual host from being accessed by the external application scripts of another virtual host, many different applications are	one virtual host from being accessed by the external application scripts of another virtual host, many different
+run at the same time in SetUID mode. Set this value low to prevent these external applications from idling unnecessarily.	applications are run at the same time in SetUID mode. Set this value low to prevent these external applications from
+idling unnecessarily.
 
 [END_ITEM]
 
@@ -1227,15 +1230,13 @@ engine, LiteSpeed SAPI application, load balancer, and piped logger.
     Web服务器不会启动远程FastCGI应用程序。 (它们可以在远程计算机或同一计算机上运行)
   </li>
   <li>
-    A web server is a server application that supports HTTP 1.0/1.1 protocols. LiteSpeed web server can serve as a
-    transparent reverse proxy to accelerate and protect web servers and application servers. When communicating with
-    backend web servers, LiteSpeed will always try to utilize persistent connections in order to achieve the highest
-    performance.
+    Web服务器是指支持HTTP 1.0/1.1协议的服务器应用程序. LiteSpeed网络服务器可以作为一个透明的反向代理来加速和保护网络服务器和应用服务器.
+    在与后端网络服务器进行通信时，LiteSpeed将始终尝试利用持久连接，以实现最高性能。
   </li>
   <li>
-    A servlet engine is an application, like Apache Tomcat and Jetty, that implements Java servlets and Java Server Pages.
-    LiteSpeed can communicate with servlet engines through AJPv1.3 (Apache JServ Protocol version 1.3). Servlet engine
-    cannot be started by the web server and can be setup to run on a remote machine.
+    像Apache Tomcat和Jetty,servlet引擎是实现了Java servlets和Java Server Pages的应用程序.
+    LiteSpeed可以通过AJPv1.3（Apache JServ协议1.3版）与servlet引擎进行通信.
+    Servlet引擎不能由Web服务器启动，可以设置在远程机器上运行.
   </li>
   <li>
     A LiteSpeed SAPI (LiteSpeed Server Application Programming Interface) application is an application that communicates

@@ -10,10 +10,9 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Enables the HTTP3/QUIC network protocol for this virtual host.
-For this setting to take effect, both {ITEM=ServTuning_Help#quicEnable} and
-{ITEM=Listeners_SSL_Help#allowQuic} must also be set to {val}Yes{/} at the server and listener levels respectively.
-Default value is {val}Yes{/}.
+DESCR: 为这个虚拟主机启用HTTP3/QUIC网络协议.
+为了使该设置生效,在服务器级和监听器级的{ITEM=ServTuning_Help#quicEnable}和{ITEM=Listeners_SSL_Help#allowQuic}都必须设置为{val}Yes{/}
+默认值是{val}Yes{/}.
 END_DESCR
 
 SYNTAX: bool
@@ -22,7 +21,7 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: When this setting is set to {val}No{/}, the HTTP3/QUIC advertisement will no longer be sent. If a browser still
+TIPS: 当此设置为{val}No{/}时, 将不再发送HTTP3/QUIC advertisement. If a browser still
 QUIC information and QUIC is still enabled at the server and listener levels, a QUIC connection will continue to be used	contains cached HTTP3/QUIC information and HTTP3/QUIC is still enabled at the server and listener levels, an HTTP3/QUIC
 until this information is no longer cached or a QUIC protocol error is encountered.	connection will continue to be used until this information is no longer cached or an HTTP3/QUIC protocol error is
 encountered.
@@ -35,7 +34,7 @@ encountered.
 
 [TBL]
 ID: vhSslFeature
-NAME: Security & Features
+NAME: 安全与功能
 NS: LEO
 
 DESCR:
