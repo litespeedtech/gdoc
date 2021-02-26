@@ -412,8 +412,6 @@ level or in .htaccess. "CacheEnable" and "CacheDisable" directives are compatibl
 with Apache mod_cache directives. However, when used at the context, file, or
 location level, or in .htaccess, "CacheEnable" and "CacheDisable" will only be applied
 to directories below the current level. URL parameters will be ignored.
-
-
 END_DESCR
 
 SYNTAX: bool
@@ -471,11 +469,10 @@ A separate cached copy will be made per user based on their IP and set cookies.
 
 Virtual hosts configured through Apache's httpd.conf can use the "CacheEnable private /url" and
 "CacheDisable private /url" directives at server, virtual host, directory, file, and location
- levels or in a .htaccess file. "CacheEnable private" and
 levels or in a .htaccess file. "CacheEnable private" and "CacheDisable private" are compatible with Apache's
-"CacheDisable private" are compatible with Apache's mod_cache	mod_cache directives and will be applied to all directories below the current level. However, when used at the
-directives and will be applied to all directories below the current level.	directory, file, or location level, or in a .htaccess file, "CacheEnable private" and "CacheDisable private" will only
-However, when used at the directory, file, or location level, or in	be applied to directories below the current level. URL parameters will be ignored.
+mod_cache directives and will be applied to all directories below the current level. However, when used at the
+directory, file, or location level, or in a .htaccess file, "CacheEnable private" and "CacheDisable private" will only
+be applied to directories below the current level. URL parameters will be ignored.
 
 END_DESCR
 
@@ -687,8 +684,8 @@ END_DESCR
 
 CONT: checkPublicCache checkPrivateCache respectCacheable cachePolicy:maxCacheObjSize
 cachePolicy:maxStaleAge cachePolicy:cacheKeyMod cachePolicy:expireInSeconds
-cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx	cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
-cachePolicy:cacheStaticFile cachePolicy:allowPostCache	cachePolicy:cacheStaticFile cachePolicy:enablePostCache
+cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
+cachePolicy:cacheStaticFile cachePolicy:enablePostCache
 END_CONT
 
 SEE_ALSO:
@@ -706,7 +703,7 @@ END_DESCR
 
 CONT: checkPublicCache checkPrivateCache respectCacheable cachePolicy:maxCacheObjSize
 cachePolicy:maxStaleAge cachePolicy:cacheKeyMod cachePolicy:expireInSeconds
-cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx cachePolicy:allowPostCache	cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx cachePolicy:enablePostCache
+cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx cachePolicy:enablePostCache
 END_CONT
 
 SEE_ALSO:

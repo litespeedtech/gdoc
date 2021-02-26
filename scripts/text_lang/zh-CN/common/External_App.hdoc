@@ -919,6 +919,7 @@ TIPS: [P] This feature is especially useful in the mass hosting environment wher
 virtual host from being accessed by the external application scripts of another virtual host, many different applications are	one virtual host from being accessed by the external application scripts of another virtual host, many different
 run at the same time in SetUID mode. Set this value low to prevent these external applications from idling unnecessarily.	applications are run at the same time in SetUID mode. Set this value low to prevent these external applications from
 idling unnecessarily.
+END_TIPS
 
 [END_ITEM]
 
