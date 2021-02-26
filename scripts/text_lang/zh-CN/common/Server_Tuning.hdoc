@@ -1061,6 +1061,36 @@ END_TIPS
 
 [ITEM]
 ID: enableGzipCompress
+NAME: Enable Compression
+NS: E
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Enables GZIP/Brotli compression for both static and dynamic responses.
+
+
+Default value: Yes
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [P] Enable it to save network bandwidth. Text-based responses such as
+html, css, and javascript files benefit the most and on average can be compressed to half
+of their original size.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: enableGzipCompress
 NAME: 启用GZIP压缩
 NS: EO
 REQUIRED:
@@ -1264,7 +1294,7 @@ END_TIPS
 [ITEM]
 ID: enableBrCompress
 NAME: Brotli压缩等级 (Dynamic Content)
-NS: EO
+NS: E
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1296,7 +1326,7 @@ END_TIPS
 [ITEM]
 ID: gzipAutoUpdateStatic
 NAME: 自动更新静态文件
-NS: EO
+NS: O
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1307,6 +1337,7 @@ DESCR: 指定是否由LiteSpeed自动创建/更新可压缩静态文件的GZIP�
 LiteSpeed会根据压缩的文件时间戳来创建/更新文件的压缩版本。
 压缩的文档会创建在{ITEM=gzipCacheDir}目录下。
 文件名称根据原文件的MD5散列创建。
+
 
 默认值: Yes
 END_DESCR
@@ -1359,7 +1390,7 @@ END_TIPS
 [ITEM]
 ID: brStaticCompressLevel
 NAME: Brotli 压缩级别（静态内容）
-NS: EO
+NS: E
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -1382,6 +1413,39 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: [性能建议] 压缩可以用来节省网络带宽。 基于文本的响应（例如html，css和javascript文件）效果最好，平均可以将其压缩为原始大小的一半。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: brStaticCompressLevel
+NAME: Brotli 压缩等级 (静态文件)
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: 指定Brotli压缩静态内容的级别。
+范围从{val}1{/} (最低)到{val}9{/} (最高)。
+
+
+当设置为 {val}0{/}时, brotli压缩将在全局禁用。
+
+
+Default value: 5
+END_DESCR
+
+SYNTAX: Number between 0 and 11.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [性能建议] 压缩可以用来节省网络带宽。 
+基于文本的响应（例如html，css和javascript文件）效果最好，平均可以将其压缩为原始大小的一半。
 END_TIPS
 
 [END_ITEM]
@@ -1915,6 +1979,35 @@ END_TIPS
 
 
 
+[ITEM]
+ID: sslOcspProxy
+NAME: OCSP Proxy
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Socket address used as the proxy server address for OCSP verification. Leave this setting unset If not using a
+proxy.
+
+
+Default value: {val}not set{/}
+END_DESCR
+
+SYNTAX: Socket Address
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ########## SSL Dynamic SNI  ##########
 
 
@@ -2062,14 +2155,14 @@ END_TIPS
 
 [ITEM]
 ID: quicEnable
-NAME: 启用QUIC
+NAME: 启用HTTP3/QUIC
 NS: LEO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: 在整个服务器范围内启用QUIC网络协议。 默认值为{val}是{/}。
+DESCR: 在整个服务器范围内启用HTTP3/QUIC网络协议。 默认值为{val}是{/}。
 END_DESCR
 
 SYNTAX: bool
@@ -2079,7 +2172,7 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: 当此设置设置为{val}是{/}时，仍然可以通过{ITEM=Listeners_SSL_Help#allowQuic}设置在侦听器级别
-或通过{ITEM=VHSSL_Help#vhEnableQuic}设置在虚拟主机级别禁用QUIC 
+或通过{ITEM=VHSSL_Help#vhEnableQuic}设置在虚拟主机级别禁用HTTP3/QUIC 
 END_TIPS
 
 [END_ITEM]
@@ -2116,20 +2209,20 @@ END_TIPS
 
 [ITEM]
 ID: quicVersions
-NAME: QUIC版本
+NAME: HTTP3/QUIC版本
 NS: LEO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR:启用的QUIC版本的列表。 此设置仅应用于将QUIC支持限制为列出的版本，最好留空。
+DESCR:启用的HTTP3/QUIC版本的列表。 此设置仅应用于将HTTP3/QUIC支持限制为列出的版本，最好留空。
 END_DESCR
 
 SYNTAX: Comma-separated list
 END_SYNTAX
 
-EXAMPLE: Q035, Q039
+EXAMPLE: h3-29, h3-Q050
 END_EXAMPLE
 
 TIPS: It is recommended to leave this setting blank to have the the best configuration applied automatically.
@@ -2682,12 +2775,29 @@ SEE_ALSO:
 [TBL]
 ID: gzipTuning
 NAME: GZIP/Brotli压缩
-NS: EO
+NS: E
 
 DESCR:
 END_DESCR
 
 CONT: enableGzipCompress compressibleTypes enableDynGzipCompress gzipCompressLevel enableBrCompress
+gzipAutoUpdateStatic gzipStaticCompressLevel brStaticCompressLevel gzipCacheDir gzipMaxFileSize gzipMinFileSize
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: gzipTuning
+NAME: GZIP/Brotli压缩
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: enableGzipCompress compressibleTypes enableDynGzipCompress gzipCompressLevel
 gzipAutoUpdateStatic gzipStaticCompressLevel brStaticCompressLevel gzipCacheDir gzipMaxFileSize gzipMinFileSize
 END_CONT
 
@@ -2705,7 +2815,7 @@ DESCR:
 END_DESCR
 
 CONT: sslDefaultCiphers sslStrongDhKey sslEnableMultiCerts sslSessionCache sslSessionCacheSize
-sslSessionCacheTimeout sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile
+sslSessionCacheTimeout sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile sslOcspProxy
 END_CONT
 
 SEE_ALSO:
@@ -2723,6 +2833,7 @@ END_DESCR
 
 CONT: sslDefaultCiphers sslStrongDhKey sslEnableMultiCerts sslCertCompress sslHsOffload sslSessionCache
 sslSessionCacheSize sslSessionCacheTimeout sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile
+sslOcspProxy
 END_CONT
 
 SEE_ALSO:
@@ -2749,7 +2860,7 @@ SEE_ALSO:
 
 [TBL]
 ID: quicTbl
-NAME: QUIC
+NAME: HTTP3/QUIC
 NS: L
 
 DESCR:

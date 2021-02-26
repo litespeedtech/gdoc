@@ -132,37 +132,6 @@ END_TIPS
 ########## SSL Protocol ##########
 
 
-[ITEM]
-ID: sslProtocol
-NAME: 协议版本
-NS: LEO
-REQUIRED:
-APPLY: 3
-SINCE:
-SEE_ALSO:
-
-DESCR: 指定将使用哪个版本的SSL协议。 您可以选择
-{val}SSL v3.0 {/}和{val}TLS v1.0 {/}。 从OpenSSL 1.0.1开始，还支持{val}TLS v1.1 {/}，{val}TLS v1.2 {/}。 
-还可以通过BoringSSL。支持{val}TLS v1.3 {/}
-END_DESCR
-
-EDITTIP: 必须在“常规”>“地址设置”中<b>安全</b>中选择“是”。
-END_EDITTIP
-
-EDITTIP: 对于SSL版本和加密级别，请选择所有您要接受的协议。
-END_EDITTIP
-
-SYNTAX:
-END_SYNTAX
-
-EXAMPLE:
-END_EXAMPLE
-
-TIPS:将此字段保留为空白将默认启用TLS v1.0，TLS v1.1和TLS v1.2。 TLS v1.3需要BoringSSL，并且在基础SSL库支持的情况下也会启用。
-END_TIPS
-
-[END_ITEM]
-
 
 
 [ITEM]
@@ -330,14 +299,14 @@ END_TIPS
 
 [ITEM]
 ID: allowQuic
-NAME: 允许QUIC
+NAME: 打开HTTP3/QUIC (UDP) 端口
 NS: LEO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: 允许对映射到此侦听器的虚拟主机使用QUIC网络协议。
+DESCR: 允许对映射到该监听器的虚拟主机使用HTTP3/QUIC网络协议.
 为了使此设置生效，还必须在服务器级别将{ITEM=ServTuning_Help#quicEnable}设置为{val}是{/}。
 默认值为{val}是{/}。
 END_DESCR
@@ -349,7 +318,7 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: 当此设置设置为{val}是{/}时，仍可以通过{ITEM=VHSSL_Help#vhEnableQuic}设置在虚拟主机级别禁用QUIC。
+TIPS: 当此设置设置为{val}是{/}时，仍可以通过{ITEM=VHSSL_Help#vhEnableQuic}设置在虚拟主机级别禁用HTTP3/QUIC。
 END_TIPS
 
 [END_ITEM]
@@ -609,7 +578,7 @@ NS: LEO
 DESCR: 自定义侦听器接受的SSL协议。
 END_DESCR
 
-CONT: sslProtocol ciphers enableECDHE enableDHE DHParam
+CONT: ciphers enableECDHE enableDHE DHParam
 END_CONT
 
 SEE_ALSO:

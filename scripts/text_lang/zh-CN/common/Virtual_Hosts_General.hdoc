@@ -70,7 +70,7 @@ END_TIPS
 [ITEM]
 ID: vhEnableGzip
 NAME: 启用压缩
-NS: LEO
+NS: LE
 REQUIRED:
 APPLY: 3
 SINCE:
@@ -80,6 +80,58 @@ DESCR: 指定是否为此虚拟主机启用GZIP/Brotli压缩
 此设置仅在服务器级别启用压缩时才有效.
   压缩设置是在服务器级别配置的
    (调节 > GZIP/Brotli 压缩).
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhEnableGzip
+NAME: 启用 GZIP 压缩
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=ServTuning_Help#enableGzipCompress}
+
+DESCR: 指定是否为此虚拟主机启用GZIP压缩。
+这个设置仅在服务器级{ITEM=enableGzipCompress} 设置为 {val}Yes{/}时有效.
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhEnableBr
+NAME:  Brotli 压缩
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO: {ITEM=ServTuning_Help#brStaticCompressLevel}
+
+DESCR: 指定是否为此虚拟主机启用Brotli压缩。
+这个设置仅在服务器级{ITEM=brStaticCompressLevel}设置为一个非零值时有效.
 END_DESCR
 
 SYNTAX: bool
@@ -366,7 +418,7 @@ NS: E
 DESCR:
 END_DESCR
 
-CONT: docRoot vhadminEmails vhEnableGzip enableIpGeo
+CONT: docRoot vhadminEmails vhEnableGzip enableIpGeo cgroups
 END_CONT
 
 SEE_ALSO:
@@ -382,7 +434,7 @@ NS: O
 DESCR:
 END_DESCR
 
-CONT: docRoot vhadminEmails vhEnableGzip enableIpGeo cgroups
+CONT: docRoot vhadminEmails vhEnableGzip vhEnableBr enableIpGeo cgroups
 END_CONT
 
 SEE_ALSO:
