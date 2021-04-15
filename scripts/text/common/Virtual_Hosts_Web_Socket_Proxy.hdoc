@@ -47,6 +47,7 @@ END_TIPS
 [ITEM]
 ID: wsaddr
 NAME: Address
+NS: EO
 REQUIRED: 
 APPLY: 2
 SINCE: 
@@ -63,7 +64,7 @@ END_SYNTAX
 
 EXAMPLE: 127.0.0.1:5434 
 
-UDS://tmp/lshttpd/php.sock.
+UDS://tmp/lshttpd/php.sock
 END_EXAMPLE
 
 TIPS: [S] If the WebSocket backend runs on the same machine, 
