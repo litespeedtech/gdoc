@@ -59,12 +59,14 @@ IPv4 and IPv6 sockets can be used for communication over the network.
 UDS can only be used when the WebSocket backend resides on the same machine as the server. 
 END_DESCR
 
-SYNTAX: IPv4 or IPV6 address:port or UDS://path
+SYNTAX: IPv4/IPv6 address:port, UDS://path, or unix:path
 END_SYNTAX
 
 EXAMPLE: 127.0.0.1:5434 
 
 UDS://tmp/lshttpd/php.sock
+
+unix:/tmp/lshttpd/php.sock
 END_EXAMPLE
 
 TIPS: [S] If the WebSocket backend runs on the same machine, 

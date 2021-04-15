@@ -266,9 +266,9 @@ SEE_ALSO:
 DESCR: HTTP,HTTPS, or Unix Domain Sockets (UDS) address used by the external web server.
 END_DESCR
 
-SYNTAX: IPv4/IPv6 address(:port) or UDS://path. Add "https://" in front of an IPv4/IPv6 address if the external web
-server uses HTTPS. Port is optional for IPv4/IPv6 addresses if the external web server uses the standard ports 80 or
-443.
+SYNTAX: IPv4/IPv6 address(:port), UDS://path, or unix:path. Add "https://" in front of an IPv4/IPv6 address if the
+external web server uses HTTPS. Port is optional for IPv4/IPv6 addresses if the external web server uses the standard
+ports 80 or 443.
 END_SYNTAX
 
 EXAMPLE: 192.168.0.10
@@ -280,6 +280,8 @@ https://10.0.8.9
 https://127.0.0.1:5438
 
 UDS://tmp/lshttpd/php.sock
+
+unix:/tmp/lshttpd/php.sock
 END_EXAMPLE
 
 TIPS: [S] If you proxy to another web server running on the same machine using an IPv4/IPv6 address, set the IP address
