@@ -35,6 +35,7 @@ END_TIPS
 [ITEM]
 ID: wsaddr
 NAME: 地址
+NS: EO
 REQUIRED: 
 APPLY: 2
 SINCE: 
@@ -46,12 +47,14 @@ IPv4 和 IPv6 套接字可用于网络上的通信。
 只有当 WebSocket 后端与服务器在同一台机器上时，才能使用 UDS。
 END_DESCR
 
-SYNTAX: IPv4 or IPV6 address:port or UDS://path
+SYNTAX: IPv4/IPv6 address:port, UDS://path, or unix:path
 END_SYNTAX
 
 EXAMPLE: 127.0.0.1:5434 
 
-UDS://tmp/lshttpd/php.sock.
+UDS://tmp/lshttpd/php.sock
+
+unix:/tmp/lshttpd/php.sock
 END_EXAMPLE
 
 TIPS: [S] If the WebSocket backend runs on the same machine, 
