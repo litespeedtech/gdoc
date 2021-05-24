@@ -416,8 +416,9 @@ END_TIPS
 
 
 [ITEM]
-ID: accessLog_compressArchive
+ID: log_compressArchive
 NAME: 压缩存档
+NS: LEO
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -482,8 +483,8 @@ NS: LEO
 DESCR: 
 END_DESCR
 
-CONT: accessLog_fileName accessLog_pipedLogger accessLog_logFormat accessLog_logHeader log_rollingSize 
-log_keepDays accessLog_compressArchive
+CONT: accessLog_fileName accessLog_pipedLogger accessLog_logFormat accessLog_logHeader log_rollingSize
+log_keepDays log_compressArchive
 END_CONT
 
 SEE_ALSO: 

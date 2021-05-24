@@ -344,8 +344,9 @@ END_TIPS
 
 
 [ITEM]
-ID: accessLog_compressArchive
+ID: log_compressArchive
 NAME: アーカイブを圧縮する
+NS: LEO
 
 DESCR: ディスク領域を節約するためにローテーションしたログファイルを圧縮するかどうかを指定します。
 END_DESCR
