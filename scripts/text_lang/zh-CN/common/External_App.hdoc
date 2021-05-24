@@ -260,10 +260,10 @@ APPLY: 2
 SINCE:
 SEE_ALSO:
 
-DESCR: 外部网络服务器使用的HTTP或HTTPS地址。
+DESCR: 外部网络服务器使用的HTTP,HTTPS或Unix域套接字(UDS)地址。
 END_DESCR
 
-SYNTAX: IPv4 或 IPV6 地址(:端口). 如果外部Web服务器使用HTTPS，则在前面加上 "https://"。 
+SYNTAX: IPv4 或 IPV6 地址(:端口),UDS://path或unix:path 如果外部Web服务器使用HTTPS，则在前面加上 "https://"。 
 如果外部Web服务器使用标准端口80或443，则端口是可选的。
 END_SYNTAX
 
@@ -274,6 +274,10 @@ EXAMPLE: 192.168.0.10
 https://10.0.8.9
 
 https://127.0.0.1:5438
+
+UDS://tmp/lshttpd/php.sock
+
+unix:/tmp/lshttpd/php.sock
 END_EXAMPLE
 
 TIPS: [安全建议] 如果代理到同一台机器上运行的另一台Web服务器，请将IP地址设置为{val}localhost{/}或{val}127.0.0.1{/}，这样从其他机器上就无法访问外部应用程序。
