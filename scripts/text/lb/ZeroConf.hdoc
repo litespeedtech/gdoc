@@ -457,7 +457,7 @@ NAME: ZeroConf Listener Log
 DESCR:
 END_DESCR
 
-CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_keepDays
+CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_keepDays log_compressArchive
 END_CONT
 
 SEE_ALSO:

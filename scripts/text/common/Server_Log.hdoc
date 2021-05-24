@@ -474,7 +474,8 @@ NS: LE
 DESCR: 
 END_DESCR
 
-CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_keepDays log_enableStderrLog log_enableAioLog
+CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_keepDays log_compressArchive log_enableStderrLog
+log_enableAioLog
 END_CONT
 
 SEE_ALSO: 
@@ -490,7 +491,7 @@ NS: O
 DESCR: 
 END_DESCR
 
-CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_keepDays log_enableStderrLog
+CONT: log_fileName log_logLevel log_debugLevel log_rollingSize log_keepDays log_compressArchive log_enableStderrLog
 END_CONT
 
 SEE_ALSO: 
