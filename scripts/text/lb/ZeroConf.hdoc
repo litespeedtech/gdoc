@@ -473,7 +473,7 @@ DESCR:
 END_DESCR
 
 CONT: accessLog_fileName accessLog_pipedLogger accessLog_logFormat accessLog_logHeader log_rollingSize
-log_keepDays accessLog_compressArchive
+log_keepDays log_compressArchive
 END_CONT
 
 SEE_ALSO:
