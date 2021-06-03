@@ -538,7 +538,7 @@ NS: L
 DESCR:
 END_DESCR
 
-CONT: vhGeneral vhAcLog errPage
+CONT: vhGeneral vhLog vhAcLog errPage
 END_CONT
 
 SEE_ALSO:
