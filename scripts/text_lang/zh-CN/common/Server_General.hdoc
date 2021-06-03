@@ -1882,8 +1882,8 @@ NS: L
 DESCR:
 END_DESCR
 
-CONT: disableInitLogRotation showVersionNumber hideSigInErrorPage enableIpGeo useIpInProxyHeader autoUpdateInterval
-autoUpdateDownloadPkg adminEmails
+CONT: disableInitLogRotation showVersionNumber hideSigInErrorPage enableIpGeo useIpInProxyHeader extraHeaders
+autoUpdateInterval autoUpdateDownloadPkg adminEmails
 END_CONT
 
 SEE_ALSO:
