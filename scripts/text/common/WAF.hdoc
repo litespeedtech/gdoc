@@ -249,17 +249,22 @@ END_TIPS
 [ITEM]
 ID: secAuditLogEngine
 NAME: Enable Security Audit Log
+NS: LE
 REQUIRED: 
 APPLY: 2
 SINCE: 4.1.9
 SEE_ALSO: {ITEM=secAuditLog}
 
-DESCR: Specifies whether to enable audit logging. This
-feature is equivalent to Apache's mod_security audit engine. 
-If it is enabled and {ITEM=secAuditLog} is set, detailed request information will be saved. 
+DESCR: Specifies whether to enable audit logging and in what format
+(Regular, JSON, or Pretty JSON). This feature is equivalent to Apache's
+mod_security audit engine.
+
+
+If this setting is enabled and the {ITEM=secAuditLog} setting is set, detailed
+request information will be saved.
 END_DESCR
 
-SYNTAX: bool
+SYNTAX: select
 END_SYNTAX
 
 EXAMPLE: 
