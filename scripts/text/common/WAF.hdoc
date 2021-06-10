@@ -256,7 +256,7 @@ SINCE: 4.1.9
 SEE_ALSO: {ITEM=secAuditLog}
 
 DESCR: Specifies whether to enable audit logging and in what format
-(Regular, JSON, or Pretty JSON). This feature is equivalent to Apache's
+(Native, JSON, or Pretty JSON). This feature is equivalent to Apache's
 mod_security audit engine.
 
 
