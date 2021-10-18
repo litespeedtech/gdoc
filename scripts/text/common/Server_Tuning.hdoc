@@ -772,7 +772,7 @@ SINCE:
 SEE_ALSO:
 
 DESCR: Specifies the maximum body size of a dynamically generated response. Static assets from a backend server are
-considered a dynamic response. Hard limit is {val}2047MB{/}.
+considered a dynamic response.
 END_DESCR
 
 SYNTAX: uint
@@ -799,7 +799,7 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the maximum body size of a dynamically generated response. Hard limit is {val}2047MB{/}.
+DESCR: Specifies the maximum body size of a dynamically generated response.
 END_DESCR
 
 SYNTAX: uint
