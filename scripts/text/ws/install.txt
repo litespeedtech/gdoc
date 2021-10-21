@@ -9,6 +9,7 @@
       <li>CentOS: 5 and up</li>
       <li>Ubuntu: 8.04 and up</li>
       <li>Debian: 4 and up</li>
+      <li>AlmaLinux: 8 and up</li>
       <li>Solaris: Sun0S 5.8 and up</li>
       <li>FreeBSD: 4.5 and up</li>
       <li>MacOSX: 10.3 and up</li>
