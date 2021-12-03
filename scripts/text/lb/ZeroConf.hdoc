@@ -426,8 +426,8 @@ SINCE: 3.0.1
 DESCR:
 END_DESCR
 
-CONT: workerProtocol zconf_workerMaxConns pingInterval initTimeout retryTimeout persistConn pcKeepAliveTimeout
-respBuffer
+CONT: workerProtocol zconf_workerMaxConns initTimeout retryTimeout persistConn pcKeepAliveTimeout respBuffer
+pingInterval pingSmartFactor
 END_CONT
 
 SEE_ALSO:

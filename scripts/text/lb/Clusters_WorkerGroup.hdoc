@@ -147,6 +147,53 @@ END_TIPS
 
 
 [ITEM]
+ID: pingSmartFactor
+NAME: Smart Ping Factor
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: When set to 0, a ping is sent out at the configured {ITEM=Clusters_WorkerGroup_Help#pingInterval}.
+
+
+When set to a non-zero value, all successful requests to the backend are also counted as a ping, meaning that a standard
+ping will only occur when the backend has not actively served any requests at the configured
+{ITEM=Clusters_WorkerGroup_Help#pingInterval}. In addition to this, when there are no open connections to the backend
+server, the ping interval is multiplied by the configured value here effectively lengthening the configured
+{ITEM=Clusters_WorkerGroup_Help#pingInterval}.
+
+
+Default value: {val}0{/}
+END_DESCR
+
+SYNTAX: Integer value from 0 to 255.
+END_SYNTAX
+
+EXAMPLE: All examples assume a ping interval of 30 seconds.
+
+
+pingSmartFactor = 0: A ping is sent out every 30 seconds.
+
+
+For the below cases, successful requests to the backend will also count as a ping.
+
+
+Smart Ping Factor = 1: A ping is sent out every 30 seconds. When idle, a ping is sent out every 30 seconds.
+
+Smart Ping Factor = 2: A ping is sent out every 30 seconds. When idle, a ping is sent out every 60 seconds.
+
+Smart Ping Factor = 3: A ping is sent out every 30 seconds. When idle, a ping is sent out every 90 seconds.
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: nodeAddresses
 NAME: Node Address List
 REQUIRED:
@@ -192,7 +239,7 @@ DESCR:
 END_DESCR
 
 CONT: workerName extAppType workerProtocol workerGroupEnabled sourceIP workergroup_priority defaultTargetPort maxConns
-env initTimeout retryTimeout persistConn pcKeepAliveTimeout respBuffer pingUrl pingInterval
+env initTimeout retryTimeout persistConn pcKeepAliveTimeout respBuffer pingUrl pingInterval pingSmartFactor
 nodeAddresses
 END_CONT
 
@@ -209,7 +256,7 @@ DESCR:
 END_DESCR
 
 CONT: workerName workerGroupEnabled sourceIP workergroup_priority defaultTargetPort maxConns initTimeout retryTimeout
-pingInterval nodeAddresses
+pingInterval pingSmartFactor nodeAddresses
 END_CONT
 
 SEE_ALSO:
