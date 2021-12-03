@@ -99,6 +99,9 @@ backend, an http request based on "Ping URL" will be sent. For other
 types of backends, an TCP connection attempt will be made to the
 backend server, if successful, the backend will be used as a good
 node.
+
+
+Note: Set to 0 to disable ping.
 END_DESCR
 
 SYNTAX: uint
