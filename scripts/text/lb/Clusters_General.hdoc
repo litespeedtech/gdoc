@@ -104,15 +104,21 @@ SEE_ALSO:
 DESCR: Select load balancing strategy from the list.
 
 <ul>
-<li>The round-robin algorithm cycles through a list of backend Server instances in order.</li>
-<li>
-  The least-load algorithm improves on the round-robin algorithm by also taking into account the current work load of each
-  server.
-</li>
-<li>The least-session algorithm choose the server with fewest session associated.</li>
-<li>
-  The Fastest Response algorithm chooses the Worker Group node that responds the fastest to a backend worker ping.
-</li>
+  <li>The round-robin algorithm cycles through a list of backend Server instances in order.</li>
+  <li>
+    The least-load algorithm improves on the round-robin algorithm by also taking into account the current work load of
+    each server.
+  </li>
+  <li>The least-session algorithm choose the server with fewest session associated.</li>
+  <li>
+    The Fastest Response algorithm chooses the Worker Group node that responds the fastest to a backend worker ping.
+  </li>
+  <li>
+    The Failover algorithm chooses the Worker Group node that is configured with the highest priority. When that node
+    becomes unhealthy, the next highest priority node is selected. If multiple nodes are configured with the same
+    priority, then the first node configured will be selected. When an unhealthy node with a higher priority recovers,
+    it will return as the highest priority node choice.
+  </li>
 </ul>
 END_DESCR
 
