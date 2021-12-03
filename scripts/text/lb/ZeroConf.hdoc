@@ -398,6 +398,37 @@ END_TIPS
 
 
 
+[ITEM]
+ID: pingPath
+NAME: Ping Path
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Changes ping target path, {val}http(s)://IP:port/{/} by default, to {val}http(s)://IP:port/path_value{/} when a
+path is configured and {ITEM=ZConf_Help#pingInterval} is set to a non-zero value.
+
+
+Note: All ZeroConf configured backends use the same target path.
+
+
+Default value: Not Set
+END_DESCR
+
+SYNTAX: A path starting with '/'.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# Tables #############
 
 
@@ -426,7 +457,7 @@ SINCE: 3.0.1
 DESCR:
 END_DESCR
 
-CONT: workerProtocol zconf_workerMaxConns initTimeout retryTimeout persistConn pcKeepAliveTimeout respBuffer
+CONT: workerProtocol zconf_workerMaxConns initTimeout retryTimeout persistConn pcKeepAliveTimeout respBuffer pingPath
 pingInterval pingSmartFactor
 END_CONT
 
