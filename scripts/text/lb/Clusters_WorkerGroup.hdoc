@@ -36,6 +36,35 @@ END_TIPS
 [END_ITEM]
 
 
+
+[ITEM]
+ID: workergroup_priority
+NAME: Priority
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the priority value for the configured node group. Only useful when
+{ITEM=Clusters_General_Help#strategy} is set to {val}Failover{/}.
+
+
+Default value: {val}100{/}
+END_DESCR
+
+SYNTAX: Integer value from 0 to 255. Higher value means higher priority.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 [ITEM]
 ID: defaultTargetPort
 NAME: Default Target Port
@@ -162,8 +191,9 @@ NS: L
 DESCR:
 END_DESCR
 
-CONT: workerName extAppType workerProtocol workerGroupEnabled sourceIP defaultTargetPort maxConns env initTimeout
-retryTimeout persistConn pcKeepAliveTimeout respBuffer pingUrl pingInterval nodeAddresses
+CONT: workerName extAppType workerProtocol workerGroupEnabled sourceIP workergroup_priority defaultTargetPort maxConns
+env initTimeout retryTimeout persistConn pcKeepAliveTimeout respBuffer pingUrl pingInterval
+nodeAddresses
 END_CONT
 
 SEE_ALSO:
@@ -178,7 +208,8 @@ NAME: Layer 4 Worker Group
 DESCR:
 END_DESCR
 
-CONT: workerName workerGroupEnabled sourceIP defaultTargetPort maxConns initTimeout retryTimeout pingInterval nodeAddresses
+CONT: workerName workerGroupEnabled sourceIP workergroup_priority defaultTargetPort maxConns initTimeout retryTimeout
+pingInterval nodeAddresses
 END_CONT
 
 SEE_ALSO:
