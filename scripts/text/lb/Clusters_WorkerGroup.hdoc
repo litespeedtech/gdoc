@@ -160,7 +160,7 @@ DESCR: When set to 0, a ping is sent out at the configured {ITEM=Clusters_Worker
 When set to a non-zero value, all successful requests to the backend are also counted as a ping, meaning that a standard
 ping will only occur when the backend has not actively served any requests at the configured
 {ITEM=Clusters_WorkerGroup_Help#pingInterval}. In addition to this, when there are no open connections to the backend
-server, the ping interval is multiplied by the configured value here effectively lengthening the configured
+server, the ping interval is multiplied by the configured value effectively lengthening the configured
 {ITEM=Clusters_WorkerGroup_Help#pingInterval}.
 
 
