@@ -344,6 +344,38 @@ END_TIPS
 [END_ITEM]
 
 
+
+[ITEM]
+ID: trustJetpack
+NAME: Trust Jetpack
+NS: L
+REQUIRED:
+APPLY:
+SINCE: 3.1.4
+SEE_ALSO:
+
+DESCR: Automatically set Jetpack IPs as VHost trusted. Jetpack IPs list is updated dynamically on a daily basis.
+
+
+Default values:
+
+<b>Server level:</b> {val}No{/}
+
+<b>VH level:</b> Inherit Server level setting.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
 ############# Web Application Firewall (WAF) #############
 
 
@@ -1938,7 +1970,23 @@ END_TIPS
 [TBL]
 ID: wpProtect
 NAME: WordPress Brute Force Attack Protection
-NS: LE
+NS: L
+
+DESCR:
+END_DESCR
+
+CONT: wpProtectAction wpProtectLimit trustJetpack
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: wpProtect
+NAME: WordPress Brute Force Attack Protection
+NS: E
 
 DESCR:
 END_DESCR
