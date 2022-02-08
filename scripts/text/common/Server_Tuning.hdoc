@@ -2455,6 +2455,35 @@ END_TIPS
 
 
 [ITEM]
+ID: quicInitMaxIncomingStreamsBidi
+NAME: HTTP/3 Initial Incoming Streams
+NS: L
+REQUIRED:
+APPLY:
+SINCE: 3.1.4
+SEE_ALSO:
+
+DESCR: The maximum number of incoming concurrent QUIC/H3 streams.
+
+
+Default value: {val}100{/}
+END_DESCR
+
+SYNTAX: integer number between 10 and 1000.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [I] This setting can be increased to help in situations where there are an abnormally large number of concurrent
+streams, such as inactive concurrent streams not closing when finished.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: quicMaxStreams
 NAME: Max Concurrent Streams Per Connection
 NS: LEO
@@ -2957,8 +2986,8 @@ DESCR:
 END_DESCR
 
 CONT: quicEnable quicShmDir quicVersions quicCongestionCtrl quicCfcw quicMaxCfcw quicSfcw quicMaxSfcw
-quicMaxStreams quicHandshakeTimeout quicIdleTimeout quicDosMitigationDuration quicBadPacketRate quicHskNewRate
-quicHskTimeoutRate quicEnableDPLPMTUD quicBasePLPMTU quicMaxPLPMTU
+quicInitMaxIncomingStreamsBidi quicMaxStreams quicHandshakeTimeout quicIdleTimeout quicDosMitigationDuration
+quicBadPacketRate quicHskNewRate quicHskTimeoutRate quicEnableDPLPMTUD quicBasePLPMTU quicMaxPLPMTU
 END_CONT
 
 SEE_ALSO:
