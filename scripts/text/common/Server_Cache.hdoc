@@ -578,6 +578,34 @@ END_TIPS
 
 
 
+[ITEM]
+ID: cachePolicy:cacheStaticVary
+NAME: Vary for Static Files
+NS: L
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Allow cache vary for static files.
+
+
+Default value: {val}No{/}
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [I] Turn this option on when you need to cache different copies of a static file based on provided vary values.
+END_TIPS
+
+[END_ITEM]
+
+
+
 ########## Do-Not-Cache URL ##########
 
 
@@ -685,7 +713,7 @@ END_DESCR
 CONT: checkPublicCache checkPrivateCache respectCacheable cachePolicy:maxCacheObjSize
 cachePolicy:maxStaleAge cachePolicy:cacheKeyMod cachePolicy:expireInSeconds
 cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx
-cachePolicy:cacheStaticFile cachePolicy:enablePostCache
+cachePolicy:cacheStaticFile cachePolicy:cacheStaticVary cachePolicy:enablePostCache
 END_CONT
 
 SEE_ALSO:
