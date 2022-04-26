@@ -114,18 +114,19 @@ END_TIPS
 
 [ITEM]
 ID: templateFileRef
-NAME: File Name Used In Template 
+NAME: Config File
+NS: LEO
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies a path for the file to be used for member virtual hosts.  
-Variable {val}$VH_NAME{/} or {val}$VH_ROOT{/} must appear in the path so 
-each member virtual host will have its own file.
+DESCR: Specifies the unique path for each member virtual host's configuration file.
+Variable {val}$VH_NAME{/} or {val}$VH_ROOT{/} must appear in the path so each
+member virtual host will have its own configuration file.
 END_DESCR
 
-SYNTAX: string
+SYNTAX: path with $VH_NAME or $VH_ROOT variable
 END_SYNTAX
 
 EXAMPLE: 
