@@ -1351,7 +1351,7 @@ SINCE: ???
 SEE_ALSO:
 
 DESCR: Set to {val}On{/} if you wish to start CGI processes (including PHP programs) in a bubblewrap sandbox. See
-<a href="https://wiki.archlinux.org/index.php/Bubblewrap">https://wiki.archlinux.org/index.php/Bubblewrap</a> for
+<a href="https://wiki.archlinux.org/title/Bubblewrap">https://wiki.archlinux.org/title/Bubblewrap</a> for
 details on using bubblewrap. Bubblewrap must be installed on your system prior to using this setting.
 
 

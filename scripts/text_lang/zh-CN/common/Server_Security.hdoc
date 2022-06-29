@@ -1285,7 +1285,7 @@ APPLY:
 SINCE: ???
 SEE_ALSO:
 
-DESCR: 如果您希望在Bubblewrap沙箱中运行CGI进程（包括PHP程序），请设置为 {val}On{/}. 有关使用Bubblewrap的详细信息，请参见<ahref="https://wiki.archlinux.org/index.php/Bubblewrap">https://wiki.archlinux.org/index.php/Bubblewrap</a>。必须在系统上安装Bubblewrap才能使用此设置，。
+DESCR: 如果您希望在Bubblewrap沙箱中运行CGI进程（包括PHP程序），请设置为 {val}On{/}. 有关使用Bubblewrap的详细信息，请参见<ahref="https://wiki.archlinux.org/title/Bubblewrap">https://wiki.archlinux.org/title/Bubblewrap</a>。必须在系统上安装Bubblewrap才能使用此设置，。
 
 
 如果在服务器级别设置为“禁用”，则无法在虚拟主机级别打开此设置。
