@@ -366,8 +366,9 @@ SINCE:
 SEE_ALSO:
 
 DESCR: Specifies whether to enable CloudLinux's Lightweight Virtual Environment (LVE)
- when it exists. You can use LiteSpeed with LVE to achieve better resource management.
- For more information, please check http://www.cloudlinux.com.
+when it exists. You can use LiteSpeed with LVE to achieve better resource management.
+For more information, please check
+{ext-href}http://www.cloudlinux.com{ext-href-end}http://www.cloudlinux.com{ext-href-end-a}.
 END_DESCR
 
 SYNTAX: select

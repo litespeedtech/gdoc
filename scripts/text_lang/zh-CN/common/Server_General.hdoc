@@ -353,7 +353,7 @@ SEE_ALSO:
 
 DESCR: 指定当CloudLinux存在时是否启用CloudLinux的轻量级虚拟
 环境（LVE）。您可以搭配使用Litespeed与LVE实现更好的资源管理。
-欲了解更多信息，请访问 http: //www.cloudlinux.com。
+欲了解更多信息，请访问 {ext-href}http://www.cloudlinux.com{ext-href-end}http://www.cloudlinux.com{ext-href-end-a}。
 END_DESCR
 
 SYNTAX: select

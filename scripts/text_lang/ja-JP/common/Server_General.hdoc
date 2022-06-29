@@ -253,7 +253,7 @@ NAME: Cloud-Linux
 
 DESCR: CloudLinuxの軽量バーチャル環境（LVE）が存在する場合に有効にするかどうかを指定します。
 LiteSpeedをLVEと共に使用すると、より良いリソース管理を実現できます。
-詳細については、http://www.cloudlinux.comを参照してください。
+詳細については、{ext-href}http://www.cloudlinux.com{ext-href-end}http://www.cloudlinux.com{ext-href-end-a}を参照してください。
 END_DESCR
 
 SYNTAX: 選択
