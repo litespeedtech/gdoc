@@ -282,6 +282,7 @@ END_TIPS
 [ITEM]
 ID: ruleSetAction
 NAME: ルールセットアクション
+NS: LE
 
 DESCR: 現在のルールセットの検閲ルールが満たされたときに実行する必要があるアクションを指定します。
 設定されていない場合、{ITEM=defaultAction}が使用されます。
@@ -382,8 +383,7 @@ Apacheの設定ファイルからセキュリティルールをコピーして�
 
 
 ルールの構文の詳細については、
-{ext-href}http://www.modsecurity.org/documentation/index.html{ext-href-end}Mod Security
-documentation{ext-href-end-a}.
+{ext-href}http://www.modsecurity.org/documentation/index.html{ext-href-end}Mod Security documentation{ext-href-end-a}.
 END_SYNTAX
 
 EXAMPLE: 

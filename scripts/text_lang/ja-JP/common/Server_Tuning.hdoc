@@ -1092,6 +1092,7 @@ END_TIPS
 [ITEM]
 ID: sslDynCertsNumLevels
 NAME: SSL動的証明書のレベル
+NS: L
 
 DESCR: 証明書ファイルが格納されるディレクトリレベルの数。 
 

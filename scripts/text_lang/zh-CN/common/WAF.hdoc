@@ -323,6 +323,7 @@ END_TIPS
 [ITEM]
 ID: ruleSetAction
 NAME: 规则集操作
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 
@@ -436,8 +437,7 @@ used here.  You can copy and paste security rules from an Apache configuration f
 
 
 For more details about rule syntax, please refer to the 
-{ext-href}http://www.modsecurity.org/documentation/index.html{ext-href-end}Mod Security
-documentation{ext-href-end-a}.
+{ext-href}http://www.modsecurity.org/documentation/index.html{ext-href-end}Mod Security documentation{ext-href-end-a}.
 END_SYNTAX
 
 EXAMPLE: 

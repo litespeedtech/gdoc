@@ -112,8 +112,12 @@ $\{MapName:LookupKey|DefaultValue\}
 
 The implementation of LiteSpeed's rewrite engine follows the
 specifications of Apache's rewrite engine. For more details about rewrite
-maps, please refer to {ext-href}http://httpd.apache.org/docs/current/mod/mod_rewrite.html{ext-href-end}Apache's
-mod_rewrite document{ext-href-end-a}.
+maps, please refer to
+{ext-href}
+  http://httpd.apache.org/docs/current/mod/mod_rewrite.html
+{ext-href-end}
+  Apache's mod_rewrite document
+{ext-href-end-a}.
 
 
 END_DESCR
@@ -185,8 +189,12 @@ Hash File and External Rewriting Program.
 </ul>
 The implementation of LiteSpeed's rewrite engine follows the
 specifications of Apache's rewrite engine. For more details about rewrite
-map, please refer to {ext-href}http://httpd.apache.org/docs/current/mod/mod_rewrite.html{ext-href-end}Apache's
-mod_rewrite document{ext-href-end-a}.
+map, please refer to
+{ext-href}
+  http://httpd.apache.org/docs/current/mod/mod_rewrite.html
+{ext-href-end}
+  Apache's mod_rewrite document
+{ext-href-end-a}.
 
 END_DESCR
 
