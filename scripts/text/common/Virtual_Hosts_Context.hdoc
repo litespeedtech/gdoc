@@ -1193,7 +1193,11 @@ SEE_ALSO:
 DESCR: Specifies an external application that can be used to
 generate authorized/unauthorized decisions. Currently, only the FastCGI
 Authorizer is available. For more details about the FastCGI Authorizer role,
-please visit {ext-href}http://www.fastcgi.com{ext-href-end}http://www.fastcgi.com{ext-href-end-a}.
+please visit {ext-href}
+  https://fastcgi-archives.github.io/
+{ext-href-end}
+  https://fastcgi-archives.github.io/
+{ext-href-end-a}.
 END_DESCR
 
 SYNTAX: select

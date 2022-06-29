@@ -916,7 +916,7 @@ A: Perl CGIデーモンの設定はPHPの設定と似ています。
 Fast CGIアプリケーションとして設定し、Perlスクリプトに使用される "pl"やその他のサフィックスのスクリプトハンドラを追加する必要があります。
 Perl CGIデーモンはlsws/fcgi-bin/lsperld.fplにあります。<br>
 "lsperld.fpl"はFast CGIインターフェイスを利用するため、まずPerl Fast CGIモジュールFCGI.pmをインストールする必要があります。
-<a href="http://www.fastcgi.com">http://www.fastcgi.com</a>またはCPANから入手できます。<br>
+<a href="https://fastcgi-archives.github.io/">https://fastcgi-archives.github.io/</a>またはCPANから入手できます。<br>
 CPAN経由でFCGI.pmをインストールするには、次のコマンドを使用できます：
 {cmd} perl -MCPAN -e 'install FCGI' {/} <br>
 永続プロセスのメモリ使用量を増加させるために、Perlデーモンが処理できる要求の数は環境変数

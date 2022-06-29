@@ -1170,7 +1170,7 @@ SINCE:
 SEE_ALSO:
 
 DESCR: 指定可用于生成授权/未授权 decisions的外部应用程序。 目前,仅FastCGI授权器可用。 有关FastCGI授权者角色的更多详细信息，
-请访问{ext-href}http://www.fastcgi.com{ext-href-end}http://www.fastcgi.com{ext-href-end-a}。
+请访问{ext-href}https://fastcgi-archives.github.io/{ext-href-end}https://fastcgi-archives.github.io/{ext-href-end-a}。
 END_DESCR
 
 SYNTAX: select

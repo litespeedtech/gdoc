@@ -884,7 +884,11 @@ NAME: 承認者
 
 DESCR: 権限のある/権限のないかの決定を生成するために使用できる外部アプリケーションを指定します。
 現在、FastCGI Authorizerのみが使用可能です。
-FastCGI Authorizerの役割の詳細については、{ext-href}http://www.fastcgi.com{ext-href-end}http://www.fastcgi.com{ext-href-end-a}を参照してください。 。
+FastCGI Authorizerの役割の詳細については、{ext-href}
+  https://fastcgi-archives.github.io/
+{ext-href-end}
+  https://fastcgi-archives.github.io/
+{ext-href-end-a}を参照してください。 。
 END_DESCR
 
 SYNTAX: ドロップダウンリストから選択

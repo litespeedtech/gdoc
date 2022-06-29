@@ -1155,8 +1155,8 @@ application, and then add a script handler for "pl" or whatever suffixes
 used for Perl scripts. The Perl CGI daemon is located at 
 lsws/fcgi-bin/lsperld.fpl. <br>
 As "lsperld.fpl" utilizes the Fast CGI interface, you need to install Perl
-Fast CGI module FCGI.pm first. It is available at <a
-href="http:://www.fastcgi.com">http://www.fastcgi.com</a> or through CPAN. <br>
+Fast CGI module FCGI.pm first. It is available at
+<a href="https://fastcgi-archives.github.io/">https://fastcgi-archives.github.io/</a> or through CPAN. <br>
 The following command can be used to install FCGI.pm through CPAN:
 {cmd} perl -MCPAN -e 'install FCGI' {/} <br>
 In order to deal with increasing memory usage of a persistent process, 
