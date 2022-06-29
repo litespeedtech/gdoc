@@ -1757,7 +1757,7 @@ NS: E
 REQUIRED:
 APPLY: 2
 SINCE: 4.1.8
-SEE_ALSO: Apache Env Syntax <a href="http://httpd.apache.org/docs/current/configuring.html#syntax">reference</a>
+SEE_ALSO: Apache Env Syntax {ext-href}http://httpd.apache.org/docs/current/configuring.html#syntax{ext-href-end}reference{ext-href-end-a}
 
 DESCR: For shell environment variables used inside the Apache configuration file, LSWS will replace "${ENVVAR}"
 with the values set here. If the ENVVAR variable is not set here, "${ENVVAR}" occurrences are left unchanged.

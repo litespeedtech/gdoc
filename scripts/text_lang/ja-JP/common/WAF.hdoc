@@ -288,7 +288,11 @@ DESCR: 現在のルールセットの検閲ルールが満たされたときに�
 END_DESCR
 
 SYNTAX: 文字列。 このアクション文字列はApacheと同じ構文を使用します
-<a href="https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual#SecDefaultAction">mod_security SecDefaultAction ディレクティブ</a>.
+{ext-href}
+  https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual#SecDefaultAction
+{ext-href-end}
+  mod_security SecDefaultAction ディレクティブ
+{ext-href-end-a}.
 END_SYNTAX
 
 EXAMPLE: 

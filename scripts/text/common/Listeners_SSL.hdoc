@@ -617,7 +617,7 @@ is valid instead of checking through certificate revocation lists (CRL).
 
 OCSP stapling is a further improvement on this protocol, allowing the server to
 check with the OCSP responder at regular intervals instead of every time a certificate
-is requested. See the <a href="http://en.wikipedia.org/wiki/OCSP_Stapling">OCSP Wikipedia page</a> for more details.
+is requested. See the {ext-href}http://en.wikipedia.org/wiki/OCSP_Stapling{ext-href-end}OCSP Wikipedia page{ext-href-end-a} for more details.
 END_DESCR
 
 CONT: enableStapling ocspRespMaxAge ocspResponder ocspCACerts

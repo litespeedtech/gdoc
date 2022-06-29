@@ -1285,7 +1285,11 @@ APPLY:
 SINCE: ???
 SEE_ALSO:
 
-DESCR: 如果您希望在Bubblewrap沙箱中运行CGI进程（包括PHP程序），请设置为 {val}On{/}. 有关使用Bubblewrap的详细信息，请参见<ahref="https://wiki.archlinux.org/title/Bubblewrap">https://wiki.archlinux.org/title/Bubblewrap</a>。必须在系统上安装Bubblewrap才能使用此设置，。
+DESCR: 如果您希望在Bubblewrap沙箱中运行CGI进程（包括PHP程序），请设置为 {val}On{/}. 有关使用Bubblewrap的详细信息，请参见{ext-href}
+  https://wiki.archlinux.org/title/Bubblewrap
+{ext-href-end}
+  https://wiki.archlinux.org/title/Bubblewrap
+{ext-href-end-a}。必须在系统上安装Bubblewrap才能使用此设置，。
 
 
 如果在服务器级别设置为“禁用”，则无法在虚拟主机级别打开此设置。
@@ -1324,9 +1328,11 @@ SEE_ALSO:
 
 DESCR: The full bubblewrap use command, including the bubblewrap program itself. More on configuring this command can
 be found here:
-<a href="https://docs.litespeedtech.com/products/lsws/bubblewrap">
+{ext-href}
   https://docs.litespeedtech.com/products/lsws/bubblewrap
-</a>.
+{ext-href-end}
+  https://docs.litespeedtech.com/products/lsws/bubblewrap
+{ext-href-end-a}.
 If not specified, the default command listed below will be used.
 
 
@@ -1366,9 +1372,11 @@ SINCE: ???
 SEE_ALSO:
 
 DESCR: bubblewraps使用的完整的命令, 包括bubblewrap程序本身。 有关配置此命令的更多信息，请参见：
-<a href="https://openlitespeed.org/kb/bubblewrap-in-openlitespeed/">
+{ext-href}
   https://openlitespeed.org/kb/bubblewrap-in-openlitespeed/
-</a>.
+{ext-href-end}
+  https://openlitespeed.org/kb/bubblewrap-in-openlitespeed/
+{ext-href-end-a}.
 如果未指定，将使用下面列出的默认命令。
 
 

@@ -344,8 +344,13 @@ in current ruleset is met. If not set, {ITEM=defaultAction} will be
 used. 
 END_DESCR
 
-SYNTAX: String.  This action string uses the same syntax as Apache's 
-<a href="https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual#SecDefaultAction">mod_security SecDefaultAction directive</a>.
+SYNTAX: String. This action string uses the same syntax as Apache's
+{ext-href}
+  https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual#SecDefaultAction
+{ext-href-end}
+  mod_security SecDefaultAction directive
+{ext-href-end-a}
+.
 END_SYNTAX
 
 EXAMPLE: 

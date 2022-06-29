@@ -594,7 +594,11 @@ NS: LEO
 DESCR: 在线证书状态协议（OCSP）是更加有效的检查数字证书是否有效的方式。 它通过与另一台服务器（OCSP响应服务器）通信，以获取证书有效的验证，而不是通过证书吊销列表（CRL）进行检查。
 
 
-OCSP装订是对该协议的进一步改进，允许服务器以固定的时间间隔而不是每次请求证书时与OCSP响应程序进行检查。 有关更多详细信息，请参见<a href="https://zh.wikipedia.org/wiki/%E5%9C%A8%E7%BA%BF%E8%AF%81%E4%B9%A6%E7%8A%B6%E6%80%81%E5%8D%8F%E8%AE%AE"> OCSP Wikipedia页面</a>。
+OCSP装订是对该协议的进一步改进，允许服务器以固定的时间间隔而不是每次请求证书时与OCSP响应程序进行检查。 有关更多详细信息，请参见{ext-href}
+  https://zh.wikipedia.org/wiki/%E5%9C%A8%E7%BA%BF%E8%AF%81%E4%B9%A6%E7%8A%B6%E6%80%81%E5%8D%8F%E8%AE%AE
+{ext-href-end}
+  OCSP Wikipedia页面
+{ext-href-end-a}。
 END_DESCR
 
 CONT: enableStapling ocspRespMaxAge ocspResponder ocspCACerts

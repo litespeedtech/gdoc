@@ -2162,7 +2162,13 @@ DESCR: The number of directory levels the certificate files will be in.
 
 
 This is similar to PHP's
-<b><a href="http://php.net/manual/en/session.configuration.php#ini.session.save-path">Session.save_path</a></b>
+<b>
+  {ext-href}
+    http://php.net/manual/en/session.configuration.php#ini.session.save-path
+  {ext-href-end}
+    Session.save_path
+  {ext-href-end-a}
+</b>
 
 END_DESCR
 
@@ -2691,7 +2697,13 @@ SEE_ALSO:
 DESCR: Enable Datagram Packetization Layer Path Maximum Transmission Unit Discovery (DPLPMTUD).
 
 
-<b><a href="https://tools.ietf.org/html/rfc8899">Background on DPLPMTUD (RFC 8899)</a></b>
+<b>
+  {ext-href}
+    https://tools.ietf.org/html/rfc8899
+  {ext-href-end}
+    Background on DPLPMTUD (RFC 8899)
+  {ext-href-end-a}
+</b>
 
 
 Default value: Yes

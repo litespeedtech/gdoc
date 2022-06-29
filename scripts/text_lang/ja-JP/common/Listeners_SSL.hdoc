@@ -252,7 +252,11 @@ ID: enableSpdy
 NAME: SPDY/HTTP2を有効にする
 
 DESCR: HTTP/2とSPDYは、ページロード時間を短縮する目的で、HTTPネットワークプロトコルの新バージョンです。
-より多くの情報は<a href="http://en.wikipedia.org/wiki/HTTP/2">http://en.wikipedia.org/wiki/HTTP/2</a>で見つけることができます。
+より多くの情報は{ext-href}
+  http://en.wikipedia.org/wiki/HTTP/2
+{ext-href-end}
+  http://en.wikipedia.org/wiki/HTTP/2
+{ext-href-end-a}で見つけることができます。
 END_DESCR
 
 SYNTAX: 有効にするプロトコルを確認します。 すべてのボックスをチェックしないと、SPDYとHTTP/2のサポート（デフォルト）が有効になります。
@@ -503,7 +507,11 @@ DESCR: オンライン証明書ステータスプロトコル（OCSP）は、デ
 OCSP応答者である他のサーバーと通信して、証明書失効リスト（CRL）をチェックする代わりに証明書が有効であることを確認します。
 
 OCSPステープリングは、このプロトコルのさらなる改良であり、証明書が要求されるたびにではなく、定期的な間隔でサーバーがOCSPレスポンダを確認できるようにします。
-詳細については、<a href="http://en.wikipedia.org/wiki/OCSP_Stapling">OCSP Wikipedia</a>のページをご覧ください。
+詳細については、{ext-href}
+  http://en.wikipedia.org/wiki/OCSP_Stapling
+{ext-href-end}
+  OCSP Wikipedia
+{ext-href-end-a}のページをご覧ください。
 END_DESCR
 
 [END_TBL]

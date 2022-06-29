@@ -1351,8 +1351,12 @@ SINCE: ???
 SEE_ALSO:
 
 DESCR: Set to {val}On{/} if you wish to start CGI processes (including PHP programs) in a bubblewrap sandbox. See
-<a href="https://wiki.archlinux.org/title/Bubblewrap">https://wiki.archlinux.org/title/Bubblewrap</a> for
-details on using bubblewrap. Bubblewrap must be installed on your system prior to using this setting.
+{ext-href}
+  https://wiki.archlinux.org/title/Bubblewrap
+{ext-href-end}
+  https://wiki.archlinux.org/title/Bubblewrap
+{ext-href-end-a}
+for details on using bubblewrap. Bubblewrap must be installed on your system prior to using this setting.
 
 
 This setting cannot be turned on at the Virtual Host level if set to "Disabled" at the Server level.
@@ -1392,10 +1396,11 @@ SEE_ALSO:
 
 DESCR: The full bubblewrap use command, including the bubblewrap program itself. More on configuring this command can
 be found here:
-<a href="https://docs.litespeedtech.com/products/lsws/bubblewrap">
+{ext-href}
   https://docs.litespeedtech.com/products/lsws/bubblewrap
-</a>.
-If not specified, the default command listed below will be used.
+{ext-href-end}
+  https://docs.litespeedtech.com/products/lsws/bubblewrap
+{ext-href-end-a}. If not specified, the default command listed below will be used.
 
 
 Default value:
@@ -1435,10 +1440,11 @@ SEE_ALSO:
 
 DESCR: The full bubblewrap use command, including the bubblewrap program itself. More on configuring this command can
 be found here:
-<a href="https://openlitespeed.org/kb/bubblewrap-in-openlitespeed/">
+{ext-href}
   https://openlitespeed.org/kb/bubblewrap-in-openlitespeed/
-</a>.
-If not specified, the default command listed below will be used.
+{ext-href-end}
+  https://openlitespeed.org/kb/bubblewrap-in-openlitespeed/
+{ext-href-end-a}. If not specified, the default command listed below will be used.
 
 
 Default value:

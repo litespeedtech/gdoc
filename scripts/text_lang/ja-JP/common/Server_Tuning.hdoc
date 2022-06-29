@@ -1096,7 +1096,11 @@ NAME: SSL動的証明書のレベル
 DESCR: 証明書ファイルが格納されるディレクトリレベルの数。 
 
 
-これはPHPに似ています<b><a href="http://php.net/manual/en/session.configuration.php#ini.session.save-path">Session.save_path</a></b>
+これはPHPに似ています<b>{ext-href}
+  http://php.net/manual/en/session.configuration.php#ini.session.save-path
+{ext-href-end}
+  Session.save_path
+{ext-href-end-a}</b>
 
 END_DESCR
 

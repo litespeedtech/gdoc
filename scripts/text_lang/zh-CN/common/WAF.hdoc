@@ -333,7 +333,11 @@ DESCR: 指定在满足当前规则集中的审查规则时采取的操作。
 END_DESCR
 
 SYNTAX: String.  This action string uses the same syntax as Apache's 
-<a href="https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual#SecDefaultAction">mod_security SecDefaultAction directive</a>.
+{ext-href}
+  https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual#SecDefaultAction
+{ext-href-end}
+  mod_security SecDefaultAction directive
+{ext-href-end-a}.
 END_SYNTAX
 
 EXAMPLE: 
