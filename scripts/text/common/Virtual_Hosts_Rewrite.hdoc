@@ -262,15 +262,11 @@ optionally preceded by multiple {val}RewriteCond{/} directives.
 
 The implementation of LiteSpeed's rewrite engine follows Apache's rewrite
 engine specifications. For more details about rewrite rules, please refer to
-{ext-href}
-  http://httpd.apache.org/docs/current/mod/mod_rewrite.html
-{ext-href-end}
+{ext-href}https://httpd.apache.org/docs/current/mod/mod_rewrite.html{ext-href-end}
   Apache's mod_rewrite document
 {ext-href-end-a}
 and
-{ext-href}
-  http://httpd.apache.org/docs/current/rewrite/
-{ext-href-end}
+{ext-href}https://httpd.apache.org/docs/current/rewrite/{ext-href-end}
   Apache's URL rewriting guide
 {ext-href-end-a}.
 END_DESCR
