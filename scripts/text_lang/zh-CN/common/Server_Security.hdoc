@@ -2080,7 +2080,7 @@ hit, after which the client will be denied.
 END_DESCR
 
 CONT: enableRecaptcha recaptchaSiteKey recaptchaSecretKey recaptchaType
-recaptchaMaxTries recaptchaAllowedRobotHits recaptchaBotWhiteList
+recaptchaMaxTries verifyExpires recaptchaAllowedRobotHits recaptchaBotWhiteList
 recaptchaRegConnLimit recaptchaSslConnLimit
 END_CONT
 
@@ -2128,7 +2128,7 @@ hit, after which the client will be denied.
 END_DESCR
 
 CONT: enableRecaptcha recaptchaSiteKey recaptchaSecretKey recaptchaType
-recaptchaSensitivity recaptchaMaxTries recaptchaAllowedRobotHits
+recaptchaSensitivity recaptchaMaxTries verifyExpires recaptchaAllowedRobotHits
 recaptchaBotWhiteList
 END_CONT
 

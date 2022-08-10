@@ -808,7 +808,7 @@ hit, after which the client will be denied.
 END_DESCR
 
 CONT: enableRecaptcha recaptchaSiteKey recaptchaSecretKey recaptchaType
-recaptchaMaxTries recaptchaVhReqLimit
+recaptchaMaxTries verifyExpires recaptchaVhReqLimit
 END_CONT
 
 SEE_ALSO:

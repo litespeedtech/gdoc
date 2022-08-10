@@ -1762,6 +1762,38 @@ END_TIPS
 
 
 [ITEM]
+ID: verifyExpires
+NAME: Verification Expires (secs)
+NS: LE
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Sets the expire time of a successful reCAPTCHA submission, after which reCAPTCHA protection will re-trigger for
+that visitor.
+
+
+Default value: {val}86,400{/} (1 day).
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: Integer value between 30 and 31,536,000 (1 year).
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: recaptchaAllowedRobotHits
 NAME: Allowed Robot Hits
 NS: LEO
@@ -2178,7 +2210,7 @@ hit, after which the client will be denied.
 END_DESCR
 
 CONT: enableRecaptcha recaptchaSiteKey recaptchaSecretKey recaptchaType
-recaptchaMaxTries recaptchaAllowedRobotHits recaptchaBotWhiteList
+recaptchaMaxTries verifyExpires recaptchaAllowedRobotHits recaptchaBotWhiteList
 recaptchaRegConnLimit recaptchaSslConnLimit
 END_CONT
 
@@ -2226,7 +2258,7 @@ hit, after which the client will be denied.
 END_DESCR
 
 CONT: enableRecaptcha recaptchaSiteKey recaptchaSecretKey recaptchaType
-recaptchaSensitivity recaptchaMaxTries recaptchaAllowedRobotHits
+recaptchaSensitivity recaptchaMaxTries verifyExpires recaptchaAllowedRobotHits
 recaptchaBotWhiteList
 END_CONT
 
