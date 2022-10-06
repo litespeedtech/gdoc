@@ -299,6 +299,36 @@ END_TIPS
 
 
 
+[ITEM]
+ID: proxyProtocol
+NAME: PROXY protocol
+NS: E
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: List of IPs/subnets for front-end proxies that communicate with this server using PROXY protocol. Once set, the
+server will use PROXY protocol for incoming connections from listed IPs/subnets or fall back to a regular connection
+if PROXY protocol is unavailable.
+
+
+Applies to HTTP, HTTPS, HTTP2, and websocket connections.
+END_DESCR
+
+SYNTAX: Comma delimited list of IP addresses or sub-networks.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# Connection #############
 
 
@@ -2792,12 +2822,28 @@ END_TIPS
 [TBL]
 ID: osTuning
 NAME: General
-NS: LE
+NS: L
 
 DESCR:
 END_DESCR
 
 CONT: ramDiskPath shmDefaultDir bindIPv6Only reverseDnsLookup verifyGoogleBot forceSecureCookie
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: osTuning
+NAME: General
+NS: E
+
+DESCR:
+END_DESCR
+
+CONT: ramDiskPath shmDefaultDir bindIPv6Only reverseDnsLookup verifyGoogleBot forceSecureCookie proxyProtocol
 END_CONT
 
 SEE_ALSO:
