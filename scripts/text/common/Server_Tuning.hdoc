@@ -302,7 +302,7 @@ END_TIPS
 [ITEM]
 ID: proxyProtocol
 NAME: PROXY protocol
-NS: E
+NS: EO
 REQUIRED:
 APPLY:
 SINCE:
@@ -2859,7 +2859,7 @@ NS: O
 DESCR:
 END_DESCR
 
-CONT: shmDefaultDir
+CONT: shmDefaultDir proxyProtocol
 END_CONT
 
 SEE_ALSO:
