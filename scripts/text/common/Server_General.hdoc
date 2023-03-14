@@ -492,6 +492,7 @@ END_TIPS
 [ITEM]
 ID: autoFix503
 NAME: Auto Fix 503 Error
+NS: EO
 REQUIRED:
 APPLY: 2
 SINCE:
@@ -502,7 +503,10 @@ restarting the server gracefully. A "503" error is usually caused by
 malfunctioning external applications and a web server restart can often fix
 the error temporarily. If enabled, the server will restart
 automatically whenever there are more than 30 "503" errors within a 30
-seconds span. This feature is enabled by default.
+seconds span.
+
+
+Default value: {val}No{/}
 END_DESCR
 
 EDITTIP: When you enable <b>Auto Fix 503 Error</b>, the monitor process will automatically launch a new server process
