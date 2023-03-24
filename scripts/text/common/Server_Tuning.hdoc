@@ -2120,6 +2120,36 @@ END_TIPS
 
 
 
+[ITEM]
+ID: sslStrictSni
+NAME: Strict SNI Certificate
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies whether to strictly require a dedicated virtual host certificate configuration. When enabled, SSL
+connections to virtual hosts without a dedicated certificate configuration will fail instead of using a default
+catch-all certificate.
+
+
+Default value: {val}No{/}
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ########## SSL Dynamic SNI  ##########
 
 
@@ -2992,7 +3022,7 @@ DESCR:
 END_DESCR
 
 CONT: sslDefaultCiphers sslStrongDhKey sslEnableMultiCerts sslSessionCache sslSessionCacheSize
-sslSessionCacheTimeout sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile sslOcspProxy
+sslSessionCacheTimeout sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile sslOcspProxy sslStrictSni
 END_CONT
 
 SEE_ALSO:
@@ -3010,7 +3040,7 @@ END_DESCR
 
 CONT: sslDefaultCiphers sslStrongDhKey sslEnableMultiCerts sslCertCompress sslHsOffload sslSessionCache
 sslSessionCacheSize sslSessionCacheTimeout sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile
-sslOcspProxy
+sslOcspProxy sslStrictSni
 END_CONT
 
 SEE_ALSO:
