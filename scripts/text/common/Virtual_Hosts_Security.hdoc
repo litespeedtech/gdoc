@@ -20,6 +20,37 @@
 
 # See WAF.hdoc #
 
+############# Per Client Throttling #############
+
+[ITEM]
+ID: maxConnsPerIp
+NAME: Max Connections Per IP
+NS: L
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Overrides Server level setting {ITEM=ServSecurity_Help#hardLimit} with a lower value. Setting this to a value
+higher than {ITEM=ServSecurity_Help#hardLimit} will have no effect.
+
+
+Once this limit is reached, a 403 response will be returned.
+
+
+Default value: Not Set
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
 
 
 ############# Bubblewrap Container #############

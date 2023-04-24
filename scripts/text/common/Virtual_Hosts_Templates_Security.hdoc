@@ -44,7 +44,7 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: dynReqPerSec outBandwidth inBandwidth 
+CONT: dynReqPerSec outBandwidth inBandwidth maxConnsPerIp
 END_CONT
 
 SEE_ALSO: 
