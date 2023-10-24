@@ -273,7 +273,7 @@ there is no use of CPU cache and unnecessary overhead is required.
 
 The CPU Affinity setting controls how many CPUs (cores) one server process will be associated with.
 The minimum value is {val}0{/}, which will disable this feature. The maximum value is the number of
-cores the server has. Generally, {val}1{/} is the best setting because because it creates the strictest use of CPU affinity and
+cores the server has. Generally, {val}1{/} is the best setting because it creates the strictest use of CPU affinity and
 thus makes the most use of CPU cache.
 
 
