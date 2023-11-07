@@ -2311,7 +2311,23 @@ SEE_ALSO:
 [TBL]
 ID: bubbleWrapTbl
 NAME: Bubblewrap Container
-NS: EO
+NS: E
+
+DESCR:
+END_DESCR
+
+CONT: bubbleWrap bubbleWrapCmd
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: containersTbl
+NAME: Containers
+NS: O
 
 DESCR:
 END_DESCR
@@ -2367,7 +2383,7 @@ NS: O
 DESCR:
 END_DESCR
 
-CONT: fileAccessControl perClientConnLimit cgiResource lsrecaptcha bubbleWrapTbl accessDeny accessControl
+CONT: fileAccessControl perClientConnLimit cgiResource lsrecaptcha containersTbl accessDeny accessControl
 END_CONT
 
 SEE_ALSO:
