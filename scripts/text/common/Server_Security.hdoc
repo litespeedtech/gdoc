@@ -948,16 +948,18 @@ END_TIPS
 [ITEM]
 ID: cgidSock
 NAME: CGI Daemon Socket
+NS: EO
 REQUIRED:
 APPLY: 2
 SINCE:
 SEE_ALSO:
 
-DESCR: A unique socket address used to communicate with the CGI
-daemon. LiteSpeed server uses a standalone CGI daemon to
-spawn CGI scripts for best performance and security.
-Default socket is "uds://$SERVER_ROOT/admin/conf/.cgid.sock". If you need to put in
-another location, specify a Unix domain socket here.
+DESCR: A unique socket address used to communicate with the CGI daemon. LiteSpeed server uses a standalone CGI daemon to
+spawn CGI scripts for best performance and security. If you need to change this location, specify a Unix domain socket
+here.
+
+
+Default value: {val}uds://$SERVER_ROOT/admin/lscgid/.cgid.sock{/}
 END_DESCR
 
 SYNTAX: UDS://path

@@ -468,7 +468,7 @@ NAME: CGIデーモンソケット
 
 DESCR: CGIデーモンとの通信に使用される一意のソケットアドレス。
 LiteSpeedサーバーは、スタンドアロンのCGIデーモンを使用して、最高のパフォーマンスとセキュリティを実現するCGIスクリプトを生成します。
-デフォルトソケットはuds：//$SERVER_ROOT/admin/conf/.cgid.sock "です。
+デフォルトソケットは{val}uds://$SERVER_ROOT/admin/lscgid/.cgid.sock{/} "です。
 別の場所に配置する必要がある場合は、ここにUnixドメインソケットを指定します。
 END_DESCR
 

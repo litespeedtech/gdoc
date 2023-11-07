@@ -898,7 +898,7 @@ SEE_ALSO:
 DESCR: 用于与CGI守护进程沟通的唯一套接字地址。为了
 最佳性能和安全性，LiteSpeed服务器使用一个独立的CGI
 守护进程来产生CGI脚本的子进程。
-默认套接字是“uds://$SERVER_ROOT/admin/conf/.cgid.sock”。
+默认套接字是{val}uds://$SERVER_ROOT/admin/lscgid/.cgid.sock{/}。
 如果你需要放置在另一个位置，在这里指定一​​个Unix域套接字。
 END_DESCR
 
