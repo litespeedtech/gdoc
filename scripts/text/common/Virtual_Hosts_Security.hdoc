@@ -983,8 +983,8 @@ SEE_ALSO:
 
 
 [TBL]
-ID: bubbleWrapContainerTbl
-NAME: Bubblewrap Container
+ID: vhContainersTbl
+NAME: Containers
 NS: O
 SINCE: ???
 
@@ -1116,7 +1116,7 @@ NS: O
 DESCR:
 END_DESCR
 
-CONT: VHlsrecaptcha bubbleWrapContainerTbl accessControl realms
+CONT: VHlsrecaptcha vhContainersTbl accessControl realms
 END_CONT
 
 SEE_ALSO:
