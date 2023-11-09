@@ -76,7 +76,7 @@ DESCR: Path to an existing configuration file containing a list of directories t
 used to mount them. If {ITEM=ServSecurity_Help#namespaceConf} is also set at the Server level, both files will be used.
 END_DESCR
 
-SYNTAX: path1
+SYNTAX: path3
 END_SYNTAX
 
 EXAMPLE:
