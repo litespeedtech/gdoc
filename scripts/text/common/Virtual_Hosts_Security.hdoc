@@ -1020,7 +1020,7 @@ SINCE: ???
 DESCR:
 END_DESCR
 
-CONT: bubbleWrap
+CONT: bubbleWrap namespace namespaceConfVhAdd
 END_CONT
 
 SEE_ALSO:
