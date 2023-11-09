@@ -2473,7 +2473,7 @@ NS: O
 DESCR:
 END_DESCR
 
-CONT: bubbleWrap bubbleWrapCmd
+CONT: bubbleWrap bubbleWrapCmd namespace namespaceConf
 END_CONT
 
 SEE_ALSO:
