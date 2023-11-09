@@ -60,6 +60,35 @@ END_TIPS
 
 
 
+########## Containers ##########
+
+
+[ITEM]
+ID: namespaceConfVhAdd
+NAME: Additional Namespace Template File
+NS: O
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Path to an existing configuration file containing a list of directories to be mounted along with the methods
+used to mount them. If {ITEM=ServSecurity_Help#namespaceConf} is also set at the Server level, both files will be used.
+END_DESCR
+
+SYNTAX: path1
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# Hotlink Protection #############
 
 
