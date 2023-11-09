@@ -1343,6 +1343,9 @@ END_TIPS
 
 
 
+############# Bubblewrap Container #############
+
+
 [ITEM]
 ID: bubbleWrap
 NAME: Bubblewrap Container
@@ -1463,6 +1466,144 @@ EDITTIP:
 END_EDITTIP
 
 SYNTAX: text
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+############# Containers #############
+
+
+[ITEM]
+ID: namespace
+NAME: Namespace Container
+NS: O
+REQUIRED:
+APPLY:
+SINCE: ???
+SEE_ALSO:
+
+DESCR: Set to {val}Enabled{/} if you wish to start CGI processes (including PHP programs) in a namespace container
+sandbox. Only used when {ITEM=ServSecurity_Help#bubbleWrap} is set to {val}Disabled{/}.
+
+
+When not {val}Disabled{/} at the Server level, this settings value can be overridden at the Virtual Host level.
+
+
+Default values:
+
+<b>Server level:</b> {val}Disabled{/}
+
+<b>Virtual Host Level:</b> Inherit Server level setting
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: namespaceConf
+NAME: Namespace Template File
+NS: EO
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Path to an existing configuration file containing a list of directories to be mounted along with the methods used
+to mount them. When {ITEM=ServSecurity_Help#namespace} is set to {val}Enabled{/} and this value is not set, the
+following secure default configuration settings will be used:
+
+
+{val}
+/tmp, tmp
+
+/usr, ro-bind
+
+/lib, ro-bind
+
+/lib64
+
+/bin, ro-bind
+
+/sbin, ro-bind
+
+/var, dir
+
+/var/www
+
+/proc, proc
+
+../tmp var/tmp, symlink
+
+/dev, dev
+
+/etc/localtime
+
+/etc/ld.so.cache
+
+/etc/resolv.conf
+
+/etc/ssl
+
+/etc/pki
+
+/etc/man_db.conf
+
+/etc/php.ini
+
+/etc/php-fpm.conf
+
+/etc/php-fpm.d
+
+/var/run
+
+/var/lib
+
+$HOMEDIR, bind-try
+
+/var/lib/mysql/mysql.sock, bind-try
+
+/home/mysql/mysql.sock,bind-try
+
+/tmp/mysql.sock,bind-try
+
+/run/mysqld/mysqld.sock, bind-try
+
+/var/run/mysqld.sock, bind-try
+
+/run/user/$UID, dir
+
+$PASSWD
+
+$GROUP
+
+/etc/exim.jail/$USER.conf $HOMEDIR/.msmtprc, copy-try
+{/}
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: path1
 END_SYNTAX
 
 EXAMPLE:
