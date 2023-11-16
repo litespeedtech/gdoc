@@ -180,6 +180,7 @@ END_TIPS
 [ITEM]
 ID: log_enableAioLog
 NAME: Enable AIO Logging
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 4.2.19
@@ -195,7 +196,8 @@ END_SYNTAX
 EXAMPLE: 
 END_EXAMPLE
 
-TIPS: Enabling AIO logging can help overall server performance when server I/O wait is high.
+TIPS:
+[P] Enabling AIO logging can help overall server performance when server I/O wait is high.
 END_TIPS
 
 [END_ITEM]
