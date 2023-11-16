@@ -2998,30 +2998,13 @@ SEE_ALSO:
 [TBL]
 ID: staticTuning
 NAME: Static File Delivery Optimization
-NS: E
+NS: EO
 
 DESCR:
 END_DESCR
 
 CONT: maxCachedFileSize totalInMemCacheSize maxMMapFileSize totalMMapCacheSize
 useSendfile useAIO AIOBlockSize fileETag
-END_CONT
-
-SEE_ALSO:
-[END_TBL]
-
-
-
-[TBL]
-ID: staticTuning
-NAME: Static File Delivery Optimization
-NS: O
-
-DESCR:
-END_DESCR
-
-CONT: maxCachedFileSize totalInMemCacheSize maxMMapFileSize totalMMapCacheSize
-useSendfile fileETag
 END_CONT
 
 SEE_ALSO:
