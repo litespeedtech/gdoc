@@ -1031,6 +1031,39 @@ END_TIPS
 
 
 [ITEM]
+ID: useAIO
+NAME: Use AIO
+NS: O
+REQUIRED:
+APPLY: 2
+SINCE:
+SEE_ALSO: {ITEM=AIOBlockSize}
+
+DESCR: Specifies whether to use asynchronous I/O to serve static files along with the AIO implementation to use. Options
+{val}LINUX AIO{/} and {val}io_uring{/} are only available on Linux machines.
+
+
+Default value: {val}No{/}
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+[P] AIO can help improve performance in servers with a high I/O wait.
+
+[A] When {val}io_uring{/} is selected but not supported on the current machine, {val}Linux AIO{/} will be used
+instead.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: AIOBlockSize
 NAME: AIO Block Size
 NS: E
@@ -1042,8 +1075,41 @@ SEE_ALSO: {ITEM=useAIO}
 DESCR: Specifies the sent block size for AIO.
 This block size multiplied by the total files being processed should be less than the physical
 memory of the server, otherwise, AIO will not help. If your server has enough memory,
-you can choose a bigger size. Default value is "1M".
+you can choose a bigger size.
 
+
+Default value: {val}1M{/}
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: AIOBlockSize
+NAME: AIO Block Size
+NS: O
+REQUIRED:
+APPLY: 2
+SINCE:
+SEE_ALSO: {ITEM=useAIO}
+
+DESCR: Specifies the sent block size for AIO.
+This block size multiplied by the total files being processed should be less than the physical
+memory of the server, otherwise, AIO will not help. If your server has enough memory,
+you can choose a bigger size.
+
+
+Default value: {val}128K{/}
 END_DESCR
 
 SYNTAX: select
@@ -2932,30 +2998,13 @@ SEE_ALSO:
 [TBL]
 ID: staticTuning
 NAME: Static File Delivery Optimization
-NS: E
+NS: EO
 
 DESCR:
 END_DESCR
 
 CONT: maxCachedFileSize totalInMemCacheSize maxMMapFileSize totalMMapCacheSize
 useSendfile useAIO AIOBlockSize fileETag
-END_CONT
-
-SEE_ALSO:
-[END_TBL]
-
-
-
-[TBL]
-ID: staticTuning
-NAME: Static File Delivery Optimization
-NS: O
-
-DESCR:
-END_DESCR
-
-CONT: maxCachedFileSize totalInMemCacheSize maxMMapFileSize totalMMapCacheSize
-useSendfile fileETag
 END_CONT
 
 SEE_ALSO:
