@@ -1042,8 +1042,10 @@ SEE_ALSO: {ITEM=useAIO}
 DESCR: Specifies the sent block size for AIO.
 This block size multiplied by the total files being processed should be less than the physical
 memory of the server, otherwise, AIO will not help. If your server has enough memory,
-you can choose a bigger size. Default value is "1M".
+you can choose a bigger size.
 
+
+Default value: {val}1M{/}
 END_DESCR
 
 SYNTAX: select
