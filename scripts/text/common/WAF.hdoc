@@ -552,7 +552,8 @@ NS: E
 DESCR: 
 END_DESCR
 
-CONT: enableCensorship censorLogLevel defaultAction scanPOST uploadTmpDir uploadTmpFilePermission disableSecHtaccess secAuditLogEngine secAuditLog
+CONT: enableCensorship censorLogLevel defaultAction scanPOST uploadTmpDir uploadTmpFilePermission disableSecHtaccess
+secAuditLogEngine secAuditLog useRe2
 END_CONT
 
 SEE_ALSO: 
