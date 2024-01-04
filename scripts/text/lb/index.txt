@@ -1,11 +1,11 @@
 <section class="ls-index">
   <header>
     <h1>
-      LiteSpeed Web ADC Version 3.1
+      LiteSpeed Web ADC Version 3.2
       <br /><br />
       Users' Manual
       <br /><br />
-      &#8212;&nbsp;Rev. 7
+      &#8212;&nbsp;Rev. 0
     </h1>
   </header>
   <hr />
