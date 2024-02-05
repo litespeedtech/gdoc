@@ -649,12 +649,13 @@ END_TIPS
 [ITEM]
 ID: blockBadReq
 NAME: Block Bad Request
+NS: LEO
 REQUIRED:
 APPLY: 3
 SINCE: 4.1.5
 SEE_ALSO:
 
-DESCR: Block IPs that keep sending badly-formated HTTP requests for the {ITEM=banPeriod}. Default
+DESCR: Block IPs that keep sending badly-formatted HTTP requests for the {ITEM=banPeriod}. Default
 is {val}Yes{/}. This helps to block botnet attacks that repeatedly sending junk requests.
 END_DESCR
 
