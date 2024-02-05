@@ -1534,69 +1534,73 @@ following secure default configuration settings will be used:
 
 
 {val}
-/tmp, tmp
+/tmp,tmp
 
-/usr, ro-bind
+/usr,ro-bind
 
-/lib, ro-bind
+/lib,ro-bind
 
-/lib64
+/lib64,ro-bind-try
 
-/bin, ro-bind
+/bin,ro-bind
 
-/sbin, ro-bind
+/sbin,ro-bind
 
-/var, dir
+/var,dir
 
-/var/www
+/var/www,ro-bind-try
 
-/proc, proc
+/proc,proc
 
-../tmp var/tmp, symlink
+../tmp var/tmp,symlink
 
-/dev, dev
+/dev,dev
 
-/etc/localtime
+/etc/localtime,ro-bind-try
 
-/etc/ld.so.cache
+/etc/ld.so.cache,ro-bind-try
 
-/etc/resolv.conf
+/etc/resolv.conf,ro-bind-try
 
-/etc/ssl
+/etc/ssl,ro-bind-try
 
-/etc/pki
+/etc/pki,ro-bind-try
 
-/etc/man_db.conf
+/etc/man_db.conf,ro-bind-try
 
-/etc/php.ini
+/usr/local/bin/msmtp /etc/alternatives/mta,ro-bind-try
 
-/etc/php-fpm.conf
+/usr/local/bin/msmtp /usr/sbin/exim,ro-bind-try
 
-/etc/php-fpm.d
+$HOMEDIR,bind-try
 
-/var/run
-
-/var/lib
-
-$HOMEDIR, bind-try
-
-/var/lib/mysql/mysql.sock, bind-try
+/var/lib/mysql/mysql.sock,bind-try
 
 /home/mysql/mysql.sock,bind-try
 
 /tmp/mysql.sock,bind-try
 
-/run/mysqld/mysqld.sock, bind-try
+/run/mysqld/mysqld.sock,bind-try
 
-/var/run/mysqld.sock, bind-try
+/var/run/mysqld.sock,bind-try
 
-/run/user/$UID, dir
+/run/user/$UID,dir
 
 $PASSWD
 
 $GROUP
 
-/etc/exim.jail/$USER.conf $HOMEDIR/.msmtprc, copy-try
+/etc/exim.jail/$USER.conf $HOMEDIR/.msmtprc,copy-try
+
+/etc/php.ini,ro-bind-try
+
+/etc/php-fpm.conf,ro-bind-try
+
+/etc/php-fpm.d,ro-bind-try
+
+/var/run,ro-bind-try
+
+/var/lib,ro-bind-try
 {/}
 END_DESCR
 
