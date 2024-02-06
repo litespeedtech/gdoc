@@ -1865,8 +1865,8 @@ NS: O
 DESCR:
 END_DESCR
 
-CONT: serverName httpdWorkers runningAs serverPriority cpuAffinity enableLVE
- inMemBufSize swappingDir autoFix503 enableh2c gracefulRestartTimeout statDir
+CONT: serverName httpdWorkers runningAs serverPriority cpuAffinity enableLVE inMemBufSize
+swappingDir autoFix503 enableh2c gracefulRestartTimeout statDir jsonReports
 END_CONT
 
 SEE_ALSO:
