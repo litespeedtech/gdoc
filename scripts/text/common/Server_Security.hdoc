@@ -1814,12 +1814,20 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specify the reCAPTCHA type to use with the key pairs. If a key pair has not been provided and this setting is set to
-{val}Not Set{/}, a default key pair of type {val}Invisible{/} will be used.
+DESCR: Specify the reCAPTCHA type to use with the key pairs.
+
+If a key pair has not been provided and this setting is set
+to {val}Not Set{/}, a default key pair of type {val}Invisible{/} will be used.
+
 
 {val}Checkbox{/} will display a checkbox reCAPTCHA for the visitor to validate.
 
+
 {val}Invisible{/} will attempt to validate the reCAPTCHA automatically and if successful, will redirect to the desired page.
+
+
+{val}hCaptcha{/} can be used to support reCAPTCHA provider
+{ext-href}https://www.hcaptcha.com{ext-href-end}hCaptcha{ext-href-end-a}.
 
 
 Default value is {val}Invisible{/}.
