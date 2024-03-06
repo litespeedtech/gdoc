@@ -46,4 +46,23 @@ END_TIPS
 
 [END_ITEM]
 
+
+
+################ Tables ################
+
+
+[TBL]
+ID: serverHealth
+NAME: Server Health
+NS: E
+
+DESCR:
+END_DESCR
+
+CONT: antiddos_blocked_ip
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
 [END_HELPDOC]
