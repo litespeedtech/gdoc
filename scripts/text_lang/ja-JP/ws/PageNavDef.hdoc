@@ -133,6 +133,7 @@ TOP_NAV: admin
 
 NAV_SEQ:
 ServerStat_Help
+Real_Time_Stats_Help
 END_NAV_SEQ
 
 [END_PAGENAV]

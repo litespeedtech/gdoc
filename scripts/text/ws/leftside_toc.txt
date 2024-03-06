@@ -17,8 +17,9 @@
       <li><a href="install.html">Installation</a></li>
       <li>
         <a href="admin.html">Administration</a>
-        <ul class=" menu level2">
+        <ul class="menu level2">
           <li><a href="ServerStat_Help.html">Service Manager</a></li>
+          <li><a href="Real_Time_Stats_Help.html">Real-Time Stats</a></li>
         </ul>
       </li>
       <li><a href="security.html">Security</a></li>
