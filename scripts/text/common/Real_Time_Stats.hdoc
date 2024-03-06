@@ -65,4 +65,23 @@ END_CONT
 SEE_ALSO:
 [END_TBL]
 
+
+
+################ Pages ################
+
+
+[PAGE]
+ID: Real_Time_Stats_Help
+NAME: Real-Time Statistics
+NS: L
+
+DESCR:
+END_DESCR
+
+CONT: serverHealth
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
 [END_HELPDOC]
