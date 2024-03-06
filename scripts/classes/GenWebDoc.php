@@ -80,6 +80,7 @@ class GenWebDoc
         elseif ( $docType == 'lb' ) {
             $dyn_map = array(
                 'ServerStat_Help' => 'admin/service',
+                'Real_Time_Stats_Help' => 'admin/real-time-stats',
                 'ServGeneral_Help' => 'config/general',
                 'ServLog_Help' => 'config/slog',
                 'ServTuning_Help' => 'config/tuning',
