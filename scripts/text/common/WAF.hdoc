@@ -114,7 +114,7 @@ END_TIPS
 
 [ITEM]
 ID: useRe2
-NAME: Use RE2
+NAME: Use RE2 regex engine
 NS: L
 REQUIRED:
 APPLY:
@@ -135,6 +135,41 @@ END_EXAMPLE
 
 TIPS: [I] While PCRE provides more features than RE2, RE2 allows for a defined maximum memory usage and has a
 more predictable runtime than PCRE making it more suited for use in server applications.
+
+[P] Unlike PCRE, RE2 uses a fixed stack and guarantees that run-time increases linearly (not exponentially) with the
+size of the input.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: useRe2
+NAME: Use RE2 regex engine
+NS: E
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Use RE2 when evaluating regular expressions instead of PCRE.
+
+
+Default value: {val}No{/}
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [I] While PCRE provides more features than RE2, RE2 allows for a defined maximum memory usage and has a
+more predictable runtime than PCRE making it more suited for use in server applications.
+
+[P] Unlike PCRE, RE2 uses a fixed stack and guarantees that run-time increases linearly (not exponentially) with the
+size of the input.
 END_TIPS
 
 [END_ITEM]
@@ -503,8 +538,8 @@ NS: L
 DESCR: 
 END_DESCR
 
-CONT: enableCensorship censorLogLevel defaultAction scanPOST useRe2 uploadTmpDir uploadTmpFilePermission
-secAuditLogEngine secAuditLog
+CONT: enableCensorship censorLogLevel defaultAction scanPOST uploadTmpDir uploadTmpFilePermission
+secAuditLogEngine secAuditLog useRe2
 END_CONT
 
 SEE_ALSO: 
@@ -520,7 +555,8 @@ NS: E
 DESCR: 
 END_DESCR
 
-CONT: enableCensorship censorLogLevel defaultAction scanPOST uploadTmpDir uploadTmpFilePermission disableSecHtaccess secAuditLogEngine secAuditLog
+CONT: enableCensorship censorLogLevel defaultAction scanPOST uploadTmpDir uploadTmpFilePermission disableSecHtaccess
+secAuditLogEngine secAuditLog useRe2
 END_CONT
 
 SEE_ALSO: 
