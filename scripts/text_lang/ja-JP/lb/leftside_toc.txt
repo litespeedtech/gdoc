@@ -7,8 +7,13 @@
 <li><a href="license.html">ライセンス</a></li>
 <li><a href="intro.html">はじめに</a></li>
 <li><a href="install.html">インストール</a></li>
-<li><a href="admin.html">管理</a>
-	<ul class="level2"><li><a href="ServerStat_Help.html">サービスマネージャ</a></li></ul></li>
+<li>
+  <a href="admin.html">管理</a>
+  <ul class="level2">
+    <li><a href="ServerStat_Help.html">サービスマネージャ</a></li>
+    <li><a href="Real_Time_Stats_Help.html">Real-Time Stats</a></li>
+  </ul>
+</li>
 <li><a href="security.html">セキュリティ</a></li>
 <li><a href="config.html">設定</a>
 	<ul class="level2">

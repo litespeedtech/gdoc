@@ -6,7 +6,7 @@
 [ITEM]
 ID: antiddos_blocked_ip
 NAME: Anti-DDoS Blocked IP
-NS: E
+NS: LE
 REQUIRED:
 APPLY:
 SINCE:
@@ -98,7 +98,7 @@ END_TIPS
 [TBL]
 ID: serverHealth
 NAME: Server Health
-NS: EO
+NS: LEO
 
 DESCR:
 END_DESCR
@@ -117,7 +117,7 @@ SEE_ALSO:
 [PAGE]
 ID: Real_Time_Stats_Help
 NAME: Real-Time Statistics
-NS: EO
+NS: LEO
 
 DESCR:
 END_DESCR
