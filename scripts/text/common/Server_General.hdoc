@@ -604,6 +604,35 @@ END_TIPS
 
 
 
+[ITEM]
+ID: jsonReports
+NAME: Output JSON reports
+NS: O
+REQUIRED:
+APPLY:
+SINCE: 1.8
+SEE_ALSO:
+
+DESCR: Output additional JSON formatted report files, with the .json extension, to the /tmp/lshttpd directory.
+
+
+Default value: {val}No{/}
+END_DESCR
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE: When set to {val}Yes{/}, .status.json and .rtreport.json, .rtreport.2.json, etc report files will be created in
+addition to the usual .status and .rtreport, .rtreport.2, etc report files.
+END_EXAMPLE
+
+TIPS: [I] This is useful for application developers who may want to integrate LiteSpeed status and real-time reports
+into their applications using standard JSON processing tools built-in to most programming languages.
+END_TIPS
+
+[END_ITEM]
+
+
 ############# General Settings #############
 
 
@@ -1909,8 +1938,8 @@ NS: O
 DESCR:
 END_DESCR
 
-CONT: serverName httpdWorkers runningAs serverPriority cpuAffinity enableLVE
- inMemBufSize swappingDir autoFix503 enableh2c gracefulRestartTimeout statDir
+CONT: serverName httpdWorkers runningAs serverPriority cpuAffinity enableLVE inMemBufSize
+swappingDir autoFix503 enableh2c gracefulRestartTimeout statDir jsonReports
 END_CONT
 
 SEE_ALSO:

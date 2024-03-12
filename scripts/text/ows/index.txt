@@ -5,7 +5,7 @@
       <br /><br />
       Users' Manual
       <br /><br />
-      &#8212;&nbsp;Rev. 4
+      &#8212;&nbsp;Rev. 6
     </h1>
   </header>
   <hr />
