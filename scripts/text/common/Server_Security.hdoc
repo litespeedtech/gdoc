@@ -1315,9 +1315,9 @@ APPLY:
 SINCE:
 SEE_ALSO:
 
-DESCR: Apply cgroup settings to this CGI process if supported by the current OS. At this time,
-RedHat/Centos Linux v7.5+ and Ubuntu 18.04+ are supported. The currently executing user will be used to
-determine which cgroup configuration to apply.
+DESCR: A Linux kernel feature that limits, accounts for, and isolates the resource usage (CPU, memory, disk I/O,
+network, etc.) of a collection of processes. You must be running cgroups v2 which is determined by the existence of the
+file {val}/sys/fs/cgroup/cgroup.controllers{/}.
 
 
 Setting this to {val}Disabled{/} at the Server level will disable this setting server-wide. In all other cases, the
