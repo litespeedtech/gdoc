@@ -1,8 +1,8 @@
 <section class="ls-index">
 <header>
-<h1>LiteSpeed Web Server 5.2 </h1>
+<h1>LiteSpeed Web Server 6.2 </h1>
 <h1>ユーザーズマニュアル </h1>
-<h1>&#8212;&nbsp;Rev. 2</h1>
+<h1>&#8212;&nbsp;Rev. 0</h1>
 </header>
 <hr />
 
