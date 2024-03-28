@@ -54,7 +54,7 @@ NAME: Anti-DDoS Blocked IP
 NS: O
 REQUIRED:
 APPLY:
-SINCE:
+SINCE: OLS 1.8.1
 SEE_ALSO:
 
 DESCR: A comma-separated list of IP addresses blocked by Anti-DDoS protection, each ending with a semi-colon and
@@ -99,6 +99,7 @@ END_TIPS
 ID: serverHealth
 NAME: Server Health
 NS: LEO
+SINCE: OLS 1.8.1
 
 DESCR:
 END_DESCR
@@ -118,6 +119,7 @@ SEE_ALSO:
 ID: Real_Time_Stats_Help
 NAME: Real-Time Statistics
 NS: LEO
+SINCE: OLS 1.8.1
 
 DESCR:
 END_DESCR

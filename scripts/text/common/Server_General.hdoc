@@ -610,7 +610,7 @@ NAME: Output JSON reports
 NS: O
 REQUIRED:
 APPLY:
-SINCE: 1.8
+SINCE: OLS 1.8
 SEE_ALSO:
 
 DESCR: Output additional JSON formatted report files, with the .json extension, to the /tmp/lshttpd directory.
