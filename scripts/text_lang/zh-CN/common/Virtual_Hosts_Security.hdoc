@@ -891,23 +891,6 @@ SEE_ALSO:
 
 
 [TBL]
-ID: bubbleWrapContainerTbl
-NAME: Bubblewrap Container
-NS: E
-SINCE: ???
-
-DESCR:
-END_DESCR
-
-CONT: bubbleWrap
-END_CONT
-
-SEE_ALSO:
-[END_TBL]
-
-
-
-[TBL]
 ID: vhContainersTbl
 NAME: Containers
 NS: EO

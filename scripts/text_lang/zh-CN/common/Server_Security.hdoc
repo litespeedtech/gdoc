@@ -2166,22 +2166,6 @@ SEE_ALSO:
 
 
 
-[TBL]
-ID: bubbleWrapTbl
-NAME: Bubblewrap沙箱
-NS: E
-
-DESCR:
-END_DESCR
-
-CONT: bubbleWrap bubbleWrapCmd
-END_CONT
-
-SEE_ALSO:
-[END_TBL]
-
-
-
 ################ Pages ################
 
 [PAGE]

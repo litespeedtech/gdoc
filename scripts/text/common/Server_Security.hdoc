@@ -2463,22 +2463,6 @@ SEE_ALSO:
 
 
 [TBL]
-ID: bubbleWrapTbl
-NAME: Bubblewrap Container
-NS: E
-
-DESCR:
-END_DESCR
-
-CONT: bubbleWrap bubbleWrapCmd
-END_CONT
-
-SEE_ALSO:
-[END_TBL]
-
-
-
-[TBL]
 ID: containersTbl
 NAME: Containers
 NS: EO
