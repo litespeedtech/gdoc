@@ -1128,7 +1128,7 @@ NS: E
 DESCR:
 END_DESCR
 
-CONT: wpProtect VHreqCensorship VHreqCensorship reqCensorshipRule VHlsrecaptcha bubbleWrapContainerTbl
+CONT: wpProtect VHreqCensorship VHreqCensorship reqCensorshipRule VHlsrecaptcha vhContainersTbl
 vhHotlink accessControl realms
 END_CONT
 

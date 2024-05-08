@@ -2209,7 +2209,7 @@ DESCR:
 END_DESCR
 
 CONT: wpProtect reqCensorship reqCensorshipRule perClientConnLimit fileAccessControl cgiResource lsrecaptcha
-bubbleWrapTbl accessDeny accessControl
+containersTbl accessDeny accessControl
 END_CONT
 
 SEE_ALSO:
