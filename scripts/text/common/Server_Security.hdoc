@@ -1484,10 +1484,10 @@ END_TIPS
 [ITEM]
 ID: namespace
 NAME: Namespace Container
-NS: O
+NS: EO
 REQUIRED:
 APPLY:
-SINCE: ???
+SINCE: LSWS 6.3, OLS 1.8
 SEE_ALSO:
 
 DESCR: Set to {val}Enabled{/} if you wish to start CGI processes (including PHP programs) in a namespace container
@@ -1526,7 +1526,7 @@ NAME: Namespace Template File
 NS: EO
 REQUIRED:
 APPLY:
-SINCE:
+SINCE: LSWS 6.3, OLS 1.8
 SEE_ALSO:
 
 DESCR: Path to an existing configuration file containing a list of directories to be mounted along with the methods used
@@ -2481,7 +2481,7 @@ SEE_ALSO:
 [TBL]
 ID: containersTbl
 NAME: Containers
-NS: O
+NS: EO
 
 DESCR:
 END_DESCR

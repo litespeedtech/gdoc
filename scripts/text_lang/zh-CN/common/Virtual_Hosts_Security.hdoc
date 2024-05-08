@@ -910,8 +910,8 @@ SEE_ALSO:
 [TBL]
 ID: vhContainersTbl
 NAME: Containers
-NS: O
-SINCE: ???
+NS: EO
+SINCE: LSWS 6.3, OLS 1.8
 
 DESCR:
 END_DESCR
