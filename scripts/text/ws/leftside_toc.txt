@@ -8,7 +8,7 @@
     <br />
     <span class="current"><a href="index.html">Users' Manual</a></span>
   </h2>
-  <h3 class="ls-text-muted">Version 6.2 &nbsp;&#8212;&nbsp;Rev. 1</h3>
+  <h3 class="ls-text-muted">Version 6.3 &nbsp;&#8212;&nbsp;Rev. 0</h3>
   <hr/>
   <div>
     <ul>
