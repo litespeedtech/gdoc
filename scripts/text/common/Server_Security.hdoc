@@ -6,10 +6,10 @@
 [ITEM]
 ID: enableAntiddos
 NAME: Enable Anti-DDoS Protection
-NS: L
+NS: LE
 REQUIRED:
 APPLY: 3
-SINCE:
+SINCE: ADC ???, LSWS 6.3
 SEE_ALSO:
 
 DESCR: This will enable bot detection and address them by denying or
@@ -39,10 +39,10 @@ END_TIPS
 [ITEM]
 ID: firewallEnable
 NAME: Enable Firewall Modifications
-NS: L
+NS: LE
 REQUIRED:
 APPLY: 3
-SINCE:
+SINCE: ADC ???, LSWS 6.3
 SEE_ALSO:
 
 DESCR: Enable firewall modifications via iptables. iptables must be enabled on
@@ -2314,7 +2314,8 @@ SEE_ALSO:
 [TBL]
 ID: sec:dos
 NAME: Anti-DDoS Protection
-NS: L
+NS: LE
+SINCE: ADC ???, LSWS 6.3
 
 DESCR:
 END_DESCR
@@ -2504,7 +2505,7 @@ NS: E
 DESCR:
 END_DESCR
 
-CONT: wpProtect reqCensorship reqCensorshipRule perClientConnLimit fileAccessControl cgiResource lsrecaptcha
+CONT: sec:dos wpProtect reqCensorship reqCensorshipRule perClientConnLimit fileAccessControl cgiResource lsrecaptcha
 containersTbl accessDeny accessControl
 END_CONT
 
