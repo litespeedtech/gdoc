@@ -1535,7 +1535,7 @@ following secure default configuration settings will be used:
 
 
 {val}
-/tmp,tmp
+$HOMEDIR/.lsns/tmp /tmp,tmp
 
 /usr,ro-bind
 
@@ -1585,7 +1585,7 @@ $HOMEDIR,bind-try
 
 /var/run/mysqld.sock,bind-try
 
-/run/user/$UID,dir
+/run/user/$UID,bind-try
 
 $PASSWD
 
@@ -1602,6 +1602,20 @@ $GROUP
 /var/run,ro-bind-try
 
 /var/lib,ro-bind-try
+
+/etc/imunify360/user_config/,ro-bind-try
+
+/etc/sysconfig/imunify360,ro-bind-try
+
+/opt/plesk/php,ro-bind-try
+
+/opt/alt,bind-try
+
+/opt/cpanel,bind-try
+
+/opt/psa,bind-try
+
+/var/lib/php/sessions,bind-try
 {/}
 END_DESCR
 
