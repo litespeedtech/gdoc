@@ -372,6 +372,34 @@ END_TIPS
 [ITEM]
 ID: inMemBufSize
 NAME: 最大的读写缓冲区大小
+NS: L
+REQUIRED:
+APPLY: 2
+SINCE:
+SEE_ALSO: {ITEM=swappingDir}
+
+DESCR: 指定用于存储请求内容和相应的动态响应的最大缓冲区大小。达到此限制时，
+服务器将在{ITEM=swappingDir}中创建临时交换文件。
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [性能] 设置足够大的缓冲区，以容纳所有并发
+请求/响应，避免内存和磁盘数据交换。如果交换目录（默认为/tmp/lslbd/swap/）存在频繁的读写活动，说明缓冲区太小，LiteSpeed正在使用交换文件。
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: inMemBufSize
+NAME: 最大的读写缓冲区大小
+NS: EO
 REQUIRED:
 APPLY: 2
 SINCE:

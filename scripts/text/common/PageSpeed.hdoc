@@ -92,7 +92,38 @@ END_TIPS
 [ITEM]
 ID: pagespeedParams
 NAME: PageSpeed Settings
-NS: LE
+NS: L
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Set parameters using Google default filter sets.
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE:<br />
+pagespeed FileCachePath /tmp/lslbd/pagespeed;
+
+pagespeed RewriteLevel CoreFilters;
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: pagespeedParams
+NAME: PageSpeed Settings
+NS: E
 REQUIRED:
 APPLY: 3
 SINCE:

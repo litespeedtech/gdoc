@@ -6,10 +6,55 @@
 [ITEM]
 ID: antiddos_blocked_ip
 NAME: Anti-DDoS Blocked IP
-NS: LE
+NS: L
 REQUIRED:
 APPLY:
-SINCE: ADC 3.2.2, LSWS 6.2.2
+SINCE: ADC 3.2.2
+SEE_ALSO:
+
+DESCR: A comma-separated list of IP addresses blocked by Anti-DDoS protection, each ending with a semi-colon and
+reason code indicating why the IP address was blocked.
+
+
+Potential Reason Codes:
+<ul>
+  <li>{val}A{/}: BOT_UNKNOWN</li>
+  <li>{val}B{/}: BOT_OVER_SOFT</li>
+  <li>{val}C{/}: BOT_OVER_HARD</li>
+  <li>{val}D{/}: BOT_TOO_MANY_BAD_REQ</li>
+  <li>{val}E{/}: BOT_TOO_MANY_DOS_URL</li>
+  <li>{val}F{/}: BOT_CAPTCHA</li>
+  <li>{val}G{/}: BOT_FLOOD</li>
+  <li>{val}H{/}: BOT_REWRITE_RULE</li>
+  <li>{val}I{/}: BOT_TOO_MANY_BAD_STATUS</li>
+  <li>{val}J{/}: BOT_WAF_DETECTED</li>
+  <li>{val}K{/}: BOT_BRUTE_FORCE</li>
+</ul>
+
+
+The full list of blocked IPs is also available in the Real-Time Stats report file {val}/tmp/lslbd/.rtreport{/}.
+END_DESCR
+
+SYNTAX: &lt;blocked_ip_address&gt;;&lt;reason_code&gt;
+END_SYNTAX
+
+EXAMPLE: 1.0.100.50;E, 1.0.100.60;D, 1.0.100.70;F
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: antiddos_blocked_ip
+NAME: Anti-DDoS Blocked IP
+NS: E
+REQUIRED:
+APPLY:
+SINCE: LSWS 6.2.2
 SEE_ALSO:
 
 DESCR: A comma-separated list of IP addresses blocked by Anti-DDoS protection, each ending with a semi-colon and

@@ -57,7 +57,35 @@ END_TIPS
 [ITEM]
 ID: pagespeedParams
 NAME: モジュールのパラメータ
-NS: LE
+NS: L
+SEE_ALSO:
+
+DESCR: Googleのデフォルトフィルタセットを使用してパラメータを設定します。
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE:<br />
+pagespeedのファイルキャッシュパス /tmp/lslbd/pagespeed;
+
+pagespeed RewriteLevel CoreFilters;
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: pagespeedParams
+NAME: モジュールのパラメータ
+NS: E
 SEE_ALSO:
 
 DESCR: Googleのデフォルトフィルタセットを使用してパラメータを設定します。

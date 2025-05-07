@@ -387,6 +387,37 @@ END_TIPS
 [ITEM]
 ID: inMemBufSize
 NAME: Max I/O Buffer Size
+NS: L
+REQUIRED:
+APPLY: 2
+SINCE:
+SEE_ALSO: {ITEM=swappingDir}
+
+DESCR: Specifies the maximum buffer size that is used to store a request
+body and its dynamically generated response. When this limit is reached,
+the server will start to create temporary swapping files under {ITEM=swappingDir}.
+END_DESCR
+
+SYNTAX: uint
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS: [P] Set the buffer size large enough to accommodate all concurrent
+requests/replies to avoid memory to disk swapping. If there is frequent I/O
+activity to the swap directory, by default /tmp/lslbd/swap/, this buffer size is too low and
+LiteSpeed is swapping to disk.
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: inMemBufSize
+NAME: Max I/O Buffer Size
+NS: EO
 REQUIRED:
 APPLY: 2
 SINCE:
