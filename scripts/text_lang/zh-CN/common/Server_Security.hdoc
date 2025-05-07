@@ -890,6 +890,7 @@ END_TIPS
 [ITEM]
 ID: cgidSock
 NAME: CGI守护进程套接字
+NS: EO
 REQUIRED:
 APPLY: 2
 SINCE:

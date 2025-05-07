@@ -213,6 +213,7 @@ END_TIPS
 [ITEM]
 ID: extAppAddress
 NAME: 地址
+NS: EO
 REQUIRED:
 APPLY: 2
 SINCE:
@@ -255,6 +256,7 @@ END_TIPS
 [ITEM]
 ID: expWSAddress
 NAME: 地址
+NS: EO
 REQUIRED:
 APPLY: 2
 SINCE:

@@ -405,7 +405,7 @@ END_EXAMPLE
 
 TIPS: [P] Set the buffer size large enough to accommodate all concurrent
 requests/replies to avoid memory to disk swapping. If there is frequent I/O
-activity to the swap directoy, by default /tmp/lshttpd/swap/, this buffer size is too low and
+activity to the swap directory, by default /tmp/lshttpd/swap/, this buffer size is too low and
 LiteSpeed is swapping to disk.
 END_TIPS
 

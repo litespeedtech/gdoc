@@ -34,6 +34,7 @@ END_TIPS
 [ITEM]
 ID: wsaddr
 NAME: アドレス
+NS: EO
 
 DESCR: WebSocketバックエンドによって使用される一意のソケットアドレス。
 IPv4ソケット、IPv6ソケット、Unixドメインソケット（UDS）がサポートされています。

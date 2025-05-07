@@ -190,6 +190,7 @@ END_TIPS
 [ITEM]
 ID: extAppAddress
 NAME: アドレス
+NS: EO
 
 DESCR: 外部アプリケーションによって使用される一意のソケットアドレス。
 IPv4/IPv6ソケットとUnixドメインソケット（UDS）がサポートされています。
@@ -228,6 +229,7 @@ END_TIPS
 [ITEM]
 ID: expWSAddress
 NAME: アドレス
+NS: EO
 
 DESCR: 外部Webサーバーによって使用されるHTTPまたはHTTPSアドレス。
 END_DESCR
@@ -455,7 +457,7 @@ END_TIPS
 [ITEM]
 ID: autoStart
 NAME: 自動スタート
-NS: LO
+NS: O
 
 DESCR: Webサーバーでアプリケーションを自動的に開始するかどうかを指定します。
 同じマシン上で実行されているFastCGIおよびLSAPIアプリケーションのみを自動的に起動することができます。

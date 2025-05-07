@@ -138,24 +138,24 @@ END_TIPS
 [ITEM]
 ID: uploadTmpDir
 NAME: 临时文件路径
-NS: O 
-REQUIRED: 
+NS: LE
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: 在扫描请求正文工作时，上传到服务器的文件将存放在临时目录中
- 默认值为{val}/tmp/lshttpd/{/}.
+ 默认值为{val}/tmp{/}.
 
 END_DESCR
 
-SYNTAX: Absolute path or path starting with $SERVER_ROOT (for Server and VHost levels) or $VH_ROOT (for VHost levels).
+SYNTAX: Absolute path or path starting with $SERVER_ROOT (for Server and VHost levels).
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -165,18 +165,18 @@ END_TIPS
 [ITEM]
 ID: uploadTmpDir
 NAME: 临时文件路径
-NS: LE
-REQUIRED: 
+NS: O
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: 在扫描请求正文工作时，上传到服务器的文件将存放在临时目录中
  默认值为{val}/tmp/lshttpd/{/}.
 
 END_DESCR
 
-SYNTAX: Absolute path or path starting with $SERVER_ROOT (for Server and VHost levels).
+SYNTAX: Absolute path or path starting with $SERVER_ROOT (for Server and VHost levels) or $VH_ROOT (for VHost levels).
 END_SYNTAX
 
 EXAMPLE: 

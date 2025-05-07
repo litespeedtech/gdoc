@@ -122,20 +122,20 @@ END_TIPS
 [ITEM]
 ID: uploadTmpDir
 NAME: 一時ファイルパス
-NS: O 
+NS: LE
 
 DESCR: 要求本体パーサーが動作している間に、サーバーにアップロードされるファイルが格納される一時ディレクトリ。
-デフォルト値は{val}/tmp/lshttpd/{/}です。
+デフォルト値は{val}/tmp{/}です。
 
 END_DESCR
 
-SYNTAX: $SERVER_ROOT（ServerおよびVHostレベルの場合）または$VH_ROOT（VHostレベルの場合）で始まる絶対パスまたはパス。
+SYNTAX: $SERVER_ROOTで始まる絶対パスまたはパス（サーバーレベルとVHostレベルの場合）。
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -145,14 +145,14 @@ END_TIPS
 [ITEM]
 ID: uploadTmpDir
 NAME: 一時ファイルパス
-NS: LE
+NS: O
 
 DESCR: 要求本体パーサーが動作している間に、サーバーにアップロードされるファイルが格納される一時ディレクトリ。
-デフォルト値は{val}/tmp{/}です。
+デフォルト値は{val}/tmp/lshttpd/{/}です。
 
 END_DESCR
 
-SYNTAX: $SERVER_ROOTで始まる絶対パスまたはパス（サーバーレベルとVHostレベルの場合）。
+SYNTAX: $SERVER_ROOT（ServerおよびVHostレベルの場合）または$VH_ROOT（VHostレベルの場合）で始まる絶対パスまたはパス。
 END_SYNTAX
 
 EXAMPLE: 

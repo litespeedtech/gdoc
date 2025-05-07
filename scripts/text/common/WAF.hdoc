@@ -206,24 +206,24 @@ END_TIPS
 [ITEM]
 ID: uploadTmpDir
 NAME: Temporary File Path
-NS: O 
-REQUIRED: 
+NS: LE
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
-DESCR: Temporary directory where files being uploaded to server will be stored 
-while request body parser is working. Default value is {val}/tmp/lshttpd/{/}.
+DESCR: Temporary directory where files being uploaded to server will be stored
+while request body parser is working. Default value is {val}/tmp{/}.
 
 END_DESCR
 
-SYNTAX: Absolute path or path starting with $SERVER_ROOT (for Server and VHost levels) or $VH_ROOT (for VHost levels).
+SYNTAX: Absolute path or path starting with $SERVER_ROOT (for Server and VHost levels).
 END_SYNTAX
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS: 
+TIPS:
 END_TIPS
 
 [END_ITEM]
@@ -233,18 +233,18 @@ END_TIPS
 [ITEM]
 ID: uploadTmpDir
 NAME: Temporary File Path
-NS: LE
-REQUIRED: 
+NS: O
+REQUIRED:
 APPLY: 2
-SINCE: 
-SEE_ALSO: 
+SINCE:
+SEE_ALSO:
 
 DESCR: Temporary directory where files being uploaded to server will be stored 
-while request body parser is working. Default value is {val}/tmp{/}.
+while request body parser is working. Default value is {val}/tmp/lshttpd/{/}.
 
 END_DESCR
 
-SYNTAX: Absolute path or path starting with $SERVER_ROOT (for Server and VHost levels).
+SYNTAX: Absolute path or path starting with $SERVER_ROOT (for Server and VHost levels) or $VH_ROOT (for VHost levels).
 END_SYNTAX
 
 EXAMPLE: 

@@ -465,6 +465,7 @@ END_TIPS
 [ITEM]
 ID: cgidSock
 NAME: CGIデーモンソケット
+NS: EO
 
 DESCR: CGIデーモンとの通信に使用される一意のソケットアドレス。
 LiteSpeedサーバーは、スタンドアロンのCGIデーモンを使用して、最高のパフォーマンスとセキュリティを実現するCGIスクリプトを生成します。

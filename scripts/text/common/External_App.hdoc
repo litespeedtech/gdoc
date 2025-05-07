@@ -215,6 +215,7 @@ END_TIPS
 [ITEM]
 ID: extAppAddress
 NAME: Address
+NS: EO
 REQUIRED:
 APPLY: 2
 SINCE:
