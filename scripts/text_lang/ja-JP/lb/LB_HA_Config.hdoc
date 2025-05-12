@@ -176,7 +176,7 @@ NAME: ハートビート間隔（秒）
 DESCR: 「I am alive」というメッセージが送信されます。
 END_DESCR
 
-SYNTAX: 整数
+SYNTAX: integer number with a value of 10 or greater
 END_SYNTAX
 
 EXAMPLE: 

@@ -304,7 +304,7 @@ SEE_ALSO:
 DESCR: The time interval that "I am alive" messages will be sent.
 END_DESCR
 
-SYNTAX: uint
+SYNTAX: integer number with a value of 10 or greater
 END_SYNTAX
 
 EXAMPLE:
