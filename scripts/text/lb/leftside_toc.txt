@@ -1,7 +1,10 @@
 <aside class="sidetree ls-col-1-5">
   <figure>
-    <img src="img/web-adc_logo.svg" alt="lightspeed web adc logo"
-         width="200px"/>
+    <img
+        src="img/web-adc_logo.svg"
+        alt="lightspeed web adc logo"
+        width="200px"
+    />
   </figure>
   <h2 class="ls-text-thin">
     LiteSpeed Web ADC

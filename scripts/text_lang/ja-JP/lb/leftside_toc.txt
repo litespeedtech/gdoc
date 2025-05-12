@@ -1,55 +1,58 @@
 <div class="sidetree">
-<h3>LiteSpeed Load Balancer <a href="index.html">ユーザーズマニュアル</a></h3>
-<h5>バージョン 2.0 Rev. 10 </h5>
-<hr/>
-<div>
-<ul class="toctop">
-<li><a href="license.html">ライセンス</a></li>
-<li><a href="intro.html">はじめに</a></li>
-<li><a href="install.html">インストール</a></li>
-<li>
-  <a href="admin.html">管理</a>
-  <ul class="level2">
-    <li><a href="ServerStat_Help.html">サービスマネージャ</a></li>
-    <li><a href="Real_Time_Stats_Help.html">Real-Time Stats</a></li>
-  </ul>
-</li>
-<li><a href="security.html">セキュリティ</a></li>
-<li><a href="config.html">設定</a>
-	<ul class="level2">
-	<li><a href="ServGeneral_Help.html">サーバー全般</a></li>
-	<li><a href="ServLog_Help.html">サーバーログ</a></li>
-	<li><a href="ServTuning_Help.html">サーバーのチューニング</a></li>
-	<li><a href="ServSecurity_Help.html">サーバーのセキュリティ</a></li>
-        <li><a href="Cache_Help.html">ページキャッシュ</a></li>
-        <li><a href="PageSpeed_Config.html">PageSpeedモジュール</a></li>
-        <li><a href="ZConf_Help.html">ZeroConf Settings</a></li>
-	<li><a href="Listeners_General_Help.html">リスナー全般</a></li>
-        <li><a href="Listeners_SSL_Help.html">リスナーのSSL</a></li>
-	<li><a href="Clusters_General_Help.html">クラスタ全般</a></li>
-        <li><a href="Clusters_WorkerGroup_Help.html">クラスタワーカーグループ</a></li>
-	<li><a href="Templates_Help.html">テンプレート</a></li>
-	<li><a href="VirtualHosts_Help.html">バーチャルホスト基本</a></li>
-	<li><a href="VHGeneral_Help.html">バーチャルホストの全般</a></li>
-	<li><a href="VHSecurity_Help.html">バーチャルホストのセキュリティ</a></li>
-        <li><a href="VHSSL_Help.html">バーチャルホストSSL</a></li>
-        <li><a href="VHPageSpeed_Config.html">PageSpeedモジュール</a></li>
-	<li><a href="Rewrite_Help.html">Rewrite</a></li>
-        <li><a href="Context_Help.html">コンテキスト</a></li>
-                <ul class="level3">
-                <li><a href="LB_Context.html">ロードバランサコンテキスト</a></li>
-                <li><a href="Redirect_Context.html">リダイレクトコンテキスト</a></li>
-                </ul>
-	<li><a href="HA_Config.html">高可用性設定</a></li>
-	</ul>
-</li>
-<li><a href="webconsole.html">Web Console</a>
+  <h3>LiteSpeed Load Balancer <a href="index.html">ユーザーズマニュアル</a></h3>
+  <h5>バージョン 2.0 Rev. 10</h5>
+  <hr/>
+  <div>
+    <ul class="toctop">
+      <li><a href="license.html">ライセンス</a></li>
+      <li><a href="intro.html">はじめに</a></li>
+      <li><a href="install.html">インストール</a></li>
+      <li>
+        <a href="admin.html">管理</a>
         <ul class="level2">
-        <li><a href="AdminGeneral_Help.html">管理コンソール全般</a></li>
-        <li><a href="AdminSecurity_Help.html">管理コンソールのセキュリティ</a></li>
-	<li><a href="AdminListeners_General_Help.html">管理リスナー全般</a></li>
-        <li><a href="AdminListeners_SSL_Help.html">管理リスナーのSSL</a></li>
+          <li><a href="ServerStat_Help.html">サービスマネージャ</a></li>
+          <li><a href="Real_Time_Stats_Help.html">Real-Time Stats</a></li>
         </ul>
-</li>
-</ul>
-</div></div>
+      </li>
+      <li><a href="security.html">セキュリティ</a></li>
+      <li>
+        <a href="config.html">設定</a>
+	    <ul class="level2">
+	      <li><a href="ServGeneral_Help.html">サーバー全般</a></li>
+	      <li><a href="ServLog_Help.html">サーバーログ</a></li>
+	      <li><a href="ServTuning_Help.html">サーバーのチューニング</a></li>
+	      <li><a href="ServSecurity_Help.html">サーバーのセキュリティ</a></li>
+          <li><a href="Cache_Help.html">ページキャッシュ</a></li>
+          <li><a href="PageSpeed_Config.html">PageSpeedモジュール</a></li>
+          <li><a href="ZConf_Help.html">ZeroConf Settings</a></li>
+	      <li><a href="Listeners_General_Help.html">リスナー全般</a></li>
+          <li><a href="Listeners_SSL_Help.html">リスナーのSSL</a></li>
+	      <li><a href="Clusters_General_Help.html">クラスタ全般</a></li>
+          <li><a href="Clusters_WorkerGroup_Help.html">クラスタワーカーグループ</a></li>
+	      <li><a href="Templates_Help.html">テンプレート</a></li>
+	      <li><a href="VirtualHosts_Help.html">バーチャルホスト基本</a></li>
+	      <li><a href="VHGeneral_Help.html">バーチャルホストの全般</a></li>
+	      <li><a href="VHSecurity_Help.html">バーチャルホストのセキュリティ</a></li>
+          <li><a href="VHSSL_Help.html">バーチャルホストSSL</a></li>
+          <li><a href="VHPageSpeed_Config.html">PageSpeedモジュール</a></li>
+	      <li><a href="Rewrite_Help.html">Rewrite</a></li>
+          <li><a href="Context_Help.html">コンテキスト</a></li>
+          <ul class="level3">
+            <li><a href="LB_Context.html">ロードバランサコンテキスト</a></li>
+            <li><a href="Redirect_Context.html">リダイレクトコンテキスト</a></li>
+          </ul>
+          <li><a href="HA_Config.html">高可用性設定</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="webconsole.html">Web Console</a>
+        <ul class="level2">
+          <li><a href="AdminGeneral_Help.html">管理コンソール全般</a></li>
+          <li><a href="AdminSecurity_Help.html">管理コンソールのセキュリティ</a></li>
+	      <li><a href="AdminListeners_General_Help.html">管理リスナー全般</a></li>
+          <li><a href="AdminListeners_SSL_Help.html">管理リスナーのSSL</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

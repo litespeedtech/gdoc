@@ -22,7 +22,8 @@
     <li>
       <span>
         <a href="admin.html">
-          Administration</a>/<a href="ServerStat_Help.html">Service Manager</a>
+          Administration</a>/<a href="ServerStat_Help.html">Service Manager
+        </a>
       </span>
     </li>
     <li><span><a href="security.html">Security</strong></a></span></li>
