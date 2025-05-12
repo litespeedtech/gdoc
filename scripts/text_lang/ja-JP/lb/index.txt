@@ -1,10 +1,10 @@
 <header>
   <h1>
-    LiteSpeed Load Balancer 2.0
+    LiteSpeed Web ADC Version 3.2
     <br/>
     ユーザーズマニュアル
     <br/>
-    Rev. 10
+    Rev. 0
   </h1>
 </header>
 
