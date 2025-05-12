@@ -15,5 +15,5 @@ Rev. 10</h1>
 <li><a href="config.html"><strong>設定</strong></a></li>
 <li><a href="webconsole.html"><strong>Webコンソール</strong></a></li>
 </ol>
-<p>詳細については、<b><a href="https://www.litespeedtech.com/support/wiki/doku.php">LiteSpeed Wiki</a></b></p>
+<p>詳細については、<b><a href="https://docs.litespeedtech.com/">Documentation Site</a></b></p>
 </div>

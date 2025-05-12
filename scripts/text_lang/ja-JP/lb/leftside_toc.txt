@@ -23,6 +23,7 @@
 	<li><a href="ServSecurity_Help.html">サーバーのセキュリティ</a></li>
         <li><a href="Cache_Help.html">ページキャッシュ</a></li>
         <li><a href="PageSpeed_Config.html">PageSpeedモジュール</a></li>
+        <li><a href="ZConf_Help.html">ZeroConf Settings</a></li>
 	<li><a href="Listeners_General_Help.html">リスナー全般</a></li>
         <li><a href="Listeners_SSL_Help.html">リスナーのSSL</a></li>
 	<li><a href="Clusters_General_Help.html">クラスタ全般</a></li>
