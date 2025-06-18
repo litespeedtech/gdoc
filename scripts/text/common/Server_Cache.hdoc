@@ -13,11 +13,21 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies which cache features to enable. {val}On{/} enables the cache engine while {val}Crawler{/} and {val}ESI{/}
-enables those respective features. Features enabled globally at the Server level can be overriden at the Virtual Host level.
+DESCR: Specifies a selection of cache features to individually enable.
 
 
-Setting Enable LiteMage to {val}On{/} at the Virtual Host level will override this setting, enabling all features.
+{val}On{/}: Enable the cache engine.
+
+{val}Crawler{/}: Enable crawler feature.
+
+{val}ESI{/}: Enable ESI feature.
+
+
+Features enabled globally at the Server level can be overridden at the Virtual Host level.
+
+
+Note: Setting {ITEM=litemage} to {val}On{/} at the Virtual Host level will override this setting and automatically
+enable the cache engine and all features.
 
 
 Default value: Everything enabled
