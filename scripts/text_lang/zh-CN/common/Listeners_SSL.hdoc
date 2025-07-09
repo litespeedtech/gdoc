@@ -575,10 +575,10 @@ ID: sslProtocolSetting
 NAME: SSL协议
 NS: LEO
 
-DESCR: 自定义侦听器接受的SSL协议。
+DESCR:
 END_DESCR
 
-CONT: ciphers enableECDHE enableDHE DHParam
+CONT: sslProtocol ciphers enableECDHE enableDHE DHParam
 END_CONT
 
 SEE_ALSO:

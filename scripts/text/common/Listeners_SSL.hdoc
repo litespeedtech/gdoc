@@ -142,6 +142,34 @@ END_TIPS
 
 
 [ITEM]
+ID: sslProtocol
+NAME: Protocol Version
+NS: LEO
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: A selection of SSL protocols accepted by the listener.
+
+
+Options include: {val}SSL v3.0{/}, {val}TLS v1.0{/}, {val}TLS v1.1{/}, {val}TLS v1.2{/}, {val}TLS v1.3{/}.
+END_DESCR
+
+SYNTAX: checkbox
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: ciphers
 NAME: Ciphers
 NS: LEO
@@ -593,10 +621,10 @@ ID: sslProtocolSetting
 NAME: SSL Protocol
 NS: LEO
 
-DESCR: Customizes SSL protocols accepted by the listener.
+DESCR:
 END_DESCR
 
-CONT: ciphers enableECDHE enableDHE DHParam
+CONT: sslProtocol ciphers enableECDHE enableDHE DHParam
 END_CONT
 
 SEE_ALSO:

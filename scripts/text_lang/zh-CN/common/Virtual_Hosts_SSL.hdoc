@@ -55,29 +55,13 @@ SEE_ALSO:
 
 [PAGE]
 ID: VHSSL_Help
-NAME: Virtual Host SSL
-NS: LE
-
-DESCR:
-END_DESCR
-
-CONT: sslCert sslProtocolSetting vhSslFeature sslOCSP sslClientVerify
-END_CONT
-
-SEE_ALSO:
-[END_PAGE]
-
-
-
-[PAGE]
-ID: VHSSL_Help
 NAME: 虚拟主机SSL
-NS: O
+NS: LEO
 
 DESCR:
 END_DESCR
 
-CONT: sslCert sslProtocolSetting vhSslFeature sslOCSP sslClientVerify
+CONT: sslCert vhSslProtocolSetting vhSslFeature sslOCSP sslClientVerify
 END_CONT
 
 SEE_ALSO:

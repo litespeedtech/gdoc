@@ -491,7 +491,7 @@ ID: sslProtocolSetting
 NAME: SSLプロトコル
 NS: LEO
 
-DESCR: リスナーが受け入れたSSLプロトコルをカスタマイズします。
+DESCR:
 END_DESCR
 
 [END_TBL]
