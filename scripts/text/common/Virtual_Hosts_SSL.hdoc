@@ -38,7 +38,23 @@ END_TIPS
 [TBL]
 ID: vhSslFeature
 NAME: Security & Features
-NS: LEO
+NS: LE
+
+DESCR:
+END_DESCR
+
+CONT: renegProtection sslSessionCache sslSessionTickets enableSpdy vhEnableQuic
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: vhSslFeature
+NAME: Security
+NS: O
 
 DESCR:
 END_DESCR
