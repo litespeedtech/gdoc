@@ -11,7 +11,7 @@
     <br />
     <a href="index.html">Users' Manual</a>
   </h2>
-  <h3 class="ls-text-muted">Version 3.2 &nbsp;&#8212;&nbsp;Rev. 3</h3>
+  <h3 class="ls-text-muted">Version 3.2 &nbsp;&#8212;&nbsp;Rev. 4</h3>
   <hr/>
   <div>
     <ul>
