@@ -293,6 +293,74 @@ END_TIPS
 
 
 [ITEM]
+ID: powMethod
+NAME: Enable Protection
+NS: E
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Individually enable or disable reCAPTCHA/Anubis Protection features.
+
+
+Default value is {val}Inherit Server level settings{/}
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: vhRecaptchaSensitivity
+NAME: Trigger Sensitivity
+NS: E
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Automatic reCAPTCHA/Anubis sensitivity. The higher the value, the more
+likely reCAPTCHA/Anubis Protection will be used. A value of {val}0{/} is
+equivalent to "Off" while a value of {val}100{/} is equivalent to "Always On".
+
+
+Default values:
+
+<b>Server level:</b> 0
+
+<b>Virtual Host level:</b> Inherit Server level setting
+END_DESCR
+
+EDITTIP: Server level setting can be overridden at the Virtual Host level.
+END_EDITTIP
+
+SYNTAX: Integer value between 0 and 100.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: recaptchaVhReqLimit
 NAME: Concurrent Request Limit
 NS: LO
@@ -912,17 +980,20 @@ SEE_ALSO:
 
 [TBL]
 ID: VHlsrecaptcha
-NAME: reCAPTCHA Protection
+NAME: reCAPTCHA/Anubis Protection
 NS: E
 
-DESCR: reCAPTCHA Protection is a service provided as a way to mitigate heavy
-server load. reCAPTCHA Protection will activate after one of the below
+DESCR: reCAPTCHA/Anubis Protections are a service provided as a way to
+mitigate heavy server load either by, in certain situations, redirecting
+requests to a reCAPTCHA validation page or sending requests to a configured
+Anubis backend server.
+
+
+reCAPTCHA Protection will activate after one of the below
 situations is hit. Once active, all requests by NON TRUSTED(as configured)
 clients will be redirected to a reCAPTCHA validation page. After validation,
 the client will be redirected to their desired page.
 
-
-The following situations will activate reCAPTCHA Protection:
 
 1. The server or vhost concurrent requests count passes the configured
 connection limit.
@@ -948,7 +1019,7 @@ verified. [E=verifycaptcha: deny] will redirect to reCAPTCHA until Max Tries is
 hit, after which the client will be denied.
 END_DESCR
 
-CONT: recaptchaSensitivity
+CONT: powMethod vhRecaptchaSensitivity
 END_CONT
 
 SEE_ALSO:

@@ -2137,6 +2137,110 @@ END_TIPS
 
 
 
+############# Anubis Proof-of-Work  #############
+
+
+[ITEM]
+ID: enableAnubis
+NAME: Enable Anubis
+NS: E
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Enable the Anubis Protection feature at the current level.
+
+
+Setting this to {val}Disable{/} at the Server level will disable this setting server-wide. In all other cases, the
+Server level setting can be overridden at the Virtual Host level.
+
+
+Default values:
+
+<b>Server-level:</b> {val}Disable{/}
+
+<b>VH-Level:</b> Inherit Server level setting
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: bool
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: anubisServerAddr
+NAME: Anubis Server Address
+NS: E
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: The address for the backend Anubis Server. This can be either an IPv4 address or an IPv6 address.
+
+
+Default value is {val}127.0.0.1:8923{/}
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: IPv4_address:port or [IPv6_address]:port
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: anubisMaxConns
+NAME: Anubis Max Connections
+NS: E
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: The maximum number of connections allowed to the Anubis backend server.
+
+
+Default value is {val}100{/}
+END_DESCR
+
+EDITTIP:
+END_EDITTIP
+
+SYNTAX: A value between 1 and 10,000.
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# Access Control #############
 
 
@@ -2489,6 +2593,22 @@ SEE_ALSO:
 
 
 [TBL]
+ID: lsanubis
+NAME: Anubis Proof-of-Work
+NS: E
+
+DESCR:
+END_DESCR
+
+CONT: enableAnubis anubisServerAddr anubisMaxConns
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
 ID: lsrecaptcha
 NAME: reCAPTCHA Protection
 NS: O
@@ -2569,8 +2689,9 @@ NS: E
 DESCR:
 END_DESCR
 
-CONT: sec:dos wpProtect reqCensorship reqCensorshipRule perClientConnLimit fileAccessControl cgiResource lsrecaptcha
-containersTbl accessDeny accessControl
+CONT: sec:dos wpProtect reqCensorship reqCensorshipRule perClientConnLimit
+fileAccessControl cgiResource lsrecaptcha lsanubis containersTbl accessDeny
+accessControl
 END_CONT
 
 SEE_ALSO:
