@@ -2149,7 +2149,7 @@ APPLY:
 SINCE:
 SEE_ALSO:
 
-DESCR: Enable the Anubis Protection feature at the current level.
+DESCR: Enable the Anubis Protection feature at the Server level.
 
 
 Setting this to {val}Disable{/} at the Server level will disable this setting server-wide. In all other cases, the
@@ -2166,7 +2166,7 @@ END_DESCR
 EDITTIP:
 END_EDITTIP
 
-SYNTAX: bool
+SYNTAX: select
 END_SYNTAX
 
 EXAMPLE:
