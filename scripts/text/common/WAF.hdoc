@@ -344,6 +344,7 @@ END_TIPS
 [ITEM]
 ID: secAuditLog
 NAME: Security Audit Log
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 4.1.9

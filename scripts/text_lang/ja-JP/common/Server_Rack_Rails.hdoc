@@ -129,7 +129,7 @@ END_TIPS
 
 
 [TBL]
-ID: railsDefault
+ID: railsDefaults
 NAME: Ruby Rack/Railsの設定
 NS: EO
 

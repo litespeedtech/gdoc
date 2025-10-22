@@ -377,6 +377,7 @@ END_TIPS
 [ITEM]
 ID: rails_location
 NAME: ロケーション
+NS: E
 
 DESCR: ファイルシステム内のこのコンテキストの対応する場所を指定します。
 END_DESCR
@@ -1363,20 +1364,6 @@ END_DESCR
 
 
 [TBL]
-ID: railsContext
-NAME: Rack/Railsコンテキスト
-NS: O
-
-DESCR: Rack/Railsコンテキストは、Ruby Rack/Railsアプリケーションを簡単に設定する方法を提供します。
-Rack/RailsアプリケーションをRack/Railsコンテキストに追加するには、URLとアプリケーションのルートディレクトリのみをマウントする必要があります。
-外部アプリケーションを定義したり、404ハンドラを追加したり、ルールを書き直すなど、すべての問題を解決する必要はありませ
-END_DESCR
-
-[END_TBL]
-
-
-
-[TBL]
 ID: moduleContext
 NAME: モジュールハンドラコンテキスト
 
@@ -1580,7 +1567,7 @@ END_DESCR
 [PAGE]
 ID: Rails_Context 
 NAME: Rack/Railsコンテキスト
-NS:EO
+NS:E
 
 DESCR:
 END_DESCR

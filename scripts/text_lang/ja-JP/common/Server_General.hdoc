@@ -544,6 +544,7 @@ END_TIPS
 [ITEM]
 ID: hideSigInErrorPage
 NAME: エラーページの署名を隠す
+NS: LE
 
 DESCR: 行を表示するかどうかを指定します。
 <blockquote> LiteSpeed Web Serverによって強化されました。
@@ -985,29 +986,6 @@ DESCR: {ent_version} MaxMind GeoIPデータベースへのパスを指定しま�
 END_DESCR
 
 SYNTAX: ファイルパス
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
-ID: geoipDBCache
-NAME: DBキャッシュタイプ
-
-DESCR: {ent_version}使用するキャッシュモードの種類を指定します。
-キャッシュモードは、Standard、MemoryCache、CheckCache、およびIndexCacheです。
-MemoryCacheが推奨されており、これがデフォルトです。 
-
-END_DESCR
-
-SYNTAX: ドロップダウンリストから選択
 END_SYNTAX
 
 EXAMPLE: 

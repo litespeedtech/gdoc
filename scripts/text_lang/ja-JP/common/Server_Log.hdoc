@@ -133,6 +133,7 @@ END_TIPS
 [ITEM]
 ID: log_enableAioLog
 NAME: AIOロギングを有効にする
+NS: LE
 
 DESCR: サーバーログとアクセスログのAIOログを有効にするかどうかを指定します。
 有効にすると、ログメッセージの書き込みに非同期I / Oが使用されます。
@@ -314,29 +315,6 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: [パフォーマンス]これらのヘッダーがアクセスログに必要ない場合は、これをオフにします。
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
-ID: accessLog_keepDays
-NAME: 保持日数
-
-DESCR: アクセスログファイルをディスクに保管する日数を指定します。
-指定した日数より古いローテーションしたログファイルのみが削除されます。
-現在のログファイルには、それに含まれるデータの日数にかかわらず、表示されません。
-古いログファイルを自動削除しない場合は、{val} 0 {/}に設定します。
-END_DESCR
-
-SYNTAX: 整数
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
 END_TIPS
 
 [END_ITEM]

@@ -178,27 +178,6 @@ END_TIPS
 
 
 
-[ITEM]
-ID: vhSmartKeepAlive
-NAME: Smartキープアライブ
-
-DESCR: このバーチャルホストに対してSmart Keep-Aliveを有効にするかどうかを指定します。
-このオプションは、{ITEM=ServTuning_Help#smartKeepAlive}がサーバーレベルで有効で、{ITEM=vhMaxKeepAliveReq}が1より大きい場合にのみ有効です。
-END_DESCR
-
-SYNTAX: ラジオボックスから選択
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: [パフォーマンス]多忙なWebサイトでこれを有効にします。
-END_TIPS
-
-[END_ITEM]
-
-
-
 ############# Security #############
 
 

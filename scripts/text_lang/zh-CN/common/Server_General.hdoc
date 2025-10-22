@@ -757,7 +757,7 @@ NS: LEO
 REQUIRED:
 APPLY: 3
 SINCE:
-SEE_ALSO:{ITEM=ServGeneral_Help#useIpInProxyHeader}, {ITEM=ServGeneral_Help#geoipDBFile}, {ITEM=ServGeneral_Help#geoipDBCache}
+SEE_ALSO:{ITEM=ServGeneral_Help#useIpInProxyHeader}, {ITEM=ServGeneral_Help#geoipDBFile}
 
 
 DESCR: {ent_version}指定是否启用IP地理定位查找。

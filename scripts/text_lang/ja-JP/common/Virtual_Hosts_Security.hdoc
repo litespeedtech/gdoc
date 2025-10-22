@@ -530,23 +530,6 @@ END_EDITTIP
 
 
 
-[ITEM]
-ID: users
-NAME: ユーザー
-
-DESCR: 
-END_DESCR
-
-EDITTIP: グループDBは、ユーザDB内のユーザにグループ情報が含まれていない場合にのみチェックされます。。
-END_EDITTIP
-
-EDITTIP: カンマを使用して複数のユーザーを区切ります。
-END_EDITTIP
-
-[END_ITEM]
-
-
-
 ################ Tables ################
 
 

@@ -1,47 +1,8 @@
 [HELPDOC]
 
 
+
 ############# OS Optimization #############
-
-
-[ITEM]
-ID: eventDispatcher
-NAME: I/Oイベント・ディスパッチャー
-
-DESCR: 使用するI / Oイベント・ディスパッチャーを指定します。
-オペレーティングシステムによって、さまざまなタイプのイベントディスパッチャがサポートされています:
-<ul>
-  <li>Linux カーネル 2.4.x サポート:
-     <ul><li>poll</li></ul>
-  </li>
-  <li>Linux カーネル 2.6.x サポート:
-     <ul><li>poll</li><li>epoll</li></ul>
-  </li>
-  <li>FreeBSD サポート:
-     <ul><li>poll</li><li>kqueue</li></ul>
-  </li>
-  <li>Solaris サポート:
-     <ul><li>poll</li><li>devpoll</li></ul>
-  </li>
-  <li>Mac OS X 10.3以降のサポート:
-     <ul><li>poll</li><li>kqueue</li></ul>
-  </li>
-</ul>
-  {val}poll{/}はすべてのプラットフォームでサポートされており、デフォルトの選択です。
-   トラフィックの多いWebサイトでは、代替イベントディスパッチャを使用してサーバーのスケーラビリティを向上させることができます。
-END_DESCR
-
-SYNTAX: ドロップダウンリストから選択
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: 
-END_TIPS
-
-[END_ITEM]
-
 
 
 [ITEM]
@@ -74,7 +35,7 @@ END_TIPS
 
 
 [ITEM]
-ID: SSLStrongDhKey
+ID: sslStrongDhKey
 NAME: SSL強力なDHキー
 NS: LEO
 
@@ -210,35 +171,6 @@ END_EXAMPLE
 
 TIPS: [パフォーマンス]適度に高い値に設定します。
 "1"または "0"の値はキープアライブを無効にします。
-END_TIPS
-
-[END_ITEM]
-
-
-
-[ITEM]
-ID: smartKeepAlive
-NAME: スマートキープアライブ
-
-DESCR: バーチャルホスト{ITEM=VirtualHosts_Help#vhSmartKeepAlive} DESCR：スマートキープアライブをオンにするかどうかを指定します。
-このオプションは、{ITEM=maxKeepAliveReq}が1より大きい場合にのみ有効です。
-有効にすると、バーチャルホストレベルで有効/無効にすることもできます。
-スマートキープアライブは、JavaScript、CSSスタイルシート、およびイメージファイルの要求に対してのみキープアライブ接続を確立します。
-htmlページの場合、接続は維持されません。
-これにより、より多くのユーザーに効率的にサービスを提供できます。
-通常、Webページには、最初のリクエスト後にブラウザによってキャッシュされる複数のイメージとスクリプトが含まれています。
-
-これらの非HTML静的ファイルを単一のキープアライブ接続で送信し、text/htmlファイルを別の非キープアライブ接続経由で送信する方が効率的です。
-この方法は、アイドル状態の接続を減らし、より多くの同時要求およびユーザーを処理するための容量を増加させます。
-END_DESCR
-
-SYNTAX: ラジオボックスから選択
-END_SYNTAX
-
-EXAMPLE: 
-END_EXAMPLE
-
-TIPS: [パフォーマンス]高負荷のWebサイトでこれを有効にします。
 END_TIPS
 
 [END_ITEM]
@@ -1069,6 +1001,7 @@ END_TIPS
 [ITEM]
 ID: sslDynCertsBaseDir
 NAME: SSL動的証明書ベースディレクトリ
+NS: L
 
 DESCR: 動的SSL証明書が格納されるベースディレクトリを設定します。
 証明書、鍵、およびCAバンドルの名前はそれぞれ「cert」、「key」、および「ca」とする予定です。
@@ -1121,6 +1054,7 @@ END_TIPS
 [ITEM]
 ID: sslDynCertsExpire
 NAME: SSL動的証明書有効期限（秒）
+NS: L
 
 DESCR: 動的に読み込まれた証明書が無効にされる前に、有効期限を設定します。
 
@@ -1142,6 +1076,7 @@ END_TIPS
 [ITEM]
 ID: sslDynCertsRefresh
 NAME: SSL動的証明書リフレッシュ時間（秒）
+NS: L
 
 DESCR: ファイルの有効性をチェックする前に、動的に読み込まれた証明書の更新時間を設定します。
 リフレッシュ時間前にファイルが削除された場合、証明書は無効になります。

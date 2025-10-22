@@ -7,6 +7,7 @@
 [ITEM]
 ID: enableCensorship
 NAME: 要求フィルタリングを有効にする
+NS: LE
 
 DESCR: 要求内容の詳細検査を有効にするかどうかを指定します。
 この機能は、Apacheのmod_securityと同等です。
@@ -29,6 +30,7 @@ END_TIPS
 [ITEM]
 ID: censorLogLevel
 NAME: ログレベル
+NS: LE
 
 DESCR: 要求フィルタリングエンジンのデバッグ出力の詳細レベルを指定します。
 この値の範囲は{val}0{/}-{val}9{/}です。
@@ -213,6 +215,7 @@ END_TIPS
 [ITEM]
 ID: secAuditLogEngine
 NAME: セキュリティ監査ログを有効にする
+NS: LE
 
 DESCR: 監査ログを有効にするかどうかを指定します。
 この機能は、Apacheのmod_security監査エンジンと同等です。
@@ -235,6 +238,7 @@ END_TIPS
 [ITEM]
 ID: secAuditLog
 NAME: セキュリティ監査ログ
+NS: LE
 
 DESCR: より詳細な情報を提供するセキュリティ監査ログのパスを指定します。
   この特別な情報は、たとえば、特定のユーザーの行動を追跡する場合に役立ちます。

@@ -245,6 +245,7 @@ END_TIPS
 [ITEM]
 ID: secAuditLogEngine
 NAME: 启用安全审核日志
+NS: LE
 REQUIRED: 
 APPLY: 2
 SINCE: 4.1.9
@@ -269,6 +270,7 @@ END_TIPS
 [ITEM]
 ID: secAuditLog
 NAME: 安全审核日志
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 4.1.9

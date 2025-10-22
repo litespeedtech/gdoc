@@ -170,6 +170,7 @@ END_TIPS
 [ITEM]
 ID: log_enableAioLog
 NAME: 启用AIO记录
+NS: LE
 REQUIRED: 
 APPLY: 3
 SINCE: 4.2.19
