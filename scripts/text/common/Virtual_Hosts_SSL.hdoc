@@ -33,6 +33,124 @@ END_TIPS
 
 
 
+########## AutoCert with ACME ##########
+
+
+[ITEM]
+ID: acme_vhenable
+NAME: Enabled
+NS: O
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Automatically generate and renew SSL certificates using the Automatic Certificate Management Environment (ACME)
+certifier protocol (once configured). See more here:
+
+{ext-href}
+https://docs.openlitespeed.org/config/advanced/acme/
+{ext-href-end}
+Automatic SSL Certificates (ACME)
+{ext-href-end-a}
+
+
+Setting this to {val}Disabled{/} at the Server level will disable this setting server-wide. In all other cases, the
+Server level setting can be overridden at the Virtual Host level.
+
+
+Default values:
+
+<b>Server level:</b> Off
+
+<b>VH level:</b> Inherit Server level setting
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: acme_dns_type
+NAME: ACME API dns_type
+NS: O
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: (Optional) The dns type used when performing wildcard certificate generation API calls. This value will depend on
+the DNS provider used and is not required when generating non-wildcard certificates. More info on available dns type
+API values can be found here:
+
+{ext-href}
+https://github.com/acmesh-official/acme.sh/wiki/dnsapi
+{ext-href-end}
+acme.sh - How to use DNS API
+{ext-href-end-a}
+
+
+Used with together with setting {ITEM=VHSSL_Help#acme_env}
+END_DESCR
+
+SYNTAX: text
+END_SYNTAX
+
+EXAMPLE: For DNS provider CloudFlare, the dns type value would be {val}dns_cf{/}.
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: acme_env
+NAME: Environment
+NS: O
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: (Optional) Environment values to be included when performing wildcard certificate generation API calls. The
+specific values needed will depend on the DNS provider used and are not required when generating non-wildcard
+certificates. More info on needed environment API values can be found here:
+
+{ext-href}
+https://github.com/acmesh-official/acme.sh/wiki/dnsapi
+{ext-href-end}
+acme.sh - How to use DNS API
+{ext-href-end-a}
+
+
+Used with together with setting {ITEM=VHSSL_Help#acme_dns_type}
+END_DESCR
+
+SYNTAX: A list of {val}Key="VALUE"{/} pairs, one per line with each VALUE enclosed in double quotes.
+END_SYNTAX
+
+EXAMPLE: For DNS provider CloudFlare the only one required environment value would be {val}CF_Token="YOUR_TOKEN"{/}
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ############# Tables ############
 
 
@@ -45,6 +163,22 @@ DESCR:
 END_DESCR
 
 CONT: ciphers enableECDHE enableDHE DHParam
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: vhAcmeAutoCert
+NAME: AutoCert with ACME
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: acme_vhenable acme_dns_type acme_env
 END_CONT
 
 SEE_ALSO:
@@ -90,12 +224,28 @@ SEE_ALSO:
 [PAGE]
 ID: VHSSL_Help
 NAME: Virtual Host SSL
-NS: LEO
+NS: LE
 
 DESCR:
 END_DESCR
 
 CONT: sslCert vhSslProtocolSetting vhSslFeature sslOCSP sslClientVerify
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+
+[PAGE]
+ID: VHSSL_Help
+NAME: Virtual Host SSL
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: sslCert vhSslProtocolSetting vhAcmeAutoCert vhSslFeature sslOCSP sslClientVerify
 END_CONT
 
 SEE_ALSO:

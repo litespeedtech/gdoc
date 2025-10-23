@@ -2216,6 +2216,49 @@ END_TIPS
 
 
 
+[ITEM]
+ID: acme
+NAME: AutoCert with ACME
+NS: O
+REQUIRED:
+APPLY:
+SINCE:
+SEE_ALSO:
+
+DESCR: Automatically generate and renew SSL certificates using the Automatic Certificate Management Environment (ACME)
+certifier protocol (once configured). See more here:
+
+{ext-href}
+https://docs.openlitespeed.org/config/advanced/acme/
+{ext-href-end}
+Automatic SSL Certificates (ACME)
+{ext-href-end-a}
+
+
+Setting this to {val}Disabled{/} at the Server level will disable this setting server-wide. In all other cases, the
+Server level setting can be overridden at the Virtual Host level.
+
+
+Default values:
+
+<b>Server level:</b> Off
+
+<b>VH level:</b> Inherit Server level setting
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
 ########## SSL Dynamic SNI  ##########
 
 
@@ -3065,7 +3108,7 @@ SEE_ALSO:
 [TBL]
 ID: sslGlobal
 NAME: SSL Global Settings
-NS: LO
+NS: L
 
 DESCR:
 END_DESCR
@@ -3090,6 +3133,23 @@ END_DESCR
 CONT: sslDefaultCiphers sslStrongDhKey sslEnableMultiCerts sslCertCompress sslHsOffload sslSessionCache
 sslSessionCacheSize sslSessionCacheTimeout sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile
 sslOcspProxy sslStrictSni
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: sslGlobal
+NAME: SSL Global Settings
+NS: O
+
+DESCR:
+END_DESCR
+
+CONT: sslDefaultCiphers sslStrongDhKey sslEnableMultiCerts sslSessionCache sslSessionCacheSize
+sslSessionCacheTimeout sslSessionTickets sslSessionTicketLifetime sslSessionTicketKeyFile sslOcspProxy sslStrictSni acme
 END_CONT
 
 SEE_ALSO:
