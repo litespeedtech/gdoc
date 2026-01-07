@@ -108,6 +108,7 @@ END_TIPS
 [ITEM]
 ID: extWorkers
 NAME: Workers
+NS: EO
 REQUIRED:
 APPLY: 3
 SINCE:
