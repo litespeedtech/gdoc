@@ -84,6 +84,7 @@ END_TIPS
 [ITEM]
 ID: shType
 NAME: Handler Type
+NS: EO
 REQUIRED: 
 APPLY: 3
 SINCE: 

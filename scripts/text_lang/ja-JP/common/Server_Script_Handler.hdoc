@@ -70,6 +70,7 @@ END_TIPS
 [ITEM]
 ID: shType
 NAME: ハンドラタイプ
+NS: EO
 
 DESCR: これらのスクリプトファイルを処理する外部アプリケーションのタイプを指定します。
 使用可能なタイプは以下のとおりです：{val}CGI{/}、{val}FastCGI{/}、{val}Webサーバー{/}、{val}LSAPI app{/}、{val}ロードバランサ{/} 又は{val}サーブレットエンジン{/}。

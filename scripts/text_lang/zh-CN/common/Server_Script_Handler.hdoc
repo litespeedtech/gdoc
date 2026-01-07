@@ -80,6 +80,7 @@ END_TIPS
 [ITEM]
 ID: shType
 NAME: 类型
+NS: EO
 REQUIRED: 
 APPLY: 3
 SINCE: 
