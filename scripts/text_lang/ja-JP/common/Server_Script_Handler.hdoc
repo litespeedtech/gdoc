@@ -97,6 +97,7 @@ END_TIPS
 [ITEM]
 ID: shHandlerName
 NAME: ハンドラ名
+NS: EO
 
 DESCR: ハンドラタイプがFastCGI、Web Server、LSAPI、Load Balancer、またはServlet Engineの場合にスクリプトファイルを処理する外部アプリケーションの名前を指定します。
 END_DESCR

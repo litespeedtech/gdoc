@@ -112,6 +112,7 @@ END_TIPS
 [ITEM]
 ID: shHandlerName
 NAME: 处理器名称
+NS: EO
 REQUIRED: 
 APPLY: 3
 SINCE: 

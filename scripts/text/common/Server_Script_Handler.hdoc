@@ -116,6 +116,7 @@ END_TIPS
 [ITEM]
 ID: shHandlerName
 NAME: Handler Name
+NS: EO
 REQUIRED: 
 APPLY: 3
 SINCE: 
