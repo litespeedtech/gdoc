@@ -16,7 +16,8 @@ SEE_ALSO:
 DESCR: The type of context created determines it's usage.
 
 
-The <b>Redirect</b> context is used to set up an internal or external redirect URI.<br>
+The <b>Redirect</b> context is used to set up an internal or external redirect URI.
+<br/>
 The <b>Load Balancer</b> context is used to assign a different cluster for that context.
 END_DESCR
 

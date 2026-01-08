@@ -310,7 +310,7 @@ SEE_ALSO:
 
 [QA]
 ID: qa_extapp
-Q: How to set up an external application (Fast CGI, LSAPI App, Web Server or Servlet Engine)? 
+Q: How to set up an external application (Fast CGI, LSAPI App, Web Server (Proxy), or Servlet Engine)?
 
 A: All types of external applications can be set up at either server level or
 virtual host level.  
@@ -676,7 +676,7 @@ Please set up in the WebAdmin console according to the following steps: <br>
 
 <ol>
 	<li> Define an {PAGE=ExtApp_Help} with 
-		 {ITEM=ExtApp_Help#extAppType} {val}Web Server{/}.
+		 {ITEM=ExtApp_Help#extAppType} {val}Web Server (Proxy){/}.
 		 Set {ITEM=ExtApp_Help#extAppAddress} to the IP address 
 		 and port used by the backend web server.
 	</li> 
@@ -688,7 +688,7 @@ Please set up in the WebAdmin console according to the following steps: <br>
 			{PAGE=ExtApp_Help} just defined.</li>
 
 		<li>Define a {PAGE=ScriptHandler_Help} with 
-			{ITEM=ScriptHandler_Help#shType} {val}Web Server{/},
+			{ITEM=ScriptHandler_Help#shType} {val}Web Server (Proxy){/},
 			and {ITEM=ScriptHandler_Help#shHandlerName} set to the
 			{PAGE=ExtApp_Help} just defined.</li>
 	</ul>
@@ -706,7 +706,7 @@ Please set up in the WebAdmin console according to the following steps: <br>
 	{ITEM=ExtApp_Help#extAppAddress} to {val}localhost:8080{/}.<br> 
 	Then define a {PAGE=ScriptHandler_Help}, set 
 	{ITEM=ScriptHandler_Help#suffix} to {val}pl{/},
-	{ITEM=ScriptHandler_Help#shType} to {val}Web Server{/} and
+	{ITEM=ScriptHandler_Help#shType} to {val}Web Server (Proxy){/} and
 	{ITEM=ScriptHandler_Help#shHandlerName} to {val}ApachePerl{/}.
 
 

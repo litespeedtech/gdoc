@@ -91,8 +91,8 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies the type of external application that processes these script files. Available types are:
-{val}LSAPI app{/}, {val}Web Server{/}, {val}FastCGI{/}, {val}CGI{/}, {val}Load balancer{/}, or
-{val}Servlet Engine{/}. For FastCGI, Web Server and Servlet Engine, a {ITEM=shHandlerName} needs to be
+{val}LSAPI app{/}, {val}Web Server (Proxy){/}, {val}FastCGI{/}, {val}CGI{/}, {val}Load balancer{/}, or
+{val}Servlet Engine{/}. For FastCGI, Web Server (Proxy), and Servlet Engine, a {ITEM=shHandlerName} needs to be
 specified. This is an external application name as predefined in the {PAGE=ExtApp_Help} section.
 END_DESCR
 
@@ -119,7 +119,7 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies the name of the external application that processes the script files 
-when the handler type is FastCGI, Web Server, LSAPI, Load Balancer, or Servlet Engine.
+when the handler type is FastCGI, Web Server (Proxy), LSAPI, Load Balancer, or Servlet Engine.
 END_DESCR
 
 EDITTIP: Except CGI, other handlers need to be predefined in the "External App" section.

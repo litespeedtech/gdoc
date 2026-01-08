@@ -45,11 +45,11 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Specifies the type of external application. Application types are differentiated by the service they provide or the
-protocol they use to communicate with the server. Choose from
+DESCR: Specifies the type of external application. Application types are differentiated by the service they provide or
+the protocol they use to communicate with the server. Choose from
 <ul>
   <li>{val}LiteSpeed SAPI App{/}: an application that communicates with the web server using LSAPI protocol.</li>
-  <li>{val}Web Server{/}: a web server or application server that supports HTTP protocol.</li>
+  <li>{val}Web Server (Proxy){/}: a web server or application server that supports HTTP protocol.</li>
   <li>{val}FastCGI App{/}: a FastCGI application with a {val}Responder{/} role.</li>
   <li>{val}FastCGI Authorizer{/}: a FastCGI application with an {val}Authorizer{/} role</li>
   <li>{val}Servlet Engine{/}: a servlet engine with an AJPv13 connector, such as Tomcat.</li>
@@ -122,7 +122,8 @@ END_DESCR
 EDITTIP: Load balancing workers must be previously defined.
 END_EDITTIP
 
-EDITTIP: Available ExtApp Types are fcgi(Fast CGI App), lsapi(LSAPI App), servlet(Servlet/JSP Engine), proxy(Web Server).
+EDITTIP: Available ExtApp Types are fcgi(Fast CGI App), lsapi(LSAPI App), servlet(Servlet/JSP Engine),
+proxy(Web Server (Proxy)).
 END_EDITTIP
 
 EDITTIP: Different types of external applications can be mixed in one load balancing cluster.
@@ -1291,9 +1292,9 @@ engine, LiteSpeed SAPI application, load balancer, and piped logger.
   </li>
   <li>
     A load balancer is a virtual external application, which assigns requests to backend worker applications based on
-    workload. Worker applications can be CGI, FastCGI, web server, servlet engine, or LSAPI applications. Different types of
-    applications can be mixed together under one load balancer. Load balancers and piped loggers cannot be used as
-    worker applications.
+    workload. Worker applications can be CGI, FastCGI, Web Server (Proxy), servlet engine, or LSAPI applications.
+    Different types of applications can be mixed together under one load balancer. Load balancers and piped loggers
+    cannot be used as worker applications.
   </li>
   <li>
     A piped logger is an application that can process access logs in real-time, writing an access log into database or
@@ -1318,9 +1319,9 @@ application. There are two ways to to configure this in LiteSpeed Web Server:
 </ol>
 
 
-FastCGI applications, LSAPI applications, web servers, servlet engines, and load balancers have to be defined in the
-{PAGE=ExtApp_Help} section before you can configure them to handle a context or script suffix. It is not necessary to
-define CGI applications in the {PAGE=ExtApp_Help} section.
+FastCGI applications, LSAPI applications, Web Servers (Proxy), servlet engines, and load balancers have to be defined in
+the {PAGE=ExtApp_Help} section before you can configure them to handle a context or script suffix. It is not necessary
+to define CGI applications in the {PAGE=ExtApp_Help} section.
 
 
 External applications can be configured at the server level or at the virtual host level. When configured at the server level, the
