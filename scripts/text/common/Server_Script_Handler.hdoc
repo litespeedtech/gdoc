@@ -96,9 +96,6 @@ DESCR: Specifies the type of external application that processes these script fi
 specified. This is an external application name as predefined in the {PAGE=ExtApp_Help} section.
 END_DESCR
 
-EDITTIP: Script handler can be a CGI, an FCGI app, a module handler, a Servlet engine, or a proxy to Web server.
-END_EDITTIP
-
 SYNTAX: select
 END_SYNTAX
 
