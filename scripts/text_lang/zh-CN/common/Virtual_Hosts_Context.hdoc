@@ -39,50 +39,68 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: The type of context created determines it's usage.:<br><br><b>Static</b> context can be used to map a URI to a directory either outside document root or within it.<br>
-<b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine.<br>
-<b>Servlet</b> context is used to import a specific servlet under a web application.<br>
-<b>Fast CGI</b> context is a mount point of Fast CGI application.<br>
-<b>LiteSpeed SAPI</b> context can be used to associate a URI with an LSAPI application.<br>
-<b>Proxy</b> context enables this virtual host to serve as a transparant reverse proxy server to an external web server or application server.<br>
-<b>CGI</b> context can be used to specify a directory only contains CGI scripts.<br>
-<b>Load Balancer</b> context can be used to assign a different cluster for that context.<br>
-<b>Redirect</b> context can set up an internal or external redirect URI.<br>
-<b>App Server</b> context is used for Rack/Rails, WSGI, or Node.js applications.<br>
-<b>Rack/Rails</b> context is specifically used for Rack/Rails applications. It is recommended to configure Rack/Rails applications as an <b>App Server</b> context instead.<br>
+DESCR: The type of context created determines it's usage.:
+<br/><br/>
+<b>Static</b> context can be used to map a URI to a directory either outside document root or within it.
+<br/>
+<b>LiteSpeed SAPI</b> context can be used to associate a URI with an LSAPI application.
+<br/>
+<b>Proxy</b> context enables this virtual host to serve as a transparent reverse proxy server to an external web server
+or application server.
+<br/>
+<b>Fast CGI</b> context is a mount point of Fast CGI application.
+<br/>
+<b>CGI</b> context can be used to specify a directory only contains CGI scripts.
+<br/>
+<b>Redirect</b> context can set up an internal or external redirect URI.
+<br/>
+<b>Load Balancer</b> context can be used to assign a different cluster for that context.
+<br/>
+<b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13 compliant Java
+servlet engine.
+<br/>
+<b>Servlet</b> context is used to import a specific servlet under a web application.
+<br/>
+<b>App Server</b> context is used for Rack/Rails, WSGI, or Node.js applications.
+<br/>
+<b>Rack/Rails</b> context is specifically used for Rack/Rails applications. It is recommended to configure Rack/Rails
+applications as an <b>App Server</b> context instead.
 END_DESCR
 
 EDITTIP: <b>Static</b> context can be used to map a URI to a directory either outside document root or within it.
 END_EDITTIP
 
-EDITTIP: <b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine.
+EDITTIP: <b>LiteSpeed SAPI</b> context can be used to associate a URI with an LSAPI application.
 END_EDITTIP
 
-EDITTIP: <b>Servlet</b> context is used to import a specific servlet under a web application.
+EDITTIP: <b>Proxy</b> context enables this virtual host to serve as a transparent reverse proxy server to an external
+web server or application server.
 END_EDITTIP
 
 EDITTIP: <b>Fast CGI</b> context is a mount point of Fast CGI application.
 END_EDITTIP
 
-EDITTIP: <b>LiteSpeed SAPI</b> context can be used to associate a URI with an LSAPI application.
-END_EDITTIP
-
-EDITTIP: <b>Proxy</b> context enables this virtual host to serve as a transparant reverse proxy server to an external web server or application server.
-END_EDITTIP
-
 EDITTIP: <b>CGI</b> context can be used to specify a directory only contains CGI scripts.
-END_EDITTIP
-
-EDITTIP: <b>Load Balancer</b> context can be used to assign a different cluster for that context.
 END_EDITTIP
 
 EDITTIP: <b>Redirect</b> context can set up an internal or external redirect URI.
 END_EDITTIP
 
+EDITTIP: <b>Load Balancer</b> context can be used to assign a different cluster for that context.
+END_EDITTIP
+
+EDITTIP: <b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13
+compliant Java servlet engine.
+END_EDITTIP
+
+EDITTIP: <b>Servlet</b> context is used to import a specific servlet under a web application.
+END_EDITTIP
+
 EDITTIP: <b>App Server</b> context is used for Rack/Rails, WSGI, or Node.js applications.
 END_EDITTIP
 
-EDITTIP: <b>Rack/Rails</b> context is specifically used for Rack/Rails applications. It is recommended to configure Rack/Rails applications as an <b>App Server</b> context instead.
+EDITTIP: <b>Rack/Rails</b> context is specifically used for Rack/Rails applications. It is recommended to configure
+Rack/Rails applications as an <b>App Server</b> context instead.
 END_EDITTIP
 
 [END_ITEM]
@@ -98,50 +116,66 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: The type of context created determines it's usage.<br><br><b>Static</b> context can be used to map a URI to a directory either outside document root or within it.<br>
-<b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine.<br>
-<b>Servlet</b> context is used to import a specific servlet under a web application.<br>
-<b>Fast CGI</b> context is a mount point of Fast CGI application.<br>
-<b>LiteSpeed SAPI</b> context can be used to associate a URI with an LSAPI application.<br>
-<b>Proxy</b> context enables this virtual host to serve as a transparant reverse proxy server to an external web server or application server.<br>
-<b>CGI</b> context can be used to specify a directory only contains CGI scripts.<br>
-<b>Load Balancer</b> context can be used to assign a different cluster for that context.<br>
-<b>Redirect</b> context can set up an internal or external redirect URI.<br>
-<b>App Server</b> context is specifically used for Rack/Rails, WSGI, and Node.js applications.<br>
-<b>Module handler</b> context is a mount point of hander type modules.<br>
+DESCR: The type of context created determines it's usage.
+<br/><br/>
+<b>Static</b> context can be used to map a URI to a directory either outside document root or within it.
+<br/>
+<b>LiteSpeed SAPI</b> context can be used to associate a URI with an LSAPI application.
+<br/>
+<b>Proxy</b> context enables this virtual host to serve as a transparent reverse proxy server to an external web server
+or application server.
+<br/>
+<b>Fast CGI</b> context is a mount point of Fast CGI application.
+<br/>
+<b>CGI</b> context can be used to specify a directory only contains CGI scripts.
+<br/>
+<b>Redirect</b> context can set up an internal or external redirect URI.
+<br/>
+<b>Load Balancer</b> context can be used to assign a different cluster for that context.
+<br/>
+<b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13 compliant Java
+servlet engine.
+<br/>
+<b>Servlet</b> context is used to import a specific servlet under a web application.
+<br/>
+<b>App Server</b> context is specifically used for Rack/Rails, WSGI, and Node.js applications.
+<br/>
+<b>Module handler</b> context is a mount point of handler type modules.
 END_DESCR
 
 EDITTIP: <b>Static</b> context can be used to map a URI to a directory either outside document root or within it.
 END_EDITTIP
 
-EDITTIP: <b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13 compilant Java servlet engine.
+EDITTIP: <b>LiteSpeed SAPI</b> context can be used to associate a URI with an LSAPI application.
 END_EDITTIP
 
-EDITTIP: <b>Servlet</b> context is used to import a specific servlet under a web application.
+EDITTIP: <b>Proxy</b> context enables this virtual host to serve as a transparent reverse proxy server to an external
+web server or application server.
 END_EDITTIP
 
 EDITTIP: <b>Fast CGI</b> context is a mount point of Fast CGI application.
 END_EDITTIP
 
-EDITTIP: <b>LiteSpeed SAPI</b> context can be used to associate a URI with an LSAPI application.
-END_EDITTIP
-
-EDITTIP: <b>Proxy</b> context enables this virtual host to serve as a transparant reverse proxy server to an external web server or application server.
-END_EDITTIP
-
 EDITTIP: <b>CGI</b> context can be used to specify a directory only contains CGI scripts.
-END_EDITTIP
-
-EDITTIP: <b>Load Balancer</b> context can be used to assign a different cluster for that context.
 END_EDITTIP
 
 EDITTIP: <b>Redirect</b> context can set up an internal or external redirect URI.
 END_EDITTIP
 
-EDITTIP: <b>App Server</b> context is specifically used for Rack/Rails, WSGI, and Node.js applications.<br>
+EDITTIP: <b>Load Balancer</b> context can be used to assign a different cluster for that context.
 END_EDITTIP
 
-EDITTIP: <b>Module handler</b> context is a mount point of hander type modules.
+EDITTIP: <b>Java Web App</b> context is used to automatically import a predefined Java Application in an AJPv13
+compliant Java servlet engine.
+END_EDITTIP
+
+EDITTIP: <b>Servlet</b> context is used to import a specific servlet under a web application.
+END_EDITTIP
+
+EDITTIP: <b>App Server</b> context is specifically used for Rack/Rails, WSGI, and Node.js applications.
+END_EDITTIP
+
+EDITTIP: <b>Module handler</b> context is a mount point of handler type modules.
 END_EDITTIP
 
 [END_ITEM]
