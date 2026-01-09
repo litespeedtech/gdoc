@@ -1124,6 +1124,22 @@ SEE_ALSO:
 
 
 [TBL]
+ID: extSCGI
+NAME: SCGI App
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: extAppName extAppAddress maxConns initTimeout retryTimeout pcKeepAliveTimeout respBuffer
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
 ID: extLSAPI
 NAME: LiteSpeed SAPI
 NS: EO
@@ -1208,6 +1224,23 @@ END_CONT
 
 SEE_ALSO:
 [END_TBL]
+
+
+
+[TBL]
+ID: extUWSGI
+NAME: uWSGI
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: extAppName extAppAddress maxConns initTimeout retryTimeout pcKeepAliveTimeout respBuffer
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
 
 
 
@@ -1344,6 +1377,22 @@ SEE_ALSO:
 
 
 [PAGE]
+ID: External_SCGI
+NAME: Simple CGI App
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: extSCGI
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+
+[PAGE]
 ID: External_LSAPI
 NAME: LiteSpeed SAPI App
 NS: EO
@@ -1415,6 +1464,22 @@ DESCR:
 END_DESCR
 
 CONT: extLB
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+
+[PAGE]
+ID: External_UWSGI
+NAME: uWSGI
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: extUWSGI
 END_CONT
 
 SEE_ALSO:

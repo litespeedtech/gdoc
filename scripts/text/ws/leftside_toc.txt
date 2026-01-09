@@ -38,9 +38,11 @@
             <li><a href="External_WS.html">Web Server (Proxy)</a></li>
             <li><a href="External_FCGI.html">Fast CGI App</a></li>
             <li><a href="External_FCGI_Auth.html">Fast CGI Authorizer</a></li>
+            <li><a href="External_SCGI.html">Simple CGI App</a></li>
             <li><a href="External_Servlet.html">Servlet Engine</a></li>
             <li><a href="External_PL.html">Piped logger</a></li>
             <li><a href="External_LB.html">Load Balancer</a></li>
+            <li><a href="External_UWSGI.html">uWSGI</a></li>
           </ul>
           <li><a href="ScriptHandler_Help.html">Script Handler</a></li>
           <li><a href="PHP_Help.html">PHP</a></li>

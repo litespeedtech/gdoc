@@ -84,9 +84,11 @@ External_LSAPI
 External_WS
 External_FCGI
 External_FCGI_Auth
+External_SCGI
 External_Servlet
 External_PL
 External_LB
+External_UWSGI
 
 END_NAV_SEQ
 

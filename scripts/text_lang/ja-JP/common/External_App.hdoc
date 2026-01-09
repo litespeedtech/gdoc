@@ -814,6 +814,22 @@ END_DESCR
 
 
 [TBL]
+ID: extSCGI
+NAME: SCGI App
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: extAppName extAppAddress maxConns initTimeout retryTimeout pcKeepAliveTimeout respBuffer
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
 ID: extServlet
 NAME: サーブレットエンジン
 NS: EO
@@ -857,6 +873,22 @@ NS: EO
 DESCR: 
 END_DESCR
 
+[END_TBL]
+
+
+
+[TBL]
+ID: extUWSGI
+NAME: uWSGI
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: extAppName extAppAddress maxConns initTimeout retryTimeout pcKeepAliveTimeout respBuffer
+END_CONT
+
+SEE_ALSO:
 [END_TBL]
 
 
@@ -966,6 +998,22 @@ END_DESCR
 
 
 [PAGE]
+ID: External_SCGI
+NAME: Simple CGI App
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: extSCGI
+END_CONT
+
+SEE_ALSO:
+[END_PAGE]
+
+
+
+[PAGE]
 ID: External_LSAPI
 NAME: LiteSpeed SAPI アプリ
 NS: EO
@@ -1020,6 +1068,22 @@ NS: EO
 DESCR:
 END_DESCR
 
+[END_PAGE]
+
+
+
+[PAGE]
+ID: External_UWSGI
+NAME: uWSGI
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: extUWSGI
+END_CONT
+
+SEE_ALSO:
 [END_PAGE]
 
 
