@@ -33,7 +33,7 @@
             <li><a href="External_FCGI_Auth.html">Fast CGI Authorizer</a></li>
             <li><a href="External_LSAPI.html">LSAPI App</a></li>
             <li><a href="External_Servlet.html">Servlet Engine</a></li>
-            <li><a href="External_WS.html">Web Server</a></li>
+            <li><a href="External_WS.html">Web Server (Proxy)</a></li>
             <li><a href="External_PL.html">Piped logger</a></li>
             <li><a href="External_LB.html">Load Balancer</a></li>
           </ul>
