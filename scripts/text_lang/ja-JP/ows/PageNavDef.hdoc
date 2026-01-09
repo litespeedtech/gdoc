@@ -73,12 +73,12 @@ END_NAV_SEQ
 ID: EXT_APPS_ITEMS_NAV
 TOP_NAV: ExtApp_Help
 
-NAV_SEQ: 
+NAV_SEQ:
+External_LSAPI
+External_WS
 External_FCGI
 External_FCGI_Auth
-External_LSAPI
 External_Servlet
-External_WS
 External_PL
 External_LB
 
