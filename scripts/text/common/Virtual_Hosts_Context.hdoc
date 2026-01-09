@@ -51,6 +51,8 @@ or application server.
 <br/>
 <b>Fast CGI</b> context is a mount point of Fast CGI application.
 <br/>
+<b>SCGI</b> context can be used to associate a URI with an SCGI application.
+<br/>
 <b>CGI</b> context can be used to specify a directory only contains CGI scripts.
 <br/>
 <b>Redirect</b> context can set up an internal or external redirect URI.
@@ -66,6 +68,8 @@ servlet engine.
 <br/>
 <b>Rack/Rails</b> context is specifically used for Rack/Rails applications. It is recommended to configure Rack/Rails
 applications as an <b>App Server</b> context instead.
+<br/>
+<b>uWSGI</b> context can be used to associate a URI with a uWSGI application.
 END_DESCR
 
 EDITTIP: <b>Static</b> context can be used to map a URI to a directory either outside document root or within it.
@@ -79,6 +83,9 @@ web server or application server.
 END_EDITTIP
 
 EDITTIP: <b>Fast CGI</b> context is a mount point of Fast CGI application.
+END_EDITTIP
+
+EDITTIP: <b>SCGI</b> context can be used to associate a URI with an SCGI application.
 END_EDITTIP
 
 EDITTIP: <b>CGI</b> context can be used to specify a directory only contains CGI scripts.
@@ -102,6 +109,9 @@ END_EDITTIP
 
 EDITTIP: <b>Rack/Rails</b> context is specifically used for Rack/Rails applications. It is recommended to configure
 Rack/Rails applications as an <b>App Server</b> context instead.
+END_EDITTIP
+
+EDITTIP: <b>uWSGI</b> context can be used to associate a URI with a uWSGI application.
 END_EDITTIP
 
 [END_ITEM]
@@ -128,6 +138,8 @@ or application server.
 <br/>
 <b>Fast CGI</b> context is a mount point of Fast CGI application.
 <br/>
+<b>SCGI</b> context can be used to associate a URI with an SCGI application.
+<br/>
 <b>CGI</b> context can be used to specify a directory only contains CGI scripts.
 <br/>
 <b>Redirect</b> context can set up an internal or external redirect URI.
@@ -140,6 +152,8 @@ servlet engine.
 <b>Servlet</b> context is used to import a specific servlet under a web application.
 <br/>
 <b>App Server</b> context is specifically used for Rack/Rails, WSGI, and Node.js applications.
+<br/>
+<b>uWSGI</b> context can be used to associate a URI with a uWSGI application.
 <br/>
 <b>Module handler</b> context is a mount point of handler type modules.
 END_DESCR
@@ -155,6 +169,9 @@ web server or application server.
 END_EDITTIP
 
 EDITTIP: <b>Fast CGI</b> context is a mount point of Fast CGI application.
+END_EDITTIP
+
+EDITTIP: <b>SCGI</b> context can be used to associate a URI with an SCGI application.
 END_EDITTIP
 
 EDITTIP: <b>CGI</b> context can be used to specify a directory only contains CGI scripts.
@@ -174,6 +191,9 @@ EDITTIP: <b>Servlet</b> context is used to import a specific servlet under a web
 END_EDITTIP
 
 EDITTIP: <b>App Server</b> context is specifically used for Rack/Rails, WSGI, and Node.js applications.
+END_EDITTIP
+
+EDITTIP: <b>uWSGI</b> context can be used to associate a URI with a uWSGI application.
 END_EDITTIP
 
 EDITTIP: <b>Module handler</b> context is a mount point of handler type modules.

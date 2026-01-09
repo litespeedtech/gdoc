@@ -48,13 +48,15 @@ SEE_ALSO:
 DESCR: Specifies the type of external application. Application types are differentiated by the service they provide or
 the protocol they use to communicate with the server. Choose from
 <ul>
-  <li>{val}LiteSpeed SAPI App{/}: an application that communicates with the web server using LSAPI protocol.</li>
+  <li>{val}LiteSpeed SAPI App{/}: an application that communicates with the web server using the LSAPI protocol.</li>
   <li>{val}Web Server (Proxy){/}: a web server or application server that supports HTTP protocol.</li>
   <li>{val}FastCGI App{/}: a FastCGI application with a {val}Responder{/} role.</li>
   <li>{val}FastCGI Authorizer{/}: a FastCGI application with an {val}Authorizer{/} role</li>
+  <li>{val}SCGI App{/}: an application that communicates with the web server using the SCGI protocol.</li>
   <li>{val}Servlet Engine{/}: a servlet engine with an AJPv13 connector, such as Tomcat.</li>
   <li>{val}Piped Logger{/}: an application that can process access log entries received on its STDIN stream.</li>
   <li>{val}Load Balancer{/}: a virtual application that can balance load among worker applications.</li>
+  <li>{val}uWSGI{/}: an application that communicates with the web server using the uWSGI protocol.<.</li>
 </ul>
 END_DESCR
 
@@ -122,8 +124,8 @@ END_DESCR
 EDITTIP: Load balancing workers must be previously defined.
 END_EDITTIP
 
-EDITTIP: Available ExtApp Types are fcgi(Fast CGI App), lsapi(LSAPI App), servlet(Servlet/JSP Engine),
-proxy(Web Server (Proxy)).
+EDITTIP: Available ExtApp Types are lsapi(LSAPI App), proxy(Web Server (Proxy)), fcgi(Fast CGI App), scgi(SCGI App),
+servlet(Servlet/JSP Engine), and uwsgi(uWSGI).
 END_EDITTIP
 
 EDITTIP: Different types of external applications can be mixed in one load balancing cluster.
