@@ -6,7 +6,7 @@
 
 [ITEM]
 ID: ctxType
-NAME: Context Type
+NAME: Context类型
 NS: L
 REQUIRED:
 APPLY: 3
@@ -33,7 +33,7 @@ END_EDITTIP
 
 [ITEM]
 ID: ctxType
-NAME: Context Type
+NAME: Context类型
 NS: E
 REQUIRED:
 APPLY: 3
