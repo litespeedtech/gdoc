@@ -255,6 +255,36 @@ END_TIPS
 
 
 [ITEM]
+ID: scgiapp
+NAME: SCGI App
+NS: EO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the name of the SCGI application. This application must be defined in the {PAGE=ExtApp_Help} section at
+the server or virtual host level.
+END_DESCR
+
+EDITTIP: Simple CGI context is a mount point for a Simple CGI application. The Simple CGI application must be
+pre-defined at the server level or virtual host level.
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: lsapiapp
 NAME: LiteSpeed SAPIアプリ
 
@@ -1186,6 +1216,24 @@ END_CONT
 
 
 [TBL]
+ID: scgiContext
+NAME: SCGI Context
+NS: EO
+
+DESCR: SCGI applications cannot be used directly. An SCGI application must be either configured as a script handler or
+mapped to a URL through an SCGI context. An SCGI context will associate a URI with an SCGI application.
+END_DESCR
+
+CONT: expuri scgiapp extraHeaders realm authName required accessAllowed accessDenied extAuthorizer addDefaultCharset
+defaultCharsetCustomized enableIpGeo
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
 ID: lsapiContext
 NAME: LiteSpeed SAPIコンテキスト
 NS: E
@@ -1497,6 +1545,21 @@ NS: EO
 
 DESCR:
 END_DESCR
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: SCGI_Context
+NAME: Simple CGI Context
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: scgiContext
+END_CONT
 
 [END_PAGE]
 

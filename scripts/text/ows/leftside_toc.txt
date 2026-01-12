@@ -53,11 +53,10 @@
           <li><a href="Context_Help.html">Context</a></li>
           <ul class="level3">
             <li><a href="Static_Context.html">Static Context</a></li>
-            <li>
-              <a href="Java_Web_App_Context.html">Java Web App Context</a>
-            </li>
+            <li><a href="Java_Web_App_Context.html">Java Web App Context</a></li>
             <li><a href="Servlet_Context.html">Servlet Context</a></li>
             <li><a href="FCGI_Context.html">Fast CGI Context</a></li>
+            <li><a href="SCGI_Context.html">Simple CGI Context</a></li>
             <li><a href="LSAPI_Context.html">LSAPI Context</a></li>
             <li><a href="Proxy_Context.html">Proxy Context</a></li>
             <li><a href="CGI_Context.html">CGI Context</a></li>

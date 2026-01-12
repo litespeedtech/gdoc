@@ -53,6 +53,7 @@ class GenWebDoc
                 'Java_Web_App_Context' => 'config/context/javawebapp',
                 'Servlet_Context' => 'config/context/servlet',
                 'FCGI_Context' => 'config/context/fcgi',
+                'SCGI_Context' => 'config/context/scgi',
                 'LSAPI_Context' => 'config/context/lsapi',
                 'Proxy_Context' => 'config/context/proxy',
                 'CGI_Context' => 'config/context/cgi',

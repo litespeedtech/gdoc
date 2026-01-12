@@ -98,6 +98,7 @@ Static_Context
 Java_Web_App_Context
 Servlet_Context
 FCGI_Context
+SCGI_Context
 LSAPI_Context
 Proxy_Context
 CGI_Context
