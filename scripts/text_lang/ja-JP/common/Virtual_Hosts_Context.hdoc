@@ -1157,6 +1157,12 @@ FastCGIアプリケーションは、スクリプトハンドラとして構成�
 FastCGIコンテキストは、URIをFastCGIアプリケーションに関連付けます。
 END_DESCR
 
+CONT: expuri fcgiapp extraHeaders allowOverride realm authName required accessAllowed accessDenied extAuthorizer
+addDefaultCharset defaultCharsetCustomized cachePolicy:maxStaleAge cachePolicy:enableCache cachePolicy:expireInSeconds
+cachePolicy:enablePrivateCache cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx cachePolicy:enablePostCache
+enableIpGeo pagespeedEnabled pagespeedParams
+END_CONT
+
 [END_TBL]
 
 
@@ -1170,6 +1176,10 @@ DESCR: FastCGIアプリケーションは直接使用することはできませ
 FastCGIアプリケーションは、スクリプトハンドラとして構成するか、FastCGIコンテキストを介してURLにマップする必要があります。
 FastCGIコンテキストは、URIをFastCGIアプリケーションに関連付けます。 
 END_DESCR
+
+CONT: expuri fcgiapp extraHeaders realm authName required accessAllowed accessDenied extAuthorizer addDefaultCharset
+defaultCharsetCustomized enableIpGeo
+END_CONT
 
 [END_TBL]
 
