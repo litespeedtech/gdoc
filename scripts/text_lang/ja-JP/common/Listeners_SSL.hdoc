@@ -249,25 +249,30 @@ END_TIPS
 
 [ITEM]
 ID: enableSpdy
-NAME: SPDY/HTTP2を有効にする
+NAME: ALPN
+NS: LEO
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
 
-DESCR: HTTP/2とSPDYは、ページロード時間を短縮する目的で、HTTPネットワークプロトコルの新バージョンです。
-より多くの情報は{ext-href}
-  http://en.wikipedia.org/wiki/HTTP/2
-{ext-href-end}
-  http://en.wikipedia.org/wiki/HTTP/2
-{ext-href-end-a}で見つけることができます。
+DESCR: Selectively enable HTTP/3 and HTTP/2 network protocols.
+
+
+If you wish to disable HTTP/2 and HTTP3, check {val}None{/} and leave all other boxes unchecked.
+
+
+Default value: All enabled
 END_DESCR
 
-SYNTAX: 有効にするプロトコルを確認します。 すべてのボックスをチェックしないと、SPDYとHTTP/2のサポート（デフォルト）が有効になります。
-SPDYとHTTP/2を無効にする場合は、「なし」のみをチェックし、その他のチェックボックスはすべてオフにします。
+SYNTAX: checkbox
 END_SYNTAX
 
 
-EXAMPLE: 
+EXAMPLE:
 END_EXAMPLE
 
-TIPS:
+TIPS: This can be set at the listener and virtual host levels.
 END_TIPS
 
 [END_ITEM]

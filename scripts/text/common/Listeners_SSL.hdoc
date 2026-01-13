@@ -311,10 +311,10 @@ APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: Selectively enable HTTP/3, HTTP/2, and SPDY HTTP network protocols.
+DESCR: Selectively enable HTTP/3 and HTTP/2 network protocols.
 
 
-If you wish to disable SPDY, HTTP/2, and HTTP3, check "None" and leave all other boxes unchecked.
+If you wish to disable HTTP/2 and HTTP3, check {val}None{/} and leave all other boxes unchecked.
 
 
 Default value: All enabled
@@ -327,7 +327,7 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: This setting can be set at the listener and virtual host levels.
+TIPS: This can be set at the listener and virtual host levels.
 END_TIPS
 
 [END_ITEM]

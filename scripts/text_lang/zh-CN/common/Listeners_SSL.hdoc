@@ -268,17 +268,18 @@ END_TIPS
 
 [ITEM]
 ID: enableSpdy
-NAME: 启用 SPDY/HTTP2/HTTP3
+NAME: ALPN
 NS: LEO
 REQUIRED:
 APPLY: 3
 SINCE:
 SEE_ALSO:
 
-DESCR: 有选择地启用HTTP/3，HTTP/2和SPDY HTTP网络协议。
+DESCR: Selectively enable HTTP/3 and HTTP/2 network protocols.
 
 
-如果要禁用SPDY，HTTP/2和HTTP3，请选中“无”，并取消选中所有其他框。
+If you wish to disable HTTP/2 and HTTP3, check {val}None{/} and leave all other boxes unchecked.
+
 
 Default value: All enabled
 END_DESCR
@@ -290,7 +291,7 @@ END_SYNTAX
 EXAMPLE:
 END_EXAMPLE
 
-TIPS: 可以在侦听器和虚拟主机级别上设置此设置。
+TIPS: This can be set at the listener and virtual host levels.
 END_TIPS
 
 [END_ITEM]

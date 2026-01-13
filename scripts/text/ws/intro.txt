@@ -30,7 +30,6 @@
       <li>Unlimited IP and name-based virtual hosting</li>
       <li>Unlimited concurrent connections</li>
       <li>GZIP compression</li>
-      <li>Support for SPDY/2, 3, and 3.1</li>
       <li>WebSocket proxying</li>
       <li>Runs on Linux, FreeBSD, MacOSX, Solaris</li>
     </ul>
