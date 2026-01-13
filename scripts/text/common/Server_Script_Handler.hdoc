@@ -84,16 +84,16 @@ END_TIPS
 [ITEM]
 ID: shType
 NAME: Handler Type
-NS: EO
+NS: E
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
 DESCR: Specifies the type of external application that processes these script files. Available types are:
-{val}LSAPI app{/}, {val}Web Server (Proxy){/}, {val}FastCGI{/}, {val}CGI{/}, {val}Load balancer{/}, or
-{val}Servlet Engine{/}. For FastCGI, Web Server (Proxy), and Servlet Engine, a {ITEM=shHandlerName} needs to be
-specified. This is an external application name as predefined in the {PAGE=ExtApp_Help} section.
+{val}LSAPI app{/}, {val}Web Server (Proxy){/}, {val}Fast CGI{/}, {val}CGI{/}, {val}Load balancer{/},
+or {val}Servlet Engine{/}. Except for the {val}CGI{/} handler type, {ITEM=shHandlerName} must be set
+to a previously defined external application in the {PAGE=ExtApp_Help} section.
 END_DESCR
 
 SYNTAX: select
@@ -103,6 +103,34 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: shType
+NAME: Handler Type
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the type of external application that processes these script files. Available types are:
+{val}LSAPI app{/}, {val}Web Server (Proxy){/}, {val}Fast CGI{/}, {val}CGI{/}, {val}Load balancer{/},
+{val}Servlet Engine{/}, or {val}Module Handler{/}. Except for {val}CGI{/} and {val}Module Handler{/} handler types,
+{ITEM=shHandlerName} must also be set to a previously defined external application in the {PAGE=ExtApp_Help} section.
+END_DESCR
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
 END_TIPS
 
 [END_ITEM]
