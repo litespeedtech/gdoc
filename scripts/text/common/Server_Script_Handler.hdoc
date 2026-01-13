@@ -140,17 +140,17 @@ END_TIPS
 [ITEM]
 ID: shHandlerName
 NAME: Handler Name
-NS: EO
+NS: E
 REQUIRED: 
 APPLY: 3
 SINCE: 
 SEE_ALSO: 
 
-DESCR: Specifies the name of the external application that processes the script files 
-when the handler type is FastCGI, Web Server (Proxy), LSAPI, Load Balancer, or Servlet Engine.
+DESCR: Specifies the name of the external application that processes the script files when the handler type is
+LSAPI app, Web Server (Proxy), Fast CGI, Load balancer, or Servlet Engine.
 END_DESCR
 
-EDITTIP: Except CGI, other handlers need to be predefined in the "External App" section.
+EDITTIP: Except CGI, other handler types need to be predefined in the "External App" section.
 END_EDITTIP
 
 SYNTAX: select
@@ -160,6 +160,35 @@ EXAMPLE:
 END_EXAMPLE
 
 TIPS: 
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
+ID: shHandlerName
+NAME: Handler Name
+NS: O
+REQUIRED:
+APPLY: 3
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the name of the external application that processes the script files when the handler type is
+LSAPI app, Web Server (Proxy), Fast CGI, Load balancer, or Servlet Engine.
+END_DESCR
+
+EDITTIP: Except CGI and Module Handler, other handler types need to be predefined in the "External App" section.
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
 END_TIPS
 
 [END_ITEM]
