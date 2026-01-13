@@ -1,6 +1,6 @@
 <div class="sidetree">
   <h3>LiteSpeed Web ADC <a href="index.html">ユーザーズマニュアル</a></h3>
-  <h5>バージョン 3.2 Rev. 2</h5>
+  <h5>バージョン 3.2 Rev. 3</h5>
   <hr/>
   <div>
     <ul class="toctop">
