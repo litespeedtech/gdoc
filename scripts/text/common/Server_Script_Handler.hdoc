@@ -91,8 +91,8 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies the type of external application that processes these script files. Available types are:
-{val}LSAPI app{/}, {val}Web Server (Proxy){/}, {val}Fast CGI{/}, {val}CGI{/}, {val}Load balancer{/},
-or {val}Servlet Engine{/}. Except for the {val}CGI{/} handler type, {ITEM=shHandlerName} must be set
+{val}LSAPI app{/}, {val}Web Server (Proxy){/}, {val}Fast CGI{/}, {val}SCGI{/}, {val}CGI{/}, {val}Load balancer{/},
+{val}Servlet Engine{/}, or {val}uWSGI{/}. Except for the {val}CGI{/} handler type, {ITEM=shHandlerName} must be set
 to a previously defined external application in the {PAGE=ExtApp_Help} section.
 END_DESCR
 
@@ -119,9 +119,10 @@ SINCE:
 SEE_ALSO:
 
 DESCR: Specifies the type of external application that processes these script files. Available types are:
-{val}LSAPI app{/}, {val}Web Server (Proxy){/}, {val}Fast CGI{/}, {val}CGI{/}, {val}Load balancer{/},
-{val}Servlet Engine{/}, or {val}Module Handler{/}. Except for {val}CGI{/} and {val}Module Handler{/} handler types,
-{ITEM=shHandlerName} must also be set to a previously defined external application in the {PAGE=ExtApp_Help} section.
+{val}LSAPI app{/}, {val}Web Server (Proxy){/}, {val}Fast CGI{/}, {val}SCGI{/}, {val}CGI{/}, {val}Load balancer{/},
+{val}Servlet Engine{/}, {val}uWSGI{/}, or {val}Module Handler{/}. Except for {val}CGI{/} and {val}Module Handler{/}
+handler types, {ITEM=shHandlerName} must also be set to a previously defined external application in the
+{PAGE=ExtApp_Help} section.
 END_DESCR
 
 SYNTAX: select
@@ -147,7 +148,7 @@ SINCE:
 SEE_ALSO: 
 
 DESCR: Specifies the name of the external application that processes the script files when the handler type is
-LSAPI app, Web Server (Proxy), Fast CGI, Load balancer, or Servlet Engine.
+LSAPI app, Web Server (Proxy), Fast CGI, SCGI, Load balancer, Servlet Engine, or uWSGI.
 END_DESCR
 
 EDITTIP: Except CGI, other handler types need to be predefined in the "External App" section.
@@ -176,7 +177,7 @@ SINCE:
 SEE_ALSO:
 
 DESCR: Specifies the name of the external application that processes the script files when the handler type is
-LSAPI app, Web Server (Proxy), Fast CGI, Load balancer, or Servlet Engine.
+LSAPI app, Web Server (Proxy), Fast CGI, SCGI, Load balancer, Servlet Engine, or uWSGI.
 END_DESCR
 
 EDITTIP: Except CGI and Module Handler, other handler types need to be predefined in the "External App" section.
