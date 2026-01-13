@@ -505,6 +505,35 @@ END_TIPS
 
 
 [ITEM]
+ID: uwsgiapp
+NAME: uWSGI App
+NS: EO
+REQUIRED:
+SINCE:
+SEE_ALSO:
+
+DESCR: Specifies the name of the uWSGI application. This application must be defined in the {PAGE=ExtApp_Help} section
+at the server or virtual host level.
+END_DESCR
+
+EDITTIP: uWSGI context is a mount point for a uWSGI application. The uWSGI application must be pre-defined at the server
+level or virtual host level.
+END_EDITTIP
+
+SYNTAX: select
+END_SYNTAX
+
+EXAMPLE:
+END_EXAMPLE
+
+TIPS:
+END_TIPS
+
+[END_ITEM]
+
+
+
+[ITEM]
 ID: location
 NAME: 位置
 NS: EO
@@ -2023,6 +2052,45 @@ SEE_ALSO:
 
 
 [TBL]
+ID: uwsgiContext
+NAME: uWSGI Context
+NS: E
+
+DESCR: uWSGI applications cannot be used directly. A uWSGI application must be either configured as a script handler or
+mapped to a URL through a uWSGI context. A uWSGI context will associate a URI with an uWSGI application.
+END_DESCR
+
+CONT: expuri uwsgiapp extraHeaders allowOverride realm authName required accessAllowed accessDenied extAuthorizer
+checkPublicCache checkPrivateCache respectCacheable cachePolicy:maxCacheObjSize cachePolicy:maxStaleAge
+cachePolicy:cacheKeyMod cachePolicy:enableCache cachePolicy:expireInSeconds cachePolicy:enablePrivateCache
+cachePolicy:privateExpireInSeconds cachePolicy:microCache5xx cachePolicy:enablePostCache pagespeedEnabled
+pagespeedParams addDefaultCharset defaultCharsetCustomized enableIpGeo
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
+ID: uwsgiContext
+NAME: uWSGI Context
+NS: O
+
+DESCR: uWSGI applications cannot be used directly. A uWSGI application must be either configured as a script handler or
+mapped to a URL through a uWSGI context. A uWSGI context will associate a URI with an uWSGI application.
+END_DESCR
+
+CONT: expuri uwsgiapp extraHeaders realm authName required accessAllowed accessDenied extAuthorizer addDefaultCharset
+defaultCharsetCustomized enableIpGeo
+END_CONT
+
+SEE_ALSO:
+[END_TBL]
+
+
+
+[TBL]
 ID: moduleContext
 NAME: Module Handler Context
 NS: O
@@ -2316,6 +2384,21 @@ DESCR:
 END_DESCR
 
 CONT: appServerContext
+END_CONT
+
+[END_PAGE]
+
+
+
+[PAGE]
+ID: UWSGI_Context
+NAME: uWSCGI Context
+NS: EO
+
+DESCR:
+END_DESCR
+
+CONT: uwsgiContext
 END_CONT
 
 [END_PAGE]

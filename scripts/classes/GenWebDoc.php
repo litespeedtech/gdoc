@@ -61,6 +61,7 @@ class GenWebDoc
                 'Redirect_Context' => 'config/context/redirect',
                 'App_Server_Context' => 'config/context/app-server',
                 'Rails_Context' => 'config/context/rails',
+                'UWSGI_Context' => 'config/context/uwsgi',
                 'VHAddOns_Help' => 'config/addons',
                 'AdminGeneral_Help' => 'config/admingeneral',
                 'AdminSecurity_Help' => 'config/adminsecurity',

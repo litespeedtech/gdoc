@@ -104,6 +104,7 @@ Proxy_Context
 CGI_Context
 LB_Context
 Redirect_Context
+WSGI_Context
 Module_Context
 
 END_NAV_SEQ

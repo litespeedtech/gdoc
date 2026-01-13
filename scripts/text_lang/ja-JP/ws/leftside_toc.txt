@@ -59,6 +59,7 @@
 	  <li><a href="LB_Context.html">ロードバランサコンテキスト</a></li>
 	  <li><a href="Redirect_Context.html">コンテキストのリダイレクト</a></li>
 	  <li><a href="Rails_Context.html">Rack/Railsのコンテキスト</a></li>
+	  <li><a href="UWSGI_Context.html">uWSGI Context</a></li>
 	</ul>
 	<li><a href="VHAddOns_Help.html">アドオン</a></li>
 	</ul>

@@ -59,6 +59,7 @@
 	  <li><a href="CGI_Context.html">CGIコンテキスト</a></li>
 	  <li><a href="LB_Context.html">ロードバランサコンテキスト</a></li>
 	  <li><a href="Redirect_Context.html">コンテキストのリダイレクト</a></li>
+	  <li><a href="UWSGI_Context.html">uWSGI Context</a></li>
 	  <li><a href="Module_Context.html">モジュールハンドラのコンテキスト</a></li>
 	</ul>
 	<li><a href="VHWebSocket_Help.html">Web Socketプロキシ</a></li>

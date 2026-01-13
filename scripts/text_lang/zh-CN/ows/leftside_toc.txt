@@ -63,6 +63,7 @@
             <li><a href="LB_Context.html">Load Balancer Context</a></li>
             <li><a href="Redirect_Context.html">Redirect Context</a></li>
             <li><a href="App_Server_Context.html">App Server Context</a></li>
+            <li><a href="UWSGI_Context.html">uWSGI Context</a></li>
             <li><a href="Module_Context.html">Module Handler Context</a></li>
           </ul>
           <li><a href="VHWebSocket_Help.html">Web Socket Proxy</a></li>

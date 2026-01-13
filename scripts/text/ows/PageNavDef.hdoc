@@ -111,6 +111,7 @@ CGI_Context
 LB_Context
 Redirect_Context
 App_Server_Context
+UWSGI_Context
 Module_Context
 
 END_NAV_SEQ

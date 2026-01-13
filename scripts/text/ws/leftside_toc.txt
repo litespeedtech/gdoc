@@ -72,6 +72,7 @@
             <li><a href="Redirect_Context.html">Redirect Context</a></li>
             <li><a href="App_Server_Context.html">App Server Context</a></li>
             <li><a href="Rails_Context.html">Rack/Rails Context</a></li>
+            <li><a href="UWSGI_Context.html">uWSGI Context</a></li>
           </ul>
           <li><a href="VHAddOns_Help.html">Add-ons</a></li>
         </ul>

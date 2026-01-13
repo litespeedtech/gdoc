@@ -105,6 +105,7 @@ CGI_Context
 LB_Context
 Redirect_Context
 Rails_Context
+UWSGI_Context
 
 END_NAV_SEQ
 
