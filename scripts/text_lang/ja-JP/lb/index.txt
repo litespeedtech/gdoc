@@ -1,10 +1,10 @@
 <header>
   <h1>
-    LiteSpeed Web ADC Version 3.2
+    LiteSpeed Web ADC Version 3.4
     <br/>
     ユーザーズマニュアル
     <br/>
-    Rev. 3
+    Rev. 0
   </h1>
 </header>
 
